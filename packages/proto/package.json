@@ -43,7 +43,7 @@
     "scripts": {
         "apply": "node ./scripts/apply.cjs",
         "compile": "npm run compile:js && npm run compile:ts",
-        "compile:js": "pbjs -t static-module --sparse -w commonjs -o ./dist/index.js ./WAProto.proto",
+        "compile:js": "node -e \"require('node:fs').mkdirSync('dist', { recursive: true })\" && pbjs -t static-module --sparse -w commonjs -o ./dist/index.js ./WAProto.proto",
         "compile:ts": "pbts -o ./dist/index.d.ts ./dist/index.js",
         "build": "npm run apply && npm run compile"
     },
