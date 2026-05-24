@@ -61,33 +61,42 @@ jobs:
                   npm run extract:proto
                   npm run compile:proto
 
-            - name: Diff + commit if changed
+            - name: Detect changes + bump versions
               id: diff
               run: |
                   git config --global user.name "github-actions[bot]"
                   git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
                   WA_VERSION=$(node -e "const j=require('./dump/manifest.json'); console.log(j.waVersion ?? 'unknown')")
+                  SHA=$(git rev-parse --short HEAD)
+                  NEW_VERSION="${WA_VERSION}-${SHA}"
                   echo "wa-version=$WA_VERSION" >> "$GITHUB_OUTPUT"
+                  echo "new-version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
 
+                  # Stage just the generated artifacts to decide if anything changed.
                   git add packages/mex/index.json packages/mex/index.js packages/mex/index.d.ts \
                           packages/proto/WAProto.proto packages/proto/dist || true
                   if git diff --staged --quiet; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
-                  else
-                      echo "changed=true" >> "$GITHUB_OUTPUT"
-                      git commit -m "chore: extract WA Web ${WA_VERSION}"
-                      git push
+                      exit 0
                   fi
+                  echo "changed=true" >> "$GITHUB_OUTPUT"
+
+                  # Bump versions BEFORE the commit so package.json + lockfile +
+                  # artifacts all land in the same atomic change.
+                  npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version \
+                      --workspace @vinikjkkj/wa-mex \
+                      --workspace @vinikjkkj/wa-proto
+                  git add packages/mex/package.json packages/proto/package.json package-lock.json
+
+                  git commit -m "chore: extract WA Web ${WA_VERSION} (${NEW_VERSION})"
+                  git push
 
             - name: Publish to npm (trusted publishing — OIDC, no token)
               if: steps.diff.outputs.changed == 'true' && (github.event_name == 'schedule' || inputs.publish == 'true')
               run: |
-                  WA_VERSION="${{ steps.diff.outputs.wa-version }}"
-                  SHA=$(git rev-parse --short HEAD)
-                  NEW_VERSION="${WA_VERSION}-${SHA}"
+                  NEW_VERSION="${{ steps.diff.outputs.new-version }}"
                   for pkg in mex proto; do
                       cd "packages/$pkg"
-                      npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version
                       # --provenance generates a signed attestation tying this
                       # tarball to this exact workflow run; requires trusted
                       # publishing to be configured on the npm package page.
