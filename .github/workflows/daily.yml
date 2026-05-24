@@ -102,7 +102,11 @@ jobs:
                       # --provenance generates a signed attestation tying this
                       # tarball to this exact workflow run; requires trusted
                       # publishing to be configured on the npm package page.
-                      npm publish --access public --provenance \
+                      # --tag latest is required because our version string
+                      # (e.g. 2.3000.1040073745-abc1234) is semver-prerelease
+                      # due to the SHA suffix; npm otherwise refuses to assign
+                      # the default dist-tag automatically.
+                      npm publish --access public --provenance --tag latest \
                           || echo "::warning::failed to publish @vinikjkkj/wa-$pkg"
                       cd ../..
                   done
