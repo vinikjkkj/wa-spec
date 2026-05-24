@@ -1,0 +1,51 @@
+{
+    "name": "@vinikjkkj/wa-appstate",
+    "version": "0.1.0",
+    "description": "WhatsApp Web AppState (Syncd) action schemas — wire names, collections, versions, value fields, index shapes (daily-extracted).",
+    "keywords": [
+        "whatsapp",
+        "whatsapp-web",
+        "appstate",
+        "syncd",
+        "sync-action",
+        "multi-device",
+        "wa-spec"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "vinikjkkj",
+        "url": "https://github.com/vinikjkkj"
+    },
+    "homepage": "https://github.com/vinikjkkj/wa-spec/tree/main/packages/appstate#readme",
+    "bugs": {
+        "url": "https://github.com/vinikjkkj/wa-spec/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vinikjkkj/wa-spec.git",
+        "directory": "packages/appstate"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vinikjkkj"
+        }
+    ],
+    "main": "index.js",
+    "types": "index.d.ts",
+    "sideEffects": false,
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "README.md"
+    ],
+    "scripts": {
+        "apply": "node ./scripts/apply.cjs"
+    },
+    "engines": {
+        "node": ">=20.9.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

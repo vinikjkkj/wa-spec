@@ -1,0 +1,1294 @@
+{
+  "waVersion": "2.3000.1040072419",
+  "collections": [
+    "regular",
+    "regular_low",
+    "regular_high",
+    "critical_block",
+    "critical_unblock_low"
+  ],
+  "actions": {
+    "AdsCtwaPerCustomerDataSharing": {
+      "module": "WAWebCtwaPerCustomerDataSharingSync",
+      "name": "ctwaPerCustomerDataSharing",
+      "collection": "regular_high",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "ctwaPerCustomerDataSharingAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "ctwaPerCustomerDataSharing"
+        },
+        {
+          "type": "string",
+          "name": "accountLid"
+        }
+      ]
+    },
+    "Agent": {
+      "module": "WAWebAgentSync",
+      "name": "deviceAgent",
+      "collection": "regular",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "agentAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "deviceAgent"
+        },
+        {
+          "type": "string",
+          "name": "agentId"
+        }
+      ]
+    },
+    "AiThreadDelete": {
+      "module": "WAWebAiThreadDeleteSync",
+      "name": "ai_thread_delete",
+      "collection": "regular_high",
+      "version": 7,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": null,
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "ai_thread_delete"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "AiThreadPin": {
+      "module": "WAWebAiThreadPinSync",
+      "name": "thread_pin",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "threadPinAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "thread_pin"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "AiThreadRename": {
+      "module": "WAWebAiThreadRenameSync",
+      "name": "ai_thread_rename",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "aiThreadRenameAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "ai_thread_rename"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "AndroidUnsupportedActions": {
+      "module": "WAWebAndroidUnsupportedActionsSync",
+      "name": "android_unsupported_actions",
+      "collection": "regular_low",
+      "version": 4,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "androidUnsupportedActions",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "android_unsupported_actions"
+        }
+      ]
+    },
+    "Archive": {
+      "module": "WAWebArchiveChatSync",
+      "name": "archive",
+      "collection": "regular_low",
+      "version": 3,
+      "scope": "chatMessageRange",
+      "baseClass": "ChatMessageRangeSyncdActionBase",
+      "valueField": "archiveChatAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "archive"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "AvatarUpdated": {
+      "module": "WAWebStickersAvatarUpdatedSyncAction",
+      "name": "avatar_updated_action",
+      "collection": "regular",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "avatarUpdatedAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "avatar_updated_action"
+        }
+      ]
+    },
+    "BizAiSettingsNudge": {
+      "module": "WAWebBizAiSettingsNudgeSync",
+      "name": "biz_ai_settings_nudge",
+      "collection": "regular_high",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "bizAiSettingsNudgeAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "biz_ai_settings_nudge"
+        }
+      ]
+    },
+    "BotWelcomeRequest": {
+      "module": "WAWebBotWelcomeRequestSync",
+      "name": "bot_welcome_request",
+      "collection": "regular_low",
+      "version": 2,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "botWelcomeRequestAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "bot_welcome_request"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "BusinessBroadcastCampaign": {
+      "module": "WAWebBroadcastCampaignSync",
+      "name": "business_broadcast_campaign",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "businessBroadcastCampaignAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "business_broadcast_campaign"
+        },
+        {
+          "type": "string",
+          "name": "campaign"
+        }
+      ]
+    },
+    "BusinessBroadcastInsights": {
+      "module": "WAWebBusinessBroadcastInsightsSync",
+      "name": "business_broadcast_insights_sync",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "businessBroadcastInsightsAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "business_broadcast_insights_sync"
+        },
+        {
+          "type": "string",
+          "name": "campaign"
+        }
+      ]
+    },
+    "BusinessBroadcastList": {
+      "module": "WAWebBroadcastListSync",
+      "name": "business_broadcast_list",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "businessBroadcastListAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "business_broadcast_list"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "CallLog": {
+      "module": "WAWebCallLogSync",
+      "name": "call_log",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "callLogAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "call_log"
+        }
+      ]
+    },
+    "ChatAssignment": {
+      "module": "WAWebChatAssignmentSync",
+      "name": "agentChatAssignment",
+      "collection": "regular",
+      "version": 7,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "chatAssignment",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "agentChatAssignment"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "ChatAssignmentOpenedStatus": {
+      "module": "WAWebChatAssignmentOpenedStatusSync",
+      "name": "agentChatAssignmentOpenedStatus",
+      "collection": "regular",
+      "version": 7,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "chatAssignmentOpenedStatus",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "agentChatAssignmentOpenedStatus"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        },
+        {
+          "type": "string",
+          "name": "agentId"
+        }
+      ]
+    },
+    "ChatLockSettings": {
+      "module": "WAWebChatLockSettingsSync",
+      "name": "setting_chatLock",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "chatLockSettings",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "setting_chatLock"
+        }
+      ]
+    },
+    "ClearChat": {
+      "module": "WAWebClearChatSync",
+      "name": "clearChat",
+      "collection": "regular_high",
+      "version": 6,
+      "scope": "chatMessageRange",
+      "baseClass": "ChatMessageRangeSyncdActionBase",
+      "valueField": "clearChatAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "clearChat"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        },
+        {
+          "type": "string",
+          "name": "deleteStarred"
+        },
+        {
+          "type": "string",
+          "name": "deleteMedia"
+        }
+      ]
+    },
+    "Contact": {
+      "module": "WAWebContactSync",
+      "name": "contact",
+      "collection": "critical_unblock_low",
+      "version": 2,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "contactAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "contact"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "CustomPaymentMethods": {
+      "module": "WAWebCustomPaymentMethodsSync",
+      "name": "custom_payment_methods",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "customPaymentMethodsAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "custom_payment_methods"
+        }
+      ]
+    },
+    "CustomerData": {
+      "module": "WAWebCustomerDataSync",
+      "name": "customer_data",
+      "collection": "regular_low",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "customerDataAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "customer_data"
+        },
+        {
+          "type": "string",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "DeleteChat": {
+      "module": "WAWebDeleteChatSync",
+      "name": "deleteChat",
+      "collection": "regular_high",
+      "version": 6,
+      "scope": "chatMessageRange",
+      "baseClass": "ChatMessageRangeSyncdActionBase",
+      "valueField": "deleteChatAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "deleteChat"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        },
+        {
+          "type": "string",
+          "name": "deleteMedia"
+        }
+      ]
+    },
+    "DeleteMessageForMe": {
+      "module": "WAWebDeleteMessageForMeSync",
+      "name": "deleteMessageForMe",
+      "collection": "regular_high",
+      "version": 3,
+      "scope": "message",
+      "baseClass": "MessageSyncdActionBase",
+      "valueField": "deleteMessageForMeAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "deleteMessageForMe"
+        },
+        {
+          "type": "jid",
+          "name": "remote"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        },
+        {
+          "type": "boolString",
+          "name": "fromMe"
+        },
+        {
+          "type": "jidOrZero",
+          "name": "participant"
+        }
+      ]
+    },
+    "DetectedOutcomeStatus": {
+      "module": "WAWebDetectedOutcomesStatusSync",
+      "name": "detected_outcomes_status_action",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "map",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "detected_outcomes_status_action"
+        }
+      ]
+    },
+    "DeviceCapabilities": {
+      "module": "WAWebDeviceCapabilitiesSync",
+      "name": "device_capabilities",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "deviceCapabilities",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "device_capabilities"
+        }
+      ]
+    },
+    "DisableLinkPreviews": {
+      "module": "WAWebDisableLinkPreviewsSync",
+      "name": "setting_disableLinkPreviews",
+      "collection": "regular",
+      "version": 8,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "privacySettingDisableLinkPreviewsAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "setting_disableLinkPreviews"
+        }
+      ]
+    },
+    "ExternalWebBeta": {
+      "module": "WAWebExternalWebBetaSync",
+      "name": "external_web_beta",
+      "collection": "regular",
+      "version": 3,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "externalWebBetaAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "external_web_beta"
+        }
+      ]
+    },
+    "FavoriteSticker": {
+      "module": "WAWebStickersFavoriteSyncAction",
+      "name": "favoriteSticker",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "stickerAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "favoriteSticker"
+        },
+        {
+          "type": "string",
+          "name": "filehash"
+        }
+      ]
+    },
+    "Favorites": {
+      "module": "WAWebFavoritesSync",
+      "name": "favorites",
+      "collection": "regular_high",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "favoritesAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "favorites"
+        }
+      ]
+    },
+    "InteractiveMessageAction": {
+      "module": "WAWebInteractiveMessageSync",
+      "name": "interactive_message_action",
+      "collection": "regular_low",
+      "version": 1,
+      "scope": "message",
+      "baseClass": "MessageSyncdActionBase",
+      "valueField": "interactiveMessageAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "interactive_message_action"
+        },
+        {
+          "type": "jid",
+          "name": "remote"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        },
+        {
+          "type": "boolString",
+          "name": "fromMe"
+        },
+        {
+          "type": "jidOrZero",
+          "name": "participant"
+        },
+        {
+          "type": "string",
+          "name": "arg5"
+        }
+      ]
+    },
+    "LabelEdit": {
+      "module": "WAWebLabelSync",
+      "name": "label_edit",
+      "collection": "regular",
+      "version": 3,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "labelEditAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "label_edit"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "LabelJid": {
+      "module": "WAWebLabelJidSync",
+      "name": "label_jid",
+      "collection": "regular",
+      "version": 3,
+      "scope": "chatOrContact",
+      "baseClass": "ChatOrContactSyncdActionBase",
+      "valueField": "labelAssociationAction",
+      "chatJidIndex": 2,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "label_jid"
+        },
+        {
+          "type": "string",
+          "name": "labelId"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "LabelReordering": {
+      "module": "WAWebLabelReorderingSync",
+      "name": "label_reordering",
+      "collection": "regular",
+      "version": 3,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "labelReorderingAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "label_reordering"
+        }
+      ]
+    },
+    "LidContact": {
+      "module": "WAWebLidContactSync",
+      "name": "lid_contact",
+      "collection": "critical_unblock_low",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "lidContactAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "lid_contact"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "LocaleSetting": {
+      "module": "WAWebLocaleSettingSync",
+      "name": "setting_locale",
+      "collection": "critical_block",
+      "version": 3,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "localeSetting",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "setting_locale"
+        }
+      ]
+    },
+    "LockChat": {
+      "module": "WAWebLockChatSync",
+      "name": "lock",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "lockChatAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "lock"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "MarkChatAsRead": {
+      "module": "WAWebMarkChatAsReadSync",
+      "name": "markChatAsRead",
+      "collection": "regular_low",
+      "version": 3,
+      "scope": "chatMessageRange",
+      "baseClass": "ChatMessageRangeSyncdActionBase",
+      "valueField": "markChatAsReadAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "markChatAsRead"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "MarketingMessage": {
+      "module": "WAWebPremiumMessageSync",
+      "name": "marketingMessage",
+      "collection": "regular",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "marketingMessageAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "marketingMessage"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "MarketingMessageBroadcast": {
+      "module": "WAWebPremiumMessageBroadcastSync",
+      "name": "marketingMessageBroadcast",
+      "collection": "regular",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": null,
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "marketingMessageBroadcast"
+        },
+        {
+          "type": "string",
+          "name": "premiumMessageId"
+        },
+        {
+          "type": "string",
+          "name": "messageId"
+        }
+      ]
+    },
+    "MerchantPaymentPartner": {
+      "module": "WAWebMerchantPaymentPartnerSync",
+      "name": "merchant_payment_partner",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "merchantPaymentPartnerAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "merchant_payment_partner"
+        }
+      ]
+    },
+    "Mute": {
+      "module": "WAWebMuteChatSync",
+      "name": "mute",
+      "collection": "regular_high",
+      "version": 2,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "muteAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "mute"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "NctSaltSync": {
+      "module": "WAWebNctSaltSync",
+      "name": "nct_salt_sync",
+      "collection": "regular_high",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "map",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "nct_salt_sync"
+        }
+      ]
+    },
+    "NoteEdit": {
+      "module": "WAWebNoteSync",
+      "name": "note_edit",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "noteEditAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "note_edit"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "Nux": {
+      "module": "WAWebNuxSync",
+      "name": "nux",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "nuxAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "nux"
+        },
+        {
+          "type": "string",
+          "name": "nuxKey"
+        }
+      ]
+    },
+    "OutContact": {
+      "module": "WAWebOutContactSync",
+      "name": "out_contact",
+      "collection": "regular_low",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "outContactAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "out_contact"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "PaymentInfo": {
+      "module": "WAWebPaymentInfoSync",
+      "name": "payment_info",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "paymentInfoAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "payment_info"
+        }
+      ]
+    },
+    "PaymentTos": {
+      "module": "WAWebPaymentTosSync",
+      "name": "payment_tos",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "paymentTosAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "payment_tos"
+        }
+      ]
+    },
+    "Pin": {
+      "module": "WAWebPinChatSync",
+      "name": "pin_v1",
+      "collection": "regular_low",
+      "version": 5,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "pinAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "pin_v1"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "PnForLidChat": {
+      "module": "WAWebPnForLidChatSync",
+      "name": "pnForLidChat",
+      "collection": "regular",
+      "version": 8,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "pnForLidChatAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "pnForLidChat"
+        },
+        {
+          "type": "string",
+          "name": "lid"
+        }
+      ]
+    },
+    "PrimaryFeature": {
+      "module": "WAWebPrimaryFeatureSync",
+      "name": "primary_feature",
+      "collection": "regular",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "primaryFeature",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "primary_feature"
+        }
+      ]
+    },
+    "PrimaryVersion": {
+      "module": "WAWebPrimaryVersionSync",
+      "name": "primary_version",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "primaryVersionAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "primary_version"
+        },
+        {
+          "type": "string",
+          "name": "key1"
+        }
+      ]
+    },
+    "QuickReply": {
+      "module": "WAWebQuickRepliesSync",
+      "name": "quick_reply",
+      "collection": "regular",
+      "version": 2,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "quickReplyAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "quick_reply"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "RemoveRecentSticker": {
+      "module": "WAWebStickersRemoveRecentSyncAction",
+      "name": "removeRecentSticker",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "removeRecentStickerAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "removeRecentSticker"
+        },
+        {
+          "type": "string",
+          "name": "filehash"
+        }
+      ]
+    },
+    "Sentinel": {
+      "module": "WAWebSentinelMutationSync",
+      "name": "sentinel",
+      "collection": "regular_low",
+      "version": 3,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "keyExpiration",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "sentinel"
+        }
+      ]
+    },
+    "SettingPushName": {
+      "module": "WAWebPushNameSync",
+      "name": "setting_pushName",
+      "collection": "critical_block",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "pushNameSetting",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "setting_pushName"
+        }
+      ]
+    },
+    "SettingsSync": {
+      "module": "WAWebSettingsSync",
+      "name": "settings_sync",
+      "collection": "regular_low",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "settingsSyncAction",
+      "chatJidIndex": 3,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "settings_sync"
+        },
+        {
+          "type": "enum",
+          "name": "settingPlatform",
+          "protoEnum": "SettingsSyncAction.SettingPlatform"
+        },
+        {
+          "type": "enum",
+          "name": "settingKey",
+          "protoEnum": "SettingsSyncAction.SettingKey"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
+        }
+      ]
+    },
+    "ShareOwnPn": {
+      "module": "WAWebShareOwnPnSync",
+      "name": "shareOwnPn",
+      "collection": "regular",
+      "version": 8,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": null,
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "shareOwnPn"
+        },
+        {
+          "type": "string",
+          "name": "lid"
+        }
+      ]
+    },
+    "Star": {
+      "module": "WAWebStarMessageSync",
+      "name": "star",
+      "collection": "regular_high",
+      "version": 2,
+      "scope": "message",
+      "baseClass": "MessageSyncdActionBase",
+      "valueField": "starAction",
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "star"
+        },
+        {
+          "type": "jid",
+          "name": "remote"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        },
+        {
+          "type": "boolString",
+          "name": "fromMe"
+        },
+        {
+          "type": "jidOrZero",
+          "name": "participant"
+        }
+      ]
+    },
+    "StatusPrivacy": {
+      "module": "WAWebStatusPrivacySettingSync",
+      "name": "status_privacy",
+      "collection": "regular_high",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "statusPrivacy",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "status_privacy"
+        }
+      ]
+    },
+    "SubscriptionsSyncV2": {
+      "module": "WAWebSubscriptionsSyncV2Sync",
+      "name": "subscriptions_sync_v2",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "subscriptionsSyncV2Action",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "subscriptions_sync_v2"
+        }
+      ]
+    },
+    "TimeFormat": {
+      "module": "WAWebTimeFormatSync",
+      "name": "time_format",
+      "collection": "regular_low",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "timeFormatAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "time_format"
+        }
+      ]
+    },
+    "UnarchiveChatsSetting": {
+      "module": "WAWebArchiveSettingSync",
+      "name": "setting_unarchiveChats",
+      "collection": "regular_low",
+      "version": 4,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "unarchiveChatsSetting",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "setting_unarchiveChats"
+        }
+      ]
+    },
+    "UserStatusMute": {
+      "module": "WAWebUserStatusMuteSync",
+      "name": "userStatusMute",
+      "collection": "regular_high",
+      "version": 7,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "userStatusMuteAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "userStatusMute"
+        },
+        {
+          "type": "string",
+          "name": "id"
+        }
+      ]
+    },
+    "VoipRelayAllCalls": {
+      "module": "WAWebVoipRelayAllCallsSettingSync",
+      "name": "setting_relayAllCalls",
+      "collection": "regular",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "privacySettingRelayAllCalls",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "setting_relayAllCalls"
+        }
+      ]
+    },
+    "WaffleAccountLinkState": {
+      "module": "WAWebWaffleAccountLinkStateSync",
+      "name": "waffle_account_link_state",
+      "collection": "regular_high",
+      "version": 1,
+      "scope": "account",
+      "baseClass": "AccountSyncdActionBase",
+      "valueField": "waffleAccountLinkStateAction",
+      "chatJidIndex": null,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "waffle_account_link_state"
+        }
+      ]
+    }
+  }
+}
