@@ -1,0 +1,57 @@
+{
+    "name": "@vinikjkkj/wa-fetcher",
+    "version": "0.0.0",
+    "description": "Headless scraper for web.whatsapp.com bundles — downloads every loaded JS chunk + emits a manifest. Pairs with @vinikjkkj/wa-mex and @vinikjkkj/wa-proto.",
+    "keywords": [
+        "whatsapp",
+        "whatsapp-web",
+        "scraper",
+        "fetcher",
+        "puppeteer",
+        "puppeteer-real-browser",
+        "reverse-engineering",
+        "wa-spec"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "vinikjkkj",
+        "url": "https://github.com/vinikjkkj"
+    },
+    "homepage": "https://github.com/vinikjkkj/wa-spec/tree/main/packages/fetcher#readme",
+    "bugs": {
+        "url": "https://github.com/vinikjkkj/wa-spec/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vinikjkkj/wa-spec.git",
+        "directory": "packages/fetcher"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vinikjkkj"
+        }
+    ],
+    "main": "src/index.cjs",
+    "bin": {
+        "wa-fetcher": "src/cli.cjs"
+    },
+    "files": [
+        "src/**/*.cjs",
+        "src/**/*.js",
+        "action.yml",
+        "README.md"
+    ],
+    "scripts": {
+        "fetch": "node src/cli.cjs --out dump/"
+    },
+    "dependencies": {
+        "puppeteer-real-browser": "^1.4.4"
+    },
+    "engines": {
+        "node": ">=20.9.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

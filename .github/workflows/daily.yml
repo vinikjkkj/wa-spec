@@ -1,0 +1,96 @@
+name: daily
+
+on:
+    schedule:
+        - cron: '17 3 * * *'
+    workflow_dispatch:
+        inputs:
+            publish:
+                description: 'Publish updated packages to npm (requires NPM_TOKEN secret)'
+                required: false
+                default: 'false'
+
+permissions:
+    contents: write
+
+concurrency:
+    group: daily
+    cancel-in-progress: false
+
+jobs:
+    extract:
+        runs-on: ubuntu-latest
+        timeout-minutes: 25
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  fetch-depth: 0
+
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: npm
+
+            - name: Install Chrome deps (puppeteer-real-browser)
+              run: |
+                  sudo apt-get update
+                  sudo apt-get install -y --no-install-recommends \
+                      ca-certificates fonts-liberation libasound2t64 libatk-bridge2.0-0 \
+                      libatk1.0-0 libatspi2.0-0 libcairo2 libcups2 libdbus-1-3 \
+                      libdrm2 libgbm1 libglib2.0-0 libnspr4 libnss3 libpango-1.0-0 \
+                      libx11-6 libxcb1 libxcomposite1 libxdamage1 libxext6 libxfixes3 \
+                      libxkbcommon0 libxrandr2 xdg-utils libu2f-udev libvulkan1 xvfb
+
+            - name: Install
+              run: npm install
+
+            - name: Fetch raw bundles
+              run: xvfb-run --auto-servernum -- npm run fetch
+
+            - name: Extract mex bindings
+              run: npm run extract:mex
+
+            - name: Extract proto SDL + compile bindings
+              run: |
+                  npm run extract:proto
+                  npm run compile:proto
+
+            - name: Diff + commit if changed
+              id: diff
+              run: |
+                  git config --global user.name "github-actions[bot]"
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  WA_VERSION=$(node -e "const j=require('./dump/manifest.json'); console.log(j.waVersion ?? 'unknown')")
+                  echo "wa-version=$WA_VERSION" >> "$GITHUB_OUTPUT"
+
+                  git add packages/mex/index.json packages/mex/index.js packages/mex/index.d.ts \
+                          packages/proto/WAProto.proto packages/proto/dist || true
+                  if git diff --staged --quiet; then
+                      echo "changed=false" >> "$GITHUB_OUTPUT"
+                  else
+                      echo "changed=true" >> "$GITHUB_OUTPUT"
+                      git commit -m "chore: extract WA Web ${WA_VERSION}"
+                      git push
+                  fi
+
+            - name: Publish to npm
+              if: steps.diff.outputs.changed == 'true' && (github.event_name == 'schedule' || inputs.publish == 'true')
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+              run: |
+                  if [ -z "$NODE_AUTH_TOKEN" ]; then
+                      echo "::warning::NPM_TOKEN not set — skipping publish"
+                      exit 0
+                  fi
+                  WA_VERSION="${{ steps.diff.outputs.wa-version }}"
+                  SHA=$(git rev-parse --short HEAD)
+                  NEW_VERSION="${WA_VERSION}-${SHA}"
+                  for pkg in mex proto; do
+                      cd "packages/$pkg"
+                      npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version
+                      npm publish --access public || echo "::warning::failed to publish @vinikjkkj/wa-$pkg"
+                      cd ../..
+                  done
+                  git tag "v${NEW_VERSION}" || true
+                  git push --tags || true

@@ -1,0 +1,49 @@
+{
+    "name": "wa-spec",
+    "version": "0.0.0",
+    "private": true,
+    "description": "Daily-extracted WhatsApp Web protocol bindings — Protobuf messages + Mex GraphQL persist IDs / variable shapes / response shapes",
+    "keywords": [
+        "whatsapp",
+        "whatsapp-web",
+        "waproto",
+        "wa-proto",
+        "wa-mex",
+        "graphql",
+        "protobuf",
+        "reverse-engineering",
+        "extractor"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "vinikjkkj",
+        "url": "https://github.com/vinikjkkj"
+    },
+    "homepage": "https://github.com/vinikjkkj/wa-spec#readme",
+    "bugs": {
+        "url": "https://github.com/vinikjkkj/wa-spec/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vinikjkkj/wa-spec.git"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vinikjkkj"
+        }
+    ],
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "fetch": "node packages/fetcher/src/cli.cjs --out dump/",
+        "extract:mex": "node packages/mex/scripts/apply.cjs --manifest dump/manifest.json",
+        "extract:proto": "node packages/proto/scripts/apply.cjs --manifest dump/manifest.json",
+        "compile:proto": "npm run compile --workspace @vinikjkkj/wa-proto",
+        "extract:all": "npm run fetch && npm run extract:mex && npm run extract:proto && npm run compile:proto"
+    },
+    "engines": {
+        "node": ">=20.9.0"
+    }
+}

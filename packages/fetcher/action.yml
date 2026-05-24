@@ -1,0 +1,55 @@
+name: 'wa-fetcher'
+description: 'Download every loaded web.whatsapp.com JS bundle + emit a manifest.json (no extraction)'
+author: 'vinikjkkj'
+branding:
+    icon: 'download-cloud'
+    color: 'green'
+
+inputs:
+    out:
+        description: 'Output directory for raw bundles + manifest.json'
+        required: false
+        default: 'dump'
+    auth-state:
+        description: 'Optional path to a saved cookie state JSON for authenticated fetch'
+        required: false
+    extra-wait:
+        description: 'Extra wait (ms) after network-idle, gives lazy chunks time to load'
+        required: false
+        default: '5000'
+
+outputs:
+    manifest-path:
+        description: 'Path to the generated manifest.json'
+        value: ${{ steps.run.outputs.manifest-path }}
+    raw-dir:
+        description: 'Path to the raw bundles directory (raw/<wa-version>/)'
+        value: ${{ steps.run.outputs.raw-dir }}
+    wa-version:
+        description: 'Detected WhatsApp Web version (or "unknown")'
+        value: ${{ steps.run.outputs.wa-version }}
+
+runs:
+    using: 'composite'
+    steps:
+        - name: Install fetcher
+          shell: bash
+          run: npm install --no-save @vinikjkkj/wa-fetcher@latest
+
+        - name: Run fetcher
+          id: run
+          shell: bash
+          env:
+              FETCHER_OUT: ${{ inputs.out }}
+              FETCHER_AUTH: ${{ inputs.auth-state }}
+              FETCHER_EXTRA_WAIT: ${{ inputs.extra-wait }}
+          run: |
+              ARGS="--out $FETCHER_OUT --extra-wait $FETCHER_EXTRA_WAIT"
+              if [ -n "$FETCHER_AUTH" ]; then ARGS="$ARGS --auth $FETCHER_AUTH"; fi
+              npx wa-fetcher $ARGS
+              MANIFEST="$FETCHER_OUT/manifest.json"
+              echo "manifest-path=$MANIFEST" >> "$GITHUB_OUTPUT"
+              RAW_DIR=$(node -e "console.log(JSON.parse(require('node:fs').readFileSync(process.argv[1])).rawDir)" "$MANIFEST")
+              echo "raw-dir=$FETCHER_OUT/$RAW_DIR" >> "$GITHUB_OUTPUT"
+              VERSION=$(node -e "console.log(JSON.parse(require('node:fs').readFileSync(process.argv[1])).waVersion ?? 'unknown')" "$MANIFEST")
+              echo "wa-version=$VERSION" >> "$GITHUB_OUTPUT"
