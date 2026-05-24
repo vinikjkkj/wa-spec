@@ -35,7 +35,9 @@ jobs:
               with:
                   node-version: 22
                   cache: npm
-                  registry-url: 'https://registry.npmjs.org'
+
+            - name: Upgrade npm (trusted publishing needs >= 11.5.1)
+              run: npm install -g npm@latest
 
             - name: Install Chrome deps (puppeteer-real-browser)
               run: |
