@@ -13,14 +13,20 @@ npm i @vinikjkkj/wa-fetcher
 ## CLI
 
 ```sh
+# Default: download every bundle + write manifest
 npx wa-fetcher --out dump/
+
+# Discovery only: just the URL list (no download). Useful when piping into
+# tools that have their own downloader (e.g. wa-modules-loader).
+npx wa-fetcher --urls-only --out urls.json
+npx wa-fetcher --urls-only > urls.json
 ```
 
 | Flag | Default | Notes |
 |---|---|---|
-| `--out <dir>` | `dump` | Output directory |
+| `--out <path>` | `dump` (dir) / stdout (urls-only) | Output destination |
+| `--urls-only` | off | Skip download; emit only the discovered URL array (JSON) |
 | `--auth <file>` | none | Saved cookie state JSON for authenticated fetch (captures more lazy chunks) |
-| `--no-headless` | (headless) | Show the browser window |
 | `--extra-wait <ms>` | `5000` | Wait this long after network-idle for lazy chunks |
 
 **Output layout:**
@@ -38,9 +44,16 @@ dump/
 ## Library
 
 ```js
-const { fetchBundles } = require('@vinikjkkj/wa-fetcher')
+const { discoverBundleUrls, fetchBundles } = require('@vinikjkkj/wa-fetcher')
 
-const dump = await fetchBundles({ out: 'dump', headless: true })
+// Discovery only — no download. Returns the same URL list the full fetcher
+// would have downloaded (sorted, deduped, host-filtered to static.whatsapp.net).
+const { waVersion, urls } = await discoverBundleUrls()
+//   waVersion   "2.3000.xxxxxxx" | null
+//   urls        string[]
+
+// Discovery + download.
+const dump = await fetchBundles({ out: 'dump' })
 //   dump.waVersion              "2.3000.xxxxxxx" | null
 //   dump.bundles[]              [{ url, file, bytes }, ...]
 //   dump.paths.raw              absolute path to dump/raw/<version>/
