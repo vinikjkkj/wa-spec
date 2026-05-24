@@ -6,12 +6,16 @@ on:
     workflow_dispatch:
         inputs:
             publish:
-                description: 'Publish updated packages to npm (requires NPM_TOKEN secret)'
+                description: 'Publish updated packages to npm (uses trusted publishing — no token needed)'
                 required: false
                 default: 'false'
 
 permissions:
     contents: write
+    # Required for npm trusted publishing (OIDC). The workflow obtains a
+    # short-lived token from GitHub's OIDC provider that npm verifies
+    # against the package's configured trusted-publisher rules.
+    id-token: write
 
 concurrency:
     group: daily
@@ -31,6 +35,7 @@ jobs:
               with:
                   node-version: 22
                   cache: npm
+                  registry-url: 'https://registry.npmjs.org'
 
             - name: Install Chrome deps (puppeteer-real-browser)
               run: |
@@ -74,22 +79,20 @@ jobs:
                       git push
                   fi
 
-            - name: Publish to npm
+            - name: Publish to npm (trusted publishing — OIDC, no token)
               if: steps.diff.outputs.changed == 'true' && (github.event_name == 'schedule' || inputs.publish == 'true')
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
               run: |
-                  if [ -z "$NODE_AUTH_TOKEN" ]; then
-                      echo "::warning::NPM_TOKEN not set — skipping publish"
-                      exit 0
-                  fi
                   WA_VERSION="${{ steps.diff.outputs.wa-version }}"
                   SHA=$(git rev-parse --short HEAD)
                   NEW_VERSION="${WA_VERSION}-${SHA}"
                   for pkg in mex proto; do
                       cd "packages/$pkg"
                       npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version
-                      npm publish --access public || echo "::warning::failed to publish @vinikjkkj/wa-$pkg"
+                      # --provenance generates a signed attestation tying this
+                      # tarball to this exact workflow run; requires trusted
+                      # publishing to be configured on the npm package page.
+                      npm publish --access public --provenance \
+                          || echo "::warning::failed to publish @vinikjkkj/wa-$pkg"
                       cd ../..
                   done
                   git tag "v${NEW_VERSION}" || true
