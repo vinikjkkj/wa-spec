@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040077880",
+  "waVersion": "2.3000.1040072419",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -9,17 +9,17 @@
         "project_name"
       ],
       "variablesShape": {
-        "project_name": null
+        "project_name": "string"
       },
       "response": {
         "xwa_wa_acs_config": {
-          "cipher_suite": null,
-          "expire_time": null,
-          "id": null,
-          "max_evals": null,
-          "public_key": null,
-          "redemption_limit": null,
-          "token_ttl": null
+          "cipher_suite": "string",
+          "expire_time": "string",
+          "id": "string",
+          "max_evals": "number",
+          "public_key": "string",
+          "redemption_limit": "string",
+          "token_ttl": "number"
         }
       }
     },
@@ -32,25 +32,29 @@
       ],
       "variablesShape": {
         "input": {
-          "project_name": null,
-          "config_id": null,
-          "issue_element": null,
-          "request_proof": null
+          "project_name": "string",
+          "config_id": "string",
+          "issue_element": "string",
+          "request_proof": "string"
         }
       },
       "response": {
         "xwa_wa_acs_issue_credentials": {
-          "success": null,
+          "success": "boolean",
           "creds": {
-            "evaluation": {
-              "data": null
-            },
-            "proof": {
-              "c": null,
-              "s": null
-            }
+            "evaluation": [
+              {
+                "data": "string"
+              }
+            ],
+            "proof": [
+              {
+                "c": "string",
+                "s": "string"
+              }
+            ]
           },
-          "error_message": null
+          "error_message": "string"
         }
       }
     },
@@ -62,12 +66,12 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin_invite_accept": {
-          "__typename": null,
-          "id": null
+          "__typename": "string",
+          "id": "string"
         }
       }
     },
@@ -81,13 +85,13 @@
         "thread_status"
       ],
       "variablesShape": {
-        "consumer_lid": null,
-        "phone_number": null,
-        "thread_status": null
+        "consumer_lid": "string",
+        "phone_number": "string",
+        "thread_status": "string"
       },
       "response": {
         "xfb_whatsapp_smb_maiba_status_update": {
-          "success": null
+          "success": "boolean"
         }
       }
     },
@@ -99,7 +103,9 @@
       "variablesShape": {},
       "response": {
         "whatsapp_authorized_agent_feature_policy": {
-          "disabled_features": null
+          "disabled_features": [
+            "string"
+          ]
         }
       }
     },
@@ -112,17 +118,17 @@
         "code"
       ],
       "variablesShape": {
-        "application_id": null,
-        "code": null
+        "application_id": "number",
+        "code": "string"
       },
       "response": {
         "xwa_bp_access_token_and_session_cookies": {
-          "status": null,
-          "access_token": null,
-          "session_cookies": null,
-          "bp_id": null,
-          "access_token_type": null,
-          "email_attr": null
+          "status": "string",
+          "access_token": "string",
+          "session_cookies": "string",
+          "bp_id": "string",
+          "access_token_type": "string",
+          "email_attr": "string"
         }
       }
     },
@@ -136,21 +142,23 @@
       "variablesShape": {
         "input": {
           "order": {
-            "jid": null,
-            "products": null
+            "jid": "string",
+            "products": [
+              {}
+            ]
           }
         }
       },
       "response": {
         "xwa_checkout_place_order": {
           "order": {
-            "order_id": null,
-            "token": null,
+            "order_id": "string",
+            "token": "string",
             "price": {
-              "currency": null,
-              "subtotal_amount": null,
-              "total_amount": null,
-              "price_status": null
+              "currency": "string",
+              "subtotal_amount": "number",
+              "total_amount": "number",
+              "price_status": "string"
             }
           }
         }
@@ -166,16 +174,16 @@
       "variablesShape": {
         "data": {
           "custom_url": {
-            "path": null
+            "path": "string"
           }
         }
       },
       "response": {
         "xwa_custom_url_get_user": {
-          "success": null,
-          "lid": null,
-          "error_code": null,
-          "error_text": null
+          "success": "boolean",
+          "lid": "string",
+          "error_code": "number",
+          "error_text": "string"
         }
       }
     },
@@ -188,21 +196,23 @@
       ],
       "variablesShape": {
         "query_params": {
-          "query": null,
-          "locale": null,
-          "operation": null,
-          "version": null
+          "query": "string",
+          "locale": "string",
+          "operation": "string",
+          "version": "string"
         }
       },
       "response": {
         "whatsapp_catkit_typeahead_proxy": {
-          "categories": {
-            "id": null,
-            "display_name": null
-          },
+          "categories": [
+            {
+              "id": "string",
+              "display_name": "string"
+            }
+          ],
           "not_a_biz": {
-            "id": null,
-            "display_name": null
+            "id": "string",
+            "display_name": "string"
           }
         }
       }
@@ -216,29 +226,35 @@
       ],
       "variablesShape": {
         "query_params": {
-          "query": null,
-          "locale": null,
-          "operation": null,
-          "version": null
+          "query": "string",
+          "locale": "string",
+          "operation": "string",
+          "version": "string"
         }
       },
       "response": {
         "whatsapp_catkit_typeahead_proxy": {
-          "categories": {
-            "id": null,
-            "display_name": null,
-            "categories": {
-              "id": null,
-              "display_name": null,
-              "categories": {
-                "id": null,
-                "display_name": null
-              }
+          "categories": [
+            {
+              "id": "string",
+              "display_name": "string",
+              "categories": [
+                {
+                  "id": "string",
+                  "display_name": "string",
+                  "categories": [
+                    {
+                      "id": "string",
+                      "display_name": "string"
+                    }
+                  ]
+                }
+              ]
             }
-          },
+          ],
           "not_a_biz": {
-            "id": null,
-            "display_name": null
+            "id": "string",
+            "display_name": "string"
           }
         }
       }
@@ -253,18 +269,18 @@
       "variablesShape": {
         "data": {
           "custom_url": {
-            "path": null
+            "path": "string"
           }
         }
       },
       "response": {
         "xwa_custom_url_get_user": {
-          "success": null,
+          "success": "boolean",
           "user": {
-            "jid": null
+            "jid": "string"
           },
-          "error_code": null,
-          "error_text": null
+          "error_code": "number",
+          "error_text": "string"
         }
       }
     },
@@ -276,25 +292,25 @@
         "request"
       ],
       "variablesShape": {
-        "request": null
+        "request": {}
       },
       "response": {
         "xfb_whatsapp_biz_merchant_compliance_info": {
           "merchant_info": {
-            "entity_name": null,
-            "entity_type": null,
-            "is_registered": null,
-            "entity_type_custom": null,
+            "entity_name": "string",
+            "entity_type": "string",
+            "is_registered": "boolean",
+            "entity_type_custom": "string",
             "customer_care_details": {
-              "email": null,
-              "landline_number": null,
-              "mobile_number": null
+              "email": "string",
+              "landline_number": "string",
+              "mobile_number": "string"
             },
             "grievance_officer_details": {
-              "name": null,
-              "email": null,
-              "landline_number": null,
-              "mobile_number": null
+              "name": "string",
+              "email": "string",
+              "landline_number": "string",
+              "mobile_number": "string"
             }
           }
         }
@@ -309,16 +325,18 @@
       ],
       "variablesShape": {
         "request": {
-          "locale": null
+          "locale": "string"
         }
       },
       "response": {
         "xwa_whatsapp_get_pricing_tiers": {
-          "price_tiers": {
-            "id": null,
-            "description": null,
-            "symbol": null
-          }
+          "price_tiers": [
+            {
+              "id": "string",
+              "description": "string",
+              "symbol": "string"
+            }
+          ]
         }
       }
     },
@@ -330,13 +348,15 @@
         "bizJid"
       ],
       "variablesShape": {
-        "bizJid": null
+        "bizJid": "string"
       },
       "response": {
-        "xwa_whatsapp_smb_get_profile_linkshims": {
-          "website": null,
-          "shimmed_website_url": null
-        }
+        "xwa_whatsapp_smb_get_profile_linkshims": [
+          {
+            "website": "string",
+            "shimmed_website_url": "string"
+          }
+        ]
       }
     },
     "BizGraphQLRefreshCart": {
@@ -347,107 +367,123 @@
         "request"
       ],
       "variablesShape": {
-        "request": null
+        "request": {}
       },
       "response": {
         "xwa_checkout_refresh_cart": {
           "cart": {
-            "products": {
-              "is_hidden": null,
-              "availability": null,
-              "product_availability": null,
-              "status_info": {
-                "reject_reason": null,
-                "status": null,
-                "can_appeal": null,
-                "commerce_url": null
-              },
-              "image_fetch_status": null,
-              "price": null,
-              "currency": null,
-              "retailer_id": null,
-              "name": null,
-              "description": null,
-              "url": null,
-              "id": null,
-              "media": {
-                "images": {
-                  "id": null,
-                  "request_image_url": null,
-                  "original_dimensions": {
-                    "height": null,
-                    "width": null
-                  }
+            "products": [
+              {
+                "is_hidden": "boolean",
+                "availability": "string",
+                "product_availability": "string",
+                "status_info": {
+                  "reject_reason": "string",
+                  "status": "string",
+                  "can_appeal": "boolean",
+                  "commerce_url": "string"
                 },
-                "videos": {
-                  "thumbnail_url": null,
-                  "original_video_url": null,
-                  "id": null
-                }
-              },
-              "sale_price": {
-                "price": null,
-                "start_date": null,
-                "end_date": null
-              },
-              "max_available": null,
-              "belongs_to": null,
-              "status": null,
-              "compliance_category": null,
-              "compliance_info": {
-                "country_code_origin": null,
-                "importer_name": null,
-                "importer_address": {
-                  "street1": null,
-                  "street2": null,
-                  "city": null,
-                  "region": null,
-                  "postal_code": null,
-                  "country_code": null
-                }
-              },
-              "variant_info": {
-                "types": {
-                  "name": null,
-                  "options": {
-                    "value": null,
-                    "thumbnail_media": {
+                "image_fetch_status": "string",
+                "price": "string",
+                "currency": "string",
+                "retailer_id": "string",
+                "name": "string",
+                "description": "string",
+                "url": "string",
+                "id": "string",
+                "media": {
+                  "images": [
+                    {
+                      "id": "string",
+                      "request_image_url": "string",
                       "original_dimensions": {
-                        "width": null,
-                        "height": null
-                      },
-                      "request_image_url": null,
-                      "original_image_url": null,
-                      "id": null
+                        "height": "number",
+                        "width": "number"
+                      }
                     }
+                  ],
+                  "videos": [
+                    {
+                      "thumbnail_url": "string",
+                      "original_video_url": "string",
+                      "id": "string"
+                    }
+                  ]
+                },
+                "sale_price": {
+                  "price": "string",
+                  "start_date": "string",
+                  "end_date": "string"
+                },
+                "max_available": "number",
+                "belongs_to": "string",
+                "status": "string",
+                "compliance_category": "string",
+                "compliance_info": {
+                  "country_code_origin": "string",
+                  "importer_name": "string",
+                  "importer_address": {
+                    "street1": "string",
+                    "street2": "string",
+                    "city": "string",
+                    "region": "string",
+                    "postal_code": "string",
+                    "country_code": "string"
                   }
                 },
-                "listing_details": {
-                  "description": null,
-                  "multi_price": null,
-                  "lowest_price": null
-                },
-                "variant_properties": {
-                  "value": null,
-                  "name": null
-                },
-                "availability": {
-                  "listing": {
-                    "is_available": null,
-                    "product_id": null,
-                    "options": {
-                      "name": null,
-                      "value": null
+                "variant_info": {
+                  "types": [
+                    {
+                      "name": "string",
+                      "options": [
+                        {
+                          "value": "string",
+                          "thumbnail_media": {
+                            "original_dimensions": {
+                              "width": "number",
+                              "height": "number"
+                            },
+                            "request_image_url": "string",
+                            "original_image_url": "string",
+                            "id": "string"
+                          }
+                        }
+                      ]
                     }
+                  ],
+                  "listing_details": {
+                    "description": "string",
+                    "multi_price": "string",
+                    "lowest_price": "string"
+                  },
+                  "variant_properties": [
+                    {
+                      "value": "string",
+                      "name": "string"
+                    }
+                  ],
+                  "availability": {
+                    "listing": [
+                      {
+                        "is_available": "boolean",
+                        "product_id": "string",
+                        "options": [
+                          {
+                            "name": "string",
+                            "value": "string"
+                          }
+                        ]
+                      }
+                    ]
                   }
                 }
               }
-            },
+            ],
             "price_details": {
-              "total_amount": null,
-              "subtotal_amount": null,
-              "currency": null,
-              "price_status": null
+              "total_amount": "number",
+              "subtotal_amount": "number",
+              "currency": "string",
+              "price_status": "string"
             }
           }
         }
@@ -462,28 +498,30 @@
       ],
       "variablesShape": {
         "input": {
-          "center": null,
-          "query": null,
-          "use_case_id": null
+          "center": "string",
+          "query": "string",
+          "use_case_id": "string"
         }
       },
       "response": {
         "whatsapp_maps_typeahead": {
-          "items": {
-            "id": null,
-            "location": {
-              "latitude": null,
-              "longitude": null
-            },
-            "address": {
-              "city": null,
-              "country": null,
-              "postalcode": null,
-              "stateprovince": null,
-              "streetaddress": null
-            },
-            "title": null
-          }
+          "items": [
+            {
+              "id": "string",
+              "location": {
+                "latitude": "number",
+                "longitude": "number"
+              },
+              "address": {
+                "city": "string",
+                "country": "string",
+                "postalcode": "string",
+                "stateprovince": "string",
+                "streetaddress": "string"
+              },
+              "title": "string"
+            }
+          ]
         }
       }
     },
@@ -497,46 +535,52 @@
       "variablesShape": {
         "request": {
           "order": {
-            "jid": null,
+            "jid": "string",
             "token": {
-              "sensitive_string_value": null
+              "sensitive_string_value": "string"
             },
-            "id": null,
+            "id": "string",
             "image_dimensions": {
-              "height": null,
-              "width": null
+              "height": "number",
+              "width": "number"
             },
-            "direct_connection_encrypted_info": null
+            "direct_connection_encrypted_info": "string"
           }
         }
       },
       "response": {
         "xwa_checkout_get_order_info": {
           "order": {
-            "creation_time_stamp": null,
-            "products": {
-              "id": null,
-              "name": null,
-              "price": null,
-              "currency": null,
-              "variant_info": {
-                "variant_properties": {
-                  "name": null,
-                  "value": null
-                }
-              },
-              "media": {
-                "images": {
-                  "id": null,
-                  "request_image_url": null
-                }
-              },
-              "quantity": null
-            },
+            "creation_time_stamp": "string",
+            "products": [
+              {
+                "id": "string",
+                "name": "string",
+                "price": "string",
+                "currency": "string",
+                "variant_info": {
+                  "variant_properties": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
+                },
+                "media": {
+                  "images": [
+                    {
+                      "id": "string",
+                      "request_image_url": "string"
+                    }
+                  ]
+                },
+                "quantity": "string"
+              }
+            ],
             "price_details": {
-              "subtotal_amount": null,
-              "currency": null,
-              "total_amount": null
+              "subtotal_amount": "string",
+              "currency": "string",
+              "total_amount": "string"
             }
           }
         }
@@ -550,26 +594,26 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xfb_whatsapp_biz_merchant_set_compliance_info": {
-          "__typename": null,
+          "__typename": "string",
           "merchant_info": {
-            "entity_name": null,
-            "entity_type": null,
-            "is_registered": null,
-            "entity_type_custom": null,
+            "entity_name": "string",
+            "entity_type": "string",
+            "is_registered": "boolean",
+            "entity_type_custom": "string",
             "customer_care_details": {
-              "email": null,
-              "landline_number": null,
-              "mobile_number": null
+              "email": "string",
+              "landline_number": "string",
+              "mobile_number": "string"
             },
             "grievance_officer_details": {
-              "name": null,
-              "email": null,
-              "landline_number": null,
-              "mobile_number": null
+              "name": "string",
+              "email": "string",
+              "landline_number": "string",
+              "mobile_number": "string"
             }
           }
         }
@@ -584,18 +628,18 @@
       ],
       "variablesShape": {
         "input": {
-          "client_pub_key": null,
-          "request_id": null
+          "client_pub_key": "string",
+          "request_id": "string"
         }
       },
       "response": {
         "xwa2_ent_trade_canonical_nonce_for_access_tokens": {
           "encrypted_access_tokens": {
-            "key": null,
-            "data": null,
-            "tag": null,
-            "nonce": null,
-            "algorithm": null
+            "key": "string",
+            "data": "string",
+            "tag": "string",
+            "nonce": "string",
+            "algorithm": "string"
           }
         }
       }
@@ -608,7 +652,7 @@
       "variablesShape": {},
       "response": {
         "xwa_canonical_user_valid": {
-          "success": null
+          "success": "boolean"
         }
       }
     },
@@ -621,13 +665,13 @@
         "user_id"
       ],
       "variablesShape": {
-        "newsletter_id": null,
-        "user_id": null
+        "newsletter_id": "string",
+        "user_id": "string"
       },
       "response": {
         "xwa2_newsletter_change_owner": {
-          "__typename": null,
-          "id": null
+          "__typename": "string",
+          "id": "string"
         }
       }
     },
@@ -640,119 +684,159 @@
         "trigger_context"
       ],
       "variablesShape": {
-        "nux_ids": null,
+        "nux_ids": [
+          "string"
+        ],
         "trigger_context": {
           "wa_smb_trigger_context": {
-            "is_from_wa_smb": null,
-            "app_version": null,
-            "country": null,
-            "locale": null
+            "is_from_wa_smb": "boolean",
+            "app_version": "number",
+            "country": "string",
+            "locale": "string"
           }
         }
       },
       "response": {
-        "quick_promotion_multiverse_batch_fetch_root": {
-          "surface_nux_id": null,
-          "eligible_promotions": {
-            "edges": {
-              "client_ttl_seconds": null,
-              "priority": null,
-              "is_holdout": null,
-              "log_eligibility_waterfall": null,
-              "time_range": {
-                "start": null,
-                "end": null
-              },
-              "node": {
-                "__typename": null,
-                "promotion_id": null,
-                "is_server_force_pass": null,
-                "ab_prop_name": null,
-                "max_impressions": null,
-                "surface_delay_in_seconds": null,
-                "encrypted_logging_data": null,
-                "client_side_dry_run": null,
-                "creatives": {
-                  "__typename": null,
-                  "title": {
-                    "text": null
+        "quick_promotion_multiverse_batch_fetch_root": [
+          {
+            "surface_nux_id": "string",
+            "eligible_promotions": {
+              "edges": [
+                {
+                  "client_ttl_seconds": "number",
+                  "priority": "number",
+                  "is_holdout": "boolean",
+                  "log_eligibility_waterfall": "string",
+                  "time_range": {
+                    "start": "string",
+                    "end": "string"
                   },
-                  "content": {
-                    "text": null
-                  },
-                  "primary_action": {
-                    "__typename": null,
-                    "title": {
-                      "text": null
-                    },
-                    "limit": null,
-                    "url": null
-                  },
-                  "dismiss_action": {
-                    "__typename": null,
-                    "limit": null
-                  },
-                  "wa_light_mode_media_details": {
-                    "jpeg_thumbnail": null
-                  },
-                  "wa_dark_mode_media_details": {
-                    "jpeg_thumbnail": null
-                  },
-                  "accessibility_text_for_image": null,
-                  "is_dismissible": null,
-                  "id": null
-                },
-                "content_attributes": {
-                  "wa_banner_background_color": {
-                    "light_mode_highlight_color": null,
-                    "dark_mode_highlight_color": null,
-                    "light_mode_background_color": null,
-                    "dark_mode_background_color": null
-                  },
-                  "wa_primary_cta_alternative_url": null,
-                  "wa_eligible_duration_after_impression_in_seconds": null
-                },
-                "wa_qp_content_attributes_do_not_use": {
-                  "name": null,
-                  "value": null
-                },
-                "contextual_filters_for_wa_do_not_use": {
-                  "clause_type": null,
-                  "filters": {},
-                  "clauses": {
-                    "clause_type": null,
-                    "filters": {},
-                    "clauses": {
-                      "clause_type": null,
-                      "filters": {},
-                      "clauses": {
-                        "clause_type": null,
-                        "filters": {},
-                        "clauses": {
-                          "clause_type": null,
-                          "filters": {},
-                          "clauses": {
-                            "clause_type": null,
-                            "filters": {},
-                            "clauses": {
-                              "clause_type": null,
-                              "filters": {},
-                              "clauses": {
-                                "clause_type": null,
-                                "filters": {}
-                              }
-                            }
-                          }
-                        }
+                  "node": {
+                    "__typename": "string",
+                    "promotion_id": "string",
+                    "is_server_force_pass": "boolean",
+                    "ab_prop_name": "string",
+                    "max_impressions": "number",
+                    "surface_delay_in_seconds": "number",
+                    "encrypted_logging_data": "string",
+                    "client_side_dry_run": "boolean",
+                    "creatives": [
+                      {
+                        "__typename": "string",
+                        "title": {
+                          "text": "string"
+                        },
+                        "content": {
+                          "text": "string"
+                        },
+                        "primary_action": {
+                          "__typename": "string",
+                          "title": {
+                            "text": "string"
+                          },
+                          "limit": "number",
+                          "url": "string"
+                        },
+                        "dismiss_action": {
+                          "__typename": "string",
+                          "limit": "string"
+                        },
+                        "wa_light_mode_media_details": {
+                          "jpeg_thumbnail": "string"
+                        },
+                        "wa_dark_mode_media_details": {
+                          "jpeg_thumbnail": "string"
+                        },
+                        "accessibility_text_for_image": "string",
+                        "is_dismissible": "boolean",
+                        "id": "string"
                       }
-                    }
+                    ],
+                    "content_attributes": {
+                      "wa_banner_background_color": {
+                        "light_mode_highlight_color": "string",
+                        "dark_mode_highlight_color": "string",
+                        "light_mode_background_color": "string",
+                        "dark_mode_background_color": "string"
+                      },
+                      "wa_primary_cta_alternative_url": "string",
+                      "wa_eligible_duration_after_impression_in_seconds": "number"
+                    },
+                    "wa_qp_content_attributes_do_not_use": [
+                      {
+                        "name": "string",
+                        "value": "string"
+                      }
+                    ],
+                    "contextual_filters_for_wa_do_not_use": {
+                      "clause_type": "string",
+                      "filters": [
+                        {}
+                      ],
+                      "clauses": [
+                        {
+                          "clause_type": "string",
+                          "filters": [
+                            {}
+                          ],
+                          "clauses": [
+                            {
+                              "clause_type": "string",
+                              "filters": [
+                                {}
+                              ],
+                              "clauses": [
+                                {
+                                  "clause_type": "string",
+                                  "filters": [
+                                    {}
+                                  ],
+                                  "clauses": [
+                                    {
+                                      "clause_type": "string",
+                                      "filters": [
+                                        {}
+                                      ],
+                                      "clauses": [
+                                        {
+                                          "clause_type": "string",
+                                          "filters": [
+                                            {}
+                                          ],
+                                          "clauses": [
+                                            {
+                                              "clause_type": "string",
+                                              "filters": [
+                                                {}
+                                              ],
+                                              "clauses": [
+                                                {
+                                                  "clause_type": "string",
+                                                  "filters": [
+                                                    {}
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "id": "string"
                   }
-                },
-                "id": null
-              }
+                }
+              ]
             }
           }
-        }
+        ]
       }
     },
     "ConsumerQuickPromotionActionGraphQL": {
@@ -763,11 +847,11 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "wa_consumer_quick_promotion_log_event": {
-          "client_mutation_id": null
+          "client_mutation_id": "string"
         }
       }
     },
@@ -780,14 +864,14 @@
       ],
       "variablesShape": {
         "input": {
-          "receiver": null,
-          "entry_point": null,
-          "server_send_sms": null
+          "receiver": "string",
+          "entry_point": "string",
+          "server_send_sms": "boolean"
         }
       },
       "response": {
         "xwa2_growth_create_invite_code": {
-          "code": null
+          "code": "string"
         }
       }
     },
@@ -799,19 +883,19 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "whatsapp_marketing_messages_create": {
-          "ad_campaign_group_id": null,
-          "ad_campaign_id": null,
-          "ad_group_id": null,
-          "ad_id": null,
-          "ad_creative_id": null,
-          "campaign_name": null,
-          "status": null,
-          "lifetime_budget": null,
-          "start_time": null
+          "ad_campaign_group_id": "string",
+          "ad_campaign_id": "string",
+          "ad_group_id": "string",
+          "ad_id": "string",
+          "ad_creative_id": "string",
+          "campaign_name": "string",
+          "status": "string",
+          "lifetime_budget": "string",
+          "start_time": "string"
         }
       }
     },
@@ -824,50 +908,52 @@
       ],
       "variablesShape": {
         "input": {
-          "name": null,
-          "description": null,
-          "picture": null
+          "name": "string",
+          "description": "string",
+          "picture": {}
         }
       },
       "response": {
         "xwa2_newsletter_create": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "enum:ACTIVE"
           },
           "thread_metadata": {
             "name": {
-              "id": null,
-              "text": null,
-              "update_time": null
+              "id": "string",
+              "text": "string",
+              "update_time": "string"
             },
             "description": {
-              "id": null,
-              "text": null,
-              "update_time": null
+              "id": "string",
+              "text": "string",
+              "update_time": "string"
             },
             "picture": {
-              "id": null,
-              "type": null,
-              "direct_path": null
+              "id": "string",
+              "type": "string",
+              "direct_path": "string"
             },
             "preview": {
-              "id": null,
-              "type": null,
-              "direct_path": null
+              "id": "string",
+              "type": "enum:PREVIEW",
+              "direct_path": "string"
             },
-            "invite": null,
-            "handle": null,
-            "verification": null,
-            "subscribers_count": null,
-            "creation_time": null
+            "invite": "string",
+            "handle": "string",
+            "verification": "enum:UNVERIFIED",
+            "subscribers_count": "string",
+            "creation_time": "string"
           },
           "viewer_metadata": {
-            "settings": {
-              "type": null,
-              "value": null
-            },
-            "role": null
+            "settings": [
+              {
+                "type": "enum:MUTE_ADMIN_ACTIVITY|MUTE_FOLLOWER_ACTIVITY",
+                "value": "enum:OFF"
+              }
+            ],
+            "role": "enum:OWNER"
           }
         }
       }
@@ -881,13 +967,13 @@
         "user_id"
       ],
       "variablesShape": {
-        "newsletter_id": null,
-        "user_id": null
+        "newsletter_id": "string",
+        "user_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin_invite_create": {
-          "invite_expiration_time": null,
-          "id": null
+          "invite_expiration_time": "string",
+          "id": "string"
         }
       }
     },
@@ -900,34 +986,34 @@
         "report_id"
       ],
       "variablesShape": {
-        "reason": null,
-        "report_id": null
+        "reason": "string",
+        "report_id": "string"
       },
       "response": {
         "xwa2_create_channel_report_appeal_v2": {
-          "report_id": null,
-          "status": null,
-          "creation_time": null,
-          "last_update_time": null,
-          "channel_name": null,
-          "channel_jid": null,
+          "report_id": "string",
+          "status": "string",
+          "creation_time": "string",
+          "last_update_time": "string",
+          "channel_name": "string",
+          "channel_jid": "string",
           "reported_content_data": {
-            "__typename": null,
-            "server_msg_id": null,
-            "server_id": null,
-            "server_response_id": null,
-            "notify_name": null,
+            "__typename": "string",
+            "server_msg_id": "string",
+            "server_id": "string",
+            "server_response_id": "string",
+            "notify_name": "string",
             "question_data": {
-              "__typename": null,
-              "server_msg_id": null
+              "__typename": "string",
+              "server_msg_id": "string"
             }
           },
           "appeal": {
-            "state": null,
-            "appeal_reason": null,
-            "creation_time": null,
-            "report_id": null,
-            "appeal_id": null
+            "state": "string",
+            "appeal_reason": "string",
+            "creation_time": "string",
+            "report_id": "string",
+            "appeal_id": "string"
           }
         }
       }
@@ -942,15 +1028,15 @@
       ],
       "variablesShape": {
         "code": {
-          "sensitive_string_value": null
+          "sensitive_string_value": "string"
         },
         "phone_number": {
-          "sensitive_string_value": null
+          "sensitive_string_value": "string"
         }
       },
       "response": {
         "create_or_update_whatsapp_ads_identity": {
-          "id": null
+          "id": "string"
         }
       }
     },
@@ -963,16 +1049,20 @@
         "expt_group"
       ],
       "variablesShape": {
-        "custom_labels": null,
-        "expt_group": null
+        "custom_labels": [
+          "string"
+        ],
+        "expt_group": "string"
       },
       "response": {
-        "xwa_get_3pd_event": {
-          "custom_label": null,
-          "ctwa_3pd_conversion_type": null,
-          "ctwa_3pd_conversion_subtype": null,
-          "ctwa_3pd_conversion_metadata": null
-        }
+        "xwa_get_3pd_event": [
+          {
+            "custom_label": "string",
+            "ctwa_3pd_conversion_type": "string",
+            "ctwa_3pd_conversion_subtype": "string",
+            "ctwa_3pd_conversion_metadata": "string"
+          }
+        ]
       }
     },
     "DeleteNewsletter": {
@@ -983,13 +1073,13 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_delete_v2": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "enum:DELETED"
           }
         }
       }
@@ -1003,13 +1093,13 @@
         "user_id"
       ],
       "variablesShape": {
-        "newsletter_id": null,
-        "user_id": null
+        "newsletter_id": "string",
+        "user_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin_demote": {
-          "__typename": null,
-          "id": null
+          "__typename": "string",
+          "id": "string"
         }
       }
     },
@@ -1022,11 +1112,11 @@
         "lid"
       ],
       "variablesShape": {
-        "input": null,
-        "lid": null
+        "input": {},
+        "lid": "string"
       },
       "response": {
-        "edit_wa_web_biz_profile": null
+        "edit_wa_web_biz_profile": "boolean"
       }
     },
     "ExternalCtxAuthoriseWAChat": {
@@ -1037,12 +1127,12 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa_external_ctx_authorise_wa_chat": {
-          "success": null,
-          "partner_name": null
+          "success": "boolean",
+          "partner_name": "string"
         }
       }
     },
@@ -1055,16 +1145,20 @@
       ],
       "variablesShape": {
         "user": {
-          "user_id": null
+          "user_id": "string"
         }
       },
       "response": {
-        "xwa2_users_updates_since": {
-          "updates": {
-            "__typename": null,
-            "text": null
+        "xwa2_users_updates_since": [
+          {
+            "updates": [
+              {
+                "__typename": "string",
+                "text": "string"
+              }
+            ]
           }
-        }
+        ]
       }
     },
     "FetchAdEntryPointsConfiguration": {
@@ -1074,10 +1168,12 @@
       "variables": [],
       "variablesShape": {},
       "response": {
-        "ctwa_client_entry_point_entitlement": {
-          "entry_point_or_experience": null,
-          "should_show": null
-        }
+        "ctwa_client_entry_point_entitlement": [
+          {
+            "entry_point_or_experience": "string",
+            "should_show": "boolean"
+          }
+        ]
       }
     },
     "FetchAdEntryPointsConfigurationM1": {
@@ -1087,12 +1183,14 @@
       "variables": [],
       "variablesShape": {},
       "response": {
-        "ctwa_client_entry_point_entitlement": {
-          "entry_point_or_experience": null,
-          "should_show": null,
-          "content": null,
-          "sub_content": null
-        }
+        "ctwa_client_entry_point_entitlement": [
+          {
+            "entry_point_or_experience": "string",
+            "should_show": "boolean",
+            "content": "string",
+            "sub_content": "string"
+          }
+        ]
       }
     },
     "FetchAllNewslettersMetadata": {
@@ -1104,62 +1202,66 @@
         "fetch_wamo_sub"
       ],
       "variablesShape": {
-        "fetch_status_metadata": null,
-        "fetch_wamo_sub": null
+        "fetch_status_metadata": "boolean",
+        "fetch_wamo_sub": "boolean"
       },
       "response": {
-        "xwa2_newsletter_subscribed": {
-          "id": null,
-          "state": {
-            "type": null
-          },
-          "thread_metadata": {
-            "creation_time": null,
-            "name": {
-              "id": null,
-              "text": null,
-              "update_time": null
+        "xwa2_newsletter_subscribed": [
+          {
+            "id": "string",
+            "state": {
+              "type": "enum:ACTIVE|DELETED"
             },
-            "picture": {
-              "id": null,
-              "type": null,
-              "direct_path": null
-            },
-            "preview": {
-              "id": null,
-              "type": null,
-              "direct_path": null
-            },
-            "description": {
-              "id": null,
-              "text": null,
-              "update_time": null
-            },
-            "invite": null,
-            "handle": null,
-            "verification": null,
-            "settings": {
-              "reaction_codes": {
-                "value": null
+            "thread_metadata": {
+              "creation_time": "string",
+              "name": {
+                "id": "string",
+                "text": "string",
+                "update_time": "string"
+              },
+              "picture": {
+                "id": "string",
+                "type": "string",
+                "direct_path": "string"
+              },
+              "preview": {
+                "id": "string",
+                "type": "enum:PREVIEW",
+                "direct_path": "string"
+              },
+              "description": {
+                "id": "string",
+                "text": "string",
+                "update_time": "string"
+              },
+              "invite": "string",
+              "handle": "string",
+              "verification": "enum:UNVERIFIED",
+              "settings": {
+                "reaction_codes": {
+                  "value": "enum:ALL"
+                }
+              },
+              "wamo_sub": {
+                "plan_id": "string"
               }
             },
-            "wamo_sub": {
-              "plan_id": null
-            }
-          },
-          "viewer_metadata": {
-            "settings": {
-              "type": null,
-              "value": null
+            "viewer_metadata": {
+              "settings": [
+                {
+                  "type": "enum:MUTE_ADMIN_ACTIVITY|MUTE_FOLLOWER_ACTIVITY",
+                  "value": "enum:OFF|ON"
+                }
+              ],
+              "role": "enum:OWNER",
+              "wamo_sub_status": "enum:ACTIVE|INACTIVE"
             },
-            "role": null,
-            "wamo_sub_status": null
-          },
-          "status_metadata": {
-            "last_status_server_id": null,
-            "last_status_sent_time": null
+            "status_metadata": {
+              "last_status_server_id": "string",
+              "last_status_sent_time": "string"
+            }
           }
-        }
+        ]
       }
     },
     "FetchAllSubgroups": {
@@ -1172,39 +1274,41 @@
         "sub_group_hint_id"
       ],
       "variablesShape": {
-        "group_id": null,
-        "query_context": null,
-        "sub_group_hint_id": null
+        "group_id": "string",
+        "query_context": "string",
+        "sub_group_hint_id": "string"
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "id": null,
-          "__typename": null,
+          "id": "string",
+          "__typename": "string",
           "default_sub_group": {
-            "id": null,
+            "id": "string",
             "subject": {
-              "value": null,
-              "creation_time": null
+              "value": "string",
+              "creation_time": "string"
             }
           },
           "sub_groups": {
-            "edges": {
-              "node": {
-                "id": null,
-                "subject": {
-                  "value": null,
-                  "creation_time": null
-                },
-                "properties": {
-                  "general_chat": null,
-                  "membership_approval_mode_enabled": null,
-                  "hidden_group": null
-                },
-                "membership_approval_requests": {
-                  "total_count": null
+            "edges": [
+              {
+                "node": {
+                  "id": "string",
+                  "subject": {
+                    "value": "string",
+                    "creation_time": "string"
+                  },
+                  "properties": {
+                    "general_chat": "boolean",
+                    "membership_approval_mode_enabled": "boolean",
+                    "hidden_group": "boolean"
+                  },
+                  "membership_approval_requests": {
+                    "total_count": "number"
+                  }
                 }
               }
-            }
+            ]
           }
         }
       }
@@ -1217,27 +1321,33 @@
         "ids"
       ],
       "variablesShape": {
-        "ids": null
+        "ids": [
+          "string"
+        ]
       },
       "response": {
-        "xfb_fetch_genai_personas": {
-          "__typename": null,
-          "id": null,
-          "jid": null,
-          "is_meta_created": null,
-          "creator": {
-            "name": null,
-            "profile_uri": null
-          },
-          "latest_published_version_for_viewer": {
-            "__typename": null,
-            "name": null,
-            "description": null,
-            "icebreaker_prompt_list": null,
-            "posing_as_professional": null,
-            "id": null
+        "xfb_fetch_genai_personas": [
+          {
+            "__typename": "string",
+            "id": "string",
+            "jid": "string",
+            "is_meta_created": "boolean",
+            "creator": {
+              "name": "string",
+              "profile_uri": "string"
+            },
+            "latest_published_version_for_viewer": {
+              "__typename": "string",
+              "name": "string",
+              "description": "string",
+              "icebreaker_prompt_list": [
+                "string"
+              ],
+              "posing_as_professional": "boolean",
+              "id": "string"
+            }
           }
-        }
+        ]
       }
     },
     "FetchDynamicAIModes": {
@@ -1247,13 +1357,15 @@
       "variables": [],
       "variablesShape": {},
       "response": {
-        "xfb_meta_ai_modes": {
-          "mode_id": null,
-          "type": null,
-          "is_experimental": null,
-          "title": null,
-          "subtitle": null
-        }
+        "xfb_meta_ai_modes": [
+          {
+            "mode_id": "string",
+            "type": "string",
+            "is_experimental": "boolean",
+            "title": "string",
+            "subtitle": "string"
+          }
+        ]
       }
     },
     "FetchGroupInfo": {
@@ -1267,97 +1379,105 @@
         "query_context"
       ],
       "variablesShape": {
-        "id": null,
-        "include_username": null,
-        "participants_phash": null,
-        "query_context": null
+        "id": "string",
+        "include_username": "boolean",
+        "participants_phash": "string",
+        "query_context": "string"
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "__typename": null,
-          "id": null,
-          "creation_time": null,
+          "__typename": "string",
+          "id": "string",
+          "creation_time": "string",
           "creator": {
-            "id": null,
-            "lid": null,
-            "pn": null,
+            "id": "string",
+            "lid": "string",
+            "pn": "string",
             "username_info": {
-              "__typename": null,
-              "username": null
+              "__typename": "string",
+              "username": "string"
             }
           },
-          "state": null,
+          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
           "subject": {
             "creator": {
-              "id": null,
-              "lid": null,
-              "pn": null,
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
               "username_info": {
-                "__typename": null,
-                "username": null
+                "__typename": "string",
+                "username": "string"
               }
             },
-            "creation_time": null,
-            "value": null
+            "creation_time": "string",
+            "value": "string"
           },
           "description": {
-            "id": null,
-            "creation_time": null,
+            "id": "string",
+            "creation_time": "string",
             "creator": {
-              "id": null,
-              "lid": null,
-              "pn": null,
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
               "username_info": {
-                "__typename": null,
-                "username": null
+                "__typename": "string",
+                "username": "string"
               }
             },
-            "value": null
+            "value": "string"
           },
           "participants": {
-            "edges": {
-              "node": {
-                "id": null,
-                "lid": null,
-                "pn": null,
-                "display_name": null,
-                "username_info": {
-                  "__typename": null,
-                  "username": null
-                }
-              },
-              "role": null
-            },
-            "participants_phash_match": null
+            "edges": [
+              {
+                "node": {
+                  "id": "string",
+                  "lid": "string",
+                  "pn": "string",
+                  "display_name": "string",
+                  "username_info": {
+                    "__typename": "string",
+                    "username": "string"
+                  }
+                },
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+              }
+            ],
+            "participants_phash_match": "boolean"
           },
-          "total_participants_count": null,
-          "missing_participant_identification": null,
+          "total_participants_count": "number",
+          "missing_participant_identification": "boolean",
           "properties": {
-            "announcement": null,
-            "capi": null,
-            "ephemeral": {
-              "expiration_time_in_sec": null
-            },
-            "growth_locked2": {
-              "locked": null
+            "allow_non_admin_sub_group_creation": "boolean",
+            "closed_by_membership_approval_mode": "boolean",
+            "appeal_status": "string",
+            "appeal_update_time": "string",
+            "limit_sharing": {
+              "limit_sharing_enabled": "boolean"
             },
             "lid_migration_state": {
-              "addressing_mode": null
+              "addressing_mode": "enum:LID"
             },
-            "locked": null,
-            "member_add_mode": null,
-            "member_link_mode": null,
-            "member_share_group_history_mode": null,
-            "membership_approval_mode_enabled": null,
-            "support": null,
-            "group_safety_check": null,
-            "appeal_status": null,
-            "appeal_update_time": null,
-            "limit_sharing": {
-              "limit_sharing_enabled": null
-            }
+            "ephemeral": {
+              "expiration_time_in_sec": "number"
+            },
+            "growth_locked2": {
+              "locked": "boolean"
+            },
+            "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
+            "parent_group_jid": "string",
+            "group_safety_check": "boolean",
+            "announcement": "boolean",
+            "locked": "boolean",
+            "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
+            "member_share_group_history_mode": "enum:ALL_MEMBER_SHARE",
+            "membership_approval_mode_enabled": "boolean",
+            "general_chat": "boolean",
+            "auto_add_disabled": "boolean",
+            "hidden_group": "boolean",
+            "capi": "boolean",
+            "support": "boolean"
           },
-          "membership_approval_request": null
+          "membership_approval_request": "boolean"
         }
       }
     },
@@ -1372,100 +1492,108 @@
         "query_context"
       ],
       "variablesShape": {
-        "id": null,
-        "include_username": null,
-        "participants_phash": null,
-        "query_context": null
+        "id": "string",
+        "include_username": "boolean",
+        "participants_phash": "string",
+        "query_context": "string"
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "__typename": null,
-          "id": null,
-          "creation_time": null,
+          "__typename": "string",
+          "id": "string",
+          "creation_time": "string",
           "creator": {
-            "id": null,
-            "lid": null,
-            "pn": null,
+            "id": "string",
+            "lid": "string",
+            "pn": "string",
             "username_info": {
-              "__typename": null,
-              "username": null
+              "__typename": "string",
+              "username": "string"
             }
           },
-          "state": null,
+          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
           "subject": {
             "creator": {
-              "id": null,
-              "lid": null,
-              "pn": null,
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
               "username_info": {
-                "__typename": null,
-                "username": null
+                "__typename": "string",
+                "username": "string"
               }
             },
-            "creation_time": null,
-            "value": null
+            "creation_time": "string",
+            "value": "string"
           },
           "description": {
-            "id": null,
-            "creation_time": null,
+            "id": "string",
+            "creation_time": "string",
             "creator": {
-              "id": null,
-              "lid": null,
-              "pn": null,
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
               "username_info": {
-                "__typename": null,
-                "username": null
+                "__typename": "string",
+                "username": "string"
               }
             },
-            "value": null
+            "value": "string"
           },
           "participants": {
-            "edges": {
-              "participant": {
-                "__typename": null,
-                "id": null,
-                "lid": null,
-                "pn": null,
-                "display_name": null,
-                "username_info": {
-                  "__typename": null,
-                  "username": null
+            "edges": [
+              {
+                "participant": {
+                  "__typename": "string",
+                  "id": "string",
+                  "lid": "string",
+                  "pn": "string",
+                  "display_name": "string",
+                  "username_info": {
+                    "__typename": "string",
+                    "username": "string"
+                  },
+                  "jid": "string"
                 },
-                "jid": null
-              },
-              "role": null
-            },
-            "participants_phash_match": null
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+              }
+            ],
+            "participants_phash_match": "boolean"
           },
-          "total_participants_count": null,
-          "missing_participant_identification": null,
+          "total_participants_count": "number",
+          "missing_participant_identification": "boolean",
           "properties": {
-            "allow_admin_reports": null,
-            "announcement": null,
-            "capi": null,
-            "ephemeral": {
-              "expiration_time_in_sec": null
-            },
-            "growth_locked2": {
-              "locked": null
+            "allow_non_admin_sub_group_creation": "boolean",
+            "closed_by_membership_approval_mode": "boolean",
+            "appeal_status": "string",
+            "appeal_update_time": "string",
+            "limit_sharing": {
+              "limit_sharing_enabled": "boolean"
             },
             "lid_migration_state": {
-              "addressing_mode": null
+              "addressing_mode": "enum:LID"
             },
-            "locked": null,
-            "member_add_mode": null,
-            "member_link_mode": null,
-            "member_share_group_history_mode": null,
-            "membership_approval_mode_enabled": null,
-            "support": null,
-            "group_safety_check": null,
-            "appeal_status": null,
-            "appeal_update_time": null,
-            "limit_sharing": {
-              "limit_sharing_enabled": null
-            }
+            "allow_admin_reports": "boolean",
+            "announcement": "boolean",
+            "ephemeral": {
+              "expiration_time_in_sec": "number"
+            },
+            "growth_locked2": {
+              "locked": "boolean"
+            },
+            "locked": "boolean",
+            "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
+            "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
+            "member_share_group_history_mode": "enum:ALL_MEMBER_SHARE",
+            "membership_approval_mode_enabled": "boolean",
+            "parent_group_jid": "string",
+            "general_chat": "boolean",
+            "auto_add_disabled": "boolean",
+            "hidden_group": "boolean",
+            "group_safety_check": "boolean",
+            "capi": "boolean",
+            "support": "boolean"
           },
-          "membership_approval_request": null
+          "membership_approval_request": "boolean"
         }
       }
     },
@@ -1478,14 +1606,14 @@
         "query_context"
       ],
       "variablesShape": {
-        "id": null,
-        "query_context": null
+        "id": "string",
+        "query_context": "string"
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "__typename": null,
-          "invite_code": null,
-          "id": null
+          "__typename": "string",
+          "invite_code": "string",
+          "id": "string"
         }
       }
     },
@@ -1497,15 +1625,15 @@
         "id"
       ],
       "variablesShape": {
-        "id": null
+        "id": "string"
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "__typename": null,
+          "__typename": "string",
           "properties": {
-            "internal": null
+            "internal": "boolean"
           },
-          "id": null
+          "id": "string"
         }
       }
     },
@@ -1520,27 +1648,29 @@
         "input": {
           "query_input": [
             {
-              "jid": null,
+              "jid": "string",
               "integrity_signals": {
-                "use_case": null
+                "use_case": "string"
               }
             }
           ],
           "telemetry": {
-            "context": null
+            "context": "string"
           }
         }
       },
       "response": {
-        "xwa2_fetch_wa_users": {
-          "__typename": null,
-          "integrity_signals_info": {
-            "__typename": null,
-            "is_suspicious_start_chat": null,
-            "is_new_account": null
-          },
-          "id": null
-        }
+        "xwa2_fetch_wa_users": [
+          {
+            "__typename": "string",
+            "integrity_signals_info": {
+              "__typename": "string",
+              "is_suspicious_start_chat": "boolean",
+              "is_new_account": "boolean"
+            },
+            "id": "string"
+          }
+        ]
       }
     },
     "FetchNativeAdsMvpEligibility": {
@@ -1551,14 +1681,14 @@
         "phone_number"
       ],
       "variablesShape": {
-        "phone_number": null
+        "phone_number": "string"
       },
       "response": {
         "wa_smb_native_ads_web_info": {
-          "lifetime_native_ctwa_advertiser": null,
-          "webclient_l90_ad_creator": null,
-          "is_page_asset_linked": null,
-          "is_pageless_asset_linked": null
+          "lifetime_native_ctwa_advertiser": "boolean",
+          "webclient_l90_ad_creator": "boolean",
+          "is_page_asset_linked": "boolean",
+          "is_pageless_asset_linked": "boolean"
         }
       }
     },
@@ -1571,19 +1701,19 @@
       ],
       "variablesShape": {
         "input": {
-          "type": null
+          "type": "string"
         }
       },
       "response": {
         "xwa2_message_capping_info": {
-          "total_quota": null,
-          "used_quota": null,
-          "cycle_start_timestamp": null,
-          "cycle_end_timestamp": null,
-          "server_sent_timestamp": null,
-          "ote_status": null,
-          "mv_status": null,
-          "capping_status": null
+          "total_quota": "string",
+          "used_quota": "string",
+          "cycle_start_timestamp": "string",
+          "cycle_end_timestamp": "string",
+          "server_sent_timestamp": "string",
+          "ote_status": "string",
+          "mv_status": "string",
+          "capping_status": "string"
         }
       }
     },
@@ -1600,69 +1730,71 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_creation_time": null,
-        "fetch_full_image": null,
-        "fetch_status_metadata": null,
-        "fetch_viewer_metadata": null,
-        "fetch_wamo_sub": null,
+        "fetch_creation_time": "boolean",
+        "fetch_full_image": "boolean",
+        "fetch_status_metadata": "boolean",
+        "fetch_viewer_metadata": "boolean",
+        "fetch_wamo_sub": "boolean",
         "input": {
-          "key": null,
-          "type": null,
-          "view_role": null
+          "key": "string",
+          "type": "string",
+          "view_role": "string"
         }
       },
       "response": {
         "xwa2_newsletter": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "enum:ACTIVE|NON_EXISTING|SUSPENDED"
           },
           "thread_metadata": {
-            "creation_time": null,
+            "creation_time": "string",
             "name": {
-              "id": null,
-              "text": null,
-              "update_time": null
+              "id": "string",
+              "text": "string",
+              "update_time": "string"
             },
             "picture": {
-              "id": null,
-              "type": null,
-              "direct_path": null
+              "id": "string",
+              "type": "enum:IMAGE",
+              "direct_path": "string"
             },
             "preview": {
-              "id": null,
-              "type": null,
-              "direct_path": null
+              "id": "string",
+              "type": "enum:PREVIEW",
+              "direct_path": "string"
             },
             "description": {
-              "id": null,
-              "text": null,
-              "update_time": null
+              "id": "string",
+              "text": "string",
+              "update_time": "string"
             },
-            "invite": null,
-            "handle": null,
-            "subscribers_count": null,
-            "verification": null,
+            "invite": "string",
+            "handle": "string",
+            "subscribers_count": "string",
+            "verification": "enum:UNVERIFIED|VERIFIED",
             "settings": {
               "reaction_codes": {
-                "value": null
+                "value": "enum:ALL"
               }
             },
             "wamo_sub": {
-              "plan_id": null
+              "plan_id": "string"
             }
           },
           "viewer_metadata": {
-            "settings": {
-              "type": null,
-              "value": null
-            },
-            "role": null,
-            "wamo_sub_status": null
+            "settings": [
+              {
+                "type": "enum:MUTE_ADMIN_ACTIVITY|MUTE_FOLLOWER_ACTIVITY",
+                "value": "enum:OFF|ON"
+              }
+            ],
+            "role": "enum:OWNER|SUBSCRIBER",
+            "wamo_sub_status": "enum:ACTIVE|INACTIVE"
           },
           "status_metadata": {
-            "last_status_server_id": null,
-            "last_status_sent_time": null
+            "last_status_server_id": "string",
+            "last_status_sent_time": "string"
           }
         }
       }
@@ -1675,12 +1807,12 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin": {
-          "capabilities": null,
-          "id": null
+          "capabilities": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU",
+          "id": "string"
         }
       }
     },
@@ -1692,23 +1824,23 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin": {
-          "admin_count": null,
+          "admin_count": "number",
           "admin_profile": {
-            "id": null,
-            "name": null,
+            "id": "string",
+            "name": "string",
             "picture": {
-              "id": null,
-              "direct_path": null
+              "id": "string",
+              "direct_path": "string"
             }
           },
           "admin_settings": {
-            "admin_profiles_enabled": null
+            "admin_profiles_enabled": "boolean"
           },
-          "id": null
+          "id": "string"
         }
       }
     },
@@ -1721,30 +1853,30 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_wamo_sub": null,
+        "fetch_wamo_sub": "boolean",
         "input": {
-          "key": null,
-          "type": null,
-          "view_role": null
+          "key": "string",
+          "type": "string",
+          "view_role": "string"
         }
       },
       "response": {
         "xwa2_newsletter": {
-          "id": null,
+          "id": "string",
           "thread_metadata": {
-            "subscribers_count": null,
-            "verification": null,
+            "subscribers_count": "string",
+            "verification": "enum:UNVERIFIED|VERIFIED",
             "settings": {
               "reaction_codes": {
-                "value": null
+                "value": "enum:ALL"
               }
             },
             "wamo_sub": {
-              "plan_id": null
+              "plan_id": "string"
             }
           },
           "viewer_metadata": {
-            "wamo_sub_status": null
+            "wamo_sub_status": "enum:ACTIVE|INACTIVE"
           }
         }
       }
@@ -1758,48 +1890,54 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_status_metadata": null,
+        "fetch_status_metadata": "boolean",
         "input": {
-          "categories": null,
-          "country_code": null,
-          "per_category_limit": null
+          "categories": [
+            "string"
+          ],
+          "country_code": "string",
+          "per_category_limit": "number"
         }
       },
       "response": {
         "xwa2_newsletters_directory_category_preview": {
-          "result": {
-            "category": null,
-            "category_title": null,
-            "newsletters": {
-              "id": null,
-              "thread_metadata": {
-                "creation_time": null,
-                "invite": null,
-                "handle": null,
-                "subscribers_count": null,
-                "name": {
-                  "id": null,
-                  "text": null,
-                  "update_time": null
-                },
-                "description": {
-                  "id": null,
-                  "text": null,
-                  "update_time": null
-                },
-                "picture": {
-                  "id": null,
-                  "direct_path": null,
-                  "type": null
-                },
-                "verification": null
-              },
-              "status_metadata": {
-                "last_status_server_id": null,
-                "last_status_sent_time": null
-              }
+          "result": [
+            {
+              "category": "string",
+              "category_title": "string",
+              "newsletters": [
+                {
+                  "id": "string",
+                  "thread_metadata": {
+                    "creation_time": "string",
+                    "invite": "string",
+                    "handle": "string",
+                    "subscribers_count": "string",
+                    "name": {
+                      "id": "string",
+                      "text": "string",
+                      "update_time": "string"
+                    },
+                    "description": {
+                      "id": "string",
+                      "text": "string",
+                      "update_time": "string"
+                    },
+                    "picture": {
+                      "id": "string",
+                      "direct_path": "string",
+                      "type": "string"
+                    },
+                    "verification": "string"
+                  },
+                  "status_metadata": {
+                    "last_status_server_id": "string",
+                    "last_status_sent_time": "string"
+                  }
+                }
+              ]
             }
-          }
+          ]
         }
       }
     },
@@ -1812,54 +1950,60 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_status_metadata": null,
+        "fetch_status_metadata": "boolean",
         "input": {
-          "view": null,
+          "view": "string",
           "filters": {
-            "country_codes": null,
-            "categories": null
+            "country_codes": [
+              "string"
+            ],
+            "categories": [
+              "string"
+            ]
           },
-          "limit": null,
-          "start_cursor": null
+          "limit": "number",
+          "start_cursor": "string"
         }
       },
       "response": {
         "xwa2_newsletters_directory_list": {
           "page_info": {
-            "hasNextPage": null,
-            "hasPreviousPage": null,
-            "startCursor": null,
-            "endCursor": null
+            "hasNextPage": "boolean",
+            "hasPreviousPage": "boolean",
+            "startCursor": "string",
+            "endCursor": "string"
           },
-          "result": {
-            "id": null,
-            "thread_metadata": {
-              "creation_time": null,
-              "invite": null,
-              "handle": null,
-              "subscribers_count": null,
-              "name": {
-                "id": null,
-                "text": null,
-                "update_time": null
+          "result": [
+            {
+              "id": "string",
+              "thread_metadata": {
+                "creation_time": "string",
+                "invite": "string",
+                "handle": "string",
+                "subscribers_count": "string",
+                "name": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "description": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "picture": {
+                  "id": "string",
+                  "direct_path": "string",
+                  "type": "enum:PREVIEW"
+                },
+                "verification": "enum:UNVERIFIED|VERIFIED"
               },
-              "description": {
-                "id": null,
-                "text": null,
-                "update_time": null
-              },
-              "picture": {
-                "id": null,
-                "direct_path": null,
-                "type": null
-              },
-              "verification": null
-            },
-            "status_metadata": {
-              "last_status_server_id": null,
-              "last_status_sent_time": null
+              "status_metadata": {
+                "last_status_server_id": "string",
+                "last_status_sent_time": "string"
+              }
             }
-          }
+          ]
         }
       }
     },
@@ -1872,51 +2016,55 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_status_metadata": null,
+        "fetch_status_metadata": "boolean",
         "input": {
-          "search_text": null,
-          "categories": null,
-          "limit": null,
-          "start_cursor": null
+          "search_text": "string",
+          "categories": [
+            "string"
+          ],
+          "limit": "number",
+          "start_cursor": "string"
         }
       },
       "response": {
         "xwa2_newsletters_directory_search": {
           "page_info": {
-            "hasNextPage": null,
-            "hasPreviousPage": null,
-            "startCursor": null,
-            "endCursor": null
+            "hasNextPage": "boolean",
+            "hasPreviousPage": "boolean",
+            "startCursor": "string",
+            "endCursor": "string"
           },
-          "result": {
-            "id": null,
-            "thread_metadata": {
-              "creation_time": null,
-              "invite": null,
-              "handle": null,
-              "subscribers_count": null,
-              "name": {
-                "id": null,
-                "text": null,
-                "update_time": null
+          "result": [
+            {
+              "id": "string",
+              "thread_metadata": {
+                "creation_time": "string",
+                "invite": "string",
+                "handle": "string",
+                "subscribers_count": "string",
+                "name": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "description": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "picture": {
+                  "id": "string",
+                  "direct_path": "string",
+                  "type": "enum:PREVIEW"
+                },
+                "verification": "enum:UNVERIFIED|VERIFIED"
               },
-              "description": {
-                "id": null,
-                "text": null,
-                "update_time": null
-              },
-              "picture": {
-                "id": null,
-                "direct_path": null,
-                "type": null
-              },
-              "verification": null
-            },
-            "status_metadata": {
-              "last_status_server_id": null,
-              "last_status_sent_time": null
+              "status_metadata": {
+                "last_status_server_id": "string",
+                "last_status_sent_time": "string"
+              }
             }
-          }
+          ]
         }
       }
     },
@@ -1929,136 +2077,146 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "locale": null,
-        "newsletter_id": null
+        "locale": "string",
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_channel_enforcements": {
-          "profile_picture_deletions": {
-            "enforcement_creation_time": null,
-            "appeal_creation_time": null,
-            "appeal_state": null,
-            "enforcement_violation_category": null,
-            "enforcement_source": null,
-            "enforcement_id": null,
-            "enforcement_extra_data": {
-              "ip_violation_report_data": {
-                "report_fbid": null,
-                "appeal_form_url": null,
-                "reporter_email": null,
-                "reporter_name": null
-              }
-            },
-            "enforcement_policy_information": {
-              "overview": null,
-              "headline": null,
-              "subtitle": null,
-              "explanation": null,
-              "admin_disclaimer": null
-            }
-          },
-          "suspensions": {
-            "appeal_creation_time": null,
-            "enforcement_creation_time": null,
-            "appeal_state": null,
-            "enforcement_violation_category": null,
-            "enforcement_id": null,
-            "enforcement_source": null,
-            "enforcement_extra_data": {
-              "ip_violation_report_data": {
-                "report_fbid": null,
-                "appeal_form_url": null,
-                "reporter_email": null,
-                "reporter_name": null
-              },
-              "enforcement_target_data": {
-                "__typename": null,
-                "server_msg_id": null,
-                "server_id": null,
-                "id": null
-              },
-              "appeal_extra_data": {
-                "appeal_form_url": null
-              }
-            },
-            "enforcement_policy_information": {
-              "overview": null,
-              "headline": null,
-              "subtitle": null,
-              "explanation": null,
-              "admin_disclaimer": null
-            }
-          },
-          "violating_messages": {
-            "base_enforcement_data": {
-              "enforcement_creation_time": null,
-              "appeal_creation_time": null,
-              "appeal_state": null,
-              "enforcement_id": null,
-              "enforcement_violation_category": null,
-              "enforcement_source": null,
+          "profile_picture_deletions": [
+            {
+              "enforcement_creation_time": "string",
+              "appeal_creation_time": "string",
+              "appeal_state": "string",
+              "enforcement_violation_category": "string",
+              "enforcement_source": "string",
+              "enforcement_id": "string",
               "enforcement_extra_data": {
                 "ip_violation_report_data": {
-                  "report_fbid": null,
-                  "appeal_form_url": null,
-                  "reporter_email": null,
-                  "reporter_name": null
+                  "report_fbid": "string",
+                  "appeal_form_url": "string",
+                  "reporter_email": "string",
+                  "reporter_name": "string"
                 }
               },
               "enforcement_policy_information": {
-                "overview": null,
-                "headline": null,
-                "subtitle": null,
-                "explanation": null,
-                "admin_disclaimer": null
+                "overview": "string",
+                "headline": "string",
+                "subtitle": "string",
+                "explanation": "string",
+                "admin_disclaimer": "string"
               }
-            },
-            "content_data": {
-              "__typename": null,
-              "server_msg_id": null,
-              "server_id": null
             }
-          },
-          "geosuspensions": {
-            "base_enforcement_data": {
-              "enforcement_creation_time": null,
-              "appeal_creation_time": null,
-              "appeal_state": null,
-              "enforcement_id": null,
-              "enforcement_violation_category": null,
-              "enforcement_source": null,
+          ],
+          "suspensions": [
+            {
+              "appeal_creation_time": "string",
+              "enforcement_creation_time": "string",
+              "appeal_state": "string",
+              "enforcement_violation_category": "string",
+              "enforcement_id": "string",
+              "enforcement_source": "string",
               "enforcement_extra_data": {
                 "ip_violation_report_data": {
-                  "report_fbid": null,
-                  "appeal_form_url": null,
-                  "reporter_email": null,
-                  "reporter_name": null
+                  "report_fbid": "string",
+                  "appeal_form_url": "string",
+                  "reporter_email": "string",
+                  "reporter_name": "string"
                 },
                 "enforcement_target_data": {
-                  "__typename": null,
-                  "server_msg_id": null,
-                  "server_id": null,
-                  "id": null
+                  "__typename": "string",
+                  "server_msg_id": "string",
+                  "server_id": "string",
+                  "id": "string"
                 },
                 "appeal_extra_data": {
-                  "appeal_form_url": null
-                },
-                "enforcing_entity_data": {
-                  "name": null
-                },
-                "enforcement_origin_workflow": null,
-                "enforcement_origin_legal_basis": null
+                  "appeal_form_url": "string"
+                }
               },
               "enforcement_policy_information": {
-                "overview": null,
-                "headline": null,
-                "subtitle": null,
-                "explanation": null,
-                "admin_disclaimer": null
+                "overview": "string",
+                "headline": "string",
+                "subtitle": "string",
+                "explanation": "string",
+                "admin_disclaimer": "string"
               }
-            },
-            "country_codes": null
-          }
+            }
+          ],
+          "violating_messages": [
+            {
+              "base_enforcement_data": {
+                "enforcement_creation_time": "string",
+                "appeal_creation_time": "string",
+                "appeal_state": "string",
+                "enforcement_id": "string",
+                "enforcement_violation_category": "string",
+                "enforcement_source": "string",
+                "enforcement_extra_data": {
+                  "ip_violation_report_data": {
+                    "report_fbid": "string",
+                    "appeal_form_url": "string",
+                    "reporter_email": "string",
+                    "reporter_name": "string"
+                  }
+                },
+                "enforcement_policy_information": {
+                  "overview": "string",
+                  "headline": "string",
+                  "subtitle": "string",
+                  "explanation": "string",
+                  "admin_disclaimer": "string"
+                }
+              },
+              "content_data": {
+                "__typename": "string",
+                "server_msg_id": "string",
+                "server_id": "string"
+              }
+            }
+          ],
+          "geosuspensions": [
+            {
+              "base_enforcement_data": {
+                "enforcement_creation_time": "string",
+                "appeal_creation_time": "string",
+                "appeal_state": "string",
+                "enforcement_id": "string",
+                "enforcement_violation_category": "string",
+                "enforcement_source": "string",
+                "enforcement_extra_data": {
+                  "ip_violation_report_data": {
+                    "report_fbid": "string",
+                    "appeal_form_url": "string",
+                    "reporter_email": "string",
+                    "reporter_name": "string"
+                  },
+                  "enforcement_target_data": {
+                    "__typename": "string",
+                    "server_msg_id": "string",
+                    "server_id": "string",
+                    "id": "string"
+                  },
+                  "appeal_extra_data": {
+                    "appeal_form_url": "string"
+                  },
+                  "enforcing_entity_data": {
+                    "name": "string"
+                  },
+                  "enforcement_origin_workflow": "string",
+                  "enforcement_origin_legal_basis": "string"
+                },
+                "enforcement_policy_information": {
+                  "overview": "string",
+                  "headline": "string",
+                  "subtitle": "string",
+                  "explanation": "string",
+                  "admin_disclaimer": "string"
+                }
+              },
+              "country_codes": [
+                "string"
+              ]
+            }
+          ]
         }
       }
     },
@@ -2071,34 +2229,36 @@
       ],
       "variablesShape": {
         "input": {
-          "newsletter_id": null,
-          "count": null
+          "newsletter_id": "string",
+          "count": "number"
         }
       },
       "response": {
         "xwa2_newsletter_followers": {
           "followers": {
-            "edges": {
-              "node": {
-                "id": null,
-                "display_name": null,
-                "pn": null,
-                "username_info": {
-                  "__typename": null,
-                  "username": null
-                }
-              },
-              "follow_time": null,
-              "role": null,
-              "admin_profile": {
-                "id": null,
-                "name": null,
-                "picture": {
-                  "direct_path": null,
-                  "id": null
+            "edges": [
+              {
+                "node": {
+                  "id": "string",
+                  "display_name": "string",
+                  "pn": "string",
+                  "username_info": {
+                    "__typename": "string",
+                    "username": "string"
+                  }
+                },
+                "follow_time": "string",
+                "role": "enum:ADMIN|OWNER",
+                "admin_profile": {
+                  "id": "string",
+                  "name": "string",
+                  "picture": {
+                    "direct_path": "string",
+                    "id": "string"
+                  }
                 }
               }
-            }
+            ]
           }
         }
       }
@@ -2112,27 +2272,33 @@
       ],
       "variablesShape": {
         "input": {
-          "newsletter_id": null,
-          "metrics": null
+          "newsletter_id": "string",
+          "metrics": [
+            "string"
+          ]
         }
       },
       "response": {
         "xwa2_newsletter_admin_insights": {
-          "newsletter_id": null,
+          "newsletter_id": "string",
           "state": {
-            "type": null
+            "type": "string"
           },
-          "last_update_time": null,
-          "metrics_status": null,
-          "result": {
-            "id": null,
-            "values": {
-              "value": null,
-              "country": null,
-              "role": null,
-              "timestamp": null
+          "last_update_time": "string",
+          "metrics_status": "string",
+          "result": [
+            {
+              "id": "string",
+              "values": [
+                {
+                  "value": "string",
+                  "country": "string",
+                  "role": "string",
+                  "timestamp": "string"
+                }
+              ]
             }
-          }
+          ]
         }
       }
     },
@@ -2144,14 +2310,18 @@
         "url_domains"
       ],
       "variablesShape": {
-        "url_domains": null
+        "url_domains": [
+          "string"
+        ]
       },
       "response": {
         "xwa2_newsletter_message_integrity": {
-          "url_previews": {
-            "url_domain": null,
-            "is_previewable": null
-          }
+          "url_previews": [
+            {
+              "url_domain": "string",
+              "is_previewable": "boolean"
+            }
+          ]
         }
       }
     },
@@ -2164,23 +2334,27 @@
       ],
       "variablesShape": {
         "input": {
-          "id": null,
-          "server_id": null
+          "id": "string",
+          "server_id": "string"
         }
       },
       "response": {
         "xwa2_newsletters_reaction_sender_list": {
-          "reactions": {
-            "reaction_code": null,
-            "sender_list": {
-              "edges": {
-                "node": {
-                  "id": null,
-                  "profile_pic_direct_path": null
-                }
+          "reactions": [
+            {
+              "reaction_code": "string",
+              "sender_list": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "string",
+                      "profile_pic_direct_path": "string"
+                    }
+                  }
+                ]
               }
             }
-          }
+          ]
         }
       }
     },
@@ -2192,17 +2366,19 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin": {
-          "pending_admin_invites": {
-            "user": {
-              "pn": null,
-              "id": null
+          "pending_admin_invites": [
+            {
+              "user": {
+                "pn": "string",
+                "id": "string"
+              }
             }
-          },
-          "id": null
+          ],
+          "id": "string"
         }
       }
     },
@@ -2215,25 +2391,29 @@
       ],
       "variablesShape": {
         "input": {
-          "limit": null,
-          "server_id": null,
-          "newsletter_id": null,
-          "vote_hash": null
+          "limit": "number",
+          "server_id": "string",
+          "newsletter_id": "string",
+          "vote_hash": "string"
         }
       },
       "response": {
         "voter_list": {
-          "votes": {
-            "vote_hash": null,
-            "voter_list": {
-              "edges": {
-                "action_time": null,
-                "node": {
-                  "id": null
-                }
+          "votes": [
+            {
+              "vote_hash": "string",
+              "voter_list": {
+                "edges": [
+                  {
+                    "action_time": "string",
+                    "node": {
+                      "id": "string"
+                    }
+                  }
+                ]
               }
             }
-          }
+          ]
         }
       }
     },
@@ -2245,32 +2425,34 @@
       "variablesShape": {},
       "response": {
         "xwa2_channels_reports": {
-          "channels_reports": {
-            "report_id": null,
-            "status": null,
-            "creation_time": null,
-            "last_update_time": null,
-            "channel_name": null,
-            "channel_jid": null,
-            "reported_content_data": {
-              "__typename": null,
-              "server_msg_id": null,
-              "server_id": null,
-              "server_response_id": null,
-              "notify_name": null,
-              "question_data": {
-                "__typename": null,
-                "server_msg_id": null
+          "channels_reports": [
+            {
+              "report_id": "string",
+              "status": "string",
+              "creation_time": "string",
+              "last_update_time": "string",
+              "channel_name": "string",
+              "channel_jid": "string",
+              "reported_content_data": {
+                "__typename": "string",
+                "server_msg_id": "string",
+                "server_id": "string",
+                "server_response_id": "string",
+                "notify_name": "string",
+                "question_data": {
+                  "__typename": "string",
+                  "server_msg_id": "string"
+                }
+              },
+              "appeal": {
+                "state": "string",
+                "appeal_reason": "string",
+                "creation_time": "string",
+                "report_id": "string",
+                "appeal_id": "string"
               }
-            },
-            "appeal": {
-              "state": null,
-              "appeal_reason": null,
-              "creation_time": null,
-              "report_id": null,
-              "appeal_id": null
             }
-          }
+          ]
         }
       }
     },
@@ -2282,15 +2464,17 @@
       "variablesShape": {},
       "response": {
         "xwa2_ohai_configurations": {
-          "ohai_configs": {
-            "aead_id": null,
-            "expiration_date": null,
-            "kdf_id": null,
-            "kem_id": null,
-            "key_id": null,
-            "last_updated_time": null,
-            "public_key": null
-          }
+          "ohai_configs": [
+            {
+              "aead_id": "number",
+              "expiration_date": "string",
+              "kdf_id": "number",
+              "kem_id": "number",
+              "key_id": "number",
+              "last_updated_time": "string",
+              "public_key": "string"
+            }
+          ]
         }
       }
     },
@@ -2301,7 +2485,7 @@
       "variables": [],
       "variablesShape": {},
       "response": {
-        "xfb_wa_biz_get_oidc_state": null
+        "xfb_wa_biz_get_oidc_state": "string"
       }
     },
     "FetchPlaintextLinkPreview": {
@@ -2313,19 +2497,19 @@
       ],
       "variablesShape": {
         "input": {
-          "url": null
+          "url": "string"
         }
       },
       "response": {
         "xwa2_newsletter_link_preview": {
-          "description": null,
-          "direct_path": null,
-          "hash": null,
-          "preview_type": null,
-          "thumb_data": null,
-          "title": null,
-          "height": null,
-          "width": null
+          "description": "string",
+          "direct_path": "string",
+          "hash": "string",
+          "preview_type": "enum:IMAGE",
+          "thumb_data": "string",
+          "title": "string",
+          "height": "number",
+          "width": "number"
         }
       }
     },
@@ -2338,174 +2522,230 @@
         "trigger_context"
       ],
       "variablesShape": {
-        "nux_ids": null,
+        "nux_ids": [
+          "string"
+        ],
         "trigger_context": {
           "wa_smb_trigger_context": {
-            "is_from_wa_smb": null,
-            "app_version": null,
-            "country": null,
-            "locale": null
+            "is_from_wa_smb": "boolean",
+            "app_version": "number",
+            "country": "string",
+            "locale": "string"
           }
         }
       },
       "response": {
-        "quick_promotion_batch_fetch_root": {
-          "surface_nux_id": null,
-          "eligible_promotions": {
-            "edges": {
-              "client_ttl_seconds": null,
-              "priority": null,
-              "is_holdout": null,
-              "log_eligibility_waterfall": null,
-              "time_range": {
-                "start": null,
-                "end": null
-              },
-              "node": {
-                "promotion_id": null,
-                "is_server_force_pass": null,
-                "ab_prop_name": null,
-                "surface_delay_in_seconds": null,
-                "encrypted_logging_data": null,
-                "client_side_dry_run": null,
-                "creatives": {
-                  "title": {
-                    "text": null
+        "quick_promotion_batch_fetch_root": [
+          {
+            "surface_nux_id": "string",
+            "eligible_promotions": {
+              "edges": [
+                {
+                  "client_ttl_seconds": "number",
+                  "priority": "number",
+                  "is_holdout": "boolean",
+                  "log_eligibility_waterfall": "string",
+                  "time_range": {
+                    "start": "string",
+                    "end": "string"
                   },
-                  "content": {
-                    "text": null
-                  },
-                  "primary_action": {
-                    "title": {
-                      "text": null
-                    },
-                    "url": null
-                  },
-                  "wa_light_mode_media_details": {
-                    "jpeg_thumbnail": null
-                  },
-                  "wa_dark_mode_media_details": {
-                    "jpeg_thumbnail": null
-                  },
-                  "accessibility_text_for_image": null,
-                  "is_dismissible": null,
-                  "id": null
-                },
-                "content_attributes": {
-                  "wa_banner_background_color": {
-                    "light_mode_highlight_color": null,
-                    "dark_mode_highlight_color": null,
-                    "light_mode_background_color": null,
-                    "dark_mode_background_color": null
-                  },
-                  "wa_primary_cta_alternative_url": null,
-                  "wa_eligible_duration_after_impression_in_seconds": null
-                },
-                "wa_qp_content_attributes_do_not_use": {
-                  "name": null,
-                  "value": null
-                },
-                "contextual_filters_for_wa_do_not_use": {
-                  "clause_type": null,
-                  "filters": {
-                    "filter_name": null,
-                    "parameters": {
-                      "key": null,
-                      "value": null
-                    },
-                    "passes_if_client_not_supported": null,
-                    "filter_result": null
-                  },
-                  "clauses": {
-                    "clause_type": null,
-                    "filters": {
-                      "filter_name": null,
-                      "parameters": {
-                        "key": null,
-                        "value": null
-                      },
-                      "passes_if_client_not_supported": null,
-                      "filter_result": null
-                    },
-                    "clauses": {
-                      "clause_type": null,
-                      "filters": {
-                        "filter_name": null,
-                        "parameters": {
-                          "key": null,
-                          "value": null
+                  "node": {
+                    "promotion_id": "string",
+                    "is_server_force_pass": "boolean",
+                    "ab_prop_name": "string",
+                    "surface_delay_in_seconds": "number",
+                    "encrypted_logging_data": "string",
+                    "client_side_dry_run": "boolean",
+                    "creatives": [
+                      {
+                        "title": {
+                          "text": "string"
                         },
-                        "passes_if_client_not_supported": null,
-                        "filter_result": null
-                      },
-                      "clauses": {
-                        "clause_type": null,
-                        "filters": {
-                          "filter_name": null,
-                          "parameters": {
-                            "key": null,
-                            "value": null
-                          },
-                          "passes_if_client_not_supported": null,
-                          "filter_result": null
+                        "content": {
+                          "text": "string"
                         },
-                        "clauses": {
-                          "clause_type": null,
-                          "filters": {
-                            "filter_name": null,
-                            "parameters": {
-                              "key": null,
-                              "value": null
-                            },
-                            "passes_if_client_not_supported": null,
-                            "filter_result": null
+                        "primary_action": {
+                          "title": {
+                            "text": "string"
                           },
-                          "clauses": {
-                            "clause_type": null,
-                            "filters": {
-                              "filter_name": null,
-                              "parameters": {
-                                "key": null,
-                                "value": null
-                              },
-                              "passes_if_client_not_supported": null,
-                              "filter_result": null
-                            },
-                            "clauses": {
-                              "clause_type": null,
-                              "filters": {
-                                "filter_name": null,
-                                "parameters": {
-                                  "key": null,
-                                  "value": null
-                                },
-                                "passes_if_client_not_supported": null,
-                                "filter_result": null
-                              },
-                              "clauses": {
-                                "clause_type": null,
-                                "filters": {
-                                  "filter_name": null,
-                                  "parameters": {
-                                    "key": null,
-                                    "value": null
-                                  },
-                                  "passes_if_client_not_supported": null,
-                                  "filter_result": null
-                                }
-                              }
-                            }
-                          }
-                        }
+                          "url": "string"
+                        },
+                        "wa_light_mode_media_details": {
+                          "jpeg_thumbnail": "string"
+                        },
+                        "wa_dark_mode_media_details": {
+                          "jpeg_thumbnail": "string"
+                        },
+                        "accessibility_text_for_image": "string",
+                        "is_dismissible": "boolean",
+                        "id": "string"
                       }
-                    }
+                    ],
+                    "content_attributes": {
+                      "wa_banner_background_color": {
+                        "light_mode_highlight_color": "string",
+                        "dark_mode_highlight_color": "string",
+                        "light_mode_background_color": "string",
+                        "dark_mode_background_color": "string"
+                      },
+                      "wa_primary_cta_alternative_url": "string",
+                      "wa_eligible_duration_after_impression_in_seconds": "number"
+                    },
+                    "wa_qp_content_attributes_do_not_use": [
+                      {
+                        "name": "string",
+                        "value": "string"
+                      }
+                    ],
+                    "contextual_filters_for_wa_do_not_use": {
+                      "clause_type": "string",
+                      "filters": [
+                        {
+                          "filter_name": "string",
+                          "parameters": [
+                            {
+                              "key": "string",
+                              "value": "string"
+                            }
+                          ],
+                          "passes_if_client_not_supported": "boolean",
+                          "filter_result": "string"
+                        }
+                      ],
+                      "clauses": [
+                        {
+                          "clause_type": "string",
+                          "filters": [
+                            {
+                              "filter_name": "string",
+                              "parameters": [
+                                {
+                                  "key": "string",
+                                  "value": "string"
+                                }
+                              ],
+                              "passes_if_client_not_supported": "boolean",
+                              "filter_result": "string"
+                            }
+                          ],
+                          "clauses": [
+                            {
+                              "clause_type": "string",
+                              "filters": [
+                                {
+                                  "filter_name": "string",
+                                  "parameters": [
+                                    {
+                                      "key": "string",
+                                      "value": "string"
+                                    }
+                                  ],
+                                  "passes_if_client_not_supported": "boolean",
+                                  "filter_result": "string"
+                                }
+                              ],
+                              "clauses": [
+                                {
+                                  "clause_type": "string",
+                                  "filters": [
+                                    {
+                                      "filter_name": "string",
+                                      "parameters": [
+                                        {
+                                          "key": "string",
+                                          "value": "string"
+                                        }
+                                      ],
+                                      "passes_if_client_not_supported": "boolean",
+                                      "filter_result": "string"
+                                    }
+                                  ],
+                                  "clauses": [
+                                    {
+                                      "clause_type": "string",
+                                      "filters": [
+                                        {
+                                          "filter_name": "string",
+                                          "parameters": [
+                                            {
+                                              "key": "string",
+                                              "value": "string"
+                                            }
+                                          ],
+                                          "passes_if_client_not_supported": "boolean",
+                                          "filter_result": "string"
+                                        }
+                                      ],
+                                      "clauses": [
+                                        {
+                                          "clause_type": "string",
+                                          "filters": [
+                                            {
+                                              "filter_name": "string",
+                                              "parameters": [
+                                                {
+                                                  "key": "string",
+                                                  "value": "string"
+                                                }
+                                              ],
+                                              "passes_if_client_not_supported": "boolean",
+                                              "filter_result": "string"
+                                            }
+                                          ],
+                                          "clauses": [
+                                            {
+                                              "clause_type": "string",
+                                              "filters": [
+                                                {
+                                                  "filter_name": "string",
+                                                  "parameters": [
+                                                    {
+                                                      "key": "string",
+                                                      "value": "string"
+                                                    }
+                                                  ],
+                                                  "passes_if_client_not_supported": "boolean",
+                                                  "filter_result": "string"
+                                                }
+                                              ],
+                                              "clauses": [
+                                                {
+                                                  "clause_type": "string",
+                                                  "filters": [
+                                                    {
+                                                      "filter_name": "string",
+                                                      "parameters": [
+                                                        {
+                                                          "key": "string",
+                                                          "value": "string"
+                                                        }
+                                                      ],
+                                                      "passes_if_client_not_supported": "boolean",
+                                                      "filter_result": "string"
+                                                    }
+                                                  ]
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "id": "string"
                   }
-                },
-                "id": null
-              }
+                }
+              ]
             }
           }
-        }
+        ]
       }
     },
     "FetchReachoutTimelock": {
@@ -2516,9 +2756,9 @@
       "variablesShape": {},
       "response": {
         "xwa2_fetch_account_reachout_timelock": {
-          "is_active": null,
-          "time_enforcement_ends": null,
-          "enforcement_type": null
+          "is_active": "boolean",
+          "time_enforcement_ends": "string",
+          "enforcement_type": "enum:GEOSUSPEND|GEOSUSPEND_INFORM|PROFILE_PICTURE_DELETION|SUSPEND|SUSPEND_INFORM|VIOLATING_MSG"
         }
       }
     },
@@ -2531,52 +2771,56 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_status_metadata": null,
+        "fetch_status_metadata": "boolean",
         "input": {
-          "limit": null,
-          "country_codes": null
+          "limit": "number",
+          "country_codes": [
+            "string"
+          ]
         }
       },
       "response": {
         "xwa2_newsletters_recommended": {
           "page_info": {
-            "hasNextPage": null,
-            "hasPreviousPage": null,
-            "startCursor": null,
-            "endCursor": null
+            "hasNextPage": "boolean",
+            "hasPreviousPage": "boolean",
+            "startCursor": "string",
+            "endCursor": "string"
           },
-          "result": {
-            "id": null,
-            "state": {
-              "type": null
-            },
-            "thread_metadata": {
-              "creation_time": null,
-              "name": {
-                "id": null,
-                "text": null,
-                "update_time": null
+          "result": [
+            {
+              "id": "string",
+              "state": {
+                "type": "enum:ACTIVE"
               },
-              "description": {
-                "id": null,
-                "text": null,
-                "update_time": null
+              "thread_metadata": {
+                "creation_time": "string",
+                "name": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "description": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "preview": {
+                  "id": "string",
+                  "type": "enum:PREVIEW",
+                  "direct_path": "string"
+                },
+                "invite": "string",
+                "handle": "string",
+                "verification": "enum:UNVERIFIED|VERIFIED",
+                "subscribers_count": "string"
               },
-              "preview": {
-                "id": null,
-                "type": null,
-                "direct_path": null
-              },
-              "invite": null,
-              "handle": null,
-              "verification": null,
-              "subscribers_count": null
-            },
-            "status_metadata": {
-              "last_status_server_id": null,
-              "last_status_sent_time": null
+              "status_metadata": {
+                "last_status_server_id": "string",
+                "last_status_sent_time": "string"
+              }
             }
-          }
+          ]
         }
       }
     },
@@ -2589,37 +2833,41 @@
         "input"
       ],
       "variablesShape": {
-        "fetch_status_metadata": null,
+        "fetch_status_metadata": "boolean",
         "input": {
-          "newsletter_id": null,
-          "limit": null,
-          "country_codes": null
+          "newsletter_id": "string",
+          "limit": "number",
+          "country_codes": [
+            "string"
+          ]
         }
       },
       "response": {
         "xwa2_newsletters_similar": {
-          "result": {
-            "id": null,
-            "thread_metadata": {
-              "name": {
-                "id": null,
-                "text": null,
-                "update_time": null
+          "result": [
+            {
+              "id": "string",
+              "thread_metadata": {
+                "name": {
+                  "id": "string",
+                  "text": "string",
+                  "update_time": "string"
+                },
+                "picture": {
+                  "id": "string",
+                  "type": "string",
+                  "direct_path": "string"
+                },
+                "verification": "string"
               },
-              "picture": {
-                "id": null,
-                "type": null,
-                "direct_path": null
+              "status_metadata": {
+                "last_status_server_id": "string"
               },
-              "verification": null
-            },
-            "status_metadata": {
-              "last_status_server_id": null
-            },
-            "state": {
-              "type": null
+              "state": {
+                "type": "string"
+              }
             }
-          }
+          ]
         }
       }
     },
@@ -2633,34 +2881,36 @@
         "sub_group_hint_id"
       ],
       "variablesShape": {
-        "group_id": null,
-        "query_context": null,
-        "sub_group_hint_id": null
+        "group_id": "string",
+        "query_context": "string",
+        "sub_group_hint_id": "string"
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "__typename": null,
-          "id": null,
+          "__typename": "string",
+          "id": "string",
           "sub_group_suggestions": {
-            "edges": {
-              "node": {
-                "id": null,
-                "subject": {
-                  "value": null
-                },
-                "description": {
-                  "value": null,
-                  "id": null
-                },
-                "creator": {
-                  "id": null
-                },
-                "creation_time": null,
-                "total_participants_count": null,
-                "is_existing_group": null,
-                "hidden_group": null
+            "edges": [
+              {
+                "node": {
+                  "id": "string",
+                  "subject": {
+                    "value": "string"
+                  },
+                  "description": {
+                    "value": "string",
+                    "id": "string"
+                  },
+                  "creator": {
+                    "id": "string"
+                  },
+                  "creation_time": "string",
+                  "total_participants_count": "number",
+                  "is_existing_group": "boolean",
+                  "hidden_group": "boolean"
+                }
               }
-            }
+            ]
           }
         }
       }
@@ -2673,11 +2923,13 @@
       "variablesShape": {},
       "response": {
         "waSubscriptionEntryPoints": {
-          "subscriptionEntryPoints": {
-            "subscriptionType": null,
-            "webEntryPointEligibility": null,
-            "webEntryPointRedirectionUri": null
-          }
+          "subscriptionEntryPoints": [
+            {
+              "subscriptionType": "string",
+              "webEntryPointEligibility": "boolean",
+              "webEntryPointRedirectionUri": "string"
+            }
+          ]
         }
       }
     },
@@ -2690,27 +2942,31 @@
       ],
       "variablesShape": {
         "data": {
-          "platform": null
+          "platform": "string"
         }
       },
       "response": {
         "xwa_get_subscriptions": {
-          "subscriptions": {
-            "id": null,
-            "status": null,
-            "end_time": null,
-            "creation_time": null,
-            "tier": null,
-            "source": null,
-            "is_platform_changed": null,
-            "start_time": null
-          },
-          "feature_flags": {
-            "name": null,
-            "enabled": null,
-            "expiration_time": null,
-            "limit": null
-          }
+          "subscriptions": [
+            {
+              "id": "string",
+              "status": "enum:ACTIVE|CANCELED",
+              "end_time": "string",
+              "creation_time": "string",
+              "tier": "string",
+              "source": "string",
+              "is_platform_changed": "boolean",
+              "start_time": "string"
+            }
+          ],
+          "feature_flags": [
+            {
+              "name": "string",
+              "enabled": "boolean",
+              "expiration_time": "string",
+              "limit": "number"
+            }
+          ]
         }
       }
     },
@@ -2722,18 +2978,20 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
-        "xwa2_text_status_list": {
-          "jid": null,
-          "text": null,
-          "last_update_time": null,
-          "ephemeral_duration_sec": null,
-          "emoji": {
-            "content": null
+        "xwa2_text_status_list": [
+          {
+            "jid": "string",
+            "text": "string",
+            "last_update_time": "string",
+            "ephemeral_duration_sec": "number",
+            "emoji": {
+              "content": "string"
+            }
           }
-        }
+        ]
       }
     },
     "GetAccessTokenFromOIDCCode": {
@@ -2745,13 +3003,13 @@
         "state"
       ],
       "variablesShape": {
-        "code": null,
-        "state": null
+        "code": "string",
+        "state": "string"
       },
       "response": {
         "xfb_wa_biz_get_token_from_oidc_code": {
-          "access_token": null,
-          "fb_user_id": null
+          "access_token": "string",
+          "fb_user_id": "string"
         }
       }
     },
@@ -2765,16 +3023,16 @@
       "variablesShape": {
         "input": {
           "identifier": {
-            "scope": null
+            "scope": "string"
           }
         }
       },
       "response": {
         "xfb_wa_biz_account_nonce": {
           "detail": {
-            "nonce": null,
+            "nonce": "string",
             "request": {
-              "id": null
+              "id": "string"
             }
           }
         }
@@ -2789,12 +3047,12 @@
       ],
       "variablesShape": {
         "input": {
-          "entity_id": null
+          "entity_id": "string"
         }
       },
       "response": {
         "xwa2_get_dsb_info": {
-          "reference_number": null
+          "reference_number": "string"
         }
       }
     },
@@ -2806,21 +3064,23 @@
         "userId"
       ],
       "variablesShape": {
-        "userId": null
+        "userId": "string"
       },
       "response": {
         "user": {
           "facebook_pages": {
-            "nodes": {
-              "name": null,
-              "id": null,
-              "profile_picture": {
-                "uri": null
-              },
-              "permitted_tasks": null
-            }
+            "nodes": [
+              {
+                "name": "string",
+                "id": "string",
+                "profile_picture": {
+                  "uri": "string"
+                },
+                "permitted_tasks": "string"
+              }
+            ]
           },
-          "id": null
+          "id": "string"
         }
       }
     },
@@ -2833,18 +3093,26 @@
       ],
       "variablesShape": {
         "input": {
-          "brand_ids": null,
-          "lid_based_response": null
+          "brand_ids": [
+            "string"
+          ],
+          "lid_based_response": "boolean"
         }
       },
       "response": {
         "xwa_get_numbers_for_brand_ids": {
-          "brand_ids_data": {
-            "brand_id": null,
-            "error": null,
-            "phone_numbers": null,
-            "lids": null
-          }
+          "brand_ids_data": [
+            {
+              "brand_id": "string",
+              "error": "boolean",
+              "phone_numbers": [
+                "string"
+              ],
+              "lids": [
+                "string"
+              ]
+            }
+          ]
         }
       }
     },
@@ -2859,32 +3127,36 @@
         "input": {
           "query_input": [
             {
-              "jid": null,
+              "jid": "string",
               "privacy_contact_list_type": {
-                "dhash": null,
-                "category": null,
-                "type": null
+                "dhash": "string",
+                "category": "string",
+                "type": "string"
               }
             }
           ]
         }
       },
       "response": {
-        "xwa2_fetch_wa_users": {
-          "__typename": null,
-          "privacy_contact_list": {
-            "dhash": null,
-            "contacts": {
-              "jid": null,
-              "pn_jid": null,
-              "username_info": {
-                "__typename": null,
-                "username": null
-              }
-            }
-          },
-          "id": null
-        }
+        "xwa2_fetch_wa_users": [
+          {
+            "__typename": "string",
+            "privacy_contact_list": {
+              "dhash": "string",
+              "contacts": [
+                {
+                  "jid": "string",
+                  "pn_jid": "string",
+                  "username_info": {
+                    "__typename": "string",
+                    "username": "string"
+                  }
+                }
+              ]
+            },
+            "id": "string"
+          }
+        ]
       }
     },
     "GetPrivacySettings": {
@@ -2898,23 +3170,29 @@
         "input": {
           "query_input": [
             {
-              "jid": null,
-              "privacy_features": null
+              "jid": "string",
+              "privacy_features": [
+                "string"
+              ]
             }
           ]
         }
       },
       "response": {
-        "xwa2_fetch_wa_users": {
-          "__typename": null,
-          "privacy_settings": {
-            "settings": {
-              "feature": null,
-              "setting": null
-            }
-          },
-          "id": null
-        }
+        "xwa2_fetch_wa_users": [
+          {
+            "__typename": "string",
+            "privacy_settings": {
+              "settings": [
+                {
+                  "feature": "enum:ABOUT|CALLADD|DEFENSE|GROUPADD|LAST|MESSAGES|ONLINE|PROFILE|READRECEIPTS",
+                  "setting": "enum:ALL|MYCONTACTS|OFF"
+                }
+              ]
+            },
+            "id": "string"
+          }
+        ]
       }
     },
     "GetUsername": {
@@ -2926,9 +3204,9 @@
       "response": {
         "xwa2_username_get": {
           "username_info": {
-            "username": null,
-            "state": null,
-            "pin": null
+            "username": "string",
+            "state": "string",
+            "pin": "string"
           }
         }
       }
@@ -2942,13 +3220,13 @@
       ],
       "variablesShape": {
         "input": {
-          "flow_id": null,
-          "request_id": null
+          "flow_id": "string",
+          "request_id": "string"
         }
       },
       "response": {
         "eval_wa_ad_account_eligibility_rules": {
-          "eligibility_result": null
+          "eligibility_result": "string"
         }
       }
     },
@@ -2962,16 +3240,16 @@
       "variablesShape": {
         "request": {
           "public_key": {
-            "biz_jid": null
+            "biz_jid": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_public_key": {
-          "public_key_certificate_pem": null,
+          "public_key_certificate_pem": "string",
           "public_key_with_signature": {
-            "public_key_pem": null,
-            "public_key_signature": null
+            "public_key_pem": "string",
+            "public_key_signature": "string"
           }
         }
       }
@@ -2986,16 +3264,16 @@
       "variablesShape": {
         "request": {
           "verify_postcode": {
-            "biz_jid": null,
-            "direct_connection_encrypted_info": null
+            "biz_jid": "string",
+            "direct_connection_encrypted_info": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_verify_postcode": {
           "postcode_verification_result": {
-            "result_code": null,
-            "encrypted_location_name": null
+            "result_code": "string",
+            "encrypted_location_name": "string"
           }
         }
       }
@@ -3009,16 +3287,20 @@
       ],
       "variablesShape": {
         "input": {
-          "partcipants": null,
-          "group_jid": null
+          "partcipants": [
+            {}
+          ],
+          "group_jid": "string"
         }
       },
       "response": {
         "xwa2_group_store_invites_sms": {
-          "group_jid": null,
-          "participant_responses": {
-            "error_code": null
-          }
+          "group_jid": "string",
+          "participant_responses": [
+            {
+              "error_code": "number"
+            }
+          ]
         }
       }
     },
@@ -3031,16 +3313,16 @@
       ],
       "variablesShape": {
         "input": {
-          "group_jid": null,
-          "appeal_reason": null,
-          "debug_info": null
+          "group_jid": "string",
+          "appeal_reason": "string",
+          "debug_info": "string"
         }
       },
       "response": {
         "wa_create_group_suspension_appeal": {
-          "response_code": null,
-          "error_message": null,
-          "appeal_creation_time": null
+          "response_code": "string",
+          "error_message": "string",
+          "appeal_creation_time": "string"
         }
       }
     },
@@ -3053,17 +3335,17 @@
       ],
       "variablesShape": {
         "input": {
-          "challenge_type": null,
+          "challenge_type": "string",
           "passkey_response": {
-            "signed_challenge": null,
-            "prf_available": null
+            "signed_challenge": "string",
+            "prf_available": "boolean"
           }
         }
       },
       "response": {
         "xwa2_submit_integrity_challenge_response": {
-          "success": null,
-          "error_message": null
+          "success": "boolean",
+          "error_message": "string"
         }
       }
     },
@@ -3075,13 +3357,13 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_join_v2": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "enum:ACTIVE"
           }
         }
       }
@@ -3094,13 +3376,13 @@
         "newsletter_id"
       ],
       "variablesShape": {
-        "newsletter_id": null
+        "newsletter_id": "string"
       },
       "response": {
         "xwa2_newsletter_leave_v2": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "enum:ACTIVE"
           }
         }
       }
@@ -3113,8 +3395,8 @@
       "variablesShape": {},
       "response": {
         "xwa2_notify_lid_change": {
-          "old": null,
-          "new": null
+          "old": "string",
+          "new": "string"
         }
       }
     },
@@ -3127,12 +3409,14 @@
       ],
       "variablesShape": {
         "input": {
-          "exposures": null
+          "exposures": [
+            "string"
+          ]
         }
       },
       "response": {
         "xwa2_newsletter_log_exposures": {
-          "__typename": null
+          "__typename": "string"
         }
       }
     },
@@ -3145,37 +3429,43 @@
         "model_request_metadatas"
       ],
       "variablesShape": {
-        "client_capability_metadata": null,
-        "model_request_metadatas": null
+        "client_capability_metadata": "string",
+        "model_request_metadatas": "string"
       },
       "response": {
         "aim_model_batched_manifest": {
-          "models": {
-            "name": null,
-            "version": null,
-            "assets": {
-              "name": null,
-              "id": null,
-              "cache_key": null,
-              "source_content_hash": null,
-              "md5_hash": null,
-              "asset_handle": null,
-              "creation_time": null,
-              "url": null,
-              "filesize_bytes": null,
-              "compression_type": null,
-              "asset_type": null
-            },
-            "properties": {
-              "name": null,
-              "value": null
+          "models": [
+            {
+              "name": "string",
+              "version": "number",
+              "assets": [
+                {
+                  "name": "string",
+                  "id": "string",
+                  "cache_key": "string",
+                  "source_content_hash": "string",
+                  "md5_hash": "string",
+                  "asset_handle": "string",
+                  "creation_time": "string",
+                  "url": "string",
+                  "filesize_bytes": "number",
+                  "compression_type": "string",
+                  "asset_type": "string"
+                }
+              ],
+              "properties": [
+                {
+                  "name": "string",
+                  "value": "string"
+                }
+              ]
             }
-          },
-          "entry_point": null,
-          "asset_count": null,
-          "model_count": null,
-          "status": null,
-          "status_details": null
+          ],
+          "entry_point": "string",
+          "asset_count": "number",
+          "model_count": "number",
+          "status": "string",
+          "status_details": "string"
         }
       }
     },
@@ -3189,13 +3479,13 @@
         "server_id"
       ],
       "variablesShape": {
-        "message_type": null,
-        "newsletter_id": null,
-        "server_id": null
+        "message_type": "string",
+        "newsletter_id": "string",
+        "server_id": "string"
       },
       "response": {
         "xwa2_newsletter_label_paid_partnership": {
-          "id": null
+          "id": "string"
         }
       }
     },
@@ -3209,112 +3499,128 @@
       "variablesShape": {
         "request": {
           "product_catalog": {
-            "jid": null,
-            "allow_shop_source": null,
-            "width": null,
-            "height": null,
-            "direct_connection_encrypted_info": null,
-            "limit": null,
-            "after": null,
-            "catalog_session_id": null,
-            "variant_info_fields": null,
-            "variant_thumbnail_height": null,
-            "variant_thumbnail_width": null
+            "jid": "string",
+            "allow_shop_source": "enum:ALLOWSHOPSOURCE_FALSE|ALLOWSHOPSOURCE_TRUE",
+            "width": "string",
+            "height": "string",
+            "direct_connection_encrypted_info": "string",
+            "limit": "string",
+            "after": "string",
+            "catalog_session_id": "string",
+            "variant_info_fields": {},
+            "variant_thumbnail_height": "string",
+            "variant_thumbnail_width": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_product_catalog": {
-          "__typename": null,
+          "__typename": "string",
           "product_catalog": {
-            "products": {
-              "id": null,
-              "retailer_id": null,
-              "is_hidden": null,
-              "is_sanctioned": null,
-              "product_availability": null,
-              "max_available": null,
-              "name": null,
-              "description": null,
-              "url": null,
-              "shimmed_url": null,
-              "currency": null,
-              "price": null,
-              "status_info": {
-                "can_appeal": null,
-                "status": null
-              },
-              "sale_price": {
-                "price": null,
-                "start_date": null,
-                "end_date": null
-              },
-              "media": {
-                "images": {
-                  "id": null,
-                  "original_image_url": null,
-                  "request_image_url": null
+            "products": [
+              {
+                "id": "string",
+                "retailer_id": "string",
+                "is_hidden": "boolean",
+                "is_sanctioned": "boolean",
+                "product_availability": "string",
+                "max_available": "number",
+                "name": "string",
+                "description": "string",
+                "url": "string",
+                "shimmed_url": "string",
+                "currency": "string",
+                "price": "string",
+                "status_info": {
+                  "can_appeal": "boolean",
+                  "status": "string"
                 },
-                "videos": {
-                  "id": null,
-                  "original_video_url": null,
-                  "thumbnail_url": null
-                }
-              },
-              "belongs_to": null,
-              "compliance_category": null,
-              "compliance_info": {
-                "country_code_origin": null,
-                "importer_name": null,
-                "importer_address": {
-                  "street1": null,
-                  "street2": null,
-                  "postal_code": null,
-                  "city": null,
-                  "region": null,
-                  "country_code": null
-                }
-              },
-              "variant_info": {
-                "listing_details": {
-                  "description": null,
-                  "multi_price": null,
-                  "lowest_price": null
+                "sale_price": {
+                  "price": "string",
+                  "start_date": "string",
+                  "end_date": "string"
                 },
-                "availability": {
-                  "listing": {
-                    "is_available": null,
-                    "options": {
-                      "name": null,
-                      "value": null
-                    },
-                    "product_id": null
-                  }
-                },
-                "types": {
-                  "name": null,
-                  "options": {
-                    "value": null,
-                    "thumbnail_media": {
-                      "id": null,
-                      "original_dimensions": {
-                        "height": null,
-                        "width": null
-                      },
-                      "original_image_url": null,
-                      "request_image_url": null
+                "media": {
+                  "images": [
+                    {
+                      "id": "string",
+                      "original_image_url": "string",
+                      "request_image_url": "string"
                     }
+                  ],
+                  "videos": [
+                    {
+                      "id": "string",
+                      "original_video_url": "string",
+                      "thumbnail_url": "string"
+                    }
+                  ]
+                },
+                "belongs_to": "string",
+                "compliance_category": "string",
+                "compliance_info": {
+                  "country_code_origin": "string",
+                  "importer_name": "string",
+                  "importer_address": {
+                    "street1": "string",
+                    "street2": "string",
+                    "postal_code": "string",
+                    "city": "string",
+                    "region": "string",
+                    "country_code": "string"
                   }
                 },
-                "variant_properties": {
-                  "name": null,
-                  "value": null
+                "variant_info": {
+                  "listing_details": {
+                    "description": "string",
+                    "multi_price": "string",
+                    "lowest_price": "string"
+                  },
+                  "availability": {
+                    "listing": [
+                      {
+                        "is_available": "boolean",
+                        "options": [
+                          {
+                            "name": "string",
+                            "value": "string"
+                          }
+                        ],
+                        "product_id": "string"
+                      }
+                    ]
+                  },
+                  "types": [
+                    {
+                      "name": "string",
+                      "options": [
+                        {
+                          "value": "string",
+                          "thumbnail_media": {
+                            "id": "string",
+                            "original_dimensions": {
+                              "height": "number",
+                              "width": "number"
+                            },
+                            "original_image_url": "string",
+                            "request_image_url": "string"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "variant_properties": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
                 }
               }
-            },
+            ],
             "paging": {
-              "before": null,
-              "after": null
+              "before": "string",
+              "after": "string"
             }
           }
         }
@@ -3330,18 +3636,20 @@
       "variablesShape": {
         "request": {
           "categories": {
-            "biz_jid": null,
-            "direct_connection_encrypted_info": null,
-            "image_dimensions": null,
-            "catalog_session_id": null
+            "biz_jid": "string",
+            "direct_connection_encrypted_info": "string",
+            "image_dimensions": {},
+            "catalog_session_id": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_categories": {
-          "categories": {
-            "__typename": null
-          }
+          "categories": [
+            {
+              "__typename": "string"
+            }
+          ]
         }
       }
     },
@@ -3355,15 +3663,15 @@
       "variablesShape": {
         "request": {
           "product": {
-            "jid": null,
-            "product_id": null,
-            "width": null,
-            "height": null,
-            "fetch_compliance_info": null,
-            "direct_connection_encrypted_info": null,
-            "variant_info_fields": null,
-            "variant_thumbnail_height": null,
-            "variant_thumbnail_width": null
+            "jid": "string",
+            "product_id": "string",
+            "width": "string",
+            "height": "string",
+            "fetch_compliance_info": "string",
+            "direct_connection_encrypted_info": "string",
+            "variant_info_fields": {},
+            "variant_thumbnail_height": "string",
+            "variant_thumbnail_width": "string"
           }
         }
       },
@@ -3371,88 +3679,102 @@
         "xwa_product_catalog_get_product": {
           "product_catalog": {
             "product": {
-              "id": null,
-              "retailer_id": null,
-              "is_hidden": null,
-              "is_sanctioned": null,
-              "product_availability": null,
-              "max_available": null,
-              "name": null,
-              "description": null,
-              "url": null,
-              "shimmed_url": null,
-              "currency": null,
-              "price": null,
+              "id": "string",
+              "retailer_id": "string",
+              "is_hidden": "boolean",
+              "is_sanctioned": "boolean",
+              "product_availability": "string",
+              "max_available": "number",
+              "name": "string",
+              "description": "string",
+              "url": "string",
+              "shimmed_url": "string",
+              "currency": "string",
+              "price": "string",
               "status_info": {
-                "can_appeal": null,
-                "status": null
+                "can_appeal": "boolean",
+                "status": "string"
               },
               "sale_price": {
-                "price": null,
-                "start_date": null,
-                "end_date": null
+                "price": "string",
+                "start_date": "string",
+                "end_date": "string"
               },
               "media": {
-                "images": {
-                  "id": null,
-                  "original_image_url": null,
-                  "request_image_url": null
-                },
-                "videos": {
-                  "id": null,
-                  "original_video_url": null,
-                  "thumbnail_url": null
-                }
+                "images": [
+                  {
+                    "id": "string",
+                    "original_image_url": "string",
+                    "request_image_url": "string"
+                  }
+                ],
+                "videos": [
+                  {
+                    "id": "string",
+                    "original_video_url": "string",
+                    "thumbnail_url": "string"
+                  }
+                ]
               },
-              "belongs_to": null,
-              "compliance_category": null,
+              "belongs_to": "string",
+              "compliance_category": "string",
               "compliance_info": {
-                "country_code_origin": null,
-                "importer_name": null,
+                "country_code_origin": "string",
+                "importer_name": "string",
                 "importer_address": {
-                  "street1": null,
-                  "street2": null,
-                  "postal_code": null,
-                  "city": null,
-                  "region": null,
-                  "country_code": null
+                  "street1": "string",
+                  "street2": "string",
+                  "postal_code": "string",
+                  "city": "string",
+                  "region": "string",
+                  "country_code": "string"
                 }
               },
               "variant_info": {
                 "listing_details": {
-                  "description": null,
-                  "multi_price": null,
-                  "lowest_price": null
+                  "description": "string",
+                  "multi_price": "string",
+                  "lowest_price": "string"
                 },
                 "availability": {
-                  "listing": {
-                    "is_available": null,
-                    "options": {
-                      "name": null,
-                      "value": null
-                    },
-                    "product_id": null
-                  }
-                },
-                "types": {
-                  "name": null,
-                  "options": {
-                    "value": null,
-                    "thumbnail_media": {
-                      "id": null,
-                      "original_dimensions": {
-                        "height": null,
-                        "width": null
-                      },
-                      "original_image_url": null,
-                      "request_image_url": null
+                  "listing": [
+                    {
+                      "is_available": "boolean",
+                      "options": [
+                        {
+                          "name": "string",
+                          "value": "string"
+                        }
+                      ],
+                      "product_id": "string"
                     }
-                  }
+                  ]
                 },
-                "variant_properties": {
-                  "name": null,
-                  "value": null
-                }
+                "types": [
+                  {
+                    "name": "string",
+                    "options": [
+                      {
+                        "value": "string",
+                        "thumbnail_media": {
+                          "id": "string",
+                          "original_dimensions": {
+                            "height": "number",
+                            "width": "number"
+                          },
+                          "original_image_url": "string",
+                          "request_image_url": "string"
+                        }
+                      }
+                    ]
+                  }
+                ],
+                "variant_properties": [
+                  {
+                    "name": "string",
+                    "value": "string"
+                  }
+                ]
               }
             }
           }
@@ -3469,119 +3791,137 @@
       "variablesShape": {
         "request": {
           "collections": {
-            "biz_jid": null,
-            "collection_limit": null,
-            "item_limit": null,
-            "after": null,
-            "width": null,
-            "height": null,
-            "direct_connection_encrypted_info": null,
-            "variant_info_fields": null,
-            "variant_thumbnail_height": null,
-            "variant_thumbnail_width": null
+            "biz_jid": "string",
+            "collection_limit": "string",
+            "item_limit": "string",
+            "after": "string",
+            "width": "string",
+            "height": "string",
+            "direct_connection_encrypted_info": "string",
+            "variant_info_fields": {},
+            "variant_thumbnail_height": "string",
+            "variant_thumbnail_width": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_collections": {
-          "__typename": null,
-          "collections": {
-            "id": null,
-            "name": null,
-            "status_info": {
-              "status": null,
-              "can_appeal": null,
-              "reject_reason": null,
-              "commerce_url": null
-            },
-            "products": {
-              "id": null,
-              "retailer_id": null,
-              "is_hidden": null,
-              "is_sanctioned": null,
-              "product_availability": null,
-              "max_available": null,
-              "name": null,
-              "description": null,
-              "url": null,
-              "shimmed_url": null,
-              "currency": null,
-              "price": null,
+          "__typename": "string",
+          "collections": [
+            {
+              "id": "string",
+              "name": "string",
               "status_info": {
-                "can_appeal": null,
-                "status": null
+                "status": "string",
+                "can_appeal": "string",
+                "reject_reason": "string",
+                "commerce_url": "string"
               },
-              "sale_price": {
-                "price": null,
-                "start_date": null,
-                "end_date": null
-              },
-              "media": {
-                "images": {
-                  "id": null,
-                  "original_image_url": null,
-                  "request_image_url": null
-                },
-                "videos": {
-                  "id": null,
-                  "original_video_url": null,
-                  "thumbnail_url": null
-                }
-              },
-              "belongs_to": null,
-              "compliance_category": null,
-              "compliance_info": {
-                "country_code_origin": null,
-                "importer_name": null,
-                "importer_address": {
-                  "street1": null,
-                  "street2": null,
-                  "postal_code": null,
-                  "city": null,
-                  "region": null,
-                  "country_code": null
-                }
-              },
-              "variant_info": {
-                "listing_details": {
-                  "description": null,
-                  "multi_price": null,
-                  "lowest_price": null
-                },
-                "availability": {
-                  "listing": {
-                    "is_available": null,
-                    "options": {
-                      "name": null,
-                      "value": null
-                    },
-                    "product_id": null
-                  }
-                },
-                "types": {
-                  "name": null,
-                  "options": {
-                    "value": null,
-                    "thumbnail_media": {
-                      "id": null,
-                      "original_dimensions": {
-                        "height": null,
-                        "width": null
-                      },
-                      "original_image_url": null,
-                      "request_image_url": null
+              "products": [
+                {
+                  "id": "string",
+                  "retailer_id": "string",
+                  "is_hidden": "boolean",
+                  "is_sanctioned": "boolean",
+                  "product_availability": "string",
+                  "max_available": "number",
+                  "name": "string",
+                  "description": "string",
+                  "url": "string",
+                  "shimmed_url": "string",
+                  "currency": "string",
+                  "price": "string",
+                  "status_info": {
+                    "can_appeal": "string",
+                    "status": "string"
+                  },
+                  "sale_price": {
+                    "price": "string",
+                    "start_date": "string",
+                    "end_date": "string"
+                  },
+                  "media": {
+                    "images": [
+                      {
+                        "id": "string",
+                        "original_image_url": "string",
+                        "request_image_url": "string"
+                      }
+                    ],
+                    "videos": [
+                      {
+                        "id": "string",
+                        "original_video_url": "string",
+                        "thumbnail_url": "string"
+                      }
+                    ]
+                  },
+                  "belongs_to": "string",
+                  "compliance_category": "string",
+                  "compliance_info": {
+                    "country_code_origin": "string",
+                    "importer_name": "string",
+                    "importer_address": {
+                      "street1": "string",
+                      "street2": "string",
+                      "postal_code": "string",
+                      "city": "string",
+                      "region": "string",
+                      "country_code": "string"
                     }
+                  },
+                  "variant_info": {
+                    "listing_details": {
+                      "description": "string",
+                      "multi_price": "string",
+                      "lowest_price": "string"
+                    },
+                    "availability": {
+                      "listing": [
+                        {
+                          "is_available": "boolean",
+                          "options": [
+                            {
+                              "name": "string",
+                              "value": "string"
+                            }
+                          ],
+                          "product_id": "string"
+                        }
+                      ]
+                    },
+                    "types": [
+                      {
+                        "name": "string",
+                        "options": [
+                          {
+                            "value": "string",
+                            "thumbnail_media": {
+                              "id": "string",
+                              "original_dimensions": {
+                                "height": "number",
+                                "width": "number"
+                              },
+                              "original_image_url": "string",
+                              "request_image_url": "string"
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "variant_properties": [
+                      {
+                        "name": "string",
+                        "value": "string"
+                      }
+                    ]
                   }
-                },
-                "variant_properties": {
-                  "name": null,
-                  "value": null
                 }
-              }
+              ]
             }
-          },
+          ],
           "paging": {
-            "after": null
+            "after": "string"
           }
         }
       }
@@ -3596,103 +3936,121 @@
       "variablesShape": {
         "request": {
           "product_list": {
-            "jid": null,
-            "products": null,
-            "width": null,
-            "height": null,
-            "direct_connection_encrypted_info": null
+            "jid": "string",
+            "products": [
+              {}
+            ],
+            "width": "string",
+            "height": "string",
+            "direct_connection_encrypted_info": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_product_list": {
-          "__typename": null,
+          "__typename": "string",
           "product_list": {
-            "products": {
-              "id": null,
-              "retailer_id": null,
-              "is_hidden": null,
-              "is_sanctioned": null,
-              "product_availability": null,
-              "max_available": null,
-              "name": null,
-              "description": null,
-              "url": null,
-              "shimmed_url": null,
-              "currency": null,
-              "price": null,
-              "status_info": {
-                "can_appeal": null,
-                "status": null
-              },
-              "sale_price": {
-                "price": null,
-                "start_date": null,
-                "end_date": null
-              },
-              "media": {
-                "images": {
-                  "id": null,
-                  "original_image_url": null,
-                  "request_image_url": null
+            "products": [
+              {
+                "id": "string",
+                "retailer_id": "string",
+                "is_hidden": "boolean",
+                "is_sanctioned": "boolean",
+                "product_availability": "string",
+                "max_available": "number",
+                "name": "string",
+                "description": "string",
+                "url": "string",
+                "shimmed_url": "string",
+                "currency": "string",
+                "price": "string",
+                "status_info": {
+                  "can_appeal": "boolean",
+                  "status": "string"
                 },
-                "videos": {
-                  "id": null,
-                  "original_video_url": null,
-                  "thumbnail_url": null
-                }
-              },
-              "belongs_to": null,
-              "compliance_category": null,
-              "compliance_info": {
-                "country_code_origin": null,
-                "importer_name": null,
-                "importer_address": {
-                  "street1": null,
-                  "street2": null,
-                  "postal_code": null,
-                  "city": null,
-                  "region": null,
-                  "country_code": null
-                }
-              },
-              "variant_info": {
-                "listing_details": {
-                  "description": null,
-                  "multi_price": null,
-                  "lowest_price": null
+                "sale_price": {
+                  "price": "string",
+                  "start_date": "string",
+                  "end_date": "string"
                 },
-                "availability": {
-                  "listing": {
-                    "is_available": null,
-                    "options": {
-                      "name": null,
-                      "value": null
-                    },
-                    "product_id": null
-                  }
-                },
-                "types": {
-                  "name": null,
-                  "options": {
-                    "value": null,
-                    "thumbnail_media": {
-                      "id": null,
-                      "original_dimensions": {
-                        "height": null,
-                        "width": null
-                      },
-                      "original_image_url": null,
-                      "request_image_url": null
+                "media": {
+                  "images": [
+                    {
+                      "id": "string",
+                      "original_image_url": "string",
+                      "request_image_url": "string"
                     }
+                  ],
+                  "videos": [
+                    {
+                      "id": "string",
+                      "original_video_url": "string",
+                      "thumbnail_url": "string"
+                    }
+                  ]
+                },
+                "belongs_to": "string",
+                "compliance_category": "string",
+                "compliance_info": {
+                  "country_code_origin": "string",
+                  "importer_name": "string",
+                  "importer_address": {
+                    "street1": "string",
+                    "street2": "string",
+                    "postal_code": "string",
+                    "city": "string",
+                    "region": "string",
+                    "country_code": "string"
                   }
                 },
-                "variant_properties": {
-                  "name": null,
-                  "value": null
+                "variant_info": {
+                  "listing_details": {
+                    "description": "string",
+                    "multi_price": "string",
+                    "lowest_price": "string"
+                  },
+                  "availability": {
+                    "listing": [
+                      {
+                        "is_available": "boolean",
+                        "options": [
+                          {
+                            "name": "string",
+                            "value": "string"
+                          }
+                        ],
+                        "product_id": "string"
+                      }
+                    ]
+                  },
+                  "types": [
+                    {
+                      "name": "string",
+                      "options": [
+                        {
+                          "value": "string",
+                          "thumbnail_media": {
+                            "id": "string",
+                            "original_dimensions": {
+                              "height": "number",
+                              "width": "number"
+                            },
+                            "original_image_url": "string",
+                            "request_image_url": "string"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "variant_properties": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
                 }
               }
-            }
+            ]
           }
         }
       }
@@ -3707,118 +4065,134 @@
       "variablesShape": {
         "request": {
           "collection": {
-            "biz_jid": null,
-            "id": null,
-            "limit": null,
-            "after": null,
-            "width": null,
-            "height": null,
-            "direct_connection_encrypted_info": null,
-            "variant_info_fields": null,
-            "variant_thumbnail_height": null,
-            "variant_thumbnail_width": null
+            "biz_jid": "string",
+            "id": "string",
+            "limit": "string",
+            "after": "string",
+            "width": "string",
+            "height": "string",
+            "direct_connection_encrypted_info": "string",
+            "variant_info_fields": {},
+            "variant_thumbnail_height": "string",
+            "variant_thumbnail_width": "string"
           }
         }
       },
       "response": {
         "xwa_product_catalog_get_single_collection": {
           "collection": {
-            "id": null,
-            "name": null,
+            "id": "string",
+            "name": "string",
             "status_info": {
-              "status": null,
-              "can_appeal": null,
-              "reject_reason": null,
-              "commerce_url": null
+              "status": "string",
+              "can_appeal": "string",
+              "reject_reason": "string",
+              "commerce_url": "string"
             },
-            "products": {
-              "id": null,
-              "retailer_id": null,
-              "is_hidden": null,
-              "is_sanctioned": null,
-              "product_availability": null,
-              "max_available": null,
-              "name": null,
-              "description": null,
-              "url": null,
-              "shimmed_url": null,
-              "currency": null,
-              "price": null,
-              "status_info": {
-                "can_appeal": null,
-                "status": null
-              },
-              "sale_price": {
-                "price": null,
-                "start_date": null,
-                "end_date": null
-              },
-              "media": {
-                "images": {
-                  "id": null,
-                  "original_image_url": null,
-                  "request_image_url": null
+            "products": [
+              {
+                "id": "string",
+                "retailer_id": "string",
+                "is_hidden": "boolean",
+                "is_sanctioned": "boolean",
+                "product_availability": "string",
+                "max_available": "number",
+                "name": "string",
+                "description": "string",
+                "url": "string",
+                "shimmed_url": "string",
+                "currency": "string",
+                "price": "string",
+                "status_info": {
+                  "can_appeal": "string",
+                  "status": "string"
                 },
-                "videos": {
-                  "id": null,
-                  "original_video_url": null,
-                  "thumbnail_url": null
-                }
-              },
-              "belongs_to": null,
-              "compliance_category": null,
-              "compliance_info": {
-                "country_code_origin": null,
-                "importer_name": null,
-                "importer_address": {
-                  "street1": null,
-                  "street2": null,
-                  "postal_code": null,
-                  "city": null,
-                  "region": null,
-                  "country_code": null
-                }
-              },
-              "variant_info": {
-                "listing_details": {
-                  "description": null,
-                  "multi_price": null,
-                  "lowest_price": null
+                "sale_price": {
+                  "price": "string",
+                  "start_date": "string",
+                  "end_date": "string"
                 },
-                "availability": {
-                  "listing": {
-                    "is_available": null,
-                    "options": {
-                      "name": null,
-                      "value": null
-                    },
-                    "product_id": null
-                  }
-                },
-                "types": {
-                  "name": null,
-                  "options": {
-                    "value": null,
-                    "thumbnail_media": {
-                      "id": null,
-                      "original_dimensions": {
-                        "height": null,
-                        "width": null
-                      },
-                      "original_image_url": null,
-                      "request_image_url": null
+                "media": {
+                  "images": [
+                    {
+                      "id": "string",
+                      "original_image_url": "string",
+                      "request_image_url": "string"
                     }
+                  ],
+                  "videos": [
+                    {
+                      "id": "string",
+                      "original_video_url": "string",
+                      "thumbnail_url": "string"
+                    }
+                  ]
+                },
+                "belongs_to": "string",
+                "compliance_category": "string",
+                "compliance_info": {
+                  "country_code_origin": "string",
+                  "importer_name": "string",
+                  "importer_address": {
+                    "street1": "string",
+                    "street2": "string",
+                    "postal_code": "string",
+                    "city": "string",
+                    "region": "string",
+                    "country_code": "string"
                   }
                 },
-                "variant_properties": {
-                  "name": null,
-                  "value": null
+                "variant_info": {
+                  "listing_details": {
+                    "description": "string",
+                    "multi_price": "string",
+                    "lowest_price": "string"
+                  },
+                  "availability": {
+                    "listing": [
+                      {
+                        "is_available": "boolean",
+                        "options": [
+                          {
+                            "name": "string",
+                            "value": "string"
+                          }
+                        ],
+                        "product_id": "string"
+                      }
+                    ]
+                  },
+                  "types": [
+                    {
+                      "name": "string",
+                      "options": [
+                        {
+                          "value": "string",
+                          "thumbnail_media": {
+                            "id": "string",
+                            "original_dimensions": {
+                              "height": "number",
+                              "width": "number"
+                            },
+                            "original_image_url": "string",
+                            "request_image_url": "string"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "variant_properties": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
                 }
               }
-            }
+            ]
           },
           "paging": {
-            "after": null
+            "after": "string"
           }
         }
       }
@@ -3832,23 +4206,25 @@
       ],
       "variablesShape": {
         "input": {
-          "group_jid": null,
-          "query_context": null,
-          "sub_group_jid_hint": null
+          "group_jid": "string",
+          "query_context": "string",
+          "sub_group_jid_hint": "string"
         }
       },
       "response": {
         "xwa2_group_query_by_id": {
-          "__typename": null,
+          "__typename": "string",
           "sub_groups": {
-            "edges": {
-              "node": {
-                "id": null,
-                "total_participants_count": null
+            "edges": [
+              {
+                "node": {
+                  "id": "string",
+                  "total_participants_count": "number"
+                }
               }
-            }
+            ]
           },
-          "id": null
+          "id": "string"
         }
       }
     },
@@ -3860,11 +4236,11 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "wa_quick_promotion_log_event": {
-          "client_mutation_id": null
+          "client_mutation_id": "string"
         }
       }
     },
@@ -3877,14 +4253,14 @@
       ],
       "variablesShape": {
         "input": {
-          "jid": null,
-          "product_id": null
+          "jid": "string",
+          "product_id": "string"
         }
       },
       "response": {
         "xwa_whatsapp_catalog_report_product": {
-          "__typename": null,
-          "success": null
+          "__typename": "string",
+          "success": "boolean"
         }
       }
     },
@@ -3897,14 +4273,16 @@
       ],
       "variablesShape": {
         "input": {
-          "bug_id": null,
-          "participant_ids": null,
-          "reporter_id": null,
-          "up_to_timestamp_secs": null
+          "bug_id": "string",
+          "participant_ids": [
+            "string"
+          ],
+          "reporter_id": "string",
+          "up_to_timestamp_secs": "number"
         }
       },
       "response": {
-        "xwa2_request_client_logs_for_bug": null
+        "xwa2_request_client_logs_for_bug": "boolean"
       }
     },
     "ResolveAccountTypeAndAdPage": {
@@ -3913,10 +4291,10 @@
       "operationKind": "mutation",
       "variables": [],
       "variablesShape": {
-        "pageId": null
+        "pageId": "string"
       },
       "response": {
-        "xfb_wa_biz_clear_oidc_preference": null
+        "xfb_wa_biz_clear_oidc_preference": "boolean"
       }
     },
     "ResolveAccountTypeAndAdPageQuery": {
@@ -3927,12 +4305,12 @@
         "pageId"
       ],
       "variablesShape": {
-        "pageId": null
+        "pageId": "string"
       },
       "response": {
         "page": {
-          "can_viewer_do_actions": null,
-          "id": null
+          "can_viewer_do_actions": "boolean",
+          "id": "string"
         }
       }
     },
@@ -3945,13 +4323,13 @@
         "user_id"
       ],
       "variablesShape": {
-        "newsletter_id": null,
-        "user_id": null
+        "newsletter_id": "string",
+        "user_id": "string"
       },
       "response": {
         "xwa2_newsletter_admin_invite_revoke": {
-          "__typename": null,
-          "id": null
+          "__typename": "string",
+          "id": "string"
         }
       }
     },
@@ -3966,14 +4344,14 @@
         "source"
       ],
       "variablesShape": {
-        "input": null,
-        "reserved": null,
-        "session_id": null,
-        "source": null
+        "input": {},
+        "reserved": "string",
+        "session_id": "string",
+        "source": "string"
       },
       "response": {
         "xwa2_username_set": {
-          "result": null
+          "result": "enum:SUCCESS"
         }
       }
     },
@@ -3985,11 +4363,11 @@
         "pin"
       ],
       "variablesShape": {
-        "pin": null
+        "pin": "string"
       },
       "response": {
         "xwa2_username_pin_set": {
-          "result": null
+          "result": "enum:SUCCESS"
         }
       }
     },
@@ -4002,14 +4380,14 @@
         "signup_id"
       ],
       "variablesShape": {
-        "phone_number": null,
-        "signup_id": null
+        "phone_number": "string",
+        "signup_id": "string"
       },
       "response": {
         "wa_signup_metadata": {
-          "id": null,
-          "signup_message": null,
-          "privacy_policy_url": null
+          "id": "string",
+          "signup_message": "string",
+          "privacy_policy_url": "string"
         }
       }
     },
@@ -4021,15 +4399,15 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa_wa_support_bug_report_submit": {
-          "success": null,
-          "error_code": null,
-          "error_message": null,
-          "bug_report_id": null,
-          "task_id": null
+          "success": "boolean",
+          "error_code": "number",
+          "error_message": "string",
+          "bug_report_id": "string",
+          "task_id": "string"
         }
       }
     },
@@ -4041,15 +4419,15 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa_wa_support_contact_form_submit": {
-          "success": null,
-          "error_code": null,
-          "error_message": null,
-          "ticket_id": null,
-          "support_phone_number_jid": null
+          "success": "boolean",
+          "error_code": "number",
+          "error_message": "string",
+          "ticket_id": "string",
+          "support_phone_number_jid": "string"
         }
       }
     },
@@ -4061,13 +4439,13 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa_wa_support_message_feedback_submit": {
-          "success": null,
-          "error_code": null,
-          "error_message": null
+          "success": "boolean",
+          "error_code": "number",
+          "error_message": "string"
         }
       }
     },
@@ -4079,13 +4457,13 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa2_group_update_users_role": {
-          "group_id": null,
+          "group_id": "string",
           "lid_migration_state": {
-            "addressing_mode": null
+            "addressing_mode": "string"
           }
         }
       }
@@ -4099,13 +4477,13 @@
         "update"
       ],
       "variablesShape": {
-        "group_id": null,
-        "update": null
+        "group_id": "string",
+        "update": {}
       },
       "response": {
         "xwa2_group_update_property": {
-          "id": null,
-          "state": null
+          "id": "string",
+          "state": "string"
         }
       }
     },
@@ -4118,48 +4496,48 @@
         "updates"
       ],
       "variablesShape": {
-        "newsletter_id": null,
+        "newsletter_id": "string",
         "updates": {
-          "name": null,
-          "description": null,
-          "picture": null,
-          "settings": null
+          "name": "string",
+          "description": "string",
+          "picture": {},
+          "settings": {}
         }
       },
       "response": {
         "xwa2_newsletter_update": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "enum:ACTIVE"
           },
           "thread_metadata": {
             "name": {
-              "id": null,
-              "text": null,
-              "update_time": null
+              "id": "string",
+              "text": "string",
+              "update_time": "string"
             },
             "description": {
-              "id": null,
-              "text": null,
-              "update_time": null
+              "id": "string",
+              "text": "string",
+              "update_time": "string"
             },
             "picture": {
-              "id": null,
-              "type": null,
-              "direct_path": null
+              "id": "string",
+              "type": "enum:IMAGE",
+              "direct_path": "string"
             },
             "preview": {
-              "id": null,
-              "type": null,
-              "direct_path": null
+              "id": "string",
+              "type": "enum:PREVIEW",
+              "direct_path": "string"
             },
-            "invite": null,
-            "handle": null,
-            "verification": null,
-            "creation_time": null,
+            "invite": "string",
+            "handle": "string",
+            "verification": "enum:UNVERIFIED",
+            "creation_time": "string",
             "settings": {
               "reaction_codes": {
-                "value": null
+                "value": "enum:ALL"
               }
             }
           }
@@ -4174,13 +4552,13 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa2_newsletter_update_user_setting": {
-          "id": null,
+          "id": "string",
           "state": {
-            "type": null
+            "type": "string"
           }
         }
       }
@@ -4193,11 +4571,11 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "xwa2_update_text_status": {
-          "result": null
+          "result": "string"
         }
       }
     },
@@ -4211,14 +4589,16 @@
         "source"
       ],
       "variablesShape": {
-        "input": null,
-        "session_id": null,
-        "source": null
+        "input": {},
+        "session_id": "string",
+        "source": "string"
       },
       "response": {
         "xwa2_username_check": {
-          "result": null,
-          "suggestions": null
+          "result": "enum:SUCCESS",
+          "suggestions": [
+            "string"
+          ]
         }
       }
     },
@@ -4233,35 +4613,37 @@
         "input"
       ],
       "variablesShape": {
-        "include_about_status": null,
-        "include_country_code": null,
-        "include_username": null,
+        "include_about_status": "boolean",
+        "include_country_code": "boolean",
+        "include_username": "boolean",
         "input": {
-          "query_input": null,
-          "telemetry": null
+          "query_input": {},
+          "telemetry": {}
         }
       },
       "response": {
-        "xwa2_fetch_wa_users": {
-          "__typename": null,
-          "jid": null,
-          "country_code": null,
-          "username_info": {
-            "__typename": null,
-            "username": null,
-            "state": null,
-            "timestamp": null,
-            "pin": null,
-            "status": null
-          },
-          "about_status_info": {
-            "__typename": null,
-            "text": null,
-            "timestamp": null,
-            "status": null
-          },
-          "id": null
-        }
+        "xwa2_fetch_wa_users": [
+          {
+            "__typename": "string",
+            "jid": "string",
+            "country_code": "string",
+            "username_info": {
+              "__typename": "string",
+              "username": "string",
+              "state": "string",
+              "timestamp": "string",
+              "pin": "string",
+              "status": "string"
+            },
+            "about_status_info": {
+              "__typename": "string",
+              "text": "string",
+              "timestamp": "string",
+              "status": "string"
+            },
+            "id": "string"
+          }
+        ]
       }
     },
     "WAAOnboarding": {
@@ -4273,14 +4655,14 @@
       ],
       "variablesShape": {
         "input": {
-          "flow_id": null,
-          "request_id": null
+          "flow_id": "string",
+          "request_id": "string"
         }
       },
       "response": {
         "create_or_onboard_wa_ad_account": {
-          "ad_account_id": null,
-          "status": null
+          "ad_account_id": "string",
+          "status": "string"
         }
       }
     },
@@ -4293,24 +4675,28 @@
       "response": {
         "waffle_fx_service_data": {
           "services": {
-            "waffle_sxs": {
-              "waffle_di": null,
-              "waffle_da": null,
-              "waffle_xss": {
-                "waffle_iaxe": null,
-                "waffle_x_surface": null
+            "waffle_sxs": [
+              {
+                "waffle_di": "string",
+                "waffle_da": "string",
+                "waffle_xss": [
+                  {
+                    "waffle_iaxe": "string",
+                    "waffle_x_surface": "string"
+                  }
+                ]
               }
-            },
+            ],
             "waffle_afs": {
-              "waffle_wes": null
+              "waffle_wes": "string"
             },
             "foa_to_wa_link_eligibility": {
-              "is_eligible_to_link_to_unlinked_fb": null,
-              "is_eligible_to_link_to_linked_fb": null,
-              "is_eligible_to_link_to_unlinked_ig": null,
-              "is_eligible_to_link_to_linked_ig": null,
-              "is_eligible_to_link_to_unlinked_rl": null,
-              "is_eligible_to_link_to_linked_rl": null
+              "is_eligible_to_link_to_unlinked_fb": "boolean",
+              "is_eligible_to_link_to_linked_fb": "boolean",
+              "is_eligible_to_link_to_unlinked_ig": "boolean",
+              "is_eligible_to_link_to_linked_ig": "boolean",
+              "is_eligible_to_link_to_unlinked_rl": "boolean",
+              "is_eligible_to_link_to_linked_rl": "boolean"
             }
           }
         }
@@ -4323,7 +4709,7 @@
       "variables": [],
       "variablesShape": {},
       "response": {
-        "xfb_waffle_fx_wamo_update_uoom": null
+        "xfb_waffle_fx_wamo_update_uoom": "boolean"
       }
     },
     "WaffleXE": {
@@ -4334,33 +4720,37 @@
         "input"
       ],
       "variablesShape": {
-        "input": null
+        "input": {}
       },
       "response": {
         "waffle_xe_root": {
           "purpose_public_keys": {
-            "purpose_public_ek": null,
-            "purpose_public_ik": null,
-            "purpose_public_ik_sig": null,
-            "purpose_public_ik_enc_certificate": null,
-            "purpose_dummy_ciphertext": null,
-            "purpose_dummy_nonce": null
+            "purpose_public_ek": "string",
+            "purpose_public_ik": "string",
+            "purpose_public_ik_sig": "string",
+            "purpose_public_ik_enc_certificate": "string",
+            "purpose_dummy_ciphertext": "string",
+            "purpose_dummy_nonce": "string"
           },
-          "waffle_unique_ids": null,
-          "waffle_d": {
-            "waffle_xas": {
-              "waffle_xan": null,
-              "waffle_xs": null
-            },
-            "waffle_di": null
-          },
-          "waffle_xps": {
-            "waffle_xas": {
-              "waffle_xan": null,
-              "waffle_xs": null
-            },
-            "waffle_hcbc": null
-          }
+          "waffle_unique_ids": "string",
+          "waffle_d": [
+            {
+              "waffle_xas": {
+                "waffle_xan": "string",
+                "waffle_xs": "string"
+              },
+              "waffle_di": "string"
+            }
+          ],
+          "waffle_xps": [
+            {
+              "waffle_xas": {
+                "waffle_xan": "string",
+                "waffle_xs": "string"
+              },
+              "waffle_hcbc": "string"
+            }
+          ]
         }
       }
     },
@@ -4380,30 +4770,32 @@
         "targetingSpecAudience"
       ],
       "variablesShape": {
-        "audienceOptionAudience": null,
-        "configuredPlacementSpec": null,
-        "currency": null,
-        "flow": null,
-        "flowID": null,
-        "legacyAdAccountID": null,
-        "optimizationGoalInput": null,
-        "postID": null,
-        "targetingSpecAudience": null
+        "audienceOptionAudience": {},
+        "configuredPlacementSpec": {},
+        "currency": "string",
+        "flow": "string",
+        "flowID": "string",
+        "legacyAdAccountID": "string",
+        "optimizationGoalInput": {},
+        "postID": "string",
+        "targetingSpecAudience": {}
       },
       "response": {
         "lwi": {
           "budget_estimate_data_v2": {
-            "daily_outcomes_curve": {
-              "actions": null,
-              "actions_lower_bound": null,
-              "actions_upper_bound": null,
-              "bid": null,
-              "impressions": null,
-              "reach": null,
-              "reach_lower_bound": null,
-              "reach_upper_bound": null,
-              "spend": null
-            }
+            "daily_outcomes_curve": [
+              {
+                "actions": "number",
+                "actions_lower_bound": "number",
+                "actions_upper_bound": "number",
+                "bid": "number",
+                "impressions": "number",
+                "reach": "number",
+                "reach_lower_bound": "number",
+                "reach_upper_bound": "number",
+                "spend": "number"
+              }
+            ]
           }
         }
       }

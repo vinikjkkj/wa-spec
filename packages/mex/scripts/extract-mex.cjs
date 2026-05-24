@@ -35,6 +35,7 @@ const {
     parseObject,
     iterModuleHeaders
 } = require('./parser.cjs')
+const { fillInputTypes, fillResponseTypes } = require('./infer-leaf-types.cjs')
 
 const NOISE =
     /BizAd|BizAi|BizCatalog|BizPay|BizBroadcast|Comet|LWI|MWChat|Mmlite|BizMeta|BizCommerce|BizAccount|BizDeli|BizMass|BizMcomm|BizMessageTemplate|BizOrder|BizPlatform|BizPostpaid|BizSendOptIn|BizSetting|BizShipping|BizQuickReplies|BizLabel|BizAway|BizGreeting|BizOnboarding|BizGroup|BizHub|BizInstall|BizInterop|BizLogin|BizPnh|BizQrCode|BizQuote|BizRecurring|BizRequest|BizSubscribed|BizUpsell|BizVerify|BizWa|BizWam|BizWelcome|BizYou|MetaAi|MetaTransp|Saved|Telemetry|Subscribe|Galaxy|Hatch|LinkedAccounts|Provisioning|RtcRing|XplatGen|Wallet|Transaction|Boost/i
@@ -110,6 +111,9 @@ function findOperationLiteral(body) {
 }
 
 // Walk a Relay selections array → compact response tree.
+// `InlineFragment` and `Condition` selections may introduce LinkedField keys
+// that already exist at the parent level (e.g. type-conditional sub-fields of
+// `properties` in FetchGroupInfo). Deep-merge so we don't lose either side.
 function shapeFromSelections(selections) {
     const fields = {}
     if (!Array.isArray(selections)) return fields
@@ -118,17 +122,42 @@ function shapeFromSelections(selections) {
         const kind = sel.kind
         if (kind === 'ScalarField' || kind === 'TypeDiscriminator') {
             const key = sel.alias || sel.name || '__typename'
-            if (typeof key === 'string') fields[key] = null
+            if (typeof key === 'string' && !(key in fields)) fields[key] = null
         } else if (kind === 'LinkedField') {
             const key = sel.alias || sel.name
             if (typeof key !== 'string') continue
             const inner = shapeFromSelections(sel.selections)
-            fields[key] = sel.plural ? [inner] : inner
+            const value = sel.plural ? [inner] : inner
+            fields[key] = mergeShapeNode(fields[key], value)
         } else if (kind === 'InlineFragment' || kind === 'Condition') {
-            Object.assign(fields, shapeFromSelections(sel.selections))
+            const inner = shapeFromSelections(sel.selections)
+            for (const [k, v] of Object.entries(inner)) {
+                fields[k] = mergeShapeNode(fields[k], v)
+            }
         }
     }
     return fields
+}
+
+// Merge two shape nodes (used when InlineFragments introduce fields that
+// overlap with the parent's selections at the same key). `null` is a scalar
+// leaf and stays null. Objects merge field-by-field. Arrays merge their
+// `[0]` element shapes.
+function mergeShapeNode(a, b) {
+    if (a === undefined) return b
+    if (b === undefined) return a
+    if (a === null) return b ?? null
+    if (b === null) return a
+    if (Array.isArray(a) && Array.isArray(b)) {
+        return [mergeShapeNode(a[0], b[0])]
+    }
+    if (Array.isArray(a) || Array.isArray(b)) return Array.isArray(a) ? a : b
+    if (typeof a === 'object' && typeof b === 'object') {
+        const out = { ...a }
+        for (const [k, v] of Object.entries(b)) out[k] = mergeShapeNode(out[k], v)
+        return out
+    }
+    return a
 }
 
 // --- Variables-shape parser (caller bundle: fetchQuery(id, <expr>)) ---
@@ -172,7 +201,19 @@ function parseValueShape(s, start, traceIdent) {
             return { value: traced, end: skipExpr(s, i, [',', '}', ']']) }
         }
     }
-    return { value: null, end: skipExpr(s, i, [',', '}', ']']) }
+    // Array-producing call expressions: `<x>.map(...)`, `<x>.filter(...)`,
+    // `Array.from(...)`, `Array.of(...)`, `Object.keys(...)`,
+    // `Object.values(...)`. Mark structurally as array (`[null]`) so the
+    // input is rendered as ReadonlyArray<unknown> instead of bare unknown.
+    const end = skipExpr(s, i, [',', '}', ']'])
+    const expr = s.slice(i, end)
+    if (/\.(?:map|filter|slice|concat|flat|flatMap|sort|reverse|splice)\s*\(/.test(expr)) {
+        return { value: [null], end }
+    }
+    if (/^Array\.(?:from|of)\s*\(/.test(expr) || /^Object\.(?:keys|values|entries)\s*\(/.test(expr)) {
+        return { value: [null], end }
+    }
+    return { value: null, end }
 }
 
 function parseObjectShape(s, start, traceIdent) {
@@ -400,10 +441,19 @@ function maybeResolveCrossModuleId(rawValue, bundles) {
     return null
 }
 
+function findFetchQueryPos(body) {
+    if (!body) return null
+    const m = body.match(/\.(fetchQuery|commitMutation|fetchSubscription)\s*\(/)
+    return m ? m.index : null
+}
+
 function extractMex(bundles) {
-    // Index every module header so we can map .graphql -> first caller.
+    // Index every module header so we can map .graphql -> first caller, and
+    // also track inverse dependencies so we can collect 2nd-hop consumer
+    // bodies (the Job module's callers, which see the pass-through response).
     const callerByGraphql = {}
     const graphqlModules = new Set()
+    const dependents = {} // moduleName → [modules that depend on it]
     for (const b of bundles) {
         for (const h of iterModuleHeaders(b.text)) {
             if (h.name.endsWith('.graphql')) graphqlModules.add(h.name)
@@ -411,6 +461,7 @@ function extractMex(bundles) {
                 if (dep.endsWith('.graphql') && !callerByGraphql[dep]) {
                     callerByGraphql[dep] = h.name
                 }
+                ;(dependents[dep] = dependents[dep] || []).push(h.name)
             }
         }
     }
@@ -455,8 +506,22 @@ function extractMex(bundles) {
         const callerName = callerByGraphql[gqlName]
         const callerBody = callerName ? findModuleBody(bundles, callerName) : null
         const rawVarsShape = extractVarsShape(callerBody)
-        const variablesShape = augmentWithArgDefs(rawVarsShape, argDefNames)
-        const response = shapeFromSelections(op.operation && op.operation.selections)
+        const structuralVars = augmentWithArgDefs(rawVarsShape, argDefNames)
+        const structuralResp = shapeFromSelections(op.operation && op.operation.selections)
+        // Promote `null` leaves to inferred type tags. For inputs we only need
+        // the primary caller (where fetchQuery is invoked). For responses we
+        // additionally consider modules that depend on the Job — those see
+        // the pass-through response and access server-side field names too.
+        const variablesShape = fillInputTypes(structuralVars, callerBody, findFetchQueryPos(callerBody))
+        const respBodies = [callerBody]
+        if (callerName) {
+            const consumers = (dependents[callerName] || []).slice(0, 8)
+            for (const c of consumers) {
+                const cb = findModuleBody(bundles, c)
+                if (cb) respBodies.push(cb)
+            }
+        }
+        const response = fillResponseTypes(structuralResp, respBodies)
         operations[opName] = {
             docId,
             operationKind: params.operationKind,

@@ -38,6 +38,7 @@
     ],
     "scripts": {
         "fetch": "node packages/fetcher/src/cli.cjs --out dump/",
+        "sanitize:wire-samples": "node packages/mex/scripts/sanitize-captures.cjs",
         "extract:mex": "node packages/mex/scripts/apply.cjs --manifest dump/manifest.json",
         "extract:proto": "node packages/proto/scripts/apply.cjs --manifest dump/manifest.json",
         "extract:appstate": "node packages/appstate/scripts/apply.cjs --manifest dump/manifest.json",

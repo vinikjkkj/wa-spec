@@ -108,6 +108,14 @@ function parseValue(s, start, traceIdent) {
     }
     if (c === '{') return parseObject(s, i, traceIdent)
     if (c === '[') return parseArray(s, i, traceIdent)
+    // Minifier-emitted boolean literals: `!0` = true, `!1` = false. Without
+    // this, `plural:!0` parses to null and the LinkedField loses its array
+    // shape (e.g. `categories` would be `{...}` instead of `[{...}]`).
+    if (c === '!') {
+        const nx = s[i + 1]
+        if (nx === '0') return { value: true, end: i + 2 }
+        if (nx === '1') return { value: false, end: i + 2 }
+    }
     if (/[0-9.\-]/.test(c)) return parseNumber(s, i)
     // Identifier-style values: true/false/null/undefined, NaN, Infinity, or ref
     if (/[A-Za-z_$]/.test(c)) {

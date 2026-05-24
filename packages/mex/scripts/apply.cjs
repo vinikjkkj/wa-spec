@@ -16,6 +16,8 @@
 const fs = require('node:fs')
 const path = require('node:path')
 const { extractMex } = require('./extract-mex.cjs')
+const { buildOverrides, applyOverrides } = require('./wire-overrides.cjs')
+const { discoverEnums, matchEnumForLeaf } = require('./enum-discovery.cjs')
 
 function parseArgs(argv) {
     const opts = { bundles: null, manifest: null, out: null, waVersion: null }
@@ -118,11 +120,14 @@ function keyLiteral(name) {
 }
 
 // Recursive emitter for shapes captured by the extractor:
-//   null            → unknown (scalar leaf)
-//   { ...fields }   → singular object
-//   [{ ...fields }] → plural object (ReadonlyArray)
+//   null              → unknown (legacy fallback)
+//   'string'/'number'/'boolean'/'unknown'  → TS primitive
+//   'enum:A|B|C'      → 'A' | 'B' | 'C' string literal union
+//   { ...fields }     → singular object
+//   [{ ...fields }]   → plural object (ReadonlyArray)
 function emitShapeType(node, indent) {
     if (node === null || node === undefined) return 'unknown'
+    if (typeof node === 'string') return emitLeafTag(node)
     if (Array.isArray(node)) {
         const inner = node[0] ?? null
         return `ReadonlyArray<${emitShapeType(inner, indent)}>`
@@ -137,6 +142,42 @@ function emitShapeType(node, indent) {
         return `{\n${lines.join('\n')}\n${indent}}`
     }
     return 'unknown'
+}
+
+function emitLeafTag(tag) {
+    if (tag === 'string' || tag === 'number' || tag === 'boolean' || tag === 'unknown') return tag
+    if (tag.startsWith('enum:')) {
+        const vals = tag.slice(5).split('|').filter(Boolean)
+        if (vals.length === 0) return 'string'
+        return vals.map((v) => `'${v.replace(/'/g, "\\'")}'`).join(' | ')
+    }
+    return 'unknown'
+}
+
+// Walk the shape tree and promote `string`/`unknown` leaves to `enum:V1|V2|...`
+// when an enum module exports a value set under a name matching the field.
+function promoteEnumsInShape(node, parents, enumIndex, stats) {
+    if (node === null || node === undefined) return node
+    if (Array.isArray(node)) {
+        node[0] = promoteEnumsInShape(node[0], parents, enumIndex, stats)
+        return node
+    }
+    if (typeof node === 'object') {
+        for (const [k, v] of Object.entries(node)) {
+            if (typeof v === 'string' && (v === 'unknown' || v === 'string')) {
+                const match = matchEnumForLeaf(parents, k, enumIndex)
+                if (match) {
+                    node[k] = 'enum:' + match.values.join('|')
+                    stats.applied++
+                    stats.byField[match.name] = (stats.byField[match.name] || 0) + 1
+                }
+            } else if (v !== null && typeof v === 'object') {
+                node[k] = promoteEnumsInShape(v, [...parents, k], enumIndex, stats)
+            }
+        }
+        return node
+    }
+    return node
 }
 
 function main() {
@@ -171,6 +212,99 @@ function main() {
 
     const sortedKeys = Object.keys(ops).sort()
     const outDir = opts.out ? path.resolve(opts.out) : path.resolve(__dirname, '..')
+
+    // ---- Global enum discovery (cross-module) ----
+    // Find every `e.Mirrored([...])` and pure-string enum object in any
+    // bundle, link to its exported canonical name (e.g. `EnforcementType`,
+    // `WamoSubStatus`). Then for every `string`/`unknown` leaf, try to
+    // match the field's CamelCase name (with parent context) against the
+    // enum index — when found, promote to `enum:V1|V2|...`.
+    let enumStats = null
+    try {
+        const enumIndex = discoverEnums(bundles)
+        enumStats = { discovered: Object.keys(enumIndex).length, applied: 0, byField: {} }
+        for (const key of sortedKeys) {
+            const op = ops[key]
+            promoteEnumsInShape(op.response, [], enumIndex, enumStats)
+            promoteEnumsInShape(op.variablesShape, [], enumIndex, enumStats)
+        }
+    } catch (err) {
+        console.error('apply: enum-discovery skipped —', err.message)
+    }
+
+    // ---- Wire-sample overrides (highest-confidence layer) ----
+    // Read from the versioned, sanitized captures at
+    // packages/mex/wire-samples/captures.json (raw captures with PII live in
+    // dump/wire-samples/ and are gitignored). Each captured response is
+    // treated as ground truth — typeof at each leaf + enum value sets win
+    // over static inference.
+    let wireStats = null
+    try {
+        const versioned = path.resolve(__dirname, '..', 'wire-samples', 'captures.json')
+        // Fall back to the raw local path during local development if the
+        // sanitized file hasn't been regenerated yet.
+        const repoRoot = path.resolve(__dirname, '..', '..', '..')
+        const rawLocal = path.join(repoRoot, 'dump/wire-samples/captures.json')
+        const capturesPath = fs.existsSync(versioned) ? versioned : (fs.existsSync(rawLocal) ? rawLocal : null)
+        if (capturesPath) {
+            const captures = JSON.parse(fs.readFileSync(capturesPath, 'utf8'))
+            const overrides = buildOverrides(captures)
+            wireStats = applyOverrides(ops, overrides)
+            wireStats.captureCount = captures.length
+            wireStats.opsWithOverrides = Object.keys(overrides).length
+            wireStats.source = capturesPath.includes('dump') ? 'dump (raw)' : 'packages/mex/wire-samples'
+        }
+    } catch (err) {
+        console.error('apply: wire-overrides skipped —', err.message)
+    }
+
+    // ---- Cross-op enum union ----
+    // The same wire path (`xwa2_group_query_by_id.state`) appears across
+    // multiple ops with the SAME GraphQL Enum type. Each op may only see a
+    // subset of values (DELETE returns DELETED, FETCH might see ACTIVE).
+    // Union the value sets so each op's typedef reflects the full schema.
+    const enumByPath = Object.create(null)
+    function collectEnums(node, path) {
+        if (typeof node === 'string') {
+            if (node.startsWith('enum:')) {
+                const p = path.join('.')
+                ;(enumByPath[p] = enumByPath[p] || new Set())
+                for (const v of node.slice(5).split('|')) enumByPath[p].add(v)
+            }
+            return
+        }
+        if (Array.isArray(node)) return collectEnums(node[0], path)
+        if (node && typeof node === 'object') for (const [k, v] of Object.entries(node)) collectEnums(v, [...path, k])
+    }
+    function applyEnumUnion(node, path) {
+        if (typeof node === 'string') return node
+        if (Array.isArray(node)) { node[0] = applyEnumUnion(node[0], path); return node }
+        if (node && typeof node === 'object') {
+            for (const [k, v] of Object.entries(node)) {
+                if (typeof v === 'string' && v.startsWith('enum:')) {
+                    const p = [...path, k].join('.')
+                    const merged = enumByPath[p]
+                    if (merged && merged.size > 0) {
+                        node[k] = 'enum:' + [...merged].sort().join('|')
+                    }
+                } else if (v !== null && typeof v === 'object') {
+                    node[k] = applyEnumUnion(v, [...path, k])
+                }
+            }
+        }
+        return node
+    }
+    let unionedCount = 0
+    for (const key of sortedKeys) {
+        collectEnums(ops[key].response, ['r'])
+        collectEnums(ops[key].variablesShape, ['i'])
+    }
+    for (const key of sortedKeys) {
+        const beforeResp = JSON.stringify(ops[key].response)
+        applyEnumUnion(ops[key].response, ['r'])
+        applyEnumUnion(ops[key].variablesShape, ['i'])
+        if (JSON.stringify(ops[key].response) !== beforeResp) unionedCount++
+    }
 
     // ---- index.json (IR for programmatic consumers) ----
     const ir = { waVersion, operations: {} }
@@ -299,6 +433,18 @@ ${responseMapLines}
     console.log(
         `apply: ${sortedKeys.length} operations (from ${diagnostics.graphqlModulesDiscovered} graphql modules, skipped ${diagnostics.operationsSkippedBiz} biz) → ${outDir}/{index.json,index.js,index.d.ts}`
     )
+    if (enumStats) {
+        console.log(
+            `apply: enum-discovery — ${enumStats.discovered} enums indexed, ${enumStats.applied} leaves promoted`
+        )
+    }
+    if (wireStats) {
+        console.log(
+            `apply: wire-overrides [${wireStats.source}] — ${wireStats.captureCount} captures across ${wireStats.opsWithOverrides} ops, ` +
+            `${wireStats.appliedCount} leaves changed (${wireStats.promotedFromUnknown} closes-gap, ` +
+            `${wireStats.enumMerged} enum-merged, ${wireStats.changedConflicting} corrected)`
+        )
+    }
 }
 
 main()
