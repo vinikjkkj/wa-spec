@@ -10,7 +10,6 @@ function parseArgs(argv) {
     for (let i = 2; i < argv.length; i++) {
         const a = argv[i]
         if (a === '--out') opts.out = argv[++i]
-        else if (a === '--auth') opts.authState = argv[++i]
         else if (a === '--extra-wait') opts.extraWaitMs = Number(argv[++i])
         else if (a === '--urls-only') opts.urlsOnly = true
         else if (a === '--help' || a === '-h') {
@@ -34,7 +33,6 @@ function printHelp() {
             '  --out <path>          output path',
             '                          - default mode: directory for raw bundles + manifest.json (default: dump)',
             '                          - --urls-only mode: file to write URL array JSON (default: stdout)',
-            '  --auth <file>         optional saved cookie state JSON',
             '  --extra-wait <ms>     extra wait after networkidle for lazy chunks (default: 5000)',
             '  --urls-only           skip download; output just the discovered URL array as JSON',
             '  -h, --help            show this help'

@@ -49,8 +49,8 @@ npm run compile --workspace @vinikjkkj/wa-proto  # pbjs/pbts → dist/
 
 - **Some cross-module refs may be unresolved** if the referenced `.pb` module
   isn't loaded in the bundle dump (lazy-loaded chunks). These surface as
-  `UNKNOWN` types in the output — refresh the dump with full auth state to
-  catch them.
+  `int32` (enum) / `bytes` (message) fallbacks — wire-compatible, but the
+  named type is lost until the dump catches up.
 - **Numbers use `long`** — `protobufjs` returns `Long` instances for `int64` /
   `uint64` etc. Make sure to install `long` (already a dep here) and either
   `.toNumber()` (lossy for >2^53) or `.toString()`.

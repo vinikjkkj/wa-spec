@@ -106,7 +106,6 @@ const VERSION_FN = function () {
 }
 
 async function openPage(opts) {
-    const authState = opts.authState ?? null
     const extraWaitMs = opts.extraWaitMs ?? LAZY_WAIT_MS
 
     const { browser, page } = await connect({
@@ -118,12 +117,6 @@ async function openPage(opts) {
     })
 
     try {
-        if (authState && fs.existsSync(authState)) {
-            const state = JSON.parse(fs.readFileSync(authState, 'utf8'))
-            if (Array.isArray(state.cookies) && state.cookies.length > 0) {
-                await page.setCookie(...state.cookies)
-            }
-        }
         await page.goto(WHATSAPP_URL, { waitUntil: 'networkidle2', timeout: NAV_TIMEOUT_MS })
         await new Promise((r) => setTimeout(r, extraWaitMs))
         return { browser, page }

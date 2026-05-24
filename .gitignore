@@ -10,7 +10,5 @@ dist/
 # Fetcher output — regenerated each run, never committed
 dump/
 
-# Auth state used by fetcher in CI (never commit)
-.auth/
-auth-state.json
+# Local npm token file (used briefly for the first manual publish, never commit)
 .npmrc

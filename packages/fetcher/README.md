@@ -26,7 +26,6 @@ npx wa-fetcher --urls-only > urls.json
 |---|---|---|
 | `--out <path>` | `dump` (dir) / stdout (urls-only) | Output destination |
 | `--urls-only` | off | Skip download; emit only the discovered URL array (JSON) |
-| `--auth <file>` | none | Saved cookie state JSON for authenticated fetch (captures more lazy chunks) |
 | `--extra-wait <ms>` | `5000` | Wait this long after network-idle for lazy chunks |
 
 **Output layout:**
@@ -73,9 +72,9 @@ const dump = await fetchBundles({ out: 'dump' })
 
 ## Caveats
 
-- **Lazy chunks** that the SPA only loads via interaction (Settings, Profile,
-  Premium) won't be in the dump. Use `--auth` with a pre-saved cookie state
-  to maximize what loads naturally.
+- **Lazy chunks** that the SPA only loads via UI interaction (Settings,
+  Profile, Premium) won't be in the dump — the `data-sjs` rsrcMap covers
+  most of them but not 100%.
 - **Anti-bot** — `puppeteer-real-browser` works today but Meta can tighten
   detection. If the fetcher returns blank pages, re-evaluate the strategy.
 - **No extraction** — this package is intentionally dumb. The extractors live

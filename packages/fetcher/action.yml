@@ -10,9 +10,6 @@ inputs:
         description: 'Output directory for raw bundles + manifest.json'
         required: false
         default: 'dump'
-    auth-state:
-        description: 'Optional path to a saved cookie state JSON for authenticated fetch'
-        required: false
     extra-wait:
         description: 'Extra wait (ms) after network-idle, gives lazy chunks time to load'
         required: false
@@ -41,12 +38,9 @@ runs:
           shell: bash
           env:
               FETCHER_OUT: ${{ inputs.out }}
-              FETCHER_AUTH: ${{ inputs.auth-state }}
               FETCHER_EXTRA_WAIT: ${{ inputs.extra-wait }}
           run: |
-              ARGS="--out $FETCHER_OUT --extra-wait $FETCHER_EXTRA_WAIT"
-              if [ -n "$FETCHER_AUTH" ]; then ARGS="$ARGS --auth $FETCHER_AUTH"; fi
-              npx wa-fetcher $ARGS
+              npx wa-fetcher --out "$FETCHER_OUT" --extra-wait "$FETCHER_EXTRA_WAIT"
               MANIFEST="$FETCHER_OUT/manifest.json"
               echo "manifest-path=$MANIFEST" >> "$GITHUB_OUTPUT"
               RAW_DIR=$(node -e "console.log(JSON.parse(require('node:fs').readFileSync(process.argv[1])).rawDir)" "$MANIFEST")
