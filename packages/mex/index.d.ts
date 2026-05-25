@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040096081
+// WhatsApp Version: 2.3000.1040100380
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -321,8 +321,8 @@ export type WaMexBizGetCategoriesVariables = {
     readonly query_params?: {
         readonly query?: string
         readonly locale?: string
-        readonly operation?: string
-        readonly version?: string
+        readonly operation?: 'PROFILE_TYPEAHEAD'
+        readonly version?: 'V_1'
     }
 }
 
@@ -330,8 +330,8 @@ export type WaMexBizGetCategoriesV2Variables = {
     readonly query_params?: {
         readonly query?: string
         readonly locale?: string
-        readonly operation?: string
-        readonly version?: string
+        readonly operation?: 'PROFILE_TYPEAHEAD'
+        readonly version?: 'V_2'
     }
 }
 
@@ -365,7 +365,7 @@ export type WaMexBizProfileAddressAutocompleteVariables = {
     readonly input?: {
         readonly center?: string
         readonly query?: string
-        readonly use_case_id?: string
+        readonly use_case_id?: 'WHATSAPP_BIZ_PROFILE'
     }
 }
 
@@ -525,7 +525,7 @@ export type WaMexFetchGroupInfoIncludBotsVariables = {
 
 export type WaMexFetchGroupInviteCodeVariables = {
     readonly id?: string
-    readonly query_context?: string
+    readonly query_context?: 'INVITE_CODE'
 }
 
 export type WaMexFetchGroupIsInternalVariables = {
@@ -537,11 +537,11 @@ export type WaMexFetchIntegritySignalsVariables = {
         readonly query_input?: ReadonlyArray<{
             readonly jid?: string
             readonly integrity_signals?: {
-                readonly use_case?: string
+                readonly use_case?: 'CHAT_FMX'
             }
         }>
         readonly telemetry?: {
-            readonly context?: string
+            readonly context?: 'INTERACTIVE'
         }
     }
 }
@@ -552,7 +552,7 @@ export type WaMexFetchNativeAdsMvpEligibilityVariables = {
 
 export type WaMexFetchNewChatMessageCappingInfoVariables = {
     readonly input?: {
-        readonly type?: string
+        readonly type?: 'INDIVIDUAL_NEW_CHAT_THREAD'
     }
 }
 
@@ -564,8 +564,8 @@ export type WaMexFetchNewsletterVariables = {
     readonly fetch_wamo_sub?: boolean
     readonly input?: {
         readonly key?: string
-        readonly type?: string
-        readonly view_role?: string
+        readonly type?: 'INVITE' | 'JID'
+        readonly view_role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
     }
 }
 
@@ -581,8 +581,8 @@ export type WaMexFetchNewsletterDehydratedVariables = {
     readonly fetch_wamo_sub?: boolean
     readonly input?: {
         readonly key?: string
-        readonly type?: string
-        readonly view_role?: string
+        readonly type?: 'INVITE' | 'JID'
+        readonly view_role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
     }
 }
 
@@ -633,7 +633,14 @@ export type WaMexFetchNewsletterFollowersVariables = {
 export type WaMexFetchNewsletterInsightsVariables = {
     readonly input?: {
         readonly newsletter_id?: string
-        readonly metrics?: ReadonlyArray<Readonly<Record<string, unknown>>>
+        readonly metrics?: ReadonlyArray<{
+            readonly id?: number
+            readonly type?: string
+            readonly group_by?: {
+                readonly number_of_days?: number
+            }
+            readonly limit?: number
+        }>
     }
 }
 
@@ -714,7 +721,7 @@ export type WaMexFetchSubscriptionEntryPointsVariables = Readonly<Record<string,
 
 export type WaMexFetchSubscriptionsVariables = {
     readonly data?: {
-        readonly platform?: string
+        readonly platform?: 'UNKNOWN'
     }
 }
 
@@ -730,7 +737,7 @@ export type WaMexGetAccessTokenFromOIDCCodeVariables = {
 export type WaMexGetAccountNonceVariables = {
     readonly input?: {
         readonly identifier?: {
-            readonly scope?: string
+            readonly scope?: 'REQUEST'
         }
     }
 }
@@ -993,7 +1000,7 @@ export type WaMexSetUsernameVariables = {
     readonly input?: string
     readonly reserved?: boolean
     readonly session_id?: string
-    readonly source?: string
+    readonly source?: 'USER_INPUT'
 }
 
 export type WaMexSetUsernameKeyVariables = {
@@ -1047,7 +1054,7 @@ export type WaMexUpdateTextStatusVariables = {
 export type WaMexUsernameAvailabilityVariables = {
     readonly input?: string
     readonly session_id?: string
-    readonly source?: string
+    readonly source?: 'USER_INPUT'
 }
 
 export type WaMexUsyncVariables = {
@@ -1735,7 +1742,7 @@ export type WaMexCreateNewsletterResponse = {
             }
             readonly picture?: {
                 readonly id?: string
-                readonly type?: string
+                readonly type?: 'IMAGE' | 'PREVIEW'
                 readonly direct_path?: string
             }
             readonly preview?: {
@@ -1745,16 +1752,16 @@ export type WaMexCreateNewsletterResponse = {
             }
             readonly invite?: string
             readonly handle?: string
-            readonly verification?: 'UNVERIFIED'
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly subscribers_count?: string
             readonly creation_time?: string
         }
         readonly viewer_metadata?: {
             readonly settings?: ReadonlyArray<{
                 readonly type?: 'MUTE_ADMIN_ACTIVITY' | 'MUTE_FOLLOWER_ACTIVITY'
-                readonly value?: 'OFF'
+                readonly value?: 'OFF' | 'ON'
             }>
-            readonly role?: 'OWNER'
+            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
         }
     }
 }
@@ -1786,7 +1793,7 @@ export type WaMexCreateReportAppealResponse = {
             }
         }
         readonly appeal?: {
-            readonly state?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'SUSPENDED'
+            readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
             readonly appeal_reason?: string
             readonly creation_time?: string
             readonly report_id?: string
@@ -1877,7 +1884,7 @@ export type WaMexFetchAllNewslettersMetadataResponse = {
             }
             readonly picture?: {
                 readonly id?: string
-                readonly type?: string
+                readonly type?: 'IMAGE' | 'PREVIEW'
                 readonly direct_path?: string
             }
             readonly preview?: {
@@ -1892,7 +1899,7 @@ export type WaMexFetchAllNewslettersMetadataResponse = {
             }
             readonly invite?: string
             readonly handle?: string
-            readonly verification?: 'UNVERIFIED'
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly settings?: {
                 readonly reaction_codes?: {
                     readonly value?: 'ALL'
@@ -1907,7 +1914,7 @@ export type WaMexFetchAllNewslettersMetadataResponse = {
                 readonly type?: 'MUTE_ADMIN_ACTIVITY' | 'MUTE_FOLLOWER_ACTIVITY'
                 readonly value?: 'OFF' | 'ON'
             }>
-            readonly role?: 'OWNER'
+            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly wamo_sub_status?: 'ACTIVE' | 'INACTIVE'
         }
         readonly status_metadata?: {
@@ -2035,7 +2042,7 @@ export type WaMexFetchGroupInfoResponse = {
                         readonly username?: string
                     }
                 }
-                readonly role?: 'ADMIN' | 'ADMIN_MEMBER' | 'GUEST' | 'MEMBER' | 'OWNER' | 'SUBSCRIBER' | 'SUPERADMIN_MEMBER'
+                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2132,7 +2139,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                     }
                     readonly jid?: string
                 }
-                readonly role?: 'ADMIN' | 'ADMIN_MEMBER' | 'GUEST' | 'MEMBER' | 'OWNER' | 'SUBSCRIBER' | 'SUPERADMIN_MEMBER'
+                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2241,7 +2248,7 @@ export type WaMexFetchNewsletterResponse = {
             }
             readonly picture?: {
                 readonly id?: string
-                readonly type?: 'IMAGE'
+                readonly type?: 'IMAGE' | 'PREVIEW'
                 readonly direct_path?: string
             }
             readonly preview?: {
@@ -2272,7 +2279,7 @@ export type WaMexFetchNewsletterResponse = {
                 readonly type?: 'MUTE_ADMIN_ACTIVITY' | 'MUTE_FOLLOWER_ACTIVITY'
                 readonly value?: 'OFF' | 'ON'
             }>
-            readonly role?: 'OWNER' | 'SUBSCRIBER'
+            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly wamo_sub_status?: 'ACTIVE' | 'INACTIVE'
         }
         readonly status_metadata?: {
@@ -2353,9 +2360,9 @@ export type WaMexFetchNewsletterDirectoryCategoriesPreviewResponse = {
                     readonly picture?: {
                         readonly id?: string
                         readonly direct_path?: string
-                        readonly type?: string
+                        readonly type?: 'IMAGE' | 'PREVIEW'
                     }
-                    readonly verification?: string
+                    readonly verification?: 'UNVERIFIED' | 'VERIFIED'
                 }
                 readonly status_metadata?: {
                     readonly last_status_server_id?: string
@@ -2394,7 +2401,7 @@ export type WaMexFetchNewsletterDirectoryListResponse = {
                 readonly picture?: {
                     readonly id?: string
                     readonly direct_path?: string
-                    readonly type?: 'PREVIEW'
+                    readonly type?: 'IMAGE' | 'PREVIEW'
                 }
                 readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             }
@@ -2434,7 +2441,7 @@ export type WaMexFetchNewsletterDirectorySearchResultsResponse = {
                 readonly picture?: {
                     readonly id?: string
                     readonly direct_path?: string
-                    readonly type?: 'PREVIEW'
+                    readonly type?: 'IMAGE' | 'PREVIEW'
                 }
                 readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             }
@@ -2617,7 +2624,7 @@ export type WaMexFetchNewsletterInsightsResponse = {
             readonly values?: ReadonlyArray<{
                 readonly value?: string
                 readonly country?: string
-                readonly role?: string
+                readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
                 readonly timestamp?: string
             }>
         }>
@@ -2698,7 +2705,7 @@ export type WaMexFetchNewsletterReportsResponse = {
                 }
             }
             readonly appeal?: {
-                readonly state?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'SUSPENDED'
+                readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
                 readonly appeal_reason?: string
                 readonly creation_time?: string
                 readonly report_id?: string
@@ -2962,10 +2969,10 @@ export type WaMexFetchSimilarNewslettersResponse = {
                 }
                 readonly picture?: {
                     readonly id?: string
-                    readonly type?: string
+                    readonly type?: 'IMAGE' | 'PREVIEW'
                     readonly direct_path?: string
                 }
-                readonly verification?: string
+                readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             }
             readonly status_metadata?: {
                 readonly last_status_server_id?: string
@@ -3122,7 +3129,7 @@ export type WaMexGetPrivacySettingsResponse = {
         readonly __typename?: string
         readonly privacy_settings?: {
             readonly settings?: ReadonlyArray<{
-                readonly feature?: 'ABOUT' | 'CALLADD' | 'DEFENSE' | 'GROUPADD' | 'LAST' | 'MESSAGES' | 'ONLINE' | 'PROFILE' | 'READRECEIPTS'
+                readonly feature?: 'ABOUT' | 'CALLADD' | 'DEFENSE' | 'DEPENDENT_ACCOUNT_CALLING' | 'DEPENDENT_ACCOUNT_MESSAGES' | 'GROUPADD' | 'LAST' | 'LINKED_PROFILES' | 'MESSAGES' | 'ONLINE' | 'PIX' | 'PROFILE' | 'READRECEIPTS' | 'STICKERS'
                 readonly setting?: 'ALL' | 'MYCONTACTS' | 'OFF'
             }>
         }
@@ -3806,13 +3813,13 @@ export type WaMexRevokeNewsletterAdminInviteResponse = {
 
 export type WaMexSetUsernameResponse = {
     readonly xwa2_username_set?: {
-        readonly result?: 'FAILURE' | 'INFLIGHT' | 'INIT' | 'SUCCESS'
+        readonly result?: 'SUCCESS'
     }
 }
 
 export type WaMexSetUsernameKeyResponse = {
     readonly xwa2_username_pin_set?: {
-        readonly result?: 'FAILURE' | 'INFLIGHT' | 'INIT' | 'SUCCESS'
+        readonly result?: 'SUCCESS'
     }
 }
 
@@ -3887,7 +3894,7 @@ export type WaMexUpdateNewsletterResponse = {
             }
             readonly picture?: {
                 readonly id?: string
-                readonly type?: 'IMAGE'
+                readonly type?: 'IMAGE' | 'PREVIEW'
                 readonly direct_path?: string
             }
             readonly preview?: {
@@ -3897,7 +3904,7 @@ export type WaMexUpdateNewsletterResponse = {
             }
             readonly invite?: string
             readonly handle?: string
-            readonly verification?: 'UNVERIFIED'
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly creation_time?: string
             readonly settings?: {
                 readonly reaction_codes?: {
@@ -3925,7 +3932,7 @@ export type WaMexUpdateTextStatusResponse = {
 
 export type WaMexUsernameAvailabilityResponse = {
     readonly xwa2_username_check?: {
-        readonly result?: 'FAILURE' | 'INFLIGHT' | 'INIT' | 'SUCCESS'
+        readonly result?: 'SUCCESS'
         readonly suggestions?: ReadonlyArray<string>
     }
 }

@@ -67,7 +67,9 @@ function discoverEnums(bundles) {
             const body = findModuleBody(bundle.text, h.name)
             if (!body) continue
             if (!body.includes('Mirrored(') && !body.includes('switch(') && !body.includes('switch (')) {
-                if (!/i\.[A-Z][\w$]*\s*=/.test(body)) continue
+                // Accept either `i.<X>=` or `l.<X>=` as the export convention
+                // — some bundles use one, some the other.
+                if (!/[il]\.[A-Z][\w$]*\s*=/.test(body)) continue
             }
 
             // localVar → { values: [...], kind }
@@ -84,21 +86,34 @@ function discoverEnums(bundles) {
                 }
             }
 
-            // 2) Pure-string object enums. Find every `({K1:"v1",K2:"v2",...})`
-            // call argument and walk back to find the LHS variable being assigned.
-            // Catches patterns like:
-            //   l=(e=n("$InternalEnum"))({Subscriber:"subscriber",Admin:"admin",...})
+            // 2) Pure-string AND numeric object enums. Find every
+            // `({K1:"v1",K2:"v2",...})` or `({K1:1,K2:2,...})` call argument and
+            // walk back to find the LHS variable being assigned. Catches:
+            //   l=(e=n("$InternalEnum"))({Subscriber:"subscriber",Admin:"admin"})
             //   c = e({Active:"active",Suspended:"suspended"})
-            //   const ROLE = $InternalEnum({Admin:"admin",Member:"member"})
+            //   d = n("$InternalEnum")({UniqueVisitorsOverPeriod:1, FollowersOverPeriod:6, ...})
+            //     — recovered as kind:'numeric' so downstream code typing a
+            //     field initialized via `X.<EnumName>.<Key>` returns 'number'.
             const objArgRe = /\(\s*\{([^{}]{6,500})\}\s*\)/g
             while ((m = objArgRe.exec(body))) {
                 const inner = m[1]
-                if (!/^[\s,]*[A-Za-z_$][\w$]*\s*:\s*"/.test(inner)) continue
-                const pairs = [...inner.matchAll(/(?:^|,)\s*([A-Za-z_$][\w$]*)\s*:\s*"([^"]+)"\s*(?=,|$)/g)]
-                if (pairs.length < 2) continue
-                const allUpper = pairs.every((p) => /^[A-Z][A-Z0-9_]*$/.test(p[2]))
-                const allLower = pairs.every((p) => /^[a-z][a-z0-9_]*$/.test(p[2]))
-                if (!allUpper && !allLower) continue
+                if (!/^[\s,]*[A-Za-z_$][\w$]*\s*:\s*("|\d|-)/.test(inner)) continue
+                const stringPairs = [...inner.matchAll(/(?:^|,)\s*([A-Za-z_$][\w$]*)\s*:\s*"([^"]+)"\s*(?=,|$)/g)]
+                const numericPairs = [...inner.matchAll(/(?:^|,)\s*([A-Za-z_$][\w$]*)\s*:\s*(-?\d+(?:\.\d+)?)\s*(?=,|$)/g)]
+                let kind = null
+                let values = null
+                if (stringPairs.length >= 2 && numericPairs.length === 0) {
+                    const allUpper = stringPairs.every((p) => /^[A-Z][A-Z0-9_]*$/.test(p[2]))
+                    const allLower = stringPairs.every((p) => /^[a-z][a-z0-9_]*$/.test(p[2]))
+                    if (!allUpper && !allLower) continue
+                    kind = 'string-object'
+                    values = stringPairs.map((p) => p[2])
+                } else if (numericPairs.length >= 2 && stringPairs.length === 0) {
+                    kind = 'numeric'
+                    values = numericPairs.map((p) => p[2])
+                } else {
+                    continue
+                }
                 // Walk backward to find the assignment `=` that owns this object
                 // literal call. Skip strings + balanced parens so we don't get
                 // confused by `(e=n("$InternalEnum"))` setup.
@@ -129,7 +144,6 @@ function discoverEnums(bundles) {
                     i--
                 }
                 if (foundEq < 0) continue
-                // body[foundEq] is `=`. Walk back over whitespace + identifier.
                 let j = foundEq - 1
                 while (j >= 0 && /\s/.test(body[j])) j--
                 const lhsEnd = j + 1
@@ -137,23 +151,27 @@ function discoverEnums(bundles) {
                 const localVar = body.slice(j + 1, lhsEnd)
                 if (!/^[A-Za-z_$][\w$]*$/.test(localVar)) continue
                 if (locals[localVar]) continue
-                const values = pairs.map((p) => p[2])
-                locals[localVar] = { values, kind: 'string-object' }
+                locals[localVar] = { values, kind }
             }
+            // Also catch top-level `l.<exportName>=<obj>` exports where the
+            // module's own `l.<name>=d` line maps a previously-collected
+            // `locals` entry. The existing exportRe (`i.<Name>=<var>`) catches
+            // most cases but some bundles use `l.<name>=d` for the same
+            // purpose; handle both via a unified regex below.
 
-            // 3) Resolve exports: `i.<Name>=<localVar>` (or chained: `i.A=l,i.B=s,...`)
-            const exportRe = /\bi\s*\.\s*([A-Z][\w$]*)\s*=\s*([a-zA-Z_$][\w$]*)\b/g
+            // 3) Resolve exports: `i.<Name>=<localVar>` AND `l.<Name>=<localVar>`
+            // (or chained: `i.A=l,i.B=s,...`). The module wrapper convention
+            // uses `l` for exports in some bundles and `i` in others.
+            const exportRe = /\b[il]\s*\.\s*([A-Z][\w$]*)\s*=\s*([a-zA-Z_$][\w$]*)\b/g
             while ((m = exportRe.exec(body))) {
                 const exportedName = m[1]
                 const localVar = m[2]
                 const enumData = locals[localVar]
                 if (!enumData) continue
-                // Don't overwrite a previously-found enum with same name unless this
-                // one has MORE values (defensive).
                 const prev = index[exportedName]
                 if (prev && prev.values.length >= enumData.values.length) continue
                 index[exportedName] = {
-                    values: enumData.values.slice().sort(),
+                    values: enumData.kind === 'numeric' ? enumData.values.slice() : enumData.values.slice().sort(),
                     source: h.name,
                     kind: enumData.kind
                 }
@@ -276,6 +294,59 @@ function discoverEnums(bundles) {
         enumerable: false
     })
 
+    // Bundle-wide parent.field equality scan: collect every
+    // `<...>.<parent>.<field> === "VAL"` and switch-case-on-parent-field
+    // literal across all bundle text. Keyed by `<parent>.<field>` so it
+    // captures values that live in deep consumer modules (e.g. React UI
+    // components) outside our per-op respBodies window. Used downstream to
+    // promote bare `string` leaves whose path ends in matching <parent>.<field>
+    // to enum, when the collected value set has ≥2 distinct UPPER_SNAKE
+    // entries.
+    //
+    // Example: `appeal.state` is compared against PENDING/REJECT/SUCCESS/
+    // NOT_APPEALED/NON_APPEALABLE/CONTENT_UNAVAILABLE across many UI files.
+    // None reach our respBodies, but this global scan picks them all up.
+    const parentFieldEnums = Object.create(null)
+    const eqRe = /\.([a-z_][\w$]*)\s*\.\s*([a-z_][\w$]*)\s*===\s*"([A-Z][A-Z0-9_]*)"/g
+    const eqLeftRe = /"([A-Z][A-Z0-9_]*)"\s*===\s*[a-z_$][\w$]*\.([a-z_][\w$]*)\s*\.\s*([a-z_][\w$]*)\b/g
+    const switchRe = /switch\s*\(\s*[a-z_$][\w$]*(?:\.[a-z_][\w$]*)*?\.([a-z_][\w$]*)\s*\.\s*([a-z_][\w$]*)\s*\)\s*\{([^}]{0,1500})\}/g
+    for (const bundle of bundles) {
+        const text = bundle.text
+        let m
+        eqRe.lastIndex = 0
+        while ((m = eqRe.exec(text))) {
+            const key = m[1] + '.' + m[2]
+            const set = (parentFieldEnums[key] = parentFieldEnums[key] || new Set())
+            set.add(m[3])
+        }
+        eqLeftRe.lastIndex = 0
+        while ((m = eqLeftRe.exec(text))) {
+            const key = m[2] + '.' + m[3]
+            const set = (parentFieldEnums[key] = parentFieldEnums[key] || new Set())
+            set.add(m[1])
+        }
+        switchRe.lastIndex = 0
+        while ((m = switchRe.exec(text))) {
+            const key = m[1] + '.' + m[2]
+            const caseRe = /case\s*"([A-Z][A-Z0-9_]*)"\s*:/g
+            let cm
+            while ((cm = caseRe.exec(m[3]))) {
+                const set = (parentFieldEnums[key] = parentFieldEnums[key] || new Set())
+                set.add(cm[1])
+            }
+        }
+    }
+    // Materialize into a plain object with arrays so downstream code can
+    // serialize/inspect easily.
+    const parentFieldMap = Object.create(null)
+    for (const [k, set] of Object.entries(parentFieldEnums)) {
+        if (set.size >= 2) parentFieldMap[k] = [...set].sort()
+    }
+    Object.defineProperty(index, '__parentFieldEnums', {
+        value: parentFieldMap,
+        enumerable: false
+    })
+
     return index
 }
 
@@ -326,14 +397,30 @@ function candidateEnumNames(parents, fieldName, opName) {
     out.add(toCamel(fieldName))
     out.add(toCamel(singularize(fieldName)))
 
-    // Op-name tokens supply ADDITIONAL context for combination — they don't
-    // count as structural parents (the immediate parent is always the last
-    // entry of the structural `parents` array). E.g. for opName=`LogNewsletterExposures`
-    // and path `LogNewsletterExposures.input.exposures.capability`, we want
-    // the op-tokens `[newsletter, exposures]` to feed into the parent-token
-    // combiner that produces `NewsletterCapability`, but the immediate
-    // parent stays `exposures` (not `newsletter`/`exposures` from the op).
-    const opTokens = opName ? camelTokens(opName).map((t) => stripNs(t)) : []
+    // Op-name tokens supply ADDITIONAL context for combination, gated by
+    // either:
+    //   (a) the field's immediate structural parent appears in the op name
+    //       (so `LogNewsletterExposures.exposures.capability` allows the
+    //       `newsletter` op-token to forge `NewsletterCapability`); OR
+    //   (b) the immediate parent is a "generic wrapper" name (input,
+    //       payload, request, options, filters, etc.) that carries no
+    //       domain signal of its own (so `FetchNewsletter.input.view_role`
+    //       can still reach `NewsletterMembershipType` via the
+    //       `newsletter` op token).
+    // Without the gate, e.g. `FetchNewsletterReports.appeal.state` would
+    // pull in op-tokens `[..., newsletter, ...]` and forge a match against
+    // `NewsletterState` even though the field is about the appeal — the
+    // `appeal` parent contradicts the newsletter framing.
+    const immediateParent = parents.length > 0 ? parents[parents.length - 1] : null
+    const immediateParentTokens = immediateParent
+        ? tokens(immediateParent).map((t) => t.toLowerCase())
+        : []
+    const isGenericWrapper = immediateParent != null &&
+        /^(?:input|payload|request|options|filters|query_input|telemetry|metadata|variant_info_fields|settings)$/.test(immediateParent)
+    const allOpTokens = opName ? camelTokens(opName).map((t) => stripNs(t)) : []
+    const opTokensMatchParent = immediateParentTokens.length > 0 &&
+        allOpTokens.some((t) => immediateParentTokens.includes(t))
+    const opTokens = (opTokensMatchParent || isGenericWrapper) ? allOpTokens : []
 
     if (parents.length > 0) {
         const last = parents[parents.length - 1]
@@ -360,6 +447,21 @@ function candidateEnumNames(parents, fieldName, opName) {
         for (const tok of opTokens) {
             out.add(toCamel(tok) + toCamel(fieldName))
             out.add(toCamel(tok) + toCamel(singularize(fieldName)))
+        }
+        // `*_role` / `role` / `view_role` fields commonly map to enums
+        // named `<Context>MembershipType` in WA Mex (NewsletterMembershipType,
+        // GroupMembershipType, ...). Add Membership-suffix candidates from
+        // every available context token so e.g.
+        // `FetchNewsletter.input.view_role` (with `input` being a generic
+        // wrapper, op-token `newsletter` flows in) reaches
+        // `NewsletterMembershipType`.
+        if (/^(?:role|_role|.+_role)$|^(?:.+_)?role$/.test(fieldName)) {
+            const tokenSources = [...opTokens]
+            for (const p of parents) for (const tok of tokens(p)) tokenSources.push(tok)
+            for (const tok of tokenSources) {
+                out.add(toCamel(tok) + 'Membership')
+                out.add(toCamel(tok) + 'MembershipType')
+            }
         }
         // For generic fields (`type`/`status`/etc.), the type-bearing name is
         // typically `<outer_concept><immediate_parent>` — e.g. for path

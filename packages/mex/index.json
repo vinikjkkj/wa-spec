@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040096081",
+  "waVersion": "2.3000.1040100380",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -198,8 +198,8 @@
         "query_params": {
           "query": "string",
           "locale": "string",
-          "operation": "string",
-          "version": "string"
+          "operation": "enum:PROFILE_TYPEAHEAD",
+          "version": "enum:V_1"
         }
       },
       "response": {
@@ -228,8 +228,8 @@
         "query_params": {
           "query": "string",
           "locale": "string",
-          "operation": "string",
-          "version": "string"
+          "operation": "enum:PROFILE_TYPEAHEAD",
+          "version": "enum:V_2"
         }
       },
       "response": {
@@ -500,7 +500,7 @@
         "input": {
           "center": "string",
           "query": "string",
-          "use_case_id": "string"
+          "use_case_id": "enum:WHATSAPP_BIZ_PROFILE"
         }
       },
       "response": {
@@ -932,7 +932,7 @@
             },
             "picture": {
               "id": "string",
-              "type": "string",
+              "type": "enum:IMAGE|PREVIEW",
               "direct_path": "string"
             },
             "preview": {
@@ -942,7 +942,7 @@
             },
             "invite": "string",
             "handle": "string",
-            "verification": "enum:UNVERIFIED",
+            "verification": "enum:UNVERIFIED|VERIFIED",
             "subscribers_count": "string",
             "creation_time": "string"
           },
@@ -950,10 +950,10 @@
             "settings": [
               {
                 "type": "enum:MUTE_ADMIN_ACTIVITY|MUTE_FOLLOWER_ACTIVITY",
-                "value": "enum:OFF"
+                "value": "enum:OFF|ON"
               }
             ],
-            "role": "enum:OWNER"
+            "role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER"
           }
         }
       }
@@ -1009,7 +1009,7 @@
             }
           },
           "appeal": {
-            "state": "enum:ACTIVE|DELETED|GEOSUSPENDED|SUSPENDED",
+            "state": "enum:CONTENT_UNAVAILABLE|NON_APPEALABLE|NOT_APPEALED|PENDING|REJECT|SUCCESS",
             "appeal_reason": "string",
             "creation_time": "string",
             "report_id": "string",
@@ -1221,7 +1221,7 @@
               },
               "picture": {
                 "id": "string",
-                "type": "string",
+                "type": "enum:IMAGE|PREVIEW",
                 "direct_path": "string"
               },
               "preview": {
@@ -1236,7 +1236,7 @@
               },
               "invite": "string",
               "handle": "string",
-              "verification": "enum:UNVERIFIED",
+              "verification": "enum:UNVERIFIED|VERIFIED",
               "settings": {
                 "reaction_codes": {
                   "value": "enum:ALL"
@@ -1253,7 +1253,7 @@
                   "value": "enum:OFF|ON"
                 }
               ],
-              "role": "enum:OWNER",
+              "role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER",
               "wamo_sub_status": "enum:ACTIVE|INACTIVE"
             },
             "status_metadata": {
@@ -1439,7 +1439,7 @@
                     "username": "string"
                   }
                 },
-                "role": "enum:ADMIN|ADMIN_MEMBER|GUEST|MEMBER|OWNER|SUBSCRIBER|SUPERADMIN_MEMBER"
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1554,7 +1554,7 @@
                   },
                   "jid": "string"
                 },
-                "role": "enum:ADMIN|ADMIN_MEMBER|GUEST|MEMBER|OWNER|SUBSCRIBER|SUPERADMIN_MEMBER"
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1607,7 +1607,7 @@
       ],
       "variablesShape": {
         "id": "string",
-        "query_context": "string"
+        "query_context": "enum:INVITE_CODE"
       },
       "response": {
         "xwa2_group_query_by_id": {
@@ -1650,12 +1650,12 @@
             {
               "jid": "string",
               "integrity_signals": {
-                "use_case": "string"
+                "use_case": "enum:CHAT_FMX"
               }
             }
           ],
           "telemetry": {
-            "context": "string"
+            "context": "enum:INTERACTIVE"
           }
         }
       },
@@ -1701,7 +1701,7 @@
       ],
       "variablesShape": {
         "input": {
-          "type": "string"
+          "type": "enum:INDIVIDUAL_NEW_CHAT_THREAD"
         }
       },
       "response": {
@@ -1737,8 +1737,8 @@
         "fetch_wamo_sub": "boolean",
         "input": {
           "key": "string",
-          "type": "string",
-          "view_role": "string"
+          "type": "enum:INVITE|JID",
+          "view_role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER"
         }
       },
       "response": {
@@ -1756,7 +1756,7 @@
             },
             "picture": {
               "id": "string",
-              "type": "enum:IMAGE",
+              "type": "enum:IMAGE|PREVIEW",
               "direct_path": "string"
             },
             "preview": {
@@ -1789,7 +1789,7 @@
                 "value": "enum:OFF|ON"
               }
             ],
-            "role": "enum:OWNER|SUBSCRIBER",
+            "role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER",
             "wamo_sub_status": "enum:ACTIVE|INACTIVE"
           },
           "status_metadata": {
@@ -1858,8 +1858,8 @@
         "fetch_wamo_sub": "boolean",
         "input": {
           "key": "string",
-          "type": "string",
-          "view_role": "string"
+          "type": "enum:INVITE|JID",
+          "view_role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER"
         }
       },
       "response": {
@@ -1928,9 +1928,9 @@
                     "picture": {
                       "id": "string",
                       "direct_path": "string",
-                      "type": "string"
+                      "type": "enum:IMAGE|PREVIEW"
                     },
-                    "verification": "string"
+                    "verification": "enum:UNVERIFIED|VERIFIED"
                   },
                   "status_metadata": {
                     "last_status_server_id": "string",
@@ -1996,7 +1996,7 @@
                 "picture": {
                   "id": "string",
                   "direct_path": "string",
-                  "type": "enum:PREVIEW"
+                  "type": "enum:IMAGE|PREVIEW"
                 },
                 "verification": "enum:UNVERIFIED|VERIFIED"
               },
@@ -2057,7 +2057,7 @@
                 "picture": {
                   "id": "string",
                   "direct_path": "string",
-                  "type": "enum:PREVIEW"
+                  "type": "enum:IMAGE|PREVIEW"
                 },
                 "verification": "enum:UNVERIFIED|VERIFIED"
               },
@@ -2276,7 +2276,14 @@
         "input": {
           "newsletter_id": "string",
           "metrics": [
-            {}
+            {
+              "id": "number",
+              "type": "string",
+              "group_by": {
+                "number_of_days": "number"
+              },
+              "limit": "number"
+            }
           ]
         }
       },
@@ -2295,7 +2302,7 @@
                 {
                   "value": "string",
                   "country": "string",
-                  "role": "string",
+                  "role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER",
                   "timestamp": "string"
                 }
               ]
@@ -2447,7 +2454,7 @@
                 }
               },
               "appeal": {
-                "state": "enum:ACTIVE|DELETED|GEOSUSPENDED|SUSPENDED",
+                "state": "enum:CONTENT_UNAVAILABLE|NON_APPEALABLE|NOT_APPEALED|PENDING|REJECT|SUCCESS",
                 "appeal_reason": "string",
                 "creation_time": "string",
                 "report_id": "string",
@@ -2857,10 +2864,10 @@
                 },
                 "picture": {
                   "id": "string",
-                  "type": "string",
+                  "type": "enum:IMAGE|PREVIEW",
                   "direct_path": "string"
                 },
-                "verification": "string"
+                "verification": "enum:UNVERIFIED|VERIFIED"
               },
               "status_metadata": {
                 "last_status_server_id": "string"
@@ -2944,7 +2951,7 @@
       ],
       "variablesShape": {
         "data": {
-          "platform": "string"
+          "platform": "enum:UNKNOWN"
         }
       },
       "response": {
@@ -3025,7 +3032,7 @@
       "variablesShape": {
         "input": {
           "identifier": {
-            "scope": "string"
+            "scope": "enum:REQUEST"
           }
         }
       },
@@ -3187,7 +3194,7 @@
             "privacy_settings": {
               "settings": [
                 {
-                  "feature": "enum:ABOUT|CALLADD|DEFENSE|GROUPADD|LAST|MESSAGES|ONLINE|PROFILE|READRECEIPTS",
+                  "feature": "enum:ABOUT|CALLADD|DEFENSE|DEPENDENT_ACCOUNT_CALLING|DEPENDENT_ACCOUNT_MESSAGES|GROUPADD|LAST|LINKED_PROFILES|MESSAGES|ONLINE|PIX|PROFILE|READRECEIPTS|STICKERS",
                   "setting": "enum:ALL|MYCONTACTS|OFF"
                 }
               ]
@@ -4354,11 +4361,11 @@
         "input": "string",
         "reserved": "boolean",
         "session_id": "string",
-        "source": "string"
+        "source": "enum:USER_INPUT"
       },
       "response": {
         "xwa2_username_set": {
-          "result": "enum:FAILURE|INFLIGHT|INIT|SUCCESS"
+          "result": "enum:SUCCESS"
         }
       }
     },
@@ -4374,7 +4381,7 @@
       },
       "response": {
         "xwa2_username_pin_set": {
-          "result": "enum:FAILURE|INFLIGHT|INIT|SUCCESS"
+          "result": "enum:SUCCESS"
         }
       }
     },
@@ -4530,7 +4537,7 @@
             },
             "picture": {
               "id": "string",
-              "type": "enum:IMAGE",
+              "type": "enum:IMAGE|PREVIEW",
               "direct_path": "string"
             },
             "preview": {
@@ -4540,7 +4547,7 @@
             },
             "invite": "string",
             "handle": "string",
-            "verification": "enum:UNVERIFIED",
+            "verification": "enum:UNVERIFIED|VERIFIED",
             "creation_time": "string",
             "settings": {
               "reaction_codes": {
@@ -4598,11 +4605,11 @@
       "variablesShape": {
         "input": "string",
         "session_id": "string",
-        "source": "string"
+        "source": "enum:USER_INPUT"
       },
       "response": {
         "xwa2_username_check": {
-          "result": "enum:FAILURE|INFLIGHT|INIT|SUCCESS",
+          "result": "enum:SUCCESS",
           "suggestions": [
             "string"
           ]

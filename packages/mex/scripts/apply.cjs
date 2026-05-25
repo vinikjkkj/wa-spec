@@ -246,8 +246,21 @@ function expandSubsetEnums(node, parents, enumIndex, stats, opName) {
 //       but the set is wire-correct.
 function findSupersetEnum(enumTag, parents, k, enumIndex, opName) {
     const inferredVals = new Set(enumTag.slice(5).split('|'))
+    // Name-match is the strongest signal — it ties the field to a specific
+    // GraphQL enum by name. A single-value inference (e.g. only `SUCCESS`
+    // recovered from one `===` comparison) is OK to expand here because the
+    // name match itself confirms identity.
     const named = matchEnumForLeaf(parents, k, enumIndex, opName)
     if (named && coversAndExtends(inferredVals, named.values)) return named
+    // Blind superset scans (steps 2 and 3) — only allowed when the inferred
+    // set has ≥2 distinct values. Otherwise a single-value field like
+    // `result: SUCCESS` would match any unrelated enum that happens to
+    // contain SUCCESS, e.g. `xwa2_username_check.result` getting fused with
+    // the newsletter integrity review enum `{PENDING, REJECT, SUCCESS,
+    // CONTENT_UNAVAILABLE}`. With ≥2 values the false-positive risk drops
+    // sharply because BOTH values have to coincidentally co-occur in some
+    // unrelated enum.
+    if (inferredVals.size < 2) return null
     for (const [name, entry] of Object.entries(enumIndex)) {
         if (entry.kind !== 'mirrored') continue
         if (!coversAndExtends(inferredVals, entry.values)) continue
@@ -342,13 +355,64 @@ function applySemanticEnumUnion(node, parents, unionMap, stats) {
     return node
 }
 
-// Semantic key = last 2 path segments. `xwa2_newsletter.state.type` and
+// Semantic key = `<root-concept>.<parent>.<field>` (last 2 segments). The
+// root concept comes from the singularized first token of the WA-Mex root
+// (`xwa2_newsletter_followers` → `newsletter`, `xwa2_group_query_by_id` →
+// `group`). This keeps enums for the same logical type unified across
+// different XWA root wrappers (e.g. `xwa2_newsletter.state.type` ⇌
 // `xwa2_newsletters_recommended.result.state.type` both bucket as
-// `state.type`. Single-segment paths bucket by the field name alone.
+// `newsletter.state.type`) WITHOUT cross-pollinating fields that happen to
+// share the trailing `<parent>.<field>` suffix from a different domain
+// (e.g. `newsletter.edges.role` ≠ `group.edges.role`).
 function semanticKey(path) {
     if (path.length === 0) return ''
-    if (path.length === 1) return path[0]
-    return path.slice(-2).join('.')
+    const root = path[0]
+    const concept = extractRootConcept(root)
+    const tail = path.slice(-2).join('.')
+    return concept ? concept + '.' + tail : tail
+}
+
+function extractRootConcept(root) {
+    if (typeof root !== 'string') return null
+    // Strip the WA Mex namespace prefix and the leading wrapper-result
+    // operator markers; tokenize and take the first meaningful word.
+    const stripped = root.replace(/^xwa2?_/, '').replace(/^xfb_/, '')
+    const tokens = stripped.split('_').filter(Boolean)
+    if (tokens.length === 0) return null
+    return singularize(tokens[0])
+}
+
+function singularize(s) {
+    if (/ies$/.test(s)) return s.slice(0, -3) + 'y'
+    if (/sses$/.test(s)) return s.slice(0, -2)
+    if (/s$/.test(s) && !/ss$/.test(s)) return s.slice(0, -1)
+    return s
+}
+
+// Walk the IR; for each bare `string` leaf whose path ends in
+// `<parent>.<field>` matching a key in parentFieldEnums, promote it to
+// `enum:V1|V2|...`. Keeps existing enums and non-string leaves intact.
+function promoteByParentFieldMap(node, parents, parentFieldEnums, stats) {
+    if (node === null || node === undefined) return node
+    if (Array.isArray(node)) {
+        node[0] = promoteByParentFieldMap(node[0], parents, parentFieldEnums, stats)
+        return node
+    }
+    if (typeof node !== 'object') return node
+    for (const [k, v] of Object.entries(node)) {
+        if (v === 'string' && parents.length > 0) {
+            const lastParent = parents[parents.length - 1]
+            const key = lastParent + '.' + k
+            const vals = parentFieldEnums[key]
+            if (vals && vals.length >= 2) {
+                node[k] = 'enum:' + vals.slice().sort().join('|')
+                stats.expanded = (stats.expanded || 0) + 1
+            }
+        } else if (v !== null && typeof v === 'object') {
+            node[k] = promoteByParentFieldMap(v, [...parents, k], parentFieldEnums, stats)
+        }
+    }
+    return node
 }
 
 function main() {
@@ -400,37 +464,17 @@ function main() {
             promoteEnumsInShape(op.response, [], enumIndex, enumStats, opNameForMatcher)
             promoteEnumsInShape(op.variablesShape, [], enumIndex, enumStats, opNameForMatcher)
         }
-        // Second pass: expand SUBSET enum leaves (recovered from caller
-        // === "X" comparisons) into the discovered superset when one
-        // exists. Without this, `role: 'ADMIN'|'OWNER'` stays partial even
-        // though the schema declares NewsletterMembershipType with
-        // ADMIN|GUEST|OWNER|SUBSCRIBER via a switch-case conversion fn.
-        for (const key of sortedKeys) {
-            const op = ops[key]
-            const opNameForMatcher = op.__opName || key
-            expandSubsetEnums(op.response, [], enumIndex, enumStats, opNameForMatcher)
-            expandSubsetEnums(op.variablesShape, [], enumIndex, enumStats, opNameForMatcher)
-        }
-        // Third pass: cross-op semantic-path union. Each op has its own
-        // partial view of enum-valued fields (e.g. state.type might recover
-        // `ACTIVE|DELETED` in one op, `ACTIVE|NON_EXISTING|SUSPENDED` in
-        // another). The GraphQL field type is shared across ops, so the
-        // union represents the actual schema set. We bucket by the SUFFIX
-        // `parent.field` (last two path segments) so different XWA root
-        // wrappers (xwa2_newsletter, xwa2_newsletters_recommended, ...)
-        // contribute to the same logical field's union.
-        const semanticEnumUnion = Object.create(null)
-        for (const key of sortedKeys) {
-            collectSemanticEnums(ops[key].response, [], semanticEnumUnion)
-            collectSemanticEnums(ops[key].variablesShape, [], semanticEnumUnion)
-        }
-        for (const key of sortedKeys) {
-            applySemanticEnumUnion(ops[key].response, [], semanticEnumUnion, enumStats)
-            applySemanticEnumUnion(ops[key].variablesShape, [], semanticEnumUnion, enumStats)
-        }
     } catch (err) {
         console.error('apply: enum-discovery skipped —', err.message)
     }
+    // We deliberately defer `expandSubsetEnums` and the cross-op semantic
+    // union until AFTER wire-overrides — wire-overrides promote bare-string
+    // leaves to `enum:V` when wire samples reveal UPPER_SNAKE values, and we
+    // want those wire-derived enums to also feed into superset expansion and
+    // cross-op union. Without this, e.g. `viewer_metadata.role` (left as
+    // `string` by static inference and only promoted to `enum:OWNER|SUBSCRIBER`
+    // by wire samples) wouldn't get expanded into the full
+    // `NewsletterMembershipType` set.
 
     // ---- Wire-sample overrides (highest-confidence layer) ----
     // Read from the versioned, sanitized captures at
@@ -456,6 +500,62 @@ function main() {
         }
     } catch (err) {
         console.error('apply: wire-overrides skipped —', err.message)
+    }
+
+    // ---- Enum expansion + cross-op semantic union (runs AFTER wire-overrides) ----
+    // Now that wire-derived enums are present, expand SUBSET enum leaves
+    // (recovered from caller `=== "X"` comparisons OR from wire) into the
+    // discovered Mirrored superset when one exists. Then cross-op union by
+    // semantic path so the same logical GraphQL Enum surfaces with the same
+    // value set in every op that selects it.
+    try {
+        const enumIndex = discoverEnums(bundles)
+        // We re-use the stats object created earlier (in the discovery try-block)
+        // OR create a fresh one if discovery failed; either way the counts are
+        // surfaced in the diagnostic line below.
+        enumStats = enumStats || { discovered: Object.keys(enumIndex).length, applied: 0, expanded: 0, byField: {} }
+        for (const key of sortedKeys) {
+            const op = ops[key]
+            const opNameForMatcher = op.__opName || key
+            expandSubsetEnums(op.response, [], enumIndex, enumStats, opNameForMatcher)
+            expandSubsetEnums(op.variablesShape, [], enumIndex, enumStats, opNameForMatcher)
+        }
+        // Cross-op union only runs on RESPONSES. Response paths are rooted
+        // at `xwa2_<domain>_<...>` which carries domain context (newsletter,
+        // group, etc.) — enabling correct same-enum-across-ops unification.
+        // Variables, by contrast, are top-keyed at generic wrappers like
+        // `input` without domain context, so cross-op union would fuse
+        // unrelated `input.<field>` schemas across ops (e.g. FetchNewsletter
+        // `input.type: JID|INVITE` would leak into FetchNewChatMessageCappingInfo
+        // `input.type: INDIVIDUAL_NEW_CHAT_THREAD`). Each op's wrapper
+        // already infers its own variable enums from local evidence — no
+        // union needed.
+        const semanticEnumUnion = Object.create(null)
+        for (const key of sortedKeys) {
+            collectSemanticEnums(ops[key].response, [], semanticEnumUnion)
+        }
+        for (const key of sortedKeys) {
+            applySemanticEnumUnion(ops[key].response, [], semanticEnumUnion, enumStats)
+        }
+        // Bundle-wide parent.field enum promotion. enum-discovery built a
+        // global `<parent>.<field>` → values map by scanning ALL bundles for
+        // `<...>.<parent>.<field> === "X"` and matching switch-case patterns.
+        // This catches enum values defined in deep consumer modules (e.g.
+        // React UI components) outside our per-op respBodies window. Used to
+        // promote bare `string` leaves to enum when the recovered set has
+        // ≥2 distinct UPPER_SNAKE values.
+        //
+        // Example: `appeal.state` is `string` after inference because the
+        // immediate consumers don't compare against literal values — but
+        // many UI files do (`.appeal.state === "PENDING"|"SUCCESS"|...`).
+        // This pass promotes it to the full 6-value enum.
+        const parentFieldEnums = enumIndex.__parentFieldEnums || {}
+        for (const key of sortedKeys) {
+            promoteByParentFieldMap(ops[key].response, [], parentFieldEnums, enumStats)
+            promoteByParentFieldMap(ops[key].variablesShape, [], parentFieldEnums, enumStats)
+        }
+    } catch (err) {
+        console.error('apply: post-wire enum expansion skipped —', err.message)
     }
 
     // ---- Cross-op enum union ----
@@ -495,14 +595,16 @@ function main() {
         return node
     }
     let unionedCount = 0
+    // Only union RESPONSES across ops. Variables are op-specific schemas —
+    // unioning them would conflate e.g. FetchNewsletter `input.type` (JID|
+    // INVITE) with FetchNewChatMessageCappingInfo `input.type` (INDIVIDUAL_NEW_CHAT_THREAD)
+    // since both share the same `i.input.type` bucket key.
     for (const key of sortedKeys) {
         collectEnums(ops[key].response, ['r'])
-        collectEnums(ops[key].variablesShape, ['i'])
     }
     for (const key of sortedKeys) {
         const beforeResp = JSON.stringify(ops[key].response)
         applyEnumUnion(ops[key].response, ['r'])
-        applyEnumUnion(ops[key].variablesShape, ['i'])
         if (JSON.stringify(ops[key].response) !== beforeResp) unionedCount++
     }
 

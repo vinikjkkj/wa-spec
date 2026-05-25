@@ -65,6 +65,20 @@ function classifyInputExpr(s, start, traceIdent) {
     if (tern) {
         const left = classifyInputExpr(tern.left, 0, traceIdent)
         const right = classifyInputExpr(tern.right, 0, traceIdent)
+        // Merge enum branches — `cond ? "X" : "Y"` with UPPER_SNAKE literals
+        // gives left=`enum:X`, right=`enum:Y`. Union the values.
+        const leftIsEnum = typeof left === 'string' && left.startsWith('enum:')
+        const rightIsEnum = typeof right === 'string' && right.startsWith('enum:')
+        if (leftIsEnum && rightIsEnum) {
+            const merged = new Set([...left.slice(5).split('|'), ...right.slice(5).split('|')])
+            return 'enum:' + [...merged].sort().join('|')
+        }
+        // Enum + plain string → broaden to string (the other branch isn't
+        // enum-valued, so the field isn't really a closed enum).
+        if (leftIsEnum && right === 'string') return 'string'
+        if (rightIsEnum && left === 'string') return 'string'
+        // Original fallback: aggregate string literals if both branches were
+        // 'string' (kept for backwards compat with non-UPPER_SNAKE cases).
         const lit = collectStringLiterals(tern.left).concat(collectStringLiterals(tern.right))
         if (lit.length >= 2 && left === 'string' && right === 'string') {
             const uniq = [...new Set(lit)].sort()
@@ -96,8 +110,19 @@ function classifyInputExpr(s, start, traceIdent) {
         return 'boolean'
     }
 
-    // String literal
-    if (c === '"' || c === "'" || c === '`') return 'string'
+    // String literal. UPPER_SNAKE literals (e.g. `"INDIVIDUAL_NEW_CHAT_THREAD"`,
+    // `"USER_INPUT"`, `"GUEST"`) are WA Mex's enum wire format — emit a
+    // singleton enum tag so the consumer surfaces them as string-literal
+    // unions in TypeScript. Non-enum-looking literals (free-form text,
+    // arbitrary content) stay as `string`.
+    if (c === '"' || c === "'" || c === '`') {
+        // Extract just the literal content (handle simple escapes; refuses
+        // template strings with `${...}`).
+        if (c === '`' && fullExpr.includes('${')) return 'string'
+        const lit = fullExpr.slice(1, -1)
+        if (/^[A-Z][A-Z0-9_]{0,49}$/.test(lit)) return 'enum:' + lit
+        return 'string'
+    }
 
     // Numeric literal (incl. negative, decimal, exponent)
     if (/[0-9]/.test(c) || ((c === '-' || c === '+' || c === '.') && /[0-9]/.test(s[i + 1] || ''))) {
@@ -317,25 +342,75 @@ function classifyCallExpr(expr) {
 // before the call-site (offset `before`).
 function makeInputTracer(body, before) {
     const sub = body.slice(0, before)
+    // Scope window for single-char idents: walk back from `before` to the
+    // nearest enclosing function header. Single-letter minifier idents
+    // (`t`, `e`, `u`, ...) are reused across nested closures, so an
+    // unbounded scan would conflate scopes (e.g. `t=n>0` in one closure
+    // leaking `boolean` into a sibling). Within ONE function scope they're
+    // safe to trace and often carry meaningful values — e.g.
+    // `var u = isNewsletter(t) ? "JID" : "INVITE"` declares the enum source
+    // for `type: u` in the same scope.
+    const scopeStart = findEnclosingFunctionStart(sub)
     return function trace(ident) {
-        // Single-char idents (`t`, `e`, `n`, `a`, `r`, ...) are minifier
-        // defaults reused across nested closures. Tracing them across the
-        // whole body would conflate scopes (e.g. `t=n>0` in one closure
-        // makes us think `locale: t` is boolean in another). Skip them.
-        if (ident.length < 2) return 'unknown'
         // `=(?!=)` excludes `==` / `===` comparisons that look like
         // assignments (e.g. `t===void 0?null:t` matched `t=` and leaked
         // `==void 0...` as an RHS containing a top-level `==`).
         const re = new RegExp(`(?:var|let|const)?\\s*\\b${ident}\\s*=(?!=)\\s*`, 'g')
+        const searchFrom = ident.length < 2 ? scopeStart : 0
         let dm
         let last = 'unknown'
+        let hits = 0
         while ((dm = re.exec(sub))) {
+            if (dm.index < searchFrom) continue
             const pos = dm.index + dm[0].length
             const tag = classifyInputExpr(sub, pos, null)
-            if (tag !== 'unknown') last = tag
+            if (tag !== 'unknown') {
+                last = tag
+                hits++
+            }
         }
+        // For single-char idents, require EXACTLY ONE non-unknown match to
+        // avoid the cross-scope contamination the original bail-out guarded
+        // against. Within the same function scope this is the typical case.
+        if (ident.length < 2 && hits > 1) return 'unknown'
         return last
     }
+}
+
+// Find the nearest enclosing FUNCTION body start, walking backward from the
+// end of `sub`. Returns the byte offset of the first byte inside the
+// function body (just past its opening `{`).
+//
+// "Function body" is defined as: an unmatched `{` whose immediately
+// preceding non-whitespace char is `)` (an arg list close), with either
+// `function` or `=>` further back. We don't stop at nested object literals
+// or control-flow blocks — those would be too tight (the call site is
+// typically inside a nested object literal that's INSIDE the function body
+// we want as our scope floor for single-letter idents).
+function findEnclosingFunctionStart(sub) {
+    let depth = 0
+    for (let i = sub.length - 1; i >= 0; i--) {
+        const c = sub[i]
+        if (c === '}') depth++
+        else if (c === '{') {
+            if (depth > 0) {
+                depth--
+                continue
+            }
+            // Unmatched `{`. Check if it's a function body — look at what
+            // precedes (after stripping whitespace) for `)` (arg list).
+            let j = i - 1
+            while (j >= 0 && /\s/.test(sub[j])) j--
+            if (sub[j] === ')') {
+                // Could be `function(args){`, `=>(...args){`, `method(args){`.
+                // Accept all — single-letter trace inside this scope is safe.
+                return i + 1
+            }
+            // Not a function body — continue looking outward.
+            // (Stays at depth 0 so further `{` we encounter are also unmatched.)
+        }
+    }
+    return 0
 }
 
 // ------------------------------------------------------------- RESPONSE side
@@ -610,7 +685,7 @@ function schemaInvariantType(fieldName) {
     // Counters & dimensional quantities
     if (/_(?:count|num|size)$/.test(fieldName)) return 'number'
     // Time / byte / size unit suffixes — always number
-    if (/_(?:seconds?|secs?|millis|ms|us|nanos|ns|bytes|kb|mb|gb)$/.test(fieldName)) return 'number'
+    if (/_(?:seconds?|secs?|millis|ms|us|nanos|ns|bytes|kb|mb|gb|days?|hours?|minutes?|mins?|weeks?|months?|years?)$/.test(fieldName)) return 'number'
     // Bound / range numeric suffixes (Ads/insights metrics — `_lower_bound`,
     // `_upper_bound`, plain `_bound`)
     if (/_(?:bound|min|max|avg|sum|total|delta|rate)$/.test(fieldName)) return 'number'
@@ -1154,11 +1229,13 @@ function fillResponseTypesInner(shape, bodies, ctxs, parents, ambiguous) {
 //
 // Signature backward-compat: `bodies` may be a single string (legacy single-
 // body call); internally everything is normalized to arrays.
-function fillInputTypes(shape, bodies, fetchCallPos, parentKey, siblingKeys, depth, varToField) {
+function fillInputTypes(shape, bodies, fetchCallPos, parentKey, siblingKeys, depth, varToField, findMethod, enumIndex) {
     const bodyArr = Array.isArray(bodies) ? bodies : [bodies]
     const posArr = Array.isArray(fetchCallPos) ? fetchCallPos : [fetchCallPos]
     const d = depth || 0
     const mapping = varToField || {}
+    const finder = typeof findMethod === 'function' ? findMethod : null
+    const enums = enumIndex || null
     if (!shape || typeof shape !== 'object') {
         const isUnknown = shape === null || shape === undefined || shape === 'unknown'
         if (isUnknown && parentKey) {
@@ -1177,7 +1254,7 @@ function fillInputTypes(shape, bodies, fetchCallPos, parentKey, siblingKeys, dep
         return shape || 'unknown'
     }
     if (Array.isArray(shape)) {
-        return [fillInputTypes(shape[0] ?? null, bodyArr, posArr, parentKey, siblingKeys, d, mapping)]
+        return [fillInputTypes(shape[0] ?? null, bodyArr, posArr, parentKey, siblingKeys, d, mapping, finder, enums)]
     }
     // Sibling key set for this object level — used downstream to ensure
     // consumer-body evidence is scoped to the right literal. Without this,
@@ -1238,7 +1315,28 @@ function fillInputTypes(shape, bodies, fetchCallPos, parentKey, siblingKeys, dep
             }
             // Stand-alone plural noun input keys
             if (/^(?:ids|lids|wids|jids|suggestions|categories|labels|domains|features|prompts|tokens|emails|users|products|items|results|partcipants|participants|contacts|metrics|exposures)$/.test(k)) {
-                if (k === 'categories' || k === 'products' || k === 'users' || k === 'partcipants' || k === 'participants' || k === 'contacts' || k === 'metrics' || k === 'exposures') { out[k] = [{}]; continue }
+                if (k === 'categories' || k === 'products' || k === 'users' || k === 'partcipants' || k === 'participants' || k === 'contacts' || k === 'metrics' || k === 'exposures') {
+                    // Try recovering the item shape from a builder method
+                    // somewhere in the bundle: `get<CamelCaseKey>:function(){
+                    // return [{<obj>}]}`. Catches FetchNewsletterInsights's
+                    // `metrics: <wrapper-arg>` chain that ultimately maps to
+                    // `getMetrics()` returns scattered across Processor
+                    // modules. Falls back to `[{}]` when no builder found.
+                    //
+                    // recoverArrayItemShape may type some leaves as concrete
+                    // tags (e.g. 'number') when the RHS is a numeric-enum
+                    // reference like `<x>.NewsletterInsightMetricQuery.<Key>`
+                    // — those overrides are preserved by the recursive
+                    // fillInputTypes call (non-null leaves are passed through
+                    // by `if (v === null)` gate at the top of the for-loop).
+                    const recovered = recoverArrayItemShape(k, finder, enums)
+                    if (recovered) {
+                        out[k] = [fillInputTypes(recovered, bodyArr, posArr, k, [], d + 1, mapping, finder, enums)]
+                    } else {
+                        out[k] = [{}]
+                    }
+                    continue
+                }
                 out[k] = ['string']
                 continue
             }
@@ -1268,7 +1366,7 @@ function fillInputTypes(shape, bodies, fetchCallPos, parentKey, siblingKeys, dep
             // priority over invariants since they fired earlier.
             out[k] = inputNameInvariant(k) || schemaInvariantType(k) || 'unknown'
         } else {
-            out[k] = fillInputTypes(v, bodyArr, posArr, k, localSiblings, d + 1, mapping)
+            out[k] = fillInputTypes(v, bodyArr, posArr, k, localSiblings, d + 1, mapping, finder, enums)
         }
     }
     return out
@@ -1307,8 +1405,8 @@ function classifyInputLeafByName(bodies, fetchCallPositions, key, siblingKeys) {
             // the primary caller body (bi === 0) — there the fetchQuery
             // proximity check + structural extraction is authoritative, so
             // we can be lenient. For consumer bodies (bi > 0), enforce it.
-            if (bi > 0 && siblings.length > 0) {
-                if (!enclosingLiteralHasSibling(body, m.index, siblings)) continue
+            if (bi > 0) {
+                if (!enclosingLiteralMatchesOurOp(body, m.index, key, siblings)) continue
             }
             const rhsStart = m.index + m[0].length
             const tracer = makeInputTracer(body, rhsStart)
@@ -1347,10 +1445,17 @@ function classifyInputLeafByNameWithInvariants(bodies, fetchCallPositions, key, 
     return inputNameInvariant(key) || schemaInvariantType(key) || 'unknown'
 }
 
-// Walk backwards from a `<key>:` match offset to find the nearest enclosing
-// `{`, then scan the matching `{...}` literal to check if any of `siblings`
-// appears as a key. Returns true iff at least one sibling is present.
-function enclosingLiteralHasSibling(body, idx, siblings) {
+// Walk backwards from a `<key>:` match offset to find the enclosing
+// `{...}` literal, then check whether it belongs to OUR op by comparing
+// its key set against our siblings. Returns true iff:
+//   - at least one sibling is present, AND
+//   - the literal's TOTAL key count fits within our op's variable budget
+//     (siblings + the target key + a small slack for nested helper keys).
+// This rejects e.g. a React consumer's `useLazyLoadQuery(<DIFFERENT_QUERY>, {
+//   audienceOptionAudience, currency, dailyBudget, ..., selectedPublisherPlatforms,
+//   targetingSpecAudience: JSON.stringify(...) })` literal — it shares some
+// of our key names but builds a different GraphQL query's input.
+function enclosingLiteralMatchesOurOp(body, idx, key, siblings) {
     // Find enclosing `{` by walking back, balancing `}` against `{`.
     let i = idx - 1
     let close = 0
@@ -1391,13 +1496,62 @@ function enclosingLiteralHasSibling(body, idx, siblings) {
         j++
     }
     const litBody = body.slice(i + 1, j - 1)
-    // Look for any sibling as a key (followed by `:`). Match conservatively
-    // — `<siblingName>\s*:`.
-    for (const s of siblings) {
-        const re = new RegExp(`(?:^|[{,\\s])${escapeRegExp(s)}\\s*:`, 'm')
-        if (re.test(litBody)) return true
+    // Collect all keys present at the literal's TOP LEVEL only (skip nested
+    // `{...}` objects so we don't pick up keys from sub-shapes).
+    const keysHere = collectTopLevelKeys(litBody)
+    if (keysHere.size === 0) return false
+    // (1) When the target field has siblings (i.e. the op declares
+    // co-occurring keys at this level), at least one must be present in the
+    // literal. When siblings is empty (target is the sole declared key),
+    // skip this check — every matching literal will only contain `key`.
+    if (siblings.length > 0) {
+        const siblingSet = new Set(siblings)
+        let hasSibling = false
+        for (const k of keysHere) if (siblingSet.has(k)) { hasSibling = true; break }
+        if (!hasSibling) return false
     }
-    return false
+    // (2) Total key count must fit our op's variable budget. The literal's
+    // size minus the target key should be ≤ siblings.length. If the literal
+    // has more keys than our op declares, it's a different op's input that
+    // happens to share some of our names (e.g. a React consumer building
+    // a different GraphQL query's input via useLazyLoadQuery, with
+    // `dailyBudget`/`selectedPublisherPlatforms` that aren't in our schema).
+    const litKeyCount = keysHere.size - (keysHere.has(key) ? 1 : 0)
+    if (litKeyCount > siblings.length) return false
+    return true
+}
+
+// Extract top-level keys from a single object literal body (the content
+// between `{` and `}`). Skips keys nested inside sub-`{...}` literals.
+function collectTopLevelKeys(litBody) {
+    const out = new Set()
+    let i = 0
+    let depth = 0
+    while (i < litBody.length) {
+        const c = litBody[i]
+        if (c === '"' || c === "'" || c === '`') { i = skipString(litBody, i); continue }
+        if (c === '{' || c === '[' || c === '(') { depth++; i++; continue }
+        if (c === '}' || c === ']' || c === ')') { depth--; i++; continue }
+        if (depth !== 0) { i++; continue }
+        // At top level. Look for `<key>:` where `<key>` is an identifier or
+        // quoted string AND preceded by `{`/`,`/start.
+        const prev = i > 0 ? litBody[i - 1] : ','
+        if (prev !== ',' && prev !== '{' && !/\s/.test(prev) && i !== 0) { i++; continue }
+        if (/[A-Za-z_$]/.test(c)) {
+            let k = i
+            while (k < litBody.length && /[\w$]/.test(litBody[k])) k++
+            const ident = litBody.slice(i, k)
+            let n = k
+            while (n < litBody.length && /\s/.test(litBody[n])) n++
+            if (litBody[n] === ':') {
+                out.add(ident)
+                i = n + 1
+                continue
+            }
+        }
+        i++
+    }
+    return out
 }
 
 // Scan a body for `<var>.<key>` accesses and infer the leaf type from how
@@ -1432,6 +1586,199 @@ function classifyByUsage(body, key) {
     // Weak: Boolean coercion / negation
     if (new RegExp(`\\bBoolean\\s*\\([^)]{0,200}?\\.${keyEsc}\\b`).test(body)) return 'boolean'
     return 'unknown'
+}
+
+// Given a plural-noun input field name and the bundle-wide method finder,
+// search for a builder method that returns an array of objects literally —
+// i.e. `get<CamelCaseField>:function(...){return [{<obj-shape>}]}`. The
+// first object's shape is taken as the array item type.
+//
+// Triggered by inputs like FetchNewsletterInsights's `metrics`: the wrapper
+// passes through `e.requestedMetrics`, which traces back through
+// `getUniqueMetricRequests` → `.flatMap(...).getMetrics()` to builder
+// methods scattered across Processor modules. Those builders are NOT in the
+// wrapper's direct dependency chain, so the wrapper-and-consumer bodies
+// alone can't reach them. The bundle-wide method finder bridges the gap.
+function recoverArrayItemShape(fieldName, finder, enumIndex) {
+    if (!finder || !fieldName) return null
+    const camel = fieldName
+        .split('_')
+        .filter(Boolean)
+        .map((w) => w[0].toUpperCase() + w.slice(1).toLowerCase())
+        .join('')
+    const candidates = [
+        'get' + camel,
+        'make' + camel,
+        'build' + camel,
+        'to' + camel,
+        // Singular: `getMetric` if the field is `metrics`. Some bundles use
+        // either form.
+        'get' + camel.replace(/ies$/, 'y').replace(/sses$/, 'ss').replace(/s$/, '')
+    ]
+    for (const cand of candidates) {
+        const body = finder(cand)
+        if (!body) continue
+        // Look for `return [{...}]` in the body. Minified, so no whitespace
+        // requirement — must accept `return[{`.
+        const retIdx = body.search(/\breturn\b\s*\[/)
+        if (retIdx === -1) continue
+        let i = body.indexOf('[', retIdx)
+        if (i === -1) continue
+        let j = i + 1
+        while (j < body.length && /\s/.test(body[j])) j++
+        if (body[j] !== '{') continue
+        const r = parseObjectShapeInline(body, j, enumIndex)
+        if (r && r.value && typeof r.value === 'object' && Object.keys(r.value).length > 0) return r.value
+    }
+    return null
+}
+
+// Local minimal object-shape parser — duplicate of extract-mex's
+// parseObjectShape but inlined here to avoid a circular require.
+//
+// Beyond bare structure, this version classifies each value's leaf type
+// when the RHS is a literal or a known-enum reference:
+//   "lit"            → 'string'
+//   123              → 'number'
+//   !0 / !1 / true / false → 'boolean'
+//   <ref>.<EnumName>.<Key>, when <EnumName> is in the supplied enumIndex
+//     with kind='numeric'                                  → 'number'
+//   <ref>.<EnumName>.<Key>, when kind='mirrored'/'string-object'
+//                                                          → 'string'
+// Other refs (member chains, function calls) stay `null` so the upstream
+// fillInputTypes pipeline falls back to schemaInvariantType. Without these
+// inline tags, e.g. `id: <ref>.NewsletterInsightMetricQuery.UniqueVisitors...`
+// would otherwise hit the `^id$ → string` invariant and emit `id: string`.
+function parseObjectShapeInline(s, start, enumIndex) {
+    let i = start + 1
+    const out = {}
+    while (i < s.length && s[i] !== '}') {
+        while (i < s.length && /\s/.test(s[i])) i++
+        // key
+        let key = null
+        if (s[i] === '"' || s[i] === "'") {
+            const q = s[i]
+            i++
+            const st = i
+            while (i < s.length && s[i] !== q) {
+                if (s[i] === '\\') i++
+                i++
+            }
+            key = s.slice(st, i)
+            i++
+        } else if (/[A-Za-z_$]/.test(s[i] || '')) {
+            const st = i
+            while (i < s.length && /[\w$]/.test(s[i])) i++
+            key = s.slice(st, i)
+        } else {
+            i++
+            continue
+        }
+        while (i < s.length && /\s/.test(s[i])) i++
+        if (s[i] !== ':') {
+            if (s[i] === ',') i++
+            continue
+        }
+        i++ // :
+        while (i < s.length && /\s/.test(s[i])) i++
+        // value
+        if (s[i] === '{') {
+            const r = parseObjectShapeInline(s, i, enumIndex)
+            if (key) out[key] = r.value
+            i = r.end
+        } else if (s[i] === '[') {
+            let k = i + 1
+            while (k < s.length && /\s/.test(s[k])) k++
+            if (s[k] === '{') {
+                const r = parseObjectShapeInline(s, k, enumIndex)
+                if (key) out[key] = [r.value]
+                i = r.end
+            } else if (key) {
+                out[key] = [null]
+            }
+            let depth = 1
+            while (i < s.length && depth > 0) {
+                const c = s[i]
+                if (c === '"' || c === "'" || c === '`') {
+                    const q = c
+                    i++
+                    while (i < s.length && s[i] !== q) {
+                        if (s[i] === '\\') i++
+                        i++
+                    }
+                    i++
+                    continue
+                }
+                if (c === '[') depth++
+                else if (c === ']') depth--
+                i++
+            }
+        } else {
+            // Capture the RHS expression to classify it.
+            const exprStart = i
+            let depth = 0
+            let inStr = false
+            let strCh = ''
+            while (i < s.length) {
+                const c = s[i]
+                if (inStr) {
+                    if (c === '\\') { i += 2; continue }
+                    if (c === strCh) inStr = false
+                    i++
+                    continue
+                }
+                if (c === '"' || c === "'" || c === '`') { inStr = true; strCh = c; i++; continue }
+                if (c === '(' || c === '[' || c === '{') depth++
+                else if (c === ')' || c === ']' || c === '}') {
+                    if (depth === 0) break
+                    depth--
+                } else if (c === ',' && depth === 0) break
+                i++
+            }
+            const expr = s.slice(exprStart, i).trim()
+            if (key) out[key] = classifyInlineRhs(expr, enumIndex)
+        }
+        while (i < s.length && /\s/.test(s[i])) i++
+        if (s[i] === ',') i++
+    }
+    return { value: out, end: i + 1 }
+}
+
+// Classify a recovered RHS expression: string literal, number literal,
+// boolean (`!0`/`!1`/`true`/`false`), known-enum reference, or null
+// (for unrecognized references — falls through to schemaInvariantType later).
+function classifyInlineRhs(expr, enumIndex) {
+    if (!expr) return null
+    const c = expr[0]
+    if (c === '"' || c === "'" || c === '`') return 'string'
+    if (/^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?$/.test(expr)) return 'number'
+    if (expr === 'true' || expr === 'false' || expr === '!0' || expr === '!1') return 'boolean'
+    if (expr === 'null' || expr === 'undefined' || expr === 'void 0') return null
+    // Member-chain ref like `o("X").EnumName.Key` — pick out the FIRST
+    // CamelCased identifier segment after a `.` and use it as the enum name.
+    if (enumIndex) {
+        const refMatch = expr.match(/\.([A-Z][\w$]*)\s*\.\s*[A-Za-z_$][\w$]*\s*$/)
+        if (refMatch) {
+            const entry = enumIndex[refMatch[1]]
+            if (entry) {
+                if (entry.kind === 'numeric') return 'number'
+                if (entry.kind === 'mirrored' || entry.kind === 'string-object') {
+                    // For mirrored wire enums, surface as the full enum union;
+                    // for client-internal string-object enums, just say 'string'.
+                    return entry.kind === 'mirrored'
+                        ? 'enum:' + entry.values.slice().sort().join('|')
+                        : 'string'
+                }
+            }
+        }
+        // Direct CamelCase root reference like `EnumName.Key` (no `o("...")` prefix).
+        const directMatch = expr.match(/^([A-Z][\w$]*)\s*\.\s*[A-Za-z_$][\w$]*\s*$/)
+        if (directMatch) {
+            const entry = enumIndex[directMatch[1]]
+            if (entry && entry.kind === 'numeric') return 'number'
+        }
+    }
+    return null
 }
 
 // Input-specific naming conventions in WA Mex inputs. `fetch_<x>` flags are

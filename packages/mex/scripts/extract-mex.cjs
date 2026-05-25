@@ -522,6 +522,54 @@ function findFetchQueryPos(body) {
     return m ? m.index : null
 }
 
+// Search every bundle for a `<methodName>:function(...){...}` definition and
+// return the first matched body slice (between the opening `{` and matching
+// `}`). Used by the leaf-shape recovery in `fillInputTypes` to inspect
+// `get<Field>` builder methods scattered across modules outside the direct
+// wrapper/consumer dependency chain.
+function findMethodImplementation(bundles, methodName) {
+    if (!methodName) return null
+    const escaped = methodName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    const headerRe = new RegExp(`\\b${escaped}\\s*:\\s*function\\s*\\(`)
+    for (const b of bundles) {
+        const m = headerRe.exec(b.text)
+        if (!m) continue
+        // Find the function body opening `{` after the args close `)`.
+        let i = m.index + m[0].length
+        // walk to matching `)` for args
+        let dp = 1
+        while (i < b.text.length && dp > 0) {
+            const c = b.text[i]
+            if (c === '(') dp++
+            else if (c === ')') dp--
+            i++
+        }
+        // skip whitespace
+        while (i < b.text.length && /\s/.test(b.text[i])) i++
+        if (b.text[i] !== '{') continue
+        // walk to matching `}`
+        let depth = 1
+        let j = i + 1
+        let inStr = false
+        let strCh = ''
+        while (j < b.text.length && depth > 0) {
+            const c = b.text[j]
+            if (inStr) {
+                if (c === '\\') { j += 2; continue }
+                if (c === strCh) inStr = false
+                j++
+                continue
+            }
+            if (c === '"' || c === "'" || c === '`') { inStr = true; strCh = c; j++; continue }
+            if (c === '{') depth++
+            else if (c === '}') depth--
+            j++
+        }
+        return b.text.slice(i, j) // includes outer { ... }
+    }
+    return null
+}
+
 function extractMex(bundles) {
     // Index every module header so we can map .graphql -> first caller, and
     // also track inverse dependencies so we can collect 2nd-hop consumer
@@ -540,6 +588,16 @@ function extractMex(bundles) {
             }
         }
     }
+    // Pre-discover enums once so the shape recovery (recoverArrayItemShape →
+    // parseObjectShapeInline) can disambiguate `id: <ref>.X.Y` references —
+    // when `X` is a numeric enum (InternalEnum with integer values like
+    // `NewsletterInsightMetricQuery`), the leaf is typed as 'number' instead
+    // of falling to the schema-invariant `id → string` default.
+    let sharedEnumIndex = null
+    try {
+        const { discoverEnums } = require('./enum-discovery.cjs')
+        sharedEnumIndex = discoverEnums(bundles)
+    } catch {}
 
     const operations = {}
     let kept = 0
@@ -608,7 +666,13 @@ function extractMex(bundles) {
         // from the local var name, treat the field name as a strong type
         // hint (e.g. `input → username` means `input` is a String).
         const varToField = collectVarToFieldMap(op.operation && op.operation.selections, {})
-        const variablesShape = fillInputTypes(structuralVars, respBodies, respPositions, null, null, 0, varToField)
+        // Callback: search ALL bundles for a method definition. Used by
+        // fillInputTypes' deep-trace heuristic when a plural-noun input
+        // (e.g. `metrics`) traces through opaque function calls to a
+        // builder method (e.g. `getMetrics:function(){return[{id, type,
+        // group_by}]}`) defined far from the wrapper's dep chain.
+        const findMethod = (methodName) => findMethodImplementation(bundles, methodName)
+        const variablesShape = fillInputTypes(structuralVars, respBodies, respPositions, null, null, 0, varToField, findMethod, sharedEnumIndex)
         const response = fillResponseTypes(structuralResp, respBodies)
         operations[opName] = {
             docId,
