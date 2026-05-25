@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040072419",
+  "waVersion": "2.3000.1040096081",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -4358,7 +4358,7 @@
       },
       "response": {
         "xwa2_username_set": {
-          "result": "enum:CONTENT_UNAVAILABLE|PENDING|REJECT|SUCCESS"
+          "result": "enum:FAILURE|INFLIGHT|INIT|SUCCESS"
         }
       }
     },
@@ -4374,7 +4374,7 @@
       },
       "response": {
         "xwa2_username_pin_set": {
-          "result": "enum:CONTENT_UNAVAILABLE|PENDING|REJECT|SUCCESS"
+          "result": "enum:FAILURE|INFLIGHT|INIT|SUCCESS"
         }
       }
     },
@@ -4602,7 +4602,7 @@
       },
       "response": {
         "xwa2_username_check": {
-          "result": "enum:CONTENT_UNAVAILABLE|PENDING|REJECT|SUCCESS",
+          "result": "enum:FAILURE|INFLIGHT|INIT|SUCCESS",
           "suggestions": [
             "string"
           ]

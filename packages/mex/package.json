@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-mex",
-    "version": "2.3000.1040077880-b46f9e7",
+    "version": "2.3000.1040096081-251e328",
     "description": "Typed WhatsApp Web Mex GraphQL bindings — persist IDs, nested variable shapes, response shapes (daily-extracted).",
     "keywords": [
         "whatsapp",

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040072419
+// WhatsApp Version: 2.3000.1040096081
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -3806,13 +3806,13 @@ export type WaMexRevokeNewsletterAdminInviteResponse = {
 
 export type WaMexSetUsernameResponse = {
     readonly xwa2_username_set?: {
-        readonly result?: 'CONTENT_UNAVAILABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
+        readonly result?: 'FAILURE' | 'INFLIGHT' | 'INIT' | 'SUCCESS'
     }
 }
 
 export type WaMexSetUsernameKeyResponse = {
     readonly xwa2_username_pin_set?: {
-        readonly result?: 'CONTENT_UNAVAILABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
+        readonly result?: 'FAILURE' | 'INFLIGHT' | 'INIT' | 'SUCCESS'
     }
 }
 
@@ -3925,7 +3925,7 @@ export type WaMexUpdateTextStatusResponse = {
 
 export type WaMexUsernameAvailabilityResponse = {
     readonly xwa2_username_check?: {
-        readonly result?: 'CONTENT_UNAVAILABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
+        readonly result?: 'FAILURE' | 'INFLIGHT' | 'INIT' | 'SUCCESS'
         readonly suggestions?: ReadonlyArray<string>
     }
 }
