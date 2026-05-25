@@ -110,6 +110,31 @@ function findOperationLiteral(body) {
     return null
 }
 
+// Walk a Relay selections tree and collect every (variableName → graphqlName)
+// pair from LinkedField `args` entries where `kind === 'Variable'`. Relay
+// strips the GraphQL scalar type from compiled artifacts, but when an input
+// LocalArgument named `input` maps to a GraphQL field named `username`, the
+// field name itself carries strong typing signal (a `username` field is a
+// String scalar per the schema). The mapping enables a fallback inference
+// path for inputs whose RHS the caller body never exposes literally.
+function collectVarToFieldMap(selections, out) {
+    if (!Array.isArray(selections)) return out
+    for (const sel of selections) {
+        if (!sel || typeof sel !== 'object') continue
+        if (Array.isArray(sel.args)) {
+            for (const a of sel.args) {
+                if (a && a.kind === 'Variable' && typeof a.variableName === 'string' && typeof a.name === 'string') {
+                    if (a.variableName !== a.name && !out[a.variableName]) {
+                        out[a.variableName] = a.name
+                    }
+                }
+            }
+        }
+        if (Array.isArray(sel.selections)) collectVarToFieldMap(sel.selections, out)
+    }
+    return out
+}
+
 // Walk a Relay selections array → compact response tree.
 // `InlineFragment` and `Condition` selections may introduce LinkedField keys
 // that already exist at the parent level (e.g. type-conditional sub-fields of
@@ -208,12 +233,62 @@ function parseValueShape(s, start, traceIdent) {
     const end = skipExpr(s, i, [',', '}', ']'])
     const expr = s.slice(i, end)
     if (/\.(?:map|filter|slice|concat|flat|flatMap|sort|reverse|splice)\s*\(/.test(expr)) {
+        // When the call is `.map(function(<p>){...return <objLit>...})`,
+        // parse the callback's return value as the array item shape. This
+        // recovers e.g. LogNewsletterExposures.exposures →
+        //   exposures: [{newsletter_id: 'string', capability: 'string'}]
+        // (per the wrapper's `e.map(function(e){return {newsletter_id:n, capability:...}})`).
+        const inner = extractMapCallbackReturn(expr)
+        if (inner !== null) return { value: [inner], end }
         return { value: [null], end }
     }
     if (/^Array\.(?:from|of)\s*\(/.test(expr) || /^Object\.(?:keys|values|entries)\s*\(/.test(expr)) {
         return { value: [null], end }
     }
     return { value: null, end }
+}
+
+// Best-effort: given a `<expr>.map(function(<p>){...})` or `.map(<p>=>...)`,
+// extract the shape of the callback's returned value (object literal only).
+// Returns the object-shape (with `null` leaves) or `null` when no usable
+// return is found. We keep it intentionally narrow — anything more complex
+// stays as `[null]`.
+function extractMapCallbackReturn(expr) {
+    const mIdx = expr.search(/\.map\s*\(/)
+    if (mIdx === -1) return null
+    // Find the `(` after `.map`
+    let i = expr.indexOf('(', mIdx)
+    if (i === -1) return null
+    // Find matching close
+    let dp = 1
+    let j = i + 1
+    while (j < expr.length && dp > 0) {
+        const c = expr[j]
+        if (c === '"' || c === "'" || c === '`') { j = skipString(expr, j); continue }
+        if (c === '(') dp++
+        else if (c === ')') dp--
+        j++
+    }
+    const cb = expr.slice(i + 1, j - 1)
+    // Find `return <expr>` inside cb. Minified code has `return{...}` with no
+    // whitespace, so the regex must allow zero whitespace after `return`.
+    const retMatch = cb.match(/\breturn\b\s*/)
+    if (!retMatch) {
+        // Arrow shorthand `<p>=>(<expr>)` or `<p>=><expr>`
+        const arrowIdx = cb.indexOf('=>')
+        if (arrowIdx === -1) return null
+        let k = arrowIdx + 2
+        while (k < cb.length && /\s/.test(cb[k])) k++
+        if (cb[k] === '(') k++
+        if (cb[k] !== '{') return null
+        const r = parseObjectShape(cb, k, null)
+        return r && r.value && typeof r.value === 'object' ? r.value : null
+    }
+    let k = retMatch.index + retMatch[0].length
+    while (k < cb.length && /\s/.test(cb[k])) k++
+    if (cb[k] !== '{') return null
+    const r = parseObjectShape(cb, k, null)
+    return r && r.value && typeof r.value === 'object' ? r.value : null
 }
 
 function parseObjectShape(s, start, traceIdent) {
@@ -508,19 +583,32 @@ function extractMex(bundles) {
         const rawVarsShape = extractVarsShape(callerBody)
         const structuralVars = augmentWithArgDefs(rawVarsShape, argDefNames)
         const structuralResp = shapeFromSelections(op.operation && op.operation.selections)
-        // Promote `null` leaves to inferred type tags. For inputs we only need
-        // the primary caller (where fetchQuery is invoked). For responses we
-        // additionally consider modules that depend on the Job — those see
-        // the pass-through response and access server-side field names too.
-        const variablesShape = fillInputTypes(structuralVars, callerBody, findFetchQueryPos(callerBody))
+        // Promote `null` leaves to inferred type tags. Collect bodies for
+        // both directions: the primary caller (wrapper Job module that
+        // invokes fetchQuery) PLUS up to 8 consumer modules that depend on
+        // the wrapper. For inputs the wrapper often only does pass-through
+        // (`fetchQuery(id, t)`), so the literal-object construction site
+        // — where each field's value is visible — lives in the consumers.
+        // For responses, consumers also see the pass-through response and
+        // access server-side field names directly.
         const respBodies = [callerBody]
+        const respPositions = [findFetchQueryPos(callerBody)]
         if (callerName) {
             const consumers = (dependents[callerName] || []).slice(0, 8)
             for (const c of consumers) {
                 const cb = findModuleBody(bundles, c)
-                if (cb) respBodies.push(cb)
+                if (cb) {
+                    respBodies.push(cb)
+                    respPositions.push(findFetchQueryPos(cb))
+                }
             }
         }
+        // Map of `<localVariableName> → <graphqlFieldName>` extracted from the
+        // operation's selection args. When the GraphQL field name differs
+        // from the local var name, treat the field name as a strong type
+        // hint (e.g. `input → username` means `input` is a String).
+        const varToField = collectVarToFieldMap(op.operation && op.operation.selections, {})
+        const variablesShape = fillInputTypes(structuralVars, respBodies, respPositions, null, null, 0, varToField)
         const response = fillResponseTypes(structuralResp, respBodies)
         operations[opName] = {
             docId,

@@ -44,6 +44,19 @@ function findModuleBody(text, modName) {
 
 function discoverEnums(bundles) {
     const index = Object.create(null)
+    // Collected across ALL modules; processed in a second pass to attach
+    // wire-format value sets to existing `string-object` enums.
+    const allStringSwitches = []
+    // Anonymous enum sets: any switch whose `case "<UPPER_SNAKE>":` arms cover
+    // a consistent set, regardless of return shape. The set itself has no
+    // canonical name — it's used downstream only for SUPERSET expansion of
+    // inferred sub-enums. Examples that don't fit pattern 4 / 4b:
+    //   switch(_){case"DELETED":...; case"ACTIVE":case"SUSPENDED":case"GEOSUSPENDED":{...}}
+    // → recovers {ACTIVE, DELETED, GEOSUSPENDED, SUSPENDED} as an anonymous
+    //   set, which `expandSubsetEnums` then uses to upgrade
+    //   `FetchAllNewslettersMetadata.state.type: ACTIVE|DELETED` →
+    //   `ACTIVE|DELETED|GEOSUSPENDED|SUSPENDED`.
+    const anonymousSets = []
 
     for (const bundle of bundles) {
         for (const h of iterModuleHeaders(bundle.text)) {
@@ -155,6 +168,14 @@ function discoverEnums(bundles) {
             // like NewsletterCapability where the underlying JS object uses
             // numeric values but the conversion fn maps server UPPER_SNAKE strings.
             const switchRe = /\bswitch\s*\(\s*[a-zA-Z_$][\w$]*\s*\)\s*\{/g
+            // Also capture switches whose arms return string literals — those
+            // map `case "<WIRE>": return "<lower>"` and let us recover the WIRE
+            // values by matching the lowercase return set to an existing
+            // `string-object` enum (which uses the lowercase form). Used to
+            // promote `NewsletterState` (string-object) to a mirrored entry
+            // with `ACTIVE|SUSPENDED|GEOSUSPENDED` instead of the JS-internal
+            // lowercase values.
+            const stringSwitches = [] // [{ wireVals:[], lowerVals:[] }]
             while ((m = switchRe.exec(body))) {
                 const swStart = m.index + m[0].length - 1 // position of `{`
                 // find matching `}`
@@ -195,9 +216,65 @@ function discoverEnums(bundles) {
                     if (prev && prev.kind === 'mirrored' && prev.values.length >= unique.length) continue
                     index[enumName] = { values: unique, source: h.name, kind: 'mirrored' }
                 }
+                // Pattern 4b: `case "<WIRE>": return "<lit>"` arms — collect
+                // both wire and lit sides so we can later attach the wire set
+                // to a name-matched `string-object` enum.
+                const strArmRe = /case\s*"([^"]+)"\s*:\s*return\s*"([^"]+)"/g
+                const wireVals = []
+                const lowerVals = []
+                let sam
+                while ((sam = strArmRe.exec(swBody))) {
+                    const w = sam[1]
+                    const l = sam[2]
+                    if (!/^[A-Z][A-Z0-9_]*$/.test(w)) continue
+                    wireVals.push(w)
+                    lowerVals.push(l)
+                }
+                if (wireVals.length >= 2) {
+                    allStringSwitches.push({
+                        wireVals: [...new Set(wireVals)].sort(),
+                        lowerVals: [...new Set(lowerVals)].sort()
+                    })
+                }
+                // Pattern 4c: collect ALL `case "<UPPER_SNAKE>":` literals
+                // from this switch — anonymous set used by expandSubsetEnums.
+                // Only accept switches where 100% of arms are UPPER_SNAKE
+                // (otherwise it's not a wire-format enum switch).
+                const allCaseRe = /case\s*"([^"]+)"\s*:/g
+                const allCases = []
+                let acm
+                while ((acm = allCaseRe.exec(swBody))) allCases.push(acm[1])
+                if (allCases.length >= 3 && allCases.every((v) => /^[A-Z][A-Z0-9_]*$/.test(v))) {
+                    anonymousSets.push({ values: [...new Set(allCases)].sort(), source: h.name })
+                }
             }
         }
     }
+
+    // Second pass: attach wire-format value sets to existing `string-object`
+    // enums by strict set-match on the lowercase values. This recovers
+    // NewsletterState: the JS enum stores `{Active:'active', Suspended:'suspended',
+    // Geosuspended:'geosuspended'}` (string-object lowercase), and the bundle
+    // has a `case "ACTIVE": return "active"; case "SUSPENDED": return "suspended";
+    // case "GEOSUSPENDED": return "geosuspended"` switch elsewhere. Match the
+    // lowercase set to upgrade the enum's kind to `mirrored` with WIRE values.
+    for (const sw of allStringSwitches) {
+        const lowerKey = sw.lowerVals.join('|')
+        for (const [name, entry] of Object.entries(index)) {
+            if (entry.kind !== 'string-object') continue
+            if (entry.values.slice().sort().join('|') !== lowerKey) continue
+            index[name] = { values: sw.wireVals, source: entry.source, kind: 'mirrored' }
+        }
+    }
+
+    // Expose the anonymous sets on the index object via a non-enumerable
+    // property so downstream code can find them without polluting the named
+    // enum lookup. `expandSubsetEnums` reads this when searching for a
+    // superset to expand a partial enum into.
+    Object.defineProperty(index, '__anonymousSets', {
+        value: anonymousSets,
+        enumerable: false
+    })
 
     return index
 }
@@ -209,7 +286,10 @@ function discoverEnums(bundles) {
 //   - drop common suffix (`_type` → bare name; `enforcement_type` already covered)
 //   - common prefixes (`newsletter_state` → NewsletterState; also bare `State` and
 //     parent-context `Newsletter` + `State`)
-function candidateEnumNames(parents, fieldName) {
+//   - op-name tokens (Log<X>Exposures → tokens [Log, X, Exposures] used as extra
+//     parent context). Resolves e.g. LogNewsletterExposures.input.exposures.capability
+//     → NewsletterCapability when no structural parent carries `newsletter`.
+function candidateEnumNames(parents, fieldName, opName) {
     const out = new Set()
     const toCamel = (s) =>
         String(s)
@@ -230,10 +310,30 @@ function candidateEnumNames(parents, fieldName) {
     // Tokenize a snake-case parent into its meaningful words. E.g.
     // `xwa2_newsletter_admin` → ['newsletter', 'admin'].
     const tokens = (s) => stripNs(s).split('_').filter(Boolean)
+    // Tokenize a CamelCase op name into its parts; lowercase so the rest of
+    // the pipeline reuses `tokens()` shape. Skip leading verb tokens that
+    // never carry typing information (Log/Fetch/Set/Get/...).
+    const camelTokens = (s) => {
+        if (!s) return []
+        const split = String(s).match(/[A-Z][a-z0-9]*/g) || []
+        const arr = split.map((x) => x.toLowerCase())
+        const skipVerbs = new Set(['log', 'fetch', 'set', 'get', 'create', 'update', 'delete', 'edit', 'add', 'remove', 'join', 'leave', 'cancel', 'accept', 'reject', 'demote', 'promote', 'change', 'transfer', 'revoke', 'submit', 'request', 'use', 'query', 'mutation'])
+        while (arr.length > 0 && skipVerbs.has(arr[0])) arr.shift()
+        return arr
+    }
 
     // Field-only and singularized
     out.add(toCamel(fieldName))
     out.add(toCamel(singularize(fieldName)))
+
+    // Op-name tokens supply ADDITIONAL context for combination — they don't
+    // count as structural parents (the immediate parent is always the last
+    // entry of the structural `parents` array). E.g. for opName=`LogNewsletterExposures`
+    // and path `LogNewsletterExposures.input.exposures.capability`, we want
+    // the op-tokens `[newsletter, exposures]` to feed into the parent-token
+    // combiner that produces `NewsletterCapability`, but the immediate
+    // parent stays `exposures` (not `newsletter`/`exposures` from the op).
+    const opTokens = opName ? camelTokens(opName).map((t) => stripNs(t)) : []
 
     if (parents.length > 0) {
         const last = parents[parents.length - 1]
@@ -253,6 +353,35 @@ function candidateEnumNames(parents, fieldName) {
                 out.add(toCamel(tok) + toCamel(singularize(fieldName)))
             }
         }
+        // Op-name tokens combined with the field — captures cases where
+        // the structural parent doesn't carry the type concept but the op
+        // name does (e.g. `LogNewsletterExposures.exposures.capability`
+        // → `NewsletterCapability`).
+        for (const tok of opTokens) {
+            out.add(toCamel(tok) + toCamel(fieldName))
+            out.add(toCamel(tok) + toCamel(singularize(fieldName)))
+        }
+        // For generic fields (`type`/`status`/etc.), the type-bearing name is
+        // typically `<outer_concept><immediate_parent>` — e.g. for path
+        // `xwa2_newsletter.state.type`, the enum is `NewsletterState`, not
+        // `NewsletterType` or `StateType`. Combine outer-parent + op-name
+        // tokens with the immediate parent name.
+        if (/^(?:type|status|kind|mode|category|format|value)$/.test(fieldName)) {
+            const lastCamel = toCamel(last)
+            const lastSingularCamel = toCamel(singularize(last))
+            const outerContext = []
+            for (let i = 0; i < parents.length - 1; i++) outerContext.push(...tokens(parents[i]))
+            outerContext.push(...opTokens)
+            for (const tok of outerContext) {
+                out.add(toCamel(tok) + lastCamel)
+                out.add(toCamel(tok) + lastSingularCamel)
+            }
+        }
+    } else if (opTokens.length > 0) {
+        for (const tok of opTokens) {
+            out.add(toCamel(tok) + toCamel(fieldName))
+            out.add(toCamel(tok) + toCamel(singularize(fieldName)))
+        }
     }
 
     return [...out]
@@ -266,8 +395,8 @@ function candidateEnumNames(parents, fieldName) {
 // keys, lowercase values) which doesn't match the wire — we'd produce wrong
 // types. Mirrored arrays in WA Web are explicitly declared to mirror the
 // server format, so they're safe.
-function matchEnumForLeaf(parents, fieldName, index) {
-    const cands = candidateEnumNames(parents, fieldName)
+function matchEnumForLeaf(parents, fieldName, index, opName) {
+    const cands = candidateEnumNames(parents, fieldName, opName)
     for (const c of cands) {
         const entry = index[c]
         if (entry && entry.kind === 'mirrored') {

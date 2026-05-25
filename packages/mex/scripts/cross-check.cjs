@@ -49,6 +49,11 @@ function inferredAt(opName, path) {
             return { found: false }
         }
     }
+    // After navigation, if the leaf IR is an array-of-scalar (e.g.
+    // `capabilities: [enum:...]`), the wire walker iterates each element
+    // separately at the same path — unwrap so the comparison sees the
+    // element type, not the array wrapper.
+    if (Array.isArray(node)) node = node[0]
     return { found: true, tag: node }
 }
 

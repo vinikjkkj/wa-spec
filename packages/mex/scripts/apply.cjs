@@ -154,30 +154,201 @@ function emitLeafTag(tag) {
     return 'unknown'
 }
 
+// Field names that should be treated as arrays of the leaf type even when
+// the Relay artifact emits them as ScalarField without `plural:!0` — Relay's
+// compact representation flattens `[Scalar]` lists. Examples:
+//   `xwa2_newsletter_admin.capabilities`   → ReadonlyArray<enum:...>
+//   `xfb_fetch_genai_personas[].icebreaker_prompt_list` → ReadonlyArray<string>
+// The check is used both when promoting unknown→enum and when promoting
+// unknown→string for plural-noun scalar lists.
+function isPluralListField(fieldName) {
+    return /^(?:capabilities|abilities|features|permissions|categories|tags|labels|prompts|exposures|metrics|reasons|sources|targets|suggestions|disabled_features|country_codes|phone_numbers|nux_ids|custom_labels|url_domains|privacy_features)$/.test(fieldName) ||
+        /_(?:capabilities|abilities|features|permissions|categories|tags|labels|prompts|ids|codes|keys|paths|fields|names|jids|lids|wids|domains|tokens|emails|phones|values|cookies|hashes|list|prompt_list)$/.test(fieldName)
+}
+
 // Walk the shape tree and promote `string`/`unknown` leaves to `enum:V1|V2|...`
 // when an enum module exports a value set under a name matching the field.
-function promoteEnumsInShape(node, parents, enumIndex, stats) {
+//
+// When the matched leaf's field name is a plural-noun list, the leaf becomes
+// `[enum:...]` (a ReadonlyArray<enum>) — the Relay artifact compacts list-of-
+// scalar to a bare ScalarField, so structural extraction can't tell. We
+// re-introduce the array level here.
+function promoteEnumsInShape(node, parents, enumIndex, stats, opName) {
     if (node === null || node === undefined) return node
     if (Array.isArray(node)) {
-        node[0] = promoteEnumsInShape(node[0], parents, enumIndex, stats)
+        node[0] = promoteEnumsInShape(node[0], parents, enumIndex, stats, opName)
         return node
     }
     if (typeof node === 'object') {
         for (const [k, v] of Object.entries(node)) {
             if (typeof v === 'string' && (v === 'unknown' || v === 'string')) {
-                const match = matchEnumForLeaf(parents, k, enumIndex)
+                const match = matchEnumForLeaf(parents, k, enumIndex, opName)
                 if (match) {
-                    node[k] = 'enum:' + match.values.join('|')
+                    const tag = 'enum:' + match.values.join('|')
+                    node[k] = isPluralListField(k) ? [tag] : tag
                     stats.applied++
                     stats.byField[match.name] = (stats.byField[match.name] || 0) + 1
                 }
             } else if (v !== null && typeof v === 'object') {
-                node[k] = promoteEnumsInShape(v, [...parents, k], enumIndex, stats)
+                node[k] = promoteEnumsInShape(v, [...parents, k], enumIndex, stats, opName)
             }
         }
         return node
     }
     return node
+}
+
+// After all classification + enum promotion, if a leaf is an `enum:V1|...`
+// whose value set is a STRICT SUBSET of some discovered Mirrored enum, prefer
+// the discovered superset — the inferred values are a lower bound (only what
+// some caller compared against) but the schema admits more. Walking by
+// candidate enum names plus by value-overlap covers both:
+//   1) Name match: `state.type` → `WamoSubStatus` (mirrored: ACTIVE|INACTIVE).
+//   2) Value overlap: `role: ADMIN|OWNER` → `NewsletterMembershipType`
+//      (switch-derived: ADMIN|GUEST|OWNER|SUBSCRIBER).
+function expandSubsetEnums(node, parents, enumIndex, stats, opName) {
+    if (node === null || node === undefined) return node
+    if (Array.isArray(node)) {
+        node[0] = expandSubsetEnums(node[0], parents, enumIndex, stats, opName)
+        return node
+    }
+    if (typeof node === 'object') {
+        for (const [k, v] of Object.entries(node)) {
+            if (typeof v === 'string' && v.startsWith('enum:')) {
+                const expanded = findSupersetEnum(v, parents, k, enumIndex, opName)
+                if (expanded) {
+                    node[k] = 'enum:' + expanded.values.slice().sort().join('|')
+                    stats.expanded = (stats.expanded || 0) + 1
+                }
+            } else if (Array.isArray(v) && v.length === 1 && typeof v[0] === 'string' && v[0].startsWith('enum:')) {
+                const expanded = findSupersetEnum(v[0], parents, k, enumIndex, opName)
+                if (expanded) {
+                    node[k] = ['enum:' + expanded.values.slice().sort().join('|')]
+                    stats.expanded = (stats.expanded || 0) + 1
+                }
+            } else if (v !== null && typeof v === 'object') {
+                node[k] = expandSubsetEnums(v, [...parents, k], enumIndex, stats, opName)
+            }
+        }
+        return node
+    }
+    return node
+}
+
+// Given an inferred `enum:V1|V2|...` leaf, find the most authoritative
+// superset to expand into. Priority:
+//   (1) Name-match against the discovered enum index (most reliable).
+//   (2) Strict-superset scan of all NAMED Mirrored entries.
+//   (3) Strict-superset scan of ANONYMOUS UPPER_SNAKE case sets recovered
+//       from switches that don't carry a canonical name. Catches the
+//       NewsletterState `case "ACTIVE":case "SUSPENDED":case"DELETED":
+//       case"GEOSUSPENDED":{...}` fallthrough block — no enum name attached,
+//       but the set is wire-correct.
+function findSupersetEnum(enumTag, parents, k, enumIndex, opName) {
+    const inferredVals = new Set(enumTag.slice(5).split('|'))
+    const named = matchEnumForLeaf(parents, k, enumIndex, opName)
+    if (named && coversAndExtends(inferredVals, named.values)) return named
+    for (const [name, entry] of Object.entries(enumIndex)) {
+        if (entry.kind !== 'mirrored') continue
+        if (!coversAndExtends(inferredVals, entry.values)) continue
+        return { name, values: entry.values }
+    }
+    const anon = enumIndex.__anonymousSets
+    if (Array.isArray(anon)) {
+        for (const set of anon) {
+            if (!coversAndExtends(inferredVals, set.values)) continue
+            return { name: '<anon>', values: set.values }
+        }
+    }
+    return null
+}
+
+function coversAndExtends(inferredSet, discoveredVals) {
+    if (!Array.isArray(discoveredVals) || discoveredVals.length === 0) return false
+    if (inferredSet.size === 0) return false
+    if (discoveredVals.length <= inferredSet.size) return false
+    for (const v of inferredSet) if (!discoveredVals.includes(v)) return false
+    return true
+}
+
+// Walk the shape collecting every `enum:V1|V2|...` leaf, bucketing by
+// `<parent>.<field>` suffix (the last two path segments). Used by the
+// cross-op union pass to merge all observed values for the same logical
+// field across operations.
+function collectSemanticEnums(node, parents, out) {
+    if (node === null || node === undefined) return
+    if (Array.isArray(node)) { collectSemanticEnums(node[0], parents, out); return }
+    if (typeof node !== 'object') return
+    for (const [k, v] of Object.entries(node)) {
+        const newPath = [...parents, k]
+        if (typeof v === 'string' && v.startsWith('enum:')) {
+            const key = semanticKey(newPath)
+            const set = (out[key] = out[key] || new Set())
+            for (const val of v.slice(5).split('|')) set.add(val)
+        } else if (Array.isArray(v) && v.length === 1 && typeof v[0] === 'string' && v[0].startsWith('enum:')) {
+            const key = semanticKey(newPath)
+            const set = (out[key] = out[key] || new Set())
+            for (const val of v[0].slice(5).split('|')) set.add(val)
+        } else if (v !== null && typeof v === 'object') {
+            collectSemanticEnums(v, newPath, out)
+        }
+    }
+}
+
+// Apply the union back to every matching leaf. `parent.field` keys with only
+// one distinct value across the whole IR are skipped (no merge needed).
+// When the union set is broader than the leaf's current set, the leaf is
+// rewritten with the union — this is safe because GraphQL Enum types are
+// shared across ops, and additional values can only appear if at least one
+// op observed them.
+function applySemanticEnumUnion(node, parents, unionMap, stats) {
+    if (node === null || node === undefined) return node
+    if (Array.isArray(node)) { node[0] = applySemanticEnumUnion(node[0], parents, unionMap, stats); return node }
+    if (typeof node !== 'object') return node
+    for (const [k, v] of Object.entries(node)) {
+        const newPath = [...parents, k]
+        if (typeof v === 'string' && v.startsWith('enum:')) {
+            const union = unionMap[semanticKey(newPath)]
+            if (!union) continue
+            const current = new Set(v.slice(5).split('|'))
+            if (current.size === union.size) continue
+            // Only expand — never shrink. The union always covers current
+            // since current contributed to it.
+            node[k] = 'enum:' + [...union].sort().join('|')
+            stats.expanded = (stats.expanded || 0) + 1
+        } else if (v === 'string') {
+            // Promote bare-string leaves to the semantic union when one
+            // exists. This catches ops where no caller-code === comparison
+            // pinned the enum but the field is the same logical GraphQL enum
+            // seen in sibling ops (e.g. FetchSimilarNewsletters.state.type
+            // had no comparison so stays `string`, but every other op's
+            // state.type is the NewsletterState enum). Skip 1-value unions
+            // (those don't add information).
+            const union = unionMap[semanticKey(newPath)]
+            if (!union || union.size < 2) continue
+            node[k] = 'enum:' + [...union].sort().join('|')
+            stats.expanded = (stats.expanded || 0) + 1
+        } else if (Array.isArray(v) && v.length === 1 && typeof v[0] === 'string' && v[0].startsWith('enum:')) {
+            const union = unionMap[semanticKey(newPath)]
+            if (!union) continue
+            const current = new Set(v[0].slice(5).split('|'))
+            if (current.size === union.size) continue
+            node[k] = ['enum:' + [...union].sort().join('|')]
+            stats.expanded = (stats.expanded || 0) + 1
+        } else if (v !== null && typeof v === 'object') {
+            node[k] = applySemanticEnumUnion(v, newPath, unionMap, stats)
+        }
+    }
+    return node
+}
+
+// Semantic key = last 2 path segments. `xwa2_newsletter.state.type` and
+// `xwa2_newsletters_recommended.result.state.type` both bucket as
+// `state.type`. Single-segment paths bucket by the field name alone.
+function semanticKey(path) {
+    if (path.length === 0) return ''
+    if (path.length === 1) return path[0]
+    return path.slice(-2).join('.')
 }
 
 function main() {
@@ -222,11 +393,40 @@ function main() {
     let enumStats = null
     try {
         const enumIndex = discoverEnums(bundles)
-        enumStats = { discovered: Object.keys(enumIndex).length, applied: 0, byField: {} }
+        enumStats = { discovered: Object.keys(enumIndex).length, applied: 0, expanded: 0, byField: {} }
         for (const key of sortedKeys) {
             const op = ops[key]
-            promoteEnumsInShape(op.response, [], enumIndex, enumStats)
-            promoteEnumsInShape(op.variablesShape, [], enumIndex, enumStats)
+            const opNameForMatcher = op.__opName || key
+            promoteEnumsInShape(op.response, [], enumIndex, enumStats, opNameForMatcher)
+            promoteEnumsInShape(op.variablesShape, [], enumIndex, enumStats, opNameForMatcher)
+        }
+        // Second pass: expand SUBSET enum leaves (recovered from caller
+        // === "X" comparisons) into the discovered superset when one
+        // exists. Without this, `role: 'ADMIN'|'OWNER'` stays partial even
+        // though the schema declares NewsletterMembershipType with
+        // ADMIN|GUEST|OWNER|SUBSCRIBER via a switch-case conversion fn.
+        for (const key of sortedKeys) {
+            const op = ops[key]
+            const opNameForMatcher = op.__opName || key
+            expandSubsetEnums(op.response, [], enumIndex, enumStats, opNameForMatcher)
+            expandSubsetEnums(op.variablesShape, [], enumIndex, enumStats, opNameForMatcher)
+        }
+        // Third pass: cross-op semantic-path union. Each op has its own
+        // partial view of enum-valued fields (e.g. state.type might recover
+        // `ACTIVE|DELETED` in one op, `ACTIVE|NON_EXISTING|SUSPENDED` in
+        // another). The GraphQL field type is shared across ops, so the
+        // union represents the actual schema set. We bucket by the SUFFIX
+        // `parent.field` (last two path segments) so different XWA root
+        // wrappers (xwa2_newsletter, xwa2_newsletters_recommended, ...)
+        // contribute to the same logical field's union.
+        const semanticEnumUnion = Object.create(null)
+        for (const key of sortedKeys) {
+            collectSemanticEnums(ops[key].response, [], semanticEnumUnion)
+            collectSemanticEnums(ops[key].variablesShape, [], semanticEnumUnion)
+        }
+        for (const key of sortedKeys) {
+            applySemanticEnumUnion(ops[key].response, [], semanticEnumUnion, enumStats)
+            applySemanticEnumUnion(ops[key].variablesShape, [], semanticEnumUnion, enumStats)
         }
     } catch (err) {
         console.error('apply: enum-discovery skipped —', err.message)
@@ -435,7 +635,7 @@ ${responseMapLines}
     )
     if (enumStats) {
         console.log(
-            `apply: enum-discovery — ${enumStats.discovered} enums indexed, ${enumStats.applied} leaves promoted`
+            `apply: enum-discovery — ${enumStats.discovered} enums indexed, ${enumStats.applied} leaves promoted, ${enumStats.expanded || 0} leaves expanded (subset → superset / cross-op union)`
         )
     }
     if (wireStats) {

@@ -847,7 +847,7 @@
         "input"
       ],
       "variablesShape": {
-        "input": {}
+        "input": "string"
       },
       "response": {
         "wa_consumer_quick_promotion_log_event": {
@@ -883,7 +883,7 @@
         "input"
       ],
       "variablesShape": {
-        "input": {}
+        "input": "string"
       },
       "response": {
         "whatsapp_marketing_messages_create": {
@@ -910,14 +910,14 @@
         "input": {
           "name": "string",
           "description": "string",
-          "picture": {}
+          "picture": "string"
         }
       },
       "response": {
         "xwa2_newsletter_create": {
           "id": "string",
           "state": {
-            "type": "enum:ACTIVE"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           },
           "thread_metadata": {
             "name": {
@@ -1009,7 +1009,7 @@
             }
           },
           "appeal": {
-            "state": "string",
+            "state": "enum:ACTIVE|DELETED|GEOSUSPENDED|SUSPENDED",
             "appeal_reason": "string",
             "creation_time": "string",
             "report_id": "string",
@@ -1079,7 +1079,7 @@
         "xwa2_newsletter_delete_v2": {
           "id": "string",
           "state": {
-            "type": "enum:DELETED"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           }
         }
       }
@@ -1210,7 +1210,7 @@
           {
             "id": "string",
             "state": {
-              "type": "enum:ACTIVE|DELETED"
+              "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
             },
             "thread_metadata": {
               "creation_time": "string",
@@ -1439,7 +1439,7 @@
                     "username": "string"
                   }
                 },
-                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+                "role": "enum:ADMIN|ADMIN_MEMBER|GUEST|MEMBER|OWNER|SUBSCRIBER|SUPERADMIN_MEMBER"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1554,7 +1554,7 @@
                   },
                   "jid": "string"
                 },
-                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+                "role": "enum:ADMIN|ADMIN_MEMBER|GUEST|MEMBER|OWNER|SUBSCRIBER|SUPERADMIN_MEMBER"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1745,7 +1745,7 @@
         "xwa2_newsletter": {
           "id": "string",
           "state": {
-            "type": "enum:ACTIVE|NON_EXISTING|SUSPENDED"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           },
           "thread_metadata": {
             "creation_time": "string",
@@ -1811,7 +1811,9 @@
       },
       "response": {
         "xwa2_newsletter_admin": {
-          "capabilities": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU",
+          "capabilities": [
+            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
+          ],
           "id": "string"
         }
       }
@@ -2248,7 +2250,7 @@
                   }
                 },
                 "follow_time": "string",
-                "role": "enum:ADMIN|OWNER",
+                "role": "enum:ADMIN|GUEST|OWNER|SUBSCRIBER",
                 "admin_profile": {
                   "id": "string",
                   "name": "string",
@@ -2274,7 +2276,7 @@
         "input": {
           "newsletter_id": "string",
           "metrics": [
-            "string"
+            {}
           ]
         }
       },
@@ -2282,7 +2284,7 @@
         "xwa2_newsletter_admin_insights": {
           "newsletter_id": "string",
           "state": {
-            "type": "string"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           },
           "last_update_time": "string",
           "metrics_status": "string",
@@ -2445,7 +2447,7 @@
                 }
               },
               "appeal": {
-                "state": "string",
+                "state": "enum:ACTIVE|DELETED|GEOSUSPENDED|SUSPENDED",
                 "appeal_reason": "string",
                 "creation_time": "string",
                 "report_id": "string",
@@ -2791,7 +2793,7 @@
             {
               "id": "string",
               "state": {
-                "type": "enum:ACTIVE"
+                "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
               },
               "thread_metadata": {
                 "creation_time": "string",
@@ -2864,7 +2866,7 @@
                 "last_status_server_id": "string"
               },
               "state": {
-                "type": "string"
+                "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
               }
             }
           ]
@@ -3363,7 +3365,7 @@
         "xwa2_newsletter_join_v2": {
           "id": "string",
           "state": {
-            "type": "enum:ACTIVE"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           }
         }
       }
@@ -3382,7 +3384,7 @@
         "xwa2_newsletter_leave_v2": {
           "id": "string",
           "state": {
-            "type": "enum:ACTIVE"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           }
         }
       }
@@ -3410,7 +3412,10 @@
       "variablesShape": {
         "input": {
           "exposures": [
-            "string"
+            {
+              "newsletter_id": "string",
+              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
+            }
           ]
         }
       },
@@ -3938,7 +3943,9 @@
           "product_list": {
             "jid": "string",
             "products": [
-              {}
+              {
+                "id": "string"
+              }
             ],
             "width": "string",
             "height": "string",
@@ -4236,7 +4243,7 @@
         "input"
       ],
       "variablesShape": {
-        "input": {}
+        "input": "string"
       },
       "response": {
         "wa_quick_promotion_log_event": {
@@ -4344,14 +4351,14 @@
         "source"
       ],
       "variablesShape": {
-        "input": {},
-        "reserved": "string",
+        "input": "string",
+        "reserved": "boolean",
         "session_id": "string",
         "source": "string"
       },
       "response": {
         "xwa2_username_set": {
-          "result": "enum:SUCCESS"
+          "result": "enum:CONTENT_UNAVAILABLE|PENDING|REJECT|SUCCESS"
         }
       }
     },
@@ -4367,7 +4374,7 @@
       },
       "response": {
         "xwa2_username_pin_set": {
-          "result": "enum:SUCCESS"
+          "result": "enum:CONTENT_UNAVAILABLE|PENDING|REJECT|SUCCESS"
         }
       }
     },
@@ -4500,7 +4507,7 @@
         "updates": {
           "name": "string",
           "description": "string",
-          "picture": {},
+          "picture": "string",
           "settings": {}
         }
       },
@@ -4508,7 +4515,7 @@
         "xwa2_newsletter_update": {
           "id": "string",
           "state": {
-            "type": "enum:ACTIVE"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           },
           "thread_metadata": {
             "name": {
@@ -4558,7 +4565,7 @@
         "xwa2_newsletter_update_user_setting": {
           "id": "string",
           "state": {
-            "type": "string"
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
           }
         }
       }
@@ -4589,13 +4596,13 @@
         "source"
       ],
       "variablesShape": {
-        "input": {},
+        "input": "string",
         "session_id": "string",
         "source": "string"
       },
       "response": {
         "xwa2_username_check": {
-          "result": "enum:SUCCESS",
+          "result": "enum:CONTENT_UNAVAILABLE|PENDING|REJECT|SUCCESS",
           "suggestions": [
             "string"
           ]

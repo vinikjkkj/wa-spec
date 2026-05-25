@@ -417,7 +417,7 @@ export type WaMexConsumerFetchQuickPromotionsVariables = {
 }
 
 export type WaMexConsumerQuickPromotionActionGraphQLVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+    readonly input?: string
 }
 
 export type WaMexCreateInviteCodeVariables = {
@@ -429,14 +429,14 @@ export type WaMexCreateInviteCodeVariables = {
 }
 
 export type WaMexCreateMarketingCampaignActionVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+    readonly input?: string
 }
 
 export type WaMexCreateNewsletterVariables = {
     readonly input?: {
         readonly name?: string
         readonly description?: string
-        readonly picture?: Readonly<Record<string, unknown>>
+        readonly picture?: string
     }
 }
 
@@ -633,7 +633,7 @@ export type WaMexFetchNewsletterFollowersVariables = {
 export type WaMexFetchNewsletterInsightsVariables = {
     readonly input?: {
         readonly newsletter_id?: string
-        readonly metrics?: ReadonlyArray<string>
+        readonly metrics?: ReadonlyArray<Readonly<Record<string, unknown>>>
     }
 }
 
@@ -837,7 +837,10 @@ export type WaMexLidChangeNotificationVariables = Readonly<Record<string, never>
 
 export type WaMexLogNewsletterExposuresVariables = {
     readonly input?: {
-        readonly exposures?: ReadonlyArray<string>
+        readonly exposures?: ReadonlyArray<{
+            readonly newsletter_id?: string
+            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUIZ' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
+        }>
     }
 }
 
@@ -918,7 +921,9 @@ export type WaMexQueryProductListCatalogVariables = {
     readonly request?: {
         readonly product_list?: {
             readonly jid?: string
-            readonly products?: ReadonlyArray<Readonly<Record<string, unknown>>>
+            readonly products?: ReadonlyArray<{
+                readonly id?: string
+            }>
             readonly width?: string
             readonly height?: string
             readonly direct_connection_encrypted_info?: string
@@ -952,7 +957,7 @@ export type WaMexQuerySubgroupParticipantCountVariables = {
 }
 
 export type WaMexQuickPromotionActionVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+    readonly input?: string
 }
 
 export type WaMexReportProductVariables = {
@@ -985,8 +990,8 @@ export type WaMexRevokeNewsletterAdminInviteVariables = {
 }
 
 export type WaMexSetUsernameVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-    readonly reserved?: string
+    readonly input?: string
+    readonly reserved?: boolean
     readonly session_id?: string
     readonly source?: string
 }
@@ -1026,7 +1031,7 @@ export type WaMexUpdateNewsletterVariables = {
     readonly updates?: {
         readonly name?: string
         readonly description?: string
-        readonly picture?: Readonly<Record<string, unknown>>
+        readonly picture?: string
         readonly settings?: Readonly<Record<string, unknown>>
     }
 }
@@ -1040,7 +1045,7 @@ export type WaMexUpdateTextStatusVariables = {
 }
 
 export type WaMexUsernameAvailabilityVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+    readonly input?: string
     readonly session_id?: string
     readonly source?: string
 }
@@ -1715,7 +1720,7 @@ export type WaMexCreateNewsletterResponse = {
     readonly xwa2_newsletter_create?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly name?: {
@@ -1781,7 +1786,7 @@ export type WaMexCreateReportAppealResponse = {
             }
         }
         readonly appeal?: {
-            readonly state?: string
+            readonly state?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'SUSPENDED'
             readonly appeal_reason?: string
             readonly creation_time?: string
             readonly report_id?: string
@@ -1809,7 +1814,7 @@ export type WaMexDeleteNewsletterResponse = {
     readonly xwa2_newsletter_delete_v2?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'DELETED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -1861,7 +1866,7 @@ export type WaMexFetchAllNewslettersMetadataResponse = {
     readonly xwa2_newsletter_subscribed?: ReadonlyArray<{
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly creation_time?: string
@@ -2030,7 +2035,7 @@ export type WaMexFetchGroupInfoResponse = {
                         readonly username?: string
                     }
                 }
-                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+                readonly role?: 'ADMIN' | 'ADMIN_MEMBER' | 'GUEST' | 'MEMBER' | 'OWNER' | 'SUBSCRIBER' | 'SUPERADMIN_MEMBER'
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2127,7 +2132,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                     }
                     readonly jid?: string
                 }
-                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+                readonly role?: 'ADMIN' | 'ADMIN_MEMBER' | 'GUEST' | 'MEMBER' | 'OWNER' | 'SUBSCRIBER' | 'SUPERADMIN_MEMBER'
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2225,7 +2230,7 @@ export type WaMexFetchNewsletterResponse = {
     readonly xwa2_newsletter?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'NON_EXISTING' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly creation_time?: string
@@ -2279,7 +2284,7 @@ export type WaMexFetchNewsletterResponse = {
 
 export type WaMexFetchNewsletterAdminCapabilitiesResponse = {
     readonly xwa2_newsletter_admin?: {
-        readonly capabilities?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUIZ' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
+        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUIZ' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
         readonly id?: string
     }
 }
@@ -2585,7 +2590,7 @@ export type WaMexFetchNewsletterFollowersResponse = {
                     }
                 }
                 readonly follow_time?: string
-                readonly role?: 'ADMIN' | 'OWNER'
+                readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
                 readonly admin_profile?: {
                     readonly id?: string
                     readonly name?: string
@@ -2603,7 +2608,7 @@ export type WaMexFetchNewsletterInsightsResponse = {
     readonly xwa2_newsletter_admin_insights?: {
         readonly newsletter_id?: string
         readonly state?: {
-            readonly type?: string
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly last_update_time?: string
         readonly metrics_status?: string
@@ -2693,7 +2698,7 @@ export type WaMexFetchNewsletterReportsResponse = {
                 }
             }
             readonly appeal?: {
-                readonly state?: string
+                readonly state?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'SUSPENDED'
                 readonly appeal_reason?: string
                 readonly creation_time?: string
                 readonly report_id?: string
@@ -2913,7 +2918,7 @@ export type WaMexFetchRecommendedNewslettersResponse = {
         readonly result?: ReadonlyArray<{
             readonly id?: string
             readonly state?: {
-                readonly type?: 'ACTIVE'
+                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
             }
             readonly thread_metadata?: {
                 readonly creation_time?: string
@@ -2966,7 +2971,7 @@ export type WaMexFetchSimilarNewslettersResponse = {
                 readonly last_status_server_id?: string
             }
             readonly state?: {
-                readonly type?: string
+                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
             }
         }>
     }
@@ -3188,7 +3193,7 @@ export type WaMexJoinNewsletterResponse = {
     readonly xwa2_newsletter_join_v2?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -3197,7 +3202,7 @@ export type WaMexLeaveNewsletterResponse = {
     readonly xwa2_newsletter_leave_v2?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -3801,13 +3806,13 @@ export type WaMexRevokeNewsletterAdminInviteResponse = {
 
 export type WaMexSetUsernameResponse = {
     readonly xwa2_username_set?: {
-        readonly result?: 'SUCCESS'
+        readonly result?: 'CONTENT_UNAVAILABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
     }
 }
 
 export type WaMexSetUsernameKeyResponse = {
     readonly xwa2_username_pin_set?: {
-        readonly result?: 'SUCCESS'
+        readonly result?: 'CONTENT_UNAVAILABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
     }
 }
 
@@ -3867,7 +3872,7 @@ export type WaMexUpdateNewsletterResponse = {
     readonly xwa2_newsletter_update?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly name?: {
@@ -3907,7 +3912,7 @@ export type WaMexUpdateNewsletterUserSettingResponse = {
     readonly xwa2_newsletter_update_user_setting?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: string
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -3920,7 +3925,7 @@ export type WaMexUpdateTextStatusResponse = {
 
 export type WaMexUsernameAvailabilityResponse = {
     readonly xwa2_username_check?: {
-        readonly result?: 'SUCCESS'
+        readonly result?: 'CONTENT_UNAVAILABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
         readonly suggestions?: ReadonlyArray<string>
     }
 }

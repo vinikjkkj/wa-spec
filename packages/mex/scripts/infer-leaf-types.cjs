@@ -1148,53 +1148,97 @@ function fillResponseTypesInner(shape, bodies, ctxs, parents, ambiguous) {
     return shape
 }
 
-// Walk an input variables shape; for each `null` leaf, classify using the
-// caller body's fetchQuery call site (and only that site — we already have
-// the structural shape, just need leaf tags).
-function fillInputTypes(shape, callerBody, fetchCallPos, parentKey) {
+// Walk an input variables shape; for each `null` leaf, classify across the
+// supplied bodies. Pass the caller (wrapper) body PLUS dependent consumer
+// bodies — those are where the literal object construction lives.
+//
+// Signature backward-compat: `bodies` may be a single string (legacy single-
+// body call); internally everything is normalized to arrays.
+function fillInputTypes(shape, bodies, fetchCallPos, parentKey, siblingKeys, depth, varToField) {
+    const bodyArr = Array.isArray(bodies) ? bodies : [bodies]
+    const posArr = Array.isArray(fetchCallPos) ? fetchCallPos : [fetchCallPos]
+    const d = depth || 0
+    const mapping = varToField || {}
     if (!shape || typeof shape !== 'object') {
-        // Bare unknown leaf (null or 'unknown') inside an array — promote
-        // based on the surrounding array's name when it's clearly a list
-        // of scalars (`categories: t.map(...)` → `['string']`).
         const isUnknown = shape === null || shape === undefined || shape === 'unknown'
         if (isUnknown && parentKey) {
-            // Array-of-objects: parents whose items are GraphQL Object Input
-            // types (products, users, etc) — best we can do without nested
-            // shape is empty object `{}`.
-            if (/^(?:products|users|partcipants|participants|contacts|members|orders|messages|reactions|attachments|files|posts|edges|nodes|items)$/.test(parentKey)) {
+            // Object-of-array parents — WA Mex input types whose item is an
+            // Input Object (e.g. `metrics: [{id, type}]`, `exposures: [{newsletter_id, capability}]`).
+            // Structural parsing emits `[null]` when the caller uses `e.map(...)`
+            // or passes a bare identifier; the inner `null` should become an
+            // object placeholder, not a scalar string.
+            if (/^(?:products|users|partcipants|participants|contacts|members|orders|messages|reactions|attachments|files|posts|edges|nodes|items|metrics|exposures)$/.test(parentKey)) {
                 return {}
             }
-            // Array-of-strings: parents that are clearly plural-noun lists.
-            if (/^(?:categories|ids|lids|wids|jids|metrics|exposures|labels|features|tokens|emails|domains|prompts|country_codes|phone_numbers|nux_ids|custom_labels|url_domains|privacy_features|capabilities|reasons|sources|targets|recipients|suggestions|results)$/.test(parentKey) || /_(?:ids|codes|keys|paths|tags|names|domains|labels|tokens|emails|phones|jids|lids|wids|features|prompts|metrics|exposures|cookies|hashes|values|categories)$/.test(parentKey)) {
+            if (/^(?:categories|ids|lids|wids|jids|labels|features|tokens|emails|domains|prompts|country_codes|phone_numbers|nux_ids|custom_labels|url_domains|privacy_features|capabilities|reasons|sources|targets|recipients|suggestions|results)$/.test(parentKey) || /_(?:ids|codes|keys|paths|tags|names|domains|labels|tokens|emails|phones|jids|lids|wids|features|prompts|cookies|hashes|values|categories)$/.test(parentKey)) {
                 return 'string'
             }
         }
         return shape || 'unknown'
     }
     if (Array.isArray(shape)) {
-        return [fillInputTypes(shape[0] ?? null, callerBody, fetchCallPos, parentKey)]
+        return [fillInputTypes(shape[0] ?? null, bodyArr, posArr, parentKey, siblingKeys, d, mapping)]
     }
+    // Sibling key set for this object level — used downstream to ensure
+    // consumer-body evidence is scoped to the right literal. Without this,
+    // matching `<key>:` regex picks up unrelated co-named literals in the
+    // same consumer module (e.g. `{creationTime:!0, name:!0, picture:!0, ...}`
+    // — a flag table — would forge boolean evidence for
+    // `UpdateNewsletter.updates.{name, description, picture}`).
+    //
+    // For nested object levels (depth > 0), the literal is constructed
+    // inside the wrapper (from positional function params), and consumers
+    // never see the nested structure — so consumer-body evidence is
+    // unreliable for nested keys. Limit the search to the wrapper body only.
+    const localSiblings = Object.keys(shape)
+    const bodiesForKey = d === 0 ? bodyArr : bodyArr.slice(0, 1)
+    const posForKey = d === 0 ? posArr : posArr.slice(0, 1)
     const out = {}
     for (const [k, v] of Object.entries(shape)) {
         if (v === null) {
-            // `input` is the conventional GraphQL Input Type wrapper. When
-            // structural extraction fails (caller passes opaque var), at
-            // least mark it as an object rather than an unknown leaf.
-            // Same for `request`, `picture`, `query_input` and the like —
-            // names that are conventionally Input Object Types in WA Mex.
-            if (/^(?:input|request|picture|payload|options|filters|telemetry|metadata|variant_info_fields|query_input)$/.test(k)) {
+            const evidence = classifyInputLeafByName(bodiesForKey, posForKey, k, localSiblings)
+            if (evidence === 'string' || evidence === 'number' || evidence === 'boolean' || (typeof evidence === 'string' && evidence.startsWith('enum:'))) {
+                out[k] = evidence
+                continue
+            }
+            // GraphQL field-name remap. Top-level only — the Relay
+            // LinkedField args we collected map local LocalArgument names
+            // to the GraphQL scalar field they're passed to. When the
+            // schema field name carries known typing semantics (`username`,
+            // `email`, `phone`, etc.), use it even when no caller-code
+            // evidence exists. Without this, `SetUsername.input` (mapped
+            // to GraphQL `username`) falls through to the wrapper short-
+            // circuit `{}` because the local key `input` matches the
+            // generic input-wrapper regex below.
+            if (d === 0 && mapping[k]) {
+                const aliasTag = inputNameInvariant(mapping[k]) || schemaInvariantType(mapping[k])
+                if (aliasTag && aliasTag !== 'unknown') {
+                    out[k] = aliasTag
+                    continue
+                }
+            }
+            // `input` / `request` / etc. are conventional GraphQL Input Type
+            // wrappers. When structural extraction fails (caller passes
+            // opaque var), at least mark it as an object rather than an
+            // unknown leaf. NOTE: `picture` is NOT in this list — see
+            // inputNameInvariant: on the input side `picture` is a base64
+            // string (caller passes parseDataURL().data / encodeB64()).
+            if (/^(?:input|request|payload|options|filters|telemetry|metadata|variant_info_fields|query_input)$/.test(k)) {
                 out[k] = {}
                 continue
             }
             // Plural-noun keys that are array passed-through (caller does
             // `country_codes: n` where n is a function arg) — mark as array.
-            if (/_(?:ids|codes|keys|paths|tags|fields|names|jids|lids|wids|features|domains|labels|prompts|numbers|metrics|exposures|values|cookies|tokens|hashes|emails|phones|list)$/.test(k)) {
+            // NOTE: `metrics`/`exposures` are excluded here — those are
+            // arrays of OBJECTS in WA Mex (see e.g. LogNewsletterExposures
+            // which maps to `{newsletter_id, capability}[]`).
+            if (/_(?:ids|codes|keys|paths|tags|fields|names|jids|lids|wids|features|domains|labels|prompts|numbers|values|cookies|tokens|hashes|emails|phones|list)$/.test(k)) {
                 out[k] = ['string']
                 continue
             }
             // Stand-alone plural noun input keys
-            if (/^(?:ids|lids|wids|jids|metrics|exposures|suggestions|categories|labels|domains|features|prompts|tokens|emails|users|products|items|results|partcipants|participants|contacts)$/.test(k)) {
-                if (k === 'categories' || k === 'products' || k === 'users' || k === 'partcipants' || k === 'participants' || k === 'contacts') { out[k] = [{}]; continue }
+            if (/^(?:ids|lids|wids|jids|suggestions|categories|labels|domains|features|prompts|tokens|emails|users|products|items|results|partcipants|participants|contacts|metrics|exposures)$/.test(k)) {
+                if (k === 'categories' || k === 'products' || k === 'users' || k === 'partcipants' || k === 'participants' || k === 'contacts' || k === 'metrics' || k === 'exposures') { out[k] = [{}]; continue }
                 out[k] = ['string']
                 continue
             }
@@ -1218,40 +1262,190 @@ function fillInputTypes(shape, callerBody, fetchCallPos, parentKey) {
             // Polymorphic input wrapper (UpdateGroupProperty.update varies per
             // property). Mark as opaque object instead of unknown leaf.
             if (k === 'update' || k === 'settings') { out[k] = {}; continue }
-            out[k] = classifyInputLeafByName(callerBody, fetchCallPos, k)
+            // No real code evidence — fall back to the conventional
+            // invariant chain (and 'unknown' as last resort). This mirrors
+            // the legacy code path; the hardcoded defaults above still get
+            // priority over invariants since they fired earlier.
+            out[k] = inputNameInvariant(k) || schemaInvariantType(k) || 'unknown'
         } else {
-            out[k] = fillInputTypes(v, callerBody, fetchCallPos, k)
+            out[k] = fillInputTypes(v, bodyArr, posArr, k, localSiblings, d + 1, mapping)
         }
     }
     return out
 }
 
-// Find `<key>: <RHS>` in the fetchQuery argument object and classify <RHS>.
-// Searches the whole caller body (cheap — bodies are small) for `<key>:`
-// followed by a non-key context (preceded by `{` or `,`).
-function classifyInputLeafByName(body, fetchCallPos, key) {
-    if (!body) return inputNameInvariant(key) || schemaInvariantType(key) || 'unknown'
-    const re = new RegExp(`(?:[{,]\\s*)${escapeRegExp(key)}\\s*:\\s*`, 'g')
-    let m
+// Find `<key>: <RHS>` in any of the supplied bodies and classify <RHS>.
+// Bodies include both the immediate wrapper (where `fetchQuery({...})` is
+// called) and dependent consumer modules (where the wrapper is invoked with
+// a literal object — that's the construction site for keys the wrapper
+// passes through opaquely).
+//
+// `siblingKeys` constrains construction-site matching: a `<key>:` match only
+// counts if the enclosing `{...}` literal also contains at least one of the
+// sibling keys. This prevents picking up unrelated co-named keys from flag
+// tables / option dicts that happen to share names with our op's variables.
+//
+// Also picks up usage-based evidence in wrapper bodies: when a `<var>.<key>`
+// access flows into a string-typed predicate like `isStringNullOrEmpty(...)`
+// or a numeric coercion, that's a strong signal about the leaf's type.
+function classifyInputLeafByName(bodies, fetchCallPositions, key, siblingKeys) {
+    const arr = Array.isArray(bodies) ? bodies : [bodies]
+    const positions = Array.isArray(fetchCallPositions) ? fetchCallPositions : [fetchCallPositions]
+    const siblings = (siblingKeys || []).filter((s) => s !== key)
     let best = 'unknown'
-    while ((m = re.exec(body))) {
-        const rhsStart = m.index + m[0].length
-        const tracer = makeInputTracer(body, rhsStart)
-        const tag = classifyInputExpr(body, rhsStart, tracer)
-        if (tag !== 'unknown') {
-            best = tag
-            if (fetchCallPos != null && Math.abs(m.index - fetchCallPos) < 400) return tag
+    const enumAcc = new Set()
+    for (let bi = 0; bi < arr.length; bi++) {
+        const body = arr[bi]
+        if (!body) continue
+        const fetchCallPos = positions[bi]
+        // Construction-site evidence: `<key>: <RHS>` in some object literal.
+        const re = new RegExp(`(?:[{,]\\s*)${escapeRegExp(key)}\\s*:\\s*`, 'g')
+        let m
+        while ((m = re.exec(body))) {
+            // Co-occurrence filter: only consider this match if the enclosing
+            // `{...}` literal contains at least one sibling key. Skip for
+            // the primary caller body (bi === 0) — there the fetchQuery
+            // proximity check + structural extraction is authoritative, so
+            // we can be lenient. For consumer bodies (bi > 0), enforce it.
+            if (bi > 0 && siblings.length > 0) {
+                if (!enclosingLiteralHasSibling(body, m.index, siblings)) continue
+            }
+            const rhsStart = m.index + m[0].length
+            const tracer = makeInputTracer(body, rhsStart)
+            const tag = classifyInputExpr(body, rhsStart, tracer)
+            if (tag === 'unknown') continue
+            if (typeof tag === 'string' && tag.startsWith('enum:')) {
+                for (const v of tag.slice(5).split('|')) enumAcc.add(v)
+                continue
+            }
+            if (best === 'unknown') best = tag
+            if (fetchCallPos != null && Math.abs(m.index - fetchCallPos) < 400) {
+                // Strong locality signal: literal sits right next to the
+                // outgoing fetchQuery call. Trust it.
+                return tag
+            }
         }
+        // Usage-site evidence: `<var>.<key>` accessed in the wrapper body
+        // through a string-typed predicate / coercion. Even when the wrapper
+        // doesn't construct a literal object, its accesses on the inbound
+        // variables expose the type of each field.
+        const usageTag = classifyByUsage(body, key)
+        if (usageTag !== 'unknown' && best === 'unknown') best = usageTag
     }
-    if (best !== 'unknown') return best
+    if (enumAcc.size > 0 && best === 'unknown') {
+        return 'enum:' + [...enumAcc].sort().join('|')
+    }
+    return best // 'unknown' if no code evidence — caller decides fallback
+}
+
+// Like classifyInputLeafByName but with the legacy convention chain appended
+// (input-name invariants + schema-name invariants). Used at top-level callsites
+// where the original code path expected a non-unknown answer.
+function classifyInputLeafByNameWithInvariants(bodies, fetchCallPositions, key, siblingKeys) {
+    const tag = classifyInputLeafByName(bodies, fetchCallPositions, key, siblingKeys)
+    if (tag !== 'unknown') return tag
     return inputNameInvariant(key) || schemaInvariantType(key) || 'unknown'
+}
+
+// Walk backwards from a `<key>:` match offset to find the nearest enclosing
+// `{`, then scan the matching `{...}` literal to check if any of `siblings`
+// appears as a key. Returns true iff at least one sibling is present.
+function enclosingLiteralHasSibling(body, idx, siblings) {
+    // Find enclosing `{` by walking back, balancing `}` against `{`.
+    let i = idx - 1
+    let close = 0
+    let inStr = false
+    let strCh = ''
+    while (i >= 0) {
+        const c = body[i]
+        if (inStr) {
+            if (c === strCh && body[i - 1] !== '\\') inStr = false
+            i--
+            continue
+        }
+        if (c === '"' || c === "'" || c === '`') {
+            // Walking backwards through a string is awkward; use a simple
+            // backtrack: jump to the matching opening quote.
+            const q = c
+            i--
+            while (i >= 0 && body[i] !== q) i--
+            i--
+            continue
+        }
+        if (c === '}') close++
+        else if (c === '{') {
+            if (close === 0) break
+            close--
+        }
+        i--
+    }
+    if (i < 0) return false
+    // Now find the matching `}` going forward from i.
+    let j = i + 1
+    let dp = 1
+    while (j < body.length && dp > 0) {
+        const c = body[j]
+        if (c === '"' || c === "'" || c === '`') { j = skipString(body, j); continue }
+        if (c === '{') dp++
+        else if (c === '}') dp--
+        j++
+    }
+    const litBody = body.slice(i + 1, j - 1)
+    // Look for any sibling as a key (followed by `:`). Match conservatively
+    // — `<siblingName>\s*:`.
+    for (const s of siblings) {
+        const re = new RegExp(`(?:^|[{,\\s])${escapeRegExp(s)}\\s*:`, 'm')
+        if (re.test(litBody)) return true
+    }
+    return false
+}
+
+// Scan a body for `<var>.<key>` accesses and infer the leaf type from how
+// each access is consumed. Patterns that fire here:
+//   isStringNullOrEmpty(<...>.<key>)     → string
+//   isStringEmpty / isStringBlank        → string
+//   <...>.<key>.length / .toUpperCase()  → string
+//   Number(<...>.<key>) / parseInt(...)  → string (wire-string coerced client-side)
+//   Boolean(<...>.<key>) / !<...>.<key>  → boolean (weak)
+//
+// WA Web bundles wrap utility calls through `r("WAModuleName")` / `n("WA...")`
+// require-style indirection, so we also match `r("isStringNullOrEmpty")(...)`
+// patterns where the function name is a string literal.
+function classifyByUsage(body, key) {
+    if (!body || !key) return 'unknown'
+    const keyEsc = escapeRegExp(key)
+    // Direct call: `isStringNullOrEmpty(<...>.key)` (rarely happens un-wrapped)
+    const stringPred = '(?:isString(?:NullOrEmpty|Empty|Blank|NotEmpty)|stringIsEmpty|stringIsNullOrEmpty)'
+    if (new RegExp(`\\b${stringPred}\\s*\\([^)]{0,200}?\\.${keyEsc}\\b`).test(body)) return 'string'
+    // Require-wrapped: `r("isStringNullOrEmpty")(<...>.key)` — also covers
+    // `n("...")`, `o("...")` since they're all the same minifier-emitted
+    // require pattern.
+    if (new RegExp(`[a-z_$]\\s*\\(\\s*"${stringPred}"\\s*\\)\\s*\\([^)]{0,200}?\\.${keyEsc}\\b`).test(body)) return 'string'
+    // Strong: String method calls on the value
+    if (new RegExp(`\\.${keyEsc}\\s*\\.\\s*(?:toLowerCase|toUpperCase|trim|trimStart|trimEnd|startsWith|endsWith|includes|indexOf|lastIndexOf|substring|substr|padStart|padEnd|replace|replaceAll|split|charAt|charCodeAt|normalize)\\s*\\(`).test(body)) {
+        return 'string'
+    }
+    // Strong: Number/parseInt/parseFloat coercion → wire is string, client coerces
+    if (new RegExp(`\\b(?:Number|parseInt|parseFloat|Number\\.parseInt|Number\\.parseFloat)\\s*\\([^)]{0,200}?\\.${keyEsc}\\b`).test(body)) {
+        return 'string'
+    }
+    // Weak: Boolean coercion / negation
+    if (new RegExp(`\\bBoolean\\s*\\([^)]{0,200}?\\.${keyEsc}\\b`).test(body)) return 'boolean'
+    return 'unknown'
 }
 
 // Input-specific naming conventions in WA Mex inputs. `fetch_<x>` flags are
 // canonical booleans (e.g. `fetch_viewer_metadata`, `fetch_status_metadata`).
 // `include_<x>` / `with_<x>` follow the same pattern.
+//
+// `picture` on the INPUT side is consistently a base64 string (data URL .data
+// segment) — see CreateNewsletter/UpdateNewsletter callers which pass
+// `parseDataURL(rawDataUrl).data` / `encodeB64(buffer)`. On the response side
+// `picture` is an object `{direct_path, id, type}`; that case is handled by
+// the structural extractor (`response` shape), not this invariant.
 function inputNameInvariant(key) {
     if (/^(?:fetch|include|with|exclude|skip|should|use|enable|disable)_/.test(key)) return 'boolean'
+    if (key === 'picture' || key === 'avatar' || key === 'image' || key === 'photo') return 'string'
     return null
 }
 
