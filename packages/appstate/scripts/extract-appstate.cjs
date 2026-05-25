@@ -206,6 +206,170 @@ function traceLocalLiteral(body, ident, scanUntil) {
     return Number.isFinite(n) ? n : null
 }
 
+// --- WAWebProtobufSyncAction.pb: valueField → proto type + per-message enum fields ---
+//
+// Returns:
+//   {
+//     fieldToMessage: {                      // SyncActionValue.<field> → message path
+//       muteAction:       'SyncActionValue.MuteAction',
+//       chatLockSettings: 'ChatLockSettings',  // top-level import
+//     },
+//     messageEnumFields: {                   // messagePath → { field: enumPathRelativeToSyncActionValue }
+//       'SyncActionValue.StatusPrivacyAction': {
+//         mode:  'StatusPrivacyAction.StatusDistributionMode',
+//         modes: 'StatusPrivacyAction.StatusDistributionMode'
+//       },
+//       ...
+//     }
+//   }
+//
+// The bundle declares each nested message/enum with a single-letter local var
+// and exposes them through explicit `l.<QualifiedName> = <var>` exports at the
+// end of the module body. We harvest those exports to build two var→name maps:
+//
+//   l.SyncActionValue$StatusPrivacyActionSpec = xe       → message xe = 'SyncActionValue.StatusPrivacyAction'
+//   l.SyncActionValue$StatusPrivacyAction$StatusDistributionMode = D  → enum  D  = 'StatusPrivacyAction.StatusDistributionMode'
+//
+// (Enum paths are stripped of the leading `SyncActionValue.` to match the
+// convention used by Phase 4g's index-slot `protoEnum` — both are paths
+// relative to the SyncActionValue parent.)
+//
+// Then for every message, we parse its `internalSpec` to find ENUM fields
+// (`<field>:[num, TYPES.ENUM, <enumVar>]` or with `FLAGS.REPEATED|TYPES.ENUM`)
+// and resolve `<enumVar>` through the enum map.
+function parseSyncActionValueTypes(bundles) {
+    const empty = { fieldToMessage: {}, messageEnumFields: {} }
+    for (const b of bundles) {
+        const idx = b.text.indexOf('__d("WAWebProtobufSyncAction.pb"')
+        if (idx === -1) continue
+        let depth = 0
+        let end = -1
+        for (let i = idx; i < b.text.length; i++) {
+            if (b.text[i] === '(') depth++
+            else if (b.text[i] === ')') {
+                if (--depth === 0) {
+                    end = i + 1
+                    break
+                }
+            }
+        }
+        if (end === -1) continue
+        const body = b.text.slice(idx, end)
+
+        // Harvest the trailing `l.<Name> = <var>` exports. Names ending in
+        // `Spec` are message-spec vars; everything else is an enum (or other
+        // top-level constant — those will be filtered out when looked up).
+        const messageVarToPath = {} // var → 'SyncActionValue.<X>' (kept prefix)
+        const enumVarToPath = {} // var → '<Parent>.<Enum>' (stripped prefix)
+        const exportRe = /\bl\.([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\b/g
+        let em
+        while ((em = exportRe.exec(body))) {
+            const name = em[1]
+            const varName = em[2]
+            if (name.endsWith('Spec')) {
+                const msgPath = name.slice(0, -4).replace(/\$/g, '.')
+                messageVarToPath[varName] = msgPath
+            } else {
+                // Enum or constant: strip `SyncActionValue$` if present so the
+                // path reads as `<Parent>.<EnumName>` relative to the value root.
+                const dotted = name.replace(/\$/g, '.')
+                const enumPath = dotted.startsWith('SyncActionValue.')
+                    ? dotted.slice('SyncActionValue.'.length)
+                    : dotted
+                enumVarToPath[varName] = enumPath
+            }
+        }
+
+        // Locate SyncActionValueSpec var to enumerate its top-level fields.
+        const syncVar = Object.entries(messageVarToPath).find(
+            ([, p]) => p === 'SyncActionValue'
+        )?.[0]
+        if (!syncVar) continue
+
+        // Per-message helper: parse `<var>.internalSpec = {...}` and return its
+        // raw field-entry list `{ fieldName: { typeExpr, typeRef } }`.
+        const parseSpec = (varName) => {
+            const re = new RegExp(`\\b${varName}\\.internalSpec\\s*=\\s*\\{`)
+            const sm = body.match(re)
+            if (!sm) return null
+            const objStart = sm.index + sm[0].length - 1
+            const objEnd = skipExpr(body, objStart + 1, ['}'])
+            const src = body.slice(objStart + 1, objEnd)
+            const entries = {}
+            const entryRe = /([A-Za-z_$][\w$]*)\s*:\s*\[\s*\d+\s*,\s*([^,\]]+)(?:\s*,\s*([^\]]+))?\]/g
+            let m
+            while ((m = entryRe.exec(src))) {
+                entries[m[1]] = { typeExpr: m[2].trim(), typeRef: m[3]?.trim() }
+            }
+            return entries
+        }
+
+        // Step 1 — fieldToMessage from SyncActionValueSpec's entries.
+        const fieldToMessage = {}
+        const topEntries = parseSpec(syncVar) || {}
+        for (const [fieldName, { typeRef }] of Object.entries(topEntries)) {
+            if (!typeRef) continue
+            const idMatch = typeRef.match(/^[A-Za-z_$][\w$]*$/)
+            if (idMatch && messageVarToPath[typeRef]) {
+                fieldToMessage[fieldName] = messageVarToPath[typeRef]
+                continue
+            }
+            // Imported spec: `o("WAWebProtobufsChatLockSettings.pb").ChatLockSettingsSpec`
+            const importMatch = typeRef.match(/\)\.([A-Za-z_$][\w$]*)Spec\s*$/)
+            if (importMatch) fieldToMessage[fieldName] = importMatch[1]
+        }
+
+        // Step 2 — messageEnumFields: for every message var, walk its
+        // internalSpec entries and collect ENUM fields. Recurses through
+        // nested MESSAGE fields so deep enums surface with dotted paths
+        // (e.g. CallLogAction has no top-level enum, but its nested
+        // `callLogRecord` field carries `callType`/`silenceReason`/`callResult`
+        // → `{ "callLogRecord.callType": "CallLogRecord.CallType", ... }`).
+        // Imported / unknown message types are not followed; nested-spec lookup
+        // is keyed by the local var name so cross-module imports stop at the
+        // boundary.
+        const pathToVar = Object.fromEntries(
+            Object.entries(messageVarToPath).map(([v, p]) => [p, v])
+        )
+        const enumFieldsCache = {}
+        const collect = (varName, depth, visiting) => {
+            if (varName in enumFieldsCache) return enumFieldsCache[varName]
+            if (depth > 4) return {}
+            if (visiting.has(varName)) return {} // cycle guard
+            visiting.add(varName)
+            const entries = parseSpec(varName)
+            const out = {}
+            if (entries) {
+                for (const [fieldName, { typeExpr, typeRef }] of Object.entries(entries)) {
+                    if (!typeRef) continue
+                    const idMatch = typeRef.match(/^[A-Za-z_$][\w$]*$/)
+                    if (!idMatch) continue
+                    if (/\bTYPES\.ENUM\b/.test(typeExpr)) {
+                        if (enumVarToPath[typeRef]) out[fieldName] = enumVarToPath[typeRef]
+                    } else if (/\bTYPES\.MESSAGE\b/.test(typeExpr)) {
+                        const nested = collect(typeRef, depth + 1, visiting)
+                        for (const [k, v] of Object.entries(nested)) {
+                            out[`${fieldName}.${k}`] = v
+                        }
+                    }
+                }
+            }
+            visiting.delete(varName)
+            enumFieldsCache[varName] = out
+            return out
+        }
+
+        const messageEnumFields = {}
+        for (const [varName, msgPath] of Object.entries(messageVarToPath)) {
+            const fields = collect(varName, 0, new Set())
+            if (Object.keys(fields).length > 0) messageEnumFields[msgPath] = fields
+        }
+
+        return { fieldToMessage, messageEnumFields }
+    }
+    return empty
+}
+
 // --- WAWebCollectionHandlerActions: list of handler module names ---
 
 function parseHandlerList(bundles) {
@@ -262,7 +426,7 @@ const BASE_SCOPE = {
     ChatMessageRangeSyncdActionBase: 'chatMessageRange'
 }
 
-function extractHandler(moduleName, bundles, syncdConst) {
+function extractHandler(moduleName, bundles, syncdConst, valueTypes, messageEnumFields) {
     const found = findModuleBody(bundles, moduleName)
     if (!found) return { module: moduleName, error: 'module-not-found' }
     const body = found.text
@@ -305,6 +469,11 @@ function extractHandler(moduleName, bundles, syncdConst) {
         scope,
         baseClass: klass.baseClass,
         valueField,
+        valueProtoType: (valueField && valueTypes[valueField]) || null,
+        valueEnumFields:
+            valueField && valueTypes[valueField] && messageEnumFields[valueTypes[valueField]]
+                ? messageEnumFields[valueTypes[valueField]]
+                : null,
         chatJidIndex: chatJidIndex ?? null,
         indexParts
     }
@@ -417,13 +586,17 @@ function extractValueField(fb) {
         if (!isGenericMemberName(key)) return key
     }
     // Fallback B: handlers that destructure `var <alias>=<X>.value` then access
-    // `<alias>.<field>` later (e.g. ArchiveSettingSync, LocaleSettingSync).
-    // Find every alias bound to `.value`, then scan for its first member access.
+    // `<alias>.<field>` later (e.g. ArchiveSettingSync, LocaleSettingSync,
+    // DetectedOutcomesStatusSync). Scan member accesses AFTER the binding
+    // position to avoid catching unrelated `.map(...)` / `.push(...)` calls
+    // from earlier in the body (the constructor's `r=new Array(n);r.map(...)`
+    // pattern would otherwise pollute when `r` later gets rebound to `.value`).
     const aliasRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.value\b/g
     let am
     while ((am = aliasRe.exec(fb))) {
         const alias = am[1]
         const memberRe = new RegExp(`\\b${alias}\\.([A-Za-z_$][\\w$]*)`, 'g')
+        memberRe.lastIndex = am.index + am[0].length
         let mm
         while ((mm = memberRe.exec(fb))) {
             const key = mm[1]
@@ -434,10 +607,13 @@ function extractValueField(fb) {
 }
 
 // SyncActionValue oneOf fields all conform to camelCase suffixed by Action /
-// Setting / similar payload words. Filter out common false-positive members
-// (length, toString, prototype helpers) that aren't part of the protobuf.
+// Setting / similar payload words. Filter out common false-positive members:
+// JS built-ins (length, toString, prototype helpers), Array/iteration methods
+// the minifier sprinkles around (`.map`, `.filter`, `.push` on rebound vars),
+// and Syncd plumbing fields that aren't part of the SyncActionValue oneOf.
 function isGenericMemberName(key) {
     return (
+        // Object/Function built-ins
         key === 'value' ||
         key === 'length' ||
         key === 'toString' ||
@@ -445,6 +621,25 @@ function isGenericMemberName(key) {
         key === 'apply' ||
         key === 'call' ||
         key === 'bind' ||
+        // Iteration / array methods — short-lived var names get reused for
+        // arrays before being rebound to `.value`, so these can leak through.
+        key === 'map' ||
+        key === 'filter' ||
+        key === 'forEach' ||
+        key === 'push' ||
+        key === 'pop' ||
+        key === 'shift' ||
+        key === 'unshift' ||
+        key === 'slice' ||
+        key === 'concat' ||
+        key === 'find' ||
+        key === 'some' ||
+        key === 'every' ||
+        key === 'reduce' ||
+        key === 'includes' ||
+        key === 'indexOf' ||
+        key === 'join' ||
+        // Syncd plumbing
         key === 'operation' ||
         key === 'timestamp'
     )
@@ -958,6 +1153,7 @@ function buildIndexParts({ scope, chatJidIndex, slots, actionName, slotNames, sl
 
 function extractAppstate(bundles) {
     const syncdConst = parseSyncdConst(bundles)
+    const { fieldToMessage, messageEnumFields } = parseSyncActionValueTypes(bundles)
     const handlerNames = parseHandlerList(bundles)
     const handlers = {}
     const diagnostics = {
@@ -967,7 +1163,7 @@ function extractAppstate(bundles) {
         errors: []
     }
     for (const name of handlerNames) {
-        const result = extractHandler(name, bundles, syncdConst)
+        const result = extractHandler(name, bundles, syncdConst, fieldToMessage, messageEnumFields)
         if (result.error || !result.actionKey || !result.name) {
             diagnostics.handlersErrored++
             diagnostics.errors.push({ module: name, error: result.error ?? 'incomplete' })

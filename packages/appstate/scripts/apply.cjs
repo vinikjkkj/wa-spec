@@ -139,6 +139,8 @@ function main() {
             scope: h.scope,
             baseClass: h.baseClass,
             valueField: h.valueField,
+            valueProtoType: h.valueProtoType,
+            valueEnumFields: h.valueEnumFields,
             chatJidIndex: h.chatJidIndex,
             indexParts: h.indexParts
         }
@@ -161,12 +163,17 @@ function main() {
         .map((key) => {
             const h = handlers[key]
             const partsJs = h.indexParts.map(emitPartJs).join(',\n')
+            const enumFieldsJs = h.valueEnumFields
+                ? `Object.freeze({ ${Object.entries(h.valueEnumFields).map(([k, v]) => `${quote(k)}: ${quote(v)}`).join(', ')} })`
+                : 'null'
             return `    ${shortKey(key)}: Object.freeze({
         name: ${quote(h.name)},
         collection: ${orNull(h.collection)},
         version: ${h.version ?? 'null'},
         scope: ${quote(h.scope)},
         valueField: ${orNull(h.valueField)},
+        valueProtoType: ${orNull(h.valueProtoType)},
+        valueEnumFields: ${enumFieldsJs},
         indexParts: Object.freeze([
 ${partsJs}
         ])
@@ -205,7 +212,11 @@ module.exports = { WA_APPSTATE_COLLECTIONS, WA_APPSTATE_SCHEMAS }
             const partsTypes = h.indexParts.map(emitPartType).join(', ')
             const collectionType = h.collection ? quote(h.collection) : 'WaAppstateCollection'
             const valueFieldType = h.valueField ? quote(h.valueField) : 'null'
-            return `    readonly ${shortKey(key)}: WaAppstateSchema<${quote(h.name)}, ${collectionType}, ${quote(h.scope)}, ${valueFieldType}, readonly [${partsTypes}]>`
+            const valueProtoTypeType = h.valueProtoType ? quote(h.valueProtoType) : 'null'
+            const valueEnumFieldsType = h.valueEnumFields
+                ? `{ ${Object.entries(h.valueEnumFields).map(([k, v]) => `readonly ${quote(k)}: ${quote(v)}`).join('; ')} }`
+                : 'null'
+            return `    readonly ${shortKey(key)}: WaAppstateSchema<${quote(h.name)}, ${collectionType}, ${quote(h.scope)}, ${valueFieldType}, ${valueProtoTypeType}, ${valueEnumFieldsType}, readonly [${partsTypes}]>`
         })
         .join('\n')
 
@@ -242,11 +253,15 @@ export type WaAppstateIndexPart =
     | { readonly type: 'string'; readonly name: string }
     | { readonly type: 'unknown'; readonly name: string }
 
+export type WaAppstateValueEnumFields = Readonly<Record<string, string>>
+
 export interface WaAppstateSchema<
     Name extends string = string,
     Collection extends WaAppstateCollection = WaAppstateCollection,
     Scope extends WaAppstateScope = WaAppstateScope,
     ValueField extends string | null = string | null,
+    ValueProtoType extends string | null = string | null,
+    ValueEnumFields extends WaAppstateValueEnumFields | null = WaAppstateValueEnumFields | null,
     IndexParts extends ReadonlyArray<WaAppstateIndexPart> = ReadonlyArray<WaAppstateIndexPart>
 > {
     readonly name: Name
@@ -254,6 +269,18 @@ export interface WaAppstateSchema<
     readonly version: number
     readonly scope: Scope
     readonly valueField: ValueField
+    // Dotted path to the value's protobuf message inside @vinikjkkj/wa-proto's
+    // \`waproto\` namespace. Nested types under SyncActionValue read as
+    // \`SyncActionValue.<X>\` (most actions); top-level types (e.g.
+    // \`ChatLockSettings\`, \`DeviceCapabilities\`) read as just \`<X>\`.
+    // Resolve with a \`GetByPath\`-style helper to obtain the typed value.
+    readonly valueProtoType: ValueProtoType
+    // For every enum-typed field inside the value message, a dotted path to
+    // the enum inside \`waproto.SyncActionValue\` (e.g. \`StatusPrivacyAction.
+    // StatusDistributionMode\`). Lets a typed-mutation API surface enum
+    // string literals (\`'ALLOW_LIST'\`) instead of magic integers (\`1\`).
+    // \`null\` when the value message has no enum fields.
+    readonly valueEnumFields: ValueEnumFields
     readonly indexParts: IndexParts
 }
 

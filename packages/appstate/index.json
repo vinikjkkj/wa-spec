@@ -16,6 +16,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "ctwaPerCustomerDataSharingAction",
+      "valueProtoType": "SyncActionValue.CtwaPerCustomerDataSharingAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -36,6 +38,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "agentAction",
+      "valueProtoType": "SyncActionValue.AgentAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -56,6 +60,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": null,
+      "valueProtoType": null,
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -80,6 +86,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "threadPinAction",
+      "valueProtoType": "SyncActionValue.ThreadPinAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -104,6 +112,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "aiThreadRenameAction",
+      "valueProtoType": "SyncActionValue.AiThreadRenameAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -128,6 +138,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "androidUnsupportedActions",
+      "valueProtoType": "SyncActionValue.AndroidUnsupportedActions",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -144,6 +156,8 @@
       "scope": "chatMessageRange",
       "baseClass": "ChatMessageRangeSyncdActionBase",
       "valueField": "archiveChatAction",
+      "valueProtoType": "SyncActionValue.ArchiveChatAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -164,6 +178,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "avatarUpdatedAction",
+      "valueProtoType": "SyncActionValue.AvatarUpdatedAction",
+      "valueEnumFields": {
+        "eventType": "AvatarUpdatedAction.AvatarEventType"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -180,6 +198,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "bizAiSettingsNudgeAction",
+      "valueProtoType": "SyncActionValue.BizAISettingsNudgeAction",
+      "valueEnumFields": {
+        "category": "BizAISettingsNudgeAction.BizAISettingsCategory"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -196,6 +218,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "botWelcomeRequestAction",
+      "valueProtoType": "SyncActionValue.BotWelcomeRequestAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -216,6 +240,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "businessBroadcastCampaignAction",
+      "valueProtoType": "SyncActionValue.BusinessBroadcastCampaignAction",
+      "valueEnumFields": {
+        "status": "BusinessBroadcastCampaignStatus"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -236,6 +264,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "businessBroadcastInsightsAction",
+      "valueProtoType": "SyncActionValue.BusinessBroadcastInsightsAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -256,6 +286,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "businessBroadcastListAction",
+      "valueProtoType": "SyncActionValue.BusinessBroadcastListAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -276,6 +308,13 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "callLogAction",
+      "valueProtoType": "SyncActionValue.CallLogAction",
+      "valueEnumFields": {
+        "callLogRecord.callResult": "CallLogRecord.CallResult",
+        "callLogRecord.silenceReason": "CallLogRecord.SilenceReason",
+        "callLogRecord.participants.callResult": "CallLogRecord.CallResult",
+        "callLogRecord.callType": "CallLogRecord.CallType"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -292,6 +331,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "chatAssignment",
+      "valueProtoType": "SyncActionValue.ChatAssignmentAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -312,6 +353,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "chatAssignmentOpenedStatus",
+      "valueProtoType": "SyncActionValue.ChatAssignmentOpenedStatusAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -336,6 +379,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "chatLockSettings",
+      "valueProtoType": "ChatLockSettings",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -352,6 +397,8 @@
       "scope": "chatMessageRange",
       "baseClass": "ChatMessageRangeSyncdActionBase",
       "valueField": "clearChatAction",
+      "valueProtoType": "SyncActionValue.ClearChatAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -380,6 +427,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "contactAction",
+      "valueProtoType": "SyncActionValue.ContactAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -400,6 +449,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "customPaymentMethodsAction",
+      "valueProtoType": "SyncActionValue.CustomPaymentMethodsAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -416,6 +467,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "customerDataAction",
+      "valueProtoType": "SyncActionValue.CustomerDataAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -436,6 +489,8 @@
       "scope": "chatMessageRange",
       "baseClass": "ChatMessageRangeSyncdActionBase",
       "valueField": "deleteChatAction",
+      "valueProtoType": "SyncActionValue.DeleteChatAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -460,6 +515,8 @@
       "scope": "message",
       "baseClass": "MessageSyncdActionBase",
       "valueField": "deleteMessageForMeAction",
+      "valueProtoType": "SyncActionValue.DeleteMessageForMeAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -491,7 +548,9 @@
       "version": 1,
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
-      "valueField": "map",
+      "valueField": "detectedOutcomesStatusAction",
+      "valueProtoType": "SyncActionValue.DetectedOutcomesStatusAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -508,6 +567,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "deviceCapabilities",
+      "valueProtoType": "DeviceCapabilities",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -524,6 +585,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "privacySettingDisableLinkPreviewsAction",
+      "valueProtoType": "SyncActionValue.PrivacySettingDisableLinkPreviewsAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -540,6 +603,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "externalWebBetaAction",
+      "valueProtoType": "SyncActionValue.ExternalWebBetaAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -556,6 +621,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "stickerAction",
+      "valueProtoType": "SyncActionValue.StickerAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -576,6 +643,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "favoritesAction",
+      "valueProtoType": "SyncActionValue.FavoritesAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -592,6 +661,10 @@
       "scope": "message",
       "baseClass": "MessageSyncdActionBase",
       "valueField": "interactiveMessageAction",
+      "valueProtoType": "SyncActionValue.InteractiveMessageAction",
+      "valueEnumFields": {
+        "type": "InteractiveMessageAction.InteractiveMessageActionMode"
+      },
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -628,6 +701,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "labelEditAction",
+      "valueProtoType": "SyncActionValue.LabelEditAction",
+      "valueEnumFields": {
+        "type": "LabelEditAction.ListType"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -648,6 +725,8 @@
       "scope": "chatOrContact",
       "baseClass": "ChatOrContactSyncdActionBase",
       "valueField": "labelAssociationAction",
+      "valueProtoType": "SyncActionValue.LabelAssociationAction",
+      "valueEnumFields": null,
       "chatJidIndex": 2,
       "indexParts": [
         {
@@ -672,6 +751,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "labelReorderingAction",
+      "valueProtoType": "SyncActionValue.LabelReorderingAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -688,6 +769,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "lidContactAction",
+      "valueProtoType": "SyncActionValue.LidContactAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -708,6 +791,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "localeSetting",
+      "valueProtoType": "SyncActionValue.LocaleSetting",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -724,6 +809,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "lockChatAction",
+      "valueProtoType": "SyncActionValue.LockChatAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -744,6 +831,8 @@
       "scope": "chatMessageRange",
       "baseClass": "ChatMessageRangeSyncdActionBase",
       "valueField": "markChatAsReadAction",
+      "valueProtoType": "SyncActionValue.MarkChatAsReadAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -764,6 +853,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "marketingMessageAction",
+      "valueProtoType": "SyncActionValue.MarketingMessageAction",
+      "valueEnumFields": {
+        "type": "MarketingMessageAction.MarketingMessagePrototypeType"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -784,6 +877,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": null,
+      "valueProtoType": null,
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -808,6 +903,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "merchantPaymentPartnerAction",
+      "valueProtoType": "SyncActionValue.MerchantPaymentPartnerAction",
+      "valueEnumFields": {
+        "status": "MerchantPaymentPartnerAction.Status"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -824,6 +923,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "muteAction",
+      "valueProtoType": "SyncActionValue.MuteAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -843,7 +944,9 @@
       "version": 1,
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
-      "valueField": "map",
+      "valueField": "nctSaltSyncAction",
+      "valueProtoType": "SyncActionValue.NctSaltSyncAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -860,6 +963,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "noteEditAction",
+      "valueProtoType": "SyncActionValue.NoteEditAction",
+      "valueEnumFields": {
+        "type": "NoteEditAction.NoteType"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -880,6 +987,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "nuxAction",
+      "valueProtoType": "SyncActionValue.NuxAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -900,6 +1009,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "outContactAction",
+      "valueProtoType": "SyncActionValue.OutContactAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -920,6 +1031,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "paymentInfoAction",
+      "valueProtoType": "SyncActionValue.PaymentInfoAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -936,6 +1049,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "paymentTosAction",
+      "valueProtoType": "SyncActionValue.PaymentTosAction",
+      "valueEnumFields": {
+        "paymentNotice": "PaymentTosAction.PaymentNotice"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -952,6 +1069,8 @@
       "scope": "chat",
       "baseClass": "ChatSyncdActionBase",
       "valueField": "pinAction",
+      "valueProtoType": "SyncActionValue.PinAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -972,6 +1091,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "pnForLidChatAction",
+      "valueProtoType": "SyncActionValue.PnForLidChatAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -992,6 +1113,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "primaryFeature",
+      "valueProtoType": "SyncActionValue.PrimaryFeature",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1008,6 +1131,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "primaryVersionAction",
+      "valueProtoType": "SyncActionValue.PrimaryVersionAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1028,6 +1153,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "quickReplyAction",
+      "valueProtoType": "SyncActionValue.QuickReplyAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1048,6 +1175,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "removeRecentStickerAction",
+      "valueProtoType": "SyncActionValue.RemoveRecentStickerAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1068,6 +1197,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "keyExpiration",
+      "valueProtoType": "SyncActionValue.KeyExpiration",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1084,6 +1215,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "pushNameSetting",
+      "valueProtoType": "SyncActionValue.PushNameSetting",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1100,6 +1233,12 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "settingsSyncAction",
+      "valueProtoType": "SyncActionValue.SettingsSyncAction",
+      "valueEnumFields": {
+        "bannerNotificationDisplayMode": "SettingsSyncAction.DisplayMode",
+        "unreadCounterBadgeDisplayMode": "SettingsSyncAction.DisplayMode",
+        "mediaUploadQuality": "SettingsSyncAction.MediaQualitySetting"
+      },
       "chatJidIndex": 3,
       "indexParts": [
         {
@@ -1130,6 +1269,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": null,
+      "valueProtoType": null,
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1150,6 +1291,8 @@
       "scope": "message",
       "baseClass": "MessageSyncdActionBase",
       "valueField": "starAction",
+      "valueProtoType": "SyncActionValue.StarAction",
+      "valueEnumFields": null,
       "chatJidIndex": 1,
       "indexParts": [
         {
@@ -1182,6 +1325,11 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "statusPrivacy",
+      "valueProtoType": "SyncActionValue.StatusPrivacyAction",
+      "valueEnumFields": {
+        "mode": "StatusPrivacyAction.StatusDistributionMode",
+        "modes": "StatusPrivacyAction.StatusDistributionMode"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1198,6 +1346,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "subscriptionsSyncV2Action",
+      "valueProtoType": "SyncActionValue.SubscriptionsSyncV2Action",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1214,6 +1364,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "timeFormatAction",
+      "valueProtoType": "SyncActionValue.TimeFormatAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1230,6 +1382,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "unarchiveChatsSetting",
+      "valueProtoType": "SyncActionValue.UnarchiveChatsSetting",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1246,6 +1400,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "userStatusMuteAction",
+      "valueProtoType": "SyncActionValue.UserStatusMuteAction",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1266,6 +1422,8 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "privacySettingRelayAllCalls",
+      "valueProtoType": "SyncActionValue.PrivacySettingRelayAllCalls",
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1282,6 +1440,10 @@
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
       "valueField": "waffleAccountLinkStateAction",
+      "valueProtoType": "SyncActionValue.WaffleAccountLinkStateAction",
+      "valueEnumFields": {
+        "linkState": "WaffleAccountLinkStateAction.AccountLinkState"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {

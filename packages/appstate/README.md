@@ -25,12 +25,86 @@ WA_APPSTATE_SCHEMAS.Mute
 //     version: 2,
 //     scope: 'chat',
 //     valueField: 'muteAction',
+//     valueProtoType: 'SyncActionValue.MuteAction',
 //     indexParts: [
 //       { type: 'literal', value: 'mute' },
 //       { type: 'jid', name: 'chatJid' }
 //     ]
 //   }
 ```
+
+## Resolving value types against `@vinikjkkj/wa-proto`
+
+Each schema carries `valueProtoType` — a dotted path to the value's
+protobuf message inside `waproto`. Use a tiny `GetByPath` helper to
+resolve the literal string into a real TS type:
+
+```ts
+import { waproto } from '@vinikjkkj/wa-proto'
+import { WA_APPSTATE_SCHEMAS, type WaAppstateActionKey } from '@vinikjkkj/wa-appstate'
+
+type GetByPath<T, P extends string> =
+    P extends `${infer Head}.${infer Tail}`
+        ? Head extends keyof T
+            ? GetByPath<T[Head], Tail>
+            : never
+        : P extends keyof T
+            ? T[P]
+            : never
+
+type WaAppstateValueOf<K extends WaAppstateActionKey> =
+    (typeof WA_APPSTATE_SCHEMAS)[K]['valueProtoType'] extends infer P
+        ? P extends string
+            ? GetByPath<typeof waproto, P>
+            : null
+        : never
+
+// Nested under SyncActionValue
+type MuteValue = WaAppstateValueOf<'Mute'>
+//    ^? waproto.SyncActionValue.MuteAction
+
+type StatusPrivacyValue = WaAppstateValueOf<'StatusPrivacy'>
+//    ^? waproto.SyncActionValue.StatusPrivacyAction
+//      (gives access to .mode: StatusDistributionMode, .userJid, .modes, ...)
+
+// Top-level types
+type ChatLockSettingsValue = WaAppstateValueOf<'ChatLockSettings'>
+//    ^? waproto.ChatLockSettings
+
+// Handlers with no value payload (ai_thread_delete, marketingMessageBroadcast,
+// shareOwnPn) have valueProtoType: null
+type AiThreadDeleteValue = WaAppstateValueOf<'AiThreadDelete'>
+//    ^? null
+```
+
+### Enum fields inside the value
+
+`valueProtoType` gives you the message type. To surface enum-typed fields
+as string-literal unions (so consumers pass `mode: 'CONTACTS'` instead of
+the magic integer `2`), each schema also carries `valueEnumFields` — a
+flat map from dotted field path to the enum's proto path (relative to
+`waproto.SyncActionValue`). Nested message fields show up with `.`-joined
+paths (e.g. `callLog.value.callLogRecord.callType`).
+
+```ts
+WA_APPSTATE_SCHEMAS.StatusPrivacy.valueEnumFields
+// → { mode:  'StatusPrivacyAction.StatusDistributionMode',
+//     modes: 'StatusPrivacyAction.StatusDistributionMode' }
+
+WA_APPSTATE_SCHEMAS.CallLog.valueEnumFields
+// → { 'callLogRecord.callType':                'CallLogRecord.CallType',
+//     'callLogRecord.callResult':              'CallLogRecord.CallResult',
+//     'callLogRecord.silenceReason':           'CallLogRecord.SilenceReason',
+//     'callLogRecord.participants.callResult': 'CallLogRecord.CallResult' }
+
+WA_APPSTATE_SCHEMAS.Mute.valueEnumFields  // → null  (no enum fields in MuteAction)
+```
+
+A typed mutation API can then map each path back to its enum union via
+`GetByPath<typeof waproto.SyncActionValue, ...>` and substitute that union
+into the value type. The exact shape depends on your mutation interface
+(deep replace vs. flat key→union map); the IR exposes both halves so any
+strategy is consumer-side typing only.
 
 ## Derived helpers — typed encoders/decoders
 

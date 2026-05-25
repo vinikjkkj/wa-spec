@@ -11,6 +11,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'ctwaPerCustomerDataSharingAction',
+        valueProtoType: 'SyncActionValue.CtwaPerCustomerDataSharingAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'ctwaPerCustomerDataSharing' }),
             Object.freeze({ type: 'string', name: 'accountLid' })
@@ -22,6 +24,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'agentAction',
+        valueProtoType: 'SyncActionValue.AgentAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'deviceAgent' }),
             Object.freeze({ type: 'string', name: 'agentId' })
@@ -33,6 +37,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'chat',
         valueField: null,
+        valueProtoType: null,
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'ai_thread_delete' }),
             Object.freeze({ type: 'jid', name: 'chatJid' }),
@@ -45,6 +51,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'chat',
         valueField: 'threadPinAction',
+        valueProtoType: 'SyncActionValue.ThreadPinAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'thread_pin' }),
             Object.freeze({ type: 'jid', name: 'chatJid' }),
@@ -57,6 +65,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'chat',
         valueField: 'aiThreadRenameAction',
+        valueProtoType: 'SyncActionValue.AiThreadRenameAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'ai_thread_rename' }),
             Object.freeze({ type: 'jid', name: 'chatJid' }),
@@ -69,6 +79,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 4,
         scope: 'account',
         valueField: 'androidUnsupportedActions',
+        valueProtoType: 'SyncActionValue.AndroidUnsupportedActions',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'android_unsupported_actions' })
         ])
@@ -79,6 +91,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'chatMessageRange',
         valueField: 'archiveChatAction',
+        valueProtoType: 'SyncActionValue.ArchiveChatAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'archive' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -90,6 +104,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'avatarUpdatedAction',
+        valueProtoType: 'SyncActionValue.AvatarUpdatedAction',
+        valueEnumFields: Object.freeze({ 'eventType': 'AvatarUpdatedAction.AvatarEventType' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'avatar_updated_action' })
         ])
@@ -100,6 +116,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'bizAiSettingsNudgeAction',
+        valueProtoType: 'SyncActionValue.BizAISettingsNudgeAction',
+        valueEnumFields: Object.freeze({ 'category': 'BizAISettingsNudgeAction.BizAISettingsCategory' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'biz_ai_settings_nudge' })
         ])
@@ -110,6 +128,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 2,
         scope: 'chat',
         valueField: 'botWelcomeRequestAction',
+        valueProtoType: 'SyncActionValue.BotWelcomeRequestAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'bot_welcome_request' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -121,6 +141,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'businessBroadcastCampaignAction',
+        valueProtoType: 'SyncActionValue.BusinessBroadcastCampaignAction',
+        valueEnumFields: Object.freeze({ 'status': 'BusinessBroadcastCampaignStatus' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'business_broadcast_campaign' }),
             Object.freeze({ type: 'string', name: 'campaign' })
@@ -132,6 +154,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'businessBroadcastInsightsAction',
+        valueProtoType: 'SyncActionValue.BusinessBroadcastInsightsAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'business_broadcast_insights_sync' }),
             Object.freeze({ type: 'string', name: 'campaign' })
@@ -143,6 +167,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'businessBroadcastListAction',
+        valueProtoType: 'SyncActionValue.BusinessBroadcastListAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'business_broadcast_list' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -154,6 +180,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'callLogAction',
+        valueProtoType: 'SyncActionValue.CallLogAction',
+        valueEnumFields: Object.freeze({ 'callLogRecord.callResult': 'CallLogRecord.CallResult', 'callLogRecord.silenceReason': 'CallLogRecord.SilenceReason', 'callLogRecord.participants.callResult': 'CallLogRecord.CallResult', 'callLogRecord.callType': 'CallLogRecord.CallType' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'call_log' })
         ])
@@ -164,6 +192,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'chat',
         valueField: 'chatAssignment',
+        valueProtoType: 'SyncActionValue.ChatAssignmentAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'agentChatAssignment' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -175,6 +205,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'chat',
         valueField: 'chatAssignmentOpenedStatus',
+        valueProtoType: 'SyncActionValue.ChatAssignmentOpenedStatusAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'agentChatAssignmentOpenedStatus' }),
             Object.freeze({ type: 'jid', name: 'chatJid' }),
@@ -187,6 +219,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'chatLockSettings',
+        valueProtoType: 'ChatLockSettings',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'setting_chatLock' })
         ])
@@ -197,6 +231,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 6,
         scope: 'chatMessageRange',
         valueField: 'clearChatAction',
+        valueProtoType: 'SyncActionValue.ClearChatAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'clearChat' }),
             Object.freeze({ type: 'jid', name: 'chatJid' }),
@@ -210,6 +246,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 2,
         scope: 'account',
         valueField: 'contactAction',
+        valueProtoType: 'SyncActionValue.ContactAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'contact' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -221,6 +259,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'customPaymentMethodsAction',
+        valueProtoType: 'SyncActionValue.CustomPaymentMethodsAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'custom_payment_methods' })
         ])
@@ -231,6 +271,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'customerDataAction',
+        valueProtoType: 'SyncActionValue.CustomerDataAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'customer_data' }),
             Object.freeze({ type: 'string', name: 'chatJid' })
@@ -242,6 +284,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 6,
         scope: 'chatMessageRange',
         valueField: 'deleteChatAction',
+        valueProtoType: 'SyncActionValue.DeleteChatAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'deleteChat' }),
             Object.freeze({ type: 'jid', name: 'chatJid' }),
@@ -254,6 +298,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'message',
         valueField: 'deleteMessageForMeAction',
+        valueProtoType: 'SyncActionValue.DeleteMessageForMeAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'deleteMessageForMe' }),
             Object.freeze({ type: 'jid', name: 'remote' }),
@@ -267,7 +313,9 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         collection: 'regular',
         version: 1,
         scope: 'account',
-        valueField: 'map',
+        valueField: 'detectedOutcomesStatusAction',
+        valueProtoType: 'SyncActionValue.DetectedOutcomesStatusAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'detected_outcomes_status_action' })
         ])
@@ -278,6 +326,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'deviceCapabilities',
+        valueProtoType: 'DeviceCapabilities',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'device_capabilities' })
         ])
@@ -288,6 +338,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 8,
         scope: 'account',
         valueField: 'privacySettingDisableLinkPreviewsAction',
+        valueProtoType: 'SyncActionValue.PrivacySettingDisableLinkPreviewsAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'setting_disableLinkPreviews' })
         ])
@@ -298,6 +350,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'account',
         valueField: 'externalWebBetaAction',
+        valueProtoType: 'SyncActionValue.ExternalWebBetaAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'external_web_beta' })
         ])
@@ -308,6 +362,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'stickerAction',
+        valueProtoType: 'SyncActionValue.StickerAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'favoriteSticker' }),
             Object.freeze({ type: 'string', name: 'filehash' })
@@ -319,6 +375,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'favoritesAction',
+        valueProtoType: 'SyncActionValue.FavoritesAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'favorites' })
         ])
@@ -329,6 +387,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'message',
         valueField: 'interactiveMessageAction',
+        valueProtoType: 'SyncActionValue.InteractiveMessageAction',
+        valueEnumFields: Object.freeze({ 'type': 'InteractiveMessageAction.InteractiveMessageActionMode' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'interactive_message_action' }),
             Object.freeze({ type: 'jid', name: 'remote' }),
@@ -344,6 +404,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'account',
         valueField: 'labelEditAction',
+        valueProtoType: 'SyncActionValue.LabelEditAction',
+        valueEnumFields: Object.freeze({ 'type': 'LabelEditAction.ListType' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'label_edit' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -355,6 +417,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'chatOrContact',
         valueField: 'labelAssociationAction',
+        valueProtoType: 'SyncActionValue.LabelAssociationAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'label_jid' }),
             Object.freeze({ type: 'string', name: 'labelId' }),
@@ -367,6 +431,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'account',
         valueField: 'labelReorderingAction',
+        valueProtoType: 'SyncActionValue.LabelReorderingAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'label_reordering' })
         ])
@@ -377,6 +443,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'lidContactAction',
+        valueProtoType: 'SyncActionValue.LidContactAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'lid_contact' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -388,6 +456,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'account',
         valueField: 'localeSetting',
+        valueProtoType: 'SyncActionValue.LocaleSetting',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'setting_locale' })
         ])
@@ -398,6 +468,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'chat',
         valueField: 'lockChatAction',
+        valueProtoType: 'SyncActionValue.LockChatAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'lock' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -409,6 +481,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'chatMessageRange',
         valueField: 'markChatAsReadAction',
+        valueProtoType: 'SyncActionValue.MarkChatAsReadAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'markChatAsRead' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -420,6 +494,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'marketingMessageAction',
+        valueProtoType: 'SyncActionValue.MarketingMessageAction',
+        valueEnumFields: Object.freeze({ 'type': 'MarketingMessageAction.MarketingMessagePrototypeType' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'marketingMessage' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -431,6 +507,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: null,
+        valueProtoType: null,
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'marketingMessageBroadcast' }),
             Object.freeze({ type: 'string', name: 'premiumMessageId' }),
@@ -443,6 +521,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'merchantPaymentPartnerAction',
+        valueProtoType: 'SyncActionValue.MerchantPaymentPartnerAction',
+        valueEnumFields: Object.freeze({ 'status': 'MerchantPaymentPartnerAction.Status' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'merchant_payment_partner' })
         ])
@@ -453,6 +533,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 2,
         scope: 'chat',
         valueField: 'muteAction',
+        valueProtoType: 'SyncActionValue.MuteAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'mute' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -463,7 +545,9 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         collection: 'regular_high',
         version: 1,
         scope: 'account',
-        valueField: 'map',
+        valueField: 'nctSaltSyncAction',
+        valueProtoType: 'SyncActionValue.NctSaltSyncAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'nct_salt_sync' })
         ])
@@ -474,6 +558,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'noteEditAction',
+        valueProtoType: 'SyncActionValue.NoteEditAction',
+        valueEnumFields: Object.freeze({ 'type': 'NoteEditAction.NoteType' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'note_edit' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -485,6 +571,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'nuxAction',
+        valueProtoType: 'SyncActionValue.NuxAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'nux' }),
             Object.freeze({ type: 'string', name: 'nuxKey' })
@@ -496,6 +584,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'outContactAction',
+        valueProtoType: 'SyncActionValue.OutContactAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'out_contact' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -507,6 +597,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'paymentInfoAction',
+        valueProtoType: 'SyncActionValue.PaymentInfoAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'payment_info' })
         ])
@@ -517,6 +609,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'paymentTosAction',
+        valueProtoType: 'SyncActionValue.PaymentTosAction',
+        valueEnumFields: Object.freeze({ 'paymentNotice': 'PaymentTosAction.PaymentNotice' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'payment_tos' })
         ])
@@ -527,6 +621,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 5,
         scope: 'chat',
         valueField: 'pinAction',
+        valueProtoType: 'SyncActionValue.PinAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'pin_v1' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })
@@ -538,6 +634,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 8,
         scope: 'account',
         valueField: 'pnForLidChatAction',
+        valueProtoType: 'SyncActionValue.PnForLidChatAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'pnForLidChat' }),
             Object.freeze({ type: 'string', name: 'lid' })
@@ -549,6 +647,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'primaryFeature',
+        valueProtoType: 'SyncActionValue.PrimaryFeature',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'primary_feature' })
         ])
@@ -559,6 +659,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'primaryVersionAction',
+        valueProtoType: 'SyncActionValue.PrimaryVersionAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'primary_version' }),
             Object.freeze({ type: 'string', name: 'key1' })
@@ -570,6 +672,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 2,
         scope: 'account',
         valueField: 'quickReplyAction',
+        valueProtoType: 'SyncActionValue.QuickReplyAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'quick_reply' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -581,6 +685,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'removeRecentStickerAction',
+        valueProtoType: 'SyncActionValue.RemoveRecentStickerAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'removeRecentSticker' }),
             Object.freeze({ type: 'string', name: 'filehash' })
@@ -592,6 +698,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 3,
         scope: 'account',
         valueField: 'keyExpiration',
+        valueProtoType: 'SyncActionValue.KeyExpiration',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'sentinel' })
         ])
@@ -602,6 +710,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'pushNameSetting',
+        valueProtoType: 'SyncActionValue.PushNameSetting',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'setting_pushName' })
         ])
@@ -612,6 +722,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'settingsSyncAction',
+        valueProtoType: 'SyncActionValue.SettingsSyncAction',
+        valueEnumFields: Object.freeze({ 'bannerNotificationDisplayMode': 'SettingsSyncAction.DisplayMode', 'unreadCounterBadgeDisplayMode': 'SettingsSyncAction.DisplayMode', 'mediaUploadQuality': 'SettingsSyncAction.MediaQualitySetting' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'settings_sync' }),
             Object.freeze({ type: 'enum', name: 'settingPlatform', protoEnum: 'SettingsSyncAction.SettingPlatform' }),
@@ -625,6 +737,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 8,
         scope: 'account',
         valueField: null,
+        valueProtoType: null,
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'shareOwnPn' }),
             Object.freeze({ type: 'string', name: 'lid' })
@@ -636,6 +750,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 2,
         scope: 'message',
         valueField: 'starAction',
+        valueProtoType: 'SyncActionValue.StarAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'star' }),
             Object.freeze({ type: 'jid', name: 'remote' }),
@@ -650,6 +766,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'statusPrivacy',
+        valueProtoType: 'SyncActionValue.StatusPrivacyAction',
+        valueEnumFields: Object.freeze({ 'mode': 'StatusPrivacyAction.StatusDistributionMode', 'modes': 'StatusPrivacyAction.StatusDistributionMode' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'status_privacy' })
         ])
@@ -660,6 +778,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'subscriptionsSyncV2Action',
+        valueProtoType: 'SyncActionValue.SubscriptionsSyncV2Action',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'subscriptions_sync_v2' })
         ])
@@ -670,6 +790,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'timeFormatAction',
+        valueProtoType: 'SyncActionValue.TimeFormatAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'time_format' })
         ])
@@ -680,6 +802,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 4,
         scope: 'account',
         valueField: 'unarchiveChatsSetting',
+        valueProtoType: 'SyncActionValue.UnarchiveChatsSetting',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'setting_unarchiveChats' })
         ])
@@ -690,6 +814,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 7,
         scope: 'account',
         valueField: 'userStatusMuteAction',
+        valueProtoType: 'SyncActionValue.UserStatusMuteAction',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'userStatusMute' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -701,6 +827,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'privacySettingRelayAllCalls',
+        valueProtoType: 'SyncActionValue.PrivacySettingRelayAllCalls',
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'setting_relayAllCalls' })
         ])
@@ -711,6 +839,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         version: 1,
         scope: 'account',
         valueField: 'waffleAccountLinkStateAction',
+        valueProtoType: 'SyncActionValue.WaffleAccountLinkStateAction',
+        valueEnumFields: Object.freeze({ 'linkState': 'WaffleAccountLinkStateAction.AccountLinkState' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'waffle_account_link_state' })
         ])
