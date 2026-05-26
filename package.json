@@ -43,8 +43,9 @@
         "extract:proto": "node packages/proto/scripts/apply.cjs --manifest dump/manifest.json",
         "extract:appstate": "node packages/appstate/scripts/apply.cjs --manifest dump/manifest.json",
         "extract:xml": "node packages/xml/scripts/apply.cjs --manifest dump/manifest.json",
+        "extract:wam": "node packages/wam/scripts/apply.cjs --manifest dump/manifest.json",
         "compile:proto": "npm run compile --workspace @vinikjkkj/wa-proto",
-        "extract:all": "npm run fetch && npm run extract:mex && npm run extract:proto && npm run compile:proto && npm run extract:appstate && npm run extract:xml"
+        "extract:all": "npm run fetch && npm run extract:mex && npm run extract:proto && npm run compile:proto && npm run extract:appstate && npm run extract:xml && npm run extract:wam"
     },
     "engines": {
         "node": ">=20.9.0"

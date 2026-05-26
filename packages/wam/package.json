@@ -1,0 +1,51 @@
+{
+    "name": "@vinikjkkj/wa-wam",
+    "version": "0.1.0",
+    "description": "WhatsApp Web WAM (analytics/metrics) event schemas — event IDs, field IDs, types, enums, globals (daily-extracted).",
+    "keywords": [
+        "whatsapp",
+        "whatsapp-web",
+        "wam",
+        "analytics",
+        "metrics",
+        "telemetry",
+        "wa-spec"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "vinikjkkj",
+        "url": "https://github.com/vinikjkkj"
+    },
+    "homepage": "https://github.com/vinikjkkj/wa-spec/tree/main/packages/wam#readme",
+    "bugs": {
+        "url": "https://github.com/vinikjkkj/wa-spec/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vinikjkkj/wa-spec.git",
+        "directory": "packages/wam"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vinikjkkj"
+        }
+    ],
+    "main": "index.js",
+    "types": "index.d.ts",
+    "sideEffects": false,
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "README.md"
+    ],
+    "scripts": {
+        "apply": "node ./scripts/apply.cjs"
+    },
+    "engines": {
+        "node": ">=20.9.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
