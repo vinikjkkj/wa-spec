@@ -2,7 +2,7 @@
 
 Daily-extracted WhatsApp Web protocol bindings.
 
-Four independent packages, one shared fetcher:
+Five independent packages, one shared fetcher:
 
 - [`@vinikjkkj/wa-fetcher`](./packages/fetcher) — downloads every loaded JS
   bundle from web.whatsapp.com to disk and writes a manifest. That's all it
@@ -15,6 +15,13 @@ Four independent packages, one shared fetcher:
 - [`@vinikjkkj/wa-appstate`](./packages/appstate) — AppState (Syncd) action
   schemas: wire name, collection, version, value field and index shape for
   every multi-device sync action. Publishes `index.json` + `index.js` + `index.d.ts`.
+- [`@vinikjkkj/wa-xml`](./packages/xml) — XML/stanza schemas for every Smax
+  IQ operation AND every incoming server-initiated stanza (`<notification>`,
+  `<receipt>`, `<message>`, `<chatstate>`, `<presence>`, `<ib>`, `<call>`,
+  `<status>`, etc.): per-op request + response trees AND per-handler stanza
+  trees (tag, attrs, children, content) recovered from `WASmax*RPC` modules
+  + the three `WAWebCommsHandle*Stanza` dispatch tables. Publishes
+  `index.json` + `index.js` + `index.d.ts`.
 
 External consumers (e.g. [`wa-diff`](https://github.com/vinikjkkj/wa-diff)) can
 depend on `@vinikjkkj/wa-fetcher` directly without pulling proto/mex/appstate.
@@ -34,14 +41,14 @@ depend on `@vinikjkkj/wa-fetcher` directly without pulling proto/mex/appstate.
                    │
         ┌──────────┼──────────┬──────────────┐
         ↓          ↓          ↓              ↓
-┌────────────┐ ┌────────────┐ ┌────────────┐ ┌──────────────┐
-│ @vinikjkkj/│ │ @vinikjkkj/│ │ @vinikjkkj/│ │ wa-diff      │
-│ wa-mex     │ │ wa-proto   │ │ wa-appstate│ │ (external)   │
-│            │ │            │ │            │ │              │
-│ index.json │ │ WAProto.   │ │ index.json │ │ <its own>    │
-│ index.js   │ │ proto      │ │ index.js   │ │              │
-│ index.d.ts │ │ dist/      │ │ index.d.ts │ │              │
-└────────────┘ └────────────┘ └────────────┘ └──────────────┘
+┌────────────┐ ┌────────────┐ ┌────────────┐ ┌────────────┐ ┌──────────────┐
+│ @vinikjkkj/│ │ @vinikjkkj/│ │ @vinikjkkj/│ │ @vinikjkkj/│ │ wa-diff      │
+│ wa-mex     │ │ wa-proto   │ │ wa-appstate│ │ wa-xml     │ │ (external)   │
+│            │ │            │ │            │ │            │ │              │
+│ index.json │ │ WAProto.   │ │ index.json │ │ index.json │ │ <its own>    │
+│ index.js   │ │ proto      │ │ index.js   │ │ index.js   │ │              │
+│ index.d.ts │ │ dist/      │ │ index.d.ts │ │ index.d.ts │ │              │
+└────────────┘ └────────────┘ └────────────┘ └────────────┘ └──────────────┘
 ```
 
 Each extractor reads the raw bundle directory directly. No intermediate JSON
@@ -65,6 +72,7 @@ npm run fetch
 npm run extract:mex
 npm run extract:proto
 npm run extract:appstate
+npm run extract:xml
 ```
 
 ## Packages
@@ -75,3 +83,4 @@ npm run extract:appstate
 | [`mex`](./packages/mex) | Mex GraphQL bindings | `index.json` + `index.js` + `index.d.ts` |
 | [`proto`](./packages/proto) | Protobuf bindings | `WAProto.proto` + `dist/index.{js,d.ts}` |
 | [`appstate`](./packages/appstate) | AppState (Syncd) schemas | `index.json` + `index.js` + `index.d.ts` |
+| [`xml`](./packages/xml) | Smax IQ stanza schemas (request + response trees) | `index.json` + `index.js` + `index.d.ts` |
