@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040100380",
+  "waVersion": "2.3000.1040208462",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -6456,6 +6456,280 @@
             "content": null
           },
           "entryName": "parseFetchMissingPreKeysResponseSuccess"
+        }
+      ]
+    },
+    "ForceDeleteState": {
+      "module": "WASmaxWaffleForceDeleteStateRPC",
+      "opName": "ForceDeleteState",
+      "rootTag": "iq",
+      "xmlns": "waffle",
+      "type": "get",
+      "request": {
+        "module": "WASmaxOutWaffleForceDeleteStateRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "xmlns": {
+              "type": "literal",
+              "value": "waffle"
+            },
+            "smax_id": {
+              "type": "literal",
+              "value": 59
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "type": {
+              "type": "literal",
+              "value": "get"
+            }
+          },
+          "children": [
+            {
+              "tag": "timestamp",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "int"
+              }
+            },
+            {
+              "tag": "only_if_suspended",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "bytes"
+              },
+              "min": 0,
+              "max": 1,
+              "__helper": "OPTIONAL_CHILD"
+            }
+          ],
+          "appliedMixin": "WASmaxOutWaffleBaseIQGetRequestMixin"
+        },
+        "argShape": {
+          "t": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInWaffleForceDeleteStateResponseError",
+          "variant": "Error",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "bad-request",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorBadRequest",
+                  "IQErrorRequestTimeout",
+                  "IQErrorInternalServerError",
+                  "IQErrorServiceUnavailable",
+                  "IQErrorRateOverlimit",
+                  "IQErrorNotAllowed"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseForceDeleteStateResponseError"
+        },
+        {
+          "module": "WASmaxInWaffleForceDeleteStateResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [],
+            "content": null
+          },
+          "entryName": "parseForceDeleteStateResponseSuccess"
+        }
+      ]
+    },
+    "ForceSuspendState": {
+      "module": "WASmaxWaffleForceSuspendStateRPC",
+      "opName": "ForceSuspendState",
+      "rootTag": "iq",
+      "xmlns": "waffle",
+      "type": "get",
+      "request": {
+        "module": "WASmaxOutWaffleForceSuspendStateRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "xmlns": {
+              "type": "literal",
+              "value": "waffle"
+            },
+            "smax_id": {
+              "type": "literal",
+              "value": 84
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "type": {
+              "type": "literal",
+              "value": "get"
+            }
+          },
+          "children": [
+            {
+              "tag": "timestamp",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "int"
+              }
+            }
+          ],
+          "appliedMixin": "WASmaxOutWaffleBaseIQGetRequestMixin"
+        },
+        "argShape": {
+          "e": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInWaffleForceSuspendStateResponseError",
+          "variant": "Error",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "bad-request",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorBadRequest",
+                  "IQErrorRequestTimeout",
+                  "IQErrorInternalServerError",
+                  "IQErrorServiceUnavailable",
+                  "IQErrorRateOverlimit",
+                  "IQErrorNotAllowed",
+                  "IQErrorConflict",
+                  "IQErrorWFNotFound",
+                  "IQErrorWFStateMismatch"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseForceSuspendStateResponseError"
+        },
+        {
+          "module": "WASmaxInWaffleForceSuspendStateResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "string"
+              },
+              "from": {
+                "type": "string"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "npr",
+                "attrs": {},
+                "children": [],
+                "content": {
+                  "type": "enum",
+                  "enumRef": "o(\"WASmaxInWaffleEnums\").ENUM_FALSE_TRUE",
+                  "enumValues": [
+                    "false",
+                    "true"
+                  ]
+                },
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseForceSuspendStateResponseSuccess"
         }
       ]
     },
