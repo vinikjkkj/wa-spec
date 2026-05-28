@@ -97,6 +97,31 @@ const WAWAP_COERCERS = {
     DOMAIN_JID: 'jid'
 }
 
+// Stanza root tags that NEVER carry payload bytes per protocol. Used
+// by decodeSmaxCall to disambiguate trailing bare-ident args — for
+// these tags, the trailing arg is always a child node reference,
+// never content. Without this guard, calls like
+// `wap("receipt", {...}, i)` (where `i` is a child node) get
+// misinterpreted as `<receipt>` with bytes content.
+const CONTENTLESS_STANZA_ROOTS = new Set([
+    'receipt', 'message', 'notification', 'presence', 'iq', 'ack',
+    'call', 'failure', 'success', 'error', 'ib', 'chatstate',
+    'status', 'stream:error', 'xmlstreamend'
+])
+
+// `WAWebCommsWapMd` is a sibling helper module that wraps `WAWebWid` ->
+// `WapJid` conversions for the outgoing-message builders. Each function
+// validates the WID kind and emits the matching `WapJid`. Map to the
+// same wire types as the WAWap coercers.
+const WACOMMS_JID_COERCERS = {
+    USER_JID: 'userJid',
+    DEVICE_JID: 'deviceJid',
+    CHAT_JID: 'jid',
+    GROUP_JID: 'groupJid',
+    GROUP_CALL_JID: 'callJid',
+    JID: 'jid'
+}
+
 // Well-known WAWap constants that appear as attr values. Map to literal JIDs
 // when known so consumers don't have to chase the constant.
 const WAWAP_CONSTANTS = {
@@ -140,6 +165,12 @@ const PARSE_UTILS = {
     countChildrenWithTag: { kind: 'children', tagged: true, counted: true },
     mapHomogeneousChildrenWithTag: { kind: 'children', tagged: true, mapped: true, homogeneous: true },
     contentString: { kind: 'content', type: 'string' },
+    // `literalContent(innerParseFn, node, "lit")` — pins the content to a
+    // specific literal value. Used in mixin disjunctions like
+    // `member_add_mode` where each variant maps to a different literal
+    // (`AdminAddMode → "admin_add"`, `AllMembersAddMode → "all_member_add"`,
+    // etc.). Surfaces as `content: { type: "literal", value: "<lit>" }`.
+    literalContent: { kind: 'literalContent' },
     contentBytes: { kind: 'content', type: 'bytes' },
     contentLiteralBytes: { kind: 'content', type: 'bytes', literal: true },
     contentBytesRange: { kind: 'content', type: 'bytes', withRange: true },
@@ -219,6 +250,73 @@ function decodeAttrText(text, ctx) {
         return decodeAttrText(rewritten, ctx)
     }
 
+    // Short-circuit OR `<value> || <ld>("WAWap").DROP_ATTR` — semantically
+    // identical to `<value> ? <value> : DROP_ATTR` (use value when truthy,
+    // omit when null/undefined). Strip the `|| DROP_ATTR` and recurse on
+    // the value.
+    if (text.includes('DROP_ATTR')) {
+        let depth = 0
+        let orIdx = -1
+        for (let i = 0; i < text.length - 1; i++) {
+            const c = text[i]
+            if (c === '(') depth++
+            else if (c === ')') depth--
+            else if (c === '|' && text[i + 1] === '|' && depth === 0) { orIdx = i; break }
+        }
+        if (orIdx !== -1) {
+            const tail = text.slice(orIdx + 2).trim()
+            if (/^[A-Za-z_$][\w$]*(?:\("WAWap"\))?\.DROP_ATTR\s*$/.test(tail)) {
+                const head = text.slice(0, orIdx).trim()
+                const inner = decodeAttrText(head, ctx)
+                return { ...inner, optional: true }
+            }
+        }
+    }
+
+    // Outgoing-builder ternary `<cond> ? <value> : <ld>("WAWap").DROP_ATTR`
+    // (or the reverse `<cond> ? DROP_ATTR : <value>`). The minified
+    // message-construction modules use this to mean "set <value> when
+    // <cond>, else omit the attr". Decode the non-DROP_ATTR branch as the
+    // attr type and mark optional. We split at the top-level `?` / `:`
+    // using paren-balanced scanning so nested `(a ? b : c)` exprs in the
+    // value don't trip the regex.
+    if (text.includes('DROP_ATTR') && text.includes('?')) {
+        let depth = 0
+        let qIdx = -1
+        for (let i = 0; i < text.length; i++) {
+            const c = text[i]
+            if (c === '(') depth++
+            else if (c === ')') depth--
+            else if (c === '?' && depth === 0) { qIdx = i; break }
+        }
+        if (qIdx !== -1) {
+            let d2 = 0
+            let cIdx = -1
+            for (let i = qIdx + 1; i < text.length; i++) {
+                const c = text[i]
+                if (c === '(') d2++
+                else if (c === ')') d2--
+                else if (c === '?' && d2 === 0) d2++
+                else if (c === ':' && d2 === 0) {
+                    if (d2 === 0) { cIdx = i; break }
+                }
+            }
+            if (cIdx !== -1) {
+                const trueBranch = text.slice(qIdx + 1, cIdx).trim()
+                const falseBranch = text.slice(cIdx + 1).trim()
+                const dropRe = /^[A-Za-z_$][\w$]*(?:\("WAWap"\))?\.DROP_ATTR\s*$/
+                if (dropRe.test(falseBranch) && !dropRe.test(trueBranch)) {
+                    const inner = decodeAttrText(trueBranch, ctx)
+                    return { ...inner, optional: true }
+                }
+                if (dropRe.test(trueBranch) && !dropRe.test(falseBranch)) {
+                    const inner = decodeAttrText(falseBranch, ctx)
+                    return { ...inner, optional: true }
+                }
+            }
+        }
+    }
+
     // String literal — request-side literal attr (`xmlns:"abt"`).
     if (text[0] === '"' || text[0] === "'") {
         // Be tolerant of mid-expression artifacts: take the first quoted span.
@@ -251,6 +349,28 @@ function decodeAttrText(text, ctx) {
     if (/^[A-Za-z_$][\w$]*\("WAWap"\)\.generateId\(\)\s*$/.test(text)) {
         return { type: 'stanzaId', generated: true }
     }
+
+    // `<loader>("WAWebCommsWapMd").<COERCER>(<arg>)` — outgoing message
+    // builders use these JID coercers in place of WAWap.<COERCER>.
+    m = text.match(/^[A-Za-z_$][\w$]*\("WAWebCommsWapMd"\)\.([A-Z_][A-Z0-9_]*)\s*\(([\s\S]*)\)\s*$/)
+    if (m && WACOMMS_JID_COERCERS[m[1]]) {
+        const inner = m[2].trim()
+        const strLit = inner.match(/^['"]([\s\S]*)['"]$/)
+        if (strLit) return { type: 'literal', value: strLit[1] }
+        return { type: WACOMMS_JID_COERCERS[m[1]], arg: inner || null }
+    }
+
+    // Outgoing-builder formatter helpers — these all return an optional
+    // string (or DROP_ATTR semantics for the maybe-prefixed ones). The
+    // attr's wire shape is always a string when present; we drop the
+    // `arg` since the helper consumes a typed payload object rather than
+    // a wire value.
+    m = text.match(/^[A-Za-z_$][\w$]*\("WAWebBackendJobsCommon"\)\.(encodeMaybe[A-Za-z0-9_]+)\s*\(/)
+    if (m) return { type: 'string', optional: true }
+    m = text.match(/^[A-Za-z_$][\w$]*\("WAWebSendMsgCommonApi"\)\.editAttribute\s*\(/)
+    if (m) return { type: 'string', optional: true }
+    m = text.match(/^[A-Za-z_$][\w$]*\("WAWebE2EProtoUtils"\)\.typeAttributeFromProtobuf\s*\(/)
+    if (m) return { type: 'string' }
 
     // Aliased WAWap: `<alias>.CONST_NAME` / `<alias>.<COERCER>(<arg>)` /
     // `<alias>.generateId()`. The alias was hoisted earlier by either the
@@ -452,10 +572,19 @@ function decodeSmaxCall(body, args, ctx) {
     // identifier, WAWap.<coercer>(arg), or string literal), treat it as
     // content rather than a child element. Matches WAWap.makeWapNode's
     // runtime branching.
-    if (args.length - childArgStart === 1) {
+    //
+    // EXCEPTION: stanza root tags (`receipt`, `message`, `notification`,
+    // `presence`, `iq`, `ack`, `call`, `failure`, `success`, `error`,
+    // `ib`, `chatstate`, `status`, `stream:error`, `xmlstreamend`) NEVER
+    // carry payload bytes per protocol — their trailing arg is always a
+    // child node ref (e.g. `wap("receipt", {...}, i)` where `i` is a
+    // child wap node bound earlier in scope). The `looksLikeContent`
+    // heuristic falsely matches bare idents as content; guard against
+    // it for these tags.
+    if (args.length - childArgStart === 1 && !CONTENTLESS_STANZA_ROOTS.has(tag)) {
         const [cs, ce] = args[childArgStart]
         const text = body.slice(cs, ce).trim()
-        if (looksLikeContent(text, ctx)) {
+        if (looksLikeContent(text, ctx, tag)) {
             // String literal: `smax("tag", null, "x")` — content type=string,
             // pinned value.
             const litM = text.match(/^['"]((?:[^'"\\]|\\.)*)['"]$/)
@@ -477,6 +606,10 @@ function decodeSmaxCall(body, args, ctx) {
         const childText = stripAwaitYield(body.slice(cs, ce).trim())
         const child = decodeChildExpression(body, [cs, ce], childText, ctx)
         if (!child) continue
+        // Skip `__ref` placeholders — bare idents we couldn't trace back
+        // to a smax/wap call. They show up as tagless children in the
+        // final IR; cleaner to drop them than emit `{tag: null}` nodes.
+        if (child.__ref && !child.tag && !child.attrs && !child.children) continue
         // `__array` envelopes from `[].concat(...)` / bare array literals
         // splat into the parent's children list — they represent the
         // smax-runtime "children = single array arg" pathway.
@@ -840,21 +973,63 @@ function appendArrayOrChild(envelope, child) {
 //   - An aliased coercer `<n>.<COERCER>(...)` where `n` was hoisted from
 //     `o("WAWap")` — same as the direct form.
 // Anything else is treated as a child element.
-function looksLikeContent(text, ctx) {
+function looksLikeContent(text, ctx, parentTag) {
     if (!text) return false
-    if (/^[A-Za-z_$][\w$]*$/.test(text)) return true
+    // String literal — `smax("tag", null, "literal-value")`. Unambiguous:
+    // wap constructor treats a string trailing arg as element text content.
+    if (/^['"]([^'"\\]|\\.)*['"]$/.test(text)) return true
+    // Explicit WAWap content coercer (BIG_ENDIAN_CONTENT, CUSTOM_STRING,
+    // INT, etc.) — definitely content.
     if (/^[A-Za-z_$][\w$]*\("WAWap"\)\.[A-Z_][A-Z0-9_]*\s*\(/.test(text)) return true
     if (ctx && ctx.wawapAliases) {
         for (const alias of ctx.wawapAliases) {
             if (new RegExp(`^${alias}\\.[A-Z_][A-Z0-9_]*\\s*\\(`).test(text)) return true
         }
     }
-    // Literal string content — `smax("tag", null, "literal-value")`. WA's
-    // wap constructor treats a string trailing arg as the element's text
-    // content, not as a child node.
-    if (/^['"]([^'"\\]|\\.)*['"]$/.test(text)) return true
+    // Bare identifier — AMBIGUOUS. Could be a content var (`var t = bytes`)
+    // OR a child node ref (`var t = smax("tag", ...)`). Allow ONLY when
+    // the parent tag is a known leaf that carries content per protocol
+    // (`<plaintext>`, `<enc>`, `<registration>`, `<device-identity>`, etc.).
+    // For container tags (`<meta>`, `<reporting>`, `<participants>`,
+    // any stanza root), default to "not content" — those callers always
+    // pass child node refs as trailing args.
+    if (/^[A-Za-z_$][\w$]*$/.test(text)) {
+        return CONTENT_BEARING_LEAF_TAGS.has(parentTag)
+    }
     return false
 }
+
+// Tags whose wire shape is `<tag>BYTES</tag>` or `<tag>STRING</tag>` —
+// trailing bare-ident args to `wap(<tag>, attrs, x)` ARE content for these.
+// Other tags use trailing args for child node references.
+//
+// Derived from auditing every tag that carries bytes content in any
+// incoming Phase 1/2 parser across the IR (52 tags as of latest extract).
+// Without this guard, looksLikeContent would treat ANY bare ident as
+// content — causing trailing child-ref args to be misread as content
+// (see receipt/message/etc. with phantom bytes content fix).
+const CONTENT_BEARING_LEAF_TAGS = new Set([
+    // E2E crypto envelopes
+    'enc', 'enc_p', 'enc_iv', 'ciphertext', 'encrypted_payload',
+    'encrypted_data', 'encrypted_key', 'nonce', 'auth_tag', 'padding',
+    // Plaintext message body
+    'plaintext', 'content',
+    // Identity / signing / pairing keys
+    'identity', 'device-identity', 'signature', 'signature_pem',
+    'signed_pre_key', 'signed_credential', 'pre_key', 'public_key',
+    'private_key', 'key_pair', 'key', 'acs_public_key',
+    'encryption_pem', 'password_pem', 'registration',
+    // Link code pairing fragments
+    'link_code_pairing_ref', 'link_code_pairing_wrapped_primary_ephemeral_pub',
+    'primary_identity_pub', 'companion_platform_id',
+    // Receipt/reporting payload bytes
+    'rcat', 'verified_name', 'reporting_token', 'reporting_tag',
+    'reporting_content', 'data', 'franking', 'media_payload_hash',
+    // Media / static binary content
+    'media', 'picture', 'logo_url', 'routing_info', 'ref', 'token',
+    // Newsletter / poll
+    'vote'
+])
 
 // ---------------------------------------------------------------------------
 // Request module extraction.
@@ -888,8 +1063,16 @@ function mergeMixinAttrsInto(node, mixinNode) {
         }
     }
     // Mixins like `companion_platform_id` build leaf elements with literal
-    // content (`smax("tag", null, t)`) — carry the content through.
-    if (mixinNode.content && !node.content) node.content = mixinNode.content
+    // content (`smax("tag", null, t)`) — carry the content through ONLY
+    // when the mixin's root tag matches the target. A mixin returning
+    // `<plaintext>` MUST NOT push its content onto a `<message>` parent
+    // (the plaintext IS a child of message, not the message's content).
+    // Tag-agnostic mixins (tag=undefined / tag="raw" / tag="smax$any")
+    // similarly contribute attrs+children to whoever they're applied to
+    // but their stand-alone content is meaningless on a wire-level parent.
+    if (mixinNode.content && !node.content && node.tag === mixinNode.tag) {
+        node.content = mixinNode.content
+    }
 }
 
 // Locate the CANONICAL smax-root contributor of a mixin module by chasing
@@ -1025,13 +1208,23 @@ function extractMixin(moduleName, moduleIndex, memo) {
                 ...(sub.content ? { content: sub.content } : {})
             }
         } else {
+            // Attrs/children always union (mixin contributions stack onto
+            // the same node by name/tag).
             for (const [k, v] of Object.entries(sub.attrs || {})) {
                 if (!(k in unioned.attrs)) unioned.attrs[k] = v
             }
             for (const c of sub.children || []) {
                 if (!unioned.children.some((x) => x.tag === c.tag)) unioned.children.push(c)
             }
-            if (sub.content && !unioned.content) unioned.content = sub.content
+            // Content ONLY when the sub-mixin's root tag matches the
+            // unioned tag. A sub-mixin that returns `<plaintext>` (with
+            // content bytes) MUST NOT bubble its content onto a `<status>`
+            // parent — the plaintext is a CHILD of status, not status's
+            // own content. Without this guard, every payload-mixin
+            // contributes phantom content to its enclosing stanza root.
+            if (sub.content && !unioned.content && sub.tag === unioned.tag) {
+                unioned.content = sub.content
+            }
         }
     }
 
@@ -1377,7 +1570,12 @@ function buildResponseTreeFromFn(fnBody, rootParam, moduleIndex, parseFnTraced, 
         if (!desc) continue
         if (call.args.length === 0) continue
 
-        const firstArgText = fnBody.slice(call.args[0][0], call.args[0][1]).trim()
+        // `wrap` and `literalContent` shift the node arg to position 1 —
+        // arg[0] is the inner parse function passed by reference. Pick
+        // the right arg for node resolution.
+        const nodeArgIdx = desc.kind === 'wrap' || desc.kind === 'literalContent' ? 1 : 0
+        if (call.args.length <= nodeArgIdx) continue
+        const firstArgText = fnBody.slice(call.args[nodeArgIdx][0], call.args[nodeArgIdx][1]).trim()
         const target = resolveNodeRef(firstArgText, scope)
         if (!target) continue
         const node = getOrCreateNode(target)
@@ -1553,6 +1751,17 @@ function buildResponseTreeFromFn(fnBody, rootParam, moduleIndex, parseFnTraced, 
                 if (enumArg) spec.enumRef = enumArg
             }
             node.content = spec
+        } else if (desc.kind === 'literalContent') {
+            // `literalContent(<innerFn>, <node>, "lit")` — wire content
+            // is pinned to the literal "lit". Skip the inner parser ref
+            // (arg 0) and the node ref (arg 1); the literal is arg 2.
+            const litArg = call.args[2]
+                ? fnBody.slice(call.args[2][0], call.args[2][1]).trim()
+                : null
+            const litMatch = litArg && litArg.match(/^['"](.*)['"]$/)
+            if (litMatch) {
+                node.content = { type: 'literal', value: litMatch[1] }
+            }
         }
     }
 
@@ -1600,7 +1809,32 @@ function buildResponseTreeFromFn(fnBody, rootParam, moduleIndex, parseFnTraced, 
                 if (target.children.some((x) => x.tag === c.tag)) continue
                 target.children.push(c)
             }
-            if (sub.content && !target.content) target.content = sub.content
+            // Content merge: usually first-wins, BUT when multiple
+            // sub-parsers each pin content to a DIFFERENT literal value
+            // (the AddMode pattern: AdminAddMode → "admin_add",
+            // AllMembersAddMode → "all_member_add", etc.), union them
+            // into a single enum with all observed values.
+            if (sub.content) {
+                if (!target.content) {
+                    target.content = sub.content
+                } else if (
+                    target.content.type === 'literal' && sub.content.type === 'literal'
+                    && sub.content.value !== target.content.value
+                ) {
+                    target.content = {
+                        type: 'enum',
+                        enumValues: [...new Set([target.content.value, sub.content.value])]
+                    }
+                } else if (
+                    target.content.type === 'enum' && sub.content.type === 'literal'
+                    && !target.content.enumValues.includes(sub.content.value)
+                ) {
+                    target.content = {
+                        type: 'enum',
+                        enumValues: [...target.content.enumValues, sub.content.value]
+                    }
+                }
+            }
             // Propagate the sub-parser's union-variant names — when the
             // sub-parser was itself a disjunction (e.g. `parsePresenceUpdates`
             // tries 5 mixins), surface that union on the caller's node so
@@ -1690,7 +1924,7 @@ function buildFnsByName(body, moduleIndex, parseFnTraced) {
         // — not just assertTag. Local "leaf" helpers like
         // `function e(e){return WASmaxParseUtils.contentBytesRange(e,1,100)}`
         // don't call assertTag but still produce a meaningful node.
-        if (!/\b(assertTag|attrString|attrInt|attrLongInt|attrIntRange|attrStanzaId|attrCallId|attrStringEnum|maybeAttr|maybeChild|child\(|childWithTag|optionalChild|optionalChildWithTag|flattenedChildWithTag|mapChildrenWithTag|countChildrenWithTag|contentString|contentBytes|contentInt|contentLiteralBytes|contentBytesRange|contentStringEnum|attrUserJid|attrLidUserJid|attrDeviceJid|attrGroupJid|attrCallJid|attrDomainJid|attrBroadcastJid|attrStatusJid|attrNewsletterJid|attrJidEnum|literalJid|attrFromReference|attrStringFromReference)\s*\(/.test(fnBody)) continue
+        if (!/\b(assertTag|attrString|attrInt|attrLongInt|attrIntRange|attrStanzaId|attrCallId|attrStringEnum|maybeAttr|maybeChild|child\(|childWithTag|optionalChild|optionalChildWithTag|flattenedChildWithTag|mapChildrenWithTag|countChildrenWithTag|contentString|contentBytes|contentInt|contentLiteralBytes|contentBytesRange|contentStringEnum|literalContent|attrUserJid|attrLidUserJid|attrDeviceJid|attrGroupJid|attrCallJid|attrDomainJid|attrBroadcastJid|attrStatusJid|attrNewsletterJid|attrJidEnum|literalJid|attrFromReference|attrStringFromReference)\s*\(/.test(fnBody)) continue
         const tree = buildResponseTreeFromFn(
             fnBody,
             rootParam,
@@ -1908,9 +2142,24 @@ function extractRpc(moduleName, moduleIndex, mixinMemo, parseFnTraced, diagnosti
     for (const respMod of responseDeps) {
         const preferred = rpcEntryByModule[respMod] || null
         const r = extractResponseModule(respMod, moduleIndex, parseFnTraced, preferred)
-        const variantName = respMod
-            .replace(/^WASmaxIn.*?Response/, '')
+        // Pull the variant tail off the module name. There are TWO pathological
+        // shapes the strip has to survive:
+        //   - op name embeds `Response` (e.g. `GetNewsletterResponses…`) — a
+        //     non-greedy match grabs only the first occurrence and leaves an
+        //     `s` + the actual `Response<Variant>` behind
+        //   - variant name itself ends in `Response`
+        //     (e.g. `…GetCountryCodeResponseGetCountryCodeResponse`) — a
+        //     fully greedy match eats both occurrences and leaves nothing
+        // Try greedy first; if that empties the string, fall back to non-greedy
+        // so the variant-as-`Response`-name case still yields a usable label.
+        let variantName = respMod
+            .replace(/^WASmaxIn.*Response/, '')
             .replace(/^WASmaxIn/, '')
+        if (!variantName) {
+            variantName = respMod
+                .replace(/^WASmaxIn.*?Response/, '')
+                .replace(/^WASmaxIn/, '')
+        }
         responses.push({ module: respMod, variant: variantName || respMod, ...r })
     }
 
@@ -2134,5 +2383,9 @@ module.exports = {
     // declarative-walker logic instead of falling back to the imperative OO
     // walker.
     extractResponseModule,
-    buildModuleIndex
+    buildModuleIndex,
+    // Exported for the Phase 3 extractor — outgoing message-construction
+    // modules call `wap("<tag>", {attrs}, ...children)` directly and we
+    // reuse the same decoder.
+    decodeSmaxCall
 }

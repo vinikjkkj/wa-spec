@@ -817,10 +817,43 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
                     || resolveConstStringExpr(norm, moduleIndex)
             }
             if (!tag) continue
+            // Follow chained `.child("Y")` / `.maybeChild("Y")` after the
+            // initial binding. `n = e.child("X").maybeChild("Y")` binds n
+            // to Y (the FINAL child in the chain), not X — downstream
+            // reads like `n.contentString()` operate on Y. Without this,
+            // the binding tag is wrong and content/attrs end up on the
+            // wrong synthetic.
+            let chainPos = argEnd + 1
+            let lastParent = parent
+            let lastTag = tag
+            let lastMethod = method
+            while (localText[chainPos] === '.') {
+                const cm = localText.slice(chainPos + 1).match(/^(child|maybeChild)\s*\(/)
+                if (!cm) break
+                const chainArgStart = chainPos + 1 + cm[0].length
+                const chainArgEnd = skipExpr(localText, chainArgStart, [')'])
+                const chainTagRaw = localText.slice(chainArgStart, chainArgEnd).trim()
+                const chainLitM = chainTagRaw.match(/^"([^"]+)"$/)
+                if (!chainLitM) break
+                // The intermediate child (lastTag under lastParent) MUST
+                // exist in scope as a synthetic so the splice attaches
+                // the nested child correctly.
+                const intermediateSynth = `__${lastParent}_${lastTag}`
+                if (!scope.has(intermediateSynth)) {
+                    scope.set(intermediateSynth, {
+                        tag: lastTag, parent: lastParent,
+                        cardinality: lastMethod === 'maybeChild' ? 'zero-or-one' : 'one'
+                    })
+                }
+                lastParent = intermediateSynth
+                lastTag = chainLitM[1]
+                lastMethod = cm[1]
+                chainPos = chainArgEnd + 1
+            }
             scope.set(lhs, {
-                tag,
-                parent,
-                cardinality: method === 'maybeChild' ? 'zero-or-one' : 'one'
+                tag: lastTag,
+                parent: lastParent,
+                cardinality: lastMethod === 'maybeChild' ? 'zero-or-one' : 'one'
             })
         }
         // Conditional `<x> = <var>.hasChild("tag") ? <var>.child("tag") : <fallback>`
@@ -1673,10 +1706,13 @@ function resolveConstStringExpr(text, moduleIndex) {
 function inferRawAttrType(name) {
     if (name === 'id') return { type: 'stanzaId', optional: true }
     if (name === 'from' || name === 'to') return { type: 'jid', optional: true }
-    if (name === 'participant' || name === 'recipient') return { type: 'jid', optional: true }
+    if (name === 'participant' || name === 'recipient') return { type: 'userJid', optional: true }
+    if (name === 'participant_pn' || name === 'recipient_pn') return { type: 'userJid', optional: true }
     if (name === 'jid') return { type: 'jid', optional: true }
     if (name === 't' || name === 'timestamp' || name === 'count') return { type: 'int', optional: true }
-    if (name === 'offline') return { type: 'string', optional: true }
+    if (name === 'offline') return { type: 'int', optional: true }
+    if (name === 'e' || name === 'ts' || name === 'expiry' || name === 'expires_at' || name === 'duration') return { type: 'int', optional: true }
+    if (name === 'is_lid' || name === 'view_once' || name === 'is_sender' || name === 'beta') return { type: 'string', optional: true }
     return { type: 'string', optional: true }
 }
 
