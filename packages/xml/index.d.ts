@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040100380
+// WhatsApp Version: 2.3000.1040292329
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -15,7 +15,7 @@ export declare const WA_XML_OPERATIONS: {
     readonly [K in WaXmlOperationKey]: WaXmlOperationSummary
 }
 
-export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPrivacySetting' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'OutSet' | 'PassiveIQ' | 'PostNewsletterStatus' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportBug' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'SendFeedback' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetDescription' | 'SetPaymentsTOSv3' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
+export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPrivacySetting' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'OutSet' | 'PassiveIQ' | 'PostNewsletterStatus' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportBug' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'SendFeedback' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetDescription' | 'SetPaymentsTOSv3' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
 
 // Per-operation request/response shape literals — generated from the static
 // extraction over WASmaxOut*Request + WASmaxIn*Response* modules. Each
@@ -2598,6 +2598,111 @@ export interface WaXmlOperations {
                             }
                         }>
                     }
+                }
+            }
+        } }
+    }
+    readonly ForceDeleteState: {
+        readonly module: 'WASmaxWaffleForceDeleteStateRPC'
+        readonly opName: 'ForceDeleteState'
+        readonly xmlns: 'waffle'
+        readonly type: 'get'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly xmlns: 'waffle'
+            readonly smax_id: '59'
+            readonly to: 's.whatsapp.net'
+            readonly id: string
+            readonly type: 'get'
+        }
+        readonly children: {
+            readonly timestamp: {
+                readonly tag: 'timestamp'
+                readonly content: number
+            }
+            readonly only_if_suspended: {
+                readonly tag: 'only_if_suspended'
+            } | undefined
+        }
+    }
+        readonly response:
+        | { readonly variant: 'Error'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'bad-request'
+                        readonly code?: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+        } }
+    }
+    readonly ForceSuspendState: {
+        readonly module: 'WASmaxWaffleForceSuspendStateRPC'
+        readonly opName: 'ForceSuspendState'
+        readonly xmlns: 'waffle'
+        readonly type: 'get'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly xmlns: 'waffle'
+            readonly smax_id: '84'
+            readonly to: 's.whatsapp.net'
+            readonly id: string
+            readonly type: 'get'
+        }
+        readonly children: {
+            readonly timestamp: {
+                readonly tag: 'timestamp'
+                readonly content: number
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'Error'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'bad-request'
+                        readonly code?: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+            readonly children: {
+                readonly npr: {
+                    readonly tag: 'npr'
+                    readonly content: 'false' | 'true'
                 }
             }
         } }
@@ -6592,6 +6697,91 @@ export interface WaXmlOperations {
                     readonly attrs: {
                         readonly code: string
                     }
+                }
+                readonly iq: {
+                    readonly tag: 'iq'
+                    readonly attrs: {
+                        readonly id: string
+                        readonly to: 's.whatsapp.net'
+                        readonly type: 'get' | 'set'
+                        readonly xmlns: 'w:mex' | 'w:biz:catalog' | 'encrypt' | 'privatestats'
+                        readonly smax_id: string
+                    }
+                }
+                readonly notice: {
+                    readonly tag: 'notice'
+                    readonly attrs: {
+                        readonly id: string
+                    }
+                }
+                readonly public_key: {
+                    readonly tag: 'public_key'
+                    readonly attrs: {
+                        readonly jid: string
+                    }
+                }
+                readonly product: {
+                    readonly tag: 'product'
+                }
+                readonly id: {
+                    readonly tag: 'id'
+                }
+                readonly direct_connection_encrypted_info: {
+                    readonly tag: 'direct_connection_encrypted_info'
+                }
+                readonly rotate: {
+                    readonly tag: 'rotate'
+                }
+                readonly verify_postcode: {
+                    readonly tag: 'verify_postcode'
+                    readonly attrs: {
+                        readonly biz_jid: string
+                    }
+                }
+                readonly sign_credential: {
+                    readonly tag: 'sign_credential'
+                    readonly attrs: {
+                        readonly version: '1'
+                    }
+                }
+                readonly blinded_credential: {
+                    readonly tag: 'blinded_credential'
+                }
+                readonly settings: {
+                    readonly tag: 'settings'
+                }
+                readonly request: {
+                    readonly tag: 'request'
+                    readonly attrs: {
+                        readonly type: 'session_update'
+                    }
+                }
+                readonly delete: {
+                    readonly tag: 'delete'
+                    readonly attrs: {
+                        readonly id: string
+                    }
+                }
+                readonly signed_user_info: {
+                    readonly tag: 'signed_user_info'
+                    readonly attrs: {
+                        readonly biz_jid: string
+                    }
+                }
+                readonly product_list: {
+                    readonly tag: 'product_list'
+                    readonly attrs: {
+                        readonly jid: string
+                    }
+                }
+                readonly width: {
+                    readonly tag: 'width'
+                }
+                readonly height: {
+                    readonly tag: 'height'
+                }
+                readonly digest: {
+                    readonly tag: 'digest'
                 }
                 readonly tctoken: {
                     readonly tag: 'tctoken'
@@ -11689,14 +11879,14 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'ack'
             readonly attrs: {
-                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly id: string
                 readonly to: string
+                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
                 readonly error: number
-                readonly from: string
                 readonly recipient?: string
+                readonly from: string
             }
             readonly children: {
                 readonly user: {
@@ -13836,11 +14026,11 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
-                    readonly context: string
-                    readonly category: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly context: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -13918,11 +14108,11 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
-                    readonly context: string
-                    readonly category: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly context: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -13995,14 +14185,14 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly t?: number
                     readonly participant?: string
+                    readonly peer_participant_pn?: string
                     readonly recipient?: string
+                    readonly sts?: string
                     readonly context: string
                     readonly category: string
-                    readonly t: number
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly peer_participant_pn?: string
-                    readonly sts?: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14034,11 +14224,11 @@ export interface WaXmlStanzas {
                     readonly participant_pn?: string
                     readonly participant_username?: string
                     readonly t: number
-                    readonly context: string
-                    readonly category: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly context: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14119,6 +14309,91 @@ export interface WaXmlStanzas {
                     readonly attrs: {
                         readonly code: string
                     }
+                }
+                readonly iq: {
+                    readonly tag: 'iq'
+                    readonly attrs: {
+                        readonly id: string
+                        readonly to: 's.whatsapp.net'
+                        readonly type: 'get' | 'set'
+                        readonly xmlns: 'w:mex' | 'w:biz:catalog' | 'encrypt' | 'privatestats'
+                        readonly smax_id: string
+                    }
+                }
+                readonly notice: {
+                    readonly tag: 'notice'
+                    readonly attrs: {
+                        readonly id: string
+                    }
+                }
+                readonly public_key: {
+                    readonly tag: 'public_key'
+                    readonly attrs: {
+                        readonly jid: string
+                    }
+                }
+                readonly product: {
+                    readonly tag: 'product'
+                }
+                readonly id: {
+                    readonly tag: 'id'
+                }
+                readonly direct_connection_encrypted_info: {
+                    readonly tag: 'direct_connection_encrypted_info'
+                }
+                readonly rotate: {
+                    readonly tag: 'rotate'
+                }
+                readonly verify_postcode: {
+                    readonly tag: 'verify_postcode'
+                    readonly attrs: {
+                        readonly biz_jid: string
+                    }
+                }
+                readonly sign_credential: {
+                    readonly tag: 'sign_credential'
+                    readonly attrs: {
+                        readonly version: '1'
+                    }
+                }
+                readonly blinded_credential: {
+                    readonly tag: 'blinded_credential'
+                }
+                readonly settings: {
+                    readonly tag: 'settings'
+                }
+                readonly request: {
+                    readonly tag: 'request'
+                    readonly attrs: {
+                        readonly type: 'session_update'
+                    }
+                }
+                readonly delete: {
+                    readonly tag: 'delete'
+                    readonly attrs: {
+                        readonly id: string
+                    }
+                }
+                readonly signed_user_info: {
+                    readonly tag: 'signed_user_info'
+                    readonly attrs: {
+                        readonly biz_jid: string
+                    }
+                }
+                readonly product_list: {
+                    readonly tag: 'product_list'
+                    readonly attrs: {
+                        readonly jid: string
+                    }
+                }
+                readonly width: {
+                    readonly tag: 'width'
+                }
+                readonly height: {
+                    readonly tag: 'height'
+                }
+                readonly digest: {
+                    readonly tag: 'digest'
                 }
                 readonly tctoken: {
                     readonly tag: 'tctoken'
