@@ -1,0 +1,49 @@
+{
+    "name": "@vinikjkkj/wa-version",
+    "version": "0.0.0",
+    "description": "WhatsApp Web version string — daily-extracted from the bundle manifest. Exports `WA_VERSION` so consumers can pin their handshake / WAM event-version / pairing-flow checks to the same build wa-spec was generated from.",
+    "keywords": [
+        "whatsapp",
+        "whatsapp-web",
+        "version",
+        "wa-spec"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "vinikjkkj",
+        "url": "https://github.com/vinikjkkj"
+    },
+    "homepage": "https://github.com/vinikjkkj/wa-spec/tree/main/packages/version#readme",
+    "bugs": {
+        "url": "https://github.com/vinikjkkj/wa-spec/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vinikjkkj/wa-spec.git",
+        "directory": "packages/version"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vinikjkkj"
+        }
+    ],
+    "main": "index.js",
+    "types": "index.d.ts",
+    "sideEffects": false,
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "version.json",
+        "README.md"
+    ],
+    "scripts": {
+        "apply": "node ./scripts/apply.cjs"
+    },
+    "engines": {
+        "node": ">=20.9.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

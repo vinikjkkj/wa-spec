@@ -72,6 +72,9 @@ jobs:
             - name: Extract WAM (analytics/metrics) schemas
               run: npm run extract:wam
 
+            - name: Extract WA Web version string
+              run: npm run extract:version
+
             - name: Detect changes + bump versions
               id: diff
               run: |
@@ -88,7 +91,8 @@ jobs:
                           packages/proto/WAProto.proto packages/proto/dist \
                           packages/appstate/index.json packages/appstate/index.js packages/appstate/index.d.ts \
                           packages/xml/index.json packages/xml/index.js packages/xml/index.d.ts \
-                          packages/wam/index.json packages/wam/index.js packages/wam/index.d.ts || true
+                          packages/wam/index.json packages/wam/index.js packages/wam/index.d.ts \
+                          packages/version/version.json packages/version/index.js packages/version/index.d.ts || true
                   if git diff --staged --quiet; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
                       exit 0
@@ -102,8 +106,9 @@ jobs:
                       --workspace @vinikjkkj/wa-proto \
                       --workspace @vinikjkkj/wa-appstate \
                       --workspace @vinikjkkj/wa-xml \
-                      --workspace @vinikjkkj/wa-wam
-                  git add packages/mex/package.json packages/proto/package.json packages/appstate/package.json packages/xml/package.json packages/wam/package.json package-lock.json
+                      --workspace @vinikjkkj/wa-wam \
+                      --workspace @vinikjkkj/wa-version
+                  git add packages/mex/package.json packages/proto/package.json packages/appstate/package.json packages/xml/package.json packages/wam/package.json packages/version/package.json package-lock.json
 
                   git commit -m "chore: extract WA Web ${WA_VERSION} (${NEW_VERSION})"
                   git push
@@ -112,7 +117,7 @@ jobs:
               if: steps.diff.outputs.changed == 'true' && (github.event_name == 'schedule' || inputs.publish == 'true')
               run: |
                   NEW_VERSION="${{ steps.diff.outputs.new-version }}"
-                  for pkg in mex proto appstate xml wam; do
+                  for pkg in mex proto appstate xml wam version; do
                       cd "packages/$pkg"
                       # --provenance generates a signed attestation tying this
                       # tarball to this exact workflow run; requires trusted
