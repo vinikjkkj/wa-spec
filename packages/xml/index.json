@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040292329",
+  "waVersion": "2.3000.1040385143",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5170,7 +5170,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "$",
+                "arg": "l",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -5218,12 +5223,6 @@
                 "arg": "y",
                 "direction": "both"
               },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -5256,6 +5255,11 @@
                     "type": "int",
                     "min": 1577865600,
                     "max": 4102473600
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "type": {
                     "type": "literal",
@@ -5364,11 +5368,6 @@
                     "value": "status",
                     "optional": true,
                     "direction": "out"
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -17449,223 +17448,6 @@
                 "content": null,
                 "min": 1,
                 "max": 1
-              },
-              {
-                "tag": "iq",
-                "attrs": {
-                  "id": {
-                    "type": "stanzaId",
-                    "generated": true,
-                    "direction": "both"
-                  },
-                  "to": {
-                    "type": "literal",
-                    "value": "s.whatsapp.net",
-                    "direction": "both"
-                  },
-                  "type": {
-                    "type": "enum",
-                    "enumValues": [
-                      "get",
-                      "set"
-                    ],
-                    "direction": "both"
-                  },
-                  "xmlns": {
-                    "type": "enum",
-                    "enumValues": [
-                      "w:mex",
-                      "w:biz:catalog",
-                      "encrypt",
-                      "privatestats"
-                    ],
-                    "direction": "both"
-                  },
-                  "smax_id": {
-                    "type": "smaxId",
-                    "arg": "r(\"WAWapDeprecatedSmaxID\").BizGetPublicKey",
-                    "direction": "both"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "notice",
-                "attrs": {
-                  "id": {
-                    "type": "string",
-                    "arg": "e",
-                    "direction": "both"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "public_key",
-                "attrs": {
-                  "jid": {
-                    "type": "userJid",
-                    "arg": "a",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "product",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "id",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "direct_connection_encrypted_info",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "rotate",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "verify_postcode",
-                "attrs": {
-                  "biz_jid": {
-                    "type": "userJid",
-                    "arg": "i",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "sign_credential",
-                "attrs": {
-                  "version": {
-                    "type": "literal",
-                    "value": "1",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "blinded_credential",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "settings",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "request",
-                "attrs": {
-                  "type": {
-                    "type": "literal",
-                    "value": "session_update",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "delete",
-                "attrs": {
-                  "id": {
-                    "type": "string",
-                    "arg": "e",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "signed_user_info",
-                "attrs": {
-                  "biz_jid": {
-                    "type": "userJid",
-                    "arg": "o(\"WAWebWidFactory\").createWid(n)",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "product_list",
-                "attrs": {
-                  "jid": {
-                    "type": "userJid",
-                    "arg": "o(\"WAWebWidFactory\").createWid(n)",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "width",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "height",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "digest",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
               },
               {
                 "tag": "tctoken",
@@ -36681,8 +36463,20 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "T.id",
+                "arg": "m.id",
                 "direction": "both"
+              },
+              "edit": {
+                "type": "enum",
+                "optional": true,
+                "direction": "both",
+                "enumValues": [
+                  "1",
+                  "2",
+                  "3",
+                  "7",
+                  "8"
+                ]
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -36701,18 +36495,6 @@
                 "arg": "le",
                 "optional": true,
                 "direction": "both"
-              },
-              "edit": {
-                "type": "enum",
-                "optional": true,
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ]
               },
               "device_fanout": {
                 "type": "literal",
@@ -37053,6 +36835,11 @@
                     "optional": true,
                     "direction": "both"
                   },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
+                  },
                   "destination_id": {
                     "type": "string",
                     "arg": "R",
@@ -37087,11 +36874,6 @@
                     "type": "string",
                     "raw": "T(w.setting)",
                     "direction": "out"
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -37174,14 +36956,14 @@
                         "optional": true,
                         "direction": "both"
                       },
-                      "v": {
-                        "type": "literal",
-                        "value": "1",
-                        "direction": "both"
-                      },
                       "type": {
                         "type": "literal",
                         "value": "native_flow",
+                        "direction": "both"
+                      },
+                      "v": {
+                        "type": "literal",
+                        "value": "1",
                         "direction": "both"
                       }
                     },
@@ -37478,7 +37260,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "$",
+                "arg": "l",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -37526,12 +37313,6 @@
                 "arg": "y",
                 "direction": "both"
               },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -37564,6 +37345,11 @@
                     "type": "int",
                     "min": 1577865600,
                     "max": 4102473600
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "type": {
                     "type": "literal",
@@ -37672,11 +37458,6 @@
                     "value": "status",
                     "optional": true,
                     "direction": "out"
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -37925,223 +37706,6 @@
             "content": null,
             "min": 1,
             "max": 1
-          },
-          {
-            "tag": "iq",
-            "attrs": {
-              "id": {
-                "type": "stanzaId",
-                "generated": true,
-                "direction": "both"
-              },
-              "to": {
-                "type": "literal",
-                "value": "s.whatsapp.net",
-                "direction": "both"
-              },
-              "type": {
-                "type": "enum",
-                "enumValues": [
-                  "get",
-                  "set"
-                ],
-                "direction": "both"
-              },
-              "xmlns": {
-                "type": "enum",
-                "enumValues": [
-                  "w:mex",
-                  "w:biz:catalog",
-                  "encrypt",
-                  "privatestats"
-                ],
-                "direction": "both"
-              },
-              "smax_id": {
-                "type": "smaxId",
-                "arg": "r(\"WAWapDeprecatedSmaxID\").BizGetPublicKey",
-                "direction": "both"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "notice",
-            "attrs": {
-              "id": {
-                "type": "string",
-                "arg": "e",
-                "direction": "both"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "public_key",
-            "attrs": {
-              "jid": {
-                "type": "userJid",
-                "arg": "a",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "product",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "id",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "direct_connection_encrypted_info",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "rotate",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "verify_postcode",
-            "attrs": {
-              "biz_jid": {
-                "type": "userJid",
-                "arg": "i",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "sign_credential",
-            "attrs": {
-              "version": {
-                "type": "literal",
-                "value": "1",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "blinded_credential",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "settings",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "request",
-            "attrs": {
-              "type": {
-                "type": "literal",
-                "value": "session_update",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "delete",
-            "attrs": {
-              "id": {
-                "type": "string",
-                "arg": "e",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "signed_user_info",
-            "attrs": {
-              "biz_jid": {
-                "type": "userJid",
-                "arg": "o(\"WAWebWidFactory\").createWid(n)",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "product_list",
-            "attrs": {
-              "jid": {
-                "type": "userJid",
-                "arg": "o(\"WAWebWidFactory\").createWid(n)",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "width",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "height",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "digest",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
           },
           {
             "tag": "tctoken",
@@ -38653,11 +38217,11 @@
         },
         "children": [
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },
@@ -38667,11 +38231,11 @@
             "max": 1
           },
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },

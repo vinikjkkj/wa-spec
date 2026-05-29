@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040292329
+// WhatsApp Version: 2.3000.1040385143
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2061,6 +2061,7 @@ export interface WaXmlOperations {
                 readonly edit: '3' | '7'
                 readonly offline: number
                 readonly to: string
+                readonly participant: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -2068,7 +2069,6 @@ export interface WaXmlOperations {
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
                 readonly phash: string
-                readonly participant?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
@@ -2079,6 +2079,7 @@ export interface WaXmlOperations {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly original_msg_t: number
+                        readonly metering_type: 'smb_mm'
                         readonly type: 'scheduled_message'
                         readonly st: string
                         readonly origin?: 'ctwa'
@@ -2094,7 +2095,6 @@ export interface WaXmlOperations {
                         readonly tag_reason?: string
                         readonly status_setting: string
                         readonly session_scope?: 'status'
-                        readonly metering_type: 'smb_mm'
                         readonly questiontype: 'response'
                     }
                 }
@@ -6697,91 +6697,6 @@ export interface WaXmlOperations {
                     readonly attrs: {
                         readonly code: string
                     }
-                }
-                readonly iq: {
-                    readonly tag: 'iq'
-                    readonly attrs: {
-                        readonly id: string
-                        readonly to: 's.whatsapp.net'
-                        readonly type: 'get' | 'set'
-                        readonly xmlns: 'w:mex' | 'w:biz:catalog' | 'encrypt' | 'privatestats'
-                        readonly smax_id: string
-                    }
-                }
-                readonly notice: {
-                    readonly tag: 'notice'
-                    readonly attrs: {
-                        readonly id: string
-                    }
-                }
-                readonly public_key: {
-                    readonly tag: 'public_key'
-                    readonly attrs: {
-                        readonly jid: string
-                    }
-                }
-                readonly product: {
-                    readonly tag: 'product'
-                }
-                readonly id: {
-                    readonly tag: 'id'
-                }
-                readonly direct_connection_encrypted_info: {
-                    readonly tag: 'direct_connection_encrypted_info'
-                }
-                readonly rotate: {
-                    readonly tag: 'rotate'
-                }
-                readonly verify_postcode: {
-                    readonly tag: 'verify_postcode'
-                    readonly attrs: {
-                        readonly biz_jid: string
-                    }
-                }
-                readonly sign_credential: {
-                    readonly tag: 'sign_credential'
-                    readonly attrs: {
-                        readonly version: '1'
-                    }
-                }
-                readonly blinded_credential: {
-                    readonly tag: 'blinded_credential'
-                }
-                readonly settings: {
-                    readonly tag: 'settings'
-                }
-                readonly request: {
-                    readonly tag: 'request'
-                    readonly attrs: {
-                        readonly type: 'session_update'
-                    }
-                }
-                readonly delete: {
-                    readonly tag: 'delete'
-                    readonly attrs: {
-                        readonly id: string
-                    }
-                }
-                readonly signed_user_info: {
-                    readonly tag: 'signed_user_info'
-                    readonly attrs: {
-                        readonly biz_jid: string
-                    }
-                }
-                readonly product_list: {
-                    readonly tag: 'product_list'
-                    readonly attrs: {
-                        readonly jid: string
-                    }
-                }
-                readonly width: {
-                    readonly tag: 'width'
-                }
-                readonly height: {
-                    readonly tag: 'height'
-                }
-                readonly digest: {
-                    readonly tag: 'digest'
                 }
                 readonly tctoken: {
                     readonly tag: 'tctoken'
@@ -11889,16 +11804,16 @@ export interface WaXmlStanzas {
                 readonly from: string
             }
             readonly children: {
-                readonly user: {
-                    readonly tag: 'user'
-                    readonly attrs: {
-                        readonly side_list: 'out'
-                    }
-                }
                 readonly meta: {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly failure_reason: number
+                    }
+                }
+                readonly user: {
+                    readonly tag: 'user'
+                    readonly attrs: {
+                        readonly side_list: 'out'
                     }
                 }
             }
@@ -12284,10 +12199,10 @@ export interface WaXmlStanzas {
                     readonly verified_name?: string
                     readonly recipient: string
                     readonly id: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
@@ -12356,13 +12271,13 @@ export interface WaXmlStanzas {
                             readonly session_scope?: 'default' | 'status'
                             readonly type?: string
                             readonly st?: number
+                            readonly metering_type: 'smb_mm'
                             readonly destination_id?: string
                             readonly sender_intent?: 'hosted'
                             readonly view_once?: 'true'
                             readonly conversation_thread_id?: string
                             readonly tag_reason?: string
                             readonly status_setting: string
-                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                         readonly children: {
@@ -12395,8 +12310,8 @@ export interface WaXmlStanzas {
                                 readonly tag: 'interactive'
                                 readonly attrs: {
                                     readonly name?: string
-                                    readonly v: '1'
                                     readonly type: 'native_flow'
+                                    readonly v: '1'
                                 }
                                 readonly children: {
                                     readonly native_flow: {
@@ -12508,6 +12423,7 @@ export interface WaXmlStanzas {
                     readonly edit: '3' | '7'
                     readonly offline: number
                     readonly to: string
+                    readonly participant: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -12515,7 +12431,6 @@ export interface WaXmlStanzas {
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
                     readonly phash: string
-                    readonly participant?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
@@ -12526,6 +12441,7 @@ export interface WaXmlStanzas {
                         readonly tag: 'meta'
                         readonly attrs: {
                             readonly original_msg_t: number
+                            readonly metering_type: 'smb_mm'
                             readonly type: 'scheduled_message'
                             readonly st: string
                             readonly origin?: 'ctwa'
@@ -12541,7 +12457,6 @@ export interface WaXmlStanzas {
                             readonly tag_reason?: string
                             readonly status_setting: string
                             readonly session_scope?: 'status'
-                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                     }
@@ -14309,91 +14224,6 @@ export interface WaXmlStanzas {
                     readonly attrs: {
                         readonly code: string
                     }
-                }
-                readonly iq: {
-                    readonly tag: 'iq'
-                    readonly attrs: {
-                        readonly id: string
-                        readonly to: 's.whatsapp.net'
-                        readonly type: 'get' | 'set'
-                        readonly xmlns: 'w:mex' | 'w:biz:catalog' | 'encrypt' | 'privatestats'
-                        readonly smax_id: string
-                    }
-                }
-                readonly notice: {
-                    readonly tag: 'notice'
-                    readonly attrs: {
-                        readonly id: string
-                    }
-                }
-                readonly public_key: {
-                    readonly tag: 'public_key'
-                    readonly attrs: {
-                        readonly jid: string
-                    }
-                }
-                readonly product: {
-                    readonly tag: 'product'
-                }
-                readonly id: {
-                    readonly tag: 'id'
-                }
-                readonly direct_connection_encrypted_info: {
-                    readonly tag: 'direct_connection_encrypted_info'
-                }
-                readonly rotate: {
-                    readonly tag: 'rotate'
-                }
-                readonly verify_postcode: {
-                    readonly tag: 'verify_postcode'
-                    readonly attrs: {
-                        readonly biz_jid: string
-                    }
-                }
-                readonly sign_credential: {
-                    readonly tag: 'sign_credential'
-                    readonly attrs: {
-                        readonly version: '1'
-                    }
-                }
-                readonly blinded_credential: {
-                    readonly tag: 'blinded_credential'
-                }
-                readonly settings: {
-                    readonly tag: 'settings'
-                }
-                readonly request: {
-                    readonly tag: 'request'
-                    readonly attrs: {
-                        readonly type: 'session_update'
-                    }
-                }
-                readonly delete: {
-                    readonly tag: 'delete'
-                    readonly attrs: {
-                        readonly id: string
-                    }
-                }
-                readonly signed_user_info: {
-                    readonly tag: 'signed_user_info'
-                    readonly attrs: {
-                        readonly biz_jid: string
-                    }
-                }
-                readonly product_list: {
-                    readonly tag: 'product_list'
-                    readonly attrs: {
-                        readonly jid: string
-                    }
-                }
-                readonly width: {
-                    readonly tag: 'width'
-                }
-                readonly height: {
-                    readonly tag: 'height'
-                }
-                readonly digest: {
-                    readonly tag: 'digest'
                 }
                 readonly tctoken: {
                     readonly tag: 'tctoken'
