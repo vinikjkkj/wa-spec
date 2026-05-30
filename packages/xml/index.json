@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040385143",
+  "waVersion": "2.3000.1040463477",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -31305,8 +31305,8 @@
                 "direction": "both"
               },
               "to": {
-                "type": "userJid",
-                "arg": "h",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
                 "direction": "both"
               },
               "class": {
@@ -38146,16 +38146,6 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "id": {
-            "type": "stanzaId",
-            "arg": "r.stanzaId",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "arg": "r.from",
-            "direction": "out"
-          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -38164,6 +38154,16 @@
               "notification",
               "receipt"
             ],
+            "direction": "out"
+          },
+          "id": {
+            "type": "stanzaId",
+            "raw": "n.id",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "n.from",
             "direction": "out"
           },
           "type": {
@@ -38217,11 +38217,11 @@
         },
         "children": [
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },
@@ -38231,11 +38231,11 @@
             "max": 1
           },
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040385143
+// WhatsApp Version: 2.3000.1040463477
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -15149,6 +15149,44 @@ const WA_WAM_ENUMS = Object.freeze({
         'SEARCH_RESULT_CLICK': 3
         })
     }),
+    WEBC_QUICK_ACTION_EVENT_TYPE: Object.freeze({
+        module: 'WAWebWamEnumWebcQuickActionEventType',
+        export: 'WEBC_QUICK_ACTION_EVENT_TYPE',
+        values: Object.freeze({
+        'SURFACE_VIEW': 1,
+        'IMPRESSION': 2,
+        'TAP': 3
+        })
+    }),
+    WEBC_QUICK_ACTION_ID: Object.freeze({
+        module: 'WAWebWamEnumWebcQuickActionId',
+        export: 'WEBC_QUICK_ACTION_ID',
+        values: Object.freeze({
+        'TEXT_STATUS': 1,
+        'PHOTO_VIDEO': 2,
+        'CREATE_CHANNEL': 3,
+        'FIND_CHANNELS': 4,
+        'COMMUNITY_INFO': 5,
+        'COMMUNITY_MEMBERS': 6,
+        'COMMUNITY_SETTINGS': 7,
+        'COMMUNITY_NEW_GROUP': 8,
+        'COMMUNITY_EXISTING_GROUP': 9,
+        'SEND_DOCUMENT': 10,
+        'ADD_CONTACT': 11,
+        'ASK_META_AI': 12
+        })
+    }),
+    WEBC_QUICK_ACTION_SURFACE: Object.freeze({
+        module: 'WAWebWamEnumWebcQuickActionSurface',
+        export: 'WEBC_QUICK_ACTION_SURFACE',
+        values: Object.freeze({
+        'STATUS': 1,
+        'CHANNELS': 2,
+        'COMMUNITY_NAVIGATION': 3,
+        'CHATS': 4,
+        'SETTINGS_ME': 5
+        })
+    }),
     WEBC_RMR_REASON_CODE: Object.freeze({
         module: 'WAWebWamEnumWebcRmrReasonCode',
         export: 'WEBC_RMR_REASON_CODE',
@@ -28125,6 +28163,24 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             webcPwaAction: Object.freeze({ id: 2, type: 'enum', enum: 'WEBC_PWA_ACTION_TYPE', falcoName: 'webc_pwa_action' })
+        })
+    }),
+    WebcQuickAction: Object.freeze({
+        id: 8326,
+        falcoName: 'wam_webc_quick_action',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            webcQuickActionEventType: Object.freeze({ id: 1, type: 'enum', enum: 'WEBC_QUICK_ACTION_EVENT_TYPE', falcoName: 'webc_quick_action_event_type' }),
+            webcQuickActionId: Object.freeze({ id: 2, type: 'enum', enum: 'WEBC_QUICK_ACTION_ID', falcoName: 'webc_quick_action_id' }),
+            webcQuickActionIsCustomized: Object.freeze({ id: 3, type: 'boolean', falcoName: 'webc_quick_action_is_customized' }),
+            webcQuickActionNumVisible: Object.freeze({ id: 4, type: 'integer', falcoName: 'webc_quick_action_num_visible' }),
+            webcQuickActionSlotPosition: Object.freeze({ id: 5, type: 'integer', falcoName: 'webc_quick_action_slot_position' }),
+            webcQuickActionSurface: Object.freeze({ id: 6, type: 'enum', enum: 'WEBC_QUICK_ACTION_SURFACE', falcoName: 'webc_quick_action_surface' })
         })
     }),
     WebcRawPlatforms: Object.freeze({

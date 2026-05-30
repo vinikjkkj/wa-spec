@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040385143",
+  "waVersion": "2.3000.1040463477",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -15178,6 +15178,44 @@
         "USER_SCROLL": 1,
         "NEW_MESSAGE_PREFETCH": 2,
         "SEARCH_RESULT_CLICK": 3
+      }
+    },
+    "WEBC_QUICK_ACTION_EVENT_TYPE": {
+      "module": "WAWebWamEnumWebcQuickActionEventType",
+      "export": "WEBC_QUICK_ACTION_EVENT_TYPE",
+      "values": {
+        "SURFACE_VIEW": 1,
+        "IMPRESSION": 2,
+        "TAP": 3
+      }
+    },
+    "WEBC_QUICK_ACTION_ID": {
+      "module": "WAWebWamEnumWebcQuickActionId",
+      "export": "WEBC_QUICK_ACTION_ID",
+      "values": {
+        "TEXT_STATUS": 1,
+        "PHOTO_VIDEO": 2,
+        "CREATE_CHANNEL": 3,
+        "FIND_CHANNELS": 4,
+        "COMMUNITY_INFO": 5,
+        "COMMUNITY_MEMBERS": 6,
+        "COMMUNITY_SETTINGS": 7,
+        "COMMUNITY_NEW_GROUP": 8,
+        "COMMUNITY_EXISTING_GROUP": 9,
+        "SEND_DOCUMENT": 10,
+        "ADD_CONTACT": 11,
+        "ASK_META_AI": 12
+      }
+    },
+    "WEBC_QUICK_ACTION_SURFACE": {
+      "module": "WAWebWamEnumWebcQuickActionSurface",
+      "export": "WEBC_QUICK_ACTION_SURFACE",
+      "values": {
+        "STATUS": 1,
+        "CHANNELS": 2,
+        "COMMUNITY_NAVIGATION": 3,
+        "CHATS": 4,
+        "SETTINGS_ME": 5
       }
     },
     "WEBC_RMR_REASON_CODE": {
@@ -62507,6 +62545,56 @@
           "type": "enum",
           "falcoName": "webc_pwa_action",
           "enum": "WEBC_PWA_ACTION_TYPE"
+        }
+      }
+    },
+    "WebcQuickAction": {
+      "id": 8326,
+      "module": "WAWebWebcQuickActionWamEvent",
+      "falcoName": "wam_webc_quick_action",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "webcQuickActionEventType": {
+          "id": 1,
+          "type": "enum",
+          "falcoName": "webc_quick_action_event_type",
+          "enum": "WEBC_QUICK_ACTION_EVENT_TYPE"
+        },
+        "webcQuickActionId": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "webc_quick_action_id",
+          "enum": "WEBC_QUICK_ACTION_ID"
+        },
+        "webcQuickActionIsCustomized": {
+          "id": 3,
+          "type": "boolean",
+          "falcoName": "webc_quick_action_is_customized"
+        },
+        "webcQuickActionNumVisible": {
+          "id": 4,
+          "type": "integer",
+          "falcoName": "webc_quick_action_num_visible"
+        },
+        "webcQuickActionSlotPosition": {
+          "id": 5,
+          "type": "integer",
+          "falcoName": "webc_quick_action_slot_position"
+        },
+        "webcQuickActionSurface": {
+          "id": 6,
+          "type": "enum",
+          "falcoName": "webc_quick_action_surface",
+          "enum": "WEBC_QUICK_ACTION_SURFACE"
         }
       }
     },
