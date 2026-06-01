@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040503376",
+  "waVersion": "2.3000.1040547457",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -38147,12 +38147,12 @@
         "attrs": {
           "id": {
             "type": "stanzaId",
-            "arg": "r.stanzaId",
+            "arg": "e.stanzaId",
             "direction": "out"
           },
           "to": {
             "type": "jid",
-            "arg": "r.from",
+            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
             "direction": "out"
           },
           "class": {
