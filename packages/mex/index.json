@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040547457",
+  "waVersion": "2.3000.1040652321",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1310,6 +1310,23 @@
               }
             ]
           }
+        }
+      }
+    },
+    "FetchBotCertificateRevocationList": {
+      "originalName": "WAWebMexFetchBotCertificateRevocationListQuery",
+      "docId": "35807917542188393",
+      "operationKind": "query",
+      "variables": [
+        "crl_name"
+      ],
+      "variablesShape": {
+        "crl_name": "string"
+      },
+      "response": {
+        "xwa2_fetch_feature_pki_crl": {
+          "crl": "unknown",
+          "next_update": "string"
         }
       }
     },

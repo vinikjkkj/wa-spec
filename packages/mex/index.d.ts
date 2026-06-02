@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040547457
+// WhatsApp Version: 2.3000.1040652321
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -54,6 +54,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchAdEntryPointsConfigurationM1: WaMexPersistId
     readonly FetchAllNewslettersMetadata: WaMexPersistId
     readonly FetchAllSubgroups: WaMexPersistId
+    readonly FetchBotCertificateRevocationList: WaMexPersistId
     readonly FetchBotProfilesGQL: WaMexPersistId
     readonly FetchDynamicAIModes: WaMexPersistId
     readonly FetchGroupInfo: WaMexPersistId
@@ -182,6 +183,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchAdEntryPointsConfigurationM1: WaMexOperationSchema<'query', readonly []>
     readonly FetchAllNewslettersMetadata: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'fetch_wamo_sub']>
     readonly FetchAllSubgroups: WaMexOperationSchema<'query', readonly ['group_id', 'query_context', 'sub_group_hint_id']>
+    readonly FetchBotCertificateRevocationList: WaMexOperationSchema<'query', readonly ['crl_name']>
     readonly FetchBotProfilesGQL: WaMexOperationSchema<'query', readonly ['ids']>
     readonly FetchDynamicAIModes: WaMexOperationSchema<'query', readonly []>
     readonly FetchGroupInfo: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
@@ -501,6 +503,10 @@ export type WaMexFetchAllSubgroupsVariables = {
     readonly group_id?: string
     readonly query_context?: string
     readonly sub_group_hint_id?: string
+}
+
+export type WaMexFetchBotCertificateRevocationListVariables = {
+    readonly crl_name?: string
 }
 
 export type WaMexFetchBotProfilesGQLVariables = {
@@ -1134,6 +1140,7 @@ export interface WaMexOperationVariables {
     readonly FetchAdEntryPointsConfigurationM1: WaMexFetchAdEntryPointsConfigurationM1Variables
     readonly FetchAllNewslettersMetadata: WaMexFetchAllNewslettersMetadataVariables
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsVariables
+    readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListVariables
     readonly FetchBotProfilesGQL: WaMexFetchBotProfilesGQLVariables
     readonly FetchDynamicAIModes: WaMexFetchDynamicAIModesVariables
     readonly FetchGroupInfo: WaMexFetchGroupInfoVariables
@@ -1954,6 +1961,13 @@ export type WaMexFetchAllSubgroupsResponse = {
                 }
             }>
         }
+    }
+}
+
+export type WaMexFetchBotCertificateRevocationListResponse = {
+    readonly xwa2_fetch_feature_pki_crl?: {
+        readonly crl?: unknown
+        readonly next_update?: string
     }
 }
 
@@ -4083,6 +4097,7 @@ export interface WaMexOperationResponses {
     readonly FetchAdEntryPointsConfigurationM1: WaMexFetchAdEntryPointsConfigurationM1Response
     readonly FetchAllNewslettersMetadata: WaMexFetchAllNewslettersMetadataResponse
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsResponse
+    readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListResponse
     readonly FetchBotProfilesGQL: WaMexFetchBotProfilesGQLResponse
     readonly FetchDynamicAIModes: WaMexFetchDynamicAIModesResponse
     readonly FetchGroupInfo: WaMexFetchGroupInfoResponse

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040547457
+// WhatsApp Version: 2.3000.1040652321
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -14540,7 +14540,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'FOA_USERNAME_NOT_AVAILABLE_BOTTOMSHEET': 15;
             readonly 'ACCOUNT_CENTER_HELP_ARTICLE': 16;
             readonly 'FB_ACCOUNT_ALREADY_LINKED_DIALOG': 17;
-            readonly 'SMB_LINKING_BOTTOMSHEET': 18
+            readonly 'SMB_LINKING_BOTTOMSHEET': 18;
+            readonly 'USERNAME_PIN_GENERATOR': 19
         }
     }
     readonly USERNAME_CREATION_ENTRYPOINT: {

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040547457
+// WhatsApp Version: 2.3000.1040652321
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -42,6 +42,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchAdEntryPointsConfigurationM1: Object.freeze({ docId: '9737776042983782', clientDocId: '9737776042983782' }),
     FetchAllNewslettersMetadata: Object.freeze({ docId: '25399611239711790', clientDocId: '25399611239711790' }),
     FetchAllSubgroups: Object.freeze({ docId: '9935467776504344', clientDocId: '9935467776504344' }),
+    FetchBotCertificateRevocationList: Object.freeze({ docId: '35807917542188393', clientDocId: '35807917542188393' }),
     FetchBotProfilesGQL: Object.freeze({ docId: '26368585139502858', clientDocId: '26368585139502858' }),
     FetchDynamicAIModes: Object.freeze({ docId: '25335662402775799', clientDocId: '25335662402775799' }),
     FetchGroupInfo: Object.freeze({ docId: '26570027442651356', clientDocId: '26570027442651356' }),
@@ -170,6 +171,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     FetchAdEntryPointsConfigurationM1: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchAllNewslettersMetadata: Object.freeze({ operationKind: 'query', variables: Object.freeze(['fetch_status_metadata', 'fetch_wamo_sub']) }),
     FetchAllSubgroups: Object.freeze({ operationKind: 'query', variables: Object.freeze(['group_id', 'query_context', 'sub_group_hint_id']) }),
+    FetchBotCertificateRevocationList: Object.freeze({ operationKind: 'query', variables: Object.freeze(['crl_name']) }),
     FetchBotProfilesGQL: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ids']) }),
     FetchDynamicAIModes: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchGroupInfo: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_username', 'participants_phash', 'query_context']) }),

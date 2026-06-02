@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-version",
-    "version": "2.3000.1040547457-810620",
+    "version": "2.3000.1040652321-41ae483",
     "description": "WhatsApp Web version string — daily-extracted from the bundle manifest. Exports `WA_VERSION` so consumers can pin their handshake / WAM event-version / pairing-flow checks to the same build wa-spec was generated from.",
     "keywords": [
         "whatsapp",

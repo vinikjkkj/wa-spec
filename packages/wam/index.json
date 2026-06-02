@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040547457",
+  "waVersion": "2.3000.1040652321",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -14462,7 +14462,8 @@
         "FOA_USERNAME_NOT_AVAILABLE_BOTTOMSHEET": 15,
         "ACCOUNT_CENTER_HELP_ARTICLE": 16,
         "FB_ACCOUNT_ALREADY_LINKED_DIALOG": 17,
-        "SMB_LINKING_BOTTOMSHEET": 18
+        "SMB_LINKING_BOTTOMSHEET": 18,
+        "USERNAME_PIN_GENERATOR": 19
       }
     },
     "USERNAME_CREATION_ENTRYPOINT": {

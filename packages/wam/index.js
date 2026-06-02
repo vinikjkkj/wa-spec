@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040547457
+// WhatsApp Version: 2.3000.1040652321
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -14431,7 +14431,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'FOA_USERNAME_NOT_AVAILABLE_BOTTOMSHEET': 15,
         'ACCOUNT_CENTER_HELP_ARTICLE': 16,
         'FB_ACCOUNT_ALREADY_LINKED_DIALOG': 17,
-        'SMB_LINKING_BOTTOMSHEET': 18
+        'SMB_LINKING_BOTTOMSHEET': 18,
+        'USERNAME_PIN_GENERATOR': 19
         })
     }),
     USERNAME_CREATION_ENTRYPOINT: Object.freeze({

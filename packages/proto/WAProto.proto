@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1040547457
+/// WhatsApp Version: 2.3000.1040652321
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -4441,6 +4441,14 @@ message MsgOpaqueData {
     optional bool pollHideVoterNames = 50;
     optional string originalSelfAuthor = 51;
     optional bool pollAllowAddOption = 52;
+    optional string sharableEventInviteId = 53;
+    optional string sharableEventInviteTitle = 54;
+    optional int64 sharableEventInviteStartTime = 55;
+    optional int64 sharableEventInviteEndTime = 56;
+    optional string sharableEventInviteCaption = 57;
+    optional bool sharableEventInviteIsCanceled = 58;
+    optional bytes sharableEventInviteJpegThumbnail = 59;
+    optional string sharableEventInviteCallLink = 60;
     enum PollType {
         POLL = 0;
         QUIZ = 1;
