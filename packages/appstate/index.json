@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040652321",
+  "waVersion": "2.3000.1040738260",
   "collections": [
     "regular",
     "regular_low",
@@ -274,7 +274,7 @@
         },
         {
           "type": "string",
-          "name": "campaign"
+          "name": "campaignId"
         }
       ]
     },
@@ -854,9 +854,7 @@
       "baseClass": "AccountSyncdActionBase",
       "valueField": "marketingMessageAction",
       "valueProtoType": "SyncActionValue.MarketingMessageAction",
-      "valueEnumFields": {
-        "type": "MarketingMessageAction.MarketingMessagePrototypeType"
-      },
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1326,10 +1324,7 @@
       "baseClass": "AccountSyncdActionBase",
       "valueField": "statusPrivacy",
       "valueProtoType": "SyncActionValue.StatusPrivacyAction",
-      "valueEnumFields": {
-        "mode": "StatusPrivacyAction.StatusDistributionMode",
-        "modes": "StatusPrivacyAction.StatusDistributionMode"
-      },
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {

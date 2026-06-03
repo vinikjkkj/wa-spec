@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040652321
+// WhatsApp Version: 2.3000.1040738260
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -158,7 +158,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'business_broadcast_insights_sync' }),
-            Object.freeze({ type: 'string', name: 'campaign' })
+            Object.freeze({ type: 'string', name: 'campaignId' })
         ])
     }),
     BusinessBroadcastList: Object.freeze({
@@ -495,7 +495,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'marketingMessageAction',
         valueProtoType: 'SyncActionValue.MarketingMessageAction',
-        valueEnumFields: Object.freeze({ 'type': 'MarketingMessageAction.MarketingMessagePrototypeType' }),
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'marketingMessage' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -767,7 +767,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'statusPrivacy',
         valueProtoType: 'SyncActionValue.StatusPrivacyAction',
-        valueEnumFields: Object.freeze({ 'mode': 'StatusPrivacyAction.StatusDistributionMode', 'modes': 'StatusPrivacyAction.StatusDistributionMode' }),
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'status_privacy' })
         ])
