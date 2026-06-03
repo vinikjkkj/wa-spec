@@ -46,6 +46,12 @@
 
 const { skipExpr } = require('./parser.cjs')
 
+// `\b` does not delimit minified identifiers that start/end with `$`. Use these
+// `$`-aware boundaries instead of `\b` around an identifier. (escapeRegex below
+// handles escaping interpolated names.)
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
+
 // --- module discovery ---------------------------------------------------
 
 // Build one global index of `__d("ModuleName",...)` bodies across every bundle.
@@ -354,7 +360,7 @@ function extractValidators(modBody, defsEnd, eventName) {
     i++
     while (i < modBody.length && /\s/.test(modBody[i])) i++
     if (modBody[i] !== '{') return empty
-    const re = new RegExp(`\\b${eventName}\\s*:\\s*\\[`, 'g')
+    const re = new RegExp(`${LB}${escapeRegex(eventName)}\\s*:\\s*\\[`, 'g')
     re.lastIndex = i
     const m = re.exec(modBody)
     if (!m) return empty
@@ -582,7 +588,7 @@ function extractReservedGlobals(modBody) {
 // trimmed RHS expression, or null.
 function traceVarInit(modBody, ident, scanBefore) {
     const sub = modBody.slice(0, scanBefore)
-    const headRe = new RegExp(`\\b${escapeRegex(ident)}\\s*=\\s*`, 'g')
+    const headRe = new RegExp(`${LB}${escapeRegex(ident)}\\s*=\\s*`, 'g')
     let last = null
     let m
     while ((m = headRe.exec(sub))) {
@@ -636,7 +642,7 @@ function extractWamConstant(modBody, constName) {
     )
     if (!expM) return null
     const varName = expM[1]
-    const declRe = new RegExp(`\\b${varName}\\s*=\\s*(-?\\d+(?:\\.\\d+)?(?:e[+-]?\\d+)?)`)
+    const declRe = new RegExp(`${LB}${escapeRegex(varName)}\\s*=\\s*(-?\\d+(?:\\.\\d+)?(?:e[+-]?\\d+)?)`)
     const declM = modBody.match(declRe)
     if (!declM) return null
     const n = Number(declM[1])
@@ -652,12 +658,12 @@ function extractWamConstant(modBody, constName) {
 // Returns `null` if either step fails.
 function parseEnumExport(modBody, exportName) {
     const exportRe = new RegExp(
-        `\\b[a-z]\\.${escapeRegex(exportName)}\\s*=\\s*([A-Za-z_$][\\w$]*)\\b`
+        `\\b[a-z]\\.${escapeRegex(exportName)}\\s*=\\s*([A-Za-z_$][\\w$]*)${RB}`
     )
     const exportM = modBody.match(exportRe)
     if (!exportM) return null
     const varName = exportM[1]
-    const ozRe = new RegExp(`\\b${escapeRegex(varName)}\\s*=\\s*Object\\.freeze\\(\\{`)
+    const ozRe = new RegExp(`${LB}${escapeRegex(varName)}\\s*=\\s*Object\\.freeze\\(\\{`)
     const ozM = modBody.match(ozRe)
     if (!ozM) return null
     const objOpen = ozM.index + ozM[0].length - 1 // at `{`

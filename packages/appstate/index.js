@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040738260
+// WhatsApp Version: 2.3000.1040748867
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -495,7 +495,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'marketingMessageAction',
         valueProtoType: 'SyncActionValue.MarketingMessageAction',
-        valueEnumFields: null,
+        valueEnumFields: Object.freeze({ 'type': 'MarketingMessageAction.MarketingMessagePrototypeType' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'marketingMessage' }),
             Object.freeze({ type: 'string', name: 'id' })
@@ -520,9 +520,9 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         collection: 'regular_low',
         version: 7,
         scope: 'account',
-        valueField: 'merchantPaymentPartnerAction',
-        valueProtoType: 'SyncActionValue.MerchantPaymentPartnerAction',
-        valueEnumFields: Object.freeze({ 'status': 'MerchantPaymentPartnerAction.Status' }),
+        valueField: null,
+        valueProtoType: null,
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'merchant_payment_partner' })
         ])
@@ -767,7 +767,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'statusPrivacy',
         valueProtoType: 'SyncActionValue.StatusPrivacyAction',
-        valueEnumFields: null,
+        valueEnumFields: Object.freeze({ 'mode': 'StatusPrivacyAction.StatusDistributionMode', 'modes': 'StatusPrivacyAction.StatusDistributionMode' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'status_privacy' })
         ])

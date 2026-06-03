@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040738260",
+  "waVersion": "2.3000.1040748867",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5178,11 +5178,6 @@
                 "arg": "i",
                 "direction": "both"
               },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
               "peer_recipient_lid": {
                 "type": "userJid",
                 "arg": "oe",
@@ -5222,6 +5217,11 @@
                   "lid",
                   "pn"
                 ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "y",
+                "direction": "both"
               },
               "recipient": {
                 "type": "userJid",
@@ -36477,11 +36477,6 @@
                   "8"
                 ]
               },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
               "peer_recipient_lid": {
                 "type": "userJid",
                 "arg": "oe",
@@ -36521,6 +36516,11 @@
                   "lid",
                   "pn"
                 ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "y",
+                "direction": "both"
               },
               "category": {
                 "type": "literal",
@@ -37267,11 +37267,6 @@
                 "arg": "i",
                 "direction": "both"
               },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
               "peer_recipient_lid": {
                 "type": "userJid",
                 "arg": "oe",
@@ -37311,6 +37306,11 @@
                   "lid",
                   "pn"
                 ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "y",
+                "direction": "both"
               },
               "recipient": {
                 "type": "userJid",
@@ -38145,11 +38145,6 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "id": {
-            "type": "stanzaId",
-            "arg": "t",
-            "direction": "out"
-          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -38158,23 +38153,6 @@
               "notification",
               "receipt"
             ],
-            "direction": "out"
-          },
-          "from": {
-            "type": "deviceJid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "arg": "n",
-            "optional": true,
-            "direction": "out"
-          },
-          "participant": {
-            "type": "deviceJid",
-            "arg": "r",
-            "optional": true,
             "direction": "out"
           },
           "type": {
@@ -38201,6 +38179,27 @@
               "text",
               "w:gp2"
             ],
+            "direction": "out"
+          },
+          "id": {
+            "type": "stanzaId",
+            "arg": "n",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "arg": "t",
+            "direction": "out"
+          },
+          "from": {
+            "type": "deviceJid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
+            "direction": "out"
+          },
+          "participant": {
+            "type": "deviceJid",
+            "arg": "r",
+            "optional": true,
             "direction": "out"
           },
           "error": {

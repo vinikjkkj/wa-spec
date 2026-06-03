@@ -50,6 +50,14 @@ const {
     iterModuleHeaders
 } = require('./parser.cjs')
 
+// Minifier identifiers can contain `$` (e.g. `$e`) or be a bare `$`. Interpolating
+// a name into a RegExp unescaped lets `$` act as the end-of-input anchor, and `\b`
+// does not delimit tokens that start/end with `$`. reId() escapes a discovered
+// name; LB/RB are identifier boundaries that treat `$` as part of the identifier.
+const reId = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
+
 // ---------------------------------------------------------------------------
 // Bundle-wide module lookup. Building a name→bundle index up front keeps the
 // per-RPC lookups O(1) instead of re-scanning every bundle.
@@ -517,7 +525,7 @@ function decodeAttrsObject(s, a, b, ctx) {
 // ---------------------------------------------------------------------------
 
 function* iterFactoryCalls(body) {
-    const re = /\b([A-Za-z_$][\w$]*)\s*\(\s*"([^"]+)"\s*\)\s*\.\s*([A-Za-z_$][\w$]*)\s*\(/g
+    const re = /(?<![\w$])([A-Za-z_$][\w$]*)\s*\(\s*"([^"]+)"\s*\)\s*\.\s*([A-Za-z_$][\w$]*)\s*\(/g
     let m
     while ((m = re.exec(body))) {
         const openParen = m.index + m[0].length - 1
@@ -907,7 +915,7 @@ function resolveBuilder(builderText, ctx, body) {
     const retExprText = fb.slice(exprStart, exprEnd).trim()
     const idR = retExprText.match(/^([A-Za-z_$][\w$]*)$/)
     if (idR) {
-        const declRe = new RegExp(`\\b${idR[1]}\\s*=\\s*`, 'g')
+        const declRe = new RegExp(`${LB}${reId(idR[1])}\\s*=\\s*`, 'g')
         let dm
         let lastDecl = null
         while ((dm = declRe.exec(fb.slice(0, last.index)))) lastDecl = dm
@@ -941,7 +949,7 @@ function resolveBuilder(builderText, ctx, body) {
         ['WASmaxAttrs', subCtx.attrsAliases],
         ['WASmaxMixins', subCtx.mixinsAliases]
     ]) {
-        const re = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\s*=\\s*[A-Za-z_$][\\w$]*\\("${mod}"\\)`, 'g')
+        const re = new RegExp(`${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*[A-Za-z_$][\\w$]*\\("${reId(mod)}"\\)`, 'g')
         let am
         while ((am = re.exec(fb))) set.add(am[1])
     }
@@ -1137,7 +1145,7 @@ function traceMixinSmaxRoot(body, ctx) {
                     const fnRe = new RegExp(`function\\s+${inner}\\s*\\(`)
                     if (fnRe.test(body)) return walk(inner)
                     // Otherwise trace var assignment in fnBody.
-                    const declRe = new RegExp(`\\b${inner}\\s*=\\s*([A-Za-z_$][\\w$]*)\\s*\\(`, 'g')
+                    const declRe = new RegExp(`${LB}${reId(inner)}\\s*=\\s*([A-Za-z_$][\\w$]*)\\s*\\(`, 'g')
                     let dm
                     let lastDecl = null
                     while ((dm = declRe.exec(fnBody))) lastDecl = dm
@@ -1151,7 +1159,7 @@ function traceMixinSmaxRoot(body, ctx) {
 
         // Trace `return <ident>` where <ident> = <expr> earlier in fnBody.
         if (/^[A-Za-z_$][\w$]*$/.test(retExpr)) {
-            const declRe = new RegExp(`\\b${retExpr}\\s*=\\s*`, 'g')
+            const declRe = new RegExp(`${LB}${reId(retExpr)}\\s*=\\s*`, 'g')
             let dm
             let lastDecl = null
             while ((dm = declRe.exec(fnBody.slice(0, last.index)))) lastDecl = dm
@@ -1258,7 +1266,7 @@ function extractMixin(moduleName, moduleIndex, memo) {
         ['WASmaxAttrs', ctxForMixin.attrsAliases],
         ['WASmaxMixins', ctxForMixin.mixinsAliases]
     ]) {
-        const re = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\s*=\\s*[A-Za-z_$][\\w$]*\\("${mod}"\\)`, 'g')
+        const re = new RegExp(`${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*[A-Za-z_$][\\w$]*\\("${reId(mod)}"\\)`, 'g')
         let am
         while ((am = re.exec(body))) set.add(am[1])
     }
@@ -1267,7 +1275,7 @@ function extractMixin(moduleName, moduleIndex, memo) {
         merge(exportedBuilder)
     } else {
         // Fallback — no exported chain found, take the first direct smax.
-        const re = /\b([A-Za-z_$][\w$]*)\("WASmaxJsx"\)\.smax\s*\(\s*"([^"]+)"/g
+        const re = /(?<![\w$])([A-Za-z_$][\w$]*)\("WASmaxJsx"\)\.smax\s*\(\s*"([^"]+)"/g
         let mm
         while ((mm = re.exec(body))) {
             const smaxParen = body.lastIndexOf('(', mm.index + mm[0].length)
@@ -1370,7 +1378,7 @@ function extractRequestModule(moduleName, moduleIndex, mixinMemo) {
     const mixinsAliases = new Set()
     function collectAliases(module, set) {
         const re = new RegExp(
-            `\\b([A-Za-z_$][\\w$]*)\\s*=\\s*[A-Za-z_$][\\w$]*\\("${module}"\\)`,
+            `${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*[A-Za-z_$][\\w$]*\\("${reId(module)}"\\)`,
             'g'
         )
         let am
@@ -1400,7 +1408,7 @@ function extractRequestModule(moduleName, moduleIndex, mixinMemo) {
         //   - A direct smax call
         //   - A mixin wrapper around a smax call
         if (/^[A-Za-z_$][\w$]*$/.test(returnExpr)) {
-            const varDeclRe = new RegExp(`\\b${returnExpr}\\s*=\\s*`, 'g')
+            const varDeclRe = new RegExp(`${LB}${reId(returnExpr)}\\s*=\\s*`, 'g')
             let dm
             let last = null
             while ((dm = varDeclRe.exec(fnBody))) last = dm

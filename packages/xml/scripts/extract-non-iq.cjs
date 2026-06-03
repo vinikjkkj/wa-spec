@@ -40,6 +40,14 @@ const {
     iterModuleHeaders
 } = require('./parser.cjs')
 
+// Minifier identifiers can contain `$` (e.g. `$e`) or be a bare `$`. Interpolating
+// a name into a RegExp unescaped lets `$` act as the end-of-input anchor, and `\b`
+// does not delimit tokens that start/end with `$`. reId() escapes a discovered
+// name; LB/RB are identifier boundaries that treat `$` as part of the identifier.
+const reId = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
+
 // ---------------------------------------------------------------------------
 // ParsableWapNode method → schema descriptor.
 // ---------------------------------------------------------------------------
@@ -678,7 +686,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
     {
         // Tag arg can be a string literal OR a const expression we resolve
         // (e.g. `e.child(o("X").INFO_TYPE.THREAD_META).forEachChildWithTag("item",fn)`).
-        const chainedRe = /\b([A-Za-z_$][\w$]*)\.(?:child|maybeChild)\(\s*((?:"[^"]+"|[^),][^,)]*?))\s*\)\s*\.(forEachChildWithTag|mapChildrenWithTag|forEachChild|mapChildren)\s*\(/g
+        const chainedRe = /(?<![\w$])([A-Za-z_$][\w$]*)\.(?:child|maybeChild)\(\s*((?:"[^"]+"|[^),][^,)]*?))\s*\)\s*\.(forEachChildWithTag|mapChildrenWithTag|forEachChild|mapChildren)\s*\(/g
         let cm
         while ((cm = chainedRe.exec(localText))) {
             const [, outer, tagRaw, method] = cm
@@ -736,7 +744,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
     // the outer call walk. Each `<var>.(forEach|map)ChildrenWithTag("tag", function(<p>) {...})`
     // (or untagged `forEachChild` / `mapChildren`) introduces a nested scope.
     {
-        const re = /\b([A-Za-z_$][\w$]*)\.(forEachChildWithTag|mapChildrenWithTag|forEachChild|mapChildren)\s*\(/g
+        const re = /(?<![\w$])([A-Za-z_$][\w$]*)\.(forEachChildWithTag|mapChildrenWithTag|forEachChild|mapChildren)\s*\(/g
         let m
         while ((m = re.exec(localText))) {
             const target = m[1]
@@ -799,7 +807,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
         // child "log"). The tag arg may contain inner parens
         // (`o("Mod").CONST.SUB`), so we anchor on the `.(child|maybeChild)(`
         // head and use skipExpr to find the matching closing paren.
-        const declHeadRe = /\b([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.(child|maybeChild)\s*\(/g
+        const declHeadRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.(child|maybeChild)\s*\(/g
         let m
         while ((m = declHeadRe.exec(localText))) {
             if (inCallback(bodyStart + m.index)) continue
@@ -860,7 +868,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
         // where <fallback> is `null`, `void 0`, `undefined`, or any expression.
         // The hasAttr/attrString calls on <x> still target the child, so we
         // accept any RHS after the `:`.
-        const condRe = /\b([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.hasChild\s*\(\s*"([^"]+)"\s*\)\s*\?\s*[A-Za-z_$][\w$]*\.child\s*\(\s*"[^"]+"\s*\)\s*:/g
+        const condRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.hasChild\s*\(\s*"([^"]+)"\s*\)\s*\?\s*[A-Za-z_$][\w$]*\.child\s*\(\s*"[^"]+"\s*\)\s*:/g
         let cm2
         while ((cm2 = condRe.exec(localText))) {
             if (inCallback(bodyStart + cm2.index)) continue
@@ -872,7 +880,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
         // — semantically identical to the ternary above. `<x>` is bound to
         // the child when present, falsy otherwise; downstream `<x>.<method>`
         // reads still target the child.
-        const andRe = /\b([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.hasChild\s*\(\s*"([^"]+)"\s*\)\s*&&\s*[A-Za-z_$][\w$]*\.child\s*\(\s*"[^"]+"\s*\)/g
+        const andRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.hasChild\s*\(\s*"([^"]+)"\s*\)\s*&&\s*[A-Za-z_$][\w$]*\.child\s*\(\s*"[^"]+"\s*\)/g
         let am2
         while ((am2 = andRe.exec(localText))) {
             if (inCallback(bodyStart + am2.index)) continue
@@ -883,7 +891,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
         // Null-guarded ternary `<x> = <p>==null ? void 0 : <p>.maybeChild("tag")`
         // — minified version of optional chaining. Same effect as binding `<x>`
         // to a maybeChild of `<p>`.
-        const guardRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\s*==\s*null\s*\?\s*[^?:]+?:\s*([A-Za-z_$][\w$]*)\.(child|maybeChild)\s*\(\s*"([^"]+)"\s*\)/g
+        const guardRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\s*==\s*null\s*\?\s*[^?:]+?:\s*([A-Za-z_$][\w$]*)\.(child|maybeChild)\s*\(\s*"([^"]+)"\s*\)/g
         let gm2
         while ((gm2 = guardRe.exec(localText))) {
             if (inCallback(bodyStart + gm2.index)) continue
@@ -895,7 +903,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
         // bound `<x>` is the first child of <var> with ANY tag. Used by
         // `<call>` (the call type indicator is the first child's tag) and
         // a few other handlers that don't know the child tag up front.
-        const firstRe = /\b([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.mapFirstChild\s*\(/g
+        const firstRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\.mapFirstChild\s*\(/g
         let fm
         while ((fm = firstRe.exec(localText))) {
             if (inCallback(bodyStart + fm.index)) continue
@@ -937,7 +945,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
                 scope.set(p, { tag: null, parent, cardinality: 'zero-or-more' })
             }
             const tagCmpRe = new RegExp(
-                `\\b${p}\\.tag\\s*===?\\s*(['"][^'"]+['"]|[A-Za-z_$][\\w$]*(?:\\.[A-Za-z_$][\\w$]*)?)|(['"][^'"]+['"]|[A-Za-z_$][\\w$]*(?:\\.[A-Za-z_$][\\w$]*)?)\\s*===?\\s*${p}\\.tag\\b`,
+                `${LB}${reId(p)}\\.tag\\s*===?\\s*(['"][^'"]+['"]|[A-Za-z_$][\\w$]*(?:\\.[A-Za-z_$][\\w$]*)?)|(['"][^'"]+['"]|[A-Za-z_$][\\w$]*(?:\\.[A-Za-z_$][\\w$]*)?)\\s*===?\\s*${reId(p)}\\.tag\\b`,
                 'g'
             )
             const cmpM = tagCmpRe.exec(localText.slice(cbm.index))
@@ -961,7 +969,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
     // those access patterns so the resulting tree carries at least the
     // observed attrs / content / child-by-tag bindings.
     {
-        const attrAccessRe = /\b([A-Za-z_$][\w$]*)\.attrs\.([A-Za-z_$][\w$]*)\b/g
+        const attrAccessRe = /(?<![\w$])([A-Za-z_$][\w$]*)\.attrs\.([A-Za-z_$][\w$]*)(?![\w$])/g
         let am
         while ((am = attrAccessRe.exec(localText))) {
             const off = bodyStart + am.index
@@ -978,7 +986,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
     }
 
     // Main pass — `<var>.<method>(...)` calls in OUTER scope only.
-    const callRe = /\b([A-Za-z_$][\w$]*)\.([A-Za-z_$][\w$]*)\s*\(/g
+    const callRe = /(?<![\w$])([A-Za-z_$][\w$]*)\.([A-Za-z_$][\w$]*)\s*\(/g
     let cm
     while ((cm = callRe.exec(localText))) {
         const callOffset = bodyStart + cm.index
@@ -1190,7 +1198,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
             // BEFORE this call site so the parser tree lands on the right
             // synthetic child instead of contaminating the prior binding.
             const beforeText = localText.slice(0, cm.index)
-            const rebindRe = new RegExp(`\\b${argVar}\\s*=\\s*([A-Za-z_$][\\w$]*)\\.(?:child|maybeChild)\\s*\\(\\s*"([^"]+)"`, 'g')
+            const rebindRe = new RegExp(`${LB}${reId(argVar)}\\s*=\\s*([A-Za-z_$][\\w$]*)\\.(?:child|maybeChild)\\s*\\(\\s*"([^"]+)"`, 'g')
             let rebind = null
             let rbm
             while ((rbm = rebindRe.exec(beforeText))) rebind = rbm
@@ -1265,7 +1273,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
     // same node as `<scopeVar>`. Lifts attrs / children / content the
     // helper reads back onto the caller's node tree.
     if (moduleBody) {
-        const helperRe = /\b([A-Za-z_$][\w$]*)\s*\(/g
+        const helperRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*\(/g
         const visited = new Set()
         let hm
         while ((hm = helperRe.exec(localText))) {
@@ -1326,7 +1334,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
             //   function <name>(<params>) {...}
             //   var <name> = function(<params>) {...}
             //   <name> = function(<params>) {...}   (re-assignment / hoisted)
-            const defRe = new RegExp(`(?:function\\s+${fnName}|\\b${fnName}\\s*=\\s*function)\\s*\\(([^)]*)\\)\\s*\\{`)
+            const defRe = new RegExp(`(?:function\\s+${reId(fnName)}|${LB}${reId(fnName)}\\s*=\\s*function)\\s*\\(([^)]*)\\)\\s*\\{`)
             const dm = moduleBody.match(defRe)
             if (!dm) continue
             const helperBodyStart = dm.index + dm[0].length
@@ -1425,7 +1433,7 @@ function walkScope(fullBody, bodyRange, param, parentVar, knownTag, parentScopeC
         const sourceA = Object.keys(sourceNode.attrs || {}).length
         const sourceC = (sourceNode.children || []).length
         if (sourceA === 0 && sourceC === 0 && !sourceNode.content) continue
-        const rebindRe = new RegExp(`\\b${varName}\\s*=\\s*([A-Za-z_$][\\w$]*)\\.(?:child|maybeChild)\\s*\\(\\s*"([^"]+)"`, 'g')
+        const rebindRe = new RegExp(`${LB}${reId(varName)}\\s*=\\s*([A-Za-z_$][\\w$]*)\\.(?:child|maybeChild)\\s*\\(\\s*"([^"]+)"`, 'g')
         const rebindings = []
         let rbm
         while ((rbm = rebindRe.exec(localText))) {
@@ -1626,7 +1634,7 @@ function resolveLocalConstString(expr, moduleBody) {
     if (j >= lim) return null
     const close = skipExpr(moduleBody, j + 1, ['}'])
     const obj = moduleBody.slice(j + 1, close)
-    const subRe = new RegExp(`\\b${memberName}\\s*:\\s*["']([^"']+)["']`)
+    const subRe = new RegExp(`${LB}${reId(memberName)}\\s*:\\s*["']([^"']+)["']`)
     const subM = obj.match(subRe)
     return subM ? subM[1] : null
 }
@@ -1684,18 +1692,18 @@ function resolveConstStringExpr(text, moduleIndex) {
     const varName = expM[1]
     if (!m[3]) {
         // Direct ref — match `var <var>="..."`
-        const vm = new RegExp(`\\b${varName}\\s*=\\s*['"]([^'"]+)['"]`).exec(body)
+        const vm = new RegExp(`${LB}${reId(varName)}\\s*=\\s*['"]([^'"]+)['"]`).exec(body)
         return vm ? vm[1] : null
     }
     // Subscript ref — match `<var>=Object.freeze({...,<sub>:"x",...})` OR
     // `<var>={...,<sub>:"x",...}` and pull the sub's literal value.
-    const objRe = new RegExp(`\\b${varName}\\s*=\\s*(?:Object\\.freeze\\s*\\()?\\s*\\{`)
+    const objRe = new RegExp(`${LB}${reId(varName)}\\s*=\\s*(?:Object\\.freeze\\s*\\()?\\s*\\{`)
     const om = objRe.exec(body)
     if (!om) return null
     const objStart = body.indexOf('{', om.index + om[0].length - 1)
     const objEnd = skipExpr(body, objStart + 1, ['}'])
     const obj = body.slice(objStart + 1, objEnd)
-    const subRe = new RegExp(`\\b${m[3]}\\s*:\\s*['"]([^'"]+)['"]`)
+    const subRe = new RegExp(`${LB}${reId(m[3])}\\s*:\\s*['"]([^'"]+)['"]`)
     const subM = obj.match(subRe)
     return subM ? subM[1] : null
 }
@@ -1793,7 +1801,7 @@ function extractHandlerModule(moduleName, method, moduleIndex) {
         const litM = nameArg.match(/^['"](.*)['"]$/)
         if (litM) parserName = litM[1]
         else if (/^[A-Za-z_$][\w$]*$/.test(nameArg)) {
-            const traced = new RegExp(`\\b${nameArg}\\s*=\\s*['"]([^'"]+)['"]`).exec(body)
+            const traced = new RegExp(`${LB}${reId(nameArg)}\\s*=\\s*['"]([^'"]+)['"]`).exec(body)
             if (traced) parserName = traced[1]
         }
         const fnMatch = args[1].match(/^function\s*\(([^)]*)\)\s*\{/)
@@ -1950,7 +1958,7 @@ function extractHandlerModule(moduleName, method, moduleIndex) {
     if (parserDelegateMatch) {
         const parserMod = findModule(parserDelegateMatch[1], moduleIndex)
         if (parserMod) {
-            const re = /\b([A-Za-z_$][\w$]*)\s*=\s*new\s*\(?\s*[A-Za-z_$][\w$]*\(\s*"WADeprecatedWapParser"\s*\)\s*\)?\s*\(\s*"([^"]+)"\s*,\s*function\s*\(([^)]*)\)\s*\{/g
+            const re = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*new\s*\(?\s*[A-Za-z_$][\w$]*\(\s*"WADeprecatedWapParser"\s*\)\s*\)?\s*\(\s*"([^"]+)"\s*,\s*function\s*\(([^)]*)\)\s*\{/g
             let parserDm
             let candidate = null
             while ((parserDm = re.exec(parserMod.factoryBody))) {

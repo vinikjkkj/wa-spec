@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040738260",
+  "waVersion": "2.3000.1040748867",
   "collections": [
     "regular",
     "regular_low",
@@ -854,7 +854,9 @@
       "baseClass": "AccountSyncdActionBase",
       "valueField": "marketingMessageAction",
       "valueProtoType": "SyncActionValue.MarketingMessageAction",
-      "valueEnumFields": null,
+      "valueEnumFields": {
+        "type": "MarketingMessageAction.MarketingMessagePrototypeType"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -900,11 +902,9 @@
       "version": 7,
       "scope": "account",
       "baseClass": "AccountSyncdActionBase",
-      "valueField": "merchantPaymentPartnerAction",
-      "valueProtoType": "SyncActionValue.MerchantPaymentPartnerAction",
-      "valueEnumFields": {
-        "status": "MerchantPaymentPartnerAction.Status"
-      },
+      "valueField": null,
+      "valueProtoType": null,
+      "valueEnumFields": null,
       "chatJidIndex": null,
       "indexParts": [
         {
@@ -1324,7 +1324,10 @@
       "baseClass": "AccountSyncdActionBase",
       "valueField": "statusPrivacy",
       "valueProtoType": "SyncActionValue.StatusPrivacyAction",
-      "valueEnumFields": null,
+      "valueEnumFields": {
+        "mode": "StatusPrivacyAction.StatusDistributionMode",
+        "modes": "StatusPrivacyAction.StatusDistributionMode"
+      },
       "chatJidIndex": null,
       "indexParts": [
         {

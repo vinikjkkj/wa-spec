@@ -37,6 +37,14 @@ const {
 } = require('./parser.cjs')
 const { fillInputTypes, fillResponseTypes } = require('./infer-leaf-types.cjs')
 
+// Minifier identifiers can contain `$` (e.g. `$e`) or be a bare `$`. Interpolating
+// a name into a RegExp unescaped lets `$` act as the end-of-input anchor, and `\b`
+// does not delimit tokens that start/end with `$`. reId() escapes a discovered
+// name; LB/RB are identifier boundaries that treat `$` as part of the identifier.
+const reId = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
+
 const NOISE =
     /BizAd|BizAi|BizCatalog|BizPay|BizBroadcast|Comet|LWI|MWChat|Mmlite|BizMeta|BizCommerce|BizAccount|BizDeli|BizMass|BizMcomm|BizMessageTemplate|BizOrder|BizPlatform|BizPostpaid|BizSendOptIn|BizSetting|BizShipping|BizQuickReplies|BizLabel|BizAway|BizGreeting|BizOnboarding|BizGroup|BizHub|BizInstall|BizInterop|BizLogin|BizPnh|BizQrCode|BizQuote|BizRecurring|BizRequest|BizSubscribed|BizUpsell|BizVerify|BizWa|BizWam|BizWelcome|BizYou|MetaAi|MetaTransp|Saved|Telemetry|Subscribe|Galaxy|Hatch|LinkedAccounts|Provisioning|RtcRing|XplatGen|Wallet|Transaction|Boost/i
 
@@ -65,7 +73,7 @@ function makeBodyTracer(body) {
     const cache = new Map()
     function trace(ident) {
         if (cache.has(ident)) return cache.get(ident)
-        const re = new RegExp(`(?:var|let|const)?\\s*\\b${ident}\\s*=\\s*`, 'g')
+        const re = new RegExp(`(?:var|let|const)?\\s*${LB}${reId(ident)}\\s*=\\s*`, 'g')
         let dm
         let last = null
         while ((dm = re.exec(body))) {
@@ -193,7 +201,7 @@ function mergeShapeNode(a, b) {
 function makeTracer(body, callPos) {
     const sub = body.slice(0, callPos)
     function trace(ident) {
-        const re = new RegExp(`(?:var|let|const)?\\s*\\b${ident}\\s*=\\s*`, 'g')
+        const re = new RegExp(`(?:var|let|const)?\\s*${LB}${reId(ident)}\\s*=\\s*`, 'g')
         let dm
         let last = null
         while ((dm = re.exec(sub))) {
@@ -530,7 +538,7 @@ function findFetchQueryPos(body) {
 function findMethodImplementation(bundles, methodName) {
     if (!methodName) return null
     const escaped = methodName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const headerRe = new RegExp(`\\b${escaped}\\s*:\\s*function\\s*\\(`)
+    const headerRe = new RegExp(`${LB}${escaped}\\s*:\\s*function\\s*\\(`)
     for (const b of bundles) {
         const m = headerRe.exec(b.text)
         if (!m) continue

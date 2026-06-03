@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040738260",
+  "waVersion": "2.3000.1040748867",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -771,49 +771,129 @@
                     "contextual_filters_for_wa_do_not_use": {
                       "clause_type": "string",
                       "filters": [
-                        {}
+                        {
+                          "filter_name": "string",
+                          "parameters": [
+                            {
+                              "key": "string",
+                              "value": "string"
+                            }
+                          ],
+                          "passes_if_client_not_supported": "boolean",
+                          "filter_result": "string"
+                        }
                       ],
                       "clauses": [
                         {
                           "clause_type": "string",
                           "filters": [
-                            {}
+                            {
+                              "filter_name": "string",
+                              "parameters": [
+                                {
+                                  "key": "string",
+                                  "value": "string"
+                                }
+                              ],
+                              "passes_if_client_not_supported": "boolean",
+                              "filter_result": "string"
+                            }
                           ],
                           "clauses": [
                             {
                               "clause_type": "string",
                               "filters": [
-                                {}
+                                {
+                                  "filter_name": "string",
+                                  "parameters": [
+                                    {
+                                      "key": "string",
+                                      "value": "string"
+                                    }
+                                  ],
+                                  "passes_if_client_not_supported": "boolean",
+                                  "filter_result": "string"
+                                }
                               ],
                               "clauses": [
                                 {
                                   "clause_type": "string",
                                   "filters": [
-                                    {}
+                                    {
+                                      "filter_name": "string",
+                                      "parameters": [
+                                        {
+                                          "key": "string",
+                                          "value": "string"
+                                        }
+                                      ],
+                                      "passes_if_client_not_supported": "boolean",
+                                      "filter_result": "string"
+                                    }
                                   ],
                                   "clauses": [
                                     {
                                       "clause_type": "string",
                                       "filters": [
-                                        {}
+                                        {
+                                          "filter_name": "string",
+                                          "parameters": [
+                                            {
+                                              "key": "string",
+                                              "value": "string"
+                                            }
+                                          ],
+                                          "passes_if_client_not_supported": "boolean",
+                                          "filter_result": "string"
+                                        }
                                       ],
                                       "clauses": [
                                         {
                                           "clause_type": "string",
                                           "filters": [
-                                            {}
+                                            {
+                                              "filter_name": "string",
+                                              "parameters": [
+                                                {
+                                                  "key": "string",
+                                                  "value": "string"
+                                                }
+                                              ],
+                                              "passes_if_client_not_supported": "boolean",
+                                              "filter_result": "string"
+                                            }
                                           ],
                                           "clauses": [
                                             {
                                               "clause_type": "string",
                                               "filters": [
-                                                {}
+                                                {
+                                                  "filter_name": "string",
+                                                  "parameters": [
+                                                    {
+                                                      "key": "string",
+                                                      "value": "string"
+                                                    }
+                                                  ],
+                                                  "passes_if_client_not_supported": "boolean",
+                                                  "filter_result": "string"
+                                                }
                                               ],
                                               "clauses": [
                                                 {
                                                   "clause_type": "string",
                                                   "filters": [
-                                                    {}
+                                                    {
+                                                      "filter_name": "string",
+                                                      "parameters": [
+                                                        {
+                                                          "key": "string",
+                                                          "value": "string"
+                                                        }
+                                                      ],
+                                                      "passes_if_client_not_supported": "boolean",
+                                                      "filter_result": "string"
+                                                    }
                                                   ]
                                                 }
                                               ]
@@ -1483,6 +1563,7 @@
             "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
             "parent_group_jid": "string",
             "group_safety_check": "boolean",
+            "allow_admin_reports": "boolean",
             "announcement": "boolean",
             "locked": "boolean",
             "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
@@ -1589,24 +1670,24 @@
             "lid_migration_state": {
               "addressing_mode": "enum:LID"
             },
-            "allow_admin_reports": "boolean",
-            "announcement": "boolean",
             "ephemeral": {
               "expiration_time_in_sec": "number"
             },
             "growth_locked2": {
               "locked": "boolean"
             },
-            "locked": "boolean",
             "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
+            "parent_group_jid": "string",
+            "group_safety_check": "boolean",
+            "allow_admin_reports": "boolean",
+            "announcement": "boolean",
+            "locked": "boolean",
             "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
             "member_share_group_history_mode": "enum:ALL_MEMBER_SHARE",
             "membership_approval_mode_enabled": "boolean",
-            "parent_group_jid": "string",
             "general_chat": "boolean",
             "auto_add_disabled": "boolean",
             "hidden_group": "boolean",
-            "group_safety_check": "boolean",
             "capi": "boolean",
             "support": "boolean"
           },
@@ -2764,6 +2845,15 @@
                           ]
                         }
                       ]
+                    },
+                    "user_interaction_info": {
+                      "impression_max_instances": "unknown",
+                      "impression_count_for_user": "number",
+                      "dismiss_max_instances": "unknown",
+                      "dismiss_click_count_for_user": "number",
+                      "primary_click_max_instances": "unknown",
+                      "primary_click_count_for_user": "number",
+                      "secondary_click_count_for_user": "number"
                     },
                     "id": "string"
                   }

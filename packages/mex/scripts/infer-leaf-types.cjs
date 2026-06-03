@@ -35,6 +35,12 @@
 
 const { skipWs, skipExpr, skipString } = require('./parser.cjs')
 
+// `\b` does not delimit minified identifiers that start/end with `$`. Use these
+// `$`-aware boundaries instead of `\b` around an identifier. (escapeRegExp below
+// handles escaping interpolated names.)
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
+
 // ---------------------------------------------------------------- INPUT side
 //
 // Given a slice of source starting at the RHS of a key in a fetchQuery input
@@ -355,7 +361,7 @@ function makeInputTracer(body, before) {
         // `=(?!=)` excludes `==` / `===` comparisons that look like
         // assignments (e.g. `t===void 0?null:t` matched `t=` and leaked
         // `==void 0...` as an RHS containing a top-level `==`).
-        const re = new RegExp(`(?:var|let|const)?\\s*\\b${ident}\\s*=(?!=)\\s*`, 'g')
+        const re = new RegExp(`(?:var|let|const)?\\s*${LB}${escapeRegExp(ident)}\\s*=(?!=)\\s*`, 'g')
         const searchFrom = ident.length < 2 ? scopeStart : 0
         let dm
         let last = 'unknown'
@@ -447,8 +453,8 @@ function classifyResponseLeaf(body, fieldName, ctx, parent, isAmbiguous) {
             // Either `.parent.field` (member chain) or `<alias>.field` (bare
             // identifier when the alias is a local var).
             const isLocal = pt !== parent || parentAliases.length > 0
-            const lead = pt === parent ? `\\.${escapeRegExp(pt)}\\b` : `\\b${escapeRegExp(pt)}\\b`
-            const pre = new RegExp(`${lead}[\\s\\S]{0,80}?\\.${escapeRegExp(fieldName)}\\b`, 'g')
+            const lead = pt === parent ? `\\.${escapeRegExp(pt)}${RB}` : `${LB}${escapeRegExp(pt)}${RB}`
+            const pre = new RegExp(`${lead}[\\s\\S]{0,80}?\\.${escapeRegExp(fieldName)}${RB}`, 'g')
             while ((m = pre.exec(body))) {
                 any = true
                 const accessIdx = m.index + m[0].lastIndexOf('.' + fieldName)
@@ -467,7 +473,7 @@ function classifyResponseLeaf(body, fieldName, ctx, parent, isAmbiguous) {
             const aliases = ctx.aliasesFor(fieldName)
             for (const alias of aliases) {
                 if (alias.length < 2) continue
-                const ar = new RegExp(`\\b${escapeRegExp(alias)}\\b`, 'g')
+                const ar = new RegExp(`${LB}${escapeRegExp(alias)}${RB}`, 'g')
                 let am
                 while ((am = ar.exec(body))) {
                     if (ctx.isInsideInputRange && ctx.isInsideInputRange(am.index)) continue
@@ -491,7 +497,7 @@ function classifyResponseLeaf(body, fieldName, ctx, parent, isAmbiguous) {
     // Skip accesses inside fetchQuery() arg lists — those are input-side
     // construction (e.g. `e.fetch.username === !0` is an input flag check,
     // NOT evidence about a response field also named `username`).
-    const re = new RegExp(`\\.${escapeRegExp(fieldName)}\\b`, 'g')
+    const re = new RegExp(`\\.${escapeRegExp(fieldName)}${RB}`, 'g')
     while ((m = re.exec(body))) {
         if (ctx && ctx.isInsideInputRange && ctx.isInsideInputRange(m.index)) continue
         accumulateEvidence(body, m.index, fieldName.length + 1, saw, enumValues, ctx)
@@ -965,10 +971,10 @@ function accumulateEvidence(body, idx, len, saw, enumValues, ctx) {
     // Boolean — nullable-boolean coalesce patterns: require the SAME
     // identifier on both sides of `&&` (otherwise it's just a null guard).
     if (selfIdent) {
-        const tail = new RegExp('^\\s*\\)*\\s*[!=]=\\s*null\\s*&&\\s*' + escapeRegExp(selfIdent) + '\\b')
+        const tail = new RegExp('^\\s*\\)*\\s*[!=]=\\s*null\\s*&&\\s*' + escapeRegExp(selfIdent) + RB)
         if (tail.test(after)) { saw.boolean++; saw.strong.boolean++ }
         const head = new RegExp('null\\s*[!=]=\\s*$')
-        const follow = new RegExp('^\\s*&&\\s*' + escapeRegExp(selfIdent) + '\\b')
+        const follow = new RegExp('^\\s*&&\\s*' + escapeRegExp(selfIdent) + RB)
         if (head.test(before) && follow.test(after)) { saw.boolean++; saw.strong.boolean++ }
     }
     // Boolean — explicit `===!0` / `===!1` / `===true` / `===false`
@@ -1009,7 +1015,7 @@ function buildBodyContext(body) {
     // Match `<lhs>=<expr>.<f1>.<f2>...<fN>` and bind <lhs> → <fN> (the trailing
     // field segment — that's what the alias actually carries). Identifier
     // case is mixed in WA's minifier.
-    const fieldChainRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*((?:\??\.[a-z_$][\w$]+)+)/g
+    const fieldChainRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*((?:\??\.[a-z_$][\w$]+)+)/g
     let m
     while ((m = fieldChainRe.exec(body))) {
         const parts = m[2].split(/\?\.|\./).filter(Boolean)
@@ -1023,7 +1029,7 @@ function buildBodyContext(body) {
     // The callback param <id> aliases items of <arrField> — and since the
     // shape models the array via [item], any field accessed on <id> is a
     // field of <arrField>'s item type. So <id> aliases the array name itself.
-    const iterRe = /\b([A-Za-z_$][\w$]*)(?:\??\.[a-z_$][\w$]+)*?(?:\??\.|\.)([a-z_$][\w$]+)\s*\.(?:forEach|map|filter|reduce|find|findIndex|some|every|flatMap)\s*\(\s*(?:function\s*)?\(?\s*([A-Za-z_$][\w$]*)/g
+    const iterRe = /(?<![\w$])([A-Za-z_$][\w$]*)(?:\??\.[a-z_$][\w$]+)*?(?:\??\.|\.)([a-z_$][\w$]+)\s*\.(?:forEach|map|filter|reduce|find|findIndex|some|every|flatMap)\s*\(\s*(?:function\s*)?\(?\s*([A-Za-z_$][\w$]*)/g
     while ((m = iterRe.exec(body))) {
         const arrField = m[2]
         const callbackParam = m[3]
@@ -1044,11 +1050,11 @@ function buildBodyContext(body) {
     //   X = null==(<i>=a)||null==(<i>=<i>.b)?void 0:<i>.field
     //   X = (<i>=a)==null||(<i>=<i>.b)==null?void 0:<i>.field
     // Anchor on the `:` that introduces the final access expression.
-    const ternRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[^,;{}]*?(?:null\s*==|==\s*null)[^,;{}]*?:\s*[A-Za-z_$][\w$]*(?:\?\.|\.)([a-z_$][\w$]*)\b/g
+    const ternRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[^,;{}]*?(?:null\s*==|==\s*null)[^,;{}]*?:\s*[A-Za-z_$][\w$]*(?:\?\.|\.)([a-z_$][\w$]*)(?![\w$])/g
     while ((m = ternRe.exec(body))) {
         if (!aliasField[m[1]]) aliasField[m[1]] = m[2]
     }
-    const identRe = /\b([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\b(?!\s*[.(?])/g
+    const identRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)(?![\w$])(?!\s*[.(?])/g
     while ((m = identRe.exec(body))) {
         if (m[1] !== m[2]) aliasIdent[m[1]] = m[2]
     }
@@ -1570,7 +1576,7 @@ function classifyByUsage(body, key) {
     const keyEsc = escapeRegExp(key)
     // Direct call: `isStringNullOrEmpty(<...>.key)` (rarely happens un-wrapped)
     const stringPred = '(?:isString(?:NullOrEmpty|Empty|Blank|NotEmpty)|stringIsEmpty|stringIsNullOrEmpty)'
-    if (new RegExp(`\\b${stringPred}\\s*\\([^)]{0,200}?\\.${keyEsc}\\b`).test(body)) return 'string'
+    if (new RegExp(`${LB}${stringPred}\\s*\\([^)]{0,200}?\\.${keyEsc}${RB}`).test(body)) return 'string'
     // Require-wrapped: `r("isStringNullOrEmpty")(<...>.key)` — also covers
     // `n("...")`, `o("...")` since they're all the same minifier-emitted
     // require pattern.

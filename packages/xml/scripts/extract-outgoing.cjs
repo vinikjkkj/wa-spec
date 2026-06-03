@@ -35,6 +35,13 @@
 const { findModuleRegistration, splitTopLevelCommas, skipExpr } = require('./parser.cjs')
 const { decodeSmaxCall } = require('./extract-xml.cjs')
 
+// Minifier identifiers can contain `$` (e.g. `$e`) or be a bare `$`. Interpolating
+// a name into a RegExp unescaped lets `$` act as the end-of-input anchor, and `\b`
+// does not delimit tokens that start/end with `$`. reId() escapes a discovered
+// name; LB is an identifier boundary that treats `$` as part of the identifier.
+const reId = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+
 // Known wire-stanza root tags. Anything in this list whose merged tree
 // doesn't already exist in `ir.stanzas` gets a synthesised entry. Tags
 // not in this list (e.g. arbitrary children like `meta`, `enc`, `biz`)
@@ -153,7 +160,7 @@ function findWapCalls(body) {
         } catch {}
     }
     for (const alias of wawapAliases) {
-        const re = new RegExp(`\\b${alias}\\.wap\\s*\\(`, 'g')
+        const re = new RegExp(`${LB}${reId(alias)}\\.wap\\s*\\(`, 'g')
         let am2
         while ((am2 = re.exec(body))) {
             const openParen = am2.index + am2[0].length - 1

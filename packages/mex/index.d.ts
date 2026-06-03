@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040738260
+// WhatsApp Version: 2.3000.1040748867
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1667,28 +1667,92 @@ export type WaMexConsumerFetchQuickPromotionsResponse = {
                     }>
                     readonly contextual_filters_for_wa_do_not_use?: {
                         readonly clause_type?: string
-                        readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                        readonly filters?: ReadonlyArray<{
+                            readonly filter_name?: string
+                            readonly parameters?: ReadonlyArray<{
+                                readonly key?: string
+                                readonly value?: string
+                            }>
+                            readonly passes_if_client_not_supported?: boolean
+                            readonly filter_result?: string
+                        }>
                         readonly clauses?: ReadonlyArray<{
                             readonly clause_type?: string
-                            readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                            readonly filters?: ReadonlyArray<{
+                                readonly filter_name?: string
+                                readonly parameters?: ReadonlyArray<{
+                                    readonly key?: string
+                                    readonly value?: string
+                                }>
+                                readonly passes_if_client_not_supported?: boolean
+                                readonly filter_result?: string
+                            }>
                             readonly clauses?: ReadonlyArray<{
                                 readonly clause_type?: string
-                                readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                                readonly filters?: ReadonlyArray<{
+                                    readonly filter_name?: string
+                                    readonly parameters?: ReadonlyArray<{
+                                        readonly key?: string
+                                        readonly value?: string
+                                    }>
+                                    readonly passes_if_client_not_supported?: boolean
+                                    readonly filter_result?: string
+                                }>
                                 readonly clauses?: ReadonlyArray<{
                                     readonly clause_type?: string
-                                    readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                                    readonly filters?: ReadonlyArray<{
+                                        readonly filter_name?: string
+                                        readonly parameters?: ReadonlyArray<{
+                                            readonly key?: string
+                                            readonly value?: string
+                                        }>
+                                        readonly passes_if_client_not_supported?: boolean
+                                        readonly filter_result?: string
+                                    }>
                                     readonly clauses?: ReadonlyArray<{
                                         readonly clause_type?: string
-                                        readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                                        readonly filters?: ReadonlyArray<{
+                                            readonly filter_name?: string
+                                            readonly parameters?: ReadonlyArray<{
+                                                readonly key?: string
+                                                readonly value?: string
+                                            }>
+                                            readonly passes_if_client_not_supported?: boolean
+                                            readonly filter_result?: string
+                                        }>
                                         readonly clauses?: ReadonlyArray<{
                                             readonly clause_type?: string
-                                            readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                                            readonly filters?: ReadonlyArray<{
+                                                readonly filter_name?: string
+                                                readonly parameters?: ReadonlyArray<{
+                                                    readonly key?: string
+                                                    readonly value?: string
+                                                }>
+                                                readonly passes_if_client_not_supported?: boolean
+                                                readonly filter_result?: string
+                                            }>
                                             readonly clauses?: ReadonlyArray<{
                                                 readonly clause_type?: string
-                                                readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                                                readonly filters?: ReadonlyArray<{
+                                                    readonly filter_name?: string
+                                                    readonly parameters?: ReadonlyArray<{
+                                                        readonly key?: string
+                                                        readonly value?: string
+                                                    }>
+                                                    readonly passes_if_client_not_supported?: boolean
+                                                    readonly filter_result?: string
+                                                }>
                                                 readonly clauses?: ReadonlyArray<{
                                                     readonly clause_type?: string
-                                                    readonly filters?: ReadonlyArray<Readonly<Record<string, unknown>>>
+                                                    readonly filters?: ReadonlyArray<{
+                                                        readonly filter_name?: string
+                                                        readonly parameters?: ReadonlyArray<{
+                                                            readonly key?: string
+                                                            readonly value?: string
+                                                        }>
+                                                        readonly passes_if_client_not_supported?: boolean
+                                                        readonly filter_result?: string
+                                                    }>
                                                 }>
                                             }>
                                         }>
@@ -2082,6 +2146,7 @@ export type WaMexFetchGroupInfoResponse = {
             readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
             readonly parent_group_jid?: string
             readonly group_safety_check?: boolean
+            readonly allow_admin_reports?: boolean
             readonly announcement?: boolean
             readonly locked?: boolean
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
@@ -2170,24 +2235,24 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
             readonly lid_migration_state?: {
                 readonly addressing_mode?: 'LID'
             }
-            readonly allow_admin_reports?: boolean
-            readonly announcement?: boolean
             readonly ephemeral?: {
                 readonly expiration_time_in_sec?: number
             }
             readonly growth_locked2?: {
                 readonly locked?: boolean
             }
-            readonly locked?: boolean
             readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
+            readonly parent_group_jid?: string
+            readonly group_safety_check?: boolean
+            readonly allow_admin_reports?: boolean
+            readonly announcement?: boolean
+            readonly locked?: boolean
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: 'ALL_MEMBER_SHARE'
             readonly membership_approval_mode_enabled?: boolean
-            readonly parent_group_jid?: string
             readonly general_chat?: boolean
             readonly auto_add_disabled?: boolean
             readonly hidden_group?: boolean
-            readonly group_safety_check?: boolean
             readonly capi?: boolean
             readonly support?: boolean
         }
@@ -2912,6 +2977,15 @@ export type WaMexFetchQuickPromotionsResponse = {
                                 }>
                             }>
                         }>
+                    }
+                    readonly user_interaction_info?: {
+                        readonly impression_max_instances?: unknown
+                        readonly impression_count_for_user?: number
+                        readonly dismiss_max_instances?: unknown
+                        readonly dismiss_click_count_for_user?: number
+                        readonly primary_click_max_instances?: unknown
+                        readonly primary_click_count_for_user?: number
+                        readonly secondary_click_count_for_user?: number
                     }
                     readonly id?: string
                 }

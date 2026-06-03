@@ -43,6 +43,18 @@
 
 const { skipExpr, skipWs } = require('./parser.cjs')
 
+// Minifier identifiers can contain `$` (e.g. `$e`) or be a bare `$`. That
+// breaks the regex-based parsing below in two ways, so every place that
+// interpolates a discovered var name into a pattern must use these helpers:
+//   1. Unescaped, a `$` in the name acts as the end-of-input anchor (so
+//      `\b$e\.internalSpec` never matches). `reId()` escapes the name.
+//   2. `\b` does not delimit tokens that start or end with `$` (it is a
+//      non-word char), so a `,$e=` binding is missed. `LB`/`RB` are
+//      identifier boundaries that treat `$` as part of the identifier.
+const reId = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
+const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
+
 // Find the parenthesised body of `__d("<name>", ...)` in any of the bundles.
 function findModuleBody(bundles, modName) {
     const needle = `__d("${modName}"`
@@ -102,7 +114,7 @@ function parseEnumLiteral(body, exportKey) {
     // `({...})` object literal in the expression that follows. The minifier
     // wraps the InternalEnum factory in nested parens (`(e=n("$IE"))(...)`)
     // so we can't rely on a simple regex — walk the expression manually.
-    const assignRe = new RegExp(`\\b${varName}\\s*=\\s*`, 'g')
+    const assignRe = new RegExp(`${LB}${reId(varName)}\\s*=\\s*`, 'g')
     let dm
     let last = -1
     while ((dm = assignRe.exec(body)) && dm.index < m.index) {
@@ -196,7 +208,7 @@ function parseFlatObjectStringValues(s, start) {
 function traceLocalLiteral(body, ident, scanUntil) {
     const sub = scanUntil != null ? body.slice(0, scanUntil) : body
     // Match `\b<ident>\s*=\s*<value>` — value is numeric literal or quoted string.
-    const re = new RegExp(`\\b${ident}\\s*=\\s*(-?[0-9.eE+]+|"[^"]*"|'[^']*')`, 'g')
+    const re = new RegExp(`${LB}${reId(ident)}\\s*=\\s*(-?[0-9.eE+]+|"[^"]*"|'[^']*')`, 'g')
     let last
     let m
     while ((m = re.exec(sub))) last = m[1]
@@ -261,7 +273,7 @@ function parseSyncActionValueTypes(bundles) {
         // top-level constant — those will be filtered out when looked up).
         const messageVarToPath = {} // var → 'SyncActionValue.<X>' (kept prefix)
         const enumVarToPath = {} // var → '<Parent>.<Enum>' (stripped prefix)
-        const exportRe = /\bl\.([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\b/g
+        const exportRe = /\bl\.([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)(?![\w$])/g
         let em
         while ((em = exportRe.exec(body))) {
             const name = em[1]
@@ -289,7 +301,7 @@ function parseSyncActionValueTypes(bundles) {
         // Per-message helper: parse `<var>.internalSpec = {...}` and return its
         // raw field-entry list `{ fieldName: { typeExpr, typeRef } }`.
         const parseSpec = (varName) => {
-            const re = new RegExp(`\\b${varName}\\.internalSpec\\s*=\\s*\\{`)
+            const re = new RegExp(`${LB}${reId(varName)}\\.internalSpec\\s*=\\s*\\{`)
             const sm = body.match(re)
             if (!sm) return null
             const objStart = sm.index + sm[0].length - 1
@@ -500,11 +512,12 @@ function scanConstructorAssigns(fb) {
     if (i < 0) return {}
     const ctorBody = fb.slice(i, marker + 100)
     // Detect the `this` capture variable: `<id>=<base>.call.apply(<base>,...)||this`.
-    const captureMatch = ctorBody.match(/\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.call\.apply\(/)
+    const captureMatch = ctorBody.match(/(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.call\.apply\(/)
     const thisVar = captureMatch ? captureMatch[1] : 'e'
     const out = {}
+    const tv = reId(thisVar)
     const re = new RegExp(
-        `\\b${thisVar}\\.([A-Za-z_$][\\w$]*)\\s*=\\s*([^,;]+?)(?=,\\s*(?:${thisVar}\\.|babelHelpers\\.assertThisInitialized|return|\\}))`,
+        `${LB}${tv}\\.([A-Za-z_$][\\w$]*)\\s*=\\s*([^,;]+?)(?=,\\s*(?:${tv}\\.|babelHelpers\\.assertThisInitialized|return|\\}))`,
         'g'
     )
     let m
@@ -591,11 +604,11 @@ function extractValueField(fb) {
     // position to avoid catching unrelated `.map(...)` / `.push(...)` calls
     // from earlier in the body (the constructor's `r=new Array(n);r.map(...)`
     // pattern would otherwise pollute when `r` later gets rebound to `.value`).
-    const aliasRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.value\b/g
+    const aliasRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.value(?![\w$])/g
     let am
     while ((am = aliasRe.exec(fb))) {
         const alias = am[1]
-        const memberRe = new RegExp(`\\b${alias}\\.([A-Za-z_$][\\w$]*)`, 'g')
+        const memberRe = new RegExp(`${LB}${reId(alias)}\\.([A-Za-z_$][\\w$]*)`, 'g')
         memberRe.lastIndex = am.index + am[0].length
         let mm
         while ((mm = memberRe.exec(fb))) {
@@ -648,7 +661,7 @@ function isGenericMemberName(key) {
 // Find `var <ident> = { <key>: ... }` (closest preceding declaration to scanFrom).
 function traceObjectLiteralFirstKey(fb, ident, scanFrom) {
     const sub = fb.slice(0, scanFrom)
-    const re = new RegExp(`(?:\\bvar\\s+|[,;])${ident}\\s*=\\s*\\{`, 'g')
+    const re = new RegExp(`(?:\\bvar\\s+|[,;{(])${reId(ident)}\\s*=\\s*\\{`, 'g')
     let last = -1
     let dm
     while ((dm = re.exec(sub))) last = dm.index + dm[0].length - 1
@@ -671,12 +684,12 @@ function extractIndexInfo(fb) {
     while ((m = directRe.exec(fb))) maxIdx = Math.max(maxIdx, Number(m[1]))
 
     // Alias scan: find `<id>=<something>.indexParts`, then count `<id>[N]`.
-    const aliasRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.indexParts\b/g
+    const aliasRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.indexParts(?![\w$])/g
     let am
     while ((am = aliasRe.exec(fb))) {
         const alias = am[1]
         aliases.add(alias)
-        const accessRe = new RegExp(`\\b${alias}\\s*\\[\\s*(\\d+)\\s*\\]`, 'g')
+        const accessRe = new RegExp(`${LB}${reId(alias)}\\s*\\[\\s*(\\d+)\\s*\\]`, 'g')
         let acc
         while ((acc = accessRe.exec(fb))) maxIdx = Math.max(maxIdx, Number(acc[1]))
     }
@@ -725,7 +738,7 @@ function inferSlotNames(fb, indexPartsAliases) {
     // Phase 1b — also treat `<var>=JSON.parse(<x>.index)` as an index alias.
     // Used by ChatMessageRange-scope resolveConflicts blocks to reparse the
     // wire-level JSON-stringified index and read flag slots out of it.
-    const parseRe = /\b([A-Za-z_$][\w$]*)\s*=\s*JSON\.parse\([A-Za-z_$][\w$.]*\.index\)/g
+    const parseRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*JSON\.parse\([A-Za-z_$][\w$.]*\.index\)/g
     let pm
     while ((pm = parseRe.exec(fb))) aliases.add(pm[1])
 
@@ -739,13 +752,13 @@ function inferSlotNames(fb, indexPartsAliases) {
     }
 
     // Direct `<localvar>=<var>.indexParts[<N>]` (no aliasing step).
-    const directRe = /\b([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.indexParts\s*\[\s*(\d+)\s*\]/g
+    const directRe = /(?<![\w$])([A-Za-z_$][\w$]*)\s*=\s*[A-Za-z_$][\w$]*\.indexParts\s*\[\s*(\d+)\s*\]/g
     let dm
     while ((dm = directRe.exec(fb))) bind(dm[1], Number(dm[2]), dm.index)
 
     // Aliased: `<localvar>=<alias>[<N>]`.
     for (const alias of aliases) {
-        const re = new RegExp(`\\b([A-Za-z_$][\\w$]*)\\s*=\\s*${alias}\\s*\\[\\s*(\\d+)\\s*\\]`, 'g')
+        const re = new RegExp(`${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*${reId(alias)}\\s*\\[\\s*(\\d+)\\s*\\]`, 'g')
         let m
         while ((m = re.exec(fb))) bind(m[1], Number(m[2]), m.index)
     }
@@ -755,7 +768,7 @@ function inferSlotNames(fb, indexPartsAliases) {
     // slot N — handlers immediately funnel it into an object key right next.
     for (const alias of aliases) {
         const cmpRe = new RegExp(
-            `\\b([A-Za-z_$][\\w$]*)\\s*=\\s*(?:"[^"]*"\\s*===\\s*${alias}\\s*\\[\\s*(\\d+)\\s*\\]|${alias}\\s*\\[\\s*(\\d+)\\s*\\]\\s*===\\s*"[^"]*")`,
+            `${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*(?:"[^"]*"\\s*===\\s*${reId(alias)}\\s*\\[\\s*(\\d+)\\s*\\]|${reId(alias)}\\s*\\[\\s*(\\d+)\\s*\\]\\s*===\\s*"[^"]*")`,
             'g'
         )
         let m
@@ -788,7 +801,7 @@ function inferSlotNames(fb, indexPartsAliases) {
             const off = entry.boundAt
             // Property access: `<newvar>=<oldvar>.<member>`
             const propRe = new RegExp(
-                `\\b([A-Za-z_$][\\w$]*)\\s*=\\s*${oldvar}\\.[A-Za-z_$][\\w$]*`,
+                `${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*${reId(oldvar)}\\.[A-Za-z_$][\\w$]*`,
                 'g'
             )
             let pm
@@ -800,7 +813,7 @@ function inferSlotNames(fb, indexPartsAliases) {
             }
             // Call chain with oldvar anywhere in args.
             const callRe = new RegExp(
-                `\\b([A-Za-z_$][\\w$]*)\\s*=\\s*(?:yield\\s+)?[^;,]*?\\(\\s*[^)]*?\\b${oldvar}\\b(?:\\.[\\w$]+)?[^)]*\\)`,
+                `${LB}([A-Za-z_$][\\w$]*)\\s*=\\s*(?:yield\\s+)?[^;,]*?\\(\\s*[^)]*?${LB}${reId(oldvar)}${RB}(?:\\.[\\w$]+)?[^)]*\\)`,
                 'g'
             )
             let cm
@@ -871,7 +884,7 @@ function inferSlotNames(fb, indexPartsAliases) {
     // are co-located in the source.
     for (const alias of aliases) {
         const re = new RegExp(
-            `([A-Za-z_$][\\w$]*)\\s*:\\s*(?:"[^"]*"\\s*===\\s*${alias}\\s*\\[\\s*(\\d+)\\s*\\]|${alias}\\s*\\[\\s*(\\d+)\\s*\\]\\s*===\\s*"[^"]*")`,
+            `([A-Za-z_$][\\w$]*)\\s*:\\s*(?:"[^"]*"\\s*===\\s*${reId(alias)}\\s*\\[\\s*(\\d+)\\s*\\]|${reId(alias)}\\s*\\[\\s*(\\d+)\\s*\\]\\s*===\\s*"[^"]*")`,
             'g'
         )
         let m
@@ -922,7 +935,7 @@ function inferSlotNames(fb, indexPartsAliases) {
         if (slot in slotNames) continue
         const sub = scopeWindow(boundAt)
         const re = new RegExp(
-            `([A-Za-z_$][\\w$]*)\\s*:\\s*${localvar}\\.([A-Za-z_$][\\w$]*)\\b(?!\\.)`,
+            `([A-Za-z_$][\\w$]*)\\s*:\\s*${reId(localvar)}\\.([A-Za-z_$][\\w$]*)(?![\\w$])(?!\\.)`,
             'g'
         )
         let m
@@ -944,7 +957,7 @@ function inferSlotNames(fb, indexPartsAliases) {
         if (slot in slotNames) continue
         const sub = scopeWindow(boundAt)
         const re = new RegExp(
-            `([A-Za-z_$][\\w$]*)\\s*:\\s*${localvar}\\b(?!\\s*[.=+\\-*/%<>&|^?])`,
+            `([A-Za-z_$][\\w$]*)\\s*:\\s*${reId(localvar)}(?![\\w$])(?!\\s*[.=+\\-*/%<>&|^?])`,
             'g'
         )
         let m
@@ -965,7 +978,7 @@ function inferSlotNames(fb, indexPartsAliases) {
     for (const [localvar, { slot, boundAt }] of Object.entries(aliasToSlot)) {
         if (slot in slotNames) continue
         const sub = scopeWindow(boundAt)
-        const re = new RegExp(`"([A-Za-z_][\\w]*)="\\s*\\+\\s*${localvar}\\b`, 'g')
+        const re = new RegExp(`"([A-Za-z_][\\w]*)="\\s*\\+\\s*${reId(localvar)}${RB}`, 'g')
         let m
         while ((m = re.exec(sub))) {
             const candidate = m[1]
@@ -986,7 +999,7 @@ function inferSlotNames(fb, indexPartsAliases) {
         if (slot in slotNames) continue
         const sub = scopeWindow(boundAt)
         const re = new RegExp(
-            `\\.([A-Za-z_$][\\w$]*)\\.cast\\(\\s*Number\\(\\s*${localvar}\\s*\\)\\s*\\)`,
+            `\\.([A-Za-z_$][\\w$]*)\\.cast\\(\\s*Number\\(\\s*${reId(localvar)}\\s*\\)\\s*\\)`,
             'g'
         )
         let m
@@ -1036,7 +1049,7 @@ function inferSlotNames(fb, indexPartsAliases) {
     for (const [localvar, { slot, boundAt }] of Object.entries(aliasToSlot)) {
         if (slot in slotNames) continue
         const sub = scopeWindow(boundAt)
-        const re = new RegExp(`\\.([A-Za-z_$][\\w$]*)\\(\\s*${localvar}\\b`, 'g')
+        const re = new RegExp(`\\.([A-Za-z_$][\\w$]*)\\(\\s*${reId(localvar)}${RB}`, 'g')
         let m
         while ((m = re.exec(sub))) {
             const candidate = typeFromMethodName(m[1])
@@ -1062,7 +1075,7 @@ function extractTrailingName(expr, fb, scanFrom) {
     if (idM) {
         const ident = idM[1]
         const sub = fb.slice(0, scanFrom)
-        const declRe = new RegExp(`\\b${ident}\\s*=\\s*([^;,]+)`, 'g')
+        const declRe = new RegExp(`${LB}${reId(ident)}\\s*=\\s*([^;,]+)`, 'g')
         let last = null
         let m
         while ((m = declRe.exec(sub))) last = m[1]
