@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040818981
+// WhatsApp Version: 2.3000.1040832931
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1798,7 +1798,7 @@ export type WaMexCreateNewsletterResponse = {
     readonly xwa2_newsletter_create?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly name?: {
@@ -1892,7 +1892,7 @@ export type WaMexDeleteNewsletterResponse = {
     readonly xwa2_newsletter_delete_v2?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -1944,7 +1944,7 @@ export type WaMexFetchAllNewslettersMetadataResponse = {
     readonly xwa2_newsletter_subscribed?: ReadonlyArray<{
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly creation_time?: string
@@ -2080,7 +2080,7 @@ export type WaMexFetchGroupInfoResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE'
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
         readonly subject?: {
             readonly creator?: {
                 readonly id?: string
@@ -2176,7 +2176,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE'
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
         readonly subject?: {
             readonly creator?: {
                 readonly id?: string
@@ -2316,7 +2316,7 @@ export type WaMexFetchNewsletterResponse = {
     readonly xwa2_newsletter?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly creation_time?: string
@@ -2694,7 +2694,7 @@ export type WaMexFetchNewsletterInsightsResponse = {
     readonly xwa2_newsletter_admin_insights?: {
         readonly newsletter_id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly last_update_time?: string
         readonly metrics_status?: string
@@ -3013,7 +3013,7 @@ export type WaMexFetchRecommendedNewslettersResponse = {
         readonly result?: ReadonlyArray<{
             readonly id?: string
             readonly state?: {
-                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
             }
             readonly thread_metadata?: {
                 readonly creation_time?: string
@@ -3066,7 +3066,7 @@ export type WaMexFetchSimilarNewslettersResponse = {
                 readonly last_status_server_id?: string
             }
             readonly state?: {
-                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
             }
         }>
     }
@@ -3288,7 +3288,7 @@ export type WaMexJoinNewsletterResponse = {
     readonly xwa2_newsletter_join_v2?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -3297,7 +3297,7 @@ export type WaMexLeaveNewsletterResponse = {
     readonly xwa2_newsletter_leave_v2?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }
@@ -3967,7 +3967,7 @@ export type WaMexUpdateNewsletterResponse = {
     readonly xwa2_newsletter_update?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
             readonly name?: {
@@ -4007,7 +4007,7 @@ export type WaMexUpdateNewsletterUserSettingResponse = {
     readonly xwa2_newsletter_update_user_setting?: {
         readonly id?: string
         readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NEGATIVE_ACCURATE' | 'NEGATIVE_GENERIC' | 'NEGATIVE_HELPFUL' | 'NEGATIVE_INTERESTING' | 'NEGATIVE_NOT_CUSTOMIZABLE' | 'NEGATIVE_NOT_ENTERTAINING' | 'NEGATIVE_NOT_INTERESTING' | 'NEGATIVE_NOT_RELEVANT_TO_TEXT' | 'NEGATIVE_NOT_VISUALLY_APPEALING' | 'NEGATIVE_OTHER' | 'NEGATIVE_REFUSED' | 'NEGATIVE_SAFE' | 'NON_EXISTING' | 'POSITIVE' | 'SUSPENDED'
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
     }
 }

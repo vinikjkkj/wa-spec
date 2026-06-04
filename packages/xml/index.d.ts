@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040818981
+// WhatsApp Version: 2.3000.1040832931
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2061,6 +2061,7 @@ export interface WaXmlOperations {
                 readonly edit: '3' | '7'
                 readonly offline: number
                 readonly to: string
+                readonly participant: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -2068,7 +2069,6 @@ export interface WaXmlOperations {
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
                 readonly phash: string
-                readonly participant?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
@@ -2079,6 +2079,7 @@ export interface WaXmlOperations {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly original_msg_t: number
+                        readonly metering_type: 'smb_mm'
                         readonly type: 'scheduled_message'
                         readonly st: string
                         readonly origin?: 'ctwa'
@@ -2094,7 +2095,6 @@ export interface WaXmlOperations {
                         readonly tag_reason?: string
                         readonly status_setting: string
                         readonly session_scope?: 'status'
-                        readonly metering_type: 'smb_mm'
                         readonly questiontype: 'response'
                     }
                 }
@@ -12041,9 +12041,9 @@ export interface WaXmlStanzas {
                 readonly id: string
                 readonly to: string
                 readonly participant?: string
-                readonly error?: number
-                readonly recipient?: string
+                readonly error: number
                 readonly from: string
+                readonly recipient?: string
             }
             readonly children: {
                 readonly user: {
@@ -12453,10 +12453,10 @@ export interface WaXmlStanzas {
                     readonly verified_name?: string
                     readonly recipient: string
                     readonly id: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
@@ -12525,13 +12525,13 @@ export interface WaXmlStanzas {
                             readonly session_scope?: 'default' | 'status'
                             readonly type?: string
                             readonly st?: number
+                            readonly metering_type: 'smb_mm'
                             readonly destination_id?: string
                             readonly sender_intent?: 'hosted'
                             readonly view_once?: 'true'
                             readonly conversation_thread_id?: string
                             readonly tag_reason?: string
                             readonly status_setting: string
-                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                         readonly children: {
@@ -12564,8 +12564,8 @@ export interface WaXmlStanzas {
                                 readonly tag: 'interactive'
                                 readonly attrs: {
                                     readonly name?: string
-                                    readonly v: '1'
                                     readonly type: 'native_flow'
+                                    readonly v: '1'
                                 }
                                 readonly children: {
                                     readonly native_flow: {
@@ -12677,6 +12677,7 @@ export interface WaXmlStanzas {
                     readonly edit: '3' | '7'
                     readonly offline: number
                     readonly to: string
+                    readonly participant: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -12684,7 +12685,6 @@ export interface WaXmlStanzas {
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
                     readonly phash: string
-                    readonly participant?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
@@ -12695,6 +12695,7 @@ export interface WaXmlStanzas {
                         readonly tag: 'meta'
                         readonly attrs: {
                             readonly original_msg_t: number
+                            readonly metering_type: 'smb_mm'
                             readonly type: 'scheduled_message'
                             readonly st: string
                             readonly origin?: 'ctwa'
@@ -12710,7 +12711,6 @@ export interface WaXmlStanzas {
                             readonly tag_reason?: string
                             readonly status_setting: string
                             readonly session_scope?: 'status'
-                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                     }
@@ -13530,20 +13530,7 @@ export interface WaXmlStanzas {
                 }
             }
             }
-            readonly 'psa/reset_smb_last_qp_prefetch_timestamp': {
-                readonly handler: { readonly module: 'WAWebHandleQPPrefetchTimestampNotification'; readonly method: 'handleQPPrefetchTimestampNotification' }
-                readonly node: {
-                readonly tag: 'notification'
-                readonly attrs: {
-                    readonly from: string
-                    readonly type: 'psa'
-                    readonly t: number
-                    readonly id: string
-                    readonly offline?: number
-                }
-            }
-            }
-            readonly psa: {
+            readonly 'psa/surfaces': {
                 readonly handler: { readonly module: 'WAWebHandleQPSurfacesNotification'; readonly method: 'handleQPSurfacesNotification' }
                 readonly node: {
                 readonly tag: 'notification'
@@ -13716,6 +13703,127 @@ export interface WaXmlStanzas {
                                     }>
                                 }
                             }>
+                        }
+                    }
+                }
+            }
+            }
+            readonly 'psa/reset_smb_last_qp_prefetch_timestamp': {
+                readonly handler: { readonly module: 'WAWebHandleQPPrefetchTimestampNotification'; readonly method: 'handleQPPrefetchTimestampNotification' }
+                readonly node: {
+                readonly tag: 'notification'
+                readonly attrs: {
+                    readonly from: string
+                    readonly type: 'psa'
+                    readonly t: number
+                    readonly id: string
+                    readonly offline?: number
+                }
+            }
+            }
+            readonly 'psa/*': {
+                readonly handler: { readonly module: 'WAWebHandleWaChat'; readonly method: 'default' }
+                readonly node: {
+                readonly tag: 'notification'
+                readonly attrs: {
+                    readonly id: string
+                    readonly t: number
+                    readonly type: 'psa'
+                }
+                readonly children: {
+                    readonly messages: {
+                        readonly tag: 'messages'
+                        readonly attrs: {
+                            readonly campaign_id: string
+                        }
+                        readonly children: {
+                            readonly message: ReadonlyArray<{
+                                readonly tag: 'message'
+                                readonly attrs: {
+                                    readonly id: string
+                                    readonly type?: 'event' | 'media' | 'medianotify' | 'pay' | 'poll' | 'reaction' | 'text'
+                                }
+                                readonly children: {
+                                    readonly biz: {
+                                        readonly tag: 'biz'
+                                        readonly attrs: {
+                                            readonly name?: string
+                                        }
+                                        readonly children: {
+                                            readonly interactive: {
+                                                readonly tag: 'interactive'
+                                                readonly attrs: {
+                                                    readonly name?: string
+                                                }
+                                            } | undefined
+                                            readonly native_flow: {
+                                                readonly tag: 'native_flow'
+                                                readonly attrs: {
+                                                    readonly name?: string
+                                                }
+                                            } | undefined
+                                        }
+                                    } | undefined
+                                    readonly media: {
+                                        readonly tag: 'media'
+                                    }
+                                }
+                            }>
+                        }
+                    }
+                    readonly revoke: {
+                        readonly tag: 'revoke'
+                        readonly attrs: {
+                            readonly campaign_id: string
+                        }
+                        readonly children: {
+                            readonly message: ReadonlyArray<{
+                                readonly tag: 'message'
+                                readonly attrs: {
+                                    readonly id: string
+                                }
+                            }>
+                        }
+                    }
+                }
+            }
+            }
+            readonly psa: {
+                readonly handler: { readonly module: 'WAWebHandlePsa'; readonly method: 'default' }
+                readonly node: {
+                readonly tag: 'notification'
+                readonly attrs: {
+                    readonly id: string
+                    readonly participant: string
+                    readonly t: number
+                    readonly type: 'psa'
+                }
+                readonly children: {
+                    readonly campaign: {
+                        readonly tag: 'campaign'
+                        readonly attrs: {
+                            readonly id: string
+                            readonly duration?: number
+                        }
+                        readonly children: {
+                            readonly message: ReadonlyArray<{
+                                readonly tag: 'message'
+                                readonly attrs: {
+                                    readonly id: string
+                                }
+                                readonly children: {
+                                    readonly media: {
+                                        readonly tag: 'media'
+                                        readonly attrs: {
+                                            readonly mediatype: 'image' | 'video' | 'text'
+                                        }
+                                        readonly content: Uint8Array
+                                    }
+                                }
+                            }>
+                            readonly revoke: {
+                                readonly tag: 'revoke'
+                            } | undefined
                         }
                     }
                 }
@@ -14071,14 +14179,14 @@ export interface WaXmlStanzas {
     }
     readonly receipt: {
         readonly tag: 'receipt'
-        readonly discriminator: 'condition'
+        readonly discriminator: 'type'
         readonly variants: {
-            readonly WAWebHandleMessageRetryRequest: {
+            readonly retry: {
                 readonly handler: { readonly module: 'WAWebHandleMessageRetryRequest'; readonly method: 'handleMessageRetryRequest' }
                 readonly node: {
                 readonly tag: 'receipt'
                 readonly attrs: {
-                    readonly type: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
+                    readonly type: 'retry'
                     readonly to?: string
                     readonly from: string
                     readonly participant?: string
@@ -14087,11 +14195,11 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
+                    readonly context: string
+                    readonly category: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly context: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14155,6 +14263,120 @@ export interface WaXmlStanzas {
                 }
             }
             }
+            readonly enc_rekey_retry: {
+                readonly handler: { readonly module: 'WAWebHandleMessageRetryRequest'; readonly method: 'handleMessageRetryRequest' }
+                readonly node: {
+                readonly tag: 'receipt'
+                readonly attrs: {
+                    readonly type: 'enc_rekey_retry'
+                    readonly to?: string
+                    readonly from: string
+                    readonly participant?: string
+                    readonly is_lid?: boolean
+                    readonly recipient?: string
+                    readonly id: string
+                    readonly t: number
+                    readonly offline?: number
+                    readonly context: string
+                    readonly category: string
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly peer_participant_pn?: string
+                    readonly sts?: string
+                    readonly server_id: number
+                }
+                readonly children: {
+                    readonly retry: {
+                        readonly tag: 'retry'
+                        readonly attrs: {
+                            readonly id: string
+                            readonly count?: number
+                            readonly v: '1'
+                            readonly t: number
+                            readonly error?: number
+                        }
+                    }
+                    readonly keys: {
+                        readonly tag: 'keys'
+                        readonly children: {
+                            readonly skey: {
+                                readonly tag: 'skey'
+                                readonly children: {
+                                    readonly id: {
+                                        readonly tag: 'id'
+                                        readonly content: number
+                                    }
+                                    readonly value: {
+                                        readonly tag: 'value'
+                                        readonly content: Uint8Array
+                                    }
+                                    readonly signature: {
+                                        readonly tag: 'signature'
+                                        readonly content: Uint8Array
+                                    }
+                                }
+                            }
+                            readonly 'device-identity': {
+                                readonly tag: 'device-identity'
+                                readonly content: Uint8Array
+                            } | undefined
+                            readonly key: {
+                                readonly tag: 'key'
+                                readonly children: {
+                                    readonly id: {
+                                        readonly tag: 'id'
+                                        readonly content: number
+                                    }
+                                    readonly value: {
+                                        readonly tag: 'value'
+                                        readonly content: Uint8Array
+                                    }
+                                }
+                            } | undefined
+                            readonly identity: {
+                                readonly tag: 'identity'
+                                readonly content: Uint8Array
+                            }
+                        }
+                    } | undefined
+                    readonly registration: {
+                        readonly tag: 'registration'
+                        readonly content: number
+                    }
+                }
+            }
+            }
+            readonly 'is-call-receipt': {
+                readonly handler: { readonly module: 'WAWebHandleVoipCallReceipt'; readonly method: 'handleCallReceipt' }
+                readonly node: {
+                readonly tag: 'receipt'
+                readonly attrs: {
+                    readonly id: string
+                    readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
+                    readonly from: string
+                    readonly to: string
+                    readonly t: number
+                    readonly participant?: string
+                    readonly recipient?: string
+                    readonly context: string
+                    readonly category: string
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly peer_participant_pn?: string
+                    readonly sts?: string
+                    readonly server_id: number
+                }
+                readonly children: {
+                    readonly offer: {
+                        readonly tag: 'offer'
+                    } | undefined
+                    readonly accept: {
+                        readonly tag: 'accept'
+                    } | undefined
+                    readonly reject: {
+                        readonly tag: 'reject'
+                    } | undefined
+                }
+            }
+            }
             readonly 'is-not-call-receipt': {
                 readonly handler: { readonly module: 'WAWebHandleMsgReceipt'; readonly method: 'default' }
                 readonly node: {
@@ -14171,11 +14393,11 @@ export interface WaXmlStanzas {
                     readonly participant_pn?: string
                     readonly participant_username?: string
                     readonly t: number
+                    readonly context: string
+                    readonly category: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly context: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {

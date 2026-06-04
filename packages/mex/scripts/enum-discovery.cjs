@@ -28,18 +28,46 @@
 
 const { iterModuleHeaders } = require('./parser.cjs')
 
-function findModuleBody(text, modName) {
-    const needle = `__d("${modName}"`
-    const idx = text.indexOf(needle)
-    if (idx === -1) return null
+// Return the body of the module whose `__d(` header starts at `start`, bounded
+// by `cap` (the next module's header start). Paren-matching trims to the exact
+// `__d(...)` close when it lands within the cap; otherwise the capped slice is
+// returned. The cap is the real safety net — it guarantees a module body can
+// never bleed into the next module even when paren counting is fooled by a
+// regex or string literal (third-party libs like moment/fflate, and colliding
+// module ids across chunks, used to cause multi-megabyte overruns that fused
+// dozens of unrelated exports onto a single enum's value set).
+function moduleBodyBounded(text, start, cap) {
     let depth = 0
-    for (let i = idx; i < text.length; i++) {
-        if (text[i] === '(') depth++
-        else if (text[i] === ')') {
-            if (--depth === 0) return text.slice(idx, i + 1)
+    for (let i = start; i < cap; i++) {
+        const c = text[i]
+        // Skip string / template literals so their `(`/`)` don't unbalance.
+        if (c === '"' || c === "'" || c === '`') {
+            i = skipStringLiteral(text, i, cap)
+            continue
+        }
+        if (c === '(') depth++
+        else if (c === ')') {
+            if (--depth === 0) return text.slice(start, i + 1)
         }
     }
-    return null
+    // Paren close not found within the cap (regex/division ambiguity etc.) —
+    // fall back to the capped region, which still cannot reach another module.
+    return text.slice(start, cap)
+}
+
+// Given `text[start]` is an opening quote, return the index of the matching
+// closing quote (bounded by `cap`), honoring backslash escapes. Template
+// literals are skipped to their next unescaped backtick (no `${}` recursion —
+// sufficient for the minified bundles parsed here).
+function skipStringLiteral(text, start, cap) {
+    const limit = cap == null ? text.length : cap
+    const q = text[start]
+    for (let i = start + 1; i < limit; i++) {
+        const c = text[i]
+        if (c === '\\') { i++; continue }
+        if (c === q) return i
+    }
+    return limit
 }
 
 function discoverEnums(bundles) {
@@ -59,12 +87,20 @@ function discoverEnums(bundles) {
     const anonymousSets = []
 
     for (const bundle of bundles) {
-        for (const h of iterModuleHeaders(bundle.text)) {
+        // Bound each module body by the NEXT module header, so a body can never
+        // overrun into unrelated modules. Paren-matching alone is unreliable
+        // here — third-party libs (fflate, moment) carry regex/string literals
+        // whose `(`/`)` unbalance the count, and module ids collide across
+        // chunks — which previously merged 50+ exports onto one enum's values.
+        const headers = [...iterModuleHeaders(bundle.text)]
+        for (let hi = 0; hi < headers.length; hi++) {
+            const h = headers[hi]
+            const cap = hi + 1 < headers.length ? headers[hi + 1].headerStart : bundle.text.length
             // Only modules whose name looks like it might host enums — Common*Enums,
             // *Schema*, *Constants, *Types* — but also catch arbitrary modules
             // that happen to declare Mirrored arrays. Cheaper to just scan everything
             // and bound by Mirrored() pattern presence.
-            const body = findModuleBody(bundle.text, h.name)
+            const body = moduleBodyBounded(bundle.text, h.headerStart, cap)
             if (!body) continue
             if (!body.includes('Mirrored(') && !body.includes('switch(') && !body.includes('switch (')) {
                 // Accept either `i.<X>=` or `l.<X>=` as the export convention
