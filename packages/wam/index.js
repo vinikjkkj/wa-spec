@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040748867
+// WhatsApp Version: 2.3000.1040818981
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -128,7 +128,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'EASTER_HAPPY': 25,
         'EASTER_PLANS': 26,
         'EASTER_FEELS': 27,
-        'EASTER_TIME_FOR': 28
+        'EASTER_TIME_FOR': 28,
+        'FIFA_WORLDCUP_CHEERING_FOR': 30,
+        'FIFA_WORLDCUP_COUNTRY_PRIDE': 31,
+        'FIFA_WORLDCUP_YOUR_TEAM_TODAY': 32,
+        'FIFA_WORLDCUP_WATCHING_MATCH_WITH': 33,
+        'FIFA_WORLDCUP_QUARTERFINALS_PICK': 34,
+        'FIFA_WORLDCUP_MATCH_DAY_PLANS': 35,
+        'FIFA_WORLDCUP_TAKING_IT_HOME': 36,
+        'FIFA_WORLDCUP_FINALS_TEAM': 37
         })
     }),
     ABOUT_REQUEST_TYPE: Object.freeze({
@@ -219,7 +227,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE_YOURSELF': 3,
         'META_AI': 4,
         'TO_CHARACTER': 5,
-        'TO_UGC': 6
+        'TO_UGC': 6,
+        'AR_SURFACE': 7
         })
     }),
     ACTION_TYPE: Object.freeze({
@@ -369,7 +378,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_ADD_MEMBER_FROM_CHAT_HEADER': 12,
         'GROUP_MENTION_PICKER': 13,
         'COMMUNITY_CONTEXT_CARD': 14,
-        'COMMUNITY_EMPTY_SUBGROUP': 15
+        'COMMUNITY_EMPTY_SUBGROUP': 15,
+        'GROUP_MEMBERS_LIST_ADD_BUTTON': 16
         })
     }),
     ADMIN_FLOW_TYPE: Object.freeze({
@@ -1217,7 +1227,9 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'BUNDLE_SEND_SOURCE',
         values: Object.freeze({
         'NOTIFICATION': 1,
-        'IQ_RESPONSE': 2
+        'IQ_RESPONSE': 2,
+        'SYSTEM_MESSAGE': 3,
+        'CONTACT_CARD': 4
         })
     }),
     BUSINESS_INTERACTION_ACTION_TYPE: Object.freeze({
@@ -2667,7 +2679,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'SLASH_ICON_BUTTON_CLICK': 274,
         'SLASH_COMMAND_CLICK': 275,
         'SLASH_ICON_TYPED': 276,
-        'SLASH_COMMAND_PROMPT_SUBMIT': 277
+        'SLASH_COMMAND_PROMPT_SUBMIT': 277,
+        'DOUBLE_HEIGHT_COMPOSER_IMPRESSION': 278,
+        'MODE_SELECTION_BUTTON_IMPRESSION': 279
         })
     }),
     CHAT_FILTER_TARGET_SCREEN: Object.freeze({
@@ -3033,6 +3047,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'WRONG_PIN': 7
         })
     }),
+    COMPANION_INVITE_ACTION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCompanionInviteActionType',
+        export: 'COMPANION_INVITE_ACTION_TYPE',
+        values: Object.freeze({
+        'IMPRESSION': 0,
+        'INVITE_SEND': 1
+        })
+    }),
     COMPANION_INVITE_METHOD_TYPE: Object.freeze({
         module: 'WAWebWamEnumCompanionInviteMethodType',
         export: 'COMPANION_INVITE_METHOD_TYPE',
@@ -3051,7 +3073,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CONTACT_PICKER_LIST': 2,
         'CONTACT_PICKER_SEARCH': 3,
         'GROUPS_CREATE_PARTICIPANT_SELECTOR': 4,
-        'GROUPS_ADD_PARTICIPANT_SELECTOR': 5
+        'GROUPS_ADD_PARTICIPANT_SELECTOR': 5,
+        'CONTACT_EDIT_DRAWER': 6
         })
     }),
     COMPANION_WHATSAPP_CONTACT_STATUS: Object.freeze({
@@ -3858,7 +3881,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_GALLERY_PERMISSION': 242,
         'DEEP_LINK_BIZ_LINK_FACEBOOK': 244,
         'DEEP_LINK_BIZ_LINK_INSTAGRAM': 245,
-        'DEEP_LINK_PAYMENT_REMITTANCE': 246
+        'DEEP_LINK_PAYMENT_REMITTANCE': 246,
+        'DEEP_LINK_AIMEDIAGALLERY': 247,
+        'DEEP_LINK_SILVERSTONE': 248
         })
     }),
     DEFAULT_AUDIENCE_LOCATION_TYPE: Object.freeze({
@@ -4245,7 +4270,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'WAMO_STATUS': 16,
         'WAMO_BIZ_PROFILE': 17,
         'WAMO_PREFERENCES': 18,
-        'RICH_ORDER_STATUS': 19
+        'RICH_ORDER_STATUS': 19,
+        'WA_BACKUP': 20
         })
     }),
     DOWNLOAD_QUALITY_TYPE: Object.freeze({
@@ -4673,7 +4699,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'BB_SUGGESTED_AUDIENCE_YOUR_CONTACTS': 87,
         'BB_SUGGESTED_AUDIENCE_LIST': 88,
         'BB_SHARE_MODAL': 89,
-        'BB_FORWARD_MODAL': 90
+        'BB_FORWARD_MODAL': 90,
+        'ATTACHMENT_TRAY': 91
         })
     }),
     ENTRY_POINT_CONVERSATION_INITIATED: Object.freeze({
@@ -7177,7 +7204,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_DURATION_MFR_DISMISS': 508,
         'LWI_ACTION_DURATION_MFR_ENABLE_SUCCESS': 509,
         'LWI_ACTION_DURATION_MFR_ENABLE_ERROR': 510,
-        'LWI_ACTION_DURATION_MFR_INVALID_CUSTOM_DURATION': 511
+        'LWI_ACTION_DURATION_MFR_INVALID_CUSTOM_DURATION': 511,
+        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_TOOLTIP_TOO_LOW_IMPRESSION': 512,
+        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_TOOLTIP_LOW_IMPRESSION': 513,
+        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_IMPRESSION': 514,
+        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_CTA_CLICK': 515,
+        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED': 516
         })
     }),
     LWI_SCREEN_REFERENCE: Object.freeze({
@@ -7837,7 +7869,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_STATUS_CHAT_HEADER_PROFILE_RING_DROPDOWN': 126,
         'CHANNEL_THREAD_SCREEN': 127,
         'CLOSE_SHARING_MIMICRY': 128,
-        'MEDIA_BROWSER_STATUS_MENU': 129
+        'MEDIA_BROWSER_STATUS_MENU': 129,
+        'ARCHIVE_STATUS_VIEWER': 130
         })
     }),
     MEDIA_QUALITY: Object.freeze({
@@ -8739,7 +8772,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'USER_ARCHIVE': 28,
         'BODY_URL_LONG_PRESS': 29,
         'USER_BLOCK_REASON_DONT_RECOGNIZE': 30,
-        'IAB_LPV': 31
+        'IAB_LPV': 31,
+        'IAB_LPV_BODY': 32
         })
     }),
     MM_USER_CONTROLS_ACTION: Object.freeze({
@@ -9911,7 +9945,29 @@ const WA_WAM_ENUMS = Object.freeze({
         'CANCEL_PASSKEY_DELETE_BUTTON': 318,
         'PAYMENTS_PASSKEY_DELETE': 319,
         'NAVIGATE_TO_PAYMENT_BUTTON': 320,
-        'PASSKEY_COOLDOWN': 321
+        'PASSKEY_COOLDOWN': 321,
+        'MODIFY_SPLIT_TOTAL_AMOUNT': 322,
+        'MODIFY_SPLIT_INDIVIDUAL_AMOUNT': 323,
+        'SEND_SPLIT_REQUEST': 324,
+        'MARK_SPLIT_PAID': 325,
+        'COMPOSER_REMITTANCE_BUTTON': 326,
+        'PARTNER_SELECTED': 327,
+        'PARTNER_SELECTOR_DISMISS': 328,
+        'SUPPORT_LINK': 329,
+        'AMOUNT_INPUT': 330,
+        'AMOUNT_PAY': 331,
+        'AMOUNT_BACK_BUTTON': 332,
+        'DETAILS_RECEIVED': 333,
+        'SHARE_IN_CHAT_BUTTON': 334,
+        'SHARE_PROMPT_DISMISS': 335,
+        'CHAT_WITH_PARTNER_SUPPORT': 336,
+        'VISIT_HELP_CENTER': 337,
+        'PAYMENT_DETAILS_BACK': 338,
+        'PAYMENT_BUBBLE_SENT': 339,
+        'PAYMENT_BUBBLE_VIEW_DETAILS': 340,
+        'PAYMENT_STATUS_UPDATE': 341,
+        'SHARE_UPI_QR_CODE': 342,
+        'VIEW_CONTACT_TRANSACTIONS': 343
         })
     }),
     PAYMENT_ACTION_TYPES: Object.freeze({
@@ -10360,7 +10416,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'USER_INTENT_STATUS_PREFETCH': 13,
         'SEND_SENDERKEY': 14,
         'AEA_SEND_TIME_RECONCILATION': 15,
-        'AEA_CONSUMER_BACKFILL': 16
+        'AEA_CONSUMER_BACKFILL': 16,
+        'AEA_GOSSIP_MISMATCH': 17
         })
     }),
     PREMIUM_STATUS_TYPE: Object.freeze({
@@ -10383,7 +10440,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'EXCITED': 5,
         'HAPPY_NEW_YEAR': 6,
         'HAPPY_ST_PATRICKS_DAY': 7,
-        'HAPPY_EASTER': 8
+        'HAPPY_EASTER': 8,
+        'FIFA_WORLDCUP_WATCHING_THE_MATCH': 9,
+        'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10
         })
     }),
     PREVIOUS_EPHEMERALITY_TYPE: Object.freeze({
@@ -12055,7 +12114,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE': 25,
         'USER_ARCHIVE': 26,
         'USER_BLOCK_REASON_DONT_RECOGNIZE': 27,
-        'IAB_LPV': 28
+        'IAB_LPV': 28,
+        'IAB_LPV_BODY': 29
         })
     }),
     SIGNUP_ENTRY_POINT: Object.freeze({
@@ -12160,7 +12220,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CTWA_CHAT': 6,
         'DATA_SHARING_TOOLS': 7,
         'CONTACT_INFO_CARD': 8,
-        'DATA_SHARING_SYSTEM_MESSAGE': 9
+        'DATA_SHARING_SYSTEM_MESSAGE': 9,
+        'LISTS_MANAGEMENT': 10
         })
     }),
     SMB_DATA_SHARING_CONSENT_SCREEN_TYPE: Object.freeze({
@@ -12214,7 +12275,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'AUTHORIZED_AGENT': 18,
         'BUSINESS_TOOLS_REC_CARD': 19,
         'LISTS_CREATION': 20,
-        'LIST_APPLICATION': 21
+        'LIST_APPLICATION': 21,
+        'SEND_QUICK_REPLY': 22
         })
     }),
     SMB_LIST_FEATURE_NAME_TYPE: Object.freeze({
@@ -12432,7 +12494,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLOSE_SHARING_MIMICRY': 55,
         'CHANNEL_THREAD_SCREEN': 56,
         'MEDIA_BROWSER_STATUS_MENU': 57,
-        'ARCHIVE_STATUS_VIEWER': 58
+        'ARCHIVE_STATUS_VIEWER': 58,
+        'ME_TAB': 59
         })
     }),
     STATUS_CROSSPOST_SHARE_TYPE_ENUM: Object.freeze({
@@ -12729,7 +12792,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLOSE_SHARING_MIMICRY': 54,
         'CHANNEL_STATUS_VIEWER_TOP_BAR': 55,
         'MEDIA_BROWSER_STATUS_MENU': 56,
-        'ARCHIVE_STATUS_VIEWER': 57
+        'ARCHIVE_STATUS_VIEWER': 57,
+        'ME_TAB': 58
         })
     }),
     STATUS_POST_RESULT: Object.freeze({
@@ -12895,7 +12959,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_INFO_SCREEN': 36,
         'CHANNEL_THREAD_SCREEN': 37,
         'ARCHIVE_STATUS_VIEWER': 38,
-        'ARCHIVE_STORAGE': 39
+        'ARCHIVE_STORAGE': 39,
+        'ME_TAB': 40
         })
     }),
     STATUS_TYPE: Object.freeze({
@@ -13580,7 +13645,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'GENAI_AGENT_AI_RESPONSE_SETTINGS': 303,
         'GENAI_AGENT_AI_RESPONSE_SETTINGS_PAUSE_BOTTOM_SHEET': 304,
         'GENAI_AGENT_AI_RESPONSE_SETTINGS_LEARN_MORE_BOTTOM_SHEET': 305,
-        'GENAI_AGENT_AI_RESPONSE_SETTINGS_HOURS_PICKER': 306
+        'GENAI_AGENT_AI_RESPONSE_SETTINGS_HOURS_PICKER': 306,
+        'IN_THREAD_CHAT': 307,
+        'QUICK_REPLY_PICKER': 308,
+        'QUICK_REPLY_MEDIA_PREVIEW': 309,
+        'SMART_QUICK_REPLY_SETUP': 310
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -14048,7 +14117,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'FOA_BIZ_PROFILE': 233,
         'META_AI_NEW_CHAT': 234,
         'MANAGE_STORAGE_GALLERY': 235,
-        'STATUS_PRIVACY_PARTICIPANT_PICKER': 236
+        'STATUS_PRIVACY_PARTICIPANT_PICKER': 236,
+        'SMB_CATALOG_ADD_ITEM': 237,
+        'SMB_CATALOG_ADD_ITEM_MEDIA': 238,
+        'SMB_CATALOG_ADD_ITEM_ORIGIN_COUNTRY': 239,
+        'SMB_CATALOG_ADD_ITEM_SAVE': 240,
+        'SMB_CATALOG_ADD_ITEM_SAVE_ERROR': 241,
+        'SMB_CATALOG_ADD_ITEM_SAVE_SUCCESS': 242,
+        'SMB_LISTS_MANAGE': 243,
+        'SMB_LISTS_CREATE': 244,
+        'SMB_LISTS_PICKER': 245
         })
     }),
     TYPE_OF_GROUP_ENUM: Object.freeze({
@@ -14288,7 +14366,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL': 10,
         'BROADCAST': 11,
         'MULTI_CHAT': 12,
-        'INTEROP': 13
+        'INTEROP': 13,
+        'WA_BACKUP': 14
         })
     }),
     UPLOAD_SOURCE_TYPE: Object.freeze({
@@ -16349,7 +16428,6 @@ const WA_WAM_EVENTS = Object.freeze({
             audioPlayCbLatencyGteMaxCnt: Object.freeze({ id: 1139, type: 'integer', falcoName: 'audio_play_cb_latency_gte_max_cnt' }),
             audioPlayerInitMs: Object.freeze({ id: 2593, type: 'integer', falcoName: 'audio_player_init_ms' }),
             audioPlayerStartMs: Object.freeze({ id: 2594, type: 'integer', falcoName: 'audio_player_start_ms' }),
-            audioPostProcessSiiSnr: Object.freeze({ id: 2924, type: 'number', falcoName: 'audio_post_process_sii_snr' }),
             audioPutFrameOverflowCount: Object.freeze({ id: 1878, type: 'integer', falcoName: 'audio_put_frame_overflow_count' }),
             audioRecorderInitMs: Object.freeze({ id: 2595, type: 'integer', falcoName: 'audio_recorder_init_ms' }),
             audioRecorderStartMs: Object.freeze({ id: 2596, type: 'integer', falcoName: 'audio_recorder_start_ms' }),
@@ -16374,9 +16452,29 @@ const WA_WAM_EVENTS = Object.freeze({
             audioTargetBitrateDrops: Object.freeze({ id: 1357, type: 'integer', falcoName: 'audio_target_bitrate_drops' }),
             audioTotalBytesOnNonDefCell: Object.freeze({ id: 450, type: 'number', falcoName: 'audio_total_bytes_on_non_def_cell' }),
             audioTxActiveBitrate: Object.freeze({ id: 1748, type: 'number', falcoName: 'audio_tx_active_bitrate' }),
+            audioTxCrestFactorAvg: Object.freeze({ id: 2976, type: 'number', falcoName: 'audio_tx_crest_factor_avg' }),
+            audioTxCrestFactorP5: Object.freeze({ id: 2977, type: 'number', falcoName: 'audio_tx_crest_factor_p5' }),
+            audioTxCrestFactorP50: Object.freeze({ id: 2978, type: 'number', falcoName: 'audio_tx_crest_factor_p50' }),
+            audioTxCrestFactorP95: Object.freeze({ id: 2979, type: 'number', falcoName: 'audio_tx_crest_factor_p95' }),
             audioTxInbandFecBitrate: Object.freeze({ id: 1749, type: 'number', falcoName: 'audio_tx_inband_fec_bitrate' }),
             audioTxNonactiveBitrate: Object.freeze({ id: 1750, type: 'number', falcoName: 'audio_tx_nonactive_bitrate' }),
             audioTxPktCount: Object.freeze({ id: 1751, type: 'number', falcoName: 'audio_tx_pkt_count' }),
+            audioTxSiiSnrAvg: Object.freeze({ id: 2980, type: 'number', falcoName: 'audio_tx_sii_snr_avg' }),
+            audioTxSiiSnrP5: Object.freeze({ id: 2981, type: 'number', falcoName: 'audio_tx_sii_snr_p5' }),
+            audioTxSiiSnrP50: Object.freeze({ id: 2982, type: 'number', falcoName: 'audio_tx_sii_snr_p50' }),
+            audioTxSiiSnrP95: Object.freeze({ id: 2983, type: 'number', falcoName: 'audio_tx_sii_snr_p95' }),
+            audioTxSpectralCentroidAvg: Object.freeze({ id: 2984, type: 'number', falcoName: 'audio_tx_spectral_centroid_avg' }),
+            audioTxSpectralCentroidP5: Object.freeze({ id: 2985, type: 'number', falcoName: 'audio_tx_spectral_centroid_p5' }),
+            audioTxSpectralCentroidP50: Object.freeze({ id: 2986, type: 'number', falcoName: 'audio_tx_spectral_centroid_p50' }),
+            audioTxSpectralCentroidP95: Object.freeze({ id: 2987, type: 'number', falcoName: 'audio_tx_spectral_centroid_p95' }),
+            audioTxSpectralFlatnessAvg: Object.freeze({ id: 2988, type: 'number', falcoName: 'audio_tx_spectral_flatness_avg' }),
+            audioTxSpectralFlatnessP5: Object.freeze({ id: 2989, type: 'number', falcoName: 'audio_tx_spectral_flatness_p5' }),
+            audioTxSpectralFlatnessP50: Object.freeze({ id: 2990, type: 'number', falcoName: 'audio_tx_spectral_flatness_p50' }),
+            audioTxSpectralFlatnessP95: Object.freeze({ id: 2991, type: 'number', falcoName: 'audio_tx_spectral_flatness_p95' }),
+            audioTxSpectralRolloffAvg: Object.freeze({ id: 2992, type: 'number', falcoName: 'audio_tx_spectral_rolloff_avg' }),
+            audioTxSpectralRolloffP5: Object.freeze({ id: 2993, type: 'number', falcoName: 'audio_tx_spectral_rolloff_p5' }),
+            audioTxSpectralRolloffP50: Object.freeze({ id: 2994, type: 'number', falcoName: 'audio_tx_spectral_rolloff_p50' }),
+            audioTxSpectralRolloffP95: Object.freeze({ id: 2995, type: 'number', falcoName: 'audio_tx_spectral_rolloff_p95' }),
             audioTxUlpFecPkts: Object.freeze({ id: 1359, type: 'integer', falcoName: 'audio_tx_ulp_fec_pkts' }),
             audioUlpFecRecovered: Object.freeze({ id: 1360, type: 'integer', falcoName: 'audio_ulp_fec_recovered' }),
             audioUnitSetupTime: Object.freeze({ id: 2268, type: 'timer', falcoName: 'audio_unit_setup_time' }),
@@ -16481,6 +16579,7 @@ const WA_WAM_EVENTS = Object.freeze({
             bwaVidDisablingRxCandidateDuration: Object.freeze({ id: 1116, type: 'timer', falcoName: 'bwa_vid_disabling_rx_candidate_duration' }),
             bwaVidDisablingTxCandidateDuration: Object.freeze({ id: 1115, type: 'timer', falcoName: 'bwa_vid_disabling_tx_candidate_duration' }),
             bweSlrOutputBps: Object.freeze({ id: 2461, type: 'integer', falcoName: 'bwe_slr_output_bps' }),
+            c50Linked: Object.freeze({ id: 3001, type: 'boolean', falcoName: 'c50_linked' }),
             callAcceptFuncT: Object.freeze({ id: 132, type: 'timer', falcoName: 'call_accept_func_t' }),
             callAcceptRcvd: Object.freeze({ id: 2854, type: 'boolean', falcoName: 'call_accept_rcvd' }),
             callAcceptSent: Object.freeze({ id: 2855, type: 'boolean', falcoName: 'call_accept_sent' }),
@@ -16511,6 +16610,8 @@ const WA_WAM_EVENTS = Object.freeze({
             callEchoEnergy: Object.freeze({ id: 46, type: 'number', falcoName: 'call_echo_energy' }),
             callEchoLikelihood: Object.freeze({ id: 44, type: 'integer', falcoName: 'call_echo_likelihood' }),
             callEchoLikelihoodBeforeEc: Object.freeze({ id: 47, type: 'number', falcoName: 'call_echo_likelihood_before_ec' }),
+            callEligibleBucketIdList: Object.freeze({ id: 2971, type: 'string', falcoName: 'call_eligible_bucket_id_list' }),
+            callEligibleBucketNameList: Object.freeze({ id: 3005, type: 'string', falcoName: 'call_eligible_bucket_name_list' }),
             callEndBatteryPct: Object.freeze({ id: 2527, type: 'number', falcoName: 'call_end_battery_pct' }),
             callEndFrameLossMs: Object.freeze({ id: 1142, type: 'timer', falcoName: 'call_end_frame_loss_ms' }),
             callEndFuncT: Object.freeze({ id: 130, type: 'timer', falcoName: 'call_end_func_t' }),
@@ -17514,6 +17615,7 @@ const WA_WAM_EVENTS = Object.freeze({
             peersRejectedMuteReqCount: Object.freeze({ id: 1173, type: 'integer', falcoName: 'peers_rejected_mute_req_count' }),
             perPeerCallNetwork: Object.freeze({ id: 1618, type: 'enum', enum: 'CALL_NETWORK_MEDIUM', falcoName: 'per_peer_call_network' }),
             perPeerVideoDisablingEventCount: Object.freeze({ id: 1649, type: 'integer', falcoName: 'per_peer_video_disabling_event_count' }),
+            peripheralDeviceOrigin: Object.freeze({ id: 3002, type: 'enum', enum: 'PERIPHERAL_DEVICE_TYPE', falcoName: 'peripheral_device_origin' }),
             phoneStateAtEnd: Object.freeze({ id: 2413, type: 'string', falcoName: 'phone_state_at_end' }),
             phoneStateAtStart: Object.freeze({ id: 2414, type: 'string', falcoName: 'phone_state_at_start' }),
             pingsSent: Object.freeze({ id: 160, type: 'number', falcoName: 'pings_sent' }),
@@ -18351,6 +18453,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoDisablingPausedDurationNoSbwa: Object.freeze({ id: 1819, type: 'timer', falcoName: 'video_disabling_paused_duration_no_sbwa' }),
             videoDisablingToCallEndDelay: Object.freeze({ id: 1653, type: 'timer', falcoName: 'video_disabling_to_call_end_delay' }),
             videoDowngradeCount: Object.freeze({ id: 273, type: 'integer', falcoName: 'video_downgrade_count' }),
+            videoEdgeAvg: Object.freeze({ id: 2972, type: 'integer', falcoName: 'video_edge_avg' }),
             videoEnabled: Object.freeze({ id: 163, type: 'boolean', falcoName: 'video_enabled' }),
             videoEnabledAtCallStart: Object.freeze({ id: 270, type: 'boolean', falcoName: 'video_enabled_at_call_start' }),
             videoEncAllLtrpTimeInMsec: Object.freeze({ id: 609, type: 'timer', falcoName: 'video_enc_all_ltrp_time_in_msec' }),
@@ -18467,6 +18570,9 @@ const WA_WAM_EVENTS = Object.freeze({
             videoMaxTxBitrateHq: Object.freeze({ id: 824, type: 'number', falcoName: 'video_max_tx_bitrate_hq' }),
             videoMinTargetBitrate: Object.freeze({ id: 421, type: 'number', falcoName: 'video_min_target_bitrate' }),
             videoMinTargetBitrateHq: Object.freeze({ id: 830, type: 'number', falcoName: 'video_min_target_bitrate_hq' }),
+            videoMotionAvg: Object.freeze({ id: 2973, type: 'integer', falcoName: 'video_motion_avg' }),
+            videoMotionP5: Object.freeze({ id: 2974, type: 'integer', falcoName: 'video_motion_p5' }),
+            videoMotionP95: Object.freeze({ id: 2975, type: 'integer', falcoName: 'video_motion_p95' }),
             videoNackHbhEnabled: Object.freeze({ id: 1185, type: 'boolean', falcoName: 'video_nack_hbh_enabled' }),
             videoNackRtpRetransmitRecvdCount: Object.freeze({ id: 1272, type: 'integer', falcoName: 'video_nack_rtp_retransmit_recvd_count' }),
             videoNackRtpRetransmitReqCount: Object.freeze({ id: 1373, type: 'integer', falcoName: 'video_nack_rtp_retransmit_req_count' }),
@@ -18478,9 +18584,13 @@ const WA_WAM_EVENTS = Object.freeze({
             videoPeerTriggeredPauseCount: Object.freeze({ id: 654, type: 'integer', falcoName: 'video_peer_triggered_pause_count' }),
             videoQualityScore: Object.freeze({ id: 1270, type: 'integer', falcoName: 'video_quality_score' }),
             videoRecvPsnrAvg: Object.freeze({ id: 2315, type: 'number', falcoName: 'video_recv_psnr_avg' }),
+            videoRecvPsnrAvgSs: Object.freeze({ id: 2996, type: 'number', falcoName: 'video_recv_psnr_avg_ss' }),
             videoRecvPsnrP5: Object.freeze({ id: 2316, type: 'number', falcoName: 'video_recv_psnr_p5' }),
             videoRecvPsnrP50: Object.freeze({ id: 2317, type: 'number', falcoName: 'video_recv_psnr_p50' }),
+            videoRecvPsnrP50Ss: Object.freeze({ id: 2997, type: 'number', falcoName: 'video_recv_psnr_p50_ss' }),
+            videoRecvPsnrP5Ss: Object.freeze({ id: 2998, type: 'number', falcoName: 'video_recv_psnr_p5_ss' }),
             videoRecvPsnrP95: Object.freeze({ id: 2318, type: 'number', falcoName: 'video_recv_psnr_p95' }),
+            videoRecvPsnrP95Ss: Object.freeze({ id: 2999, type: 'number', falcoName: 'video_recv_psnr_p95_ss' }),
             videoRenderAvgFps: Object.freeze({ id: 208, type: 'integer', falcoName: 'video_render_avg_fps' }),
             videoRenderAvgFpsDominantSpeaker: Object.freeze({ id: 2182, type: 'integer', falcoName: 'video_render_avg_fps_dominant_speaker' }),
             videoRenderConverterTs: Object.freeze({ id: 225, type: 'timer', falcoName: 'video_render_converter_ts' }),
@@ -18558,6 +18668,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoSelfState: Object.freeze({ id: 274, type: 'enum', enum: 'CALL_VIDEO_STATE', falcoName: 'video_self_state' }),
             videoSenderBweDiffStddev: Object.freeze({ id: 954, type: 'number', falcoName: 'video_sender_bwe_diff_stddev' }),
             videoSenderBweStddev: Object.freeze({ id: 348, type: 'number', falcoName: 'video_sender_bwe_stddev' }),
+            videoStateReorderDropCount: Object.freeze({ id: 3000, type: 'integer', falcoName: 'video_state_reorder_drop_count' }),
             videoStreamRecreations: Object.freeze({ id: 1562, type: 'integer', falcoName: 'video_stream_recreations' }),
             videoTargetBitrateReaches1000kbpsT: Object.freeze({ id: 351, type: 'timer', falcoName: 'video_target_bitrate_reaches1000kbps_t' }),
             videoTargetBitrateReaches100kbpsT: Object.freeze({ id: 1797, type: 'timer', falcoName: 'video_target_bitrate_reaches100kbps_t' }),
@@ -18606,7 +18717,6 @@ const WA_WAM_EVENTS = Object.freeze({
             videoUpgradeRejectByTimeoutCount: Object.freeze({ id: 326, type: 'integer', falcoName: 'video_upgrade_reject_by_timeout_count' }),
             videoUpgradeRejectCount: Object.freeze({ id: 324, type: 'integer', falcoName: 'video_upgrade_reject_count' }),
             videoUpgradeRequestCount: Object.freeze({ id: 271, type: 'integer', falcoName: 'video_upgrade_request_count' }),
-            videoVav1Time: Object.freeze({ id: 2267, type: 'integer', falcoName: 'video_vav1_time' }),
             videoWebcodecsDecFatalErrorNum: Object.freeze({ id: 2874, type: 'integer', falcoName: 'video_webcodecs_dec_fatal_error_num' }),
             videoWidth: Object.freeze({ id: 188, type: 'integer', falcoName: 'video_width' }),
             viewUnknownPeerVideoCount: Object.freeze({ id: 2351, type: 'integer', falcoName: 'view_unknown_peer_video_count' }),
@@ -18734,6 +18844,8 @@ const WA_WAM_EVENTS = Object.freeze({
             weakWifiSwitchToNonDefNetFalsePositive: Object.freeze({ id: 399, type: 'integer', falcoName: 'weak_wifi_switch_to_non_def_net_false_positive' }),
             weakWifiSwitchToNonDefNetSuccess: Object.freeze({ id: 400, type: 'integer', falcoName: 'weak_wifi_switch_to_non_def_net_success' }),
             weakWifiSwitchToNonDefNetTriggered: Object.freeze({ id: 398, type: 'integer', falcoName: 'weak_wifi_switch_to_non_def_net_triggered' }),
+            wearableCallPovDuration: Object.freeze({ id: 3003, type: 'integer', falcoName: 'wearable_call_pov_duration' }),
+            wearableDeviceTypes: Object.freeze({ id: 3004, type: 'string', falcoName: 'wearable_device_types' }),
             webAudioCaptureOverrunCount: Object.freeze({ id: 2903, type: 'integer', falcoName: 'web_audio_capture_overrun_count' }),
             webAudioCaptureSabFillAvgMs: Object.freeze({ id: 2904, type: 'timer', falcoName: 'web_audio_capture_sab_fill_avg_ms' }),
             webAudioCaptureSabFillMaxMs: Object.freeze({ id: 2905, type: 'timer', falcoName: 'web_audio_capture_sab_fill_max_ms' }),
@@ -18901,6 +19013,7 @@ const WA_WAM_EVENTS = Object.freeze({
             leafCertCommonName: Object.freeze({ id: 3, type: 'string', falcoName: 'leaf_cert_common_name' }),
             leafCertId: Object.freeze({ id: 4, type: 'string', falcoName: 'leaf_cert_id' }),
             leafCertTtlDays: Object.freeze({ id: 5, type: 'integer', falcoName: 'leaf_cert_ttl_days' }),
+            rawErrorCode: Object.freeze({ id: 8, type: 'string', falcoName: 'raw_error_code' }),
             signatureVersion: Object.freeze({ id: 6, type: 'string', falcoName: 'signature_version' }),
             verificationLatency: Object.freeze({ id: 7, type: 'timer', falcoName: 'verification_latency' })
         })
@@ -19820,6 +19933,7 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            companionInviteAction: Object.freeze({ id: 8, type: 'enum', enum: 'COMPANION_INVITE_ACTION_TYPE', falcoName: 'companion_invite_action' }),
             companionInviteCodeError: Object.freeze({ id: 1, type: 'string', falcoName: 'companion_invite_code_error' }),
             companionInviteMethod: Object.freeze({ id: 2, type: 'enum', enum: 'COMPANION_INVITE_METHOD_TYPE', falcoName: 'companion_invite_method' }),
             companionInviteNumContactsAddressBook: Object.freeze({ id: 3, type: 'integer', falcoName: 'companion_invite_num_contacts_address_book' }),
@@ -19935,7 +20049,10 @@ const WA_WAM_EVENTS = Object.freeze({
             contactSyncMultiIqFailedPageIndex: Object.freeze({ id: 35, type: 'integer', falcoName: 'contact_sync_multi_iq_failed_page_index' }),
             contactSyncMultiIqSessionDurationMs: Object.freeze({ id: 36, type: 'integer', falcoName: 'contact_sync_multi_iq_session_duration_ms' }),
             contactSyncMultiIqTotalPages: Object.freeze({ id: 37, type: 'integer', falcoName: 'contact_sync_multi_iq_total_pages' }),
+            contactSyncNewLidToPnMappings: Object.freeze({ id: 38, type: 'integer', falcoName: 'contact_sync_new_lid_to_pn_mappings' }),
+            contactSyncNewLidToUsernameMappings: Object.freeze({ id: 39, type: 'integer', falcoName: 'contact_sync_new_lid_to_username_mappings' }),
             contactSyncNoop: Object.freeze({ id: 12, type: 'boolean', falcoName: 'contact_sync_noop' }),
+            contactSyncOsImportedContactsToRemove: Object.freeze({ id: 40, type: 'integer', falcoName: 'contact_sync_os_imported_contacts_to_remove' }),
             contactSyncPayResponseNew: Object.freeze({ id: 21, type: 'integer', falcoName: 'contact_sync_pay_response_new' }),
             contactSyncRequestClearWaSyncData: Object.freeze({ id: 6, type: 'boolean', falcoName: 'contact_sync_request_clear_wa_sync_data' }),
             contactSyncRequestIsUrgent: Object.freeze({ id: 5, type: 'boolean', falcoName: 'contact_sync_request_is_urgent' }),
@@ -20301,6 +20418,8 @@ const WA_WAM_EVENTS = Object.freeze({
             languageCode: Object.freeze({ id: 5, type: 'string', falcoName: 'language_code' }),
             lastBackupTimestamp: Object.freeze({ id: 63, type: 'integer', falcoName: 'last_backup_timestamp' }),
             lastCloudBackupSize: Object.freeze({ id: 185, type: 'integer', falcoName: 'last_cloud_backup_size' }),
+            lidToPnMappingCount: Object.freeze({ id: 253, type: 'integer', falcoName: 'lid_to_pn_mapping_count' }),
+            lidToUsernameMappingCount: Object.freeze({ id: 254, type: 'integer', falcoName: 'lid_to_username_mapping_count' }),
             locationCode: Object.freeze({ id: 6, type: 'string', falcoName: 'location_code' }),
             lockFolderHidden: Object.freeze({ id: 171, type: 'boolean', falcoName: 'lock_folder_hidden' }),
             lowestAppStandbyBucket: Object.freeze({ id: 160, type: 'integer', falcoName: 'lowest_app_standby_bucket' }),
@@ -20687,6 +20806,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageDistributionType: Object.freeze({ id: 20, type: 'enum', enum: 'MESSAGE_DISTRIBUTION_ENUM_TYPE', falcoName: 'message_distribution_type' }),
             messageIsInvisible: Object.freeze({ id: 10, type: 'boolean', falcoName: 'message_is_invisible' }),
             messageMediaType: Object.freeze({ id: 7, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'message_media_type' }),
+            messageTypeStr: Object.freeze({ id: 28, type: 'string', falcoName: 'message_type_str' }),
             retryCount: Object.freeze({ id: 3, type: 'integer', falcoName: 'retry_count' }),
             revokeType: Object.freeze({ id: 11, type: 'enum', enum: 'REVOKE_TYPE', falcoName: 'revoke_type' }),
             sessionScope: Object.freeze({ id: 27, type: 'enum', enum: 'SESSION_SCOPE_TYPE', falcoName: 'session_scope' }),
@@ -22694,6 +22814,7 @@ const WA_WAM_EVENTS = Object.freeze({
             prefetchOrder: Object.freeze({ id: 66, type: 'integer', falcoName: 'prefetch_order' }),
             sleepModeAffected: Object.freeze({ id: 51, type: 'boolean', falcoName: 'sleep_mode_affected' }),
             statusId: Object.freeze({ id: 67, type: 'string', falcoName: 'status_id' }),
+            streamingUsedNonStreamingFallback: Object.freeze({ id: 70, type: 'boolean', falcoName: 'streaming_used_non_streaming_fallback' }),
             timeDelayed: Object.freeze({ id: 54, type: 'timer', falcoName: 'time_delayed' }),
             usedFallbackHint: Object.freeze({ id: 40, type: 'string', falcoName: 'used_fallback_hint' })
         })
@@ -23189,6 +23310,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageSendSource: Object.freeze({ id: 66, type: 'enum', enum: 'MESSAGE_SEND_SOURCE', falcoName: 'message_send_source' }),
             messageSendT: Object.freeze({ id: 11, type: 'timer', falcoName: 'message_send_t' }),
             messageType: Object.freeze({ id: 2, type: 'enum', enum: 'MESSAGE_TYPE', falcoName: 'message_type' }),
+            messageTypeStr: Object.freeze({ id: 92, type: 'string', falcoName: 'message_type_str' }),
             networkWasDisconnected: Object.freeze({ id: 37, type: 'boolean', falcoName: 'network_was_disconnected' }),
             oppositeVisibleIdentification: Object.freeze({ id: 60, type: 'enum', enum: 'OPPOSITE_VISIBLE_IDENTIFICATION_TYPE', falcoName: 'opposite_visible_identification' }),
             overallMediaSize: Object.freeze({ id: 42, type: 'number', falcoName: 'overall_media_size' }),
@@ -24703,6 +24825,7 @@ const WA_WAM_EVENTS = Object.freeze({
             pttDraftPlayCnt: Object.freeze({ id: 7, type: 'integer', falcoName: 'ptt_draft_play_cnt' }),
             pttDraftSeekCnt: Object.freeze({ id: 8, type: 'integer', falcoName: 'ptt_draft_seek_cnt' }),
             pttDuration: Object.freeze({ id: 5, type: 'timer', falcoName: 'ptt_duration' }),
+            pttIntensityAggregateValue: Object.freeze({ id: 50, type: 'number', falcoName: 'ptt_intensity_aggregate_value' }),
             pttLock: Object.freeze({ id: 4, type: 'boolean', falcoName: 'ptt_lock' }),
             pttOggPageWriteBucketGte10msPct: Object.freeze({ id: 38, type: 'number', falcoName: 'ptt_ogg_page_write_bucket_gte10ms_pct' }),
             pttOggPageWriteBucketLt10msPct: Object.freeze({ id: 39, type: 'number', falcoName: 'ptt_ogg_page_write_bucket_lt10ms_pct' }),
@@ -24728,7 +24851,8 @@ const WA_WAM_EVENTS = Object.freeze({
             pttSize: Object.freeze({ id: 3, type: 'number', falcoName: 'ptt_size' }),
             pttSource: Object.freeze({ id: 2, type: 'enum', enum: 'PTT_SOURCE_TYPE', falcoName: 'ptt_source' }),
             pttStop: Object.freeze({ id: 6, type: 'boolean', falcoName: 'ptt_stop' }),
-            pttStopTapCnt: Object.freeze({ id: 10, type: 'integer', falcoName: 'ptt_stop_tap_cnt' })
+            pttStopTapCnt: Object.freeze({ id: 10, type: 'integer', falcoName: 'ptt_stop_tap_cnt' }),
+            pttWaveformResult: Object.freeze({ id: 51, type: 'enum', enum: 'PTT_WAVEFORM_RESULT', falcoName: 'ptt_waveform_result' })
         })
     }),
     PttDaily: Object.freeze({
