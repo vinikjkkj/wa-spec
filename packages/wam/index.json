@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040832931",
+  "waVersion": "2.3000.1040902005",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -55639,6 +55639,66 @@
           "id": 12,
           "type": "integer",
           "falcoName": "updates_tab_session_id"
+        }
+      }
+    },
+    "StatusPogImpression": {
+      "id": 8302,
+      "module": "WAWebStatusPogImpressionWamEvent",
+      "falcoName": "wam_status_pog_impression",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "cid": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "cid"
+        },
+        "pogIndex": {
+          "id": 2,
+          "type": "integer",
+          "falcoName": "pog_index"
+        },
+        "statusCategory": {
+          "id": 3,
+          "type": "enum",
+          "falcoName": "status_category",
+          "enum": "STATUS_CATEGORY"
+        },
+        "statusGroupId": {
+          "id": 4,
+          "type": "string",
+          "falcoName": "status_group_id"
+        },
+        "statusPosterHashId": {
+          "id": 5,
+          "type": "string",
+          "falcoName": "status_poster_hash_id"
+        },
+        "statusPosterId": {
+          "id": 6,
+          "type": "string",
+          "falcoName": "status_poster_id"
+        },
+        "statusViewEntrypoint": {
+          "id": 7,
+          "type": "enum",
+          "falcoName": "status_view_entrypoint",
+          "enum": "STATUS_ROW_SECTION"
+        },
+        "tsSurface": {
+          "id": 8,
+          "type": "enum",
+          "falcoName": "ts_surface",
+          "enum": "TS_SURFACE"
         }
       }
     },

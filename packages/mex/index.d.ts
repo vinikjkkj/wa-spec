@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040832931
+// WhatsApp Version: 2.3000.1040902005
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -120,6 +120,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly QuickPromotionAction: WaMexPersistId
     readonly ReportProduct: WaMexPersistId
     readonly RequestClientLogsForBug: WaMexPersistId
+    readonly RequestOTE: WaMexPersistId
     readonly ResolveAccountTypeAndAdPage: WaMexPersistId
     readonly ResolveAccountTypeAndAdPageQuery: WaMexPersistId
     readonly RevokeNewsletterAdminInvite: WaMexPersistId
@@ -249,6 +250,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly QuickPromotionAction: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly ReportProduct: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly RequestClientLogsForBug: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly RequestOTE: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly ResolveAccountTypeAndAdPage: WaMexOperationSchema<'mutation', readonly []>
     readonly ResolveAccountTypeAndAdPageQuery: WaMexOperationSchema<'query', readonly ['pageId']>
     readonly RevokeNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
@@ -989,6 +991,14 @@ export type WaMexRequestClientLogsForBugVariables = {
     }
 }
 
+export type WaMexRequestOTEVariables = {
+    readonly input?: {
+        readonly type?: 'INDIVIDUAL_NEW_CHAT_THREAD'
+        readonly selected_reason?: string
+        readonly reason_text?: string
+    }
+}
+
 export type WaMexResolveAccountTypeAndAdPageVariables = {
     readonly pageId?: string
 }
@@ -1206,6 +1216,7 @@ export interface WaMexOperationVariables {
     readonly QuickPromotionAction: WaMexQuickPromotionActionVariables
     readonly ReportProduct: WaMexReportProductVariables
     readonly RequestClientLogsForBug: WaMexRequestClientLogsForBugVariables
+    readonly RequestOTE: WaMexRequestOTEVariables
     readonly ResolveAccountTypeAndAdPage: WaMexResolveAccountTypeAndAdPageVariables
     readonly ResolveAccountTypeAndAdPageQuery: WaMexResolveAccountTypeAndAdPageQueryVariables
     readonly RevokeNewsletterAdminInvite: WaMexRevokeNewsletterAdminInviteVariables
@@ -3881,6 +3892,19 @@ export type WaMexRequestClientLogsForBugResponse = {
     readonly xwa2_request_client_logs_for_bug?: boolean
 }
 
+export type WaMexRequestOTEResponse = {
+    readonly xwa2_ncm_request_ote?: {
+        readonly total_quota?: unknown
+        readonly used_quota?: unknown
+        readonly cycle_start_timestamp?: string
+        readonly cycle_end_timestamp?: string
+        readonly server_sent_timestamp?: string
+        readonly ote_status?: string
+        readonly mv_status?: string
+        readonly capping_status?: string
+    }
+}
+
 export type WaMexResolveAccountTypeAndAdPageResponse = {
     readonly xfb_wa_biz_clear_oidc_preference?: boolean
 }
@@ -4237,6 +4261,7 @@ export interface WaMexOperationResponses {
     readonly QuickPromotionAction: WaMexQuickPromotionActionResponse
     readonly ReportProduct: WaMexReportProductResponse
     readonly RequestClientLogsForBug: WaMexRequestClientLogsForBugResponse
+    readonly RequestOTE: WaMexRequestOTEResponse
     readonly ResolveAccountTypeAndAdPage: WaMexResolveAccountTypeAndAdPageResponse
     readonly ResolveAccountTypeAndAdPageQuery: WaMexResolveAccountTypeAndAdPageQueryResponse
     readonly RevokeNewsletterAdminInvite: WaMexRevokeNewsletterAdminInviteResponse

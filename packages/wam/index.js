@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040832931
+// WhatsApp Version: 2.3000.1040902005
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -26011,6 +26011,26 @@ const WA_WAM_EVENTS = Object.freeze({
             statusViewerSessionId: Object.freeze({ id: 2, type: 'integer', falcoName: 'status_viewer_session_id' }),
             unifiedSessionId: Object.freeze({ id: 11, type: 'string', falcoName: 'unified_session_id' }),
             updatesTabSessionId: Object.freeze({ id: 12, type: 'integer', falcoName: 'updates_tab_session_id' })
+        })
+    }),
+    StatusPogImpression: Object.freeze({
+        id: 8302,
+        falcoName: 'wam_status_pog_impression',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            cid: Object.freeze({ id: 1, type: 'string', falcoName: 'cid' }),
+            pogIndex: Object.freeze({ id: 2, type: 'integer', falcoName: 'pog_index' }),
+            statusCategory: Object.freeze({ id: 3, type: 'enum', enum: 'STATUS_CATEGORY', falcoName: 'status_category' }),
+            statusGroupId: Object.freeze({ id: 4, type: 'string', falcoName: 'status_group_id' }),
+            statusPosterHashId: Object.freeze({ id: 5, type: 'string', falcoName: 'status_poster_hash_id' }),
+            statusPosterId: Object.freeze({ id: 6, type: 'string', falcoName: 'status_poster_id' }),
+            statusViewEntrypoint: Object.freeze({ id: 7, type: 'enum', enum: 'STATUS_ROW_SECTION', falcoName: 'status_view_entrypoint' }),
+            tsSurface: Object.freeze({ id: 8, type: 'enum', enum: 'TS_SURFACE', falcoName: 'ts_surface' })
         })
     }),
     StatusPost: Object.freeze({

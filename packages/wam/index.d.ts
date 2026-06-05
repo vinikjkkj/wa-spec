@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040832931
+// WhatsApp Version: 2.3000.1040902005
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -27356,6 +27356,30 @@ export declare const WA_WAM_EVENTS: {
             readonly statusViewerSessionId: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'status_viewer_session_id' }
             readonly unifiedSessionId: { readonly id: 11; readonly type: 'string'; readonly falcoName: 'unified_session_id' }
             readonly updatesTabSessionId: { readonly id: 12; readonly type: 'integer'; readonly falcoName: 'updates_tab_session_id' }
+        }
+    }
+    readonly StatusPogImpression: {
+        readonly id: 8302
+        readonly falcoName: 'wam_status_pog_impression'
+        readonly channel: 'regular'
+        readonly privateStatsIdInt: null
+        readonly emittedByWorker: false
+        readonly weight: {
+            readonly default: 1
+            readonly gkx26259: 1
+            readonly gkx26258: 1
+        }
+        readonly requiredFields: readonly []
+        readonly conditions: readonly []
+        readonly fields: {
+            readonly cid: { readonly id: 1; readonly type: 'string'; readonly falcoName: 'cid' }
+            readonly pogIndex: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'pog_index' }
+            readonly statusCategory: { readonly id: 3; readonly type: 'enum'; readonly enum: 'STATUS_CATEGORY'; readonly falcoName: 'status_category' }
+            readonly statusGroupId: { readonly id: 4; readonly type: 'string'; readonly falcoName: 'status_group_id' }
+            readonly statusPosterHashId: { readonly id: 5; readonly type: 'string'; readonly falcoName: 'status_poster_hash_id' }
+            readonly statusPosterId: { readonly id: 6; readonly type: 'string'; readonly falcoName: 'status_poster_id' }
+            readonly statusViewEntrypoint: { readonly id: 7; readonly type: 'enum'; readonly enum: 'STATUS_ROW_SECTION'; readonly falcoName: 'status_view_entrypoint' }
+            readonly tsSurface: { readonly id: 8; readonly type: 'enum'; readonly enum: 'TS_SURFACE'; readonly falcoName: 'ts_surface' }
         }
     }
     readonly StatusPost: {

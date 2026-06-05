@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040832931
+// WhatsApp Version: 2.3000.1040902005
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -108,6 +108,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     QuickPromotionAction: Object.freeze({ docId: '9741612265875562', clientDocId: '9741612265875562' }),
     ReportProduct: Object.freeze({ docId: 'WAWebReportProductJobMutation', clientDocId: 'WAWebReportProductJobMutation' }),
     RequestClientLogsForBug: Object.freeze({ docId: '27135500612803533', clientDocId: '27135500612803533' }),
+    RequestOTE: Object.freeze({ docId: '35108428002105570', clientDocId: '35108428002105570' }),
     ResolveAccountTypeAndAdPage: Object.freeze({ docId: '24732033759799062', clientDocId: '24732033759799062' }),
     ResolveAccountTypeAndAdPageQuery: Object.freeze({ docId: '24856134350695832', clientDocId: '24856134350695832' }),
     RevokeNewsletterAdminInvite: Object.freeze({ docId: '9656078347839416', clientDocId: '9656078347839416' }),
@@ -237,6 +238,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     QuickPromotionAction: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     ReportProduct: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     RequestClientLogsForBug: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    RequestOTE: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     ResolveAccountTypeAndAdPage: Object.freeze({ operationKind: 'mutation', variables: Object.freeze([]) }),
     ResolveAccountTypeAndAdPageQuery: Object.freeze({ operationKind: 'query', variables: Object.freeze(['pageId']) }),
     RevokeNewsletterAdminInvite: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
