@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040902005",
+  "waVersion": "2.3000.1040971408",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -2170,7 +2170,7 @@
     },
     "FetchNewsletterEnforcements": {
       "originalName": "WAWebMexFetchNewsletterEnforcementsJobQuery",
-      "docId": "26807357005541676",
+      "docId": "27144556038512360",
       "operationKind": "query",
       "variables": [
         "locale",
@@ -2190,6 +2190,12 @@
               "enforcement_violation_category": "string",
               "enforcement_source": "string",
               "enforcement_id": "string",
+              "appeal_reason_options": [
+                {
+                  "reason": "string",
+                  "label": "string"
+                }
+              ],
               "enforcement_extra_data": {
                 "ip_violation_report_data": {
                   "report_fbid": "string",
@@ -2215,6 +2221,12 @@
               "enforcement_violation_category": "string",
               "enforcement_id": "string",
               "enforcement_source": "string",
+              "appeal_reason_options": [
+                {
+                  "reason": "string",
+                  "label": "string"
+                }
+              ],
               "enforcement_extra_data": {
                 "ip_violation_report_data": {
                   "report_fbid": "string",
@@ -2250,6 +2262,12 @@
                 "enforcement_id": "string",
                 "enforcement_violation_category": "string",
                 "enforcement_source": "string",
+                "appeal_reason_options": [
+                  {
+                    "reason": "string",
+                    "label": "string"
+                  }
+                ],
                 "enforcement_extra_data": {
                   "ip_violation_report_data": {
                     "report_fbid": "string",
@@ -2282,6 +2300,12 @@
                 "enforcement_id": "string",
                 "enforcement_violation_category": "string",
                 "enforcement_source": "string",
+                "appeal_reason_options": [
+                  {
+                    "reason": "string",
+                    "label": "string"
+                  }
+                ],
                 "enforcement_extra_data": {
                   "ip_violation_report_data": {
                     "report_fbid": "string",
@@ -2526,10 +2550,14 @@
     },
     "FetchNewsletterReports": {
       "originalName": "WAWebMexFetchNewsletterReportsJobQuery",
-      "docId": "24241374008893508",
+      "docId": "27717296871209353",
       "operationKind": "query",
-      "variables": [],
-      "variablesShape": {},
+      "variables": [
+        "locale"
+      ],
+      "variablesShape": {
+        "locale": "string"
+      },
       "response": {
         "xwa2_channels_reports": {
           "channels_reports": [

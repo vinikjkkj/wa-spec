@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040902005
+// WhatsApp Version: 2.3000.1040971408
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1521,6 +1521,82 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALL_INFO_CALL_LINK': 85,
         'CALL_INFO_CALL_LINK_PARTICIPANT': 86,
         'CALL_INFO_CALL_LINK_MINI_CONTACT_SHEET': 87
+        })
+    }),
+    CALL_LINK_ACTION: Object.freeze({
+        module: 'WAWebWamEnumCallLinkAction',
+        export: 'CALL_LINK_ACTION',
+        values: Object.freeze({
+        'COPY': 1,
+        'SHARE': 2,
+        'SHARE_VIA_WHATSAPP': 3,
+        'ADD_TO_CALENDAR': 4,
+        'CREATE_CALL_LINK': 5,
+        'EDIT_CALL_LINK': 6,
+        'DELETE_CALL_LINK': 7,
+        'SHARE_CALL_LINK_CHAT': 8,
+        'SHARE_CALL_LINK_CALENDAR': 9,
+        'SHARE_CALL_LINK_COPY': 10,
+        'SHARE_CALL_LINK_SHARE_SHEET': 11,
+        'TOGGLE_WAITING_ROOM': 12
+        })
+    }),
+    CALL_LINK_ACTION_ENTRY_POINT: Object.freeze({
+        module: 'WAWebWamEnumCallLinkActionEntryPoint',
+        export: 'CALL_LINK_ACTION_ENTRY_POINT',
+        values: Object.freeze({
+        'LINK_CREATION': 1,
+        'CALL_LOG_INFO': 2,
+        'CONTACT_PICKER': 3,
+        'BOTTOM_SHEET_LOBBY': 4,
+        'BOTTOM_SHEET_CALL': 5,
+        'LINK_CREATION_IN_CHAT': 6,
+        'EVENT_CREATION': 7,
+        'EVENT_CREATION_IN_CHAT': 8,
+        'CHAT_THREAD': 9,
+        'EVENT_DETAILS_SHEET': 10,
+        'EVENT_CREATION_CHAT_ATTACHMENT': 11,
+        'EVENT_EDIT_FROM_CHAT_BUBBLE': 12,
+        'SCHEDULE_CALL_CALLS_TAB': 13,
+        'SCHEDULE_CALL_CHAT_HEADER': 14,
+        'SCHEDULE_CALL_LIST_PAGE_CREATE': 15,
+        'SCHEDULE_CALL_LIST_PAGE_EDIT': 16,
+        'SCHEDULE_CALL_EMPTY_PAGE': 17,
+        'EVENT_EDIT_FROM_CONTACT_DETAILS': 18,
+        'EVENT_EDIT_FROM_CONTACT_DETAILS_ALL_EVENTS': 19,
+        'SEND_CALL_LINK_CHAT_HEADER': 20,
+        'SEND_CALL_LINK_CALLS_TAB': 21,
+        'SCHEDULE_CALL_CALLS_TAB_H_SCROLL': 22,
+        'SEND_CALL_LINK_CALLS_TAB_H_SCROLL': 23,
+        'IN_CALL_PARTICIPANT_LIST': 24
+        })
+    }),
+    CALL_LINK_MEDIA: Object.freeze({
+        module: 'WAWebWamEnumCallLinkMedia',
+        export: 'CALL_LINK_MEDIA',
+        values: Object.freeze({
+        'VOICE': 1,
+        'VIDEO': 2
+        })
+    }),
+    CALL_LINK_SHARE_CHAT_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCallLinkShareChatType',
+        export: 'CALL_LINK_SHARE_CHAT_TYPE',
+        values: Object.freeze({
+        'INDIVIDUAL': 1,
+        'BUSINESS': 2,
+        'GROUP_LARGE': 3,
+        'GROUP_3P': 4,
+        'GROUP_8P': 5,
+        'GROUP_32P': 6
+        })
+    }),
+    CALL_LINK_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCallLinkType',
+        export: 'CALL_LINK_TYPE',
+        values: Object.freeze({
+        'STANDARD': 1,
+        'EVENT': 2
         })
     }),
     CALL_NETWORK_MEDIUM: Object.freeze({
@@ -3883,7 +3959,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_BIZ_LINK_INSTAGRAM': 245,
         'DEEP_LINK_PAYMENT_REMITTANCE': 246,
         'DEEP_LINK_AIMEDIAGALLERY': 247,
-        'DEEP_LINK_SILVERSTONE': 248
+        'DEEP_LINK_SILVERSTONE': 248,
+        'DEEP_LINK_IMAGINE': 249,
+        'DEEP_LINK_META_AI_INCOGNITO': 250
         })
     }),
     DEFAULT_AUDIENCE_LOCATION_TYPE: Object.freeze({
@@ -4464,7 +4542,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DSM_MISSING': 112,
         'INVALID_DSM_SENDER': 113,
         'INVALID_DSM': 114,
-        'REVOKE_STANZA_PROTOBUF_MISMATCH': 115
+        'REVOKE_STANZA_PROTOBUF_MISMATCH': 115,
+        'WASS_INVALID_ATTESTATION': 116
         })
     }),
     EDIT_PROFILE_ACTION: Object.freeze({
@@ -5629,7 +5708,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'IMAGINE_ONBOARDING_GALLERY_OPEN': 95,
         'IMAGINE_ONBOARDING_GALLERY_PHOTO_CLICK': 96,
         'IMAGINE_ONBOARDING_CONFIRM_UPLOAD': 97,
-        'IMAGINE_ONBOARDING_CHOOSE_DIFFERENT_PHOTO': 98
+        'IMAGINE_ONBOARDING_CHOOSE_DIFFERENT_PHOTO': 98,
+        'ATTACHMENT_TRAY_OPEN_CLICK': 99
         })
     }),
     IMAGINE_ACTION_SOURCE: Object.freeze({
@@ -5658,7 +5738,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'MIMICRY_ATTRIBUTION': 19,
         'MEDIA_VIEWER': 20,
         'EVENT_COVER_BOTTOM_SHEET': 21,
-        'FORWARD': 22
+        'FORWARD': 22,
+        'DEEP_LINK': 23,
+        'AI_TAB': 24
         })
     }),
     IMAGINE_ACTION_SOURCE_SUBTYPE: Object.freeze({
@@ -5695,7 +5777,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'META_AI': 4,
         'TO_CHARACTER': 5,
         'TO_UGC': 6,
-        'STATUS': 7
+        'STATUS': 7,
+        'AR_SURFACE': 8
         })
     }),
     IMAGINE_MEDIA_TYPE: Object.freeze({
@@ -6683,7 +6766,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_ADVERTISE_FROM_AD_DETAILS_RECREATE_OVERFLOW_MENU_ITEM': 101,
         'SMB_ADVERTISE_FROM_PAC_CREATE_NEW_AD': 102,
         'SMB_DRAFT_AD_CHATLIST_QP': 103,
-        'SMB_RECREATE_AD_CHATLIST_QP': 104
+        'SMB_RECREATE_AD_CHATLIST_QP': 104,
+        'SMB_BIZ_PROFILE_BANNER': 105,
+        'SMB_RECREATE_AD_BIZHOME_QP': 106,
+        'SMB_RECREATE_PERFORMING_AD_BIZHOME_QP': 107,
+        'SMB_RECREATE_PERFORMING_AD_CHATLIST_QP': 108
         })
     }),
     LWI_ENTRY_POINT_IMPRESSION_ACTION: Object.freeze({
@@ -12320,7 +12407,10 @@ const WA_WAM_ENUMS = Object.freeze({
         'THREAD_CREATION': 1,
         'SYSTEM_MESSAGE': 2,
         'CONTACT_INFO_CARD': 3,
-        'SYNCD_MUTATION': 4
+        'SYNCD_MUTATION': 4,
+        'NEW_ORDER': 5,
+        'LABEL_CHAT': 6,
+        'SMB_DATA_SHARING_CONSENT_SCREEN': 7
         })
     }),
     SMB_USER_ACTION_TYPE_ENUM: Object.freeze({
@@ -15561,7 +15651,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PINNED_CHATS': 4,
         'STICKERS': 5,
         'LISTS': 6,
-        'NOT_APPLICABLE': 7
+        'NOT_APPLICABLE': 7,
+        'CLOUD_STORAGE': 8
         })
     }),
     WPBUJ_OUTCOME_NAME: Object.freeze({
@@ -17013,6 +17104,7 @@ const WA_WAM_EVENTS = Object.freeze({
             firstOfferPushReceivedSinceCallInitiationMs: Object.freeze({ id: 2047, type: 'timer', falcoName: 'first_offer_push_received_since_call_initiation_ms' }),
             firstOfferPushSentByProviderSinceCallInitiationMs: Object.freeze({ id: 2048, type: 'timer', falcoName: 'first_offer_push_sent_by_provider_since_call_initiation_ms' }),
             firstOfferPushSentByPushdSinceCallInitiationMs: Object.freeze({ id: 2049, type: 'timer', falcoName: 'first_offer_push_sent_by_pushd_since_call_initiation_ms' }),
+            foaSourceSurface: Object.freeze({ id: 3009, type: 'integer', falcoName: 'foa_source_surface' }),
             fpp1: Object.freeze({ id: 2529, type: 'integer', falcoName: 'fpp1' }),
             fpp2: Object.freeze({ id: 2530, type: 'integer', falcoName: 'fpp2' }),
             fpp3: Object.freeze({ id: 2531, type: 'integer', falcoName: 'fpp3' }),
@@ -17221,6 +17313,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isRering: Object.freeze({ id: 945, type: 'boolean', falcoName: 'is_rering' }),
             isScheduledCall: Object.freeze({ id: 1488, type: 'boolean', falcoName: 'is_scheduled_call' }),
             isTelecomFallbackPath: Object.freeze({ id: 2614, type: 'boolean', falcoName: 'is_telecom_fallback_path' }),
+            isTransferRejoin: Object.freeze({ id: 3006, type: 'boolean', falcoName: 'is_transfer_rejoin' }),
             isUgcCall: Object.freeze({ id: 2371, type: 'boolean', falcoName: 'is_ugc_call' }),
             isUpgradedGroupCallBeforeConnected: Object.freeze({ id: 1674, type: 'boolean', falcoName: 'is_upgraded_group_call_before_connected' }),
             isVoiceChat: Object.freeze({ id: 1577, type: 'boolean', falcoName: 'is_voice_chat' }),
@@ -18844,7 +18937,7 @@ const WA_WAM_EVENTS = Object.freeze({
             weakWifiSwitchToNonDefNetFalsePositive: Object.freeze({ id: 399, type: 'integer', falcoName: 'weak_wifi_switch_to_non_def_net_false_positive' }),
             weakWifiSwitchToNonDefNetSuccess: Object.freeze({ id: 400, type: 'integer', falcoName: 'weak_wifi_switch_to_non_def_net_success' }),
             weakWifiSwitchToNonDefNetTriggered: Object.freeze({ id: 398, type: 'integer', falcoName: 'weak_wifi_switch_to_non_def_net_triggered' }),
-            wearableCallPovDuration: Object.freeze({ id: 3003, type: 'integer', falcoName: 'wearable_call_pov_duration' }),
+            wearableCallHaveUsedPov: Object.freeze({ id: 3008, type: 'boolean', falcoName: 'wearable_call_have_used_pov' }),
             wearableDeviceTypes: Object.freeze({ id: 3004, type: 'string', falcoName: 'wearable_device_types' }),
             webAudioCaptureOverrunCount: Object.freeze({ id: 2903, type: 'integer', falcoName: 'web_audio_capture_overrun_count' }),
             webAudioCaptureSabFillAvgMs: Object.freeze({ id: 2904, type: 'timer', falcoName: 'web_audio_capture_sab_fill_avg_ms' }),
@@ -18917,6 +19010,28 @@ const WA_WAM_EVENTS = Object.freeze({
             surfaceSessionId: Object.freeze({ id: 6, type: 'string', falcoName: 'surface_session_id' }),
             userJourneyEventMs: Object.freeze({ id: 7, type: 'integer', falcoName: 'user_journey_event_ms' }),
             userJourneyFunnelId: Object.freeze({ id: 8, type: 'string', falcoName: 'user_journey_funnel_id' })
+        })
+    }),
+    CallLinkActionEvent: Object.freeze({
+        id: 3852,
+        falcoName: 'wam_call_link_action_event',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            appSessionId: Object.freeze({ id: 5, type: 'string', falcoName: 'app_session_id' }),
+            callLinkAction: Object.freeze({ id: 1, type: 'enum', enum: 'CALL_LINK_ACTION', falcoName: 'call_link_action' }),
+            callLinkActionEntryPoint: Object.freeze({ id: 2, type: 'enum', enum: 'CALL_LINK_ACTION_ENTRY_POINT', falcoName: 'call_link_action_entry_point' }),
+            callLinkMedia: Object.freeze({ id: 3, type: 'enum', enum: 'CALL_LINK_MEDIA', falcoName: 'call_link_media' }),
+            callLinkShareChatType: Object.freeze({ id: 6, type: 'enum', enum: 'CALL_LINK_SHARE_CHAT_TYPE', falcoName: 'call_link_share_chat_type' }),
+            callLinkSharedApp: Object.freeze({ id: 4, type: 'string', falcoName: 'call_link_shared_app' }),
+            callLinkType: Object.freeze({ id: 7, type: 'enum', enum: 'CALL_LINK_TYPE', falcoName: 'call_link_type' }),
+            isWaitingRoomEnabled: Object.freeze({ id: 10, type: 'boolean', falcoName: 'is_waiting_room_enabled' }),
+            userJourneyEventMs: Object.freeze({ id: 8, type: 'integer', falcoName: 'user_journey_event_ms' }),
+            userJourneyFunnelId: Object.freeze({ id: 9, type: 'string', falcoName: 'user_journey_funnel_id' })
         })
     }),
     CanonicalEntRecoveryCompanion: Object.freeze({
@@ -21631,6 +21746,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isRejoin: Object.freeze({ id: 3, type: 'boolean', falcoName: 'is_rejoin' }),
             isRering: Object.freeze({ id: 8, type: 'boolean', falcoName: 'is_rering' }),
             isScheduledCall: Object.freeze({ id: 40, type: 'boolean', falcoName: 'is_scheduled_call' }),
+            isTransferRejoin: Object.freeze({ id: 56, type: 'boolean', falcoName: 'is_transfer_rejoin' }),
             isUpgradedGroupCallBeforeConnected: Object.freeze({ id: 47, type: 'boolean', falcoName: 'is_upgraded_group_call_before_connected' }),
             isVoiceChat: Object.freeze({ id: 43, type: 'boolean', falcoName: 'is_voice_chat' }),
             isWaitingRoomEnabled: Object.freeze({ id: 52, type: 'boolean', falcoName: 'is_waiting_room_enabled' }),
@@ -25830,6 +25946,8 @@ const WA_WAM_EVENTS = Object.freeze({
             smbPerCustomerDataSharingControlActionOptInStatus: Object.freeze({ id: 2, type: 'boolean', falcoName: 'smb_per_customer_data_sharing_control_action_opt_in_status' }),
             smbPerCustomerDataSharingControlCurrentOptInStatus: Object.freeze({ id: 3, type: 'boolean', falcoName: 'smb_per_customer_data_sharing_control_current_opt_in_status' }),
             smbPerCustomerDataSharingControlEntryPoint: Object.freeze({ id: 4, type: 'enum', enum: 'SMB_PER_CUSTOMER_DATA_SHARING_CONTROL_ENTRY_POINT', falcoName: 'smb_per_customer_data_sharing_control_entry_point' }),
+            smbPerCustomerDataSharingControlGlobalDataSharingEntryPoint: Object.freeze({ id: 6, type: 'enum', enum: 'SMB_DATA_SHARING_CONSENT_SCREEN_ENTRY_POINT', falcoName: 'smb_per_customer_data_sharing_control_global_data_sharing_entry_point' }),
+            smbPerCustomerDataSharingControlOptInCustomerCount: Object.freeze({ id: 7, type: 'integer', falcoName: 'smb_per_customer_data_sharing_control_opt_in_customer_count' }),
             smbPerCustomerDataSharingControlVersion: Object.freeze({ id: 5, type: 'integer', falcoName: 'smb_per_customer_data_sharing_control_version' })
         })
     }),

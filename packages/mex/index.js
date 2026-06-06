@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040902005
+// WhatsApp Version: 2.3000.1040971408
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -59,14 +59,14 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchNewsletterDirectoryCategoriesPreview: Object.freeze({ docId: '35266481849605779', clientDocId: '35266481849605779' }),
     FetchNewsletterDirectoryList: Object.freeze({ docId: '26125047313831973', clientDocId: '26125047313831973' }),
     FetchNewsletterDirectorySearchResults: Object.freeze({ docId: '26301059626252132', clientDocId: '26301059626252132' }),
-    FetchNewsletterEnforcements: Object.freeze({ docId: '26807357005541676', clientDocId: '26807357005541676' }),
+    FetchNewsletterEnforcements: Object.freeze({ docId: '27144556038512360', clientDocId: '27144556038512360' }),
     FetchNewsletterFollowers: Object.freeze({ docId: '27472091235714801', clientDocId: '27472091235714801' }),
     FetchNewsletterInsights: Object.freeze({ docId: '9853618868050977', clientDocId: '9853618868050977' }),
     FetchNewsletterIsDomainPreviewable: Object.freeze({ docId: '9849510985088294', clientDocId: '9849510985088294' }),
     FetchNewsletterMessageReactionSenderList: Object.freeze({ docId: '29575462448733991', clientDocId: '29575462448733991' }),
     FetchNewsletterPendingInvites: Object.freeze({ docId: '9783111038412085', clientDocId: '9783111038412085' }),
     FetchNewsletterPollVoters: Object.freeze({ docId: '9407762219322536', clientDocId: '9407762219322536' }),
-    FetchNewsletterReports: Object.freeze({ docId: '24241374008893508', clientDocId: '24241374008893508' }),
+    FetchNewsletterReports: Object.freeze({ docId: '27717296871209353', clientDocId: '27717296871209353' }),
     FetchOHAIKeyConfig: Object.freeze({ docId: '29366514836329275', clientDocId: '29366514836329275' }),
     FetchOIDCState: Object.freeze({ docId: '24622479247368194', clientDocId: '24622479247368194' }),
     FetchPlaintextLinkPreview: Object.freeze({ docId: '9101130456653613', clientDocId: '9101130456653613' }),
@@ -196,7 +196,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     FetchNewsletterMessageReactionSenderList: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     FetchNewsletterPendingInvites: Object.freeze({ operationKind: 'query', variables: Object.freeze(['newsletter_id']) }),
     FetchNewsletterPollVoters: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
-    FetchNewsletterReports: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
+    FetchNewsletterReports: Object.freeze({ operationKind: 'query', variables: Object.freeze(['locale']) }),
     FetchOHAIKeyConfig: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchOIDCState: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchPlaintextLinkPreview: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),

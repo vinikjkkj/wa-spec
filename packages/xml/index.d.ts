@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040902005
+// WhatsApp Version: 2.3000.1040971408
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2061,8 +2061,8 @@ export interface WaXmlOperations {
                 readonly edit: '3' | '7'
                 readonly offline: number
                 readonly to: string
-                readonly participant: string
                 readonly phash: string
+                readonly participant: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -12294,6 +12294,13 @@ export interface WaXmlStanzas {
                         } | undefined
                     }
                 }
+                readonly recovery_nonce: {
+                    readonly tag: 'recovery_nonce'
+                    readonly attrs: {
+                        readonly code: string
+                        readonly use_case: number
+                    }
+                }
                 readonly offline: {
                     readonly tag: 'offline'
                     readonly attrs: {
@@ -12453,8 +12460,8 @@ export interface WaXmlStanzas {
                     readonly verified_name?: string
                     readonly recipient: string
                     readonly id: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly phash: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -12677,8 +12684,8 @@ export interface WaXmlStanzas {
                     readonly edit: '3' | '7'
                     readonly offline: number
                     readonly to: string
-                    readonly participant: string
                     readonly phash: string
+                    readonly participant: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string

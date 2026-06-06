@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040902005
+// WhatsApp Version: 2.3000.1040971408
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -208,7 +208,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchNewsletterMessageReactionSenderList: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNewsletterPendingInvites: WaMexOperationSchema<'query', readonly ['newsletter_id']>
     readonly FetchNewsletterPollVoters: WaMexOperationSchema<'query', readonly ['input']>
-    readonly FetchNewsletterReports: WaMexOperationSchema<'query', readonly []>
+    readonly FetchNewsletterReports: WaMexOperationSchema<'query', readonly ['locale']>
     readonly FetchOHAIKeyConfig: WaMexOperationSchema<'query', readonly []>
     readonly FetchOIDCState: WaMexOperationSchema<'query', readonly []>
     readonly FetchPlaintextLinkPreview: WaMexOperationSchema<'query', readonly ['input']>
@@ -676,7 +676,9 @@ export type WaMexFetchNewsletterPollVotersVariables = {
     }
 }
 
-export type WaMexFetchNewsletterReportsVariables = Readonly<Record<string, never>>
+export type WaMexFetchNewsletterReportsVariables = {
+    readonly locale?: string
+}
 
 export type WaMexFetchOHAIKeyConfigVariables = Readonly<Record<string, never>>
 
@@ -2552,6 +2554,10 @@ export type WaMexFetchNewsletterEnforcementsResponse = {
             readonly enforcement_violation_category?: string
             readonly enforcement_source?: string
             readonly enforcement_id?: string
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly reason?: string
+                readonly label?: string
+            }>
             readonly enforcement_extra_data?: {
                 readonly ip_violation_report_data?: {
                     readonly report_fbid?: string
@@ -2575,6 +2581,10 @@ export type WaMexFetchNewsletterEnforcementsResponse = {
             readonly enforcement_violation_category?: string
             readonly enforcement_id?: string
             readonly enforcement_source?: string
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly reason?: string
+                readonly label?: string
+            }>
             readonly enforcement_extra_data?: {
                 readonly ip_violation_report_data?: {
                     readonly report_fbid?: string
@@ -2608,6 +2618,10 @@ export type WaMexFetchNewsletterEnforcementsResponse = {
                 readonly enforcement_id?: string
                 readonly enforcement_violation_category?: string
                 readonly enforcement_source?: string
+                readonly appeal_reason_options?: ReadonlyArray<{
+                    readonly reason?: string
+                    readonly label?: string
+                }>
                 readonly enforcement_extra_data?: {
                     readonly ip_violation_report_data?: {
                         readonly report_fbid?: string
@@ -2638,6 +2652,10 @@ export type WaMexFetchNewsletterEnforcementsResponse = {
                 readonly enforcement_id?: string
                 readonly enforcement_violation_category?: string
                 readonly enforcement_source?: string
+                readonly appeal_reason_options?: ReadonlyArray<{
+                    readonly reason?: string
+                    readonly label?: string
+                }>
                 readonly enforcement_extra_data?: {
                     readonly ip_violation_report_data?: {
                         readonly report_fbid?: string
