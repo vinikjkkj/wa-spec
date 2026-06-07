@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040971408
+// WhatsApp Version: 2.3000.1040990833
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5

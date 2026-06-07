@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040971408",
+  "waVersion": "2.3000.1040990833",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -31462,6 +31462,16 @@
                 "type": "int",
                 "optional": true
               },
+              "context": {
+                "type": "string",
+                "arg": "m",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
+                "direction": "out"
+              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -31485,16 +31495,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
-              },
-              "context": {
-                "type": "string",
-                "arg": "h",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31701,6 +31701,16 @@
                 "type": "int",
                 "optional": true
               },
+              "context": {
+                "type": "string",
+                "arg": "m",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
+                "direction": "out"
+              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -31724,16 +31734,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
-              },
-              "context": {
-                "type": "string",
-                "arg": "h",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31927,8 +31927,35 @@
                 "direction": "both"
               },
               "to": {
-                "type": "jid",
-                "arg": "D",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "l",
+                "optional": true,
+                "direction": "both"
+              },
+              "recipient": {
+                "type": "userJid",
+                "arg": "u",
+                "optional": true,
+                "direction": "both"
+              },
+              "context": {
+                "type": "string",
+                "arg": "m",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
+                "direction": "out"
+              },
+              "t": {
+                "type": "int",
+                "arg": "Date.now().toString()",
                 "direction": "both"
               },
               "class": {
@@ -31944,44 +31971,16 @@
                   "status"
                 ]
               },
-              "t": {
-                "type": "int",
-                "arg": "d",
-                "optional": true,
-                "direction": "both"
-              },
-              "participant": {
-                "type": "userJid",
-                "arg": "i",
-                "optional": true,
-                "direction": "both"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
                 "direction": "out"
               },
-              "recipient": {
-                "type": "userJid",
-                "arg": "I",
-                "optional": true,
-                "direction": "both"
-              },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
-              },
-              "context": {
-                "type": "string",
-                "arg": "h",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -32092,6 +32091,16 @@
                 "type": "time",
                 "direction": "both"
               },
+              "context": {
+                "type": "string",
+                "arg": "m",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
+                "direction": "out"
+              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -32115,16 +32124,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
-              },
-              "context": {
-                "type": "string",
-                "arg": "h",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -38810,7 +38809,12 @@
         "attrs": {
           "id": {
             "type": "stanzaId",
-            "arg": "e.ackId",
+            "arg": "e.stanzaId",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
             "direction": "out"
           },
           "class": {
@@ -38821,11 +38825,6 @@
               "notification",
               "receipt"
             ],
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "p(e.to)",
             "direction": "out"
           },
           "type": {
@@ -38855,15 +38854,19 @@
             "direction": "out"
           },
           "participant": {
-            "type": "deviceJid",
-            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
+            "type": "userJid",
+            "arg": "f",
             "optional": true,
             "direction": "out"
           },
           "error": {
             "type": "int",
-            "arg": "e.error",
-            "optional": true,
+            "arg": "t",
+            "direction": "out"
+          },
+          "from": {
+            "type": "deviceJid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
             "direction": "out"
           },
           "recipient": {
@@ -38871,20 +38874,15 @@
             "arg": "n",
             "optional": true,
             "direction": "out"
-          },
-          "from": {
-            "type": "deviceJid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
-            "direction": "out"
           }
         },
         "children": [
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },
@@ -38894,11 +38892,11 @@
             "max": 1
           },
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },
