@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040990833
+// WhatsApp Version: 2.3000.1041009797
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -13739,7 +13739,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'IN_THREAD_CHAT': 307,
         'QUICK_REPLY_PICKER': 308,
         'QUICK_REPLY_MEDIA_PREVIEW': 309,
-        'SMART_QUICK_REPLY_SETUP': 310
+        'SMART_QUICK_REPLY_SETUP': 310,
+        'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -26817,6 +26818,9 @@ const WA_WAM_EVENTS = Object.freeze({
         fields: Object.freeze({
             autoReplyFromIcebreakerSent: Object.freeze({ id: 51, type: 'integer', falcoName: 'auto_reply_from_icebreaker_sent' }),
             awayMsgsSent: Object.freeze({ id: 1, type: 'integer', falcoName: 'away_msgs_sent' }),
+            bizAiSuggestedRepliesSeen: Object.freeze({ id: 52, type: 'integer', falcoName: 'biz_ai_suggested_replies_seen' }),
+            bizAiSuggestedRepliesSentWithEdits: Object.freeze({ id: 53, type: 'integer', falcoName: 'biz_ai_suggested_replies_sent_with_edits' }),
+            bizAiSuggestedRepliesSentWithoutEdits: Object.freeze({ id: 54, type: 'integer', falcoName: 'biz_ai_suggested_replies_sent_without_edits' }),
             bizCatalogType: Object.freeze({ id: 2, type: 'enum', enum: 'BIZ_CATALOG_TYPE', falcoName: 'biz_catalog_type' }),
             bizConversationDepth: Object.freeze({ id: 3, type: 'integer', falcoName: 'biz_conversation_depth' }),
             cartViews: Object.freeze({ id: 4, type: 'integer', falcoName: 'cart_views' }),

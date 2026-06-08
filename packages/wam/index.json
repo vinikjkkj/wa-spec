@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1040990833",
+  "waVersion": "2.3000.1041009797",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -13770,7 +13770,8 @@
         "IN_THREAD_CHAT": 307,
         "QUICK_REPLY_PICKER": 308,
         "QUICK_REPLY_MEDIA_PREVIEW": 309,
-        "SMART_QUICK_REPLY_SETUP": 310
+        "SMART_QUICK_REPLY_SETUP": 310,
+        "GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET": 311
       }
     },
     "SW_AEC_TYPE": {
@@ -58008,6 +58009,21 @@
           "id": 1,
           "type": "integer",
           "falcoName": "away_msgs_sent"
+        },
+        "bizAiSuggestedRepliesSeen": {
+          "id": 52,
+          "type": "integer",
+          "falcoName": "biz_ai_suggested_replies_seen"
+        },
+        "bizAiSuggestedRepliesSentWithEdits": {
+          "id": 53,
+          "type": "integer",
+          "falcoName": "biz_ai_suggested_replies_sent_with_edits"
+        },
+        "bizAiSuggestedRepliesSentWithoutEdits": {
+          "id": 54,
+          "type": "integer",
+          "falcoName": "biz_ai_suggested_replies_sent_without_edits"
         },
         "bizCatalogType": {
           "id": 2,

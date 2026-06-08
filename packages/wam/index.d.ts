@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1040990833
+// WhatsApp Version: 2.3000.1041009797
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -13848,7 +13848,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'IN_THREAD_CHAT': 307;
             readonly 'QUICK_REPLY_PICKER': 308;
             readonly 'QUICK_REPLY_MEDIA_PREVIEW': 309;
-            readonly 'SMART_QUICK_REPLY_SETUP': 310
+            readonly 'SMART_QUICK_REPLY_SETUP': 310;
+            readonly 'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311
         }
     }
     readonly SW_AEC_TYPE: {
@@ -28290,6 +28291,9 @@ export declare const WA_WAM_EVENTS: {
         readonly fields: {
             readonly autoReplyFromIcebreakerSent: { readonly id: 51; readonly type: 'integer'; readonly falcoName: 'auto_reply_from_icebreaker_sent' }
             readonly awayMsgsSent: { readonly id: 1; readonly type: 'integer'; readonly falcoName: 'away_msgs_sent' }
+            readonly bizAiSuggestedRepliesSeen: { readonly id: 52; readonly type: 'integer'; readonly falcoName: 'biz_ai_suggested_replies_seen' }
+            readonly bizAiSuggestedRepliesSentWithEdits: { readonly id: 53; readonly type: 'integer'; readonly falcoName: 'biz_ai_suggested_replies_sent_with_edits' }
+            readonly bizAiSuggestedRepliesSentWithoutEdits: { readonly id: 54; readonly type: 'integer'; readonly falcoName: 'biz_ai_suggested_replies_sent_without_edits' }
             readonly bizCatalogType: { readonly id: 2; readonly type: 'enum'; readonly enum: 'BIZ_CATALOG_TYPE'; readonly falcoName: 'biz_catalog_type' }
             readonly bizConversationDepth: { readonly id: 3; readonly type: 'integer'; readonly falcoName: 'biz_conversation_depth' }
             readonly cartViews: { readonly id: 4; readonly type: 'integer'; readonly falcoName: 'cart_views' }
