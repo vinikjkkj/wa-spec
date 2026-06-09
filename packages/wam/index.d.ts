@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041009797
+// WhatsApp Version: 2.3000.1041096482
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -3215,7 +3215,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'FMX_CARD': 5;
             readonly 'NEW_CHAT_DRAWER': 6;
             readonly 'CHAT_HEADER': 7;
-            readonly 'GROUP_MEMBER': 8
+            readonly 'GROUP_MEMBER': 8;
+            readonly 'CHAT_LIST_GLOBAL_SEARCH': 9
         }
     }
     readonly COMPANION_CONTACT_SAVE_RESULT: {
@@ -4070,7 +4071,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DEEP_LINK_AIMEDIAGALLERY': 247;
             readonly 'DEEP_LINK_SILVERSTONE': 248;
             readonly 'DEEP_LINK_IMAGINE': 249;
-            readonly 'DEEP_LINK_META_AI_INCOGNITO': 250
+            readonly 'DEEP_LINK_META_AI_INCOGNITO': 250;
+            readonly 'DEEP_LINK_CHANGE_NUMBER': 251
         }
     }
     readonly DEFAULT_AUDIENCE_LOCATION_TYPE: {

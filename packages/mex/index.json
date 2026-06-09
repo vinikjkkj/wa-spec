@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041009797",
+  "waVersion": "2.3000.1041096482",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1059,7 +1059,7 @@
     },
     "CreateReportAppeal": {
       "originalName": "WAWebMexCreateReportAppealJobMutation",
-      "docId": "27283301737925761",
+      "docId": "27103316329328467",
       "operationKind": "mutation",
       "variables": [
         "reason",
@@ -1077,6 +1077,12 @@
           "last_update_time": "string",
           "channel_name": "string",
           "channel_jid": "string",
+          "appeal_reason_options": [
+            {
+              "reason": "string",
+              "label": "string"
+            }
+          ],
           "reported_content_data": {
             "__typename": "string",
             "server_msg_id": "string",
@@ -2550,7 +2556,7 @@
     },
     "FetchNewsletterReports": {
       "originalName": "WAWebMexFetchNewsletterReportsJobQuery",
-      "docId": "27717296871209353",
+      "docId": "35936238352686172",
       "operationKind": "query",
       "variables": [
         "locale"
@@ -2568,6 +2574,12 @@
               "last_update_time": "string",
               "channel_name": "string",
               "channel_jid": "string",
+              "appeal_reason_options": [
+                {
+                  "reason": "string",
+                  "label": "string"
+                }
+              ],
               "reported_content_data": {
                 "__typename": "string",
                 "server_msg_id": "string",

@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041009797",
+  "waVersion": "2.3000.1041096482",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5170,7 +5170,17 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "x",
+                "arg": "l",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -5213,17 +5223,6 @@
                   "pn"
                 ]
               },
-              "phash": {
-                "type": "string",
-                "arg": "y",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -5256,6 +5255,11 @@
                     "type": "int",
                     "min": 1577865600,
                     "max": 4102473600
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "type": {
                     "type": "literal",
@@ -5364,11 +5368,6 @@
                     "value": "status",
                     "optional": true,
                     "direction": "out"
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -31463,16 +31462,6 @@
                 "type": "int",
                 "optional": true
               },
-              "context": {
-                "type": "string",
-                "arg": "m",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -31496,6 +31485,16 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "context": {
+                "type": "string",
+                "arg": "h",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31702,16 +31701,6 @@
                 "type": "int",
                 "optional": true
               },
-              "context": {
-                "type": "string",
-                "arg": "m",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -31735,6 +31724,16 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "context": {
+                "type": "string",
+                "arg": "h",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31943,22 +31942,6 @@
                 "optional": true,
                 "direction": "both"
               },
-              "recipient": {
-                "type": "userJid",
-                "arg": "u",
-                "optional": true,
-                "direction": "both"
-              },
-              "context": {
-                "type": "string",
-                "arg": "m",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -31978,10 +31961,26 @@
                 "optional": true,
                 "direction": "out"
               },
+              "recipient": {
+                "type": "userJid",
+                "arg": "I",
+                "optional": true,
+                "direction": "both"
+              },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "context": {
+                "type": "string",
+                "arg": "h",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -32092,16 +32091,6 @@
                 "type": "time",
                 "direction": "both"
               },
-              "context": {
-                "type": "string",
-                "arg": "m",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "l",
@@ -32125,6 +32114,16 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "context": {
+                "type": "string",
+                "arg": "h",
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -37125,7 +37124,24 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "I.id",
+                "arg": "m.id",
+                "direction": "both"
+              },
+              "edit": {
+                "type": "enum",
+                "optional": true,
+                "direction": "both",
+                "enumValues": [
+                  "1",
+                  "2",
+                  "3",
+                  "7",
+                  "8"
+                ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -37145,18 +37161,6 @@
                 "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
-              },
-              "edit": {
-                "type": "enum",
-                "optional": true,
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ]
               },
               "device_fanout": {
                 "type": "literal",
@@ -37179,11 +37183,6 @@
                   "lid",
                   "pn"
                 ]
-              },
-              "phash": {
-                "type": "string",
-                "arg": "y",
-                "direction": "both"
               },
               "category": {
                 "type": "literal",
@@ -37497,6 +37496,11 @@
                     "optional": true,
                     "direction": "both"
                   },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
+                  },
                   "destination_id": {
                     "type": "string",
                     "arg": "R",
@@ -37531,11 +37535,6 @@
                     "type": "string",
                     "raw": "T(w.setting)",
                     "direction": "out"
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -37618,14 +37617,14 @@
                         "optional": true,
                         "direction": "both"
                       },
-                      "v": {
-                        "type": "literal",
-                        "value": "1",
-                        "direction": "both"
-                      },
                       "type": {
                         "type": "literal",
                         "value": "native_flow",
+                        "direction": "both"
+                      },
+                      "v": {
+                        "type": "literal",
+                        "value": "1",
                         "direction": "both"
                       }
                     },
@@ -37922,7 +37921,17 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "x",
+                "arg": "l",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -37965,17 +37974,6 @@
                   "pn"
                 ]
               },
-              "phash": {
-                "type": "string",
-                "arg": "y",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -38008,6 +38006,11 @@
                     "type": "int",
                     "min": 1577865600,
                     "max": 4102473600
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "type": {
                     "type": "literal",
@@ -38116,11 +38119,6 @@
                     "value": "status",
                     "optional": true,
                     "direction": "out"
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -38809,16 +38807,6 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "id": {
-            "type": "stanzaId",
-            "arg": "e.stanzaId",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
-            "direction": "out"
-          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -38827,6 +38815,16 @@
               "notification",
               "receipt"
             ],
+            "direction": "out"
+          },
+          "id": {
+            "type": "stanzaId",
+            "raw": "n.id",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "n.from",
             "direction": "out"
           },
           "type": {
@@ -38857,7 +38855,7 @@
           },
           "participant": {
             "type": "userJid",
-            "arg": "f",
+            "raw": "n.participant",
             "optional": true,
             "direction": "out"
           },
@@ -38866,15 +38864,15 @@
             "arg": "t",
             "direction": "out"
           },
-          "from": {
-            "type": "jid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMePnUserOrThrow_DO_NOT_USE()",
-            "direction": "out"
-          },
           "recipient": {
             "type": "userJid",
             "arg": "n",
             "optional": true,
+            "direction": "out"
+          },
+          "from": {
+            "type": "deviceJid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
             "direction": "out"
           }
         },

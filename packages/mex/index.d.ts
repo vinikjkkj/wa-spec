@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041009797
+// WhatsApp Version: 2.3000.1041096482
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1865,6 +1865,10 @@ export type WaMexCreateReportAppealResponse = {
         readonly last_update_time?: string
         readonly channel_name?: string
         readonly channel_jid?: string
+        readonly appeal_reason_options?: ReadonlyArray<{
+            readonly reason?: string
+            readonly label?: string
+        }>
         readonly reported_content_data?: {
             readonly __typename?: string
             readonly server_msg_id?: string
@@ -2801,6 +2805,10 @@ export type WaMexFetchNewsletterReportsResponse = {
             readonly last_update_time?: string
             readonly channel_name?: string
             readonly channel_jid?: string
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly reason?: string
+                readonly label?: string
+            }>
             readonly reported_content_data?: {
                 readonly __typename?: string
                 readonly server_msg_id?: string

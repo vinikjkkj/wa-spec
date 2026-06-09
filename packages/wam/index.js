@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041009797
+// WhatsApp Version: 2.3000.1041096482
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -3106,7 +3106,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'FMX_CARD': 5,
         'NEW_CHAT_DRAWER': 6,
         'CHAT_HEADER': 7,
-        'GROUP_MEMBER': 8
+        'GROUP_MEMBER': 8,
+        'CHAT_LIST_GLOBAL_SEARCH': 9
         })
     }),
     COMPANION_CONTACT_SAVE_RESULT: Object.freeze({
@@ -3961,7 +3962,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_AIMEDIAGALLERY': 247,
         'DEEP_LINK_SILVERSTONE': 248,
         'DEEP_LINK_IMAGINE': 249,
-        'DEEP_LINK_META_AI_INCOGNITO': 250
+        'DEEP_LINK_META_AI_INCOGNITO': 250,
+        'DEEP_LINK_CHANGE_NUMBER': 251
         })
     }),
     DEFAULT_AUDIENCE_LOCATION_TYPE: Object.freeze({

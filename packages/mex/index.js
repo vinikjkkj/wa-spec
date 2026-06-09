@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041009797
+// WhatsApp Version: 2.3000.1041096482
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -30,7 +30,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateMarketingCampaignAction: Object.freeze({ docId: '26304826652483067', clientDocId: '26304826652483067' }),
     CreateNewsletter: Object.freeze({ docId: '25149874324715067', clientDocId: '25149874324715067' }),
     CreateNewsletterAdminInvite: Object.freeze({ docId: '9387141988078609', clientDocId: '9387141988078609' }),
-    CreateReportAppeal: Object.freeze({ docId: '27283301737925761', clientDocId: '27283301737925761' }),
+    CreateReportAppeal: Object.freeze({ docId: '27103316329328467', clientDocId: '27103316329328467' }),
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
@@ -66,7 +66,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchNewsletterMessageReactionSenderList: Object.freeze({ docId: '29575462448733991', clientDocId: '29575462448733991' }),
     FetchNewsletterPendingInvites: Object.freeze({ docId: '9783111038412085', clientDocId: '9783111038412085' }),
     FetchNewsletterPollVoters: Object.freeze({ docId: '9407762219322536', clientDocId: '9407762219322536' }),
-    FetchNewsletterReports: Object.freeze({ docId: '27717296871209353', clientDocId: '27717296871209353' }),
+    FetchNewsletterReports: Object.freeze({ docId: '35936238352686172', clientDocId: '35936238352686172' }),
     FetchOHAIKeyConfig: Object.freeze({ docId: '29366514836329275', clientDocId: '29366514836329275' }),
     FetchOIDCState: Object.freeze({ docId: '24622479247368194', clientDocId: '24622479247368194' }),
     FetchPlaintextLinkPreview: Object.freeze({ docId: '9101130456653613', clientDocId: '9101130456653613' }),
