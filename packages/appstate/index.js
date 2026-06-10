@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041096482
+// WhatsApp Version: 2.3000.1041183688
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -103,9 +103,9 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         collection: 'regular',
         version: 7,
         scope: 'account',
-        valueField: 'avatarUpdatedAction',
-        valueProtoType: 'SyncActionValue.AvatarUpdatedAction',
-        valueEnumFields: Object.freeze({ 'eventType': 'AvatarUpdatedAction.AvatarEventType' }),
+        valueField: null,
+        valueProtoType: null,
+        valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'avatar_updated_action' })
         ])

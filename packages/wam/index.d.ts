@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041096482
+// WhatsApp Version: 2.3000.1041183688
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -9291,7 +9291,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CALL_TRANSFER': 59;
             readonly 'AI_MESSAGE': 60;
             readonly 'PIN_MESSAGE': 61;
-            readonly 'ADMIN_GROUP_JOIN_REQUEST': 62
+            readonly 'ADMIN_GROUP_JOIN_REQUEST': 62;
+            readonly 'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63
         }
     }
     readonly NS_MODE: {
@@ -17043,8 +17044,17 @@ export declare const WA_WAM_EVENTS: {
             readonly callRingLatencyMs: { readonly id: 1407; readonly type: 'timer'; readonly falcoName: 'call_ring_latency_ms' }
             readonly callRingingT: { readonly id: 103; readonly type: 'timer'; readonly falcoName: 'call_ringing_t' }
             readonly callRxAutomosNoiseAvg: { readonly id: 2577; readonly type: 'number'; readonly falcoName: 'call_rx_automos_noise_avg' }
+            readonly callRxAutomosNoiseP5: { readonly id: 3012; readonly type: 'number'; readonly falcoName: 'call_rx_automos_noise_p5' }
+            readonly callRxAutomosNoiseP50: { readonly id: 3013; readonly type: 'number'; readonly falcoName: 'call_rx_automos_noise_p50' }
+            readonly callRxAutomosNoiseP95: { readonly id: 3014; readonly type: 'number'; readonly falcoName: 'call_rx_automos_noise_p95' }
             readonly callRxAutomosOverallAvg: { readonly id: 2578; readonly type: 'number'; readonly falcoName: 'call_rx_automos_overall_avg' }
+            readonly callRxAutomosOverallP5: { readonly id: 3015; readonly type: 'number'; readonly falcoName: 'call_rx_automos_overall_p5' }
+            readonly callRxAutomosOverallP50: { readonly id: 3016; readonly type: 'number'; readonly falcoName: 'call_rx_automos_overall_p50' }
+            readonly callRxAutomosOverallP95: { readonly id: 3017; readonly type: 'number'; readonly falcoName: 'call_rx_automos_overall_p95' }
             readonly callRxAutomosSpeechAvg: { readonly id: 2579; readonly type: 'number'; readonly falcoName: 'call_rx_automos_speech_avg' }
+            readonly callRxAutomosSpeechP5: { readonly id: 3018; readonly type: 'number'; readonly falcoName: 'call_rx_automos_speech_p5' }
+            readonly callRxAutomosSpeechP50: { readonly id: 3019; readonly type: 'number'; readonly falcoName: 'call_rx_automos_speech_p50' }
+            readonly callRxAutomosSpeechP95: { readonly id: 3020; readonly type: 'number'; readonly falcoName: 'call_rx_automos_speech_p95' }
             readonly callRxAvgBitrate: { readonly id: 121; readonly type: 'number'; readonly falcoName: 'call_rx_avg_bitrate' }
             readonly callRxAvgBitrateDominantSpeaker: { readonly id: 2216; readonly type: 'number'; readonly falcoName: 'call_rx_avg_bitrate_dominant_speaker' }
             readonly callRxAvgBwe: { readonly id: 122; readonly type: 'number'; readonly falcoName: 'call_rx_avg_bwe' }
@@ -17102,8 +17112,17 @@ export declare const WA_WAM_EVENTS: {
             readonly callTransportTxAllocCnt: { readonly id: 1321; readonly type: 'integer'; readonly falcoName: 'call_transport_tx_alloc_cnt' }
             readonly callTrigger: { readonly id: 1990; readonly type: 'enum'; readonly enum: 'CALL_TRIGGER'; readonly falcoName: 'call_trigger' }
             readonly callTxAutomosNoiseAvg: { readonly id: 2556; readonly type: 'number'; readonly falcoName: 'call_tx_automos_noise_avg' }
+            readonly callTxAutomosNoiseP5: { readonly id: 3021; readonly type: 'number'; readonly falcoName: 'call_tx_automos_noise_p5' }
+            readonly callTxAutomosNoiseP50: { readonly id: 3022; readonly type: 'number'; readonly falcoName: 'call_tx_automos_noise_p50' }
+            readonly callTxAutomosNoiseP95: { readonly id: 3023; readonly type: 'number'; readonly falcoName: 'call_tx_automos_noise_p95' }
             readonly callTxAutomosOverallAvg: { readonly id: 2557; readonly type: 'number'; readonly falcoName: 'call_tx_automos_overall_avg' }
+            readonly callTxAutomosOverallP5: { readonly id: 3024; readonly type: 'number'; readonly falcoName: 'call_tx_automos_overall_p5' }
+            readonly callTxAutomosOverallP50: { readonly id: 3025; readonly type: 'number'; readonly falcoName: 'call_tx_automos_overall_p50' }
+            readonly callTxAutomosOverallP95: { readonly id: 3026; readonly type: 'number'; readonly falcoName: 'call_tx_automos_overall_p95' }
             readonly callTxAutomosSpeechAvg: { readonly id: 2558; readonly type: 'number'; readonly falcoName: 'call_tx_automos_speech_avg' }
+            readonly callTxAutomosSpeechP5: { readonly id: 3027; readonly type: 'number'; readonly falcoName: 'call_tx_automos_speech_p5' }
+            readonly callTxAutomosSpeechP50: { readonly id: 3028; readonly type: 'number'; readonly falcoName: 'call_tx_automos_speech_p50' }
+            readonly callTxAutomosSpeechP95: { readonly id: 3029; readonly type: 'number'; readonly falcoName: 'call_tx_automos_speech_p95' }
             readonly callTxAvgBitrate: { readonly id: 112; readonly type: 'number'; readonly falcoName: 'call_tx_avg_bitrate' }
             readonly callTxAvgBwe: { readonly id: 113; readonly type: 'number'; readonly falcoName: 'call_tx_avg_bwe' }
             readonly callTxAvgJitter: { readonly id: 116; readonly type: 'timer'; readonly falcoName: 'call_tx_avg_jitter' }
@@ -18741,6 +18760,7 @@ export declare const WA_WAM_EVENTS: {
             readonly videoCombPsnrP5: { readonly id: 2430; readonly type: 'number'; readonly falcoName: 'video_comb_psnr_p5' }
             readonly videoCombPsnrP50: { readonly id: 2431; readonly type: 'number'; readonly falcoName: 'video_comb_psnr_p50' }
             readonly videoCombPsnrP95: { readonly id: 2432; readonly type: 'number'; readonly falcoName: 'video_comb_psnr_p95' }
+            readonly videoCompositeBrightnessAvg: { readonly id: 3030; readonly type: 'number'; readonly falcoName: 'video_composite_brightness_avg' }
             readonly videoDecAvgFps: { readonly id: 207; readonly type: 'number'; readonly falcoName: 'video_dec_avg_fps' }
             readonly videoDecAvgFpsSs: { readonly id: 1473; readonly type: 'number'; readonly falcoName: 'video_dec_avg_fps_ss' }
             readonly videoDecColorId: { readonly id: 205; readonly type: 'integer'; readonly falcoName: 'video_dec_color_id' }
@@ -18905,6 +18925,7 @@ export declare const WA_WAM_EVENTS: {
             readonly videoNpsiGenFailed: { readonly id: 594; readonly type: 'integer'; readonly falcoName: 'video_npsi_gen_failed' }
             readonly videoNpsiNoNack: { readonly id: 595; readonly type: 'integer'; readonly falcoName: 'video_npsi_no_nack' }
             readonly videoNumAvSyncDiscardFrames: { readonly id: 1010; readonly type: 'integer'; readonly falcoName: 'video_num_av_sync_discard_frames' }
+            readonly videoOverexposureAvg: { readonly id: 3031; readonly type: 'number'; readonly falcoName: 'video_overexposure_avg' }
             readonly videoPeerState: { readonly id: 275; readonly type: 'enum'; readonly enum: 'CALL_VIDEO_STATE'; readonly falcoName: 'video_peer_state' }
             readonly videoPeerTriggeredPauseCount: { readonly id: 654; readonly type: 'integer'; readonly falcoName: 'video_peer_triggered_pause_count' }
             readonly videoQualityScore: { readonly id: 1270; readonly type: 'integer'; readonly falcoName: 'video_quality_score' }
@@ -22131,6 +22152,7 @@ export declare const WA_WAM_EVENTS: {
             readonly hasProfilePicture: { readonly id: 13; readonly type: 'boolean'; readonly falcoName: 'has_profile_picture' }
             readonly isAdmin: { readonly id: 29; readonly type: 'boolean'; readonly falcoName: 'is_admin' }
             readonly isGroupHistoryToggledOn: { readonly id: 22; readonly type: 'boolean'; readonly falcoName: 'is_group_history_toggled_on' }
+            readonly isTeeBotNoticeOnly: { readonly id: 30; readonly type: 'boolean'; readonly falcoName: 'is_tee_bot_notice_only' }
             readonly potentialTotalSuggestionCount: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'potential_total_suggestion_count' }
             readonly recentlyContactedIndex: { readonly id: 5; readonly type: 'integer'; readonly falcoName: 'recently_contacted_index' }
             readonly selectedMemberCnt: { readonly id: 14; readonly type: 'integer'; readonly falcoName: 'selected_member_cnt' }

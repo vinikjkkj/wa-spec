@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041096482
+// WhatsApp Version: 2.3000.1041183688
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -9182,7 +9182,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALL_TRANSFER': 59,
         'AI_MESSAGE': 60,
         'PIN_MESSAGE': 61,
-        'ADMIN_GROUP_JOIN_REQUEST': 62
+        'ADMIN_GROUP_JOIN_REQUEST': 62,
+        'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63
         })
     }),
     NS_MODE: Object.freeze({
@@ -16814,8 +16815,17 @@ const WA_WAM_EVENTS = Object.freeze({
             callRingLatencyMs: Object.freeze({ id: 1407, type: 'timer', falcoName: 'call_ring_latency_ms' }),
             callRingingT: Object.freeze({ id: 103, type: 'timer', falcoName: 'call_ringing_t' }),
             callRxAutomosNoiseAvg: Object.freeze({ id: 2577, type: 'number', falcoName: 'call_rx_automos_noise_avg' }),
+            callRxAutomosNoiseP5: Object.freeze({ id: 3012, type: 'number', falcoName: 'call_rx_automos_noise_p5' }),
+            callRxAutomosNoiseP50: Object.freeze({ id: 3013, type: 'number', falcoName: 'call_rx_automos_noise_p50' }),
+            callRxAutomosNoiseP95: Object.freeze({ id: 3014, type: 'number', falcoName: 'call_rx_automos_noise_p95' }),
             callRxAutomosOverallAvg: Object.freeze({ id: 2578, type: 'number', falcoName: 'call_rx_automos_overall_avg' }),
+            callRxAutomosOverallP5: Object.freeze({ id: 3015, type: 'number', falcoName: 'call_rx_automos_overall_p5' }),
+            callRxAutomosOverallP50: Object.freeze({ id: 3016, type: 'number', falcoName: 'call_rx_automos_overall_p50' }),
+            callRxAutomosOverallP95: Object.freeze({ id: 3017, type: 'number', falcoName: 'call_rx_automos_overall_p95' }),
             callRxAutomosSpeechAvg: Object.freeze({ id: 2579, type: 'number', falcoName: 'call_rx_automos_speech_avg' }),
+            callRxAutomosSpeechP5: Object.freeze({ id: 3018, type: 'number', falcoName: 'call_rx_automos_speech_p5' }),
+            callRxAutomosSpeechP50: Object.freeze({ id: 3019, type: 'number', falcoName: 'call_rx_automos_speech_p50' }),
+            callRxAutomosSpeechP95: Object.freeze({ id: 3020, type: 'number', falcoName: 'call_rx_automos_speech_p95' }),
             callRxAvgBitrate: Object.freeze({ id: 121, type: 'number', falcoName: 'call_rx_avg_bitrate' }),
             callRxAvgBitrateDominantSpeaker: Object.freeze({ id: 2216, type: 'number', falcoName: 'call_rx_avg_bitrate_dominant_speaker' }),
             callRxAvgBwe: Object.freeze({ id: 122, type: 'number', falcoName: 'call_rx_avg_bwe' }),
@@ -16873,8 +16883,17 @@ const WA_WAM_EVENTS = Object.freeze({
             callTransportTxAllocCnt: Object.freeze({ id: 1321, type: 'integer', falcoName: 'call_transport_tx_alloc_cnt' }),
             callTrigger: Object.freeze({ id: 1990, type: 'enum', enum: 'CALL_TRIGGER', falcoName: 'call_trigger' }),
             callTxAutomosNoiseAvg: Object.freeze({ id: 2556, type: 'number', falcoName: 'call_tx_automos_noise_avg' }),
+            callTxAutomosNoiseP5: Object.freeze({ id: 3021, type: 'number', falcoName: 'call_tx_automos_noise_p5' }),
+            callTxAutomosNoiseP50: Object.freeze({ id: 3022, type: 'number', falcoName: 'call_tx_automos_noise_p50' }),
+            callTxAutomosNoiseP95: Object.freeze({ id: 3023, type: 'number', falcoName: 'call_tx_automos_noise_p95' }),
             callTxAutomosOverallAvg: Object.freeze({ id: 2557, type: 'number', falcoName: 'call_tx_automos_overall_avg' }),
+            callTxAutomosOverallP5: Object.freeze({ id: 3024, type: 'number', falcoName: 'call_tx_automos_overall_p5' }),
+            callTxAutomosOverallP50: Object.freeze({ id: 3025, type: 'number', falcoName: 'call_tx_automos_overall_p50' }),
+            callTxAutomosOverallP95: Object.freeze({ id: 3026, type: 'number', falcoName: 'call_tx_automos_overall_p95' }),
             callTxAutomosSpeechAvg: Object.freeze({ id: 2558, type: 'number', falcoName: 'call_tx_automos_speech_avg' }),
+            callTxAutomosSpeechP5: Object.freeze({ id: 3027, type: 'number', falcoName: 'call_tx_automos_speech_p5' }),
+            callTxAutomosSpeechP50: Object.freeze({ id: 3028, type: 'number', falcoName: 'call_tx_automos_speech_p50' }),
+            callTxAutomosSpeechP95: Object.freeze({ id: 3029, type: 'number', falcoName: 'call_tx_automos_speech_p95' }),
             callTxAvgBitrate: Object.freeze({ id: 112, type: 'number', falcoName: 'call_tx_avg_bitrate' }),
             callTxAvgBwe: Object.freeze({ id: 113, type: 'number', falcoName: 'call_tx_avg_bwe' }),
             callTxAvgJitter: Object.freeze({ id: 116, type: 'timer', falcoName: 'call_tx_avg_jitter' }),
@@ -18512,6 +18531,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoCombPsnrP5: Object.freeze({ id: 2430, type: 'number', falcoName: 'video_comb_psnr_p5' }),
             videoCombPsnrP50: Object.freeze({ id: 2431, type: 'number', falcoName: 'video_comb_psnr_p50' }),
             videoCombPsnrP95: Object.freeze({ id: 2432, type: 'number', falcoName: 'video_comb_psnr_p95' }),
+            videoCompositeBrightnessAvg: Object.freeze({ id: 3030, type: 'number', falcoName: 'video_composite_brightness_avg' }),
             videoDecAvgFps: Object.freeze({ id: 207, type: 'number', falcoName: 'video_dec_avg_fps' }),
             videoDecAvgFpsSs: Object.freeze({ id: 1473, type: 'number', falcoName: 'video_dec_avg_fps_ss' }),
             videoDecColorId: Object.freeze({ id: 205, type: 'integer', falcoName: 'video_dec_color_id' }),
@@ -18676,6 +18696,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoNpsiGenFailed: Object.freeze({ id: 594, type: 'integer', falcoName: 'video_npsi_gen_failed' }),
             videoNpsiNoNack: Object.freeze({ id: 595, type: 'integer', falcoName: 'video_npsi_no_nack' }),
             videoNumAvSyncDiscardFrames: Object.freeze({ id: 1010, type: 'integer', falcoName: 'video_num_av_sync_discard_frames' }),
+            videoOverexposureAvg: Object.freeze({ id: 3031, type: 'number', falcoName: 'video_overexposure_avg' }),
             videoPeerState: Object.freeze({ id: 275, type: 'enum', enum: 'CALL_VIDEO_STATE', falcoName: 'video_peer_state' }),
             videoPeerTriggeredPauseCount: Object.freeze({ id: 654, type: 'integer', falcoName: 'video_peer_triggered_pause_count' }),
             videoQualityScore: Object.freeze({ id: 1270, type: 'integer', falcoName: 'video_quality_score' }),
@@ -21498,6 +21519,7 @@ const WA_WAM_EVENTS = Object.freeze({
             hasProfilePicture: Object.freeze({ id: 13, type: 'boolean', falcoName: 'has_profile_picture' }),
             isAdmin: Object.freeze({ id: 29, type: 'boolean', falcoName: 'is_admin' }),
             isGroupHistoryToggledOn: Object.freeze({ id: 22, type: 'boolean', falcoName: 'is_group_history_toggled_on' }),
+            isTeeBotNoticeOnly: Object.freeze({ id: 30, type: 'boolean', falcoName: 'is_tee_bot_notice_only' }),
             potentialTotalSuggestionCount: Object.freeze({ id: 10, type: 'integer', falcoName: 'potential_total_suggestion_count' }),
             recentlyContactedIndex: Object.freeze({ id: 5, type: 'integer', falcoName: 'recently_contacted_index' }),
             selectedMemberCnt: Object.freeze({ id: 14, type: 'integer', falcoName: 'selected_member_cnt' }),

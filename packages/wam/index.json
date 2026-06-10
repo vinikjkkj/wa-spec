@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041096482",
+  "waVersion": "2.3000.1041183688",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -9213,7 +9213,8 @@
         "CALL_TRANSFER": 59,
         "AI_MESSAGE": 60,
         "PIN_MESSAGE": 61,
-        "ADMIN_GROUP_JOIN_REQUEST": 62
+        "ADMIN_GROUP_JOIN_REQUEST": 62,
+        "CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE": 63
       }
     },
     "NS_MODE": {
@@ -20195,15 +20196,60 @@
           "type": "number",
           "falcoName": "call_rx_automos_noise_avg"
         },
+        "callRxAutomosNoiseP5": {
+          "id": 3012,
+          "type": "number",
+          "falcoName": "call_rx_automos_noise_p5"
+        },
+        "callRxAutomosNoiseP50": {
+          "id": 3013,
+          "type": "number",
+          "falcoName": "call_rx_automos_noise_p50"
+        },
+        "callRxAutomosNoiseP95": {
+          "id": 3014,
+          "type": "number",
+          "falcoName": "call_rx_automos_noise_p95"
+        },
         "callRxAutomosOverallAvg": {
           "id": 2578,
           "type": "number",
           "falcoName": "call_rx_automos_overall_avg"
         },
+        "callRxAutomosOverallP5": {
+          "id": 3015,
+          "type": "number",
+          "falcoName": "call_rx_automos_overall_p5"
+        },
+        "callRxAutomosOverallP50": {
+          "id": 3016,
+          "type": "number",
+          "falcoName": "call_rx_automos_overall_p50"
+        },
+        "callRxAutomosOverallP95": {
+          "id": 3017,
+          "type": "number",
+          "falcoName": "call_rx_automos_overall_p95"
+        },
         "callRxAutomosSpeechAvg": {
           "id": 2579,
           "type": "number",
           "falcoName": "call_rx_automos_speech_avg"
+        },
+        "callRxAutomosSpeechP5": {
+          "id": 3018,
+          "type": "number",
+          "falcoName": "call_rx_automos_speech_p5"
+        },
+        "callRxAutomosSpeechP50": {
+          "id": 3019,
+          "type": "number",
+          "falcoName": "call_rx_automos_speech_p50"
+        },
+        "callRxAutomosSpeechP95": {
+          "id": 3020,
+          "type": "number",
+          "falcoName": "call_rx_automos_speech_p95"
         },
         "callRxAvgBitrate": {
           "id": 121,
@@ -20497,15 +20543,60 @@
           "type": "number",
           "falcoName": "call_tx_automos_noise_avg"
         },
+        "callTxAutomosNoiseP5": {
+          "id": 3021,
+          "type": "number",
+          "falcoName": "call_tx_automos_noise_p5"
+        },
+        "callTxAutomosNoiseP50": {
+          "id": 3022,
+          "type": "number",
+          "falcoName": "call_tx_automos_noise_p50"
+        },
+        "callTxAutomosNoiseP95": {
+          "id": 3023,
+          "type": "number",
+          "falcoName": "call_tx_automos_noise_p95"
+        },
         "callTxAutomosOverallAvg": {
           "id": 2557,
           "type": "number",
           "falcoName": "call_tx_automos_overall_avg"
         },
+        "callTxAutomosOverallP5": {
+          "id": 3024,
+          "type": "number",
+          "falcoName": "call_tx_automos_overall_p5"
+        },
+        "callTxAutomosOverallP50": {
+          "id": 3025,
+          "type": "number",
+          "falcoName": "call_tx_automos_overall_p50"
+        },
+        "callTxAutomosOverallP95": {
+          "id": 3026,
+          "type": "number",
+          "falcoName": "call_tx_automos_overall_p95"
+        },
         "callTxAutomosSpeechAvg": {
           "id": 2558,
           "type": "number",
           "falcoName": "call_tx_automos_speech_avg"
+        },
+        "callTxAutomosSpeechP5": {
+          "id": 3027,
+          "type": "number",
+          "falcoName": "call_tx_automos_speech_p5"
+        },
+        "callTxAutomosSpeechP50": {
+          "id": 3028,
+          "type": "number",
+          "falcoName": "call_tx_automos_speech_p50"
+        },
+        "callTxAutomosSpeechP95": {
+          "id": 3029,
+          "type": "number",
+          "falcoName": "call_tx_automos_speech_p95"
         },
         "callTxAvgBitrate": {
           "id": 112,
@@ -28731,6 +28822,11 @@
           "type": "number",
           "falcoName": "video_comb_psnr_p95"
         },
+        "videoCompositeBrightnessAvg": {
+          "id": 3030,
+          "type": "number",
+          "falcoName": "video_composite_brightness_avg"
+        },
         "videoDecAvgFps": {
           "id": 207,
           "type": "number",
@@ -29550,6 +29646,11 @@
           "id": 1010,
           "type": "integer",
           "falcoName": "video_num_av_sync_discard_frames"
+        },
+        "videoOverexposureAvg": {
+          "id": 3031,
+          "type": "number",
+          "falcoName": "video_overexposure_avg"
         },
         "videoPeerState": {
           "id": 275,
@@ -39662,6 +39763,11 @@
           "id": 22,
           "type": "boolean",
           "falcoName": "is_group_history_toggled_on"
+        },
+        "isTeeBotNoticeOnly": {
+          "id": 30,
+          "type": "boolean",
+          "falcoName": "is_tee_bot_notice_only"
         },
         "potentialTotalSuggestionCount": {
           "id": 10,

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041096482
+// WhatsApp Version: 2.3000.1041183688
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -301,8 +301,8 @@ export interface WaXmlOperations {
                                 readonly add_request: {
                                     readonly tag: 'add_request'
                                     readonly attrs: {
-                                        readonly code: string
-                                        readonly expiration: number
+                                        readonly code?: string
+                                        readonly expiration?: number
                                     }
                                 }
                             }
@@ -1707,8 +1707,8 @@ export interface WaXmlOperations {
                                 readonly add_request: {
                                     readonly tag: 'add_request'
                                     readonly attrs: {
-                                        readonly code: string
-                                        readonly expiration: number
+                                        readonly code?: string
+                                        readonly expiration?: number
                                     }
                                 }
                             }
@@ -2061,14 +2061,14 @@ export interface WaXmlOperations {
                 readonly edit: '3' | '7'
                 readonly offline: number
                 readonly to: string
-                readonly participant: string
-                readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
                 readonly device_fanout?: 'false'
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
+                readonly phash: string
+                readonly participant?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
@@ -2079,7 +2079,6 @@ export interface WaXmlOperations {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly original_msg_t: number
-                        readonly metering_type: 'smb_mm'
                         readonly type: 'scheduled_message'
                         readonly st: string
                         readonly origin?: 'ctwa'
@@ -2095,6 +2094,7 @@ export interface WaXmlOperations {
                         readonly tag_reason?: string
                         readonly status_setting: string
                         readonly session_scope?: 'status'
+                        readonly metering_type: 'smb_mm'
                         readonly questiontype: 'response'
                     }
                 }
@@ -6237,6 +6237,7 @@ export interface WaXmlOperations {
                             readonly tag: 'smb_data_sharing_with_meta_consent'
                             readonly attrs: {
                                 readonly value: 'false' | 'notset' | 'true'
+                                readonly version?: number
                             }
                         }
                     }
@@ -10079,12 +10080,14 @@ export interface WaXmlOperations {
                 readonly tag: 'privacy'
                 readonly attrs: {
                     readonly value: 'false' | 'notset' | 'true'
+                    readonly version?: number
                 }
                 readonly children: {
                     readonly smb_data_sharing_with_meta_consent: {
                         readonly tag: 'smb_data_sharing_with_meta_consent'
                         readonly attrs: {
                             readonly value: 'false' | 'notset' | 'true'
+                            readonly version?: number
                         }
                     }
                 }
@@ -10124,6 +10127,7 @@ export interface WaXmlOperations {
                             readonly tag: 'smb_data_sharing_with_meta_consent'
                             readonly attrs: {
                                 readonly value: 'false' | 'notset' | 'true'
+                                readonly version?: number
                             }
                         }
                     }
@@ -11265,6 +11269,7 @@ export interface WaXmlOperations {
                             readonly tag: 'smb_data_sharing_with_meta_consent'
                             readonly attrs: {
                                 readonly value: 'false' | 'notset' | 'true'
+                                readonly version?: number
                             }
                         }
                     }
@@ -12460,14 +12465,14 @@ export interface WaXmlStanzas {
                     readonly verified_name?: string
                     readonly recipient: string
                     readonly id: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly phash: string
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
@@ -12532,13 +12537,13 @@ export interface WaXmlStanzas {
                             readonly session_scope?: 'default' | 'status'
                             readonly type?: string
                             readonly st?: number
-                            readonly metering_type: 'smb_mm'
                             readonly destination_id?: string
                             readonly sender_intent?: 'hosted'
                             readonly view_once?: 'true'
                             readonly conversation_thread_id?: string
                             readonly tag_reason?: string
                             readonly status_setting: string
+                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                         readonly children: {
@@ -12571,8 +12576,8 @@ export interface WaXmlStanzas {
                                 readonly tag: 'interactive'
                                 readonly attrs: {
                                     readonly name?: string
-                                    readonly type: 'native_flow'
                                     readonly v: '1'
+                                    readonly type: 'native_flow'
                                 }
                                 readonly children: {
                                     readonly native_flow: {
@@ -12684,14 +12689,14 @@ export interface WaXmlStanzas {
                     readonly edit: '3' | '7'
                     readonly offline: number
                     readonly to: string
-                    readonly participant: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly phash: string
+                    readonly participant?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
@@ -12702,7 +12707,6 @@ export interface WaXmlStanzas {
                         readonly tag: 'meta'
                         readonly attrs: {
                             readonly original_msg_t: number
-                            readonly metering_type: 'smb_mm'
                             readonly type: 'scheduled_message'
                             readonly st: string
                             readonly origin?: 'ctwa'
@@ -12718,6 +12722,7 @@ export interface WaXmlStanzas {
                             readonly tag_reason?: string
                             readonly status_setting: string
                             readonly session_scope?: 'status'
+                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                     }
@@ -13068,6 +13073,7 @@ export interface WaXmlStanzas {
                                 readonly tag: 'smb_data_sharing_with_meta_consent'
                                 readonly attrs: {
                                     readonly value: 'false' | 'notset' | 'true'
+                                    readonly version?: number
                                 }
                             }
                         }
@@ -14361,9 +14367,9 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
-                    readonly t: number
-                    readonly participant?: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly t?: number
+                    readonly participant?: string
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string
