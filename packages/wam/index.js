@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041183688
+// WhatsApp Version: 2.3000.1041267924
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -405,6 +405,18 @@ const WA_WAM_ENUMS = Object.freeze({
         'NONE': 1,
         'SOFTWARE': 2,
         'BUILTIN': 3
+        })
+    }),
+    AFTER_READ_SCREEN_ENTRY_POINT_TYPE: Object.freeze({
+        module: 'WAWebWamEnumAfterReadScreenEntryPointType',
+        export: 'AFTER_READ_SCREEN_ENTRY_POINT_TYPE',
+        values: Object.freeze({
+        'STORAGE_SETTING': 0,
+        'PRIVACY': 1,
+        'DM_TIMER_SCREEN': 2,
+        'CHAT_PICKER_SCREEN': 3,
+        'CHAT_ENTRY': 4,
+        'GROUP_CREATION': 5
         })
     }),
     AGC_MODE: Object.freeze({
@@ -6772,7 +6784,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_BIZ_PROFILE_BANNER': 105,
         'SMB_RECREATE_AD_BIZHOME_QP': 106,
         'SMB_RECREATE_PERFORMING_AD_BIZHOME_QP': 107,
-        'SMB_RECREATE_PERFORMING_AD_CHATLIST_QP': 108
+        'SMB_RECREATE_PERFORMING_AD_CHATLIST_QP': 108,
+        'SMB_BIZ_PROFILE_OVERFLOW_MENU': 109
         })
     }),
     LWI_ENTRY_POINT_IMPRESSION_ACTION: Object.freeze({
@@ -12366,7 +12379,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'BUSINESS_TOOLS_REC_CARD': 19,
         'LISTS_CREATION': 20,
         'LIST_APPLICATION': 21,
-        'SEND_QUICK_REPLY': 22
+        'SEND_QUICK_REPLY': 22,
+        'STATUS_CROSSPOST': 23
         })
     }),
     SMB_LIST_FEATURE_NAME_TYPE: Object.freeze({
@@ -13743,7 +13757,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'QUICK_REPLY_PICKER': 308,
         'QUICK_REPLY_MEDIA_PREVIEW': 309,
         'SMART_QUICK_REPLY_SETUP': 310,
-        'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311
+        'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311,
+        'STATUS_PRIVACY': 312,
+        'STATUS_AUDIENCE_SELECTOR': 313,
+        'STATUS_VIEWER': 314,
+        'STATUS_LIST': 315,
+        'STATUS_COMPOSER': 316
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -16004,6 +16023,21 @@ const WA_WAM_EVENTS = Object.freeze({
             peripheralConnected: Object.freeze({ id: 16, type: 'string', falcoName: 'peripheral_connected' }),
             processIdentifier: Object.freeze({ id: 15, type: 'integer', falcoName: 'process_identifier' }),
             traceIdInt: Object.freeze({ id: 24, type: 'integer', falcoName: 'trace_id_int' })
+        })
+    }),
+    ArInterstitialScreenImpression: Object.freeze({
+        id: 7890,
+        falcoName: 'wam_ar_interstitial_screen_impression',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            accountAfterReadDuration: Object.freeze({ id: 1, type: 'integer', falcoName: 'account_after_read_duration' }),
+            afterReadScreenEntryPoint: Object.freeze({ id: 2, type: 'enum', enum: 'AFTER_READ_SCREEN_ENTRY_POINT_TYPE', falcoName: 'after_read_screen_entry_point' }),
+            nuxVersion: Object.freeze({ id: 3, type: 'integer', falcoName: 'nux_version' })
         })
     }),
     AttachmentTrayActions: Object.freeze({

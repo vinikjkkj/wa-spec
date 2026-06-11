@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041183688
+// WhatsApp Version: 2.3000.1041267924
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1280,6 +1280,7 @@ export type WaMexAcceptNewsletterAdminInviteResponse = {
 export type WaMexAiAgentAutoReplyControlResponse = {
     readonly xfb_whatsapp_smb_maiba_status_update?: {
         readonly success?: boolean
+        readonly update_timestamp_ms?: number
     }
 }
 

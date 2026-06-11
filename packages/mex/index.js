@@ -1,12 +1,12 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041183688
+// WhatsApp Version: 2.3000.1041267924
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
     ACSServerProviderConfig: Object.freeze({ docId: '25133761326299603', clientDocId: '25133761326299603' }),
     ACSServerProviderIssuance: Object.freeze({ docId: '26039599689054760', clientDocId: '26039599689054760' }),
     AcceptNewsletterAdminInvite: Object.freeze({ docId: '9580828702035549', clientDocId: '9580828702035549' }),
-    AiAgentAutoReplyControl: Object.freeze({ docId: '24541201322134132', clientDocId: '24541201322134132' }),
+    AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
     BPAccessTokenAndSessionCookies: Object.freeze({ docId: '26756198580685447', clientDocId: '26756198580685447' }),
     BizCreateOrder: Object.freeze({ docId: '26486627094287046', clientDocId: '26486627094287046' }),

@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041183688",
+  "waVersion": "2.3000.1041267924",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -436,6 +436,18 @@
         "NONE": 1,
         "SOFTWARE": 2,
         "BUILTIN": 3
+      }
+    },
+    "AFTER_READ_SCREEN_ENTRY_POINT_TYPE": {
+      "module": "WAWebWamEnumAfterReadScreenEntryPointType",
+      "export": "AFTER_READ_SCREEN_ENTRY_POINT_TYPE",
+      "values": {
+        "STORAGE_SETTING": 0,
+        "PRIVACY": 1,
+        "DM_TIMER_SCREEN": 2,
+        "CHAT_PICKER_SCREEN": 3,
+        "CHAT_ENTRY": 4,
+        "GROUP_CREATION": 5
       }
     },
     "AGC_MODE": {
@@ -6803,7 +6815,8 @@
         "SMB_BIZ_PROFILE_BANNER": 105,
         "SMB_RECREATE_AD_BIZHOME_QP": 106,
         "SMB_RECREATE_PERFORMING_AD_BIZHOME_QP": 107,
-        "SMB_RECREATE_PERFORMING_AD_CHATLIST_QP": 108
+        "SMB_RECREATE_PERFORMING_AD_CHATLIST_QP": 108,
+        "SMB_BIZ_PROFILE_OVERFLOW_MENU": 109
       }
     },
     "LWI_ENTRY_POINT_IMPRESSION_ACTION": {
@@ -12397,7 +12410,8 @@
         "BUSINESS_TOOLS_REC_CARD": 19,
         "LISTS_CREATION": 20,
         "LIST_APPLICATION": 21,
-        "SEND_QUICK_REPLY": 22
+        "SEND_QUICK_REPLY": 22,
+        "STATUS_CROSSPOST": 23
       }
     },
     "SMB_LIST_FEATURE_NAME_TYPE": {
@@ -13774,7 +13788,12 @@
         "QUICK_REPLY_PICKER": 308,
         "QUICK_REPLY_MEDIA_PREVIEW": 309,
         "SMART_QUICK_REPLY_SETUP": 310,
-        "GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET": 311
+        "GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET": 311,
+        "STATUS_PRIVACY": 312,
+        "STATUS_AUDIENCE_SELECTOR": 313,
+        "STATUS_VIEWER": 314,
+        "STATUS_LIST": 315,
+        "STATUS_COMPOSER": 316
       }
     },
     "SW_AEC_TYPE": {
@@ -16885,6 +16904,39 @@
           "id": 24,
           "type": "integer",
           "falcoName": "trace_id_int"
+        }
+      }
+    },
+    "ArInterstitialScreenImpression": {
+      "id": 7890,
+      "module": "WAWebArInterstitialScreenImpressionWamEvent",
+      "falcoName": "wam_ar_interstitial_screen_impression",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "accountAfterReadDuration": {
+          "id": 1,
+          "type": "integer",
+          "falcoName": "account_after_read_duration"
+        },
+        "afterReadScreenEntryPoint": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "after_read_screen_entry_point",
+          "enum": "AFTER_READ_SCREEN_ENTRY_POINT_TYPE"
+        },
+        "nuxVersion": {
+          "id": 3,
+          "type": "integer",
+          "falcoName": "nux_version"
         }
       }
     },
