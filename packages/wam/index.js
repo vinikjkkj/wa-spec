@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041267924
+// WhatsApp Version: 2.3000.1041346430
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -7311,7 +7311,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_TOOLTIP_LOW_IMPRESSION': 513,
         'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_IMPRESSION': 514,
         'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_CTA_CLICK': 515,
-        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED': 516
+        'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED': 516,
+        'LWI_ACTION_SWIPE_BACK': 517
         })
     }),
     LWI_SCREEN_REFERENCE: Object.freeze({
@@ -10183,6 +10184,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'UNKNOWN': 19,
         'WAG': 20,
         'CARPLAY': 21
+        })
+    }),
+    PERIPHERAL_DISPLAY_CONNECTIVITY_TYPE: Object.freeze({
+        module: 'WAWebWamEnumPeripheralDisplayConnectivityType',
+        export: 'PERIPHERAL_DISPLAY_CONNECTIVITY_TYPE',
+        values: Object.freeze({
+        'UNKNOWN': 0,
+        'TETHERED': 1,
+        'WHATSAPI': 2
         })
     }),
     PHONE_NUM_HYPERLINK_ACTION_TYPE: Object.freeze({
@@ -20622,6 +20632,7 @@ const WA_WAM_EVENTS = Object.freeze({
             passkeyExists: Object.freeze({ id: 165, type: 'boolean', falcoName: 'passkey_exists' }),
             paymentsIsEnabled: Object.freeze({ id: 100, type: 'boolean', falcoName: 'payments_is_enabled' }),
             peripheralConnected: Object.freeze({ id: 209, type: 'string', falcoName: 'peripheral_connected' }),
+            peripheralDisplayConnectivityType: Object.freeze({ id: 255, type: 'enum', enum: 'PERIPHERAL_DISPLAY_CONNECTIVITY_TYPE', falcoName: 'peripheral_display_connectivity_type' }),
             peripheralLinkedProductLine: Object.freeze({ id: 229, type: 'string', falcoName: 'peripheral_linked_product_line' }),
             permissionAccessCoarseLocation: Object.freeze({ id: 57, type: 'integer', falcoName: 'permission_access_coarse_location' }),
             permissionAccessFineLocation: Object.freeze({ id: 58, type: 'integer', falcoName: 'permission_access_fine_location' }),

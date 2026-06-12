@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041267924
+// WhatsApp Version: 2.3000.1041346430
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -45,6 +45,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly CreateReportAppeal: WaMexPersistId
     readonly CreateWhatsAppAdsIdentity: WaMexPersistId
     readonly CustomLabel3pdEvent: WaMexPersistId
+    readonly DebugWAInboxSnapshot: WaMexPersistId
     readonly DeleteNewsletter: WaMexPersistId
     readonly DemoteNewsletterAdmin: WaMexPersistId
     readonly EditBizProfile: WaMexPersistId
@@ -175,6 +176,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CreateReportAppeal: WaMexOperationSchema<'mutation', readonly ['reason', 'report_id']>
     readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'phone_number']>
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
+    readonly DebugWAInboxSnapshot: WaMexOperationSchema<'query', readonly []>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly DemoteNewsletterAdmin: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
@@ -467,6 +469,8 @@ export type WaMexCustomLabel3pdEventVariables = {
     readonly custom_labels?: ReadonlyArray<string>
     readonly expt_group?: string
 }
+
+export type WaMexDebugWAInboxSnapshotVariables = Readonly<Record<string, never>>
 
 export type WaMexDeleteNewsletterVariables = {
     readonly newsletter_id?: string
@@ -1143,6 +1147,7 @@ export interface WaMexOperationVariables {
     readonly CreateReportAppeal: WaMexCreateReportAppealVariables
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityVariables
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventVariables
+    readonly DebugWAInboxSnapshot: WaMexDebugWAInboxSnapshotVariables
     readonly DeleteNewsletter: WaMexDeleteNewsletterVariables
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminVariables
     readonly EditBizProfile: WaMexEditBizProfileVariables
@@ -1904,6 +1909,15 @@ export type WaMexCustomLabel3pdEventResponse = {
         readonly ctwa_3pd_conversion_subtype?: string
         readonly ctwa_3pd_conversion_metadata?: string
     }>
+}
+
+export type WaMexDebugWAInboxSnapshotResponse = {
+    readonly get_wa_mailbox?: {
+        readonly __typename?: string
+        readonly snapshot_timestamp_ms?: number
+        readonly encrypted_backup_id?: string
+        readonly id?: string
+    }
 }
 
 export type WaMexDeleteNewsletterResponse = {
@@ -4213,6 +4227,7 @@ export interface WaMexOperationResponses {
     readonly CreateReportAppeal: WaMexCreateReportAppealResponse
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityResponse
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventResponse
+    readonly DebugWAInboxSnapshot: WaMexDebugWAInboxSnapshotResponse
     readonly DeleteNewsletter: WaMexDeleteNewsletterResponse
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminResponse
     readonly EditBizProfile: WaMexEditBizProfileResponse

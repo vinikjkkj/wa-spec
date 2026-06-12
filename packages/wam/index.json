@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041267924",
+  "waVersion": "2.3000.1041346430",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -7342,7 +7342,8 @@
         "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_TOOLTIP_LOW_IMPRESSION": 513,
         "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_IMPRESSION": 514,
         "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_CTA_CLICK": 515,
-        "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED": 516
+        "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED": 516,
+        "LWI_ACTION_SWIPE_BACK": 517
       }
     },
     "LWI_SCREEN_REFERENCE": {
@@ -10214,6 +10215,15 @@
         "UNKNOWN": 19,
         "WAG": 20,
         "CARPLAY": 21
+      }
+    },
+    "PERIPHERAL_DISPLAY_CONNECTIVITY_TYPE": {
+      "module": "WAWebWamEnumPeripheralDisplayConnectivityType",
+      "export": "PERIPHERAL_DISPLAY_CONNECTIVITY_TYPE",
+      "values": {
+        "UNKNOWN": 0,
+        "TETHERED": 1,
+        "WHATSAPI": 2
       }
     },
     "PHONE_NUM_HYPERLINK_ACTION_TYPE": {
@@ -36853,6 +36863,12 @@
           "id": 209,
           "type": "string",
           "falcoName": "peripheral_connected"
+        },
+        "peripheralDisplayConnectivityType": {
+          "id": 255,
+          "type": "enum",
+          "falcoName": "peripheral_display_connectivity_type",
+          "enum": "PERIPHERAL_DISPLAY_CONNECTIVITY_TYPE"
         },
         "peripheralLinkedProductLine": {
           "id": 229,

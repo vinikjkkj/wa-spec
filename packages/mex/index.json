@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041267924",
+  "waVersion": "2.3000.1041346430",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1150,6 +1150,21 @@
             "ctwa_3pd_conversion_metadata": "string"
           }
         ]
+      }
+    },
+    "DebugWAInboxSnapshot": {
+      "originalName": "WAWebDebugWAInboxSnapshotQuery",
+      "docId": "27649963434608147",
+      "operationKind": "query",
+      "variables": [],
+      "variablesShape": {},
+      "response": {
+        "get_wa_mailbox": {
+          "__typename": "string",
+          "snapshot_timestamp_ms": "number",
+          "encrypted_backup_id": "string",
+          "id": "string"
+        }
       }
     },
     "DeleteNewsletter": {
