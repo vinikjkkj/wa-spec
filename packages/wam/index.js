@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041346430
+// WhatsApp Version: 2.3000.1041418766
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -2296,7 +2296,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'HIDE': 9,
         'UNHIDE': 10,
         'CREATE': 11,
-        'DELETE': 12
+        'DELETE': 12,
+        'ADMIN_PROFILE_CREATE': 13,
+        'ADMIN_PROFILE_UPDATE': 14,
+        'ADMIN_PROFILE_DELETE': 15,
+        'ADMIN_PROFILE_SETTING_ENABLE': 16,
+        'ADMIN_PROFILE_SETTING_DISABLE': 17
         })
     }),
     CHANNEL_EVENT_UNIT: Object.freeze({
@@ -3334,6 +3339,17 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALLS_TAB_GLOBAL_SEARCH': 6
         })
     }),
+    CONTACT_SUGGESTION: Object.freeze({
+        module: 'WAWebWamEnumContactSuggestion',
+        export: 'CONTACT_SUGGESTION',
+        values: Object.freeze({
+        'DEFAULT': 1,
+        'FREQUENTS': 2,
+        'RECENTS': 3,
+        'PINNED': 4,
+        'RANKER': 5
+        })
+    }),
     CONTACT_SYNC_SOURCE: Object.freeze({
         module: 'WAWebWamEnumContactSyncSource',
         export: 'CONTACT_SYNC_SOURCE',
@@ -3667,7 +3683,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'FOLLOW_UP_USYNC_COMPLETED': 85,
         'WEBVIEW_INTERSTITIAL_RENDERED': 86,
         'IAB_OPENED': 87,
-        'IAB_CLOSED': 88
+        'IAB_CLOSED': 88,
+        'AD_CONTEXT_RENDERED_INCOMPLETE': 89
         })
     }),
     CUSTOMER_ADS_SHARING_SETTING_ENABLED: Object.freeze({
@@ -11950,6 +11967,17 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS': 1
         })
     }),
+    SETTING: Object.freeze({
+        module: 'WAWebWamEnumSetting',
+        export: 'SETTING',
+        values: Object.freeze({
+        'ALL_CONTACTS': 1,
+        'ALL_CONTACTS_EXCEPT': 2,
+        'ONLY_SHARE_WITH_CONTACTS': 3,
+        'ONLY_SHARE_WITH_CLOSE_FRIENDS': 4,
+        'ONLY_SHARE_WITH_CUSTOM_LIST': 5
+        })
+    }),
     SETTINGS_CLICK_ENTRY_POINT: Object.freeze({
         module: 'WAWebWamEnumSettingsClickEntryPoint',
         export: 'SETTINGS_CLICK_ENTRY_POINT',
@@ -12968,6 +12996,77 @@ const WA_WAM_ENUMS = Object.freeze({
         'USER_DELETED_UNSENT_MESSAGE': 49,
         'USER_MANUAL_RETRY': 50,
         'ERROR_CLIENT_OUT_OF_MEMORY': 51
+        })
+    }),
+    STATUS_PRIVACY_SETTINGS_ACTION: Object.freeze({
+        module: 'WAWebWamEnumStatusPrivacySettingsAction',
+        export: 'STATUS_PRIVACY_SETTINGS_ACTION',
+        values: Object.freeze({
+        'AUDIENCE_SELECTION_ENTRYPOINT_CLICKED': 1,
+        'INCLUDE_CONTACT_LIST_LAUNCHED': 2,
+        'EXCLUDE_CONTACT_LIST_LAUNCHED': 3,
+        'MY_CONTACTS_CLICKED': 4,
+        'MY_CONTACTS_EXCEPT_CLICKED': 5,
+        'ONLY_SHARE_WITH_CLICKED': 6,
+        'UPDATED_STATUS_PRIVACY_SETTING': 7,
+        'ALLOW_RESHARING_CLICKED': 8,
+        'ALLOW_FORWARDING_CLICKED': 9,
+        'UPDATED_STATUS_FORWARD_SETTING': 10,
+        'UPDATED_STATUS_INCLUDE_CLOSE_FRIENDS_LAUNCHED': 11,
+        'LIST_CONTACT_SELECTED': 12,
+        'LIST_CONTACT_DESELECTED': 13,
+        'MERGED_AUDIENCE_EDIT_CLICKED': 14,
+        'CREATE_CUSTOM_AUDIENCE_CLICKED': 15,
+        'CUSTOM_AUDIENCE_CONTACT_LIST_LAUNCHED': 16,
+        'CUSTOM_AUDIENCE_EMOJI_CHANGED': 17,
+        'CUSTOM_AUDIENCE_CREATED': 18,
+        'CUSTOM_AUDIENCE_DELETED': 19,
+        'CUSTOM_AUDIENCE_UPDATED': 20,
+        'CUSTOM_AUDIENCE_CLICKED': 21,
+        'CLOSE_FRIENDS_CLICKED': 22,
+        'CLOSE_FRIENDS__LIST_LAUNCHED': 23,
+        'CUSTOM_AUDIENCE_SELECT_ALL_CLICK': 24,
+        'CUSTOM_AUDIENCE_UNSELECT_ALL_CLICK': 25,
+        'CUSTOM_AUDIENCE_GROUP_BUILDER_DESELECTED_ON_SEARCH': 26,
+        'CUSTOM_AUDIENCE_GROUP_BUILDER_SELECTED_ON_SEARCH': 27,
+        'CUSTOM_AUDIENCE_CONTACT_SEARCH_TAP': 28,
+        'SEE_ALL_BUILDERS_DONE_CLICKED': 29,
+        'CUSTOM_AUDIENCE_OSW_BUILDER_DESELECTED_ON_SEE_ALL_BUILDERS': 30,
+        'CUSTOM_AUDIENCE_OSW_BUILDER_SELECTED_ON_SEE_ALL_BUILDERS': 31,
+        'CUSTOM_AUDIENCE_GROUP_BUILDER_DESELECTED_ON_SEE_ALL_BUILDERS': 32,
+        'CUSTOM_AUDIENCE_GROUP_BUILDER_SELECTED_ON_SEE_ALL_BUILDERS': 33,
+        'CUSTOM_AUDIENCE_GROUP_BUILDER_DESELECTED_ON_CONTACT_PICKER': 34,
+        'CUSTOM_AUDIENCE_GROUP_BUILDER_SELECTED_ON_CONTACT_PICKER': 35,
+        'CUSTOM_AUDIENCE_OSW_BUILDER_DESELECTED_ON_CONTACT_PICKER': 36,
+        'CUSTOM_AUDIENCE_OSW_BUILDER_SELECTED_ON_CONTACT_PICKER': 37,
+        'CUSTOM_AUDIENCE_BUILDERS_SEE_ALL_CLICK': 38,
+        'CUSTOM_AUDIENCE_BUILDER_DETAILS_CLICK': 39,
+        'AUDIENCE_SELECTION_ENTRYPOINT_CREATE_YOUR_OWN_CLICKED': 40,
+        'AUDIENCE_SELECTION_ENTRYPOINT_ADD_TO_CF_CLICKED': 41,
+        'CREATE_CLOSE_FRIENDS_CLICKED': 42,
+        'CLOSE_FRIENDS_CREATED': 43,
+        'CUSTOM_AUDIENCE_CONTACT_PICKER_NEXT_CLICKED': 44
+        })
+    }),
+    STATUS_PRIVACY_SETTINGS_VIEW: Object.freeze({
+        module: 'WAWebWamEnumStatusPrivacySettingsView',
+        export: 'STATUS_PRIVACY_SETTINGS_VIEW',
+        values: Object.freeze({
+        'SETTINGS_FULL': 1,
+        'SETTINGS_BOTTOM_SHEET': 2,
+        'SELECTION_PILLS': 3
+        })
+    }),
+    STATUS_PRIVACY_SURFACE: Object.freeze({
+        module: 'WAWebWamEnumStatusPrivacySurface',
+        export: 'STATUS_PRIVACY_SURFACE',
+        values: Object.freeze({
+        'STATUS_PRIVACY_SETTINGS': 1,
+        'TEXT_COMPOSER': 2,
+        'MEDIA_COMPOSER': 3,
+        'CONTACT_PICKER': 4,
+        'VOICE_COMPOSER': 5,
+        'STATUS_VIEWER_CLOSE_SHARING_MIMICRY': 6
         })
     }),
     STATUS_PRIVACY_TYPE: Object.freeze({
@@ -14249,7 +14348,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_CATALOG_ADD_ITEM_SAVE_SUCCESS': 242,
         'SMB_LISTS_MANAGE': 243,
         'SMB_LISTS_CREATE': 244,
-        'SMB_LISTS_PICKER': 245
+        'SMB_LISTS_PICKER': 245,
+        'CHANNEL_ADMIN_PROFILE_VIEWER': 246,
+        'CHANNEL_ADMIN_PROFILE_PICTURE': 247
         })
     }),
     TYPE_OF_GROUP_ENUM: Object.freeze({
@@ -19041,6 +19142,7 @@ const WA_WAM_EVENTS = Object.freeze({
             webTransportUsed: Object.freeze({ id: 2900, type: 'boolean', falcoName: 'web_transport_used' }),
             webVideoCaptureCaptureToEncodedAvgMs: Object.freeze({ id: 2907, type: 'timer', falcoName: 'web_video_capture_capture_to_encoded_avg_ms' }),
             webVideoCapturePresentToConstructAvgMs: Object.freeze({ id: 2908, type: 'timer', falcoName: 'web_video_capture_present_to_construct_avg_ms' }),
+            webVideoEncoderType: Object.freeze({ id: 3032, type: 'string', falcoName: 'web_video_encoder_type' }),
             webrtcCompatible: Object.freeze({ id: 1984, type: 'boolean', falcoName: 'webrtc_compatible' }),
             wifiInfoAtEnd: Object.freeze({ id: 2416, type: 'string', falcoName: 'wifi_info_at_end' }),
             wifiInfoAtStart: Object.freeze({ id: 2417, type: 'string', falcoName: 'wifi_info_at_start' }),
@@ -19369,6 +19471,7 @@ const WA_WAM_EVENTS = Object.freeze({
             channelUserType: Object.freeze({ id: 10, type: 'enum', enum: 'CHANNEL_USER_TYPE', falcoName: 'channel_user_type' }),
             cid: Object.freeze({ id: 1, type: 'string', falcoName: 'cid' }),
             containsMusic: Object.freeze({ id: 9, type: 'boolean', falcoName: 'contains_music' }),
+            isOriginalAuthor: Object.freeze({ id: 12, type: 'boolean', falcoName: 'is_original_author' }),
             isStarredPost: Object.freeze({ id: 8, type: 'boolean', falcoName: 'is_starred_post' }),
             isVpvImpression: Object.freeze({ id: 7, type: 'boolean', falcoName: 'is_vpv_impression' }),
             postId: Object.freeze({ id: 4, type: 'string', falcoName: 'post_id' }),
@@ -20666,6 +20769,8 @@ const WA_WAM_EVENTS = Object.freeze({
             simMcc: Object.freeze({ id: 2, type: 'integer', falcoName: 'sim_mcc' }),
             simMnc: Object.freeze({ id: 3, type: 'integer', falcoName: 'sim_mnc' }),
             simPhoneNumberMatched: Object.freeze({ id: 243, type: 'integer', falcoName: 'sim_phone_number_matched' }),
+            stickersFolderFileCount: Object.freeze({ id: 256, type: 'integer', falcoName: 'stickers_folder_file_count' }),
+            stickersFolderSize: Object.freeze({ id: 257, type: 'integer', falcoName: 'stickers_folder_size' }),
             storageAvailSize: Object.freeze({ id: 31, type: 'integer', falcoName: 'storage_avail_size' }),
             storageAvailSizeWithCache: Object.freeze({ id: 136, type: 'integer', falcoName: 'storage_avail_size_with_cache' }),
             storageTotalSize: Object.freeze({ id: 32, type: 'integer', falcoName: 'storage_total_size' }),
@@ -26395,6 +26500,34 @@ const WA_WAM_EVENTS = Object.freeze({
             stickerType: Object.freeze({ id: 18, type: 'enum', enum: 'STICKER_TYPE', falcoName: 'sticker_type' }),
             unifiedSessionId: Object.freeze({ id: 19, type: 'string', falcoName: 'unified_session_id' }),
             updatesTabSessionId: Object.freeze({ id: 31, type: 'integer', falcoName: 'updates_tab_session_id' })
+        })
+    }),
+    StatusPrivacySettings: Object.freeze({
+        id: 3200,
+        falcoName: 'wam_status_privacy_settings',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            allowForwarding: Object.freeze({ id: 10, type: 'boolean', falcoName: 'allow_forwarding' }),
+            allowResharing: Object.freeze({ id: 9, type: 'boolean', falcoName: 'allow_resharing' }),
+            contactSuggestion: Object.freeze({ id: 12, type: 'enum', enum: 'CONTACT_SUGGESTION', falcoName: 'contact_suggestion' }),
+            contactSuggestionsCount: Object.freeze({ id: 14, type: 'integer', falcoName: 'contact_suggestions_count' }),
+            lastSuccessfulRankingUpdate: Object.freeze({ id: 15, type: 'integer', falcoName: 'last_successful_ranking_update' }),
+            previousSetting: Object.freeze({ id: 2, type: 'enum', enum: 'SETTING', falcoName: 'previous_setting' }),
+            selectedContactsSize: Object.freeze({ id: 7, type: 'integer', falcoName: 'selected_contacts_size' }),
+            selectedGroupsSize: Object.freeze({ id: 8, type: 'integer', falcoName: 'selected_groups_size' }),
+            selectedListSize: Object.freeze({ id: 3, type: 'integer', falcoName: 'selected_list_size' }),
+            selectionPillPos: Object.freeze({ id: 13, type: 'integer', falcoName: 'selection_pill_pos' }),
+            setting: Object.freeze({ id: 1, type: 'enum', enum: 'SETTING', falcoName: 'setting' }),
+            statusPostingSessionId: Object.freeze({ id: 6, type: 'integer', falcoName: 'status_posting_session_id' }),
+            statusPrivacyLists: Object.freeze({ id: 16, type: 'string', falcoName: 'status_privacy_lists' }),
+            statusPrivacySettingsAction: Object.freeze({ id: 5, type: 'enum', enum: 'STATUS_PRIVACY_SETTINGS_ACTION', falcoName: 'status_privacy_settings_action' }),
+            statusPrivacySettingsView: Object.freeze({ id: 11, type: 'enum', enum: 'STATUS_PRIVACY_SETTINGS_VIEW', falcoName: 'status_privacy_settings_view' }),
+            statusPrivacySurface: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_PRIVACY_SURFACE', falcoName: 'status_privacy_surface' })
         })
     }),
     StatusReply: Object.freeze({
