@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041418766",
+  "waVersion": "2.3000.1041436690",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -31944,13 +31944,18 @@
                 "direction": "both"
               },
               "to": {
-                "type": "jid",
-                "arg": "p",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
+                "direction": "both"
+              },
+              "t": {
+                "type": "int",
+                "arg": "Date.now().toString()",
                 "direction": "both"
               },
               "participant": {
                 "type": "deviceJid",
-                "arg": "l",
+                "arg": "i",
                 "optional": true,
                 "direction": "both"
               },
@@ -31976,12 +31981,6 @@
                 "type": "string",
                 "arg": "I",
                 "direction": "out"
-              },
-              "t": {
-                "type": "int",
-                "arg": "d",
-                "optional": true,
-                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -37134,7 +37133,7 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "I.id",
+                "arg": "e.stanzaId",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -38832,7 +38831,12 @@
         "attrs": {
           "id": {
             "type": "stanzaId",
-            "arg": "t",
+            "arg": "e.stanzaId",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
             "direction": "out"
           },
           "class": {
@@ -38843,23 +38847,6 @@
               "notification",
               "receipt"
             ],
-            "direction": "out"
-          },
-          "from": {
-            "type": "deviceJid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "arg": "n",
-            "optional": true,
-            "direction": "out"
-          },
-          "participant": {
-            "type": "deviceJid",
-            "arg": "r",
-            "optional": true,
             "direction": "out"
           },
           "type": {
@@ -38888,9 +38875,20 @@
             ],
             "direction": "out"
           },
+          "participant": {
+            "type": "userJid",
+            "arg": "f",
+            "optional": true,
+            "direction": "out"
+          },
           "error": {
             "type": "int",
-            "arg": "i",
+            "arg": "t",
+            "direction": "out"
+          },
+          "from": {
+            "type": "deviceJid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
             "direction": "out"
           },
           "recipient": {
@@ -38902,11 +38900,11 @@
         },
         "children": [
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },
@@ -38916,11 +38914,11 @@
             "max": 1
           },
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },

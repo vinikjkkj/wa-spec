@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041418766
+// WhatsApp Version: 2.3000.1041436690
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -3506,15 +3506,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'CTWA_WA_AD_ACCOUNT': 2
         })
     }),
-    CTWA_AD_VARIANT_TYPE: Object.freeze({
-        module: 'WAWebWamEnumCtwaAdVariantType',
-        export: 'CTWA_AD_VARIANT_TYPE',
-        values: Object.freeze({
-        'CTWA': 1,
-        'CAWC': 2,
-        'WAMO': 3
-        })
-    }),
     CTWA_BIZ_USER_JOURNEY_OPERATION: Object.freeze({
         module: 'WAWebWamEnumCtwaBizUserJourneyOperation',
         export: 'CTWA_BIZ_USER_JOURNEY_OPERATION',
@@ -3539,14 +3530,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'AD_PREVIEW_OPEN': 18,
         'AD_PREVIEW_CLOSE': 19,
         'AD_PREVIEW_RENDER_FAILED': 20
-        })
-    }),
-    CTWA_CHAT_CREATION_MODE: Object.freeze({
-        module: 'WAWebWamEnumCtwaChatCreationMode',
-        export: 'CTWA_CHAT_CREATION_MODE',
-        values: Object.freeze({
-        'JID': 0,
-        'LID': 1
         })
     }),
     CTWA_DIRECTION_FROM: Object.freeze({
@@ -3591,100 +3574,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'CTWA_LOGIN_TYPE_FB_NATIVE': 0,
         'CTWA_LOGIN_TYPE_FB_WEB': 1,
         'CTWA_LOGIN_TYPE_WA_AD_ACCOUNT': 2
-        })
-    }),
-    CTWA_USER_JOURNEY_OPERATION_TYPE: Object.freeze({
-        module: 'WAWebWamEnumCtwaUserJourneyOperationType',
-        export: 'CTWA_USER_JOURNEY_OPERATION_TYPE',
-        values: Object.freeze({
-        'LAND_ON_WHATSAPP': 1,
-        'GET_CONTEXT_CALL_INITIATED': 2,
-        'GET_CONTEXT_CALL_SUCCESS': 3,
-        'AD_CONTEXT_FALLBACK_RENDERED': 4,
-        'AD_CONTEXT_DISMISSED': 5,
-        'KILL_APP': 6,
-        'BACK_BUTTON_CLICKED': 7,
-        'CALL_BUSINESS_BUTTON_CLICKED': 8,
-        'VIEW_CATALOG_BUTTON_CLICKED': 9,
-        'PROFILE_PHOTO_CLICKED': 10,
-        'BIZ_PROFILE_CLICKED': 11,
-        'GET_CONTEXT_CALL_FAILED': 12,
-        'CHAT_SETTINGS_CLICKED': 13,
-        'FIRST_CUSTOM_MESSAGE_SENT_WITH_AD_CONTEXT': 14,
-        'FIRST_CUSTOM_MESSAGE_SENT_WITHOUT_AD_CONTEXT': 15,
-        'ICEBREAKER_SENT': 16,
-        'AD_CONTEXT_FULLPREVIEW_RENDERED': 17,
-        'TRUST_BANNER_SHOWN': 18,
-        'TRUST_BANNER_DISMISSED': 19,
-        'CTWA_ADD_CONTACT_DIALOG_OPEN': 20,
-        'CTWA_ADD_CONTACT_CREATE_NEW': 21,
-        'CTWA_ADD_CONTACT_EXISTING': 22,
-        'CTWA_ARCHIVE_THREAD': 23,
-        'CTWA_DELETE_THREAD': 24,
-        'CTWA_PARSE_DEEP_LINK_START': 25,
-        'CTWA_PARSE_DEEP_LINK_SUCCESS': 26,
-        'CTWA_PARSE_DEEP_LINK_FAILURE': 27,
-        'CTWA_CONSUMER_DISCLOSURE_SHOWN_BLOCKING': 28,
-        'CTWA_CONSUMER_DISCLOSURE_SHOWN_NONBLOCKING': 29,
-        'CTWA_CONSUMER_DISCLOSURE_NOT_SHOWN_ACCEPTED': 30,
-        'CTWA_CONSUMER_DISCLOSURE_NOT_SHOWN_COOLDOWN': 31,
-        'CTWA_CONSUMER_DISCLOSURE_NOT_SHOWN_OTHER': 32,
-        'CTWA_CONSUMER_DISCLOSURE_ACCEPTED': 33,
-        'CTWA_CONSUMER_DISCLOSURE_NOT_ACCEPTED': 34,
-        'FIRST_MESSAGE_SENT_WITHOUT_AD_PAYLOAD': 35,
-        'FIRST_MESSAGE_SENT_WITH_AD_PAYLOAD': 36,
-        'CALL_SENT_WITHOUT_AD_PAYLOAD': 37,
-        'CALL_SENT_WITH_AD_PAYLOAD': 38,
-        'CTWA_CONSUMER_DISCLOSURE_SHOWN_INTHREAD_BLOCKING': 39,
-        'CONSUMER_DISCLOSURE_NOT_SHOWN_EXEMPT': 40,
-        'AGM_SPINNER_HIDES_FROM_GET_CONTEXT_COMPLETION': 41,
-        'AGM_SPINNER_HIDES_FROM_USER_ACTION': 42,
-        'AGM_SPINNER_HIDES_FROM_MAX_LOADING_TIME': 43,
-        'AGM_INJECTED': 44,
-        'AGM_CTA_CLICKED': 45,
-        'AGM_VIEW_DETAILS_CLICKED': 46,
-        'AGM_BOTTOMSHEET_SHOWN': 47,
-        'AGM_BOTTOMSHEET_CLOSED': 48,
-        'AGM_BOTTOMSHEET_EXTERNAL_NAVIGATION': 49,
-        'DUPLICATED_AGM_NOT_INJECTED': 50,
-        'AGM_WELCOME_MESSAGE_NULL': 51,
-        'AGM_INVALID_CTA_TYPE_FROM_ACTION_LINK': 52,
-        'AGM_INVALID_CTA_PAYLOAD_FROM_ACTION_LINK': 53,
-        'AGM_INVALID_SOURCE_APP_FROM_ACTION_LINK': 54,
-        'AGM_BOTTOMSHEET_IMAGE_ERROR': 55,
-        'AGM_BOTTOMSHEET_TEXT_ERROR': 56,
-        'AGM_SPINNER_SHOWN': 57,
-        'LAND_ON_CHAT_THREAD': 58,
-        'AD_CONTEXT_PREVIEW_CLICKED': 60,
-        'BIZ_CONTEXT_CARD_CLICKED': 61,
-        'BIZ_CONTEXT_CARD_INSERTED': 62,
-        'BIZ_CONTEXT_CARD_EXIST': 63,
-        'LAND_ON_EMPTY_CHAT_THREAD': 64,
-        'AGM_NOT_INJECTED_TIMEOUT': 65,
-        'AGM_NOT_INJECTED_OTHER': 66,
-        'AGM_AD_PREVIEW_OPENED': 67,
-        'AGM_AD_PREVIEW_CLOSED': 68,
-        'BIZ_CONTEXT_CARD_NOT_INSERTED': 69,
-        'GET_CONTEXT_CALL_SUCCESS_PROCESSED': 70,
-        'AD_CONTEXT_NOT_SHOWN': 71,
-        'AD_PREVIEW_MEDIA_NOT_AVAILABLE': 72,
-        'AD_PREVIEW_MEDIA_URL_EXPIRED': 73,
-        'CALL_CONFIRMATION_BOTTOMSHEET_SHOWN': 74,
-        'CALL_CONFIRMATION_BOTTOMSHEET_DISMISSED': 75,
-        'CALL_CONFIRMATION_BOTTOMSHEET_CLICKED': 76,
-        'AD_PREVIEW_FETCH_FROM_DEEPLINK_V2_STARTED': 77,
-        'AD_PREVIEW_FETCH_FROM_DEEPLINK_V2_SUCCESS': 78,
-        'AD_PREVIEW_FETCH_FROM_DEEPLINK_V2_FAILED': 79,
-        'AD_PREVIEW_DEEPLINK_V1_CLICKED': 80,
-        'FOLLOW_UP_USYNC_SKIPPED': 81,
-        'INLINE_USYNC_STARTED': 82,
-        'INLINE_USYNC_COMPLETED': 83,
-        'FOLLOW_UP_USYNC_STARTED': 84,
-        'FOLLOW_UP_USYNC_COMPLETED': 85,
-        'WEBVIEW_INTERSTITIAL_RENDERED': 86,
-        'IAB_OPENED': 87,
-        'IAB_CLOSED': 88,
-        'AD_CONTEXT_RENDERED_INCOMPLETE': 89
         })
     }),
     CUSTOMER_ADS_SHARING_SETTING_ENABLED: Object.freeze({
@@ -14065,14 +13954,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'EPHEMERAL_SETTINGS': 7
         })
     }),
-    TRUST_BANNER_ACTION: Object.freeze({
-        module: 'WAWebWamEnumTrustBannerAction',
-        export: 'TRUST_BANNER_ACTION',
-        values: Object.freeze({
-        'VIEWED': 0,
-        'DISMISSED': 1
-        })
-    }),
     TRUST_SIGNAL_BUCKETS: Object.freeze({
         module: 'WAWebWamEnumTrustSignalBuckets',
         export: 'TRUST_SIGNAL_BUCKETS',
@@ -20590,35 +20471,6 @@ const WA_WAM_EVENTS = Object.freeze({
             orderSignalType: Object.freeze({ id: 6, type: 'enum', enum: 'ORDER_SIGNAL_TYPE', falcoName: 'order_signal_type' }),
             orderStatus: Object.freeze({ id: 7, type: 'enum', enum: 'ORDER_STATUS', falcoName: 'order_status' }),
             threadIdHmac: Object.freeze({ id: 9, type: 'string', falcoName: 'thread_id_hmac' })
-        })
-    }),
-    CtwaUserJourney: Object.freeze({
-        id: 3466,
-        falcoName: 'wam_ctwa_user_journey',
-        channel: 'private',
-        privateStatsIdInt: 113760892,
-        emittedByWorker: false,
-        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
-        requiredFields: Object.freeze([]),
-        conditions: Object.freeze([]),
-        fields: Object.freeze({
-            adId: Object.freeze({ id: 1, type: 'string', falcoName: 'ad_id' }),
-            businessJid: Object.freeze({ id: 2, type: 'string', falcoName: 'business_jid' }),
-            ctwaAdVariant: Object.freeze({ id: 14, type: 'enum', enum: 'CTWA_AD_VARIANT_TYPE', falcoName: 'ctwa_ad_variant' }),
-            ctwaChatCreationMode: Object.freeze({ id: 6, type: 'enum', enum: 'CTWA_CHAT_CREATION_MODE', falcoName: 'ctwa_chat_creation_mode' }),
-            ctwaEventReason: Object.freeze({ id: 15, type: 'string', falcoName: 'ctwa_event_reason' }),
-            ctwaUserJourneyMetadata: Object.freeze({ id: 12, type: 'string', falcoName: 'ctwa_user_journey_metadata' }),
-            ctwaUserJourneyOperation: Object.freeze({ id: 3, type: 'enum', enum: 'CTWA_USER_JOURNEY_OPERATION_TYPE', falcoName: 'ctwa_user_journey_operation' }),
-            elapsedTimeInMs: Object.freeze({ id: 13, type: 'integer', falcoName: 'elapsed_time_in_ms' }),
-            featureEnabled: Object.freeze({ id: 9, type: 'string', falcoName: 'feature_enabled' }),
-            icebreakersShown: Object.freeze({ id: 4, type: 'boolean', falcoName: 'icebreakers_shown' }),
-            sequenceNumber: Object.freeze({ id: 5, type: 'integer', falcoName: 'sequence_number' }),
-            threadCreationDate: Object.freeze({ id: 10, type: 'string', falcoName: 'thread_creation_date' }),
-            threadEntryCount: Object.freeze({ id: 16, type: 'integer', falcoName: 'thread_entry_count' }),
-            threadIdHmac: Object.freeze({ id: 11, type: 'string', falcoName: 'thread_id_hmac' }),
-            trustBannerAction: Object.freeze({ id: 7, type: 'enum', enum: 'TRUST_BANNER_ACTION', falcoName: 'trust_banner_action' }),
-            trustBannerType: Object.freeze({ id: 8, type: 'string', falcoName: 'trust_banner_type' }),
-            usyncMode: Object.freeze({ id: 17, type: 'integer', falcoName: 'usync_mode' })
         })
     }),
     Daily: Object.freeze({
