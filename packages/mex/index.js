@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041458168
+// WhatsApp Version: 2.3000.1041543060
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -51,7 +51,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchGroupInviteCode: Object.freeze({ docId: '29247029834912157', clientDocId: '29247029834912157' }),
     FetchGroupIsInternal: Object.freeze({ docId: '34119218944390847', clientDocId: '34119218944390847' }),
     FetchIntegritySignals: Object.freeze({ docId: '26438847999065394', clientDocId: '26438847999065394' }),
-    FetchNativeAdsMvpEligibility: Object.freeze({ docId: '34778300218423824', clientDocId: '34778300218423824' }),
+    FetchNativeAdsMvpEligibility: Object.freeze({ docId: '26673846358955912', clientDocId: '26673846358955912' }),
     FetchNewChatMessageCappingInfo: Object.freeze({ docId: '24503548349331633', clientDocId: '24503548349331633' }),
     FetchNewsletter: Object.freeze({ docId: '35452404184358876', clientDocId: '35452404184358876' }),
     FetchNewsletterAdminCapabilities: Object.freeze({ docId: '9801384413216421', clientDocId: '9801384413216421' }),
@@ -107,7 +107,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     QueryProductSingleCollection: Object.freeze({ docId: '9546992575408789', clientDocId: '9546992575408789' }),
     QuerySubgroupParticipantCount: Object.freeze({ docId: '24079399904996141', clientDocId: '24079399904996141' }),
     QuickPromotionAction: Object.freeze({ docId: '9741612265875562', clientDocId: '9741612265875562' }),
-    ReportProduct: Object.freeze({ docId: 'WAWebReportProductJobMutation', clientDocId: 'WAWebReportProductJobMutation' }),
+    ReportProduct: Object.freeze({ docId: '27419506181072609', clientDocId: '27419506181072609' }),
     RequestClientLogsForBug: Object.freeze({ docId: '27135500612803533', clientDocId: '27135500612803533' }),
     RequestOTE: Object.freeze({ docId: '35108428002105570', clientDocId: '35108428002105570' }),
     ResolveAccountTypeAndAdPage: Object.freeze({ docId: '24732033759799062', clientDocId: '24732033759799062' }),
@@ -182,7 +182,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     FetchGroupInviteCode: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'query_context']) }),
     FetchGroupIsInternal: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     FetchIntegritySignals: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
-    FetchNativeAdsMvpEligibility: Object.freeze({ operationKind: 'query', variables: Object.freeze(['phone_number']) }),
+    FetchNativeAdsMvpEligibility: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchNewChatMessageCappingInfo: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     FetchNewsletter: Object.freeze({ operationKind: 'query', variables: Object.freeze(['fetch_creation_time', 'fetch_full_image', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']) }),
     FetchNewsletterAdminCapabilities: Object.freeze({ operationKind: 'query', variables: Object.freeze(['newsletter_id']) }),

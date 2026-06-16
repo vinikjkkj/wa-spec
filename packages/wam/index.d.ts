@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041458168
+// WhatsApp Version: 2.3000.1041543060
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -6056,7 +6056,24 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PAY_WITH_PIX_COMPLETE_TRANSACTION_STATUS': 80;
             readonly 'PIX_CONFIRM_BANK': 81;
             readonly 'PAY_WITH_PIX_DI_STATUS': 82;
-            readonly 'PIX_AGE_VERIFICATION_NOTIFICATION_RECEIVED': 83
+            readonly 'PIX_AGE_VERIFICATION_NOTIFICATION_RECEIVED': 83;
+            readonly 'PIX_NATIVE_ENROLLMENT_BANNER_CLICK': 84;
+            readonly 'PIX_NATIVE_ENROLLMENT_BANNER_DISMISS': 85;
+            readonly 'PIX_NATIVE_ENROLLMENT_CONNECT_BANK_CLICK': 86;
+            readonly 'PIX_NATIVE_ENROLLMENT_REDIRECT_STATUS': 87;
+            readonly 'PIX_NATIVE_ENROLLMENT_DEEP_LINK': 88;
+            readonly 'PIX_NATIVE_PASSKEY_PROMPT_VIEW': 89;
+            readonly 'PIX_NATIVE_FIDO_REGISTRATION': 90;
+            readonly 'PIX_NATIVE_BANK_CONNECTING': 91;
+            readonly 'PIX_NATIVE_BANK_CONNECTED': 92;
+            readonly 'PIX_NATIVE_ENROLLMENT_STATUS': 93;
+            readonly 'PIX_NATIVE_BIOMETRIC_AUTH': 94;
+            readonly 'PIX_NATIVE_PAYMENT_DETAILS_VIEW': 95;
+            readonly 'PIX_NATIVE_BIOMETRIC_AUTH_ERROR': 96;
+            readonly 'PIX_NATIVE_PAYMENTS_HOME_VIEW': 97;
+            readonly 'PIX_NATIVE_ENROLLMENT_SETTINGS_VIEW': 98;
+            readonly 'PIX_NATIVE_ENROLLMENT_DELETE': 99;
+            readonly 'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100
         }
     }
     readonly INVISIBLE_MESSAGE_CATEGORY_TYPE: {
@@ -18967,6 +18984,7 @@ export declare const WA_WAM_EVENTS: {
             readonly videoRecvPsnrP5Ss: { readonly id: 2998; readonly type: 'number'; readonly falcoName: 'video_recv_psnr_p5_ss' }
             readonly videoRecvPsnrP95: { readonly id: 2318; readonly type: 'number'; readonly falcoName: 'video_recv_psnr_p95' }
             readonly videoRecvPsnrP95Ss: { readonly id: 2999; readonly type: 'number'; readonly falcoName: 'video_recv_psnr_p95_ss' }
+            readonly videoRecvToRenderLatency: { readonly id: 3033; readonly type: 'timer'; readonly falcoName: 'video_recv_to_render_latency' }
             readonly videoRenderAvgFps: { readonly id: 208; readonly type: 'integer'; readonly falcoName: 'video_render_avg_fps' }
             readonly videoRenderAvgFpsDominantSpeaker: { readonly id: 2182; readonly type: 'integer'; readonly falcoName: 'video_render_avg_fps_dominant_speaker' }
             readonly videoRenderConverterTs: { readonly id: 225; readonly type: 'timer'; readonly falcoName: 'video_render_converter_ts' }
@@ -24257,6 +24275,7 @@ export declare const WA_WAM_EVENTS: {
             readonly mutedGroupMessage: { readonly id: 8; readonly type: 'boolean'; readonly falcoName: 'muted_group_message' }
             readonly numOfWebUrlsInTextMessage: { readonly id: 3; readonly type: 'integer'; readonly falcoName: 'num_of_web_urls_in_text_message' }
             readonly offlineCount: { readonly id: 30; readonly type: 'integer'; readonly falcoName: 'offline_count' }
+            readonly oppositeHasUsername: { readonly id: 65; readonly type: 'boolean'; readonly falcoName: 'opposite_has_username' }
             readonly oppositeVisibleIdentification: { readonly id: 40; readonly type: 'enum'; readonly enum: 'OPPOSITE_VISIBLE_IDENTIFICATION_TYPE'; readonly falcoName: 'opposite_visible_identification' }
             readonly paddingBytesSize: { readonly id: 22; readonly type: 'integer'; readonly falcoName: 'padding_bytes_size' }
             readonly pairedMediaType: { readonly id: 42; readonly type: 'enum'; readonly enum: 'PAIRED_MEDIA_TYPE'; readonly falcoName: 'paired_media_type' }
@@ -24376,6 +24395,7 @@ export declare const WA_WAM_EVENTS: {
             readonly messageType: { readonly id: 2; readonly type: 'enum'; readonly enum: 'MESSAGE_TYPE'; readonly falcoName: 'message_type' }
             readonly messageTypeStr: { readonly id: 92; readonly type: 'string'; readonly falcoName: 'message_type_str' }
             readonly networkWasDisconnected: { readonly id: 37; readonly type: 'boolean'; readonly falcoName: 'network_was_disconnected' }
+            readonly oppositeHasUsername: { readonly id: 93; readonly type: 'boolean'; readonly falcoName: 'opposite_has_username' }
             readonly oppositeVisibleIdentification: { readonly id: 60; readonly type: 'enum'; readonly enum: 'OPPOSITE_VISIBLE_IDENTIFICATION_TYPE'; readonly falcoName: 'opposite_visible_identification' }
             readonly overallMediaSize: { readonly id: 42; readonly type: 'number'; readonly falcoName: 'overall_media_size' }
             readonly pairedMediaType: { readonly id: 71; readonly type: 'enum'; readonly enum: 'PAIRED_MEDIA_TYPE'; readonly falcoName: 'paired_media_type' }

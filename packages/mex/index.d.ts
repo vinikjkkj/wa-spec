@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041458168
+// WhatsApp Version: 2.3000.1041543060
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -194,7 +194,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchGroupInviteCode: WaMexOperationSchema<'query', readonly ['id', 'query_context']>
     readonly FetchGroupIsInternal: WaMexOperationSchema<'query', readonly ['id']>
     readonly FetchIntegritySignals: WaMexOperationSchema<'query', readonly ['input']>
-    readonly FetchNativeAdsMvpEligibility: WaMexOperationSchema<'query', readonly ['phone_number']>
+    readonly FetchNativeAdsMvpEligibility: WaMexOperationSchema<'query', readonly []>
     readonly FetchNewChatMessageCappingInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
     readonly FetchNewsletterAdminCapabilities: WaMexOperationSchema<'query', readonly ['newsletter_id']>
@@ -558,9 +558,7 @@ export type WaMexFetchIntegritySignalsVariables = {
     }
 }
 
-export type WaMexFetchNativeAdsMvpEligibilityVariables = {
-    readonly phone_number?: string
-}
+export type WaMexFetchNativeAdsMvpEligibilityVariables = Readonly<Record<string, never>>
 
 export type WaMexFetchNewChatMessageCappingInfoVariables = {
     readonly input?: {

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041458168
+// WhatsApp Version: 2.3000.1041543060
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -5947,7 +5947,24 @@ const WA_WAM_ENUMS = Object.freeze({
         'PAY_WITH_PIX_COMPLETE_TRANSACTION_STATUS': 80,
         'PIX_CONFIRM_BANK': 81,
         'PAY_WITH_PIX_DI_STATUS': 82,
-        'PIX_AGE_VERIFICATION_NOTIFICATION_RECEIVED': 83
+        'PIX_AGE_VERIFICATION_NOTIFICATION_RECEIVED': 83,
+        'PIX_NATIVE_ENROLLMENT_BANNER_CLICK': 84,
+        'PIX_NATIVE_ENROLLMENT_BANNER_DISMISS': 85,
+        'PIX_NATIVE_ENROLLMENT_CONNECT_BANK_CLICK': 86,
+        'PIX_NATIVE_ENROLLMENT_REDIRECT_STATUS': 87,
+        'PIX_NATIVE_ENROLLMENT_DEEP_LINK': 88,
+        'PIX_NATIVE_PASSKEY_PROMPT_VIEW': 89,
+        'PIX_NATIVE_FIDO_REGISTRATION': 90,
+        'PIX_NATIVE_BANK_CONNECTING': 91,
+        'PIX_NATIVE_BANK_CONNECTED': 92,
+        'PIX_NATIVE_ENROLLMENT_STATUS': 93,
+        'PIX_NATIVE_BIOMETRIC_AUTH': 94,
+        'PIX_NATIVE_PAYMENT_DETAILS_VIEW': 95,
+        'PIX_NATIVE_BIOMETRIC_AUTH_ERROR': 96,
+        'PIX_NATIVE_PAYMENTS_HOME_VIEW': 97,
+        'PIX_NATIVE_ENROLLMENT_SETTINGS_VIEW': 98,
+        'PIX_NATIVE_ENROLLMENT_DELETE': 99,
+        'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100
         })
     }),
     INVISIBLE_MESSAGE_CATEGORY_TYPE: Object.freeze({
@@ -18734,6 +18751,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoRecvPsnrP5Ss: Object.freeze({ id: 2998, type: 'number', falcoName: 'video_recv_psnr_p5_ss' }),
             videoRecvPsnrP95: Object.freeze({ id: 2318, type: 'number', falcoName: 'video_recv_psnr_p95' }),
             videoRecvPsnrP95Ss: Object.freeze({ id: 2999, type: 'number', falcoName: 'video_recv_psnr_p95_ss' }),
+            videoRecvToRenderLatency: Object.freeze({ id: 3033, type: 'timer', falcoName: 'video_recv_to_render_latency' }),
             videoRenderAvgFps: Object.freeze({ id: 208, type: 'integer', falcoName: 'video_render_avg_fps' }),
             videoRenderAvgFpsDominantSpeaker: Object.freeze({ id: 2182, type: 'integer', falcoName: 'video_render_avg_fps_dominant_speaker' }),
             videoRenderConverterTs: Object.freeze({ id: 225, type: 'timer', falcoName: 'video_render_converter_ts' }),
@@ -23344,6 +23362,7 @@ const WA_WAM_EVENTS = Object.freeze({
             mutedGroupMessage: Object.freeze({ id: 8, type: 'boolean', falcoName: 'muted_group_message' }),
             numOfWebUrlsInTextMessage: Object.freeze({ id: 3, type: 'integer', falcoName: 'num_of_web_urls_in_text_message' }),
             offlineCount: Object.freeze({ id: 30, type: 'integer', falcoName: 'offline_count' }),
+            oppositeHasUsername: Object.freeze({ id: 65, type: 'boolean', falcoName: 'opposite_has_username' }),
             oppositeVisibleIdentification: Object.freeze({ id: 40, type: 'enum', enum: 'OPPOSITE_VISIBLE_IDENTIFICATION_TYPE', falcoName: 'opposite_visible_identification' }),
             paddingBytesSize: Object.freeze({ id: 22, type: 'integer', falcoName: 'padding_bytes_size' }),
             pairedMediaType: Object.freeze({ id: 42, type: 'enum', enum: 'PAIRED_MEDIA_TYPE', falcoName: 'paired_media_type' }),
@@ -23455,6 +23474,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageType: Object.freeze({ id: 2, type: 'enum', enum: 'MESSAGE_TYPE', falcoName: 'message_type' }),
             messageTypeStr: Object.freeze({ id: 92, type: 'string', falcoName: 'message_type_str' }),
             networkWasDisconnected: Object.freeze({ id: 37, type: 'boolean', falcoName: 'network_was_disconnected' }),
+            oppositeHasUsername: Object.freeze({ id: 93, type: 'boolean', falcoName: 'opposite_has_username' }),
             oppositeVisibleIdentification: Object.freeze({ id: 60, type: 'enum', enum: 'OPPOSITE_VISIBLE_IDENTIFICATION_TYPE', falcoName: 'opposite_visible_identification' }),
             overallMediaSize: Object.freeze({ id: 42, type: 'number', falcoName: 'overall_media_size' }),
             pairedMediaType: Object.freeze({ id: 71, type: 'enum', enum: 'PAIRED_MEDIA_TYPE', falcoName: 'paired_media_type' }),

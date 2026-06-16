@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041458168",
+  "waVersion": "2.3000.1041543060",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1795,14 +1795,10 @@
     },
     "FetchNativeAdsMvpEligibility": {
       "originalName": "WAWebFetchNativeAdsMvpEligibilityQuery",
-      "docId": "34778300218423824",
+      "docId": "26673846358955912",
       "operationKind": "query",
-      "variables": [
-        "phone_number"
-      ],
-      "variablesShape": {
-        "phone_number": "string"
-      },
+      "variables": [],
+      "variablesShape": {},
       "response": {
         "wa_smb_native_ads_web_info": {
           "lifetime_native_ctwa_advertiser": "boolean",
@@ -4423,7 +4419,7 @@
     },
     "ReportProduct": {
       "originalName": "WAWebReportProductJobMutation",
-      "docId": "WAWebReportProductJobMutation",
+      "docId": "27419506181072609",
       "operationKind": "mutation",
       "variables": [
         "input"
