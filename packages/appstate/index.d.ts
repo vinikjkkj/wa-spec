@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041543060
+// WhatsApp Version: 2.3000.1041627196
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 

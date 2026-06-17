@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041543060
+// WhatsApp Version: 2.3000.1041627196
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -2977,14 +2977,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLIENT_READY_TO_SEND': 6,
         'CLIENT_ENCRYPT': 7,
         'CLIENT_PREKEYS_FETCH': 8
-        })
-    }),
-    CLOSE_TYPE_ENUM: Object.freeze({
-        module: 'WAWebWamEnumCloseTypeEnum',
-        export: 'CLOSE_TYPE_ENUM',
-        values: Object.freeze({
-        'SUBMITTED': 1,
-        'CLOSED': 2
         })
     }),
     COEX_STATUS_REPLY_PRIVACY_DISCLAIMER_USER_ACTION: Object.freeze({
@@ -12402,15 +12394,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE_UNDELETE': 1
         })
     }),
-    SOURCE_TYPE: Object.freeze({
-        module: 'WAWebWamEnumSourceType',
-        export: 'SOURCE_TYPE',
-        values: Object.freeze({
-        'NAVBAR': 1,
-        'SETTINGS': 2,
-        'CONTEXTUAL': 3
-        })
-    }),
     SP_SIGNAL_NOT_SHARED_REASON: Object.freeze({
         module: 'WAWebWamEnumSpSignalNotSharedReason',
         export: 'SP_SIGNAL_NOT_SHARED_REASON',
@@ -13777,7 +13760,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_AUDIENCE_SELECTOR': 313,
         'STATUS_VIEWER': 314,
         'STATUS_LIST': 315,
-        'STATUS_COMPOSER': 316
+        'STATUS_COMPOSER': 316,
+        'GEN_AI_AI_HUB_REVIEW_CHATS': 317
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -27721,20 +27705,6 @@ const WA_WAM_EVENTS = Object.freeze({
             droppedEventCode: Object.freeze({ id: 1, type: 'integer', falcoName: 'dropped_event_code' }),
             droppedEventCount: Object.freeze({ id: 2, type: 'integer', falcoName: 'dropped_event_count' }),
             isFromWamsys: Object.freeze({ id: 3, type: 'boolean', falcoName: 'is_from_wamsys' })
-        })
-    }),
-    WebAppRateAndReviewDialogShown: Object.freeze({
-        id: 6788,
-        falcoName: 'wam_web_app_rate_and_review_dialog_shown',
-        channel: 'regular',
-        privateStatsIdInt: null,
-        emittedByWorker: false,
-        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
-        requiredFields: Object.freeze([]),
-        conditions: Object.freeze([]),
-        fields: Object.freeze({
-            reviewDialogAction: Object.freeze({ id: 1, type: 'enum', enum: 'CLOSE_TYPE_ENUM', falcoName: 'review_dialog_action' }),
-            reviewSource: Object.freeze({ id: 2, type: 'enum', enum: 'SOURCE_TYPE', falcoName: 'review_source' })
         })
     }),
     WebContactListStartNewChat: Object.freeze({

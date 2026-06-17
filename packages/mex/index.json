@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041543060",
+  "waVersion": "2.3000.1041627196",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -130,6 +130,34 @@
           "bp_id": "string",
           "access_token_type": "string",
           "email_attr": "string"
+        }
+      }
+    },
+    "BillingVerifyCountrySelectDetectedLocationScreen": {
+      "originalName": "BillingVerifyCountrySelectDetectedLocationScreenQuery",
+      "docId": "31931308296513626",
+      "operationKind": "query",
+      "variables": [
+        "paymentAccountID"
+      ],
+      "variablesShape": {
+        "paymentAccountID": "string"
+      },
+      "response": {
+        "payment_account": {
+          "__typename": "string",
+          "billable_account": {
+            "__typename": "string",
+            "country_validation_available_country_options": [
+              {
+                "label": "string",
+                "value": "string"
+              }
+            ],
+            "supported_countries": "unknown",
+            "id": "string"
+          },
+          "id": "string"
         }
       }
     },

@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041543060",
+  "waVersion": "2.3000.1041627196",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -3008,14 +3008,6 @@
         "CLIENT_READY_TO_SEND": 6,
         "CLIENT_ENCRYPT": 7,
         "CLIENT_PREKEYS_FETCH": 8
-      }
-    },
-    "CLOSE_TYPE_ENUM": {
-      "module": "WAWebWamEnumCloseTypeEnum",
-      "export": "CLOSE_TYPE_ENUM",
-      "values": {
-        "SUBMITTED": 1,
-        "CLOSED": 2
       }
     },
     "COEX_STATUS_REPLY_PRIVACY_DISCLAIMER_USER_ACTION": {
@@ -12433,15 +12425,6 @@
         "MESSAGE_UNDELETE": 1
       }
     },
-    "SOURCE_TYPE": {
-      "module": "WAWebWamEnumSourceType",
-      "export": "SOURCE_TYPE",
-      "values": {
-        "NAVBAR": 1,
-        "SETTINGS": 2,
-        "CONTEXTUAL": 3
-      }
-    },
     "SP_SIGNAL_NOT_SHARED_REASON": {
       "module": "WAWebWamEnumSpSignalNotSharedReason",
       "export": "SP_SIGNAL_NOT_SHARED_REASON",
@@ -13808,7 +13791,8 @@
         "STATUS_AUDIENCE_SELECTOR": 313,
         "STATUS_VIEWER": 314,
         "STATUS_LIST": 315,
-        "STATUS_COMPOSER": 316
+        "STATUS_COMPOSER": 316,
+        "GEN_AI_AI_HUB_REVIEW_CHATS": 317
       }
     },
     "SW_AEC_TYPE": {
@@ -61228,35 +61212,6 @@
           "id": 3,
           "type": "boolean",
           "falcoName": "is_from_wamsys"
-        }
-      }
-    },
-    "WebAppRateAndReviewDialogShown": {
-      "id": 6788,
-      "module": "WAWebWebAppRateAndReviewDialogShownWamEvent",
-      "falcoName": "wam_web_app_rate_and_review_dialog_shown",
-      "channel": "regular",
-      "privateStatsIdInt": null,
-      "emittedByWorker": false,
-      "weight": {
-        "default": 1,
-        "gkx26259": 1,
-        "gkx26258": 1
-      },
-      "requiredFields": [],
-      "conditions": [],
-      "fields": {
-        "reviewDialogAction": {
-          "id": 1,
-          "type": "enum",
-          "falcoName": "review_dialog_action",
-          "enum": "CLOSE_TYPE_ENUM"
-        },
-        "reviewSource": {
-          "id": 2,
-          "type": "enum",
-          "falcoName": "review_source",
-          "enum": "SOURCE_TYPE"
         }
       }
     },
