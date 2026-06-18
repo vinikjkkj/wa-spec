@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041627196",
+  "waVersion": "2.3000.1041713829",
   "collections": [
     "regular",
     "regular_low",
@@ -1445,6 +1445,28 @@
         {
           "type": "literal",
           "value": "waffle_account_link_state"
+        }
+      ]
+    },
+    "WasaRootSecret": {
+      "module": "WAWebWASARootSecretSync",
+      "name": "wasa_root_secret",
+      "collection": "regular_high",
+      "version": 1,
+      "scope": "chat",
+      "baseClass": "ChatSyncdActionBase",
+      "valueField": "wasaRootSecretAction",
+      "valueProtoType": "SyncActionValue.WASARootSecretAction",
+      "valueEnumFields": null,
+      "chatJidIndex": 1,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "wasa_root_secret"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
         }
       ]
     }

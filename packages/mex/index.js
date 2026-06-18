@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041627196
+// WhatsApp Version: 2.3000.1041713829
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -9,7 +9,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
     BPAccessTokenAndSessionCookies: Object.freeze({ docId: '26756198580685447', clientDocId: '26756198580685447' }),
-    BillingVerifyCountrySelectDetectedLocationScreen: Object.freeze({ docId: '31931308296513626', clientDocId: '31931308296513626' }),
     BizCreateOrder: Object.freeze({ docId: '26486627094287046', clientDocId: '26486627094287046' }),
     BizCustomUrlGetUserGraphql: Object.freeze({ docId: '26867176859566677', clientDocId: '26867176859566677' }),
     BizGetCategories: Object.freeze({ docId: '26266473919627648', clientDocId: '26266473919627648' }),
@@ -141,7 +140,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AiAgentAutoReplyControl: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['consumer_lid', 'phone_number', 'thread_status']) }),
     AuthAgentFeaturePolicy: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     BPAccessTokenAndSessionCookies: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['application_id', 'code']) }),
-    BillingVerifyCountrySelectDetectedLocationScreen: Object.freeze({ operationKind: 'query', variables: Object.freeze(['paymentAccountID']) }),
     BizCreateOrder: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     BizCustomUrlGetUserGraphql: Object.freeze({ operationKind: 'query', variables: Object.freeze(['data']) }),
     BizGetCategories: Object.freeze({ operationKind: 'query', variables: Object.freeze(['query_params']) }),

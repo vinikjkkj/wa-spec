@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041627196
+// WhatsApp Version: 2.3000.1041713829
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -21,7 +21,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AiAgentAutoReplyControl: WaMexPersistId
     readonly AuthAgentFeaturePolicy: WaMexPersistId
     readonly BPAccessTokenAndSessionCookies: WaMexPersistId
-    readonly BillingVerifyCountrySelectDetectedLocationScreen: WaMexPersistId
     readonly BizCreateOrder: WaMexPersistId
     readonly BizCustomUrlGetUserGraphql: WaMexPersistId
     readonly BizGetCategories: WaMexPersistId
@@ -153,7 +152,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AiAgentAutoReplyControl: WaMexOperationSchema<'mutation', readonly ['consumer_lid', 'phone_number', 'thread_status']>
     readonly AuthAgentFeaturePolicy: WaMexOperationSchema<'query', readonly []>
     readonly BPAccessTokenAndSessionCookies: WaMexOperationSchema<'mutation', readonly ['application_id', 'code']>
-    readonly BillingVerifyCountrySelectDetectedLocationScreen: WaMexOperationSchema<'query', readonly ['paymentAccountID']>
     readonly BizCreateOrder: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly BizCustomUrlGetUserGraphql: WaMexOperationSchema<'query', readonly ['data']>
     readonly BizGetCategories: WaMexOperationSchema<'query', readonly ['query_params']>
@@ -306,10 +304,6 @@ export type WaMexAuthAgentFeaturePolicyVariables = Readonly<Record<string, never
 export type WaMexBPAccessTokenAndSessionCookiesVariables = {
     readonly application_id?: number
     readonly code?: string
-}
-
-export type WaMexBillingVerifyCountrySelectDetectedLocationScreenVariables = {
-    readonly paymentAccountID?: string
 }
 
 export type WaMexBizCreateOrderVariables = {
@@ -1127,7 +1121,6 @@ export interface WaMexOperationVariables {
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlVariables
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyVariables
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesVariables
-    readonly BillingVerifyCountrySelectDetectedLocationScreen: WaMexBillingVerifyCountrySelectDetectedLocationScreenVariables
     readonly BizCreateOrder: WaMexBizCreateOrderVariables
     readonly BizCustomUrlGetUserGraphql: WaMexBizCustomUrlGetUserGraphqlVariables
     readonly BizGetCategories: WaMexBizGetCategoriesVariables
@@ -1308,22 +1301,6 @@ export type WaMexBPAccessTokenAndSessionCookiesResponse = {
         readonly bp_id?: string
         readonly access_token_type?: string
         readonly email_attr?: string
-    }
-}
-
-export type WaMexBillingVerifyCountrySelectDetectedLocationScreenResponse = {
-    readonly payment_account?: {
-        readonly __typename?: string
-        readonly billable_account?: {
-            readonly __typename?: string
-            readonly country_validation_available_country_options?: ReadonlyArray<{
-                readonly label?: string
-                readonly value?: string
-            }>
-            readonly supported_countries?: unknown
-            readonly id?: string
-        }
-        readonly id?: string
     }
 }
 
@@ -4224,7 +4201,6 @@ export interface WaMexOperationResponses {
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlResponse
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyResponse
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesResponse
-    readonly BillingVerifyCountrySelectDetectedLocationScreen: WaMexBillingVerifyCountrySelectDetectedLocationScreenResponse
     readonly BizCreateOrder: WaMexBizCreateOrderResponse
     readonly BizCustomUrlGetUserGraphql: WaMexBizCustomUrlGetUserGraphqlResponse
     readonly BizGetCategories: WaMexBizGetCategoriesResponse

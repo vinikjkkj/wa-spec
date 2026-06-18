@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041627196
+// WhatsApp Version: 2.3000.1041713829
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -843,6 +843,19 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueEnumFields: Object.freeze({ 'linkState': 'WaffleAccountLinkStateAction.AccountLinkState' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'waffle_account_link_state' })
+        ])
+    }),
+    WasaRootSecret: Object.freeze({
+        name: 'wasa_root_secret',
+        collection: 'regular_high',
+        version: 1,
+        scope: 'chat',
+        valueField: 'wasaRootSecretAction',
+        valueProtoType: 'SyncActionValue.WASARootSecretAction',
+        valueEnumFields: null,
+        indexParts: Object.freeze([
+            Object.freeze({ type: 'literal', value: 'wasa_root_secret' }),
+            Object.freeze({ type: 'jid', name: 'chatJid' })
         ])
     })
 })

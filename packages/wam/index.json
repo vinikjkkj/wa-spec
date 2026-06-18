@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041627196",
+  "waVersion": "2.3000.1041713829",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -933,7 +933,8 @@
         "SMB_BIZ_AI_GDRIVE_L1_RECONNECT": 111,
         "SMB_BIZ_AI_GDRIVE_L1_SYNC_FAILED": 112,
         "SMB_BIZ_AI_GDRIVE_L2_RECONNECT": 113,
-        "NOTIFICATION_SETTING_RE_ENABLE": 114
+        "NOTIFICATION_SETTING_RE_ENABLE": 114,
+        "INTEGRITY_SCAM_ALERT_UPSELL": 115
       }
     },
     "BILLING_STATUS": {
@@ -1440,6 +1441,18 @@
         "PSTN_RINGING": 0,
         "PSTN_OFFHOOK": 1,
         "WA_CALL_RINGING_OR_PENDING": 2
+      }
+    },
+    "CA2D_EXTENSION_CONNECTION_STATE": {
+      "module": "WAWebWamEnumCa2dExtensionConnectionState",
+      "export": "CA2D_EXTENSION_CONNECTION_STATE",
+      "values": {
+        "NONE": 0,
+        "CREATING": 1,
+        "CREATED": 2,
+        "CONNECTING": 3,
+        "CONNECTED": 4,
+        "REMOVED": 5
       }
     },
     "CADMIN_DEMOTE_ORIGIN_TYPE": {
@@ -7919,7 +7932,8 @@
         "CHANNEL_THREAD_SCREEN": 127,
         "CLOSE_SHARING_MIMICRY": 128,
         "MEDIA_BROWSER_STATUS_MENU": 129,
-        "ARCHIVE_STATUS_VIEWER": 130
+        "ARCHIVE_STATUS_VIEWER": 130,
+        "AI_IMAGINE_MESSAGE_QUICK_EDIT": 131
       }
     },
     "MEDIA_QUALITY": {
@@ -8024,7 +8038,8 @@
         "MEMBER_TAG": 73,
         "DOC_COLLECTION": 74,
         "VIDEO_COLLECTION": 75,
-        "MIXED_COLLECTION": 76
+        "MIXED_COLLECTION": 76,
+        "CONDITIONAL_REVEAL": 77
       }
     },
     "MEDIA_UPLOAD_MODE_TYPE": {
@@ -10017,7 +10032,9 @@
         "PAYMENT_BUBBLE_VIEW_DETAILS": 340,
         "PAYMENT_STATUS_UPDATE": 341,
         "SHARE_UPI_QR_CODE": 342,
-        "VIEW_CONTACT_TRANSACTIONS": 343
+        "VIEW_CONTACT_TRANSACTIONS": 343,
+        "SIM_SWAP_CHANGE_PHONE_NUMBER": 344,
+        "SPLIT_MESSAGE_BUBBLE": 345
       }
     },
     "PAYMENT_ACTION_TYPES": {
@@ -11106,7 +11123,8 @@
         "AUTO_CANCEL": 7,
         "LOCK": 8,
         "DRAFT_SAVED": 9,
-        "DRAFT_LOADED": 10
+        "DRAFT_LOADED": 10,
+        "WIDGET_TAP": 11
       }
     },
     "PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON": {
@@ -11135,7 +11153,8 @@
       "export": "PTT_MESSAGE_USER_JOURNEY_STAGE",
       "values": {
         "NORMAL": 1,
-        "LOCKED": 2
+        "LOCKED": 2,
+        "WIDGET": 3
       }
     },
     "PTT_PLAYBACK_SPEED_TYPE": {
@@ -13792,7 +13811,8 @@
         "STATUS_VIEWER": 314,
         "STATUS_LIST": 315,
         "STATUS_COMPOSER": 316,
-        "GEN_AI_AI_HUB_REVIEW_CHATS": 317
+        "GEN_AI_AI_HUB_REVIEW_CHATS": 317,
+        "GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD": 318
       }
     },
     "SW_AEC_TYPE": {
@@ -19529,6 +19549,27 @@
           "type": "boolean",
           "falcoName": "c50_linked"
         },
+        "ca2dExtensionAddT": {
+          "id": 3034,
+          "type": "timer",
+          "falcoName": "ca2d_extension_add_t"
+        },
+        "ca2dExtensionConnectionState": {
+          "id": 3035,
+          "type": "enum",
+          "falcoName": "ca2d_extension_connection_state",
+          "enum": "CA2D_EXTENSION_CONNECTION_STATE"
+        },
+        "ca2dExtensionCreateT": {
+          "id": 3036,
+          "type": "timer",
+          "falcoName": "ca2d_extension_create_t"
+        },
+        "ca2dPreviewT": {
+          "id": 3037,
+          "type": "timer",
+          "falcoName": "ca2d_preview_t"
+        },
         "callAcceptFuncT": {
           "id": 132,
           "type": "timer",
@@ -21745,6 +21786,21 @@
           "type": "integer",
           "falcoName": "ev_queue_overflow_count"
         },
+        "extensionType": {
+          "id": 3038,
+          "type": "integer",
+          "falcoName": "extension_type"
+        },
+        "extensionTypeBitmask": {
+          "id": 3039,
+          "type": "integer",
+          "falcoName": "extension_type_bitmask"
+        },
+        "extensionUserRid": {
+          "id": 3040,
+          "type": "string",
+          "falcoName": "extension_user_rid"
+        },
         "failureToCreateAltSocket": {
           "id": 534,
           "type": "integer",
@@ -22679,6 +22735,21 @@
           "type": "number",
           "falcoName": "imbalanced_dl_plr_t_pct"
         },
+        "imuTxBitrate": {
+          "id": 3041,
+          "type": "integer",
+          "falcoName": "imu_tx_bitrate"
+        },
+        "imuTxDroppedCount": {
+          "id": 3042,
+          "type": "integer",
+          "falcoName": "imu_tx_dropped_count"
+        },
+        "imuTxFrameCount": {
+          "id": 3043,
+          "type": "integer",
+          "falcoName": "imu_tx_frame_count"
+        },
         "inboundVideoDisablingDuration": {
           "id": 1728,
           "type": "timer",
@@ -23487,6 +23558,11 @@
           "id": 2631,
           "type": "integer",
           "falcoName": "max_field_stat_struct_entries"
+        },
+        "maxNumConnectedExtensions": {
+          "id": 3044,
+          "type": "integer",
+          "falcoName": "max_num_connected_extensions"
         },
         "maxPktProcessLatencyMs": {
           "id": 1745,
@@ -24354,6 +24430,11 @@
           "id": 1800,
           "type": "integer",
           "falcoName": "num_aud_rc_dyn_cond_true"
+        },
+        "numConnectedExtensions": {
+          "id": 3045,
+          "type": "integer",
+          "falcoName": "num_connected_extensions"
         },
         "numConnectedParticipants": {
           "id": 330,
@@ -46463,6 +46544,11 @@
           "id": 69,
           "type": "boolean",
           "falcoName": "is_premium"
+        },
+        "isScheduled": {
+          "id": 94,
+          "type": "boolean",
+          "falcoName": "is_scheduled"
         },
         "isViewOnce": {
           "id": 22,
