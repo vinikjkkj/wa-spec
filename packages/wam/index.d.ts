@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041713829
+// WhatsApp Version: 2.3000.1041789816
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1012,7 +1012,13 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SMB_BIZ_AI_GDRIVE_L1_SYNC_FAILED': 112;
             readonly 'SMB_BIZ_AI_GDRIVE_L2_RECONNECT': 113;
             readonly 'NOTIFICATION_SETTING_RE_ENABLE': 114;
-            readonly 'INTEGRITY_SCAM_ALERT_UPSELL': 115
+            readonly 'INTEGRITY_SCAM_ALERT_UPSELL': 115;
+            readonly 'SMB_PAYMENT_MERCHANT_ONBOARDING_COMPLETE_BANNER': 116;
+            readonly 'SMB_PAYMENT_MERCHANT_INACTIVE_ACCOUNT_STATUS_BANNER': 117;
+            readonly 'SMB_PAYMENT_MERCHANT_HARD_BLOCKED_ACCOUNT_STATUS_BANNER': 118;
+            readonly 'SMB_PAYMENT_MERCHANT_SOFT_BLOCKED_ACCOUNT_STATUS_BANNER': 119;
+            readonly 'SMB_PAYMENT_MERCHANT_INTEGRITY_BLOCKED_ACCOUNT_STATUS_BANNER': 120;
+            readonly 'SMB_SHOP_SUNSET_BANNER': 121
         }
     }
     readonly BILLING_STATUS: {
@@ -5063,7 +5069,8 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumForwardPickerOrigin'
         readonly export: 'FORWARD_PICKER_ORIGIN'
         readonly values: {
-            readonly 'STATUS_VIEWER': 1
+            readonly 'STATUS_VIEWER': 1;
+            readonly 'PTT_WIDGET': 2
         }
     }
     readonly GALLERY_PERMISSION_STATE: {
@@ -10112,7 +10119,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SHARE_UPI_QR_CODE': 342;
             readonly 'VIEW_CONTACT_TRANSACTIONS': 343;
             readonly 'SIM_SWAP_CHANGE_PHONE_NUMBER': 344;
-            readonly 'SPLIT_MESSAGE_BUBBLE': 345
+            readonly 'SPLIT_MESSAGE_BUBBLE': 345;
+            readonly 'MARK_AS_PAID_BUTTON': 346
         }
     }
     readonly PAYMENT_ACTION_TYPES: {
@@ -11202,7 +11210,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'LOCK': 8;
             readonly 'DRAFT_SAVED': 9;
             readonly 'DRAFT_LOADED': 10;
-            readonly 'WIDGET_TAP': 11
+            readonly 'WIDGET_TAP': 11;
+            readonly 'PTT_WIDGET_FORWARD_PICKER_SHOWN': 12;
+            readonly 'PTT_WIDGET_RECIPIENT_SELECTED': 13
         }
     }
     readonly PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON: {
@@ -11231,8 +11241,7 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'PTT_MESSAGE_USER_JOURNEY_STAGE'
         readonly values: {
             readonly 'NORMAL': 1;
-            readonly 'LOCKED': 2;
-            readonly 'WIDGET': 3
+            readonly 'LOCKED': 2
         }
     }
     readonly PTT_PLAYBACK_SPEED_TYPE: {
@@ -14361,7 +14370,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SMB_LISTS_CREATE': 244;
             readonly 'SMB_LISTS_PICKER': 245;
             readonly 'CHANNEL_ADMIN_PROFILE_VIEWER': 246;
-            readonly 'CHANNEL_ADMIN_PROFILE_PICTURE': 247
+            readonly 'CHANNEL_ADMIN_PROFILE_PICTURE': 247;
+            readonly 'PTT_WIDGET': 248
         }
     }
     readonly TYPE_OF_GROUP_ENUM: {
@@ -15847,7 +15857,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'WA_PLUS': 2;
             readonly 'META_AI': 3;
             readonly 'META_ONE': 4;
-            readonly 'META_ONE_CONSUMER': 5
+            readonly 'META_ONE_CONSUMER': 5;
+            readonly 'META_ONE_BUSINESS': 6
         }
     }
     readonly XMPP_STATUS: {
@@ -27729,6 +27740,7 @@ export declare const WA_WAM_EVENTS: {
             readonly externalInteractables: { readonly id: 15; readonly type: 'integer'; readonly falcoName: 'external_interactables' }
             readonly externalPackageName: { readonly id: 16; readonly type: 'string'; readonly falcoName: 'external_package_name' }
             readonly hasDraftAvailable: { readonly id: 33; readonly type: 'boolean'; readonly falcoName: 'has_draft_available' }
+            readonly isBatchedPost: { readonly id: 37; readonly type: 'boolean'; readonly falcoName: 'is_batched_post' }
             readonly isFavoured: { readonly id: 28; readonly type: 'boolean'; readonly falcoName: 'is_favoured' }
             readonly mediaIndex: { readonly id: 29; readonly type: 'integer'; readonly falcoName: 'media_index' }
             readonly originalVideoDuration: { readonly id: 27; readonly type: 'integer'; readonly falcoName: 'original_video_duration' }

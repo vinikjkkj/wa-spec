@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041713829",
+  "waVersion": "2.3000.1041789816",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -956,6 +956,27 @@
         }
       }
     },
+    "CreateLabyrinthBackup": {
+      "originalName": "WAWebMexCreateLabyrinthBackupJobMutation",
+      "docId": "27207738338837013",
+      "operationKind": "mutation",
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      },
+      "response": {
+        "xwa2_labyrinth_create_backup": {
+          "__typename": "string",
+          "backup_id": "string",
+          "device_id": "string",
+          "epoch_id": "string",
+          "status": "string",
+          "message": "string"
+        }
+      }
+    },
     "CreateMarketingCampaignAction": {
       "originalName": "WAWebCreateMarketingCampaignActionMutation",
       "docId": "26304826652483067",
@@ -1152,17 +1173,70 @@
         ]
       }
     },
-    "DebugWAInboxSnapshot": {
-      "originalName": "WAWebDebugWAInboxSnapshotQuery",
-      "docId": "27649963434608147",
+    "DebugLabyrinthInboxSnapshot": {
+      "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
+      "docId": "27530314859954425",
       "operationKind": "query",
-      "variables": [],
-      "variablesShape": {},
+      "variables": [
+        "ebDeviceId",
+        "locallyAvailableEpochIds",
+        "messageFirst",
+        "threadFirst"
+      ],
+      "variablesShape": {
+        "ebDeviceId": "string",
+        "locallyAvailableEpochIds": "unknown",
+        "messageFirst": "number",
+        "threadFirst": "number"
+      },
       "response": {
         "get_wa_mailbox": {
           "__typename": "string",
           "snapshot_timestamp_ms": "number",
           "encrypted_backup_id": "string",
+          "threads": {
+            "__typename": "string",
+            "nodes": [
+              {
+                "__typename": "string",
+                "id": "string",
+                "messages": {
+                  "__typename": "string",
+                  "edges": [
+                    {
+                      "__typename": "string",
+                      "node": {
+                        "__typename": "string",
+                        "id": "string"
+                      }
+                    }
+                  ],
+                  "epoch_derivation_set": [
+                    {
+                      "backward_edge": "unknown",
+                      "forward_edge": {
+                        "auth_public_key": "string",
+                        "encrypted_entropy": "unknown",
+                        "entropy_fingerprint": "unknown",
+                        "epoch_storage_public_key": "string",
+                        "psk_fingerprint": "unknown"
+                      },
+                      "from_epoch": {
+                        "epoch_anon_id": "string",
+                        "epoch_id": "string"
+                      },
+                      "from_epoch_fingerprint": "unknown",
+                      "to_epoch": {
+                        "epoch_anon_id": "string",
+                        "epoch_id": "string"
+                      },
+                      "to_epoch_fingerprint": "unknown"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
           "id": "string"
         }
       }
@@ -1928,7 +2002,7 @@
       "response": {
         "xwa2_newsletter_admin": {
           "capabilities": [
-            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
+            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
           ],
           "id": "string"
         }
@@ -3389,7 +3463,7 @@
       "variablesShape": {
         "input": {
           "flow_id": "string",
-          "request_id": "string"
+          "request_id": "number"
         }
       },
       "response": {
@@ -3580,7 +3654,7 @@
           "exposures": [
             {
               "newsletter_id": "string",
-              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
+              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
             }
           ]
         }
@@ -4779,6 +4853,31 @@
         }
       }
     },
+    "UploadLabyrinthMessages": {
+      "originalName": "WAWebMexUploadLabyrinthMessagesJobMutation",
+      "docId": "27746955431579348",
+      "operationKind": "mutation",
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      },
+      "response": {
+        "xwa2_labyrinth_upload_messages": {
+          "__typename": "string",
+          "results": [
+            {
+              "offline_threading_id": "string",
+              "success": "string",
+              "error": "boolean"
+            }
+          ],
+          "status": "string",
+          "message": "string"
+        }
+      }
+    },
     "UsernameAvailability": {
       "originalName": "WAWebMexUsernameAvailabilityQuery",
       "docId": "26122779627399568",
@@ -4856,7 +4955,7 @@
       "variablesShape": {
         "input": {
           "flow_id": "string",
-          "request_id": "string"
+          "request_id": "number"
         }
       },
       "response": {

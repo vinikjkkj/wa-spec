@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041713829
+// WhatsApp Version: 2.3000.1041789816
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -903,7 +903,13 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_BIZ_AI_GDRIVE_L1_SYNC_FAILED': 112,
         'SMB_BIZ_AI_GDRIVE_L2_RECONNECT': 113,
         'NOTIFICATION_SETTING_RE_ENABLE': 114,
-        'INTEGRITY_SCAM_ALERT_UPSELL': 115
+        'INTEGRITY_SCAM_ALERT_UPSELL': 115,
+        'SMB_PAYMENT_MERCHANT_ONBOARDING_COMPLETE_BANNER': 116,
+        'SMB_PAYMENT_MERCHANT_INACTIVE_ACCOUNT_STATUS_BANNER': 117,
+        'SMB_PAYMENT_MERCHANT_HARD_BLOCKED_ACCOUNT_STATUS_BANNER': 118,
+        'SMB_PAYMENT_MERCHANT_SOFT_BLOCKED_ACCOUNT_STATUS_BANNER': 119,
+        'SMB_PAYMENT_MERCHANT_INTEGRITY_BLOCKED_ACCOUNT_STATUS_BANNER': 120,
+        'SMB_SHOP_SUNSET_BANNER': 121
         })
     }),
     BILLING_STATUS: Object.freeze({
@@ -4954,7 +4960,8 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumForwardPickerOrigin',
         export: 'FORWARD_PICKER_ORIGIN',
         values: Object.freeze({
-        'STATUS_VIEWER': 1
+        'STATUS_VIEWER': 1,
+        'PTT_WIDGET': 2
         })
     }),
     GALLERY_PERMISSION_STATE: Object.freeze({
@@ -10003,7 +10010,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'SHARE_UPI_QR_CODE': 342,
         'VIEW_CONTACT_TRANSACTIONS': 343,
         'SIM_SWAP_CHANGE_PHONE_NUMBER': 344,
-        'SPLIT_MESSAGE_BUBBLE': 345
+        'SPLIT_MESSAGE_BUBBLE': 345,
+        'MARK_AS_PAID_BUTTON': 346
         })
     }),
     PAYMENT_ACTION_TYPES: Object.freeze({
@@ -11093,7 +11101,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'LOCK': 8,
         'DRAFT_SAVED': 9,
         'DRAFT_LOADED': 10,
-        'WIDGET_TAP': 11
+        'WIDGET_TAP': 11,
+        'PTT_WIDGET_FORWARD_PICKER_SHOWN': 12,
+        'PTT_WIDGET_RECIPIENT_SELECTED': 13
         })
     }),
     PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON: Object.freeze({
@@ -11122,8 +11132,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'PTT_MESSAGE_USER_JOURNEY_STAGE',
         values: Object.freeze({
         'NORMAL': 1,
-        'LOCKED': 2,
-        'WIDGET': 3
+        'LOCKED': 2
         })
     }),
     PTT_PLAYBACK_SPEED_TYPE: Object.freeze({
@@ -14252,7 +14261,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_LISTS_CREATE': 244,
         'SMB_LISTS_PICKER': 245,
         'CHANNEL_ADMIN_PROFILE_VIEWER': 246,
-        'CHANNEL_ADMIN_PROFILE_PICTURE': 247
+        'CHANNEL_ADMIN_PROFILE_PICTURE': 247,
+        'PTT_WIDGET': 248
         })
     }),
     TYPE_OF_GROUP_ENUM: Object.freeze({
@@ -15738,7 +15748,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'WA_PLUS': 2,
         'META_AI': 3,
         'META_ONE': 4,
-        'META_ONE_CONSUMER': 5
+        'META_ONE_CONSUMER': 5,
+        'META_ONE_BUSINESS': 6
         })
     }),
     XMPP_STATUS: Object.freeze({
@@ -26364,6 +26375,7 @@ const WA_WAM_EVENTS = Object.freeze({
             externalInteractables: Object.freeze({ id: 15, type: 'integer', falcoName: 'external_interactables' }),
             externalPackageName: Object.freeze({ id: 16, type: 'string', falcoName: 'external_package_name' }),
             hasDraftAvailable: Object.freeze({ id: 33, type: 'boolean', falcoName: 'has_draft_available' }),
+            isBatchedPost: Object.freeze({ id: 37, type: 'boolean', falcoName: 'is_batched_post' }),
             isFavoured: Object.freeze({ id: 28, type: 'boolean', falcoName: 'is_favoured' }),
             mediaIndex: Object.freeze({ id: 29, type: 'integer', falcoName: 'media_index' }),
             originalVideoDuration: Object.freeze({ id: 27, type: 'integer', falcoName: 'original_video_duration' }),
