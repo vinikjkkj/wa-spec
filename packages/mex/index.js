@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041789816
+// WhatsApp Version: 2.3000.1041824677
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -34,7 +34,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateReportAppeal: Object.freeze({ docId: '27103316329328467', clientDocId: '27103316329328467' }),
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27530314859954425', clientDocId: '27530314859954425' }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27881422391450662', clientDocId: '27881422391450662' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
     DemoteNewsletterAdmin: Object.freeze({ docId: '9880997548630971', clientDocId: '9880997548630971' }),
     EditBizProfile: Object.freeze({ docId: '26652989367627867', clientDocId: '26652989367627867' }),
@@ -167,7 +167,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     CreateReportAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['reason', 'report_id']) }),
     CreateWhatsAppAdsIdentity: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['code', 'phone_number']) }),
     CustomLabel3pdEvent: Object.freeze({ operationKind: 'query', variables: Object.freeze(['custom_labels', 'expt_group']) }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ebDeviceId', 'locallyAvailableEpochIds', 'messageFirst', 'threadFirst']) }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['messageFirst', 'threadFirst']) }),
     DeleteNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id']) }),
     DemoteNewsletterAdmin: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
     EditBizProfile: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'lid']) }),

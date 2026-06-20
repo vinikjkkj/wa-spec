@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041789816",
+  "waVersion": "2.3000.1041824677",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -12761,6 +12761,56 @@
         "STATUS_CREATION_ENTRYPOINT_IMP": 156
       }
     },
+    "STATUS_INTERACTION_ACTORS": {
+      "module": "WAWebWamEnumStatusInteractionActors",
+      "export": "STATUS_INTERACTION_ACTORS",
+      "values": {
+        "SELF_INTERACTION": 1,
+        "POSTER_VIEWER": 2,
+        "OTHER_TO_OTHER": 3
+      }
+    },
+    "STATUS_INTERACTION_MESSAGE_TYPE": {
+      "module": "WAWebWamEnumStatusInteractionMessageType",
+      "export": "STATUS_INTERACTION_MESSAGE_TYPE",
+      "values": {
+        "LIKE": 1,
+        "EMOJI": 2,
+        "TEXT": 3,
+        "IMAGE": 4,
+        "VOICE": 5,
+        "STICKER": 6,
+        "LOCATION": 7,
+        "CONTACT": 8,
+        "CAMERA_CAPTURE_IMAGE": 9
+      }
+    },
+    "STATUS_INTERACTION_RESULT_TYPE": {
+      "module": "WAWebWamEnumStatusInteractionResultType",
+      "export": "STATUS_INTERACTION_RESULT_TYPE",
+      "values": {
+        "OK": 1,
+        "REVOKED": 2,
+        "ERROR_UNKNOWN": 3
+      }
+    },
+    "STATUS_INTERACTION_TYPE": {
+      "module": "WAWebWamEnumStatusInteractionType",
+      "export": "STATUS_INTERACTION_TYPE",
+      "values": {
+        "QUESTION_ANSWER_SENT": 1,
+        "QUESTION_ANSWER_RECEIVED": 2,
+        "REPLY": 3,
+        "MENTION_RESHARE_SENT": 4,
+        "MENTION_RESHARE_RECEIVED": 5,
+        "STATUS_RESHARE_SENT": 6,
+        "STATUS_RESHARE_RECEIVED": 7,
+        "REACTION_STICKER_SENT": 8,
+        "REACTION_STICKER_RECEIVED": 9,
+        "REACTION": 10,
+        "ADD_YOURS_RESPONSE": 11
+      }
+    },
     "STATUS_ITEM_VIEW_RESULT": {
       "module": "WAWebWamEnumStatusItemViewResult",
       "export": "STATUS_ITEM_VIEW_RESULT",
@@ -24236,6 +24286,31 @@
           "id": 1645,
           "type": "integer",
           "falcoName": "ml_undershoot_trigger_mcp_count"
+        },
+        "mlowDnnComplexityTriggerCount": {
+          "id": 3048,
+          "type": "integer",
+          "falcoName": "mlow_dnn_complexity_trigger_count"
+        },
+        "mlowDnnLoaded": {
+          "id": 3049,
+          "type": "boolean",
+          "falcoName": "mlow_dnn_loaded"
+        },
+        "mlowDnnPermanentlyDisabled": {
+          "id": 3050,
+          "type": "boolean",
+          "falcoName": "mlow_dnn_permanently_disabled"
+        },
+        "mlowDnnWarmupCount": {
+          "id": 3051,
+          "type": "integer",
+          "falcoName": "mlow_dnn_warmup_count"
+        },
+        "mlowDnnWeightsUsed": {
+          "id": 3052,
+          "type": "boolean",
+          "falcoName": "mlow_dnn_weights_used"
         },
         "multipleTxRxRelaysInUse": {
           "id": 838,
@@ -55636,6 +55711,151 @@
         }
       }
     },
+    "StatusInteractionReceived": {
+      "id": 6810,
+      "module": "WAWebStatusInteractionReceivedWamEvent",
+      "falcoName": "wam_status_interaction_received",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "channelStatusId": {
+          "id": 7,
+          "type": "integer",
+          "falcoName": "channel_status_id"
+        },
+        "cid": {
+          "id": 8,
+          "type": "string",
+          "falcoName": "cid"
+        },
+        "statusId": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "status_id"
+        },
+        "statusInteractionActors": {
+          "id": 6,
+          "type": "enum",
+          "falcoName": "status_interaction_actors",
+          "enum": "STATUS_INTERACTION_ACTORS"
+        },
+        "statusInteractionMessageType": {
+          "id": 4,
+          "type": "enum",
+          "falcoName": "status_interaction_message_type",
+          "enum": "STATUS_INTERACTION_MESSAGE_TYPE"
+        },
+        "statusInteractionResultType": {
+          "id": 5,
+          "type": "enum",
+          "falcoName": "status_interaction_result_type",
+          "enum": "STATUS_INTERACTION_RESULT_TYPE"
+        },
+        "statusInteractionType": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "status_interaction_type",
+          "enum": "STATUS_INTERACTION_TYPE"
+        },
+        "unifiedSessionId": {
+          "id": 3,
+          "type": "string",
+          "falcoName": "unified_session_id"
+        }
+      }
+    },
+    "StatusInteractionSent": {
+      "id": 6812,
+      "module": "WAWebStatusInteractionSentWamEvent",
+      "falcoName": "wam_status_interaction_sent",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "channelStatusId": {
+          "id": 10,
+          "type": "integer",
+          "falcoName": "channel_status_id"
+        },
+        "channelUserType": {
+          "id": 11,
+          "type": "enum",
+          "falcoName": "channel_user_type",
+          "enum": "CHANNEL_USER_TYPE"
+        },
+        "cid": {
+          "id": 12,
+          "type": "string",
+          "falcoName": "cid"
+        },
+        "statusId": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "status_id"
+        },
+        "statusInteractionActors": {
+          "id": 9,
+          "type": "enum",
+          "falcoName": "status_interaction_actors",
+          "enum": "STATUS_INTERACTION_ACTORS"
+        },
+        "statusInteractionMessageType": {
+          "id": 6,
+          "type": "enum",
+          "falcoName": "status_interaction_message_type",
+          "enum": "STATUS_INTERACTION_MESSAGE_TYPE"
+        },
+        "statusInteractionResultType": {
+          "id": 7,
+          "type": "enum",
+          "falcoName": "status_interaction_result_type",
+          "enum": "STATUS_INTERACTION_RESULT_TYPE"
+        },
+        "statusInteractionType": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "status_interaction_type",
+          "enum": "STATUS_INTERACTION_TYPE"
+        },
+        "statusPosterContactType": {
+          "id": 8,
+          "type": "enum",
+          "falcoName": "status_poster_contact_type",
+          "enum": "STATUS_POSTER_CONTACT_TYPE"
+        },
+        "statusRowSection": {
+          "id": 3,
+          "type": "enum",
+          "falcoName": "status_row_section",
+          "enum": "STATUS_ROW_SECTION"
+        },
+        "statusViewerSessionId": {
+          "id": 4,
+          "type": "integer",
+          "falcoName": "status_viewer_session_id"
+        },
+        "unifiedSessionId": {
+          "id": 5,
+          "type": "string",
+          "falcoName": "unified_session_id"
+        }
+      }
+    },
     "StatusItemView": {
       "id": 1658,
       "module": "WAWebStatusItemViewWamEvent",
@@ -56167,6 +56387,11 @@
           "id": 49,
           "type": "integer",
           "falcoName": "individual_mention_count"
+        },
+        "isBatched": {
+          "id": 59,
+          "type": "boolean",
+          "falcoName": "is_batched"
         },
         "isCropped": {
           "id": 36,

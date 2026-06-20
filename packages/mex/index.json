@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041789816",
+  "waVersion": "2.3000.1041824677",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1175,25 +1175,19 @@
     },
     "DebugLabyrinthInboxSnapshot": {
       "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
-      "docId": "27530314859954425",
+      "docId": "27881422391450662",
       "operationKind": "query",
       "variables": [
-        "ebDeviceId",
-        "locallyAvailableEpochIds",
         "messageFirst",
         "threadFirst"
       ],
       "variablesShape": {
-        "ebDeviceId": "string",
-        "locallyAvailableEpochIds": "unknown",
         "messageFirst": "number",
         "threadFirst": "number"
       },
       "response": {
         "get_wa_mailbox": {
           "__typename": "string",
-          "snapshot_timestamp_ms": "number",
-          "encrypted_backup_id": "string",
           "threads": {
             "__typename": "string",
             "nodes": [
@@ -1209,28 +1203,6 @@
                         "__typename": "string",
                         "id": "string"
                       }
-                    }
-                  ],
-                  "epoch_derivation_set": [
-                    {
-                      "backward_edge": "unknown",
-                      "forward_edge": {
-                        "auth_public_key": "string",
-                        "encrypted_entropy": "unknown",
-                        "entropy_fingerprint": "unknown",
-                        "epoch_storage_public_key": "string",
-                        "psk_fingerprint": "unknown"
-                      },
-                      "from_epoch": {
-                        "epoch_anon_id": "string",
-                        "epoch_id": "string"
-                      },
-                      "from_epoch_fingerprint": "unknown",
-                      "to_epoch": {
-                        "epoch_anon_id": "string",
-                        "epoch_id": "string"
-                      },
-                      "to_epoch_fingerprint": "unknown"
                     }
                   ]
                 }

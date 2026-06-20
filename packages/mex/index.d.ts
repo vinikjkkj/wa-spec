@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041789816
+// WhatsApp Version: 2.3000.1041824677
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -179,7 +179,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CreateReportAppeal: WaMexOperationSchema<'mutation', readonly ['reason', 'report_id']>
     readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'phone_number']>
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
-    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['ebDeviceId', 'locallyAvailableEpochIds', 'messageFirst', 'threadFirst']>
+    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['messageFirst', 'threadFirst']>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly DemoteNewsletterAdmin: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
@@ -479,8 +479,6 @@ export type WaMexCustomLabel3pdEventVariables = {
 }
 
 export type WaMexDebugLabyrinthInboxSnapshotVariables = {
-    readonly ebDeviceId?: string
-    readonly locallyAvailableEpochIds?: unknown
     readonly messageFirst?: number
     readonly threadFirst?: number
 }
@@ -1942,8 +1940,6 @@ export type WaMexCustomLabel3pdEventResponse = {
 export type WaMexDebugLabyrinthInboxSnapshotResponse = {
     readonly get_wa_mailbox?: {
         readonly __typename?: string
-        readonly snapshot_timestamp_ms?: number
-        readonly encrypted_backup_id?: string
         readonly threads?: {
             readonly __typename?: string
             readonly nodes?: ReadonlyArray<{
@@ -1957,26 +1953,6 @@ export type WaMexDebugLabyrinthInboxSnapshotResponse = {
                             readonly __typename?: string
                             readonly id?: string
                         }
-                    }>
-                    readonly epoch_derivation_set?: ReadonlyArray<{
-                        readonly backward_edge?: unknown
-                        readonly forward_edge?: {
-                            readonly auth_public_key?: string
-                            readonly encrypted_entropy?: unknown
-                            readonly entropy_fingerprint?: unknown
-                            readonly epoch_storage_public_key?: string
-                            readonly psk_fingerprint?: unknown
-                        }
-                        readonly from_epoch?: {
-                            readonly epoch_anon_id?: string
-                            readonly epoch_id?: string
-                        }
-                        readonly from_epoch_fingerprint?: unknown
-                        readonly to_epoch?: {
-                            readonly epoch_anon_id?: string
-                            readonly epoch_id?: string
-                        }
-                        readonly to_epoch_fingerprint?: unknown
                     }>
                 }
             }>

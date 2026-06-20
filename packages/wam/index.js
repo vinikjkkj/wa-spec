@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041789816
+// WhatsApp Version: 2.3000.1041824677
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -12730,6 +12730,56 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_CREATION_ENTRYPOINT_IMP': 156
         })
     }),
+    STATUS_INTERACTION_ACTORS: Object.freeze({
+        module: 'WAWebWamEnumStatusInteractionActors',
+        export: 'STATUS_INTERACTION_ACTORS',
+        values: Object.freeze({
+        'SELF_INTERACTION': 1,
+        'POSTER_VIEWER': 2,
+        'OTHER_TO_OTHER': 3
+        })
+    }),
+    STATUS_INTERACTION_MESSAGE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumStatusInteractionMessageType',
+        export: 'STATUS_INTERACTION_MESSAGE_TYPE',
+        values: Object.freeze({
+        'LIKE': 1,
+        'EMOJI': 2,
+        'TEXT': 3,
+        'IMAGE': 4,
+        'VOICE': 5,
+        'STICKER': 6,
+        'LOCATION': 7,
+        'CONTACT': 8,
+        'CAMERA_CAPTURE_IMAGE': 9
+        })
+    }),
+    STATUS_INTERACTION_RESULT_TYPE: Object.freeze({
+        module: 'WAWebWamEnumStatusInteractionResultType',
+        export: 'STATUS_INTERACTION_RESULT_TYPE',
+        values: Object.freeze({
+        'OK': 1,
+        'REVOKED': 2,
+        'ERROR_UNKNOWN': 3
+        })
+    }),
+    STATUS_INTERACTION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumStatusInteractionType',
+        export: 'STATUS_INTERACTION_TYPE',
+        values: Object.freeze({
+        'QUESTION_ANSWER_SENT': 1,
+        'QUESTION_ANSWER_RECEIVED': 2,
+        'REPLY': 3,
+        'MENTION_RESHARE_SENT': 4,
+        'MENTION_RESHARE_RECEIVED': 5,
+        'STATUS_RESHARE_SENT': 6,
+        'STATUS_RESHARE_RECEIVED': 7,
+        'REACTION_STICKER_SENT': 8,
+        'REACTION_STICKER_RECEIVED': 9,
+        'REACTION': 10,
+        'ADD_YOURS_RESPONSE': 11
+        })
+    }),
     STATUS_ITEM_VIEW_RESULT: Object.freeze({
         module: 'WAWebWamEnumStatusItemViewResult',
         export: 'STATUS_ITEM_VIEW_RESULT',
@@ -17660,6 +17710,11 @@ const WA_WAM_EVENTS = Object.freeze({
             mlUndershootShimAvgCreationTime: Object.freeze({ id: 1643, type: 'timer', falcoName: 'ml_undershoot_shim_avg_creation_time' }),
             mlUndershootShimCreationFailureCount: Object.freeze({ id: 1644, type: 'integer', falcoName: 'ml_undershoot_shim_creation_failure_count' }),
             mlUndershootTriggerMcpCount: Object.freeze({ id: 1645, type: 'integer', falcoName: 'ml_undershoot_trigger_mcp_count' }),
+            mlowDnnComplexityTriggerCount: Object.freeze({ id: 3048, type: 'integer', falcoName: 'mlow_dnn_complexity_trigger_count' }),
+            mlowDnnLoaded: Object.freeze({ id: 3049, type: 'boolean', falcoName: 'mlow_dnn_loaded' }),
+            mlowDnnPermanentlyDisabled: Object.freeze({ id: 3050, type: 'boolean', falcoName: 'mlow_dnn_permanently_disabled' }),
+            mlowDnnWarmupCount: Object.freeze({ id: 3051, type: 'integer', falcoName: 'mlow_dnn_warmup_count' }),
+            mlowDnnWeightsUsed: Object.freeze({ id: 3052, type: 'boolean', falcoName: 'mlow_dnn_weights_used' }),
             multipleTxRxRelaysInUse: Object.freeze({ id: 838, type: 'boolean', falcoName: 'multiple_tx_rx_relays_in_use' }),
             muteNotSupportedCount: Object.freeze({ id: 1169, type: 'integer', falcoName: 'mute_not_supported_count' }),
             muteReqAlreadyMutedCount: Object.freeze({ id: 1170, type: 'integer', falcoName: 'mute_req_already_muted_count' }),
@@ -26116,6 +26171,50 @@ const WA_WAM_EVENTS = Object.freeze({
             userJourneyEventMs: Object.freeze({ id: 17, type: 'integer', falcoName: 'user_journey_event_ms' })
         })
     }),
+    StatusInteractionReceived: Object.freeze({
+        id: 6810,
+        falcoName: 'wam_status_interaction_received',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            channelStatusId: Object.freeze({ id: 7, type: 'integer', falcoName: 'channel_status_id' }),
+            cid: Object.freeze({ id: 8, type: 'string', falcoName: 'cid' }),
+            statusId: Object.freeze({ id: 1, type: 'string', falcoName: 'status_id' }),
+            statusInteractionActors: Object.freeze({ id: 6, type: 'enum', enum: 'STATUS_INTERACTION_ACTORS', falcoName: 'status_interaction_actors' }),
+            statusInteractionMessageType: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_INTERACTION_MESSAGE_TYPE', falcoName: 'status_interaction_message_type' }),
+            statusInteractionResultType: Object.freeze({ id: 5, type: 'enum', enum: 'STATUS_INTERACTION_RESULT_TYPE', falcoName: 'status_interaction_result_type' }),
+            statusInteractionType: Object.freeze({ id: 2, type: 'enum', enum: 'STATUS_INTERACTION_TYPE', falcoName: 'status_interaction_type' }),
+            unifiedSessionId: Object.freeze({ id: 3, type: 'string', falcoName: 'unified_session_id' })
+        })
+    }),
+    StatusInteractionSent: Object.freeze({
+        id: 6812,
+        falcoName: 'wam_status_interaction_sent',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            channelStatusId: Object.freeze({ id: 10, type: 'integer', falcoName: 'channel_status_id' }),
+            channelUserType: Object.freeze({ id: 11, type: 'enum', enum: 'CHANNEL_USER_TYPE', falcoName: 'channel_user_type' }),
+            cid: Object.freeze({ id: 12, type: 'string', falcoName: 'cid' }),
+            statusId: Object.freeze({ id: 1, type: 'string', falcoName: 'status_id' }),
+            statusInteractionActors: Object.freeze({ id: 9, type: 'enum', enum: 'STATUS_INTERACTION_ACTORS', falcoName: 'status_interaction_actors' }),
+            statusInteractionMessageType: Object.freeze({ id: 6, type: 'enum', enum: 'STATUS_INTERACTION_MESSAGE_TYPE', falcoName: 'status_interaction_message_type' }),
+            statusInteractionResultType: Object.freeze({ id: 7, type: 'enum', enum: 'STATUS_INTERACTION_RESULT_TYPE', falcoName: 'status_interaction_result_type' }),
+            statusInteractionType: Object.freeze({ id: 2, type: 'enum', enum: 'STATUS_INTERACTION_TYPE', falcoName: 'status_interaction_type' }),
+            statusPosterContactType: Object.freeze({ id: 8, type: 'enum', enum: 'STATUS_POSTER_CONTACT_TYPE', falcoName: 'status_poster_contact_type' }),
+            statusRowSection: Object.freeze({ id: 3, type: 'enum', enum: 'STATUS_ROW_SECTION', falcoName: 'status_row_section' }),
+            statusViewerSessionId: Object.freeze({ id: 4, type: 'integer', falcoName: 'status_viewer_session_id' }),
+            unifiedSessionId: Object.freeze({ id: 5, type: 'string', falcoName: 'unified_session_id' })
+        })
+    }),
     StatusItemView: Object.freeze({
         id: 1658,
         falcoName: 'wam_status_item_view',
@@ -26251,6 +26350,7 @@ const WA_WAM_EVENTS = Object.freeze({
             hasDrawings: Object.freeze({ id: 25, type: 'boolean', falcoName: 'has_drawings' }),
             hasFilters: Object.freeze({ id: 26, type: 'boolean', falcoName: 'has_filters' }),
             individualMentionCount: Object.freeze({ id: 49, type: 'integer', falcoName: 'individual_mention_count' }),
+            isBatched: Object.freeze({ id: 59, type: 'boolean', falcoName: 'is_batched' }),
             isCropped: Object.freeze({ id: 36, type: 'boolean', falcoName: 'is_cropped' }),
             isDraft: Object.freeze({ id: 55, type: 'boolean', falcoName: 'is_draft' }),
             isForwardable: Object.freeze({ id: 51, type: 'boolean', falcoName: 'is_forwardable' }),

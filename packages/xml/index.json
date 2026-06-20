@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041789816",
+  "waVersion": "2.3000.1041824677",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5170,7 +5170,18 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "l",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
+                "direction": "both"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
                 "direction": "both"
               },
               "phash": {
@@ -5218,12 +5229,6 @@
                   "pn"
                 ]
               },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -5246,12 +5251,6 @@
                 "arg": "_.privacySensitive.valueOf().toString()",
                 "optional": true,
                 "direction": "out"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "both"
               }
             },
             "children": [
@@ -31491,11 +31490,6 @@
                 "type": "int",
                 "optional": true
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "v",
@@ -31519,6 +31513,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31725,11 +31724,6 @@
                 "type": "int",
                 "optional": true
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "v",
@@ -31753,6 +31747,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31947,23 +31946,19 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "x",
+                "arg": "s",
+                "direction": "both"
+              },
+              "t": {
+                "type": "int",
+                "arg": "Date.now().toString()",
                 "direction": "both"
               },
               "participant": {
-                "type": "userJid",
-                "arg": "D",
+                "type": "deviceJid",
+                "arg": "i",
+                "optional": true,
                 "direction": "both"
-              },
-              "recipient": {
-                "type": "userJid",
-                "arg": "T",
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
               },
               "class": {
                 "type": "enum",
@@ -31978,22 +31973,27 @@
                   "status"
                 ]
               },
-              "t": {
-                "type": "int",
-                "arg": "d",
-                "optional": true,
-                "direction": "both"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
                 "direction": "out"
               },
+              "recipient": {
+                "type": "userJid",
+                "arg": "I",
+                "optional": true,
+                "direction": "both"
+              },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -32104,11 +32104,6 @@
                 "type": "time",
                 "direction": "both"
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "class": {
                 "type": "enum",
                 "arg": "v",
@@ -32132,6 +32127,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -37139,6 +37139,24 @@
                 "arg": "e.stanzaId",
                 "direction": "both"
               },
+              "edit": {
+                "type": "enum",
+                "optional": true,
+                "direction": "both",
+                "enumValues": [
+                  "1",
+                  "2",
+                  "3",
+                  "7",
+                  "8"
+                ]
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
+                "direction": "both"
+              },
               "phash": {
                 "type": "string",
                 "arg": "c",
@@ -37161,18 +37179,6 @@
                 "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
-              },
-              "edit": {
-                "type": "enum",
-                "optional": true,
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ]
               },
               "device_fanout": {
                 "type": "literal",
@@ -37212,12 +37218,6 @@
                 "arg": "_.privacySensitive.valueOf().toString()",
                 "optional": true,
                 "direction": "out"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -37939,7 +37939,18 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "l",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
+                "direction": "both"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
                 "direction": "both"
               },
               "phash": {
@@ -37987,12 +37998,6 @@
                   "pn"
                 ]
               },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -38015,12 +38020,6 @@
                 "arg": "_.privacySensitive.valueOf().toString()",
                 "optional": true,
                 "direction": "out"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "both"
               }
             },
             "children": [
@@ -38832,11 +38831,6 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "id": {
-            "type": "stanzaId",
-            "arg": "t",
-            "direction": "out"
-          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -38847,21 +38841,14 @@
             ],
             "direction": "out"
           },
-          "from": {
-            "type": "deviceJid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
+          "id": {
+            "type": "stanzaId",
+            "raw": "n.id",
             "direction": "out"
           },
           "to": {
             "type": "jid",
-            "arg": "n",
-            "optional": true,
-            "direction": "out"
-          },
-          "participant": {
-            "type": "deviceJid",
-            "arg": "r",
-            "optional": true,
+            "raw": "n.from",
             "direction": "out"
           },
           "type": {
@@ -38890,9 +38877,15 @@
             ],
             "direction": "out"
           },
+          "participant": {
+            "type": "userJid",
+            "raw": "n.participant",
+            "optional": true,
+            "direction": "out"
+          },
           "error": {
             "type": "int",
-            "arg": "i",
+            "arg": "t",
             "direction": "out"
           },
           "recipient": {
@@ -38900,15 +38893,20 @@
             "arg": "n",
             "optional": true,
             "direction": "out"
+          },
+          "from": {
+            "type": "deviceJid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMeDevicePnOrThrow_DO_NOT_USE()",
+            "direction": "out"
           }
         },
         "children": [
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },
@@ -38918,11 +38916,11 @@
             "max": 1
           },
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },
