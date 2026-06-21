@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041824677
+// WhatsApp Version: 2.3000.1041849922
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2061,9 +2061,9 @@ export interface WaXmlOperations {
                 readonly edit: '3' | '7'
                 readonly offline: number
                 readonly to: string
+                readonly phash: string
                 readonly participant: string
                 readonly eph_setting?: string
-                readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -12466,9 +12466,9 @@ export interface WaXmlStanzas {
                     readonly verified_name?: string
                     readonly recipient: string
                     readonly id: string
+                    readonly phash: string
                     readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -12691,9 +12691,9 @@ export interface WaXmlStanzas {
                     readonly edit: '3' | '7'
                     readonly offline: number
                     readonly to: string
+                    readonly phash: string
                     readonly participant: string
                     readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -14368,9 +14368,9 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
-                    readonly t: number
-                    readonly participant?: string
                     readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly t?: number
+                    readonly participant?: string
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string

@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041824677",
+  "waVersion": "2.3000.1041849922",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -4502,33 +4502,6 @@
       },
       "response": {
         "xwa2_request_client_logs_for_bug": "boolean"
-      }
-    },
-    "RequestOTE": {
-      "originalName": "WAWebMexRequestOTEJobMutation",
-      "docId": "35108428002105570",
-      "operationKind": "mutation",
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {
-          "type": "enum:INDIVIDUAL_NEW_CHAT_THREAD",
-          "selected_reason": "string",
-          "reason_text": "string"
-        }
-      },
-      "response": {
-        "xwa2_ncm_request_ote": {
-          "total_quota": "unknown",
-          "used_quota": "unknown",
-          "cycle_start_timestamp": "string",
-          "cycle_end_timestamp": "string",
-          "server_sent_timestamp": "string",
-          "ote_status": "string",
-          "mv_status": "string",
-          "capping_status": "string"
-        }
       }
     },
     "ResolveAccountTypeAndAdPage": {

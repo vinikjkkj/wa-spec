@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041824677",
+  "waVersion": "2.3000.1041849922",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5170,7 +5170,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -5182,11 +5187,6 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -31946,18 +31946,7 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "s",
-                "direction": "both"
-              },
-              "t": {
-                "type": "int",
-                "arg": "Date.now().toString()",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "optional": true,
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -31972,6 +31961,18 @@
                   "receipt",
                   "status"
                 ]
+              },
+              "t": {
+                "type": "int",
+                "arg": "d",
+                "optional": true,
+                "direction": "both"
+              },
+              "participant": {
+                "type": "userJid",
+                "arg": "i",
+                "optional": true,
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -37139,6 +37140,11 @@
                 "arg": "e.stanzaId",
                 "direction": "both"
               },
+              "phash": {
+                "type": "string",
+                "arg": "c",
+                "direction": "both"
+              },
               "edit": {
                 "type": "enum",
                 "optional": true,
@@ -37155,11 +37161,6 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
                 "direction": "both"
               },
               "peer_recipient_lid": {
@@ -37939,7 +37940,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -37951,11 +37957,6 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
                 "direction": "both"
               },
               "peer_recipient_lid": {
