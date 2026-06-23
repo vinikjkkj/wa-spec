@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041867220",
+  "waVersion": "2.3000.1041948108",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -7398,7 +7398,8 @@
         "LWI_SCREEN_BILLING_HUB_DEEPLINK_HANDLER": 111,
         "LWI_SCREEN_INTERMEDIATE_LOADING_DRAFT_AD_FROM_QP": 112,
         "LWI_SCREEN_MEDIA_SIZE_WARNING": 113,
-        "LWI_SCREEN_DURATION_MFR": 114
+        "LWI_SCREEN_DURATION_MFR": 114,
+        "LWI_SCREEN_NATIVE_PAST_ADS_NUDGE": 115
       }
     },
     "LWI_SUB_ENTRY_POINT": {

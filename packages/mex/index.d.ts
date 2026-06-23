@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041867220
+// WhatsApp Version: 2.3000.1041948108
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1073,7 +1073,12 @@ export type WaMexUpdateTextStatusVariables = {
 }
 
 export type WaMexUploadLabyrinthMessagesVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+    readonly input?: {
+        readonly device_id?: string
+        readonly epoch_id?: string
+        readonly family_device_id?: string
+        readonly messages?: ReadonlyArray<Readonly<Record<string, unknown>>>
+    }
 }
 
 export type WaMexUsernameAvailabilityVariables = {

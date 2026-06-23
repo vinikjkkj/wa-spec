@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041867220
+// WhatsApp Version: 2.3000.1041948108
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -7367,7 +7367,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_SCREEN_BILLING_HUB_DEEPLINK_HANDLER': 111,
         'LWI_SCREEN_INTERMEDIATE_LOADING_DRAFT_AD_FROM_QP': 112,
         'LWI_SCREEN_MEDIA_SIZE_WARNING': 113,
-        'LWI_SCREEN_DURATION_MFR': 114
+        'LWI_SCREEN_DURATION_MFR': 114,
+        'LWI_SCREEN_NATIVE_PAST_ADS_NUDGE': 115
         })
     }),
     LWI_SUB_ENTRY_POINT: Object.freeze({

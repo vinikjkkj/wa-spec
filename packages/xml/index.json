@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041867220",
+  "waVersion": "2.3000.1041948108",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5187,7 +5187,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -31943,8 +31943,8 @@
                 "direction": "both"
               },
               "to": {
-                "type": "jid",
-                "arg": "s",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
                 "direction": "both"
               },
               "t": {
@@ -37156,7 +37156,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -37952,7 +37952,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -38827,16 +38827,6 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "id": {
-            "type": "stanzaId",
-            "arg": "e.stanzaId",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
-            "direction": "out"
-          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -38845,6 +38835,16 @@
               "notification",
               "receipt"
             ],
+            "direction": "out"
+          },
+          "id": {
+            "type": "stanzaId",
+            "raw": "n.id",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "n.from",
             "direction": "out"
           },
           "type": {
@@ -38875,7 +38875,7 @@
           },
           "participant": {
             "type": "userJid",
-            "arg": "f",
+            "raw": "n.participant",
             "optional": true,
             "direction": "out"
           },

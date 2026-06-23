@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1041867220",
+  "waVersion": "2.3000.1041948108",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -4806,7 +4806,14 @@
         "input"
       ],
       "variablesShape": {
-        "input": {}
+        "input": {
+          "device_id": "string",
+          "epoch_id": "string",
+          "family_device_id": "string",
+          "messages": [
+            {}
+          ]
+        }
       },
       "response": {
         "xwa2_labyrinth_upload_messages": {

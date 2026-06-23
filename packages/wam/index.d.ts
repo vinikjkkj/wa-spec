@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041867220
+// WhatsApp Version: 2.3000.1041948108
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -7476,7 +7476,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'LWI_SCREEN_BILLING_HUB_DEEPLINK_HANDLER': 111;
             readonly 'LWI_SCREEN_INTERMEDIATE_LOADING_DRAFT_AD_FROM_QP': 112;
             readonly 'LWI_SCREEN_MEDIA_SIZE_WARNING': 113;
-            readonly 'LWI_SCREEN_DURATION_MFR': 114
+            readonly 'LWI_SCREEN_DURATION_MFR': 114;
+            readonly 'LWI_SCREEN_NATIVE_PAST_ADS_NUDGE': 115
         }
     }
     readonly LWI_SUB_ENTRY_POINT: {
