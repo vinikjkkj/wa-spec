@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041948108
+// WhatsApp Version: 2.3000.1042026337
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -10496,7 +10496,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'HAPPY_ST_PATRICKS_DAY': 7,
         'HAPPY_EASTER': 8,
         'FIFA_WORLDCUP_WATCHING_THE_MATCH': 9,
-        'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10
+        'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10,
+        'PREVIOUS_SET_ABOUT': 11
         })
     }),
     PREVIOUS_EPHEMERALITY_TYPE: Object.freeze({
@@ -11104,7 +11105,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DRAFT_LOADED': 10,
         'WIDGET_TAP': 11,
         'PTT_WIDGET_FORWARD_PICKER_SHOWN': 12,
-        'PTT_WIDGET_RECIPIENT_SELECTED': 13
+        'PTT_WIDGET_RECIPIENT_SELECTED': 13,
+        'PREVIEW_PLAYBACK': 14
         })
     }),
     PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON: Object.freeze({

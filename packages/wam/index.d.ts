@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1041948108
+// WhatsApp Version: 2.3000.1042026337
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -10605,7 +10605,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'HAPPY_ST_PATRICKS_DAY': 7;
             readonly 'HAPPY_EASTER': 8;
             readonly 'FIFA_WORLDCUP_WATCHING_THE_MATCH': 9;
-            readonly 'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10
+            readonly 'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10;
+            readonly 'PREVIOUS_SET_ABOUT': 11
         }
     }
     readonly PREVIOUS_EPHEMERALITY_TYPE: {
@@ -11213,7 +11214,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DRAFT_LOADED': 10;
             readonly 'WIDGET_TAP': 11;
             readonly 'PTT_WIDGET_FORWARD_PICKER_SHOWN': 12;
-            readonly 'PTT_WIDGET_RECIPIENT_SELECTED': 13
+            readonly 'PTT_WIDGET_RECIPIENT_SELECTED': 13;
+            readonly 'PREVIEW_PLAYBACK': 14
         }
     }
     readonly PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON: {
