@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042026337",
+  "waVersion": "2.3000.1042101449",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1175,7 +1175,7 @@
     },
     "DebugLabyrinthInboxSnapshot": {
       "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
-      "docId": "27881422391450662",
+      "docId": "27702565322674924",
       "operationKind": "query",
       "variables": [
         "messageFirst",
@@ -1201,6 +1201,8 @@
                       "__typename": "string",
                       "node": {
                         "__typename": "string",
+                        "encrypted_payload": "unknown",
+                        "encryption_version": "number",
                         "id": "string"
                       }
                     }

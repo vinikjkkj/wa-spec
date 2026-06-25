@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042026337
+// WhatsApp Version: 2.3000.1042101449
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -15,7 +15,7 @@ export declare const WA_XML_OPERATIONS: {
     readonly [K in WaXmlOperationKey]: WaXmlOperationSummary
 }
 
-export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'OutSet' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportBug' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'SendFeedback' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
+export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'OutSet' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportBug' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'SendFeedback' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
 
 // Per-operation request/response shape literals — generated from the static
 // extraction over WASmaxOut*Request + WASmaxIn*Response* modules. Each
@@ -10714,6 +10714,107 @@ export interface WaXmlOperations {
             }
         } }
     }
+    readonly StatusMyAddOns: {
+        readonly module: 'WASmaxNewslettersStatusMyAddOnsRPC'
+        readonly opName: 'StatusMyAddOns'
+        readonly xmlns: 'newsletter'
+        readonly type: 'get'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly to: 's.whatsapp.net'
+            readonly xmlns: 'newsletter'
+            readonly id: string
+            readonly type: 'get'
+        }
+        readonly children: {
+            readonly my_addons: {
+                readonly tag: 'my_addons'
+                readonly attrs: {
+                    readonly type: 'status'
+                    readonly limit: number
+                    readonly jid?: string
+                }
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'ClientError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id?: string
+                readonly from?: string
+                readonly type?: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text: 'bad-request'
+                        readonly code: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'ServerError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id?: string
+                readonly from?: string
+                readonly type?: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text: 'internal-server-error'
+                        readonly code: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+            readonly children: {
+                readonly my_addons: {
+                    readonly tag: 'my_addons'
+                    readonly attrs: {
+                        readonly type: 'status'
+                    }
+                    readonly children: {
+                        readonly statuses: ReadonlyArray<{
+                            readonly tag: 'statuses'
+                            readonly attrs: {
+                                readonly jid: string
+                            }
+                            readonly children: {
+                                readonly status: ReadonlyArray<{
+                                    readonly tag: 'status'
+                                    readonly attrs: {
+                                        readonly server_id: number
+                                    }
+                                    readonly children: {
+                                        readonly reaction: {
+                                            readonly tag: 'reaction'
+                                            readonly attrs: {
+                                                readonly code: string
+                                                readonly t: number
+                                            }
+                                        }
+                                    }
+                                }>
+                            }
+                        }>
+                    }
+                }
+            }
+        } }
+    }
     readonly StatusReport: {
         readonly module: 'WASmaxSpamStatusReportRPC'
         readonly opName: 'StatusReport'
@@ -12042,9 +12143,9 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'ack'
             readonly attrs: {
-                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly id: string
                 readonly to: string
+                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
                 readonly error: number
@@ -12052,16 +12153,16 @@ export interface WaXmlStanzas {
                 readonly recipient?: string
             }
             readonly children: {
-                readonly meta: {
-                    readonly tag: 'meta'
-                    readonly attrs: {
-                        readonly failure_reason: number
-                    }
-                }
                 readonly user: {
                     readonly tag: 'user'
                     readonly attrs: {
                         readonly side_list: 'out'
+                    }
+                }
+                readonly meta: {
+                    readonly tag: 'meta'
+                    readonly attrs: {
+                        readonly failure_reason: number
                     }
                 }
             }
@@ -14212,9 +14313,9 @@ export interface WaXmlStanzas {
                     readonly t: number
                     readonly offline?: number
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14293,9 +14394,9 @@ export interface WaXmlStanzas {
                     readonly t: number
                     readonly offline?: number
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14368,13 +14469,13 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
+                    readonly t: number
                     readonly participant?: string
                     readonly recipient?: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
-                    readonly t?: number
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14407,9 +14508,9 @@ export interface WaXmlStanzas {
                     readonly participant_username?: string
                     readonly t: number
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042026337
+// WhatsApp Version: 2.3000.1042101449
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1805,7 +1805,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'VC_LONELY_STATE_TIMEOUT': 31,
         'WAITING_ROOM_DENIED': 32,
         'WAITING_ROOM_TIMEOUT': 33,
-        'DEVICE_SWITCH': 34
+        'DEVICE_SWITCH': 34,
+        'VIDEO_PREVIEW_ERROR': 35,
+        'VIDEO_STREAM_CREATE_ERROR': 36,
+        'VIDEO_PORT_CREATE_ERROR': 37,
+        'FAILED_TO_SET_VIDEO_DISPLAY_SURFACE': 38,
+        'FATAL_NACK': 39
         })
     }),
     CALL_TEST_INTEGER: Object.freeze({
@@ -11725,7 +11730,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLICK_ON_CONTACT': 2,
         'CLICK_ON_NON_CONTACT': 3,
         'VIEW_PIN_VERIFICATION': 5,
-        'PIN_VERFICATION_ERROR_SHOWN': 6,
+        'PIN_VERIFICATION_ERROR_SHOWN': 6,
         'INITIATION_SUCCESS': 7,
         'INITIATION_FAILURE': 8,
         'CLICK_ON_CONTACT_WITH_EXISTING_CHAT': 9,

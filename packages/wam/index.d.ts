@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042026337
+// WhatsApp Version: 2.3000.1042101449
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1914,7 +1914,12 @@ export declare const WA_WAM_ENUMS: {
             readonly 'VC_LONELY_STATE_TIMEOUT': 31;
             readonly 'WAITING_ROOM_DENIED': 32;
             readonly 'WAITING_ROOM_TIMEOUT': 33;
-            readonly 'DEVICE_SWITCH': 34
+            readonly 'DEVICE_SWITCH': 34;
+            readonly 'VIDEO_PREVIEW_ERROR': 35;
+            readonly 'VIDEO_STREAM_CREATE_ERROR': 36;
+            readonly 'VIDEO_PORT_CREATE_ERROR': 37;
+            readonly 'FAILED_TO_SET_VIDEO_DISPLAY_SURFACE': 38;
+            readonly 'FATAL_NACK': 39
         }
     }
     readonly CALL_TEST_INTEGER: {
@@ -11834,7 +11839,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLICK_ON_CONTACT': 2;
             readonly 'CLICK_ON_NON_CONTACT': 3;
             readonly 'VIEW_PIN_VERIFICATION': 5;
-            readonly 'PIN_VERFICATION_ERROR_SHOWN': 6;
+            readonly 'PIN_VERIFICATION_ERROR_SHOWN': 6;
             readonly 'INITIATION_SUCCESS': 7;
             readonly 'INITIATION_FAILURE': 8;
             readonly 'CLICK_ON_CONTACT_WITH_EXISTING_CHAT': 9;

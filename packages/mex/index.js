@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042026337
+// WhatsApp Version: 2.3000.1042101449
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -34,7 +34,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateReportAppeal: Object.freeze({ docId: '27103316329328467', clientDocId: '27103316329328467' }),
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27881422391450662', clientDocId: '27881422391450662' }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27702565322674924', clientDocId: '27702565322674924' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
     DemoteNewsletterAdmin: Object.freeze({ docId: '9880997548630971', clientDocId: '9880997548630971' }),
     EditBizProfile: Object.freeze({ docId: '26652989367627867', clientDocId: '26652989367627867' }),

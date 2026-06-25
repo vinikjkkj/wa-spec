@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042026337",
+  "waVersion": "2.3000.1042101449",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -28053,6 +28053,238 @@
         }
       ]
     },
+    "StatusMyAddOns": {
+      "module": "WASmaxNewslettersStatusMyAddOnsRPC",
+      "opName": "StatusMyAddOns",
+      "rootTag": "iq",
+      "xmlns": "newsletter",
+      "type": "get",
+      "request": {
+        "module": "WASmaxOutNewslettersStatusMyAddOnsRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "newsletter"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "type": {
+              "type": "literal",
+              "value": "get"
+            }
+          },
+          "children": [
+            {
+              "tag": "my_addons",
+              "attrs": {
+                "type": {
+                  "type": "literal",
+                  "value": "status"
+                },
+                "limit": {
+                  "type": "int",
+                  "arg": "t"
+                },
+                "jid": {
+                  "type": "jid",
+                  "arg": "n",
+                  "optional": true
+                }
+              },
+              "children": [],
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "appliedMixin": "WASmaxOutNewslettersSelfIQGetRequestMixin"
+        },
+        "argShape": {
+          "e": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInNewslettersStatusMyAddOnsResponseClientError",
+          "variant": "ClientError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId",
+                "optional": true
+              },
+              "from": {
+                "type": "jid",
+                "optional": true
+              },
+              "type": {
+                "type": "literal",
+                "value": "error",
+                "optional": true
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "bad-request"
+                  },
+                  "code": {
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null,
+            "__variants": [
+              "BadRequestIQErrorResponse",
+              "UnauthorizedIQErrorResponse",
+              "ItemNotFoundIQErrorResponse",
+              "RateLimitedIQErrorResponse"
+            ]
+          },
+          "entryName": "parseStatusMyAddOnsResponseClientError"
+        },
+        {
+          "module": "WASmaxInNewslettersStatusMyAddOnsResponseServerError",
+          "variant": "ServerError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId",
+                "optional": true
+              },
+              "from": {
+                "type": "jid",
+                "optional": true
+              },
+              "type": {
+                "type": "literal",
+                "value": "error",
+                "optional": true
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "internal-server-error"
+                  },
+                  "code": {
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseStatusMyAddOnsResponseServerError"
+        },
+        {
+          "module": "WASmaxInNewslettersStatusMyAddOnsResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "my_addons",
+                "attrs": {
+                  "type": {
+                    "type": "literal",
+                    "value": "status"
+                  }
+                },
+                "children": [
+                  {
+                    "tag": "statuses",
+                    "attrs": {
+                      "jid": {
+                        "type": "newsletterJid"
+                      }
+                    },
+                    "children": [
+                      {
+                        "tag": "status",
+                        "attrs": {
+                          "server_id": {
+                            "type": "int",
+                            "min": 99,
+                            "max": 2147476647
+                          }
+                        },
+                        "children": [
+                          {
+                            "tag": "reaction",
+                            "attrs": {
+                              "code": {
+                                "type": "string"
+                              },
+                              "t": {
+                                "type": "int",
+                                "min": 1577865600,
+                                "max": 4102473600
+                              }
+                            },
+                            "children": [],
+                            "content": null,
+                            "min": 1,
+                            "max": 1
+                          }
+                        ],
+                        "content": null,
+                        "min": 0,
+                        "max": 5000
+                      }
+                    ],
+                    "content": null,
+                    "min": 0,
+                    "max": 5000
+                  }
+                ],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseStatusMyAddOnsResponseSuccess"
+        }
+      ]
+    },
     "StatusReport": {
       "module": "WASmaxSpamStatusReportRPC",
       "opName": "StatusReport",
@@ -31502,11 +31734,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -31517,6 +31744,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31735,11 +31967,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -31750,6 +31977,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31944,12 +32176,17 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "p",
+                "arg": "s",
+                "direction": "both"
+              },
+              "t": {
+                "type": "int",
+                "arg": "Date.now().toString()",
                 "direction": "both"
               },
               "participant": {
                 "type": "deviceJid",
-                "arg": "l",
+                "arg": "i",
                 "optional": true,
                 "direction": "both"
               },
@@ -31971,17 +32208,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
-              "t": {
-                "type": "int",
-                "arg": "d",
-                "optional": true,
-                "direction": "both"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -31992,6 +32218,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -32114,11 +32345,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "I",
-                "direction": "out"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -32129,6 +32355,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "out"
+              },
+              "category": {
+                "type": "string",
+                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -37133,7 +37364,7 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "e.stanzaId",
+                "arg": "_.id",
                 "direction": "both"
               },
               "edit": {
@@ -38828,6 +39059,16 @@
       "node": {
         "tag": "ack",
         "attrs": {
+          "id": {
+            "type": "stanzaId",
+            "arg": "e.stanzaId",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
+            "direction": "out"
+          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -38836,16 +39077,6 @@
               "notification",
               "receipt"
             ],
-            "direction": "out"
-          },
-          "id": {
-            "type": "stanzaId",
-            "raw": "n.id",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "n.from",
             "direction": "out"
           },
           "type": {
@@ -38876,7 +39107,7 @@
           },
           "participant": {
             "type": "userJid",
-            "raw": "n.participant",
+            "arg": "f",
             "optional": true,
             "direction": "out"
           },
@@ -38899,11 +39130,11 @@
         },
         "children": [
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },
@@ -38913,11 +39144,11 @@
             "max": 1
           },
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },

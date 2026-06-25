@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042026337
+// WhatsApp Version: 2.3000.1042101449
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1945,6 +1945,8 @@ export type WaMexDebugLabyrinthInboxSnapshotResponse = {
                         readonly __typename?: string
                         readonly node?: {
                             readonly __typename?: string
+                            readonly encrypted_payload?: unknown
+                            readonly encryption_version?: number
                             readonly id?: string
                         }
                     }>
