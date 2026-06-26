@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042101449",
+  "waVersion": "2.3000.1042178212",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -684,6 +684,10 @@
                     "attrs": {
                       "jid": {
                         "type": "userJid",
+                        "optional": true
+                      },
+                      "join_time": {
+                        "type": "int",
                         "optional": true
                       },
                       "phone_number": {
@@ -1645,6 +1649,19 @@
                           "participant_label_mtime": {
                             "type": "int",
                             "optional": true
+                          },
+                          "join_time": {
+                            "type": "int",
+                            "optional": true
+                          },
+                          "group_history_sent": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_FALSE_TRUE",
+                            "enumValues": [
+                              "false",
+                              "true"
+                            ]
                           },
                           "jid": {
                             "type": "userJid",
@@ -4202,6 +4219,10 @@
                           "admin",
                           "superadmin"
                         ]
+                      },
+                      "join_time": {
+                        "type": "int",
+                        "optional": true
                       }
                     },
                     "children": [
@@ -5170,7 +5191,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -5182,12 +5208,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
+                "direction": "out"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -11139,6 +11160,19 @@
                         "type": "int",
                         "optional": true
                       },
+                      "join_time": {
+                        "type": "int",
+                        "optional": true
+                      },
+                      "group_history_sent": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_FALSE_TRUE",
+                        "enumValues": [
+                          "false",
+                          "true"
+                        ]
+                      },
                       "jid": {
                         "type": "userJid",
                         "optional": true
@@ -11872,6 +11906,19 @@
                       "participant_label_mtime": {
                         "type": "int",
                         "optional": true
+                      },
+                      "join_time": {
+                        "type": "int",
+                        "optional": true
+                      },
+                      "group_history_sent": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_FALSE_TRUE",
+                        "enumValues": [
+                          "false",
+                          "true"
+                        ]
                       },
                       "jid": {
                         "type": "userJid",
@@ -12808,6 +12855,19 @@
                           "participant_label_mtime": {
                             "type": "int",
                             "optional": true
+                          },
+                          "join_time": {
+                            "type": "int",
+                            "optional": true
+                          },
+                          "group_history_sent": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_FALSE_TRUE",
+                            "enumValues": [
+                              "false",
+                              "true"
+                            ]
                           },
                           "jid": {
                             "type": "userJid",
@@ -15856,6 +15916,19 @@
                             "type": "int",
                             "optional": true
                           },
+                          "join_time": {
+                            "type": "int",
+                            "optional": true
+                          },
+                          "group_history_sent": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_FALSE_TRUE",
+                            "enumValues": [
+                              "false",
+                              "true"
+                            ]
+                          },
                           "jid": {
                             "type": "userJid",
                             "optional": true
@@ -17681,6 +17754,25 @@
                 "children": [],
                 "content": null,
                 "presence": true
+              },
+              {
+                "tag": "meta",
+                "attrs": {
+                  "interaction_type": {
+                    "type": "literal",
+                    "value": "question_response",
+                    "direction": "out"
+                  },
+                  "response_server_id": {
+                    "type": "string",
+                    "arg": "t",
+                    "optional": true,
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "min": 1,
+                "max": 1
               }
             ],
             "content": null,
@@ -21272,6 +21364,34 @@
                 "code": {
                   "type": "string",
                   "arg": "t"
+                }
+              },
+              "children": [],
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "plaintext",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "bytes"
+              },
+              "appliedMixin": "WASmaxOutStatusPublishNewsletterPlaintextPayloadMixin",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "meta",
+              "attrs": {
+                "interaction_type": {
+                  "type": "literal",
+                  "value": "question_response"
+                },
+                "response_server_id": {
+                  "type": "string",
+                  "arg": "t",
+                  "optional": true
                 }
               },
               "children": [],
@@ -31724,7 +31844,8 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -31957,7 +32078,8 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32190,15 +32312,10 @@
                 "optional": true,
                 "direction": "both"
               },
-              "recipient": {
-                "type": "userJid",
-                "arg": "u",
-                "optional": true,
-                "direction": "both"
-              },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32213,6 +32330,12 @@
                 "arg": "s",
                 "optional": true,
                 "direction": "out"
+              },
+              "recipient": {
+                "type": "userJid",
+                "arg": "I",
+                "optional": true,
+                "direction": "both"
               },
               "sts": {
                 "type": "string",
@@ -32273,11 +32396,6 @@
           "node": {
             "tag": "receipt",
             "attrs": {
-              "to": {
-                "type": "jid",
-                "optional": true,
-                "direction": "both"
-              },
               "type": {
                 "type": "enum",
                 "optional": true,
@@ -32333,9 +32451,15 @@
                 "type": "time",
                 "direction": "both"
               },
+              "to": {
+                "type": "jid",
+                "arg": "s",
+                "direction": "both"
+              },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -37314,11 +37438,6 @@
           "node": {
             "tag": "message",
             "attrs": {
-              "to": {
-                "type": "jid",
-                "optional": true,
-                "direction": "both"
-              },
               "from": {
                 "type": "jid"
               },
@@ -37364,7 +37483,17 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "_.id",
+                "arg": "l",
+                "direction": "both"
+              },
+              "to": {
+                "type": "jid",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "edit": {
@@ -37383,12 +37512,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
+                "direction": "out"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -38167,7 +38291,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -38179,12 +38308,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
+                "direction": "out"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -38626,6 +38750,25 @@
             "children": [],
             "content": null,
             "presence": true
+          },
+          {
+            "tag": "meta",
+            "attrs": {
+              "interaction_type": {
+                "type": "literal",
+                "value": "question_response",
+                "direction": "out"
+              },
+              "response_server_id": {
+                "type": "string",
+                "arg": "t",
+                "optional": true,
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "min": 1,
+            "max": 1
           }
         ],
         "content": null,
@@ -39113,18 +39256,19 @@
           },
           "error": {
             "type": "int",
-            "arg": "t",
-            "direction": "out"
-          },
-          "from": {
-            "type": "jid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMePnUserOrThrow_DO_NOT_USE()",
+            "arg": "e.error",
+            "optional": true,
             "direction": "out"
           },
           "recipient": {
             "type": "userJid",
             "arg": "n",
             "optional": true,
+            "direction": "out"
+          },
+          "from": {
+            "type": "jid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMePnUserOrThrow_DO_NOT_USE()",
             "direction": "out"
           }
         },

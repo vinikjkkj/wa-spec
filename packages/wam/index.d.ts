@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042101449
+// WhatsApp Version: 2.3000.1042178212
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -4465,7 +4465,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'MY_COMPANION': 3;
             readonly 'OTHER_COMPANION': 4;
             readonly 'MY_HOSTED_COMPANION': 5;
-            readonly 'OTHER_HOSTED_COMPANION': 6
+            readonly 'OTHER_HOSTED_COMPANION': 6;
+            readonly 'MY_COEX_V2': 7;
+            readonly 'OTHER_COEX_V2': 8
         }
     }
     readonly E2E_FAILURE_REASON: {
@@ -4648,7 +4650,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GUEST': 6;
             readonly 'TEE': 7;
             readonly 'BOT': 8;
-            readonly 'BOT_GROUP': 9
+            readonly 'BOT_GROUP': 9;
+            readonly 'COEX_V2': 10;
+            readonly 'SELF_COEX_V2': 11
         }
     }
     readonly END_CALL_CONFIRMATION_TYPE: {
@@ -5613,7 +5617,11 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'HATCH_ACTION_TYPE'
         readonly values: {
             readonly 'REQUEST_WELCOME_MSG_SENT': 1;
-            readonly 'TAP_UNLINK_BUTTON': 2
+            readonly 'TAP_UNLINK_BUTTON': 2;
+            readonly 'UNLINK_SUCCESS': 3;
+            readonly 'WA_READ_WRITE_ACCESS_IMPRESSION': 4;
+            readonly 'TAP_WA_READ_WRITE_ACCESS': 5;
+            readonly 'WA_READ_WRITE_ACCESS_LINK_SUCCESS': 6
         }
     }
     readonly HIGHLIGHT_GROUP_TYPE: {
@@ -8350,7 +8358,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'INVALID_PEER_MESSAGE': 21;
             readonly 'INVALID_REPORTING_TOKEN': 22;
             readonly 'MISSING_REPORTING_TOKEN': 23;
-            readonly 'APPDATA_MISMATCH': 24
+            readonly 'APPDATA_MISMATCH': 24;
+            readonly 'COEX_V2_RECV_UNSUPPORTED': 25;
+            readonly 'COEX_V2_INVALID_SENDER': 26
         }
     }
     readonly MESSAGE_LEVEL_ACTION: {
@@ -10922,7 +10932,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PTT': 59;
             readonly 'CRITICAL_LOW_STORAGE': 60;
             readonly 'WAFFLE': 61;
-            readonly 'IN_APP_BROWSER': 62
+            readonly 'IN_APP_BROWSER': 62;
+            readonly 'AI_HATCH': 63
         }
     }
     readonly PROFILE_ENTRY_POINT: {
@@ -11839,7 +11850,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLICK_ON_CONTACT': 2;
             readonly 'CLICK_ON_NON_CONTACT': 3;
             readonly 'VIEW_PIN_VERIFICATION': 5;
-            readonly 'PIN_VERIFICATION_ERROR_SHOWN': 6;
+            readonly 'PIN_VERFICATION_ERROR_SHOWN': 6;
             readonly 'INITIATION_SUCCESS': 7;
             readonly 'INITIATION_FAILURE': 8;
             readonly 'CLICK_ON_CONTACT_WITH_EXISTING_CHAT': 9;
@@ -19400,6 +19411,7 @@ export declare const WA_WAM_EVENTS: {
             readonly callGroupSizeBucket: { readonly id: 2; readonly type: 'enum'; readonly enum: 'CALL_SIZE_BUCKET'; readonly falcoName: 'call_group_size_bucket' }
             readonly callSizeType: { readonly id: 3; readonly type: 'enum'; readonly enum: 'CALL_SIZE_TYPE'; readonly falcoName: 'call_size_type' }
             readonly callType: { readonly id: 4; readonly type: 'enum'; readonly enum: 'CALL_TYPE'; readonly falcoName: 'call_type' }
+            readonly genaiBots: { readonly id: 11; readonly type: 'string'; readonly falcoName: 'genai_bots' }
             readonly numParticipantsShown: { readonly id: 9; readonly type: 'integer'; readonly falcoName: 'num_participants_shown' }
             readonly participantActionSource: { readonly id: 10; readonly type: 'enum'; readonly enum: 'PARTICIPANT_ACTION_SOURCE'; readonly falcoName: 'participant_action_source' }
             readonly preCallActionType: { readonly id: 5; readonly type: 'enum'; readonly enum: 'PRE_CALL_ACTION_TYPE'; readonly falcoName: 'pre_call_action_type' }
@@ -25748,6 +25760,7 @@ export declare const WA_WAM_EVENTS: {
             readonly appSessionId: { readonly id: 1; readonly type: 'string'; readonly falcoName: 'app_session_id' }
             readonly callSizeType: { readonly id: 7; readonly type: 'enum'; readonly enum: 'CALL_SIZE_TYPE'; readonly falcoName: 'call_size_type' }
             readonly callsTabSource: { readonly id: 2; readonly type: 'enum'; readonly enum: 'CALLS_TAB_SOURCE'; readonly falcoName: 'calls_tab_source' }
+            readonly genaiBots: { readonly id: 11; readonly type: 'string'; readonly falcoName: 'genai_bots' }
             readonly itemPosition: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'item_position' }
             readonly preCallActionType: { readonly id: 3; readonly type: 'enum'; readonly enum: 'PRE_CALL_ACTION_TYPE'; readonly falcoName: 'pre_call_action_type' }
             readonly subSurface: { readonly id: 4; readonly type: 'enum'; readonly enum: 'SUB_SURFACE'; readonly falcoName: 'sub_surface' }
@@ -25774,6 +25787,7 @@ export declare const WA_WAM_EVENTS: {
             readonly callRandomId: { readonly id: 13; readonly type: 'string'; readonly falcoName: 'call_random_id' }
             readonly callSize: { readonly id: 9; readonly type: 'integer'; readonly falcoName: 'call_size' }
             readonly callSizeType: { readonly id: 7; readonly type: 'enum'; readonly enum: 'CALL_SIZE_TYPE'; readonly falcoName: 'call_size_type' }
+            readonly genaiBots: { readonly id: 14; readonly type: 'string'; readonly falcoName: 'genai_bots' }
             readonly groupSize: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'group_size' }
             readonly isCommunityGroup: { readonly id: 11; readonly type: 'boolean'; readonly falcoName: 'is_community_group' }
             readonly isVideoCall: { readonly id: 12; readonly type: 'boolean'; readonly falcoName: 'is_video_call' }
@@ -27755,6 +27769,7 @@ export declare const WA_WAM_EVENTS: {
             readonly statusId: { readonly id: 29; readonly type: 'string'; readonly falcoName: 'status_id' }
             readonly statusMentionCount: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'status_mention_count' }
             readonly statusPairedMediaQuality: { readonly id: 46; readonly type: 'enum'; readonly enum: 'STATUS_PAIRED_MEDIA_QUALITY'; readonly falcoName: 'status_paired_media_quality' }
+            readonly statusPartCode: { readonly id: 60; readonly type: 'string'; readonly falcoName: 'status_part_code' }
             readonly statusPostOrigin: { readonly id: 4; readonly type: 'enum'; readonly enum: 'STATUS_POST_ORIGIN'; readonly falcoName: 'status_post_origin' }
             readonly statusPostResult: { readonly id: 3; readonly type: 'enum'; readonly enum: 'STATUS_POST_RESULT'; readonly falcoName: 'status_post_result' }
             readonly statusSessionId: { readonly id: 1; readonly type: 'integer'; readonly falcoName: 'status_session_id' }
@@ -27875,6 +27890,7 @@ export declare const WA_WAM_EVENTS: {
             readonly statusId: { readonly id: 12; readonly type: 'string'; readonly falcoName: 'status_id' }
             readonly statusMediaPickerFormatType: { readonly id: 23; readonly type: 'enum'; readonly enum: 'STATUS_MEDIA_PICKER_FORMAT_TYPE'; readonly falcoName: 'status_media_picker_format_type' }
             readonly statusPairedMediaQuality: { readonly id: 25; readonly type: 'enum'; readonly enum: 'STATUS_PAIRED_MEDIA_QUALITY'; readonly falcoName: 'status_paired_media_quality' }
+            readonly statusPartCode: { readonly id: 38; readonly type: 'string'; readonly falcoName: 'status_part_code' }
             readonly statusPostFailureReason: { readonly id: 8; readonly type: 'string'; readonly falcoName: 'status_post_failure_reason' }
             readonly statusPostingSessionId: { readonly id: 20; readonly type: 'integer'; readonly falcoName: 'status_posting_session_id' }
             readonly statusPrivacyType: { readonly id: 10; readonly type: 'enum'; readonly enum: 'STATUS_PRIVACY_TYPE'; readonly falcoName: 'status_privacy_type' }

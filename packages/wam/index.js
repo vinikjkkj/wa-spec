@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042101449
+// WhatsApp Version: 2.3000.1042178212
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -4356,7 +4356,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'MY_COMPANION': 3,
         'OTHER_COMPANION': 4,
         'MY_HOSTED_COMPANION': 5,
-        'OTHER_HOSTED_COMPANION': 6
+        'OTHER_HOSTED_COMPANION': 6,
+        'MY_COEX_V2': 7,
+        'OTHER_COEX_V2': 8
         })
     }),
     E2E_FAILURE_REASON: Object.freeze({
@@ -4539,7 +4541,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'GUEST': 6,
         'TEE': 7,
         'BOT': 8,
-        'BOT_GROUP': 9
+        'BOT_GROUP': 9,
+        'COEX_V2': 10,
+        'SELF_COEX_V2': 11
         })
     }),
     END_CALL_CONFIRMATION_TYPE: Object.freeze({
@@ -5504,7 +5508,11 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'HATCH_ACTION_TYPE',
         values: Object.freeze({
         'REQUEST_WELCOME_MSG_SENT': 1,
-        'TAP_UNLINK_BUTTON': 2
+        'TAP_UNLINK_BUTTON': 2,
+        'UNLINK_SUCCESS': 3,
+        'WA_READ_WRITE_ACCESS_IMPRESSION': 4,
+        'TAP_WA_READ_WRITE_ACCESS': 5,
+        'WA_READ_WRITE_ACCESS_LINK_SUCCESS': 6
         })
     }),
     HIGHLIGHT_GROUP_TYPE: Object.freeze({
@@ -8241,7 +8249,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'INVALID_PEER_MESSAGE': 21,
         'INVALID_REPORTING_TOKEN': 22,
         'MISSING_REPORTING_TOKEN': 23,
-        'APPDATA_MISMATCH': 24
+        'APPDATA_MISMATCH': 24,
+        'COEX_V2_RECV_UNSUPPORTED': 25,
+        'COEX_V2_INVALID_SENDER': 26
         })
     }),
     MESSAGE_LEVEL_ACTION: Object.freeze({
@@ -10813,7 +10823,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PTT': 59,
         'CRITICAL_LOW_STORAGE': 60,
         'WAFFLE': 61,
-        'IN_APP_BROWSER': 62
+        'IN_APP_BROWSER': 62,
+        'AI_HATCH': 63
         })
     }),
     PROFILE_ENTRY_POINT: Object.freeze({
@@ -11730,7 +11741,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLICK_ON_CONTACT': 2,
         'CLICK_ON_NON_CONTACT': 3,
         'VIEW_PIN_VERIFICATION': 5,
-        'PIN_VERIFICATION_ERROR_SHOWN': 6,
+        'PIN_VERFICATION_ERROR_SHOWN': 6,
         'INITIATION_SUCCESS': 7,
         'INITIATION_FAILURE': 8,
         'CLICK_ON_CONTACT_WITH_EXISTING_CHAT': 9,
@@ -19163,6 +19174,7 @@ const WA_WAM_EVENTS = Object.freeze({
             callGroupSizeBucket: Object.freeze({ id: 2, type: 'enum', enum: 'CALL_SIZE_BUCKET', falcoName: 'call_group_size_bucket' }),
             callSizeType: Object.freeze({ id: 3, type: 'enum', enum: 'CALL_SIZE_TYPE', falcoName: 'call_size_type' }),
             callType: Object.freeze({ id: 4, type: 'enum', enum: 'CALL_TYPE', falcoName: 'call_type' }),
+            genaiBots: Object.freeze({ id: 11, type: 'string', falcoName: 'genai_bots' }),
             numParticipantsShown: Object.freeze({ id: 9, type: 'integer', falcoName: 'num_participants_shown' }),
             participantActionSource: Object.freeze({ id: 10, type: 'enum', enum: 'PARTICIPANT_ACTION_SOURCE', falcoName: 'participant_action_source' }),
             preCallActionType: Object.freeze({ id: 5, type: 'enum', enum: 'PRE_CALL_ACTION_TYPE', falcoName: 'pre_call_action_type' }),
@@ -24663,6 +24675,7 @@ const WA_WAM_EVENTS = Object.freeze({
             appSessionId: Object.freeze({ id: 1, type: 'string', falcoName: 'app_session_id' }),
             callSizeType: Object.freeze({ id: 7, type: 'enum', enum: 'CALL_SIZE_TYPE', falcoName: 'call_size_type' }),
             callsTabSource: Object.freeze({ id: 2, type: 'enum', enum: 'CALLS_TAB_SOURCE', falcoName: 'calls_tab_source' }),
+            genaiBots: Object.freeze({ id: 11, type: 'string', falcoName: 'genai_bots' }),
             itemPosition: Object.freeze({ id: 10, type: 'integer', falcoName: 'item_position' }),
             preCallActionType: Object.freeze({ id: 3, type: 'enum', enum: 'PRE_CALL_ACTION_TYPE', falcoName: 'pre_call_action_type' }),
             subSurface: Object.freeze({ id: 4, type: 'enum', enum: 'SUB_SURFACE', falcoName: 'sub_surface' }),
@@ -24685,6 +24698,7 @@ const WA_WAM_EVENTS = Object.freeze({
             callRandomId: Object.freeze({ id: 13, type: 'string', falcoName: 'call_random_id' }),
             callSize: Object.freeze({ id: 9, type: 'integer', falcoName: 'call_size' }),
             callSizeType: Object.freeze({ id: 7, type: 'enum', enum: 'CALL_SIZE_TYPE', falcoName: 'call_size_type' }),
+            genaiBots: Object.freeze({ id: 14, type: 'string', falcoName: 'genai_bots' }),
             groupSize: Object.freeze({ id: 2, type: 'integer', falcoName: 'group_size' }),
             isCommunityGroup: Object.freeze({ id: 11, type: 'boolean', falcoName: 'is_community_group' }),
             isVideoCall: Object.freeze({ id: 12, type: 'boolean', falcoName: 'is_video_call' }),
@@ -26390,6 +26404,7 @@ const WA_WAM_EVENTS = Object.freeze({
             statusId: Object.freeze({ id: 29, type: 'string', falcoName: 'status_id' }),
             statusMentionCount: Object.freeze({ id: 10, type: 'integer', falcoName: 'status_mention_count' }),
             statusPairedMediaQuality: Object.freeze({ id: 46, type: 'enum', enum: 'STATUS_PAIRED_MEDIA_QUALITY', falcoName: 'status_paired_media_quality' }),
+            statusPartCode: Object.freeze({ id: 60, type: 'string', falcoName: 'status_part_code' }),
             statusPostOrigin: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_POST_ORIGIN', falcoName: 'status_post_origin' }),
             statusPostResult: Object.freeze({ id: 3, type: 'enum', enum: 'STATUS_POST_RESULT', falcoName: 'status_post_result' }),
             statusSessionId: Object.freeze({ id: 1, type: 'integer', falcoName: 'status_session_id' }),
@@ -26502,6 +26517,7 @@ const WA_WAM_EVENTS = Object.freeze({
             statusId: Object.freeze({ id: 12, type: 'string', falcoName: 'status_id' }),
             statusMediaPickerFormatType: Object.freeze({ id: 23, type: 'enum', enum: 'STATUS_MEDIA_PICKER_FORMAT_TYPE', falcoName: 'status_media_picker_format_type' }),
             statusPairedMediaQuality: Object.freeze({ id: 25, type: 'enum', enum: 'STATUS_PAIRED_MEDIA_QUALITY', falcoName: 'status_paired_media_quality' }),
+            statusPartCode: Object.freeze({ id: 38, type: 'string', falcoName: 'status_part_code' }),
             statusPostFailureReason: Object.freeze({ id: 8, type: 'string', falcoName: 'status_post_failure_reason' }),
             statusPostingSessionId: Object.freeze({ id: 20, type: 'integer', falcoName: 'status_posting_session_id' }),
             statusPrivacyType: Object.freeze({ id: 10, type: 'enum', enum: 'STATUS_PRIVACY_TYPE', falcoName: 'status_privacy_type' }),

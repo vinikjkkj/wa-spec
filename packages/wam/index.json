@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042101449",
+  "waVersion": "2.3000.1042178212",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -4387,7 +4387,9 @@
         "MY_COMPANION": 3,
         "OTHER_COMPANION": 4,
         "MY_HOSTED_COMPANION": 5,
-        "OTHER_HOSTED_COMPANION": 6
+        "OTHER_HOSTED_COMPANION": 6,
+        "MY_COEX_V2": 7,
+        "OTHER_COEX_V2": 8
       }
     },
     "E2E_FAILURE_REASON": {
@@ -4570,7 +4572,9 @@
         "GUEST": 6,
         "TEE": 7,
         "BOT": 8,
-        "BOT_GROUP": 9
+        "BOT_GROUP": 9,
+        "COEX_V2": 10,
+        "SELF_COEX_V2": 11
       }
     },
     "END_CALL_CONFIRMATION_TYPE": {
@@ -5535,7 +5539,11 @@
       "export": "HATCH_ACTION_TYPE",
       "values": {
         "REQUEST_WELCOME_MSG_SENT": 1,
-        "TAP_UNLINK_BUTTON": 2
+        "TAP_UNLINK_BUTTON": 2,
+        "UNLINK_SUCCESS": 3,
+        "WA_READ_WRITE_ACCESS_IMPRESSION": 4,
+        "TAP_WA_READ_WRITE_ACCESS": 5,
+        "WA_READ_WRITE_ACCESS_LINK_SUCCESS": 6
       }
     },
     "HIGHLIGHT_GROUP_TYPE": {
@@ -8272,7 +8280,9 @@
         "INVALID_PEER_MESSAGE": 21,
         "INVALID_REPORTING_TOKEN": 22,
         "MISSING_REPORTING_TOKEN": 23,
-        "APPDATA_MISMATCH": 24
+        "APPDATA_MISMATCH": 24,
+        "COEX_V2_RECV_UNSUPPORTED": 25,
+        "COEX_V2_INVALID_SENDER": 26
       }
     },
     "MESSAGE_LEVEL_ACTION": {
@@ -10844,7 +10854,8 @@
         "PTT": 59,
         "CRITICAL_LOW_STORAGE": 60,
         "WAFFLE": 61,
-        "IN_APP_BROWSER": 62
+        "IN_APP_BROWSER": 62,
+        "AI_HATCH": 63
       }
     },
     "PROFILE_ENTRY_POINT": {
@@ -11761,7 +11772,7 @@
         "CLICK_ON_CONTACT": 2,
         "CLICK_ON_NON_CONTACT": 3,
         "VIEW_PIN_VERIFICATION": 5,
-        "PIN_VERIFICATION_ERROR_SHOWN": 6,
+        "PIN_VERFICATION_ERROR_SHOWN": 6,
         "INITIATION_SUCCESS": 7,
         "INITIATION_FAILURE": 8,
         "CLICK_ON_CONTACT_WITH_EXISTING_CHAT": 9,
@@ -31504,6 +31515,11 @@
           "falcoName": "call_type",
           "enum": "CALL_TYPE"
         },
+        "genaiBots": {
+          "id": 11,
+          "type": "string",
+          "falcoName": "genai_bots"
+        },
         "numParticipantsShown": {
           "id": 9,
           "type": "integer",
@@ -50695,6 +50711,11 @@
           "falcoName": "calls_tab_source",
           "enum": "CALLS_TAB_SOURCE"
         },
+        "genaiBots": {
+          "id": 11,
+          "type": "string",
+          "falcoName": "genai_bots"
+        },
         "itemPosition": {
           "id": 10,
           "type": "integer",
@@ -50764,6 +50785,11 @@
           "type": "enum",
           "falcoName": "call_size_type",
           "enum": "CALL_SIZE_TYPE"
+        },
+        "genaiBots": {
+          "id": 14,
+          "type": "string",
+          "falcoName": "genai_bots"
         },
         "groupSize": {
           "id": 2,
@@ -56561,6 +56587,11 @@
           "falcoName": "status_paired_media_quality",
           "enum": "STATUS_PAIRED_MEDIA_QUALITY"
         },
+        "statusPartCode": {
+          "id": 60,
+          "type": "string",
+          "falcoName": "status_part_code"
+        },
         "statusPostOrigin": {
           "id": 4,
           "type": "enum",
@@ -57061,6 +57092,11 @@
           "type": "enum",
           "falcoName": "status_paired_media_quality",
           "enum": "STATUS_PAIRED_MEDIA_QUALITY"
+        },
+        "statusPartCode": {
+          "id": 38,
+          "type": "string",
+          "falcoName": "status_part_code"
         },
         "statusPostFailureReason": {
           "id": 8,
