@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042178212",
+  "waVersion": "2.3000.1042247318",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5191,24 +5191,8 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "x",
                 "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "direction": "both"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "out"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -5250,6 +5234,17 @@
                   "pn"
                 ]
               },
+              "phash": {
+                "type": "string",
+                "arg": "y",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "h",
+                "optional": true,
+                "direction": "both"
+              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -5272,6 +5267,12 @@
                 "arg": "_.privacySensitive.valueOf().toString()",
                 "optional": true,
                 "direction": "out"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
+                "direction": "out"
               }
             },
             "children": [
@@ -5282,11 +5283,6 @@
                     "type": "int",
                     "min": 1577865600,
                     "max": 4102473600
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "type": {
                     "type": "literal",
@@ -5395,6 +5391,11 @@
                     "value": "status",
                     "optional": true,
                     "direction": "out"
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -32298,18 +32299,7 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "s",
-                "direction": "both"
-              },
-              "t": {
-                "type": "int",
-                "arg": "Date.now().toString()",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "optional": true,
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -32324,6 +32314,18 @@
                   "receipt",
                   "status"
                 ]
+              },
+              "t": {
+                "type": "int",
+                "arg": "d",
+                "optional": true,
+                "direction": "both"
+              },
+              "participant": {
+                "type": "userJid",
+                "arg": "i",
+                "optional": true,
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -32453,7 +32455,7 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "s",
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -37483,36 +37485,13 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "l",
+                "arg": "I.id",
                 "direction": "both"
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "x",
                 "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
-              "edit": {
-                "type": "enum",
-                "optional": true,
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ]
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "out"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -37531,6 +37510,18 @@
                 "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
+              },
+              "edit": {
+                "type": "enum",
+                "optional": true,
+                "direction": "both",
+                "enumValues": [
+                  "1",
+                  "2",
+                  "3",
+                  "7",
+                  "8"
+                ]
               },
               "device_fanout": {
                 "type": "literal",
@@ -37554,6 +37545,11 @@
                   "pn"
                 ]
               },
+              "phash": {
+                "type": "string",
+                "arg": "y",
+                "direction": "both"
+              },
               "category": {
                 "type": "literal",
                 "value": "peer",
@@ -37568,6 +37564,12 @@
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
+                "optional": true,
+                "direction": "out"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
                 "optional": true,
                 "direction": "out"
               },
@@ -37866,11 +37868,6 @@
                     "optional": true,
                     "direction": "both"
                   },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
-                  },
                   "destination_id": {
                     "type": "string",
                     "arg": "L",
@@ -37905,6 +37902,11 @@
                     "type": "string",
                     "raw": "T(w.setting)",
                     "direction": "out"
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -37987,14 +37989,14 @@
                         "optional": true,
                         "direction": "both"
                       },
-                      "type": {
-                        "type": "literal",
-                        "value": "native_flow",
-                        "direction": "both"
-                      },
                       "v": {
                         "type": "literal",
                         "value": "1",
+                        "direction": "both"
+                      },
+                      "type": {
+                        "type": "literal",
+                        "value": "native_flow",
                         "direction": "both"
                       }
                     },
@@ -38291,24 +38293,8 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "x",
                 "direction": "both"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "direction": "both"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "out"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -38350,6 +38336,17 @@
                   "pn"
                 ]
               },
+              "phash": {
+                "type": "string",
+                "arg": "y",
+                "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "h",
+                "optional": true,
+                "direction": "both"
+              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -38372,6 +38369,12 @@
                 "arg": "_.privacySensitive.valueOf().toString()",
                 "optional": true,
                 "direction": "out"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
+                "direction": "out"
               }
             },
             "children": [
@@ -38382,11 +38385,6 @@
                     "type": "int",
                     "min": 1577865600,
                     "max": 4102473600
-                  },
-                  "metering_type": {
-                    "type": "literal",
-                    "value": "smb_mm",
-                    "direction": "both"
                   },
                   "type": {
                     "type": "literal",
@@ -38495,6 +38493,11 @@
                     "value": "status",
                     "optional": true,
                     "direction": "out"
+                  },
+                  "metering_type": {
+                    "type": "literal",
+                    "value": "smb_mm",
+                    "direction": "both"
                   },
                   "questiontype": {
                     "type": "literal",
@@ -39204,12 +39207,7 @@
         "attrs": {
           "id": {
             "type": "stanzaId",
-            "arg": "e.stanzaId",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
+            "arg": "e.ackId",
             "direction": "out"
           },
           "class": {
@@ -39220,6 +39218,11 @@
               "notification",
               "receipt"
             ],
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "p(e.to)",
             "direction": "out"
           },
           "type": {
@@ -39249,8 +39252,8 @@
             "direction": "out"
           },
           "participant": {
-            "type": "userJid",
-            "arg": "f",
+            "type": "deviceJid",
+            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
             "optional": true,
             "direction": "out"
           },

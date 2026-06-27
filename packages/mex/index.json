@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042178212",
+  "waVersion": "2.3000.1042247318",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -2236,7 +2236,7 @@
     },
     "FetchNewsletterEnforcements": {
       "originalName": "WAWebMexFetchNewsletterEnforcementsJobQuery",
-      "docId": "27144556038512360",
+      "docId": "36570925279217516",
       "operationKind": "query",
       "variables": [
         "locale",
@@ -2248,6 +2248,37 @@
       },
       "response": {
         "xwa2_channel_enforcements": {
+          "admin_profiles": [
+            {
+              "enforcement_creation_time": "string",
+              "appeal_creation_time": "string",
+              "appeal_state": "string",
+              "enforcement_violation_category": "string",
+              "enforcement_source": "string",
+              "enforcement_id": "string",
+              "appeal_reason_options": [
+                {
+                  "reason": "string",
+                  "label": "string"
+                }
+              ],
+              "enforcement_extra_data": {
+                "ip_violation_report_data": {
+                  "report_fbid": "string",
+                  "appeal_form_url": "string",
+                  "reporter_email": "string",
+                  "reporter_name": "string"
+                }
+              },
+              "enforcement_policy_information": {
+                "overview": "string",
+                "headline": "string",
+                "subtitle": "string",
+                "explanation": "string",
+                "admin_disclaimer": "string"
+              }
+            }
+          ],
           "profile_picture_deletions": [
             {
               "enforcement_creation_time": "string",
@@ -2974,7 +3005,7 @@
         "xwa2_fetch_account_reachout_timelock": {
           "is_active": "boolean",
           "time_enforcement_ends": "string",
-          "enforcement_type": "enum:GEOSUSPEND|GEOSUSPEND_INFORM|PROFILE_PICTURE_DELETION|SUSPEND|SUSPEND_INFORM|VIOLATING_MSG"
+          "enforcement_type": "enum:ADMIN_PROFILE|GEOSUSPEND|GEOSUSPEND_INFORM|PROFILE_PICTURE_DELETION|SUSPEND|SUSPEND_INFORM|VIOLATING_MSG"
         }
       }
     },

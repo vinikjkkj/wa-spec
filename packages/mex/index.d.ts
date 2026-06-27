@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042178212
+// WhatsApp Version: 2.3000.1042247318
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -2603,6 +2603,33 @@ export type WaMexFetchNewsletterDirectorySearchResultsResponse = {
 
 export type WaMexFetchNewsletterEnforcementsResponse = {
     readonly xwa2_channel_enforcements?: {
+        readonly admin_profiles?: ReadonlyArray<{
+            readonly enforcement_creation_time?: string
+            readonly appeal_creation_time?: string
+            readonly appeal_state?: string
+            readonly enforcement_violation_category?: string
+            readonly enforcement_source?: string
+            readonly enforcement_id?: string
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly reason?: string
+                readonly label?: string
+            }>
+            readonly enforcement_extra_data?: {
+                readonly ip_violation_report_data?: {
+                    readonly report_fbid?: string
+                    readonly appeal_form_url?: string
+                    readonly reporter_email?: string
+                    readonly reporter_name?: string
+                }
+            }
+            readonly enforcement_policy_information?: {
+                readonly overview?: string
+                readonly headline?: string
+                readonly subtitle?: string
+                readonly explanation?: string
+                readonly admin_disclaimer?: string
+            }
+        }>
         readonly profile_picture_deletions?: ReadonlyArray<{
             readonly enforcement_creation_time?: string
             readonly appeal_creation_time?: string
@@ -3087,7 +3114,7 @@ export type WaMexFetchReachoutTimelockResponse = {
     readonly xwa2_fetch_account_reachout_timelock?: {
         readonly is_active?: boolean
         readonly time_enforcement_ends?: string
-        readonly enforcement_type?: 'GEOSUSPEND' | 'GEOSUSPEND_INFORM' | 'PROFILE_PICTURE_DELETION' | 'SUSPEND' | 'SUSPEND_INFORM' | 'VIOLATING_MSG'
+        readonly enforcement_type?: 'ADMIN_PROFILE' | 'GEOSUSPEND' | 'GEOSUSPEND_INFORM' | 'PROFILE_PICTURE_DELETION' | 'SUSPEND' | 'SUSPEND_INFORM' | 'VIOLATING_MSG'
     }
 }
 

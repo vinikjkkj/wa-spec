@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042178212
+// WhatsApp Version: 2.3000.1042247318
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -61,7 +61,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchNewsletterDirectoryCategoriesPreview: Object.freeze({ docId: '35266481849605779', clientDocId: '35266481849605779' }),
     FetchNewsletterDirectoryList: Object.freeze({ docId: '26125047313831973', clientDocId: '26125047313831973' }),
     FetchNewsletterDirectorySearchResults: Object.freeze({ docId: '26301059626252132', clientDocId: '26301059626252132' }),
-    FetchNewsletterEnforcements: Object.freeze({ docId: '27144556038512360', clientDocId: '27144556038512360' }),
+    FetchNewsletterEnforcements: Object.freeze({ docId: '36570925279217516', clientDocId: '36570925279217516' }),
     FetchNewsletterFollowers: Object.freeze({ docId: '27472091235714801', clientDocId: '27472091235714801' }),
     FetchNewsletterInsights: Object.freeze({ docId: '9853618868050977', clientDocId: '9853618868050977' }),
     FetchNewsletterIsDomainPreviewable: Object.freeze({ docId: '9849510985088294', clientDocId: '9849510985088294' }),
