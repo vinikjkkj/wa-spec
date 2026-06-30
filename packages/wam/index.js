@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042287432
+// WhatsApp Version: 2.3000.1042373943
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -5989,7 +5989,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIX_NATIVE_PAYMENTS_HOME_VIEW': 97,
         'PIX_NATIVE_ENROLLMENT_SETTINGS_VIEW': 98,
         'PIX_NATIVE_ENROLLMENT_DELETE': 99,
-        'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100
+        'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100,
+        'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101
         })
     }),
     INVISIBLE_MESSAGE_CATEGORY_TYPE: Object.freeze({
@@ -12863,6 +12864,19 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL': 5
         })
     }),
+    STATUS_POST_FAILURE_STAGE: Object.freeze({
+        module: 'WAWebWamEnumStatusPostFailureStage',
+        export: 'STATUS_POST_FAILURE_STAGE',
+        values: Object.freeze({
+        'UNKNOWN': 0,
+        'PREKEYS_FETCH': 1,
+        'ENCRYPT': 2,
+        'READY_TO_SEND': 3,
+        'WRITTEN_WIRE': 4,
+        'AWAITING_SERVER_ACK': 5,
+        'SERVER_ACK_RECEIVED': 6
+        })
+    }),
     STATUS_POST_ORIGIN: Object.freeze({
         module: 'WAWebWamEnumStatusPostOrigin',
         export: 'STATUS_POST_ORIGIN',
@@ -12981,7 +12995,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'USER_CANCELLED': 48,
         'USER_DELETED_UNSENT_MESSAGE': 49,
         'USER_MANUAL_RETRY': 50,
-        'ERROR_CLIENT_OUT_OF_MEMORY': 51
+        'ERROR_CLIENT_OUT_OF_MEMORY': 51,
+        'ERROR_RETRY_EXHAUSTED': 52,
+        'ERROR_EMPTY_TARGET_DEVICES': 53,
+        'ERROR_UNRECOVERABLE': 54,
+        'ERROR_ACK_TIMEOUT': 55,
+        'ERROR_INVALID_STATE': 56
         })
     }),
     STATUS_PRIVACY_SETTINGS_ACTION: Object.freeze({
@@ -14331,7 +14350,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_LISTS_PICKER': 245,
         'CHANNEL_ADMIN_PROFILE_VIEWER': 246,
         'CHANNEL_ADMIN_PROFILE_PICTURE': 247,
-        'PTT_WIDGET': 248
+        'PTT_WIDGET': 248,
+        'BIOMETRIC_UNLOCK': 249,
+        'LOCKED_CHATS': 250,
+        'REACTION_DETAILS': 251,
+        'STORAGE_WARNING': 252
         })
     }),
     TYPE_OF_GROUP_ENUM: Object.freeze({
@@ -20676,6 +20699,7 @@ const WA_WAM_EVENTS = Object.freeze({
             languageCode: Object.freeze({ id: 5, type: 'string', falcoName: 'language_code' }),
             lastBackupTimestamp: Object.freeze({ id: 63, type: 'integer', falcoName: 'last_backup_timestamp' }),
             lastCloudBackupSize: Object.freeze({ id: 185, type: 'integer', falcoName: 'last_cloud_backup_size' }),
+            lidRawContactId: Object.freeze({ id: 258, type: 'integer', falcoName: 'lid_raw_contact_id' }),
             lidToPnMappingCount: Object.freeze({ id: 253, type: 'integer', falcoName: 'lid_to_pn_mapping_count' }),
             lidToUsernameMappingCount: Object.freeze({ id: 254, type: 'integer', falcoName: 'lid_to_username_mapping_count' }),
             locationCode: Object.freeze({ id: 6, type: 'string', falcoName: 'location_code' }),
@@ -26363,6 +26387,7 @@ const WA_WAM_EVENTS = Object.freeze({
             defaultStatusPrivacySetting: Object.freeze({ id: 6, type: 'enum', enum: 'PRIVACY_SETTINGS_VALUE_TYPE', falcoName: 'default_status_privacy_setting' }),
             dualUploadPairedMediaId: Object.freeze({ id: 44, type: 'string', falcoName: 'dual_upload_paired_media_id' }),
             editable: Object.freeze({ id: 15, type: 'boolean', falcoName: 'editable' }),
+            errorMetadata: Object.freeze({ id: 61, type: 'string', falcoName: 'error_metadata' }),
             externalInteractables: Object.freeze({ id: 16, type: 'integer', falcoName: 'external_interactables' }),
             externalPackageName: Object.freeze({ id: 17, type: 'string', falcoName: 'external_package_name' }),
             extraStickersData: Object.freeze({ id: 22, type: 'string', falcoName: 'extra_stickers_data' }),
@@ -26405,6 +26430,7 @@ const WA_WAM_EVENTS = Object.freeze({
             statusMentionCount: Object.freeze({ id: 10, type: 'integer', falcoName: 'status_mention_count' }),
             statusPairedMediaQuality: Object.freeze({ id: 46, type: 'enum', enum: 'STATUS_PAIRED_MEDIA_QUALITY', falcoName: 'status_paired_media_quality' }),
             statusPartCode: Object.freeze({ id: 60, type: 'string', falcoName: 'status_part_code' }),
+            statusPostFailureStage: Object.freeze({ id: 62, type: 'enum', enum: 'STATUS_POST_FAILURE_STAGE', falcoName: 'status_post_failure_stage' }),
             statusPostOrigin: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_POST_ORIGIN', falcoName: 'status_post_origin' }),
             statusPostResult: Object.freeze({ id: 3, type: 'enum', enum: 'STATUS_POST_RESULT', falcoName: 'status_post_result' }),
             statusSessionId: Object.freeze({ id: 1, type: 'integer', falcoName: 'status_session_id' }),

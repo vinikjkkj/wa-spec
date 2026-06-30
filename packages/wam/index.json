@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042287432",
+  "waVersion": "2.3000.1042373943",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -6020,7 +6020,8 @@
         "PIX_NATIVE_PAYMENTS_HOME_VIEW": 97,
         "PIX_NATIVE_ENROLLMENT_SETTINGS_VIEW": 98,
         "PIX_NATIVE_ENROLLMENT_DELETE": 99,
-        "PIX_NATIVE_ENROLLMENT_BANNER_VIEW": 100
+        "PIX_NATIVE_ENROLLMENT_BANNER_VIEW": 100,
+        "PIX_NATIVE_FIDO_REGISTRATION_OPTIONS": 101
       }
     },
     "INVISIBLE_MESSAGE_CATEGORY_TYPE": {
@@ -12894,6 +12895,19 @@
         "CHANNEL": 5
       }
     },
+    "STATUS_POST_FAILURE_STAGE": {
+      "module": "WAWebWamEnumStatusPostFailureStage",
+      "export": "STATUS_POST_FAILURE_STAGE",
+      "values": {
+        "UNKNOWN": 0,
+        "PREKEYS_FETCH": 1,
+        "ENCRYPT": 2,
+        "READY_TO_SEND": 3,
+        "WRITTEN_WIRE": 4,
+        "AWAITING_SERVER_ACK": 5,
+        "SERVER_ACK_RECEIVED": 6
+      }
+    },
     "STATUS_POST_ORIGIN": {
       "module": "WAWebWamEnumStatusPostOrigin",
       "export": "STATUS_POST_ORIGIN",
@@ -13012,7 +13026,12 @@
         "USER_CANCELLED": 48,
         "USER_DELETED_UNSENT_MESSAGE": 49,
         "USER_MANUAL_RETRY": 50,
-        "ERROR_CLIENT_OUT_OF_MEMORY": 51
+        "ERROR_CLIENT_OUT_OF_MEMORY": 51,
+        "ERROR_RETRY_EXHAUSTED": 52,
+        "ERROR_EMPTY_TARGET_DEVICES": 53,
+        "ERROR_UNRECOVERABLE": 54,
+        "ERROR_ACK_TIMEOUT": 55,
+        "ERROR_INVALID_STATE": 56
       }
     },
     "STATUS_PRIVACY_SETTINGS_ACTION": {
@@ -14362,7 +14381,11 @@
         "SMB_LISTS_PICKER": 245,
         "CHANNEL_ADMIN_PROFILE_VIEWER": 246,
         "CHANNEL_ADMIN_PROFILE_PICTURE": 247,
-        "PTT_WIDGET": 248
+        "PTT_WIDGET": 248,
+        "BIOMETRIC_UNLOCK": 249,
+        "LOCKED_CHATS": 250,
+        "REACTION_DETAILS": 251,
+        "STORAGE_WARNING": 252
       }
     },
     "TYPE_OF_GROUP_ENUM": {
@@ -36787,6 +36810,11 @@
           "type": "integer",
           "falcoName": "last_cloud_backup_size"
         },
+        "lidRawContactId": {
+          "id": 258,
+          "type": "integer",
+          "falcoName": "lid_raw_contact_id"
+        },
         "lidToPnMappingCount": {
           "id": 253,
           "type": "integer",
@@ -56377,6 +56405,11 @@
           "type": "boolean",
           "falcoName": "editable"
         },
+        "errorMetadata": {
+          "id": 61,
+          "type": "string",
+          "falcoName": "error_metadata"
+        },
         "externalInteractables": {
           "id": 16,
           "type": "integer",
@@ -56591,6 +56624,12 @@
           "id": 60,
           "type": "string",
           "falcoName": "status_part_code"
+        },
+        "statusPostFailureStage": {
+          "id": 62,
+          "type": "enum",
+          "falcoName": "status_post_failure_stage",
+          "enum": "STATUS_POST_FAILURE_STAGE"
         },
         "statusPostOrigin": {
           "id": 4,
