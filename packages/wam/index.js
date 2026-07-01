@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042373943
+// WhatsApp Version: 2.3000.1042455848
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -910,6 +910,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_PAYMENT_MERCHANT_SOFT_BLOCKED_ACCOUNT_STATUS_BANNER': 119,
         'SMB_PAYMENT_MERCHANT_INTEGRITY_BLOCKED_ACCOUNT_STATUS_BANNER': 120,
         'SMB_SHOP_SUNSET_BANNER': 121
+        })
+    }),
+    BB_TIER_TYPE: Object.freeze({
+        module: 'WAWebWamEnumBbTierType',
+        export: 'BB_TIER_TYPE',
+        values: Object.freeze({
+        'CORE': 0,
+        'PRO': 1
         })
     }),
     BILLING_STATUS: Object.freeze({
@@ -9151,7 +9159,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'AI_MESSAGE': 60,
         'PIN_MESSAGE': 61,
         'ADMIN_GROUP_JOIN_REQUEST': 62,
-        'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63
+        'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63,
+        'BUSINESS_BROADCAST_INSIGHTS_READY': 64
         })
     }),
     NS_MODE: Object.freeze({
@@ -9644,7 +9653,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'GET_VPA_NAME': 36,
         'SEND_TO_VPA': 37,
         'REGISTER_INIT': 38,
-        'REGISTER_ALL': 39
+        'REGISTER_ALL': 39,
+        'GET_CATEGORIES_LIST': 40,
+        'GET_BILLER_LIST': 41,
+        'GET_OPERATOR_CIRCLE_INFO': 42,
+        'FETCH_BILL': 43,
+        'GET_RECENT_BILLS': 44,
+        'GET_BILL_DETAILS': 45,
+        'GET_BILLER_DETAILS': 46,
+        'GET_PLANS': 47
         })
     }),
     PAYMENTS_RESPONSE_RESULT_TYPE: Object.freeze({
@@ -10028,7 +10045,13 @@ const WA_WAM_ENUMS = Object.freeze({
         'VIEW_CONTACT_TRANSACTIONS': 343,
         'SIM_SWAP_CHANGE_PHONE_NUMBER': 344,
         'SPLIT_MESSAGE_BUBBLE': 345,
-        'MARK_AS_PAID_BUTTON': 346
+        'MARK_AS_PAID_BUTTON': 346,
+        'PAYMENT_STATUS_SAVED': 347,
+        'SYNCD_STORE_SENT': 348,
+        'SYNCD_REMOVE_PIX': 349,
+        'SYNCD_STORE': 350,
+        'SYNCD_REMOVE': 351,
+        'SYNCD_FAILED': 352
         })
     }),
     PAYMENT_ACTION_TYPES: Object.freeze({
@@ -10433,6 +10456,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANGE_VOTE': 7,
         'EDIT_POLL_INITIATED': 8,
         'EDIT_POLL_COMPLETED': 9
+        })
+    }),
+    PQ_FALLBACK_REASON: Object.freeze({
+        module: 'WAWebWamEnumPqFallbackReason',
+        export: 'PQ_FALLBACK_REASON',
+        values: Object.freeze({
+        'UNKNOWN': 0,
+        'PQ_NO_SESSION_REGULAR_FALLBACK': 1,
+        'PQ_SESSION_DELETED_KEYLESS_RETRY': 2
         })
     }),
     PRECISE_SIZE_BUCKET: Object.freeze({
@@ -12577,7 +12609,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_THREAD_SCREEN': 56,
         'MEDIA_BROWSER_STATUS_MENU': 57,
         'ARCHIVE_STATUS_VIEWER': 58,
-        'ME_TAB': 59
+        'ME_TAB': 59,
+        'CONTACTS_TAB': 60
         })
     }),
     STATUS_CROSSPOST_SHARE_TYPE_ENUM: Object.freeze({
@@ -12938,7 +12971,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_STATUS_VIEWER_TOP_BAR': 55,
         'MEDIA_BROWSER_STATUS_MENU': 56,
         'ARCHIVE_STATUS_VIEWER': 57,
-        'ME_TAB': 58
+        'ME_TAB': 58,
+        'CONTACTS_TAB': 59
         })
     }),
     STATUS_POST_RESULT: Object.freeze({
@@ -21116,6 +21150,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageKeyHash: Object.freeze({ id: 11, type: 'string', falcoName: 'message_key_hash' }),
             messageType: Object.freeze({ id: 1, type: 'enum', enum: 'MESSAGE_TYPE', falcoName: 'message_type' }),
             msgRetryCount: Object.freeze({ id: 2, type: 'integer', falcoName: 'msg_retry_count' }),
+            pqFallbackReason: Object.freeze({ id: 13, type: 'enum', enum: 'PQ_FALLBACK_REASON', falcoName: 'pq_fallback_reason' }),
             retryRejectReason: Object.freeze({ id: 3, type: 'enum', enum: 'RETRY_REJECT_REASON', falcoName: 'retry_reject_reason' }),
             retryRevoke: Object.freeze({ id: 4, type: 'boolean', falcoName: 'retry_revoke' }),
             senderDeviceType: Object.freeze({ id: 5, type: 'enum', enum: 'DEVICE_TYPE', falcoName: 'sender_device_type' }),
@@ -21138,6 +21173,8 @@ const WA_WAM_EVENTS = Object.freeze({
             editProfileActionField: Object.freeze({ id: 9, type: 'enum', enum: 'BUSINESS_PROFILE_FIELD', falcoName: 'edit_profile_action_field' }),
             hasAddress: Object.freeze({ id: 5, type: 'boolean', falcoName: 'has_address' }),
             hasCategory: Object.freeze({ id: 4, type: 'boolean', falcoName: 'has_category' }),
+            hasConnectedFbMedia: Object.freeze({ id: 12, type: 'boolean', falcoName: 'has_connected_fb_media' }),
+            hasConnectedIgMedia: Object.freeze({ id: 13, type: 'boolean', falcoName: 'has_connected_ig_media' }),
             hasDescription: Object.freeze({ id: 3, type: 'boolean', falcoName: 'has_description' }),
             hasEmail: Object.freeze({ id: 7, type: 'boolean', falcoName: 'has_email' }),
             hasHours: Object.freeze({ id: 6, type: 'boolean', falcoName: 'has_hours' }),
@@ -21774,8 +21811,8 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             aiSessionId: Object.freeze({ id: 1, type: 'string', falcoName: 'ai_session_id' }),
-            botEntryPoint: Object.freeze({ id: 2, type: 'enum', enum: 'BOT_ENTRY_POINT_TYPE', falcoName: 'bot_entry_point' }),
             hatchActionType: Object.freeze({ id: 3, type: 'enum', enum: 'HATCH_ACTION_TYPE', falcoName: 'hatch_action_type' }),
+            rawBotEntryPoint: Object.freeze({ id: 5, type: 'string', falcoName: 'raw_bot_entry_point' }),
             unifiedSessionId: Object.freeze({ id: 4, type: 'string', falcoName: 'unified_session_id' })
         })
     }),
@@ -26153,6 +26190,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             actionType: Object.freeze({ id: 1, type: 'enum', enum: 'CHAT_FILTER_ACTION_TYPES', falcoName: 'action_type' }),
+            bbTier: Object.freeze({ id: 22, type: 'enum', enum: 'BB_TIER_TYPE', falcoName: 'bb_tier' }),
             contactIsSaved: Object.freeze({ id: 2, type: 'boolean', falcoName: 'contact_is_saved' }),
             entryPoint: Object.freeze({ id: 3, type: 'enum', enum: 'ENTRY_POINT', falcoName: 'entry_point' }),
             entryPointDetails: Object.freeze({ id: 18, type: 'string', falcoName: 'entry_point_details' }),

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042373943
+// WhatsApp Version: 2.3000.1042455848
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -15,7 +15,7 @@ export declare const WA_XML_OPERATIONS: {
     readonly [K in WaXmlOperationKey]: WaXmlOperationSummary
 }
 
-export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'OutSet' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportBug' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'SendFeedback' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
+export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'Add' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'Delete' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PreSet' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'PushSet' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportBug' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'SendFeedback' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
 
 // Per-operation request/response shape literals — generated from the static
 // extraction over WASmaxOut*Request + WASmaxIn*Response* modules. Each
@@ -188,6 +188,121 @@ export interface WaXmlOperations {
                 readonly id: string
                 readonly type: 'result'
                 readonly from: 's.whatsapp.net'
+            }
+        } }
+    }
+    readonly Add: {
+        readonly module: 'WASmaxPreKeysAddRPC'
+        readonly opName: 'Add'
+        readonly xmlns: 'encrypt'
+        readonly type: 'set'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly type: 'set'
+            readonly id: string
+            readonly xmlns: 'encrypt'
+            readonly to: 's.whatsapp.net'
+        }
+        readonly children: {
+            readonly id: {
+                readonly tag: 'id'
+            }
+            readonly value: {
+                readonly tag: 'value'
+            }
+            readonly pq_list: {
+                readonly tag: 'pq_list'
+                readonly children: {
+                    readonly key: ReadonlyArray<{
+                        readonly tag: 'key'
+                        readonly children: {
+                            readonly id: {
+                                readonly tag: 'id'
+                            }
+                            readonly value: {
+                                readonly tag: 'value'
+                            }
+                            readonly signature: {
+                                readonly tag: 'signature'
+                                readonly content: Uint8Array
+                            }
+                        }
+                    }>
+                }
+            }
+            readonly op: {
+                readonly tag: 'op'
+                readonly attrs: {
+                    readonly mode: 'add'
+                }
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'RequestError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'not-acceptable'
+                        readonly code?: number
+                    }
+                    readonly children: {
+                        readonly field: {
+                            readonly tag: 'field'
+                            readonly attrs: {
+                                readonly name: string
+                                readonly reason: string
+                            }
+                        } | undefined
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'ServerError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'service-unavailable'
+                        readonly code?: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+            readonly children: {
+                readonly list: {
+                    readonly tag: 'list'
+                    readonly attrs: {
+                        readonly count_low: 'true'
+                    }
+                }
+                readonly pq_list: {
+                    readonly tag: 'pq_list'
+                    readonly attrs: {
+                        readonly count_low: 'true'
+                    }
+                }
             }
         } }
     }
@@ -1983,6 +2098,87 @@ export interface WaXmlOperations {
             }
         } }
     }
+    readonly Delete: {
+        readonly module: 'WASmaxPreKeysDeleteRPC'
+        readonly opName: 'Delete'
+        readonly xmlns: 'encrypt'
+        readonly type: 'set'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly type: 'set'
+            readonly id: string
+            readonly xmlns: 'encrypt'
+            readonly to: 's.whatsapp.net'
+        }
+        readonly children: {
+            readonly list: {
+                readonly tag: 'list'
+            } | undefined
+            readonly pq_list: {
+                readonly tag: 'pq_list'
+            } | undefined
+            readonly op: {
+                readonly tag: 'op'
+                readonly attrs: {
+                    readonly mode: 'delete'
+                }
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'RequestError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'not-acceptable'
+                        readonly code?: number
+                    }
+                    readonly children: {
+                        readonly field: {
+                            readonly tag: 'field'
+                            readonly attrs: {
+                                readonly name: string
+                                readonly reason: string
+                            }
+                        } | undefined
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'ServerError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'service-unavailable'
+                        readonly code?: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+        } }
+    }
     readonly DeleteParentGroup: {
         readonly module: 'WASmaxGroupsDeleteParentGroupRPC'
         readonly opName: 'DeleteParentGroup'
@@ -2065,6 +2261,8 @@ export interface WaXmlOperations {
                 readonly edit: '3' | '7'
                 readonly offline: number
                 readonly to: string
+                readonly participant: string
+                readonly eph_setting?: string
                 readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
@@ -2072,12 +2270,10 @@ export interface WaXmlOperations {
                 readonly device_fanout?: 'false'
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
-                readonly participant?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
                 readonly privacy_sensitive?: boolean
-                readonly eph_setting?: string
             }
             readonly children: {
                 readonly meta: {
@@ -2309,6 +2505,10 @@ export interface WaXmlOperations {
         readonly children: {
             readonly key: {
                 readonly tag: 'key'
+                readonly attrs: {
+                    readonly pqsupport?: 'true'
+                    readonly context_jid?: string
+                }
                 readonly children: {
                     readonly user: ReadonlyArray<{
                         readonly tag: 'user'
@@ -2391,6 +2591,27 @@ export interface WaXmlOperations {
                                     readonly tag: 'identity'
                                     readonly content: Uint8Array
                                 }
+                                readonly identity_auth: {
+                                    readonly tag: 'identity_auth'
+                                    readonly attrs: {
+                                        readonly version: number
+                                    }
+                                    readonly children: {
+                                        readonly signature: {
+                                            readonly tag: 'signature'
+                                            readonly content: Uint8Array
+                                        }
+                                        readonly certs: {
+                                            readonly tag: 'certs'
+                                            readonly children: {
+                                                readonly cert: ReadonlyArray<{
+                                                    readonly tag: 'cert'
+                                                    readonly content: Uint8Array
+                                                }>
+                                            }
+                                        }
+                                    }
+                                }
                                 readonly key: {
                                     readonly tag: 'key'
                                     readonly children: {
@@ -2406,6 +2627,23 @@ export interface WaXmlOperations {
                                 }
                                 readonly skey: {
                                     readonly tag: 'skey'
+                                    readonly children: {
+                                        readonly signature: {
+                                            readonly tag: 'signature'
+                                            readonly content: Uint8Array
+                                        }
+                                        readonly id: {
+                                            readonly tag: 'id'
+                                            readonly content: Uint8Array
+                                        }
+                                        readonly value: {
+                                            readonly tag: 'value'
+                                            readonly content: Uint8Array
+                                        }
+                                    }
+                                }
+                                readonly pqkey: {
+                                    readonly tag: 'pqkey'
                                     readonly children: {
                                         readonly signature: {
                                             readonly tag: 'signature'
@@ -2455,6 +2693,10 @@ export interface WaXmlOperations {
         readonly children: {
             readonly key_fetch: {
                 readonly tag: 'key_fetch'
+                readonly attrs: {
+                    readonly pqsupport?: 'true'
+                    readonly context_jid?: string
+                }
                 readonly children: {
                     readonly user: ReadonlyArray<{
                         readonly tag: 'user'
@@ -2572,6 +2814,23 @@ export interface WaXmlOperations {
                                         }
                                         readonly skey: {
                                             readonly tag: 'skey'
+                                            readonly children: {
+                                                readonly signature: {
+                                                    readonly tag: 'signature'
+                                                    readonly content: Uint8Array
+                                                }
+                                                readonly id: {
+                                                    readonly tag: 'id'
+                                                    readonly content: Uint8Array
+                                                }
+                                                readonly value: {
+                                                    readonly tag: 'value'
+                                                    readonly content: Uint8Array
+                                                }
+                                            }
+                                        }
+                                        readonly pqkey: {
+                                            readonly tag: 'pqkey'
                                             readonly children: {
                                                 readonly signature: {
                                                     readonly tag: 'signature'
@@ -8039,83 +8298,6 @@ export interface WaXmlOperations {
             }
         } }
     }
-    readonly OutSet: {
-        readonly module: 'WASmaxOutUserNoticeSetRequest'
-        readonly opName: 'Set'
-        readonly xmlns: 'tos'
-        readonly type: 'set'
-        readonly request: {
-        readonly tag: 'iq'
-        readonly attrs: {
-            readonly to: 's.whatsapp.net'
-            readonly xmlns: 'tos'
-            readonly id: string
-            readonly type: 'set'
-        }
-        readonly children: {
-            readonly notice: {
-                readonly tag: 'notice'
-                readonly attrs: {
-                    readonly id: number
-                    readonly stage: number
-                }
-            }
-        }
-    }
-        readonly response:
-        | { readonly variant: 'ClientError'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly id: string
-                readonly from: string
-                readonly type: 'error'
-            }
-            readonly children: {
-                readonly error: {
-                    readonly tag: 'error'
-                    readonly attrs: {
-                        readonly text: 'bad-request'
-                        readonly code: number
-                    }
-                }
-            }
-        } }
-        | { readonly variant: 'ServerError'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly id: string
-                readonly from: string
-                readonly type: 'error'
-            }
-            readonly children: {
-                readonly error: {
-                    readonly tag: 'error'
-                    readonly attrs: {
-                        readonly text?: 'internal-server-error'
-                        readonly code?: number
-                    }
-                }
-            }
-        } }
-        | { readonly variant: 'Success'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly id: string
-                readonly from: string
-                readonly type: 'result'
-            }
-            readonly children: {
-                readonly notice: {
-                    readonly tag: 'notice'
-                    readonly attrs: {
-                        readonly t: number
-                        readonly id: number
-                        readonly stage: number
-                    }
-                } | undefined
-            }
-        } }
-    }
     readonly PassiveIQ: {
         readonly module: 'WASmaxPassiveModePassiveIQRPC'
         readonly opName: 'PassiveIQ'
@@ -8226,6 +8408,202 @@ export interface WaXmlOperations {
                 readonly id: string
                 readonly t: number
                 readonly edit?: '1'
+            }
+        } }
+    }
+    readonly PreSet: {
+        readonly module: 'WASmaxPreKeysSetRPC'
+        readonly opName: 'Set'
+        readonly xmlns: 'encrypt'
+        readonly type: 'set'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly type: 'set'
+            readonly id: string
+            readonly xmlns: 'encrypt'
+            readonly to: 's.whatsapp.net'
+        }
+        readonly children: {
+            readonly padding: {
+                readonly tag: 'padding'
+                readonly content: Uint8Array
+            }
+            readonly verified_name: {
+                readonly tag: 'verified_name'
+                readonly content: Uint8Array
+            }
+            readonly type: {
+                readonly tag: 'type'
+                readonly children: {
+                    readonly '?': unknown
+                }
+            }
+            readonly pq_last_resort_key: {
+                readonly tag: 'pq_last_resort_key'
+                readonly children: {
+                    readonly id: {
+                        readonly tag: 'id'
+                    }
+                    readonly value: {
+                        readonly tag: 'value'
+                    }
+                    readonly signature: {
+                        readonly tag: 'signature'
+                        readonly content: Uint8Array
+                    }
+                }
+            }
+            readonly pq_list: {
+                readonly tag: 'pq_list'
+                readonly children: {
+                    readonly key: ReadonlyArray<{
+                        readonly tag: 'key'
+                        readonly children: {
+                            readonly id: {
+                                readonly tag: 'id'
+                            }
+                            readonly value: {
+                                readonly tag: 'value'
+                            }
+                            readonly signature: {
+                                readonly tag: 'signature'
+                                readonly content: Uint8Array
+                            }
+                        }
+                    }>
+                }
+            }
+            readonly skey: {
+                readonly tag: 'skey'
+                readonly children: {
+                    readonly id: {
+                        readonly tag: 'id'
+                    }
+                    readonly value: {
+                        readonly tag: 'value'
+                    }
+                    readonly signature: {
+                        readonly tag: 'signature'
+                        readonly content: Uint8Array
+                    }
+                }
+            }
+            readonly id: {
+                readonly tag: 'id'
+            }
+            readonly value: {
+                readonly tag: 'value'
+            }
+            readonly identity: {
+                readonly tag: 'identity'
+            }
+            readonly registration: {
+                readonly tag: 'registration'
+                readonly content: Uint8Array
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'PreKeySuccessVnameFailure'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text: 'INCORRECT_NONCE' | 'TOO_MANY_ATTEMPTS' | 'already-exists' | 'bad-request' | 'conflict' | 'feature-not-implemented' | 'forbidden' | 'gone' | 'internal-server-error' | 'item-not-found' | 'not-acceptable' | 'rate-overlimit' | 'service-unavailable'
+                        readonly code: number
+                    }
+                    readonly children: {
+                        readonly error: {
+                            readonly tag: 'error'
+                            readonly attrs: {
+                                readonly code: number
+                                readonly text?: 'not-acceptable'
+                            }
+                            readonly children: {
+                                readonly violation: {
+                                    readonly tag: 'violation'
+                                    readonly attrs: {
+                                        readonly reason: string
+                                        readonly max?: number
+                                        readonly length?: number
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'RequestError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'not-acceptable'
+                        readonly code?: number
+                    }
+                    readonly children: {
+                        readonly field: {
+                            readonly tag: 'field'
+                            readonly attrs: {
+                                readonly name: string
+                                readonly reason: string
+                            }
+                        } | undefined
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'ServerError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text?: 'service-unavailable'
+                        readonly code?: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+            readonly children: {
+                readonly list: {
+                    readonly tag: 'list'
+                    readonly attrs: {
+                        readonly count_low: 'true'
+                    }
+                }
+                readonly pq_list: {
+                    readonly tag: 'pq_list'
+                    readonly attrs: {
+                        readonly count_low: 'true'
+                    }
+                }
             }
         } }
     }
@@ -8710,6 +9088,96 @@ export interface WaXmlOperations {
                 readonly readreceipts?: 'all' | 'none'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly edit: '0' | '1' | '7'
+            }
+        } }
+    }
+    readonly PushSet: {
+        readonly module: 'WASmaxPushConfigSetRPC'
+        readonly opName: 'Set'
+        readonly xmlns: 'urn:xmpp:whatsapp:push'
+        readonly type: 'set'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly to: 's.whatsapp.net'
+            readonly xmlns: 'urn:xmpp:whatsapp:push'
+            readonly id: string
+            readonly type: 'set'
+        }
+        readonly children: {
+            readonly config: {
+                readonly tag: 'config'
+                readonly attrs: {
+                    readonly platform: 'fb'
+                    readonly appid: string
+                    readonly deviceid: string
+                    readonly fbid?: string
+                    readonly jid: string
+                    readonly mute: number
+                    readonly id: string
+                    readonly app_mute?: number
+                    readonly pkey?: string
+                    readonly voip_payload_type?: string
+                    readonly num_acc?: number
+                    readonly notify?: string
+                    readonly call?: string
+                    readonly version?: number
+                    readonly endpoint: string
+                    readonly auth: string
+                    readonly p256dh: string
+                    readonly lg?: string
+                    readonly lc?: string
+                }
+            }
+            readonly clear: {
+                readonly tag: 'clear'
+                readonly attrs: {
+                    readonly platform?: string
+                }
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'Conflict'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text: 'conflict'
+                        readonly code: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'InternalServerError'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'error'
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text: 'internal-server-error'
+                        readonly code: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
             }
         } }
     }
@@ -9726,53 +10194,30 @@ export interface WaXmlOperations {
         } }
     }
     readonly Set: {
-        readonly module: 'WASmaxPushConfigSetRPC'
+        readonly module: 'WASmaxOutUserNoticeSetRequest'
         readonly opName: 'Set'
-        readonly xmlns: 'urn:xmpp:whatsapp:push'
+        readonly xmlns: 'tos'
         readonly type: 'set'
         readonly request: {
         readonly tag: 'iq'
         readonly attrs: {
             readonly to: 's.whatsapp.net'
-            readonly xmlns: 'urn:xmpp:whatsapp:push'
+            readonly xmlns: 'tos'
             readonly id: string
             readonly type: 'set'
         }
         readonly children: {
-            readonly config: {
-                readonly tag: 'config'
+            readonly notice: {
+                readonly tag: 'notice'
                 readonly attrs: {
-                    readonly platform: 'fb'
-                    readonly appid: string
-                    readonly deviceid: string
-                    readonly fbid?: string
-                    readonly jid: string
-                    readonly mute: number
-                    readonly id: string
-                    readonly app_mute?: number
-                    readonly pkey?: string
-                    readonly voip_payload_type?: string
-                    readonly num_acc?: number
-                    readonly notify?: string
-                    readonly call?: string
-                    readonly version?: number
-                    readonly endpoint: string
-                    readonly auth: string
-                    readonly p256dh: string
-                    readonly lg?: string
-                    readonly lc?: string
-                }
-            }
-            readonly clear: {
-                readonly tag: 'clear'
-                readonly attrs: {
-                    readonly platform?: string
+                    readonly id: number
+                    readonly stage: number
                 }
             }
         }
     }
         readonly response:
-        | { readonly variant: 'Conflict'; readonly value: {
+        | { readonly variant: 'ClientError'; readonly value: {
             readonly tag: 'iq'
             readonly attrs: {
                 readonly id: string
@@ -9783,13 +10228,13 @@ export interface WaXmlOperations {
                 readonly error: {
                     readonly tag: 'error'
                     readonly attrs: {
-                        readonly text: 'conflict'
+                        readonly text: 'bad-request'
                         readonly code: number
                     }
                 }
             }
         } }
-        | { readonly variant: 'InternalServerError'; readonly value: {
+        | { readonly variant: 'ServerError'; readonly value: {
             readonly tag: 'iq'
             readonly attrs: {
                 readonly id: string
@@ -9800,8 +10245,8 @@ export interface WaXmlOperations {
                 readonly error: {
                     readonly tag: 'error'
                     readonly attrs: {
-                        readonly text: 'internal-server-error'
-                        readonly code: number
+                        readonly text?: 'internal-server-error'
+                        readonly code?: number
                     }
                 }
             }
@@ -9812,6 +10257,16 @@ export interface WaXmlOperations {
                 readonly id: string
                 readonly from: string
                 readonly type: 'result'
+            }
+            readonly children: {
+                readonly notice: {
+                    readonly tag: 'notice'
+                    readonly attrs: {
+                        readonly t: number
+                        readonly id: number
+                        readonly stage: number
+                    }
+                } | undefined
             }
         } }
     }
@@ -12179,8 +12634,8 @@ export interface WaXmlStanzas {
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
                 readonly error: number
-                readonly recipient?: string
                 readonly from: string
+                readonly recipient?: string
             }
             readonly children: {
                 readonly user: {
@@ -12597,18 +13052,18 @@ export interface WaXmlStanzas {
                     readonly recipient: string
                     readonly id: string
                     readonly to: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
+                    readonly eph_setting?: string
                     readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
-                    readonly eph_setting?: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -12620,6 +13075,7 @@ export interface WaXmlStanzas {
                             readonly count?: number
                             readonly 'decrypt-fail'?: 'hide'
                             readonly state?: 'false' | 'true'
+                            readonly session_type?: string
                             readonly v: '2'
                             readonly native_flow_name?: string
                         }
@@ -12822,6 +13278,8 @@ export interface WaXmlStanzas {
                     readonly edit: '3' | '7'
                     readonly offline: number
                     readonly to: string
+                    readonly participant: string
+                    readonly eph_setting?: string
                     readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
@@ -12829,12 +13287,10 @@ export interface WaXmlStanzas {
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
-                    readonly participant?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
-                    readonly eph_setting?: string
                 }
                 readonly children: {
                     readonly meta: {
@@ -13420,7 +13876,7 @@ export interface WaXmlStanzas {
                 }
             }
             }
-            readonly 'encrypt/count': {
+            readonly 'encrypt/pq_count': {
                 readonly handler: { readonly module: 'WAWebHandlePreKeyLow'; readonly method: 'default' }
                 readonly node: {
                 readonly tag: 'notification'
@@ -13431,10 +13887,10 @@ export interface WaXmlStanzas {
                 readonly children: {
                     readonly count: {
                         readonly tag: 'count'
-                        readonly attrs: {
-                            readonly value: number
-                        }
-                    }
+                    } | undefined
+                    readonly pq_count: {
+                        readonly tag: 'pq_count'
+                    } | undefined
                 }
             }
             }
@@ -13464,10 +13920,10 @@ export interface WaXmlStanzas {
                 readonly children: {
                     readonly count: {
                         readonly tag: 'count'
-                        readonly attrs: {
-                            readonly value: number
-                        }
-                    }
+                    } | undefined
+                    readonly pq_count: {
+                        readonly tag: 'pq_count'
+                    } | undefined
                 }
             }
             }
@@ -14342,10 +14798,10 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14395,6 +14851,12 @@ export interface WaXmlStanzas {
                                         readonly content: Uint8Array
                                     }
                                 }
+                            } | undefined
+                            readonly pqkey: {
+                                readonly tag: 'pqkey'
+                            } | undefined
+                            readonly pq: {
+                                readonly tag: 'pq'
                             } | undefined
                             readonly identity: {
                                 readonly tag: 'identity'
@@ -14423,10 +14885,10 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14477,6 +14939,12 @@ export interface WaXmlStanzas {
                                     }
                                 }
                             } | undefined
+                            readonly pqkey: {
+                                readonly tag: 'pqkey'
+                            } | undefined
+                            readonly pq: {
+                                readonly tag: 'pq'
+                            } | undefined
                             readonly identity: {
                                 readonly tag: 'identity'
                                 readonly content: Uint8Array
@@ -14501,11 +14969,11 @@ export interface WaXmlStanzas {
                     readonly to: string
                     readonly t: number
                     readonly participant?: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly peer_participant_pn?: string
                     readonly recipient?: string
-                    readonly sts?: string
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly category: string
+                    readonly peer_participant_pn?: string
+                    readonly sts?: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14537,10 +15005,10 @@ export interface WaXmlStanzas {
                     readonly participant_username?: string
                     readonly t: number
                     readonly to: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {

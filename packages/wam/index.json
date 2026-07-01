@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042373943",
+  "waVersion": "2.3000.1042455848",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -941,6 +941,14 @@
         "SMB_PAYMENT_MERCHANT_SOFT_BLOCKED_ACCOUNT_STATUS_BANNER": 119,
         "SMB_PAYMENT_MERCHANT_INTEGRITY_BLOCKED_ACCOUNT_STATUS_BANNER": 120,
         "SMB_SHOP_SUNSET_BANNER": 121
+      }
+    },
+    "BB_TIER_TYPE": {
+      "module": "WAWebWamEnumBbTierType",
+      "export": "BB_TIER_TYPE",
+      "values": {
+        "CORE": 0,
+        "PRO": 1
       }
     },
     "BILLING_STATUS": {
@@ -9182,7 +9190,8 @@
         "AI_MESSAGE": 60,
         "PIN_MESSAGE": 61,
         "ADMIN_GROUP_JOIN_REQUEST": 62,
-        "CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE": 63
+        "CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE": 63,
+        "BUSINESS_BROADCAST_INSIGHTS_READY": 64
       }
     },
     "NS_MODE": {
@@ -9675,7 +9684,15 @@
         "GET_VPA_NAME": 36,
         "SEND_TO_VPA": 37,
         "REGISTER_INIT": 38,
-        "REGISTER_ALL": 39
+        "REGISTER_ALL": 39,
+        "GET_CATEGORIES_LIST": 40,
+        "GET_BILLER_LIST": 41,
+        "GET_OPERATOR_CIRCLE_INFO": 42,
+        "FETCH_BILL": 43,
+        "GET_RECENT_BILLS": 44,
+        "GET_BILL_DETAILS": 45,
+        "GET_BILLER_DETAILS": 46,
+        "GET_PLANS": 47
       }
     },
     "PAYMENTS_RESPONSE_RESULT_TYPE": {
@@ -10059,7 +10076,13 @@
         "VIEW_CONTACT_TRANSACTIONS": 343,
         "SIM_SWAP_CHANGE_PHONE_NUMBER": 344,
         "SPLIT_MESSAGE_BUBBLE": 345,
-        "MARK_AS_PAID_BUTTON": 346
+        "MARK_AS_PAID_BUTTON": 346,
+        "PAYMENT_STATUS_SAVED": 347,
+        "SYNCD_STORE_SENT": 348,
+        "SYNCD_REMOVE_PIX": 349,
+        "SYNCD_STORE": 350,
+        "SYNCD_REMOVE": 351,
+        "SYNCD_FAILED": 352
       }
     },
     "PAYMENT_ACTION_TYPES": {
@@ -10464,6 +10487,15 @@
         "CHANGE_VOTE": 7,
         "EDIT_POLL_INITIATED": 8,
         "EDIT_POLL_COMPLETED": 9
+      }
+    },
+    "PQ_FALLBACK_REASON": {
+      "module": "WAWebWamEnumPqFallbackReason",
+      "export": "PQ_FALLBACK_REASON",
+      "values": {
+        "UNKNOWN": 0,
+        "PQ_NO_SESSION_REGULAR_FALLBACK": 1,
+        "PQ_SESSION_DELETED_KEYLESS_RETRY": 2
       }
     },
     "PRECISE_SIZE_BUCKET": {
@@ -12608,7 +12640,8 @@
         "CHANNEL_THREAD_SCREEN": 56,
         "MEDIA_BROWSER_STATUS_MENU": 57,
         "ARCHIVE_STATUS_VIEWER": 58,
-        "ME_TAB": 59
+        "ME_TAB": 59,
+        "CONTACTS_TAB": 60
       }
     },
     "STATUS_CROSSPOST_SHARE_TYPE_ENUM": {
@@ -12969,7 +13002,8 @@
         "CHANNEL_STATUS_VIEWER_TOP_BAR": 55,
         "MEDIA_BROWSER_STATUS_MENU": 56,
         "ARCHIVE_STATUS_VIEWER": 57,
-        "ME_TAB": 58
+        "ME_TAB": 58,
+        "CONTACTS_TAB": 59
       }
     },
     "STATUS_POST_RESULT": {
@@ -38296,6 +38330,12 @@
           "type": "integer",
           "falcoName": "msg_retry_count"
         },
+        "pqFallbackReason": {
+          "id": 13,
+          "type": "enum",
+          "falcoName": "pq_fallback_reason",
+          "enum": "PQ_FALLBACK_REASON"
+        },
         "retryRejectReason": {
           "id": 3,
           "type": "enum",
@@ -38368,6 +38408,16 @@
           "id": 4,
           "type": "boolean",
           "falcoName": "has_category"
+        },
+        "hasConnectedFbMedia": {
+          "id": 12,
+          "type": "boolean",
+          "falcoName": "has_connected_fb_media"
+        },
+        "hasConnectedIgMedia": {
+          "id": 13,
+          "type": "boolean",
+          "falcoName": "has_connected_ig_media"
         },
         "hasDescription": {
           "id": 3,
@@ -40254,17 +40304,16 @@
           "type": "string",
           "falcoName": "ai_session_id"
         },
-        "botEntryPoint": {
-          "id": 2,
-          "type": "enum",
-          "falcoName": "bot_entry_point",
-          "enum": "BOT_ENTRY_POINT_TYPE"
-        },
         "hatchActionType": {
           "id": 3,
           "type": "enum",
           "falcoName": "hatch_action_type",
           "enum": "HATCH_ACTION_TYPE"
+        },
+        "rawBotEntryPoint": {
+          "id": 5,
+          "type": "string",
+          "falcoName": "raw_bot_entry_point"
         },
         "unifiedSessionId": {
           "id": 4,
@@ -55531,6 +55580,12 @@
           "type": "enum",
           "falcoName": "action_type",
           "enum": "CHAT_FILTER_ACTION_TYPES"
+        },
+        "bbTier": {
+          "id": 22,
+          "type": "enum",
+          "falcoName": "bb_tier",
+          "enum": "BB_TIER_TYPE"
         },
         "contactIsSaved": {
           "id": 2,

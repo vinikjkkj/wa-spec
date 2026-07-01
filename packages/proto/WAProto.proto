@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1042373943
+/// WhatsApp Version: 2.3000.1042455848
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2648,19 +2648,8 @@ message KeyId {
     optional bytes id = 1;
 }
 
-message LIDMigrationMapping {
-    optional uint64 pn = 1;
-    optional uint64 assignedLid = 2;
-    optional uint64 latestLid = 3;
-}
-
 message LIDMigrationMappingSyncMessage {
     optional bytes encodedMappingPayload = 1;
-}
-
-message LIDMigrationMappingSyncPayload {
-    repeated LIDMigrationMapping pnToLidMappings = 1;
-    optional uint64 chatDbMigrationTimestamp = 2;
 }
 
 message LabyrinthWaCommand {
@@ -4825,6 +4814,8 @@ message PreKeySignalMessage {
     optional bytes message = 4;
     optional uint32 registrationId = 5;
     optional uint32 signedPreKeyId = 6;
+    optional uint32 kyberPreKeyId = 7;
+    optional bytes kyberCiphertext = 8;
 }
 
 message PremiumMessageInfo {
@@ -5002,6 +4993,8 @@ message SessionStructure {
         optional uint32 preKeyId = 1;
         optional bytes baseKey = 2;
         optional int32 signedPreKeyId = 3;
+        optional uint32 kyberPreKeyId = 4;
+        optional bytes kyberCiphertext = 5;
     }
     message PendingKeyExchange {
         optional uint32 sequence = 1;

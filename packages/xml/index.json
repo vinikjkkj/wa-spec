@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042373943",
+  "waVersion": "2.3000.1042455848",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -430,6 +430,274 @@
             "content": null
           },
           "entryName": "parseActiveIQResponseSuccess"
+        }
+      ]
+    },
+    "Add": {
+      "module": "WASmaxPreKeysAddRPC",
+      "opName": "Add",
+      "rootTag": "iq",
+      "xmlns": "encrypt",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutPreKeysAddRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "type": {
+              "type": "literal",
+              "value": "set"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "encrypt"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            }
+          },
+          "children": [
+            {
+              "tag": "id",
+              "attrs": {},
+              "children": [],
+              "appliedMixin": "WASmaxOutPreKeysKeyIDMixin",
+              "presence": true
+            },
+            {
+              "tag": "value",
+              "attrs": {},
+              "children": [],
+              "appliedMixin": "WASmaxOutPreKeysKeyDataMixin",
+              "presence": true
+            },
+            {
+              "tag": "pq_list",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "key",
+                  "attrs": {},
+                  "children": [
+                    {
+                      "tag": "id",
+                      "attrs": {},
+                      "children": [],
+                      "appliedMixin": "WASmaxOutPreKeysKeyIDMixin",
+                      "presence": true
+                    },
+                    {
+                      "tag": "value",
+                      "attrs": {},
+                      "children": [],
+                      "appliedMixin": "WASmaxOutPreKeysPQKeyDataMixin",
+                      "presence": true
+                    },
+                    {
+                      "tag": "signature",
+                      "attrs": {},
+                      "children": [],
+                      "content": {
+                        "type": "bytes"
+                      },
+                      "min": 1,
+                      "max": 1
+                    }
+                  ],
+                  "min": 0,
+                  "max": 5000,
+                  "__helper": "REPEATED_CHILD"
+                }
+              ],
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "op",
+              "attrs": {
+                "mode": {
+                  "type": "literal",
+                  "value": "add"
+                }
+              },
+              "children": [],
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "appliedMixin": [
+            "WASmaxOutPreKeysClientRequestMixin",
+            "WASmaxMixins",
+            "WASmaxOutPreKeysPreKeyListMixin?",
+            "WASmaxMixins",
+            "WASmaxOutPreKeysPQPreKeyListMixin?",
+            "WASmaxOutPreKeysSetOpAddMixin"
+          ]
+        },
+        "argShape": {
+          "e": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInPreKeysAddResponseRequestError",
+          "variant": "RequestError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "not-acceptable",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [
+                  {
+                    "tag": "field",
+                    "attrs": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "reason": {
+                        "type": "string"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1
+                  }
+                ],
+                "content": null,
+                "__variants": [
+                  "IQErrorNotAcceptable",
+                  "IQErrorFallbackClient"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseAddResponseRequestError"
+        },
+        {
+          "module": "WASmaxInPreKeysAddResponseServerError",
+          "variant": "ServerError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "service-unavailable",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorServiceUnavailable",
+                  "IQErrorFallbackServer"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseAddResponseServerError"
+        },
+        {
+          "module": "WASmaxInPreKeysAddResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "list",
+                "attrs": {
+                  "count_low": {
+                    "type": "literal",
+                    "value": "true"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "pq_list",
+                "attrs": {
+                  "count_low": {
+                    "type": "literal",
+                    "value": "true"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseAddResponseSuccess"
         }
       ]
     },
@@ -4972,6 +5240,206 @@
         }
       ]
     },
+    "Delete": {
+      "module": "WASmaxPreKeysDeleteRPC",
+      "opName": "Delete",
+      "rootTag": "iq",
+      "xmlns": "encrypt",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutPreKeysDeleteRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "type": {
+              "type": "literal",
+              "value": "set"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "encrypt"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            }
+          },
+          "children": [
+            {
+              "tag": "list",
+              "attrs": {},
+              "children": [],
+              "min": 0,
+              "max": 1,
+              "__helper": "HAS_OPTIONAL_CHILD",
+              "presence": true
+            },
+            {
+              "tag": "pq_list",
+              "attrs": {},
+              "children": [],
+              "min": 0,
+              "max": 1,
+              "__helper": "HAS_OPTIONAL_CHILD",
+              "presence": true
+            },
+            {
+              "tag": "op",
+              "attrs": {
+                "mode": {
+                  "type": "literal",
+                  "value": "delete"
+                }
+              },
+              "children": [],
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "appliedMixin": [
+            "WASmaxOutPreKeysClientRequestMixin",
+            "WASmaxOutPreKeysSetOpDeleteMixin"
+          ]
+        },
+        "argShape": {
+          "t": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInPreKeysDeleteResponseRequestError",
+          "variant": "RequestError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "not-acceptable",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [
+                  {
+                    "tag": "field",
+                    "attrs": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "reason": {
+                        "type": "string"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1
+                  }
+                ],
+                "content": null,
+                "__variants": [
+                  "IQErrorNotAcceptable",
+                  "IQErrorFallbackClient"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseDeleteResponseRequestError"
+        },
+        {
+          "module": "WASmaxInPreKeysDeleteResponseServerError",
+          "variant": "ServerError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "service-unavailable",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorServiceUnavailable",
+                  "IQErrorFallbackServer"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseDeleteResponseServerError"
+        },
+        {
+          "module": "WASmaxInPreKeysDeleteResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [],
+            "content": null
+          },
+          "entryName": "parseDeleteResponseSuccess"
+        }
+      ]
+    },
     "DeleteParentGroup": {
       "module": "WASmaxGroupsDeleteParentGroupRPC",
       "opName": "DeleteParentGroup",
@@ -5191,8 +5659,19 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "l",
                 "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
+                "direction": "both"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
+                "direction": "out"
               },
               "phash": {
                 "type": "string",
@@ -5239,12 +5718,6 @@
                   "pn"
                 ]
               },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -5259,18 +5732,12 @@
               },
               "push_priority": {
                 "type": "string",
-                "arg": "F",
+                "arg": "B",
                 "direction": "out"
               },
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
-                "optional": true,
-                "direction": "out"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
                 "optional": true,
                 "direction": "out"
               }
@@ -6017,7 +6484,18 @@
           "children": [
             {
               "tag": "key",
-              "attrs": {},
+              "attrs": {
+                "pqsupport": {
+                  "type": "literal",
+                  "value": "true",
+                  "optional": true
+                },
+                "context_jid": {
+                  "type": "jid",
+                  "arg": "a",
+                  "optional": true
+                }
+              },
               "children": [
                 {
                   "tag": "user",
@@ -6226,6 +6704,52 @@
                         "max": 1
                       },
                       {
+                        "tag": "identity_auth",
+                        "attrs": {
+                          "version": {
+                            "type": "int",
+                            "min": 1,
+                            "max": 100
+                          }
+                        },
+                        "children": [
+                          {
+                            "tag": "signature",
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "type": "bytes",
+                              "min": 64,
+                              "max": 64
+                            },
+                            "min": 1,
+                            "max": 1
+                          },
+                          {
+                            "tag": "certs",
+                            "attrs": {},
+                            "children": [
+                              {
+                                "tag": "cert",
+                                "attrs": {},
+                                "children": [],
+                                "content": {
+                                  "type": "bytes"
+                                },
+                                "min": 1,
+                                "max": 2
+                              }
+                            ],
+                            "content": null,
+                            "min": 1,
+                            "max": 1
+                          }
+                        ],
+                        "content": null,
+                        "min": 1,
+                        "max": 1
+                      },
+                      {
                         "tag": "key",
                         "attrs": {},
                         "children": [
@@ -6294,6 +6818,51 @@
                               "type": "bytes",
                               "min": 32,
                               "max": 32
+                            },
+                            "min": 1,
+                            "max": 1
+                          }
+                        ],
+                        "content": null,
+                        "min": 1,
+                        "max": 1
+                      },
+                      {
+                        "tag": "pqkey",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "tag": "signature",
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "type": "bytes",
+                              "min": 64,
+                              "max": 64
+                            },
+                            "min": 1,
+                            "max": 1
+                          },
+                          {
+                            "tag": "id",
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "type": "bytes",
+                              "min": 3,
+                              "max": 3
+                            },
+                            "min": 1,
+                            "max": 1
+                          },
+                          {
+                            "tag": "value",
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "type": "bytes",
+                              "min": 1568,
+                              "max": 1568
                             },
                             "min": 1,
                             "max": 1
@@ -6396,7 +6965,18 @@
           "children": [
             {
               "tag": "key_fetch",
-              "attrs": {},
+              "attrs": {
+                "pqsupport": {
+                  "type": "literal",
+                  "value": "true",
+                  "optional": true
+                },
+                "context_jid": {
+                  "type": "jid",
+                  "arg": "r",
+                  "optional": true
+                }
+              },
               "children": [
                 {
                   "tag": "user",
@@ -6709,6 +7289,51 @@
                                   "type": "bytes",
                                   "min": 32,
                                   "max": 32
+                                },
+                                "min": 1,
+                                "max": 1
+                              }
+                            ],
+                            "content": null,
+                            "min": 1,
+                            "max": 1
+                          },
+                          {
+                            "tag": "pqkey",
+                            "attrs": {},
+                            "children": [
+                              {
+                                "tag": "signature",
+                                "attrs": {},
+                                "children": [],
+                                "content": {
+                                  "type": "bytes",
+                                  "min": 64,
+                                  "max": 64
+                                },
+                                "min": 1,
+                                "max": 1
+                              },
+                              {
+                                "tag": "id",
+                                "attrs": {},
+                                "children": [],
+                                "content": {
+                                  "type": "bytes",
+                                  "min": 3,
+                                  "max": 3
+                                },
+                                "min": 1,
+                                "max": 1
+                              },
+                              {
+                                "tag": "value",
+                                "attrs": {},
+                                "children": [],
+                                "content": {
+                                  "type": "bytes",
+                                  "min": 1568,
+                                  "max": 1568
                                 },
                                 "min": 1,
                                 "max": 1
@@ -20988,190 +21613,6 @@
         }
       ]
     },
-    "OutSet": {
-      "module": "WASmaxOutUserNoticeSetRequest",
-      "opName": "Set",
-      "rootTag": "iq",
-      "xmlns": "tos",
-      "type": "set",
-      "request": {
-        "module": "WASmaxOutUserNoticeSetRequest",
-        "node": {
-          "tag": "iq",
-          "attrs": {
-            "to": {
-              "type": "literal",
-              "value": "s.whatsapp.net"
-            },
-            "xmlns": {
-              "type": "literal",
-              "value": "tos"
-            },
-            "id": {
-              "type": "stanzaId",
-              "generated": true
-            },
-            "type": {
-              "type": "literal",
-              "value": "set"
-            }
-          },
-          "children": [
-            {
-              "tag": "notice",
-              "attrs": {
-                "id": {
-                  "type": "int",
-                  "arg": "t"
-                },
-                "stage": {
-                  "type": "int",
-                  "arg": "n"
-                }
-              },
-              "children": [],
-              "appliedMixin": "WASmaxOutUserNoticeStageMixin",
-              "min": 1,
-              "max": 1
-            }
-          ],
-          "appliedMixin": "WASmaxOutUserNoticeBaseIQSetRequestMixin"
-        },
-        "argShape": {
-          "e": true
-        }
-      },
-      "responses": [
-        {
-          "module": "WASmaxInUserNoticeSetResponseClientError",
-          "variant": "ClientError",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "error"
-              }
-            },
-            "children": [
-              {
-                "tag": "error",
-                "attrs": {
-                  "text": {
-                    "type": "literal",
-                    "value": "bad-request"
-                  },
-                  "code": {
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseSetResponseClientError"
-        },
-        {
-          "module": "WASmaxInUserNoticeSetResponseServerError",
-          "variant": "ServerError",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "error"
-              }
-            },
-            "children": [
-              {
-                "tag": "error",
-                "attrs": {
-                  "text": {
-                    "type": "literal",
-                    "value": "internal-server-error",
-                    "optional": true
-                  },
-                  "code": {
-                    "type": "int",
-                    "optional": true
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseSetResponseServerError"
-        },
-        {
-          "module": "WASmaxInUserNoticeSetResponseSuccess",
-          "variant": "Success",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "result"
-              }
-            },
-            "children": [
-              {
-                "tag": "notice",
-                "attrs": {
-                  "t": {
-                    "type": "int",
-                    "min": 0,
-                    "max": null
-                  },
-                  "id": {
-                    "type": "int",
-                    "min": 0,
-                    "max": null
-                  },
-                  "stage": {
-                    "type": "int",
-                    "min": 0,
-                    "max": 1000
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 0,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseSetResponseSuccess"
-        }
-      ],
-      "orphan": true
-    },
     "PassiveIQ": {
       "module": "WASmaxPassiveModePassiveIQRPC",
       "opName": "PassiveIQ",
@@ -21497,6 +21938,472 @@
             ]
           },
           "entryName": "parsePostNewsletterStatusResponseSuccess"
+        }
+      ]
+    },
+    "PreSet": {
+      "module": "WASmaxPreKeysSetRPC",
+      "opName": "Set",
+      "rootTag": "iq",
+      "xmlns": "encrypt",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutPreKeysSetRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "type": {
+              "type": "literal",
+              "value": "set"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "encrypt"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            }
+          },
+          "children": [
+            {
+              "tag": "padding",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "bytes"
+              },
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "verified_name",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "bytes"
+              },
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "type",
+              "attrs": {},
+              "children": [
+                {
+                  "__unknown": "new Uint8Array([5])"
+                }
+              ],
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "pq_last_resort_key",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "id",
+                  "attrs": {},
+                  "children": [],
+                  "appliedMixin": "WASmaxOutPreKeysKeyIDMixin",
+                  "presence": true
+                },
+                {
+                  "tag": "value",
+                  "attrs": {},
+                  "children": [],
+                  "appliedMixin": "WASmaxOutPreKeysPQKeyDataMixin",
+                  "presence": true
+                },
+                {
+                  "tag": "signature",
+                  "attrs": {},
+                  "children": [],
+                  "content": {
+                    "type": "bytes"
+                  },
+                  "min": 1,
+                  "max": 1
+                }
+              ],
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "pq_list",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "key",
+                  "attrs": {},
+                  "children": [
+                    {
+                      "tag": "id",
+                      "attrs": {},
+                      "children": [],
+                      "appliedMixin": "WASmaxOutPreKeysKeyIDMixin",
+                      "presence": true
+                    },
+                    {
+                      "tag": "value",
+                      "attrs": {},
+                      "children": [],
+                      "appliedMixin": "WASmaxOutPreKeysPQKeyDataMixin",
+                      "presence": true
+                    },
+                    {
+                      "tag": "signature",
+                      "attrs": {},
+                      "children": [],
+                      "content": {
+                        "type": "bytes"
+                      },
+                      "min": 1,
+                      "max": 1
+                    }
+                  ],
+                  "min": 0,
+                  "max": 5000,
+                  "__helper": "REPEATED_CHILD"
+                }
+              ],
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "skey",
+              "attrs": {},
+              "children": [
+                {
+                  "tag": "id",
+                  "attrs": {},
+                  "children": [],
+                  "appliedMixin": "WASmaxOutPreKeysKeyIDMixin",
+                  "presence": true
+                },
+                {
+                  "tag": "value",
+                  "attrs": {},
+                  "children": [],
+                  "appliedMixin": "WASmaxOutPreKeysKeyDataMixin",
+                  "presence": true
+                },
+                {
+                  "tag": "signature",
+                  "attrs": {},
+                  "children": [],
+                  "content": {
+                    "type": "bytes"
+                  },
+                  "min": 1,
+                  "max": 1
+                }
+              ],
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "id",
+              "attrs": {},
+              "children": [],
+              "appliedMixin": "WASmaxOutPreKeysKeyIDMixin",
+              "presence": true
+            },
+            {
+              "tag": "value",
+              "attrs": {},
+              "children": [],
+              "appliedMixin": "WASmaxOutPreKeysKeyDataMixin",
+              "presence": true
+            },
+            {
+              "tag": "identity",
+              "attrs": {},
+              "children": [],
+              "appliedMixin": "WASmaxOutPreKeysKeyDataMixin",
+              "presence": true
+            },
+            {
+              "tag": "registration",
+              "attrs": {},
+              "children": [],
+              "content": {
+                "type": "bytes"
+              },
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "appliedMixin": [
+            "WASmaxOutPreKeysClientRequestMixin",
+            "WASmaxMixins",
+            "WASmaxOutPreKeysSetOpDefaultMixin?",
+            "WASmaxOutPreKeysIdentityKeyOrPQKeyBundleMixinGroup"
+          ]
+        },
+        "argShape": {
+          "e": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInPreKeysSetResponsePreKeySuccessVnameFailure",
+          "variant": "PreKeySuccessVnameFailure",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "enum",
+                    "enumValues": [
+                      "INCORRECT_NONCE",
+                      "TOO_MANY_ATTEMPTS",
+                      "already-exists",
+                      "bad-request",
+                      "conflict",
+                      "feature-not-implemented",
+                      "forbidden",
+                      "gone",
+                      "internal-server-error",
+                      "item-not-found",
+                      "not-acceptable",
+                      "rate-overlimit",
+                      "service-unavailable"
+                    ]
+                  },
+                  "code": {
+                    "type": "int"
+                  }
+                },
+                "children": [
+                  {
+                    "tag": "error",
+                    "attrs": {
+                      "code": {
+                        "type": "int",
+                        "min": 400,
+                        "max": 599
+                      },
+                      "text": {
+                        "type": "literal",
+                        "value": "not-acceptable",
+                        "optional": true
+                      }
+                    },
+                    "children": [
+                      {
+                        "tag": "violation",
+                        "attrs": {
+                          "reason": {
+                            "type": "string"
+                          },
+                          "max": {
+                            "type": "int",
+                            "optional": true
+                          },
+                          "length": {
+                            "type": "int",
+                            "optional": true
+                          }
+                        },
+                        "children": [],
+                        "content": null,
+                        "min": 1,
+                        "max": 1
+                      }
+                    ],
+                    "content": null,
+                    "__variants": [
+                      "VnameFailureNotAcceptable",
+                      "VnameFailureBadRequest",
+                      "VnameFailureInternalServerError",
+                      "VnameFailureFallback"
+                    ],
+                    "min": 1,
+                    "max": 1
+                  }
+                ],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseSetResponsePreKeySuccessVnameFailure"
+        },
+        {
+          "module": "WASmaxInPreKeysSetResponseRequestError",
+          "variant": "RequestError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "not-acceptable",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [
+                  {
+                    "tag": "field",
+                    "attrs": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "reason": {
+                        "type": "string"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1
+                  }
+                ],
+                "content": null,
+                "__variants": [
+                  "IQErrorNotAcceptable",
+                  "IQErrorFallbackClient"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseSetResponseRequestError"
+        },
+        {
+          "module": "WASmaxInPreKeysSetResponseServerError",
+          "variant": "ServerError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "service-unavailable",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorServiceUnavailable",
+                  "IQErrorFallbackServer"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseSetResponseServerError"
+        },
+        {
+          "module": "WASmaxInPreKeysSetResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "list",
+                "attrs": {
+                  "count_low": {
+                    "type": "literal",
+                    "value": "true"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "pq_list",
+                "attrs": {
+                  "count_low": {
+                    "type": "literal",
+                    "value": "true"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseSetResponseSuccess"
         }
       ]
     },
@@ -22824,6 +23731,256 @@
             "content": null
           },
           "entryName": "parsePublishViewResponseSuccess"
+        }
+      ]
+    },
+    "PushSet": {
+      "module": "WASmaxPushConfigSetRPC",
+      "opName": "Set",
+      "rootTag": "iq",
+      "xmlns": "urn:xmpp:whatsapp:push",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutPushConfigSetRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "urn:xmpp:whatsapp:push"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "type": {
+              "type": "literal",
+              "value": "set"
+            }
+          },
+          "children": [
+            {
+              "tag": "config",
+              "attrs": {
+                "platform": {
+                  "type": "literal",
+                  "value": "fb"
+                },
+                "appid": {
+                  "type": "string",
+                  "arg": "t"
+                },
+                "deviceid": {
+                  "type": "string",
+                  "arg": "n"
+                },
+                "fbid": {
+                  "type": "string",
+                  "arg": "r",
+                  "optional": true
+                },
+                "jid": {
+                  "type": "groupJid",
+                  "arg": "t"
+                },
+                "mute": {
+                  "type": "int",
+                  "arg": "n"
+                },
+                "id": {
+                  "type": "string",
+                  "arg": "a"
+                },
+                "app_mute": {
+                  "type": "int",
+                  "arg": "l",
+                  "optional": true
+                },
+                "pkey": {
+                  "type": "string",
+                  "arg": "s",
+                  "optional": true
+                },
+                "voip_payload_type": {
+                  "type": "string",
+                  "arg": "u",
+                  "optional": true
+                },
+                "num_acc": {
+                  "type": "int",
+                  "arg": "c",
+                  "optional": true
+                },
+                "notify": {
+                  "type": "string",
+                  "arg": "a",
+                  "optional": true
+                },
+                "call": {
+                  "type": "string",
+                  "arg": "i",
+                  "optional": true
+                },
+                "version": {
+                  "type": "int",
+                  "arg": "t",
+                  "optional": true
+                },
+                "endpoint": {
+                  "type": "string",
+                  "arg": "n"
+                },
+                "auth": {
+                  "type": "string",
+                  "arg": "r"
+                },
+                "p256dh": {
+                  "type": "string",
+                  "arg": "a"
+                },
+                "lg": {
+                  "type": "string",
+                  "arg": "i",
+                  "optional": true
+                },
+                "lc": {
+                  "type": "string",
+                  "arg": "l",
+                  "optional": true
+                }
+              },
+              "children": [],
+              "appliedMixin": "WASmaxOutPushConfigConfigMixins",
+              "min": 1,
+              "max": 1
+            },
+            {
+              "tag": "clear",
+              "attrs": {
+                "platform": {
+                  "type": "string",
+                  "arg": "t",
+                  "optional": true
+                }
+              },
+              "children": [],
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "appliedMixin": [
+            "WASmaxOutPushConfigBaseIQSetRequestMixin",
+            "WASmaxOutPushConfigSetSetConfigOrSetClearMixinGroup"
+          ]
+        },
+        "argShape": {
+          "e": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInPushConfigSetResponseConflict",
+          "variant": "Conflict",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "conflict"
+                  },
+                  "code": {
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseSetResponseConflict"
+        },
+        {
+          "module": "WASmaxInPushConfigSetResponseInternalServerError",
+          "variant": "InternalServerError",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "internal-server-error"
+                  },
+                  "code": {
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseSetResponseInternalServerError"
+        },
+        {
+          "module": "WASmaxInPushConfigSetResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [],
+            "content": null
+          },
+          "entryName": "parseSetResponseSuccess"
         }
       ]
     },
@@ -25466,13 +26623,13 @@
       ]
     },
     "Set": {
-      "module": "WASmaxPushConfigSetRPC",
+      "module": "WASmaxOutUserNoticeSetRequest",
       "opName": "Set",
       "rootTag": "iq",
-      "xmlns": "urn:xmpp:whatsapp:push",
+      "xmlns": "tos",
       "type": "set",
       "request": {
-        "module": "WASmaxOutPushConfigSetRequest",
+        "module": "WASmaxOutUserNoticeSetRequest",
         "node": {
           "tag": "iq",
           "attrs": {
@@ -25482,7 +26639,7 @@
             },
             "xmlns": {
               "type": "literal",
-              "value": "urn:xmpp:whatsapp:push"
+              "value": "tos"
             },
             "id": {
               "type": "stanzaId",
@@ -25495,118 +26652,24 @@
           },
           "children": [
             {
-              "tag": "config",
+              "tag": "notice",
               "attrs": {
-                "platform": {
-                  "type": "literal",
-                  "value": "fb"
-                },
-                "appid": {
-                  "type": "string",
-                  "arg": "t"
-                },
-                "deviceid": {
-                  "type": "string",
-                  "arg": "n"
-                },
-                "fbid": {
-                  "type": "string",
-                  "arg": "r",
-                  "optional": true
-                },
-                "jid": {
-                  "type": "groupJid",
-                  "arg": "t"
-                },
-                "mute": {
-                  "type": "int",
-                  "arg": "n"
-                },
                 "id": {
-                  "type": "string",
-                  "arg": "a"
-                },
-                "app_mute": {
                   "type": "int",
-                  "arg": "l",
-                  "optional": true
+                  "arg": "t"
                 },
-                "pkey": {
-                  "type": "string",
-                  "arg": "s",
-                  "optional": true
-                },
-                "voip_payload_type": {
-                  "type": "string",
-                  "arg": "u",
-                  "optional": true
-                },
-                "num_acc": {
+                "stage": {
                   "type": "int",
-                  "arg": "c",
-                  "optional": true
-                },
-                "notify": {
-                  "type": "string",
-                  "arg": "a",
-                  "optional": true
-                },
-                "call": {
-                  "type": "string",
-                  "arg": "i",
-                  "optional": true
-                },
-                "version": {
-                  "type": "int",
-                  "arg": "t",
-                  "optional": true
-                },
-                "endpoint": {
-                  "type": "string",
                   "arg": "n"
-                },
-                "auth": {
-                  "type": "string",
-                  "arg": "r"
-                },
-                "p256dh": {
-                  "type": "string",
-                  "arg": "a"
-                },
-                "lg": {
-                  "type": "string",
-                  "arg": "i",
-                  "optional": true
-                },
-                "lc": {
-                  "type": "string",
-                  "arg": "l",
-                  "optional": true
                 }
               },
               "children": [],
-              "appliedMixin": "WASmaxOutPushConfigConfigMixins",
-              "min": 1,
-              "max": 1
-            },
-            {
-              "tag": "clear",
-              "attrs": {
-                "platform": {
-                  "type": "string",
-                  "arg": "t",
-                  "optional": true
-                }
-              },
-              "children": [],
+              "appliedMixin": "WASmaxOutUserNoticeStageMixin",
               "min": 1,
               "max": 1
             }
           ],
-          "appliedMixin": [
-            "WASmaxOutPushConfigBaseIQSetRequestMixin",
-            "WASmaxOutPushConfigSetSetConfigOrSetClearMixinGroup"
-          ]
+          "appliedMixin": "WASmaxOutUserNoticeBaseIQSetRequestMixin"
         },
         "argShape": {
           "e": true
@@ -25614,8 +26677,8 @@
       },
       "responses": [
         {
-          "module": "WASmaxInPushConfigSetResponseConflict",
-          "variant": "Conflict",
+          "module": "WASmaxInUserNoticeSetResponseClientError",
+          "variant": "ClientError",
           "node": {
             "tag": "iq",
             "attrs": {
@@ -25636,7 +26699,7 @@
                 "attrs": {
                   "text": {
                     "type": "literal",
-                    "value": "conflict"
+                    "value": "bad-request"
                   },
                   "code": {
                     "type": "int"
@@ -25650,11 +26713,11 @@
             ],
             "content": null
           },
-          "entryName": "parseSetResponseConflict"
+          "entryName": "parseSetResponseClientError"
         },
         {
-          "module": "WASmaxInPushConfigSetResponseInternalServerError",
-          "variant": "InternalServerError",
+          "module": "WASmaxInUserNoticeSetResponseServerError",
+          "variant": "ServerError",
           "node": {
             "tag": "iq",
             "attrs": {
@@ -25675,10 +26738,12 @@
                 "attrs": {
                   "text": {
                     "type": "literal",
-                    "value": "internal-server-error"
+                    "value": "internal-server-error",
+                    "optional": true
                   },
                   "code": {
-                    "type": "int"
+                    "type": "int",
+                    "optional": true
                   }
                 },
                 "children": [],
@@ -25689,10 +26754,10 @@
             ],
             "content": null
           },
-          "entryName": "parseSetResponseInternalServerError"
+          "entryName": "parseSetResponseServerError"
         },
         {
-          "module": "WASmaxInPushConfigSetResponseSuccess",
+          "module": "WASmaxInUserNoticeSetResponseSuccess",
           "variant": "Success",
           "node": {
             "tag": "iq",
@@ -25708,12 +26773,38 @@
                 "value": "result"
               }
             },
-            "children": [],
+            "children": [
+              {
+                "tag": "notice",
+                "attrs": {
+                  "t": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null
+                  },
+                  "id": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null
+                  },
+                  "stage": {
+                    "type": "int",
+                    "min": 0,
+                    "max": 1000
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1
+              }
+            ],
             "content": null
           },
           "entryName": "parseSetResponseSuccess"
         }
-      ]
+      ],
+      "orphan": true
     },
     "SetCompanionNonce": {
       "module": "WASmaxMdSetCompanionNonceRPC",
@@ -31845,8 +32936,7 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -31856,21 +32946,21 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -31995,6 +33085,24 @@
                     "content": null,
                     "min": 0,
                     "max": 1
+                  },
+                  {
+                    "tag": "pqkey",
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1,
+                    "presence": true
+                  },
+                  {
+                    "tag": "pq",
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1,
+                    "presence": true
                   },
                   {
                     "tag": "identity",
@@ -32079,8 +33187,7 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32090,21 +33197,21 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -32231,6 +33338,24 @@
                     "max": 1
                   },
                   {
+                    "tag": "pqkey",
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1,
+                    "presence": true
+                  },
+                  {
+                    "tag": "pq",
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 1,
+                    "presence": true
+                  },
+                  {
                     "tag": "identity",
                     "attrs": {},
                     "children": [],
@@ -32313,10 +33438,15 @@
                 "optional": true,
                 "direction": "both"
               },
+              "recipient": {
+                "type": "userJid",
+                "arg": "u",
+                "optional": true,
+                "direction": "both"
+              },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32326,27 +33456,21 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
-              },
-              "recipient": {
-                "type": "userJid",
-                "arg": "I",
-                "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -32459,8 +33583,7 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32470,21 +33593,21 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "I",
                 "direction": "out"
               },
               "server_id": {
@@ -33874,7 +34997,7 @@
           "entryName": "default",
           "parserName": "mediaRetryNotification"
         },
-        "encrypt/count": {
+        "encrypt/pq_count": {
           "handler": {
             "module": "WAWebHandlePreKeyLow",
             "method": "default"
@@ -33893,15 +35016,21 @@
             "children": [
               {
                 "tag": "count",
-                "attrs": {
-                  "value": {
-                    "type": "int"
-                  }
-                },
+                "attrs": {},
                 "children": [],
                 "content": null,
-                "min": 1,
-                "max": 1
+                "min": 0,
+                "max": 1,
+                "presence": true
+              },
+              {
+                "tag": "pq_count",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1,
+                "presence": true
               }
             ],
             "content": null
@@ -33960,15 +35089,21 @@
             "children": [
               {
                 "tag": "count",
-                "attrs": {
-                  "value": {
-                    "type": "int"
-                  }
-                },
+                "attrs": {},
                 "children": [],
                 "content": null,
-                "min": 1,
-                "max": 1
+                "min": 0,
+                "max": 1,
+                "presence": true
+              },
+              {
+                "tag": "pq_count",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1,
+                "presence": true
               }
             ],
             "content": null
@@ -37252,7 +38387,7 @@
               },
               "type": {
                 "type": "enum",
-                "arg": "s",
+                "arg": "c",
                 "direction": "out",
                 "enumValues": [
                   "msg",
@@ -37484,13 +38619,31 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "e.stanzaId",
+                "arg": "_.id",
                 "direction": "both"
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "l",
                 "direction": "both"
+              },
+              "edit": {
+                "type": "enum",
+                "optional": true,
+                "direction": "both",
+                "enumValues": [
+                  "1",
+                  "2",
+                  "3",
+                  "7",
+                  "8"
+                ]
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
+                "direction": "out"
               },
               "phash": {
                 "type": "string",
@@ -37514,18 +38667,6 @@
                 "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
-              },
-              "edit": {
-                "type": "enum",
-                "optional": true,
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ]
               },
               "device_fanout": {
                 "type": "literal",
@@ -37557,18 +38698,12 @@
               },
               "push_priority": {
                 "type": "string",
-                "arg": "F",
+                "arg": "B",
                 "direction": "out"
               },
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
-                "optional": true,
-                "direction": "out"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
                 "optional": true,
                 "direction": "out"
               },
@@ -37619,6 +38754,11 @@
                       "false",
                       "true"
                     ]
+                  },
+                  "session_type": {
+                    "type": "string",
+                    "optional": true,
+                    "direction": "both"
                   },
                   "v": {
                     "type": "literal",
@@ -37680,7 +38820,7 @@
                   },
                   "persona_type": {
                     "type": "enum",
-                    "arg": "k",
+                    "arg": "I",
                     "optional": true,
                     "direction": "out",
                     "enumValues": [
@@ -37691,7 +38831,7 @@
                   },
                   "agent_engagement_type": {
                     "type": "string",
-                    "arg": "W",
+                    "arg": "U",
                     "optional": true,
                     "direction": "both"
                   },
@@ -38292,8 +39432,19 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "d",
+                "arg": "l",
                 "direction": "both"
+              },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "i",
+                "direction": "both"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
+                "optional": true,
+                "direction": "out"
               },
               "phash": {
                 "type": "string",
@@ -38340,12 +39491,6 @@
                   "pn"
                 ]
               },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "h",
-                "optional": true,
-                "direction": "both"
-              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -38360,18 +39505,12 @@
               },
               "push_priority": {
                 "type": "string",
-                "arg": "F",
+                "arg": "B",
                 "direction": "out"
               },
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
-                "optional": true,
-                "direction": "out"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
                 "optional": true,
                 "direction": "out"
               }
@@ -39258,18 +40397,18 @@
           },
           "error": {
             "type": "int",
-            "arg": "t",
+            "arg": "i",
+            "direction": "out"
+          },
+          "from": {
+            "type": "jid",
+            "arg": "o(\"WAWebUserPrefsMeUser\").getMePnUserOrThrow_DO_NOT_USE()",
             "direction": "out"
           },
           "recipient": {
             "type": "userJid",
             "arg": "n",
             "optional": true,
-            "direction": "out"
-          },
-          "from": {
-            "type": "jid",
-            "arg": "o(\"WAWebUserPrefsMeUser\").getMePnUserOrThrow_DO_NOT_USE()",
             "direction": "out"
           }
         },
