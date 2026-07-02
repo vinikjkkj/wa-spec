@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042455848
+// WhatsApp Version: 2.3000.1042533083
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2260,10 +2260,11 @@ export interface WaXmlOperations {
                 readonly type?: 'text'
                 readonly edit: '3' | '7'
                 readonly offline: number
+                readonly sts: number
                 readonly to: string
+                readonly phash: string
                 readonly participant: string
                 readonly eph_setting?: string
-                readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -5716,6 +5717,9 @@ export interface WaXmlOperations {
                             readonly replied: {
                                 readonly tag: 'replied'
                             }
+                            readonly starred: {
+                                readonly tag: 'starred'
+                            }
                         }
                     }
                     readonly contacts: {
@@ -5723,6 +5727,9 @@ export interface WaXmlOperations {
                     }
                     readonly replied: {
                         readonly tag: 'replied'
+                    }
+                    readonly starred: {
+                        readonly tag: 'starred'
                     }
                     readonly search: {
                         readonly tag: 'search'
@@ -5956,6 +5963,12 @@ export interface WaXmlOperations {
                                                 readonly count: number
                                             }
                                         }
+                                        readonly responses_count: {
+                                            readonly tag: 'responses_count'
+                                            readonly attrs: {
+                                                readonly count: number
+                                            }
+                                        }
                                     }
                                 }>
                             }
@@ -6081,6 +6094,12 @@ export interface WaXmlOperations {
                                     readonly tag: 'views_count'
                                     readonly attrs: {
                                         readonly type: 'views'
+                                        readonly count: number
+                                    }
+                                }
+                                readonly responses_count: {
+                                    readonly tag: 'responses_count'
+                                    readonly attrs: {
                                         readonly count: number
                                     }
                                 }
@@ -12628,9 +12647,9 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'ack'
             readonly attrs: {
+                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly id: string
                 readonly to: string
-                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
                 readonly error: number
@@ -12638,16 +12657,16 @@ export interface WaXmlStanzas {
                 readonly recipient?: string
             }
             readonly children: {
-                readonly user: {
-                    readonly tag: 'user'
-                    readonly attrs: {
-                        readonly side_list: 'out'
-                    }
-                }
                 readonly meta: {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly failure_reason: number
+                    }
+                }
+                readonly user: {
+                    readonly tag: 'user'
+                    readonly attrs: {
+                        readonly side_list: 'out'
                     }
                 }
             }
@@ -13052,9 +13071,9 @@ export interface WaXmlStanzas {
                     readonly recipient: string
                     readonly id: string
                     readonly to: string
+                    readonly phash: string
                     readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -13277,10 +13296,11 @@ export interface WaXmlStanzas {
                     readonly type?: 'text'
                     readonly edit: '3' | '7'
                     readonly offline: number
+                    readonly sts: number
                     readonly to: string
+                    readonly phash: string
                     readonly participant: string
                     readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -14790,7 +14810,6 @@ export interface WaXmlStanzas {
                 readonly tag: 'receipt'
                 readonly attrs: {
                     readonly type: 'retry'
-                    readonly to?: string
                     readonly from: string
                     readonly participant?: string
                     readonly is_lid?: boolean
@@ -14798,6 +14817,7 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
+                    readonly to: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly category: string
                     readonly peer_participant_pn?: string
@@ -14877,7 +14897,6 @@ export interface WaXmlStanzas {
                 readonly tag: 'receipt'
                 readonly attrs: {
                     readonly type: 'enc_rekey_retry'
-                    readonly to?: string
                     readonly from: string
                     readonly participant?: string
                     readonly is_lid?: boolean
@@ -14885,6 +14904,7 @@ export interface WaXmlStanzas {
                     readonly id: string
                     readonly t: number
                     readonly offline?: number
+                    readonly to: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly category: string
                     readonly peer_participant_pn?: string
@@ -14967,11 +14987,11 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
-                    readonly t: number
                     readonly participant?: string
                     readonly recipient?: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly category: string
+                    readonly t?: number
                     readonly peer_participant_pn?: string
                     readonly sts?: string
                     readonly server_id: number

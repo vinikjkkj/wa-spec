@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042455848
+// WhatsApp Version: 2.3000.1042533083
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -4333,6 +4333,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'SCHEDULED': 2
         })
     }),
+    E2EE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumE2eeType',
+        export: 'E2EE_TYPE',
+        values: Object.freeze({
+        'DEFAULT': 1,
+        'PQ': 2
+        })
+    }),
     E2E_CIPHERTEXT_TYPE: Object.freeze({
         module: 'WAWebWamEnumE2eCiphertextType',
         export: 'E2E_CIPHERTEXT_TYPE',
@@ -5520,7 +5528,24 @@ const WA_WAM_ENUMS = Object.freeze({
         'UNLINK_SUCCESS': 3,
         'WA_READ_WRITE_ACCESS_IMPRESSION': 4,
         'TAP_WA_READ_WRITE_ACCESS': 5,
-        'WA_READ_WRITE_ACCESS_LINK_SUCCESS': 6
+        'WA_READ_WRITE_ACCESS_LINK_SUCCESS': 6,
+        'HITL_BOTTOM_SHEET_IMPRESSION': 7,
+        'HITL_DETAIL_IMPRESSION': 8,
+        'HITL_ALLOW_ONCE_TAP': 9,
+        'HITL_ALWAYS_ALLOW_TAP': 10,
+        'HITL_DENY_TAP': 11
+        })
+    }),
+    HBH_DTLS_CONNECTION_STATE: Object.freeze({
+        module: 'WAWebWamEnumHbhDtlsConnectionState',
+        export: 'HBH_DTLS_CONNECTION_STATE',
+        values: Object.freeze({
+        'NONE': 0,
+        'INITED': 1,
+        'CONNECTING': 2,
+        'CONNECTED': 3,
+        'CLOSED': 4,
+        'ERROR': 5
         })
     }),
     HIGHLIGHT_GROUP_TYPE: Object.freeze({
@@ -5693,7 +5718,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'EVENT_COVER_BOTTOM_SHEET': 21,
         'FORWARD': 22,
         'DEEP_LINK': 23,
-        'AI_TAB': 24
+        'AI_TAB': 24,
+        'AI_SEASONAL_UPSELL': 25
         })
     }),
     IMAGINE_ACTION_SOURCE_SUBTYPE: Object.freeze({
@@ -10545,7 +10571,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'HAPPY_EASTER': 8,
         'FIFA_WORLDCUP_WATCHING_THE_MATCH': 9,
         'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10,
-        'PREVIOUS_SET_ABOUT': 11
+        'PREVIOUS_SET_ABOUT': 11,
+        'AWAY_LEAVE_A_MESSAGE': 12,
+        'AT_THE_GYM': 13
         })
     }),
     PREVIOUS_EPHEMERALITY_TYPE: Object.freeze({
@@ -12780,7 +12808,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'COMPOSER_DISCARD_DIALOG_DELETE_DRAFT': 153,
         'MEDIA_PICKER_IMP': 154,
         'COMPOSER_EXIT_WITHOUT_POSTING': 155,
-        'STATUS_CREATION_ENTRYPOINT_IMP': 156
+        'STATUS_CREATION_ENTRYPOINT_IMP': 156,
+        'POST_NEXT_TAP': 157
         })
     }),
     STATUS_INTERACTION_ACTORS: Object.freeze({
@@ -17269,6 +17298,7 @@ const WA_WAM_EVENTS = Object.freeze({
             dynamicTransportSwitchCnt: Object.freeze({ id: 1753, type: 'integer', falcoName: 'dynamic_transport_switch_cnt' }),
             dynamicTransportTransportSwitchCnt: Object.freeze({ id: 1682, type: 'integer', falcoName: 'dynamic_transport_transport_switch_cnt' }),
             e2eeRetryCount: Object.freeze({ id: 2158, type: 'integer', falcoName: 'e2ee_retry_count' }),
+            e2eeType: Object.freeze({ id: 3054, type: 'enum', enum: 'E2EE_TYPE', falcoName: 'e2ee_type' }),
             echoCancellationMsPerSec: Object.freeze({ id: 320, type: 'integer', falcoName: 'echo_cancellation_ms_per_sec' }),
             echoCancellationNumLoops: Object.freeze({ id: 1264, type: 'integer', falcoName: 'echo_cancellation_num_loops' }),
             echoCancelledFrameCount: Object.freeze({ id: 940, type: 'integer', falcoName: 'echo_cancelled_frame_count' }),
@@ -17416,7 +17446,18 @@ const WA_WAM_EVENTS = Object.freeze({
             hasGrapevine: Object.freeze({ id: 2566, type: 'boolean', falcoName: 'has_grapevine' }),
             hasRestrictedSettingsForAudioCalls: Object.freeze({ id: 539, type: 'boolean', falcoName: 'has_restricted_settings_for_audio_calls' }),
             hasWorkingDualStackP2p: Object.freeze({ id: 2071, type: 'boolean', falcoName: 'has_working_dual_stack_p2p' }),
+            hbhDcBytesReceivedCount: Object.freeze({ id: 3055, type: 'integer', falcoName: 'hbh_dc_bytes_received_count' }),
+            hbhDcBytesSentCount: Object.freeze({ id: 3056, type: 'integer', falcoName: 'hbh_dc_bytes_sent_count' }),
+            hbhDcMsgsReceivedCount: Object.freeze({ id: 3057, type: 'integer', falcoName: 'hbh_dc_msgs_received_count' }),
+            hbhDcMsgsSentCount: Object.freeze({ id: 3058, type: 'integer', falcoName: 'hbh_dc_msgs_sent_count' }),
+            hbhDcSetupAvgT: Object.freeze({ id: 3059, type: 'timer', falcoName: 'hbh_dc_setup_avg_t' }),
+            hbhDtlsConnectionState: Object.freeze({ id: 3060, type: 'enum', enum: 'HBH_DTLS_CONNECTION_STATE', falcoName: 'hbh_dtls_connection_state' }),
+            hbhDtlsHandshakeCompletedCount: Object.freeze({ id: 3061, type: 'integer', falcoName: 'hbh_dtls_handshake_completed_count' }),
+            hbhDtlsHandshakeFailedCount: Object.freeze({ id: 3062, type: 'integer', falcoName: 'hbh_dtls_handshake_failed_count' }),
+            hbhDtlsHandshakeSetupAvgT: Object.freeze({ id: 3063, type: 'timer', falcoName: 'hbh_dtls_handshake_setup_avg_t' }),
+            hbhDtlsHandshakeStartedCount: Object.freeze({ id: 3064, type: 'integer', falcoName: 'hbh_dtls_handshake_started_count' }),
             hbhKeyInconsistencyCnt: Object.freeze({ id: 1427, type: 'integer', falcoName: 'hbh_key_inconsistency_cnt' }),
+            hbhSctpSetupAvgT: Object.freeze({ id: 3065, type: 'timer', falcoName: 'hbh_sctp_setup_avg_t' }),
             hbhSmlPacketCount: Object.freeze({ id: 2459, type: 'integer', falcoName: 'hbh_sml_packet_count' }),
             hbhSrtcpRxBytes: Object.freeze({ id: 1256, type: 'integer', falcoName: 'hbh_srtcp_rx_bytes' }),
             hbhSrtcpRxRejAuthFail: Object.freeze({ id: 1257, type: 'integer', falcoName: 'hbh_srtcp_rx_rej_auth_fail' }),
@@ -18083,6 +18124,7 @@ const WA_WAM_EVENTS = Object.freeze({
             redTotalRedundancyRequested: Object.freeze({ id: 2400, type: 'integer', falcoName: 'red_total_redundancy_requested' }),
             redTotalRedundancySent: Object.freeze({ id: 2401, type: 'integer', falcoName: 'red_total_redundancy_sent' }),
             redialAfterCer: Object.freeze({ id: 1973, type: 'boolean', falcoName: 'redial_after_cer' }),
+            redialAfterUserHangup: Object.freeze({ id: 3053, type: 'boolean', falcoName: 'redial_after_user_hangup' }),
             redialIntervalSec: Object.freeze({ id: 2020, type: 'timer', falcoName: 'redial_interval_sec' }),
             rejectMuteReqCount: Object.freeze({ id: 1174, type: 'integer', falcoName: 'reject_mute_req_count' }),
             rekeyTime: Object.freeze({ id: 1140, type: 'integer', falcoName: 'rekey_time' }),
@@ -21812,6 +21854,7 @@ const WA_WAM_EVENTS = Object.freeze({
         fields: Object.freeze({
             aiSessionId: Object.freeze({ id: 1, type: 'string', falcoName: 'ai_session_id' }),
             hatchActionType: Object.freeze({ id: 3, type: 'enum', enum: 'HATCH_ACTION_TYPE', falcoName: 'hatch_action_type' }),
+            hitlIsMulti: Object.freeze({ id: 6, type: 'boolean', falcoName: 'hitl_is_multi' }),
             rawBotEntryPoint: Object.freeze({ id: 5, type: 'string', falcoName: 'raw_bot_entry_point' }),
             unifiedSessionId: Object.freeze({ id: 4, type: 'string', falcoName: 'unified_session_id' })
         })

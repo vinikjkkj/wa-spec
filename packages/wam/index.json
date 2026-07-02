@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042455848",
+  "waVersion": "2.3000.1042533083",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -4364,6 +4364,14 @@
         "SCHEDULED": 2
       }
     },
+    "E2EE_TYPE": {
+      "module": "WAWebWamEnumE2eeType",
+      "export": "E2EE_TYPE",
+      "values": {
+        "DEFAULT": 1,
+        "PQ": 2
+      }
+    },
     "E2E_CIPHERTEXT_TYPE": {
       "module": "WAWebWamEnumE2eCiphertextType",
       "export": "E2E_CIPHERTEXT_TYPE",
@@ -5551,7 +5559,24 @@
         "UNLINK_SUCCESS": 3,
         "WA_READ_WRITE_ACCESS_IMPRESSION": 4,
         "TAP_WA_READ_WRITE_ACCESS": 5,
-        "WA_READ_WRITE_ACCESS_LINK_SUCCESS": 6
+        "WA_READ_WRITE_ACCESS_LINK_SUCCESS": 6,
+        "HITL_BOTTOM_SHEET_IMPRESSION": 7,
+        "HITL_DETAIL_IMPRESSION": 8,
+        "HITL_ALLOW_ONCE_TAP": 9,
+        "HITL_ALWAYS_ALLOW_TAP": 10,
+        "HITL_DENY_TAP": 11
+      }
+    },
+    "HBH_DTLS_CONNECTION_STATE": {
+      "module": "WAWebWamEnumHbhDtlsConnectionState",
+      "export": "HBH_DTLS_CONNECTION_STATE",
+      "values": {
+        "NONE": 0,
+        "INITED": 1,
+        "CONNECTING": 2,
+        "CONNECTED": 3,
+        "CLOSED": 4,
+        "ERROR": 5
       }
     },
     "HIGHLIGHT_GROUP_TYPE": {
@@ -5724,7 +5749,8 @@
         "EVENT_COVER_BOTTOM_SHEET": 21,
         "FORWARD": 22,
         "DEEP_LINK": 23,
-        "AI_TAB": 24
+        "AI_TAB": 24,
+        "AI_SEASONAL_UPSELL": 25
       }
     },
     "IMAGINE_ACTION_SOURCE_SUBTYPE": {
@@ -10576,7 +10602,9 @@
         "HAPPY_EASTER": 8,
         "FIFA_WORLDCUP_WATCHING_THE_MATCH": 9,
         "FIFA_WORLDCUP_EXCITED_FOR_FINALS": 10,
-        "PREVIOUS_SET_ABOUT": 11
+        "PREVIOUS_SET_ABOUT": 11,
+        "AWAY_LEAVE_A_MESSAGE": 12,
+        "AT_THE_GYM": 13
       }
     },
     "PREVIOUS_EPHEMERALITY_TYPE": {
@@ -12811,7 +12839,8 @@
         "COMPOSER_DISCARD_DIALOG_DELETE_DRAFT": 153,
         "MEDIA_PICKER_IMP": 154,
         "COMPOSER_EXIT_WITHOUT_POSTING": 155,
-        "STATUS_CREATION_ENTRYPOINT_IMP": 156
+        "STATUS_CREATION_ENTRYPOINT_IMP": 156,
+        "POST_NEXT_TAP": 157
       }
     },
     "STATUS_INTERACTION_ACTORS": {
@@ -21762,6 +21791,12 @@
           "type": "integer",
           "falcoName": "e2ee_retry_count"
         },
+        "e2eeType": {
+          "id": 3054,
+          "type": "enum",
+          "falcoName": "e2ee_type",
+          "enum": "E2EE_TYPE"
+        },
         "echoCancellationMsPerSec": {
           "id": 320,
           "type": "integer",
@@ -22507,10 +22542,66 @@
           "type": "boolean",
           "falcoName": "has_working_dual_stack_p2p"
         },
+        "hbhDcBytesReceivedCount": {
+          "id": 3055,
+          "type": "integer",
+          "falcoName": "hbh_dc_bytes_received_count"
+        },
+        "hbhDcBytesSentCount": {
+          "id": 3056,
+          "type": "integer",
+          "falcoName": "hbh_dc_bytes_sent_count"
+        },
+        "hbhDcMsgsReceivedCount": {
+          "id": 3057,
+          "type": "integer",
+          "falcoName": "hbh_dc_msgs_received_count"
+        },
+        "hbhDcMsgsSentCount": {
+          "id": 3058,
+          "type": "integer",
+          "falcoName": "hbh_dc_msgs_sent_count"
+        },
+        "hbhDcSetupAvgT": {
+          "id": 3059,
+          "type": "timer",
+          "falcoName": "hbh_dc_setup_avg_t"
+        },
+        "hbhDtlsConnectionState": {
+          "id": 3060,
+          "type": "enum",
+          "falcoName": "hbh_dtls_connection_state",
+          "enum": "HBH_DTLS_CONNECTION_STATE"
+        },
+        "hbhDtlsHandshakeCompletedCount": {
+          "id": 3061,
+          "type": "integer",
+          "falcoName": "hbh_dtls_handshake_completed_count"
+        },
+        "hbhDtlsHandshakeFailedCount": {
+          "id": 3062,
+          "type": "integer",
+          "falcoName": "hbh_dtls_handshake_failed_count"
+        },
+        "hbhDtlsHandshakeSetupAvgT": {
+          "id": 3063,
+          "type": "timer",
+          "falcoName": "hbh_dtls_handshake_setup_avg_t"
+        },
+        "hbhDtlsHandshakeStartedCount": {
+          "id": 3064,
+          "type": "integer",
+          "falcoName": "hbh_dtls_handshake_started_count"
+        },
         "hbhKeyInconsistencyCnt": {
           "id": 1427,
           "type": "integer",
           "falcoName": "hbh_key_inconsistency_cnt"
+        },
+        "hbhSctpSetupAvgT": {
+          "id": 3065,
+          "type": "timer",
+          "falcoName": "hbh_sctp_setup_avg_t"
         },
         "hbhSmlPacketCount": {
           "id": 2459,
@@ -25861,6 +25952,11 @@
           "id": 1973,
           "type": "boolean",
           "falcoName": "redial_after_cer"
+        },
+        "redialAfterUserHangup": {
+          "id": 3053,
+          "type": "boolean",
+          "falcoName": "redial_after_user_hangup"
         },
         "redialIntervalSec": {
           "id": 2020,
@@ -40309,6 +40405,11 @@
           "type": "enum",
           "falcoName": "hatch_action_type",
           "enum": "HATCH_ACTION_TYPE"
+        },
+        "hitlIsMulti": {
+          "id": 6,
+          "type": "boolean",
+          "falcoName": "hitl_is_multi"
         },
         "rawBotEntryPoint": {
           "id": 5,

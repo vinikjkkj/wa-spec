@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042455848
+// WhatsApp Version: 2.3000.1042533083
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -178,7 +178,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CreateReportAppeal: WaMexOperationSchema<'mutation', readonly ['reason', 'report_id']>
     readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'phone_number']>
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
-    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['messageFirst', 'threadFirst']>
+    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['params']>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly DemoteNewsletterAdmin: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
@@ -477,8 +477,12 @@ export type WaMexCustomLabel3pdEventVariables = {
 }
 
 export type WaMexDebugLabyrinthInboxSnapshotVariables = {
-    readonly messageFirst?: number
-    readonly threadFirst?: number
+    readonly params?: {
+        readonly lower_timestamp?: string
+        readonly num_msgs?: unknown
+        readonly num_threads?: unknown
+        readonly upper_timestamp?: string
+    }
 }
 
 export type WaMexDeleteNewsletterVariables = {
@@ -1934,23 +1938,18 @@ export type WaMexCustomLabel3pdEventResponse = {
 export type WaMexDebugLabyrinthInboxSnapshotResponse = {
     readonly get_wa_mailbox?: {
         readonly __typename?: string
-        readonly threads?: {
-            readonly __typename?: string
-            readonly nodes?: ReadonlyArray<{
-                readonly __typename?: string
-                readonly id?: string
-                readonly messages?: {
+        readonly snapshot_threads_with_messages?: {
+            readonly items_with_messages?: ReadonlyArray<{
+                readonly item?: {
                     readonly __typename?: string
-                    readonly edges?: ReadonlyArray<{
-                        readonly __typename?: string
-                        readonly node?: {
-                            readonly __typename?: string
-                            readonly encrypted_payload?: unknown
-                            readonly encryption_version?: number
-                            readonly id?: string
-                        }
-                    }>
+                    readonly id?: string
                 }
+                readonly messages?: ReadonlyArray<{
+                    readonly __typename?: string
+                    readonly encrypted_payload?: unknown
+                    readonly encryption_version?: number
+                    readonly id?: string
+                }>
             }>
         }
         readonly id?: string
@@ -2190,6 +2189,7 @@ export type WaMexFetchGroupInfoResponse = {
                     }
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+                readonly join_time?: string
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2288,6 +2288,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                     readonly jid?: string
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+                readonly join_time?: string
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2620,6 +2621,15 @@ export type WaMexFetchNewsletterEnforcementsResponse = {
                     readonly appeal_form_url?: string
                     readonly reporter_email?: string
                     readonly reporter_name?: string
+                }
+                readonly enforcement_target_data?: {
+                    readonly __typename?: string
+                    readonly id?: string
+                    readonly name?: string
+                    readonly picture?: {
+                        readonly id?: string
+                        readonly direct_path?: string
+                    }
                 }
             }
             readonly enforcement_policy_information?: {

@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042455848",
+  "waVersion": "2.3000.1042533083",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5657,9 +5657,19 @@
                 "min": 0,
                 "max": 12
               },
+              "sts": {
+                "type": "int",
+                "min": 1577865600000000,
+                "max": 4102473600000000
+              },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -5672,11 +5682,6 @@
                 "arg": "y",
                 "optional": true,
                 "direction": "out"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -14868,9 +14873,15 @@
                       "attrs": {},
                       "children": [],
                       "presence": true
+                    },
+                    {
+                      "tag": "starred",
+                      "attrs": {},
+                      "children": [],
+                      "presence": true
                     }
                   ],
-                  "appliedMixin": "WASmaxOutNewslettersContactsOrRepliedFilterMixinMixinGroup",
+                  "appliedMixin": "WASmaxOutNewslettersContactsOrRepliedOrStarredFilterMixinMixinGroup",
                   "min": 1,
                   "max": 1
                 },
@@ -14882,6 +14893,12 @@
                 },
                 {
                   "tag": "replied",
+                  "attrs": {},
+                  "children": [],
+                  "presence": true
+                },
+                {
+                  "tag": "starred",
                   "attrs": {},
                   "children": [],
                   "presence": true
@@ -15451,6 +15468,20 @@
                             "content": null,
                             "min": 1,
                             "max": 1
+                          },
+                          {
+                            "tag": "responses_count",
+                            "attrs": {
+                              "count": {
+                                "type": "int",
+                                "min": 0,
+                                "max": null
+                              }
+                            },
+                            "children": [],
+                            "content": null,
+                            "min": 1,
+                            "max": 1
                           }
                         ],
                         "content": null,
@@ -15764,6 +15795,20 @@
                             "type": "literal",
                             "value": "views"
                           },
+                          "count": {
+                            "type": "int",
+                            "min": 0,
+                            "max": null
+                          }
+                        },
+                        "children": [],
+                        "content": null,
+                        "min": 1,
+                        "max": 1
+                      },
+                      {
+                        "tag": "responses_count",
+                        "attrs": {
                           "count": {
                             "type": "int",
                             "min": 0,
@@ -32899,11 +32944,6 @@
                 "type": "literal",
                 "value": "retry"
               },
-              "to": {
-                "type": "jid",
-                "optional": true,
-                "direction": "both"
-              },
               "from": {
                 "type": "jid",
                 "direction": "both"
@@ -32933,6 +32973,11 @@
               "offline": {
                 "type": "int",
                 "optional": true
+              },
+              "to": {
+                "type": "jid",
+                "arg": "p",
+                "direction": "both"
               },
               "class": {
                 "type": "enum",
@@ -33150,11 +33195,6 @@
                 "type": "literal",
                 "value": "enc_rekey_retry"
               },
-              "to": {
-                "type": "jid",
-                "optional": true,
-                "direction": "both"
-              },
               "from": {
                 "type": "jid",
                 "direction": "both"
@@ -33184,6 +33224,11 @@
               "offline": {
                 "type": "int",
                 "optional": true
+              },
+              "to": {
+                "type": "jid",
+                "arg": "p",
+                "direction": "both"
               },
               "class": {
                 "type": "enum",
@@ -33423,18 +33468,13 @@
                 "direction": "both"
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
-                "direction": "both"
-              },
-              "t": {
-                "type": "int",
-                "arg": "Date.now().toString()",
+                "type": "jid",
+                "arg": "p",
                 "direction": "both"
               },
               "participant": {
                 "type": "deviceJid",
-                "arg": "i",
+                "arg": "l",
                 "optional": true,
                 "direction": "both"
               },
@@ -33460,6 +33500,12 @@
                 "type": "string",
                 "arg": "T",
                 "direction": "out"
+              },
+              "t": {
+                "type": "int",
+                "arg": "d",
+                "optional": true,
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33577,8 +33623,8 @@
                 "direction": "both"
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "p",
                 "direction": "both"
               },
               "class": {
@@ -38619,12 +38665,17 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "_.id",
+                "arg": "e.stanzaId",
                 "direction": "both"
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "edit": {
@@ -38644,11 +38695,6 @@
                 "arg": "y",
                 "optional": true,
                 "direction": "out"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -39430,9 +39476,19 @@
                 "min": 0,
                 "max": 12
               },
+              "sts": {
+                "type": "int",
+                "min": 1577865600000000,
+                "max": 4102473600000000
+              },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -39445,11 +39501,6 @@
                 "arg": "y",
                 "optional": true,
                 "direction": "out"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -40343,16 +40394,6 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "id": {
-            "type": "stanzaId",
-            "arg": "e.stanzaId",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
-            "direction": "out"
-          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -40361,6 +40402,16 @@
               "notification",
               "receipt"
             ],
+            "direction": "out"
+          },
+          "id": {
+            "type": "stanzaId",
+            "raw": "n.id",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "n.from",
             "direction": "out"
           },
           "type": {
@@ -40391,13 +40442,13 @@
           },
           "participant": {
             "type": "userJid",
-            "arg": "f",
+            "raw": "n.participant",
             "optional": true,
             "direction": "out"
           },
           "error": {
             "type": "int",
-            "arg": "i",
+            "arg": "t",
             "direction": "out"
           },
           "from": {
@@ -40414,11 +40465,11 @@
         },
         "children": [
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },
@@ -40428,11 +40479,11 @@
             "max": 1
           },
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },

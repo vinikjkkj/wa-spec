@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1042455848
+/// WhatsApp Version: 2.3000.1042533083
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2656,6 +2656,7 @@ message LabyrinthWaCommand {
     optional CreateBackupInput createBackupInput = 1;
     optional EncryptMessageInput encryptMessageInput = 2;
     optional DecryptMessageInput decryptMessageInput = 3;
+    optional OrfThreadIdInput orfThreadIdInput = 4;
 }
 
 message LegacyMessage {
@@ -4604,6 +4605,16 @@ message NotificationSettings {
     optional bool lowPriorityNotifications = 4;
     optional bool reactionsMuted = 5;
     optional string callVibrate = 6;
+}
+
+message OrfThreadIdInput {
+    optional bytes orfClientState = 1;
+    optional string threadId = 2;
+}
+
+message OrfThreadIdOutput {
+    optional bytes orfThreadId = 1;
+    optional string error = 2;
 }
 
 message PairingRequest {

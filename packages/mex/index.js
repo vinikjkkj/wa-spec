@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042455848
+// WhatsApp Version: 2.3000.1042533083
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -34,7 +34,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateReportAppeal: Object.freeze({ docId: '27103316329328467', clientDocId: '27103316329328467' }),
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27702565322674924', clientDocId: '27702565322674924' }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27416732057922291', clientDocId: '27416732057922291' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
     DemoteNewsletterAdmin: Object.freeze({ docId: '9880997548630971', clientDocId: '9880997548630971' }),
     EditBizProfile: Object.freeze({ docId: '26652989367627867', clientDocId: '26652989367627867' }),
@@ -47,8 +47,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchBotCertificateRevocationList: Object.freeze({ docId: '35807917542188393', clientDocId: '35807917542188393' }),
     FetchBotProfilesGQL: Object.freeze({ docId: '26368585139502858', clientDocId: '26368585139502858' }),
     FetchDynamicAIModes: Object.freeze({ docId: '25335662402775799', clientDocId: '25335662402775799' }),
-    FetchGroupInfo: Object.freeze({ docId: '26570027442651356', clientDocId: '26570027442651356' }),
-    FetchGroupInfoIncludBots: Object.freeze({ docId: '26412593755077157', clientDocId: '26412593755077157' }),
+    FetchGroupInfo: Object.freeze({ docId: '25830934356604858', clientDocId: '25830934356604858' }),
+    FetchGroupInfoIncludBots: Object.freeze({ docId: '27611314235130306', clientDocId: '27611314235130306' }),
     FetchGroupInviteCode: Object.freeze({ docId: '29247029834912157', clientDocId: '29247029834912157' }),
     FetchGroupIsInternal: Object.freeze({ docId: '34119218944390847', clientDocId: '34119218944390847' }),
     FetchIntegritySignals: Object.freeze({ docId: '26438847999065394', clientDocId: '26438847999065394' }),
@@ -61,7 +61,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchNewsletterDirectoryCategoriesPreview: Object.freeze({ docId: '35266481849605779', clientDocId: '35266481849605779' }),
     FetchNewsletterDirectoryList: Object.freeze({ docId: '26125047313831973', clientDocId: '26125047313831973' }),
     FetchNewsletterDirectorySearchResults: Object.freeze({ docId: '26301059626252132', clientDocId: '26301059626252132' }),
-    FetchNewsletterEnforcements: Object.freeze({ docId: '36570925279217516', clientDocId: '36570925279217516' }),
+    FetchNewsletterEnforcements: Object.freeze({ docId: '27835373536068060', clientDocId: '27835373536068060' }),
     FetchNewsletterFollowers: Object.freeze({ docId: '27472091235714801', clientDocId: '27472091235714801' }),
     FetchNewsletterInsights: Object.freeze({ docId: '9853618868050977', clientDocId: '9853618868050977' }),
     FetchNewsletterIsDomainPreviewable: Object.freeze({ docId: '9849510985088294', clientDocId: '9849510985088294' }),
@@ -166,7 +166,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     CreateReportAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['reason', 'report_id']) }),
     CreateWhatsAppAdsIdentity: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['code', 'phone_number']) }),
     CustomLabel3pdEvent: Object.freeze({ operationKind: 'query', variables: Object.freeze(['custom_labels', 'expt_group']) }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['messageFirst', 'threadFirst']) }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['params']) }),
     DeleteNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id']) }),
     DemoteNewsletterAdmin: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
     EditBizProfile: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'lid']) }),

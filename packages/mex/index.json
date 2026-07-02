@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042455848",
+  "waVersion": "2.3000.1042533083",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1175,39 +1175,37 @@
     },
     "DebugLabyrinthInboxSnapshot": {
       "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
-      "docId": "27702565322674924",
+      "docId": "27416732057922291",
       "operationKind": "query",
       "variables": [
-        "messageFirst",
-        "threadFirst"
+        "params"
       ],
       "variablesShape": {
-        "messageFirst": "number",
-        "threadFirst": "number"
+        "params": {
+          "lower_timestamp": "string",
+          "num_msgs": "unknown",
+          "num_threads": "unknown",
+          "upper_timestamp": "string"
+        }
       },
       "response": {
         "get_wa_mailbox": {
           "__typename": "string",
-          "threads": {
-            "__typename": "string",
-            "nodes": [
+          "snapshot_threads_with_messages": {
+            "items_with_messages": [
               {
-                "__typename": "string",
-                "id": "string",
-                "messages": {
+                "item": {
                   "__typename": "string",
-                  "edges": [
-                    {
-                      "__typename": "string",
-                      "node": {
-                        "__typename": "string",
-                        "encrypted_payload": "unknown",
-                        "encryption_version": "number",
-                        "id": "string"
-                      }
-                    }
-                  ]
-                }
+                  "id": "string"
+                },
+                "messages": [
+                  {
+                    "__typename": "string",
+                    "encrypted_payload": "unknown",
+                    "encryption_version": "number",
+                    "id": "string"
+                  }
+                ]
               }
             ]
           },
@@ -1537,7 +1535,7 @@
     },
     "FetchGroupInfo": {
       "originalName": "WAWebMexFetchGroupInfoJobQuery",
-      "docId": "26570027442651356",
+      "docId": "25830934356604858",
       "operationKind": "query",
       "variables": [
         "id",
@@ -1606,7 +1604,8 @@
                     "username": "string"
                   }
                 },
-                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER",
+                "join_time": "string"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1651,7 +1650,7 @@
     },
     "FetchGroupInfoIncludBots": {
       "originalName": "WAWebMexFetchGroupInfoIncludBotsJobQuery",
-      "docId": "26412593755077157",
+      "docId": "27611314235130306",
       "operationKind": "query",
       "variables": [
         "id",
@@ -1722,7 +1721,8 @@
                   },
                   "jid": "string"
                 },
-                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER",
+                "join_time": "string"
               }
             ],
             "participants_phash_match": "boolean"
@@ -2236,7 +2236,7 @@
     },
     "FetchNewsletterEnforcements": {
       "originalName": "WAWebMexFetchNewsletterEnforcementsJobQuery",
-      "docId": "36570925279217516",
+      "docId": "27835373536068060",
       "operationKind": "query",
       "variables": [
         "locale",
@@ -2268,6 +2268,15 @@
                   "appeal_form_url": "string",
                   "reporter_email": "string",
                   "reporter_name": "string"
+                },
+                "enforcement_target_data": {
+                  "__typename": "string",
+                  "id": "string",
+                  "name": "string",
+                  "picture": {
+                    "id": "string",
+                    "direct_path": "string"
+                  }
                 }
               },
               "enforcement_policy_information": {
