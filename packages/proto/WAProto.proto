@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1042533083
+/// WhatsApp Version: 2.3000.1042596003
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -6369,6 +6369,10 @@ message WebMessageInfo {
         GROUP_TEE_BOT_ADDED = 223;
         CONTACT_INFO = 224;
         SCHEDULED_MESSAGE_CREATED = 225;
+        IDENTITY_TRUST_MARKED = 226;
+        IDENTITY_TRUST_UNMARKED = 227;
+        IDENTITY_TRUST_REVOKED = 228;
+        CTWA_CONSUMER_DISCLOSURE = 230;
     }
     enum Status {
         ERROR = 0;

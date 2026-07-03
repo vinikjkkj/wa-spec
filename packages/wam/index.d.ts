@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042533083
+// WhatsApp Version: 2.3000.1042596003
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1365,7 +1365,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'NOTIFICATION': 1;
             readonly 'IQ_RESPONSE': 2;
             readonly 'SYSTEM_MESSAGE': 3;
-            readonly 'CONTACT_CARD': 4
+            readonly 'CONTACT_CARD': 4;
+            readonly 'DROPDOWN_MENU': 5
         }
     }
     readonly BUSINESS_INTERACTION_ACTION_TYPE: {
@@ -6133,7 +6134,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PIX_NATIVE_ENROLLMENT_SETTINGS_VIEW': 98;
             readonly 'PIX_NATIVE_ENROLLMENT_DELETE': 99;
             readonly 'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100;
-            readonly 'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101
+            readonly 'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101;
+            readonly 'PIX_NATIVE_PROMO_SCREEN_VIEW': 102
         }
     }
     readonly INVISIBLE_MESSAGE_CATEGORY_TYPE: {
@@ -6514,7 +6516,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'UPCOMING_EVENT_BANNER': 37;
             readonly 'WAITING_ROOM_JOINED_PUSH_NOTIFICATION': 38;
             readonly 'WAITING_ROOM_MULTIPLE_JOINED_PUSH_NOTIFICATION': 39;
-            readonly 'CALL_TRANSFER_PUSH_NOTIFICATION': 40
+            readonly 'CALL_TRANSFER_PUSH_NOTIFICATION': 40;
+            readonly 'XDR_CALL_TRANSFER': 41
         }
     }
     readonly LOBBY_EXIT_TYPE: {
@@ -9295,7 +9298,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PIN_MESSAGE': 61;
             readonly 'ADMIN_GROUP_JOIN_REQUEST': 62;
             readonly 'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63;
-            readonly 'BUSINESS_BROADCAST_INSIGHTS_READY': 64
+            readonly 'BUSINESS_BROADCAST_INSIGHTS_READY': 64;
+            readonly 'NEWSLETTER_MILESTONE_UPDATE_FORWARDS': 65
         }
     }
     readonly NS_MODE: {
@@ -10340,7 +10344,8 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumPinInChatInteractionType'
         readonly export: 'PIN_IN_CHAT_INTERACTION_TYPE'
         readonly values: {
-            readonly 'TAP_ON_BANNER': 1
+            readonly 'TAP_ON_BANNER': 1;
+            readonly 'TAP_ON_SYSTEM_MESSAGE': 2
         }
     }
     readonly PIN_IN_CHAT_TYPE: {
@@ -22871,13 +22876,18 @@ export declare const WA_WAM_EVENTS: {
         readonly fields: {
             readonly completedMigrations: { readonly id: 1; readonly type: 'string'; readonly falcoName: 'completed_migrations' }
             readonly lidMigrationSource: { readonly id: 7; readonly type: 'enum'; readonly enum: 'LID_MIGRATION_SOURCE_TYPE'; readonly falcoName: 'lid_migration_source' }
+            readonly numberOfCagGroups: { readonly id: 15; readonly type: 'integer'; readonly falcoName: 'number_of_cag_groups' }
+            readonly numberOfCagLidGroups: { readonly id: 16; readonly type: 'integer'; readonly falcoName: 'number_of_cag_lid_groups' }
             readonly numberOfChatsWithClientAssignedLid: { readonly id: 8; readonly type: 'integer'; readonly falcoName: 'number_of_chats_with_client_assigned_lid' }
             readonly numberOfDeprecatedChats: { readonly id: 9; readonly type: 'integer'; readonly falcoName: 'number_of_deprecated_chats' }
             readonly numberOfLidBroadcastLists: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'number_of_lid_broadcast_lists' }
             readonly numberOfLidGroups: { readonly id: 11; readonly type: 'integer'; readonly falcoName: 'number_of_lid_groups' }
+            readonly numberOfLidOnlyGroups: { readonly id: 17; readonly type: 'integer'; readonly falcoName: 'number_of_lid_only_groups' }
+            readonly numberOfMixedPnLidGroups: { readonly id: 18; readonly type: 'integer'; readonly falcoName: 'number_of_mixed_pn_lid_groups' }
             readonly numberOfPnBroadcastLists: { readonly id: 12; readonly type: 'integer'; readonly falcoName: 'number_of_pn_broadcast_lists' }
             readonly numberOfPnChatsWithoutMapping: { readonly id: 5; readonly type: 'integer'; readonly falcoName: 'number_of_pn_chats_without_mapping' }
             readonly numberOfPnGroups: { readonly id: 13; readonly type: 'integer'; readonly falcoName: 'number_of_pn_groups' }
+            readonly numberOfPnOnlyGroups: { readonly id: 19; readonly type: 'integer'; readonly falcoName: 'number_of_pn_only_groups' }
             readonly numberOfPnhCtwaThreadsKnownMapping: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'number_of_pnh_ctwa_threads_known_mapping' }
             readonly numberOfPnhCtwaThreadsMissingMapping: { readonly id: 3; readonly type: 'integer'; readonly falcoName: 'number_of_pnh_ctwa_threads_missing_mapping' }
             readonly numberOfRegularPnChats: { readonly id: 14; readonly type: 'integer'; readonly falcoName: 'number_of_regular_pn_chats' }

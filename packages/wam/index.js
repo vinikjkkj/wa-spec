@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042533083
+// WhatsApp Version: 2.3000.1042596003
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1256,7 +1256,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'NOTIFICATION': 1,
         'IQ_RESPONSE': 2,
         'SYSTEM_MESSAGE': 3,
-        'CONTACT_CARD': 4
+        'CONTACT_CARD': 4,
+        'DROPDOWN_MENU': 5
         })
     }),
     BUSINESS_INTERACTION_ACTION_TYPE: Object.freeze({
@@ -6024,7 +6025,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIX_NATIVE_ENROLLMENT_SETTINGS_VIEW': 98,
         'PIX_NATIVE_ENROLLMENT_DELETE': 99,
         'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100,
-        'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101
+        'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101,
+        'PIX_NATIVE_PROMO_SCREEN_VIEW': 102
         })
     }),
     INVISIBLE_MESSAGE_CATEGORY_TYPE: Object.freeze({
@@ -6405,7 +6407,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'UPCOMING_EVENT_BANNER': 37,
         'WAITING_ROOM_JOINED_PUSH_NOTIFICATION': 38,
         'WAITING_ROOM_MULTIPLE_JOINED_PUSH_NOTIFICATION': 39,
-        'CALL_TRANSFER_PUSH_NOTIFICATION': 40
+        'CALL_TRANSFER_PUSH_NOTIFICATION': 40,
+        'XDR_CALL_TRANSFER': 41
         })
     }),
     LOBBY_EXIT_TYPE: Object.freeze({
@@ -9186,7 +9189,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIN_MESSAGE': 61,
         'ADMIN_GROUP_JOIN_REQUEST': 62,
         'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63,
-        'BUSINESS_BROADCAST_INSIGHTS_READY': 64
+        'BUSINESS_BROADCAST_INSIGHTS_READY': 64,
+        'NEWSLETTER_MILESTONE_UPDATE_FORWARDS': 65
         })
     }),
     NS_MODE: Object.freeze({
@@ -10231,7 +10235,8 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumPinInChatInteractionType',
         export: 'PIN_IN_CHAT_INTERACTION_TYPE',
         values: Object.freeze({
-        'TAP_ON_BANNER': 1
+        'TAP_ON_BANNER': 1,
+        'TAP_ON_SYSTEM_MESSAGE': 2
         })
     }),
     PIN_IN_CHAT_TYPE: Object.freeze({
@@ -22166,13 +22171,18 @@ const WA_WAM_EVENTS = Object.freeze({
         fields: Object.freeze({
             completedMigrations: Object.freeze({ id: 1, type: 'string', falcoName: 'completed_migrations' }),
             lidMigrationSource: Object.freeze({ id: 7, type: 'enum', enum: 'LID_MIGRATION_SOURCE_TYPE', falcoName: 'lid_migration_source' }),
+            numberOfCagGroups: Object.freeze({ id: 15, type: 'integer', falcoName: 'number_of_cag_groups' }),
+            numberOfCagLidGroups: Object.freeze({ id: 16, type: 'integer', falcoName: 'number_of_cag_lid_groups' }),
             numberOfChatsWithClientAssignedLid: Object.freeze({ id: 8, type: 'integer', falcoName: 'number_of_chats_with_client_assigned_lid' }),
             numberOfDeprecatedChats: Object.freeze({ id: 9, type: 'integer', falcoName: 'number_of_deprecated_chats' }),
             numberOfLidBroadcastLists: Object.freeze({ id: 10, type: 'integer', falcoName: 'number_of_lid_broadcast_lists' }),
             numberOfLidGroups: Object.freeze({ id: 11, type: 'integer', falcoName: 'number_of_lid_groups' }),
+            numberOfLidOnlyGroups: Object.freeze({ id: 17, type: 'integer', falcoName: 'number_of_lid_only_groups' }),
+            numberOfMixedPnLidGroups: Object.freeze({ id: 18, type: 'integer', falcoName: 'number_of_mixed_pn_lid_groups' }),
             numberOfPnBroadcastLists: Object.freeze({ id: 12, type: 'integer', falcoName: 'number_of_pn_broadcast_lists' }),
             numberOfPnChatsWithoutMapping: Object.freeze({ id: 5, type: 'integer', falcoName: 'number_of_pn_chats_without_mapping' }),
             numberOfPnGroups: Object.freeze({ id: 13, type: 'integer', falcoName: 'number_of_pn_groups' }),
+            numberOfPnOnlyGroups: Object.freeze({ id: 19, type: 'integer', falcoName: 'number_of_pn_only_groups' }),
             numberOfPnhCtwaThreadsKnownMapping: Object.freeze({ id: 2, type: 'integer', falcoName: 'number_of_pnh_ctwa_threads_known_mapping' }),
             numberOfPnhCtwaThreadsMissingMapping: Object.freeze({ id: 3, type: 'integer', falcoName: 'number_of_pnh_ctwa_threads_missing_mapping' }),
             numberOfRegularPnChats: Object.freeze({ id: 14, type: 'integer', falcoName: 'number_of_regular_pn_chats' }),
