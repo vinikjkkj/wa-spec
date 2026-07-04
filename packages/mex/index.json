@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042596003",
+  "waVersion": "2.3000.1042626022",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1117,7 +1117,7 @@
             }
           },
           "appeal": {
-            "state": "enum:CONTENT_UNAVAILABLE|NON_APPEALABLE|NOT_APPEALED|PENDING|REJECT|SUCCESS",
+            "state": "enum:CONTENT_UNAVAILABLE|NON_APPEALABLE|PENDING|REJECT|SUCCESS",
             "appeal_reason": "string",
             "creation_time": "string",
             "report_id": "string",
@@ -1883,11 +1883,12 @@
     },
     "FetchNewsletter": {
       "originalName": "WAWebMexFetchNewsletterJobQuery",
-      "docId": "35452404184358876",
+      "docId": "27456920720571478",
       "operationKind": "query",
       "variables": [
         "fetch_creation_time",
         "fetch_full_image",
+        "fetch_pinned_messages",
         "fetch_status_metadata",
         "fetch_viewer_metadata",
         "fetch_wamo_sub",
@@ -1896,6 +1897,7 @@
       "variablesShape": {
         "fetch_creation_time": "boolean",
         "fetch_full_image": "boolean",
+        "fetch_pinned_messages": "boolean",
         "fetch_status_metadata": "boolean",
         "fetch_viewer_metadata": "boolean",
         "fetch_wamo_sub": "boolean",
@@ -1944,7 +1946,13 @@
             },
             "wamo_sub": {
               "plan_id": "string"
-            }
+            },
+            "pinned_messages": [
+              {
+                "message_id": "string",
+                "expiry_ts": "unknown"
+              }
+            ]
           },
           "viewer_metadata": {
             "settings": [
@@ -2012,13 +2020,15 @@
     },
     "FetchNewsletterDehydrated": {
       "originalName": "WAWebMexFetchNewsletterDehydratedJobQuery",
-      "docId": "30328461880085868",
+      "docId": "26944199458535748",
       "operationKind": "query",
       "variables": [
+        "fetch_pinned_messages",
         "fetch_wamo_sub",
         "input"
       ],
       "variablesShape": {
+        "fetch_pinned_messages": "boolean",
         "fetch_wamo_sub": "boolean",
         "input": {
           "key": "string",
@@ -2039,7 +2049,13 @@
             },
             "wamo_sub": {
               "plan_id": "string"
-            }
+            },
+            "pinned_messages": [
+              {
+                "message_id": "string",
+                "expiry_ts": "unknown"
+              }
+            ]
           },
           "viewer_metadata": {
             "wamo_sub_status": "enum:ACTIVE|INACTIVE"
@@ -2692,7 +2708,7 @@
                 }
               },
               "appeal": {
-                "state": "enum:CONTENT_UNAVAILABLE|NON_APPEALABLE|NOT_APPEALED|PENDING|REJECT|SUCCESS",
+                "state": "enum:CONTENT_UNAVAILABLE|NON_APPEALABLE|PENDING|REJECT|SUCCESS",
                 "appeal_reason": "string",
                 "creation_time": "string",
                 "report_id": "string",
@@ -3294,24 +3310,6 @@
         }
       }
     },
-    "GetDsbInfo": {
-      "originalName": "WAWebMexGetDsbInfoJobMutation",
-      "docId": "9982897848413251",
-      "operationKind": "mutation",
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {
-          "entity_id": "string"
-        }
-      },
-      "response": {
-        "xwa2_get_dsb_info": {
-          "reference_number": "string"
-        }
-      }
-    },
     "GetFBAccountPages": {
       "originalName": "WAWebGetFBAccountPagesQuery",
       "docId": "24564518546541529",
@@ -3745,6 +3743,108 @@
       "response": {
         "xwa2_newsletter_label_paid_partnership": {
           "id": "string"
+        }
+      }
+    },
+    "NewsletterBlockUser": {
+      "originalName": "WAWebMexNewsletterBlockUserJobMutation",
+      "docId": "24021389470875463",
+      "operationKind": "mutation",
+      "variables": [
+        "newsletter_id",
+        "response_server_id",
+        "server_id"
+      ],
+      "variablesShape": {
+        "newsletter_id": "string",
+        "response_server_id": "string",
+        "server_id": "string"
+      },
+      "response": {
+        "xwa2_newsletter_block_user": {
+          "newsletter_id": "string"
+        }
+      }
+    },
+    "NewsletterPinMessages": {
+      "originalName": "WAWebMexNewsletterPinMessagesJobMutation",
+      "docId": "27165709459706559",
+      "operationKind": "mutation",
+      "variables": [
+        "input",
+        "newsletter_id"
+      ],
+      "variablesShape": {
+        "input": {
+          "message_ids": [
+            "string"
+          ]
+        },
+        "newsletter_id": "string"
+      },
+      "response": {
+        "xwa2_newsletter_pin_messages": {
+          "id": "string",
+          "thread_metadata": {
+            "pinned_messages": [
+              {
+                "message_id": "string",
+                "expiry_ts": "unknown"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "NewsletterQuestionResponseStateUpdate": {
+      "originalName": "WAWebMexNewsletterQuestionResponseStateUpdateJobMutation",
+      "docId": "24636260219323456",
+      "operationKind": "mutation",
+      "variables": [
+        "newsletter_id",
+        "response_server_id",
+        "server_id",
+        "state"
+      ],
+      "variablesShape": {
+        "newsletter_id": "string",
+        "response_server_id": "string",
+        "server_id": "string",
+        "state": "string"
+      },
+      "response": {
+        "xwa2_newsletter_question_response_state_update": {
+          "id": "string"
+        }
+      }
+    },
+    "NewsletterUnpinMessages": {
+      "originalName": "WAWebMexNewsletterUnpinMessagesJobMutation",
+      "docId": "28007176042216937",
+      "operationKind": "mutation",
+      "variables": [
+        "input",
+        "newsletter_id"
+      ],
+      "variablesShape": {
+        "input": {
+          "message_ids": [
+            "string"
+          ]
+        },
+        "newsletter_id": "string"
+      },
+      "response": {
+        "xwa2_newsletter_unpin_messages": {
+          "id": "string",
+          "thread_metadata": {
+            "pinned_messages": [
+              {
+                "message_id": "string",
+                "expiry_ts": "unknown"
+              }
+            ]
+          }
         }
       }
     },

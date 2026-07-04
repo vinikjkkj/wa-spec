@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042596003",
+  "waVersion": "2.3000.1042626022",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5664,7 +5664,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -5677,11 +5682,6 @@
                 "arg": "y",
                 "optional": true,
                 "direction": "out"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -32945,8 +32945,7 @@
                 "value": "retry"
               },
               "from": {
-                "type": "jid",
-                "direction": "both"
+                "type": "jid"
               },
               "participant": {
                 "type": "userJid",
@@ -32975,8 +32974,8 @@
                 "optional": true
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -33197,8 +33196,7 @@
                 "value": "enc_rekey_retry"
               },
               "from": {
-                "type": "jid",
-                "direction": "both"
+                "type": "jid"
               },
               "participant": {
                 "type": "userJid",
@@ -33227,8 +33225,8 @@
                 "optional": true
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -33466,23 +33464,11 @@
                 ]
               },
               "from": {
-                "type": "jid",
-                "direction": "both"
+                "type": "jid"
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
-                "direction": "both"
-              },
-              "t": {
-                "type": "int",
-                "arg": "Date.now().toString()",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "optional": true,
+                "type": "jid",
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -33497,6 +33483,18 @@
                   "receipt",
                   "status"
                 ]
+              },
+              "t": {
+                "type": "int",
+                "arg": "d",
+                "optional": true,
+                "direction": "both"
+              },
+              "participant": {
+                "type": "userJid",
+                "arg": "i",
+                "optional": true,
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33591,8 +33589,7 @@
                 "direction": "both"
               },
               "from": {
-                "type": "jid",
-                "direction": "both"
+                "type": "jid"
               },
               "offline": {
                 "type": "int",
@@ -33625,8 +33622,8 @@
                 "direction": "both"
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "D",
                 "direction": "both"
               },
               "class": {
@@ -38668,12 +38665,17 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "_.id",
+                "arg": "e.stanzaId",
                 "direction": "both"
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "edit": {
@@ -38693,11 +38695,6 @@
                 "arg": "y",
                 "optional": true,
                 "direction": "out"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -39490,7 +39487,12 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
+                "direction": "both"
+              },
+              "phash": {
+                "type": "string",
+                "arg": "c",
                 "direction": "both"
               },
               "participant": {
@@ -39503,11 +39505,6 @@
                 "arg": "y",
                 "optional": true,
                 "direction": "out"
-              },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -40403,12 +40400,7 @@
         "attrs": {
           "id": {
             "type": "stanzaId",
-            "arg": "e.stanzaId",
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
+            "arg": "e.ackId",
             "direction": "out"
           },
           "class": {
@@ -40419,6 +40411,11 @@
               "notification",
               "receipt"
             ],
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "p(e.to)",
             "direction": "out"
           },
           "type": {
@@ -40448,14 +40445,15 @@
             "direction": "out"
           },
           "participant": {
-            "type": "userJid",
-            "arg": "f",
+            "type": "deviceJid",
+            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
             "optional": true,
             "direction": "out"
           },
           "error": {
             "type": "int",
-            "arg": "t",
+            "arg": "e.error",
+            "optional": true,
             "direction": "out"
           },
           "recipient": {

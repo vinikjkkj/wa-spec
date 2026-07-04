@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042596003
+// WhatsApp Version: 2.3000.1042626022
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -94,7 +94,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchTextStatusList: WaMexPersistId
     readonly GetAccessTokenFromOIDCCode: WaMexPersistId
     readonly GetAccountNonce: WaMexPersistId
-    readonly GetDsbInfo: WaMexPersistId
     readonly GetFBAccountPages: WaMexPersistId
     readonly GetNumbersForBrandIds: WaMexPersistId
     readonly GetPrivacyLists: WaMexPersistId
@@ -112,6 +111,10 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly LogNewsletterExposures: WaMexPersistId
     readonly NativeMLModel: WaMexPersistId
     readonly NewsletterAddPaidPartnershipLabel: WaMexPersistId
+    readonly NewsletterBlockUser: WaMexPersistId
+    readonly NewsletterPinMessages: WaMexPersistId
+    readonly NewsletterQuestionResponseStateUpdate: WaMexPersistId
+    readonly NewsletterUnpinMessages: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
     readonly QueryCatalogProduct: WaMexPersistId
@@ -198,10 +201,10 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchIntegritySignals: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNativeAdsMvpEligibility: WaMexOperationSchema<'query', readonly []>
     readonly FetchNewChatMessageCappingInfo: WaMexOperationSchema<'query', readonly ['input']>
-    readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
+    readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_pinned_messages', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
     readonly FetchNewsletterAdminCapabilities: WaMexOperationSchema<'query', readonly ['newsletter_id']>
     readonly FetchNewsletterAdminInfo: WaMexOperationSchema<'query', readonly ['newsletter_id']>
-    readonly FetchNewsletterDehydrated: WaMexOperationSchema<'query', readonly ['fetch_wamo_sub', 'input']>
+    readonly FetchNewsletterDehydrated: WaMexOperationSchema<'query', readonly ['fetch_pinned_messages', 'fetch_wamo_sub', 'input']>
     readonly FetchNewsletterDirectoryCategoriesPreview: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'input']>
     readonly FetchNewsletterDirectoryList: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'input']>
     readonly FetchNewsletterDirectorySearchResults: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'input']>
@@ -226,7 +229,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchTextStatusList: WaMexOperationSchema<'query', readonly ['input']>
     readonly GetAccessTokenFromOIDCCode: WaMexOperationSchema<'mutation', readonly ['code', 'state']>
     readonly GetAccountNonce: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly GetDsbInfo: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly GetFBAccountPages: WaMexOperationSchema<'query', readonly ['userId']>
     readonly GetNumbersForBrandIds: WaMexOperationSchema<'query', readonly ['input']>
     readonly GetPrivacyLists: WaMexOperationSchema<'query', readonly ['input']>
@@ -244,6 +246,10 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly LogNewsletterExposures: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly NativeMLModel: WaMexOperationSchema<'query', readonly ['client_capability_metadata', 'model_request_metadatas']>
     readonly NewsletterAddPaidPartnershipLabel: WaMexOperationSchema<'mutation', readonly ['message_type', 'newsletter_id', 'server_id']>
+    readonly NewsletterBlockUser: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'response_server_id', 'server_id']>
+    readonly NewsletterPinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
+    readonly NewsletterQuestionResponseStateUpdate: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'response_server_id', 'server_id', 'state']>
+    readonly NewsletterUnpinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogProduct: WaMexOperationSchema<'query', readonly ['request']>
@@ -582,6 +588,7 @@ export type WaMexFetchNewChatMessageCappingInfoVariables = {
 export type WaMexFetchNewsletterVariables = {
     readonly fetch_creation_time?: boolean
     readonly fetch_full_image?: boolean
+    readonly fetch_pinned_messages?: boolean
     readonly fetch_status_metadata?: boolean
     readonly fetch_viewer_metadata?: boolean
     readonly fetch_wamo_sub?: boolean
@@ -601,6 +608,7 @@ export type WaMexFetchNewsletterAdminInfoVariables = {
 }
 
 export type WaMexFetchNewsletterDehydratedVariables = {
+    readonly fetch_pinned_messages?: boolean
     readonly fetch_wamo_sub?: boolean
     readonly input?: {
         readonly key?: string
@@ -767,12 +775,6 @@ export type WaMexGetAccountNonceVariables = {
     }
 }
 
-export type WaMexGetDsbInfoVariables = {
-    readonly input?: {
-        readonly entity_id?: string
-    }
-}
-
 export type WaMexGetFBAccountPagesVariables = {
     readonly userId?: string
 }
@@ -885,6 +887,33 @@ export type WaMexNewsletterAddPaidPartnershipLabelVariables = {
     readonly message_type?: string
     readonly newsletter_id?: string
     readonly server_id?: string
+}
+
+export type WaMexNewsletterBlockUserVariables = {
+    readonly newsletter_id?: string
+    readonly response_server_id?: string
+    readonly server_id?: string
+}
+
+export type WaMexNewsletterPinMessagesVariables = {
+    readonly input?: {
+        readonly message_ids?: ReadonlyArray<string>
+    }
+    readonly newsletter_id?: string
+}
+
+export type WaMexNewsletterQuestionResponseStateUpdateVariables = {
+    readonly newsletter_id?: string
+    readonly response_server_id?: string
+    readonly server_id?: string
+    readonly state?: string
+}
+
+export type WaMexNewsletterUnpinMessagesVariables = {
+    readonly input?: {
+        readonly message_ids?: ReadonlyArray<string>
+    }
+    readonly newsletter_id?: string
 }
 
 export type WaMexQueryCatalogVariables = {
@@ -1208,7 +1237,6 @@ export interface WaMexOperationVariables {
     readonly FetchTextStatusList: WaMexFetchTextStatusListVariables
     readonly GetAccessTokenFromOIDCCode: WaMexGetAccessTokenFromOIDCCodeVariables
     readonly GetAccountNonce: WaMexGetAccountNonceVariables
-    readonly GetDsbInfo: WaMexGetDsbInfoVariables
     readonly GetFBAccountPages: WaMexGetFBAccountPagesVariables
     readonly GetNumbersForBrandIds: WaMexGetNumbersForBrandIdsVariables
     readonly GetPrivacyLists: WaMexGetPrivacyListsVariables
@@ -1226,6 +1254,10 @@ export interface WaMexOperationVariables {
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresVariables
     readonly NativeMLModel: WaMexNativeMLModelVariables
     readonly NewsletterAddPaidPartnershipLabel: WaMexNewsletterAddPaidPartnershipLabelVariables
+    readonly NewsletterBlockUser: WaMexNewsletterBlockUserVariables
+    readonly NewsletterPinMessages: WaMexNewsletterPinMessagesVariables
+    readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateVariables
+    readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
     readonly QueryCatalogProduct: WaMexQueryCatalogProductVariables
@@ -1911,7 +1943,7 @@ export type WaMexCreateReportAppealResponse = {
             }
         }
         readonly appeal?: {
-            readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
+            readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
             readonly appeal_reason?: string
             readonly creation_time?: string
             readonly report_id?: string
@@ -2422,6 +2454,10 @@ export type WaMexFetchNewsletterResponse = {
             readonly wamo_sub?: {
                 readonly plan_id?: string
             }
+            readonly pinned_messages?: ReadonlyArray<{
+                readonly message_id?: string
+                readonly expiry_ts?: unknown
+            }>
         }
         readonly viewer_metadata?: {
             readonly settings?: ReadonlyArray<{
@@ -2477,6 +2513,10 @@ export type WaMexFetchNewsletterDehydratedResponse = {
             readonly wamo_sub?: {
                 readonly plan_id?: string
             }
+            readonly pinned_messages?: ReadonlyArray<{
+                readonly message_id?: string
+                readonly expiry_ts?: unknown
+            }>
         }
         readonly viewer_metadata?: {
             readonly wamo_sub_status?: 'ACTIVE' | 'INACTIVE'
@@ -2910,7 +2950,7 @@ export type WaMexFetchNewsletterReportsResponse = {
                 }
             }
             readonly appeal?: {
-                readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
+                readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'PENDING' | 'REJECT' | 'SUCCESS'
                 readonly appeal_reason?: string
                 readonly creation_time?: string
                 readonly report_id?: string
@@ -3287,12 +3327,6 @@ export type WaMexGetAccountNonceResponse = {
     }
 }
 
-export type WaMexGetDsbInfoResponse = {
-    readonly xwa2_get_dsb_info?: {
-        readonly reference_number?: string
-    }
-}
-
 export type WaMexGetFBAccountPagesResponse = {
     readonly user?: {
         readonly facebook_pages?: {
@@ -3475,6 +3509,42 @@ export type WaMexNativeMLModelResponse = {
 export type WaMexNewsletterAddPaidPartnershipLabelResponse = {
     readonly xwa2_newsletter_label_paid_partnership?: {
         readonly id?: string
+    }
+}
+
+export type WaMexNewsletterBlockUserResponse = {
+    readonly xwa2_newsletter_block_user?: {
+        readonly newsletter_id?: string
+    }
+}
+
+export type WaMexNewsletterPinMessagesResponse = {
+    readonly xwa2_newsletter_pin_messages?: {
+        readonly id?: string
+        readonly thread_metadata?: {
+            readonly pinned_messages?: ReadonlyArray<{
+                readonly message_id?: string
+                readonly expiry_ts?: unknown
+            }>
+        }
+    }
+}
+
+export type WaMexNewsletterQuestionResponseStateUpdateResponse = {
+    readonly xwa2_newsletter_question_response_state_update?: {
+        readonly id?: string
+    }
+}
+
+export type WaMexNewsletterUnpinMessagesResponse = {
+    readonly xwa2_newsletter_unpin_messages?: {
+        readonly id?: string
+        readonly thread_metadata?: {
+            readonly pinned_messages?: ReadonlyArray<{
+                readonly message_id?: string
+                readonly expiry_ts?: unknown
+            }>
+        }
     }
 }
 
@@ -4350,7 +4420,6 @@ export interface WaMexOperationResponses {
     readonly FetchTextStatusList: WaMexFetchTextStatusListResponse
     readonly GetAccessTokenFromOIDCCode: WaMexGetAccessTokenFromOIDCCodeResponse
     readonly GetAccountNonce: WaMexGetAccountNonceResponse
-    readonly GetDsbInfo: WaMexGetDsbInfoResponse
     readonly GetFBAccountPages: WaMexGetFBAccountPagesResponse
     readonly GetNumbersForBrandIds: WaMexGetNumbersForBrandIdsResponse
     readonly GetPrivacyLists: WaMexGetPrivacyListsResponse
@@ -4368,6 +4437,10 @@ export interface WaMexOperationResponses {
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresResponse
     readonly NativeMLModel: WaMexNativeMLModelResponse
     readonly NewsletterAddPaidPartnershipLabel: WaMexNewsletterAddPaidPartnershipLabelResponse
+    readonly NewsletterBlockUser: WaMexNewsletterBlockUserResponse
+    readonly NewsletterPinMessages: WaMexNewsletterPinMessagesResponse
+    readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateResponse
+    readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
     readonly QueryCatalogProduct: WaMexQueryCatalogProductResponse
