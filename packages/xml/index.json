@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042626022",
+  "waVersion": "2.3000.1042640601",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -38665,7 +38665,7 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "e.stanzaId",
+                "arg": "l",
                 "direction": "both"
               },
               "to": {

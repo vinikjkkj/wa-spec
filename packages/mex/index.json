@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042626022",
+  "waVersion": "2.3000.1042640601",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1950,7 +1950,7 @@
             "pinned_messages": [
               {
                 "message_id": "string",
-                "expiry_ts": "unknown"
+                "expiry_ts": "string"
               }
             ]
           },
@@ -2053,7 +2053,7 @@
             "pinned_messages": [
               {
                 "message_id": "string",
-                "expiry_ts": "unknown"
+                "expiry_ts": "string"
               }
             ]
           },
@@ -3746,26 +3746,6 @@
         }
       }
     },
-    "NewsletterBlockUser": {
-      "originalName": "WAWebMexNewsletterBlockUserJobMutation",
-      "docId": "24021389470875463",
-      "operationKind": "mutation",
-      "variables": [
-        "newsletter_id",
-        "response_server_id",
-        "server_id"
-      ],
-      "variablesShape": {
-        "newsletter_id": "string",
-        "response_server_id": "string",
-        "server_id": "string"
-      },
-      "response": {
-        "xwa2_newsletter_block_user": {
-          "newsletter_id": "string"
-        }
-      }
-    },
     "NewsletterPinMessages": {
       "originalName": "WAWebMexNewsletterPinMessagesJobMutation",
       "docId": "27165709459706559",
@@ -3789,7 +3769,7 @@
             "pinned_messages": [
               {
                 "message_id": "string",
-                "expiry_ts": "unknown"
+                "expiry_ts": "string"
               }
             ]
           }
@@ -3841,7 +3821,7 @@
             "pinned_messages": [
               {
                 "message_id": "string",
-                "expiry_ts": "unknown"
+                "expiry_ts": "string"
               }
             ]
           }

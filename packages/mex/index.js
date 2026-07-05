@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042626022
+// WhatsApp Version: 2.3000.1042640601
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -99,7 +99,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     LogNewsletterExposures: Object.freeze({ docId: '25260800823586918', clientDocId: '25260800823586918' }),
     NativeMLModel: Object.freeze({ docId: '32743078615336512', clientDocId: '32743078615336512' }),
     NewsletterAddPaidPartnershipLabel: Object.freeze({ docId: '26102375079404865', clientDocId: '26102375079404865' }),
-    NewsletterBlockUser: Object.freeze({ docId: '24021389470875463', clientDocId: '24021389470875463' }),
     NewsletterPinMessages: Object.freeze({ docId: '27165709459706559', clientDocId: '27165709459706559' }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ docId: '24636260219323456', clientDocId: '24636260219323456' }),
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
@@ -234,7 +233,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     LogNewsletterExposures: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     NativeMLModel: Object.freeze({ operationKind: 'query', variables: Object.freeze(['client_capability_metadata', 'model_request_metadatas']) }),
     NewsletterAddPaidPartnershipLabel: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['message_type', 'newsletter_id', 'server_id']) }),
-    NewsletterBlockUser: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'response_server_id', 'server_id']) }),
     NewsletterPinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'response_server_id', 'server_id', 'state']) }),
     NewsletterUnpinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
