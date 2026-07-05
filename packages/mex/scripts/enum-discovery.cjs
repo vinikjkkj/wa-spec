@@ -383,6 +383,87 @@ function discoverEnums(bundles) {
         enumerable: false
     })
 
+    // Bundle-wide parent.field SCALAR-coercion scan — the sibling of the enum
+    // scan above, for scalar leaves whose type evidence lives in a module
+    // outside any op's per-op respBodies window. `Number(x)` / `parseInt(x)` /
+    // `parseFloat(x)` coercion means the wire value is a STRING the client
+    // converts (WA sends int64/timestamps as strings), so we key
+    // `<parent>.<field> → 'string'`. Two access shapes are handled:
+    //   `Number(x.<parent>.<field>)`          — direct member chain
+    //   `<arr>.map(v => … Number(v.<field>))` — v is an item of <arr>, so the
+    //                                           structural parent is <arr>.
+    // Applied downstream ONLY to leaves still `unknown` (never overrides a
+    // locally-inferred type). Example: newsletter `pinned_messages.expiry_ts`
+    // is only ever parsed via `Number(n.expiry_ts)` inside
+    // WAWebMexNewsletterParseUtils, which no op's respBodies window reaches.
+    const parentFieldScalars = Object.create(null)
+    // Field-name-only fallback, for the common shape where the coercion happens
+    // inside a helper whose array param is passed in (`function y(e){for(x of e)
+    // Number(x.expiry_ts)}`) — the structural parent can't be recovered by
+    // regex, but a DISTINCTIVE field name (has `_`, ≥5 chars) is specific enough
+    // that `Number(<any>.expiry_ts)` reliably means the `expiry_ts` leaf is a
+    // wire string. Only consulted for `unknown` leaves, only for such names.
+    const fieldScalars = Object.create(null)
+    const bumpScalar = (key, ty) => {
+        const s = (parentFieldScalars[key] = parentFieldScalars[key] || { string: 0, number: 0, boolean: 0 })
+        s[ty]++
+    }
+    const bumpField = (field, ty) => {
+        const s = (fieldScalars[field] = fieldScalars[field] || { string: 0, number: 0, boolean: 0 })
+        s[ty]++
+    }
+    for (const bundle of bundles) {
+        const text = bundle.text
+        // Array-iteration aliases: `<…>.<arrField>.(map|forEach|…)(v =>` /
+        // `function(v){` and `for (var v of <…>.<arrField>)`. Best-effort and
+        // per-bundle (a reused minifier var name is overwritten — acceptable:
+        // the apply step only fires on `unknown` leaves with a clear signal).
+        const aliasToArr = Object.create(null)
+        let m
+        const iterRe = /(?<![\w$])[A-Za-z_$][\w$]*(?:\??\.[a-z_$][\w$]*)*?\.([a-z_$][\w$]+)\s*\.\s*(?:map|forEach|filter|reduce|find|findIndex|some|every|flatMap)\s*\(\s*(?:function\s*)?\(?\s*([A-Za-z_$][\w$]*)/g
+        while ((m = iterRe.exec(text))) {
+            if (m[2] && m[2] !== 'function') aliasToArr[m[2]] = m[1]
+        }
+        const forOfRe = /\bfor\s*\(\s*(?:var|let|const)\s+([A-Za-z_$][\w$]*)\s+of\s+[A-Za-z_$][\w$]*(?:\??\.[a-z_$][\w$]*)*?\.([a-z_$][\w$]+)/g
+        while ((m = forOfRe.exec(text))) aliasToArr[m[1]] = m[2]
+        // `Number(x[.parent].field)` / `parseInt(...)` / `parseFloat(...)` — the
+        // wire value is a string being converted. base drives alias resolution.
+        const coerceRe = /\b(?:Number|parseInt|parseFloat)\s*\(\s*([A-Za-z_$][\w$]*)(?:\.([a-z_$][\w$]*))?\.([a-z_$][\w$]+)(?![\w$])/g
+        while ((m = coerceRe.exec(text))) {
+            const base = m[1], mid = m[2], field = m[3]
+            let key = null
+            if (mid) key = mid + '.' + field
+            else if (aliasToArr[base]) key = aliasToArr[base] + '.' + field
+            if (key) bumpScalar(key, 'string')
+            bumpField(field, 'string')
+        }
+    }
+    const oneType = (s) => {
+        const seen = Object.entries(s).filter(([, n]) => n > 0)
+        return seen.length === 1 ? seen[0][0] : null
+    }
+    const parentFieldScalarMap = Object.create(null)
+    for (const [k, s] of Object.entries(parentFieldScalars)) {
+        const ty = oneType(s)
+        if (ty) parentFieldScalarMap[k] = ty
+    }
+    // Distinctive field names only — has `_`, ≥5 chars, and not a generic tag.
+    const GENERIC_FIELD = new Set(['status', 'result', 'reason', 'source', 'target'])
+    const fieldScalarMap = Object.create(null)
+    for (const [k, s] of Object.entries(fieldScalars)) {
+        if (k.length < 5 || !k.includes('_') || GENERIC_FIELD.has(k)) continue
+        const ty = oneType(s)
+        if (ty) fieldScalarMap[k] = ty
+    }
+    Object.defineProperty(index, '__parentFieldScalars', {
+        value: parentFieldScalarMap,
+        enumerable: false
+    })
+    Object.defineProperty(index, '__fieldScalars', {
+        value: fieldScalarMap,
+        enumerable: false
+    })
+
     return index
 }
 

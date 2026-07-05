@@ -415,6 +415,37 @@ function promoteByParentFieldMap(node, parents, parentFieldEnums, stats) {
     return node
 }
 
+// Walk the IR; for each `unknown` leaf whose path ends in `<parent>.<field>`
+// matching a key in parentFieldScalars, set it to the scanned scalar type.
+// Only promotes `unknown` — never overrides a locally-inferred type — so it
+// strictly fills gaps where the typing evidence lived in a module outside the
+// op's respBodies window (e.g. `pinned_messages.expiry_ts`, only coerced via
+// `Number(n.expiry_ts)` in a shared parse util).
+function promoteByParentFieldScalars(node, parents, parentFieldScalars, fieldScalars, stats) {
+    if (node === null || node === undefined) return node
+    if (Array.isArray(node)) {
+        node[0] = promoteByParentFieldScalars(node[0], parents, parentFieldScalars, fieldScalars, stats)
+        return node
+    }
+    if (typeof node !== 'object') return node
+    for (const [k, v] of Object.entries(node)) {
+        if (v === 'unknown') {
+            // Prefer the parent-qualified signal; fall back to the distinctive
+            // field-name signal (helper-param coercions lose the parent).
+            const ty =
+                (parents.length > 0 && parentFieldScalars[parents[parents.length - 1] + '.' + k]) ||
+                fieldScalars[k]
+            if (ty) {
+                node[k] = ty
+                stats.scalarFilled = (stats.scalarFilled || 0) + 1
+            }
+        } else if (v !== null && typeof v === 'object') {
+            node[k] = promoteByParentFieldScalars(v, [...parents, k], parentFieldScalars, fieldScalars, stats)
+        }
+    }
+    return node
+}
+
 function main() {
     const opts = parseArgs(process.argv)
     const bundles = loadBundles(opts.bundles)
@@ -553,6 +584,15 @@ function main() {
         for (const key of sortedKeys) {
             promoteByParentFieldMap(ops[key].response, [], parentFieldEnums, enumStats)
             promoteByParentFieldMap(ops[key].variablesShape, [], parentFieldEnums, enumStats)
+        }
+        // Bundle-wide scalar-coercion fill — the sibling of the enum map above.
+        // Fills `unknown` leaves whose `<parent>.<field>` was coerced via
+        // `Number(...)`/`parseInt(...)` in a module outside the op's respBodies
+        // window (e.g. `pinned_messages.expiry_ts` → 'string').
+        const parentFieldScalars = enumIndex.__parentFieldScalars || {}
+        const fieldScalars = enumIndex.__fieldScalars || {}
+        for (const key of sortedKeys) {
+            promoteByParentFieldScalars(ops[key].response, [], parentFieldScalars, fieldScalars, enumStats)
         }
     } catch (err) {
         console.error('apply: post-wire enum expansion skipped —', err.message)
