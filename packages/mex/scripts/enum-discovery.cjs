@@ -437,6 +437,15 @@ function discoverEnums(bundles) {
             if (key) bumpScalar(key, 'string')
             bumpField(field, 'string')
         }
+        // WA Smax `attrStringEnum(..., "<field>", …ENUM_FALSE_TRUE)` — a
+        // false/true attr. The same parser is what the XML extractor reads to
+        // type these `'false'|'true'`; mex's convention for a boolean field is
+        // `boolean` (158 such leaves, zero `enum:false|true`). Field-name keyed:
+        // the Smax stanza parser carries no GraphQL parent chain, but the field
+        // (e.g. `group_history_sent`) is the same logical value delivered over
+        // both protocols.
+        const boolEnumRe = /"([a-z_][\w$]{2,})"\s*,[^;{}]{0,80}?ENUM_FALSE_TRUE(?![\w$])/g
+        while ((m = boolEnumRe.exec(text))) bumpField(m[1], 'boolean')
     }
     const oneType = (s) => {
         const seen = Object.entries(s).filter(([, n]) => n > 0)
