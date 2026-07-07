@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042657073
+// WhatsApp Version: 2.3000.1042735850
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -3906,7 +3906,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_SILVERSTONE': 248,
         'DEEP_LINK_IMAGINE': 249,
         'DEEP_LINK_META_AI_INCOGNITO': 250,
-        'DEEP_LINK_CHANGE_NUMBER': 251
+        'DEEP_LINK_CHANGE_NUMBER': 251,
+        'DEEP_LINK_AI_MAGIC_CUE_SETTING': 252
         })
     }),
     DEFAULT_AUDIENCE_LOCATION_TYPE: Object.freeze({
@@ -5211,6 +5212,21 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_SAFETY_CHECK': 8
         })
     }),
+    GROUP_HISTORY_INELIGIBILITY_REASON: Object.freeze({
+        module: 'WAWebWamEnumGroupHistoryIneligibilityReason',
+        export: 'GROUP_HISTORY_INELIGIBILITY_REASON',
+        values: Object.freeze({
+        'NO_SHAREABLE_MESSAGES': 0,
+        'NOT_IN_GROUP': 1,
+        'RECEIVER_NOT_ELIGIBLE': 2,
+        'SENDER_NOT_ELIGIBLE': 3,
+        'NOT_NEW_OR_ALREADY_SENT': 4,
+        'GROUP_NOT_FOUND': 5,
+        'EXPERIMENT_DISABLED': 6,
+        'GROUP_TYPE_NOT_ELIGIBLE': 7,
+        'UNKNOWN': 8
+        })
+    }),
     GROUP_HISTORY_RECEIVER_USER_JOURNEY_ACTION_TYPE: Object.freeze({
         module: 'WAWebWamEnumGroupHistoryReceiverUserJourneyActionType',
         export: 'GROUP_HISTORY_RECEIVER_USER_JOURNEY_ACTION_TYPE',
@@ -5227,6 +5243,43 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_HISTORY_DOWNLOAD_EXPIRED': 9,
         'GROUP_HISTORY_FOOTER_FLOATING_SHOWN': 10,
         'GROUP_HISTORY_FOOTER_INLINE_SHOWN': 11
+        })
+    }),
+    GROUP_HISTORY_SENDER_ACTION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumGroupHistorySenderActionType',
+        export: 'GROUP_HISTORY_SENDER_ACTION_TYPE',
+        values: Object.freeze({
+        'VIEW_OPTIONS_SYSTEM_MESSAGE_CLICKED': 0,
+        'SEND_MESSAGE_HISTORY_SYSTEM_MESSAGE_CLICKED': 1,
+        'CONTACT_CARD_LAUNCHED': 2,
+        'GROUP_HISTORY_SELECTABLE_MESSAGES_LOADED': 3,
+        'GROUP_HISTORY_CONTACT_CARD_ENTRY_POINT_DISPLAYED': 4,
+        'GROUP_HISTORY_CONTACT_CARD_ENTRY_POINT_CLICKED': 5,
+        'GROUP_HISTORY_COUNT_CHANGE_ENTRY_POINT_CLICKED': 6,
+        'GROUP_HISTORY_COUNT_CHANGED': 7,
+        'GROUP_HISTORY_BUNDLE_MESSAGE_SENT': 8,
+        'GROUP_HISTORY_NOTICE_MESSAGE_SENT': 9,
+        'GROUP_HISTORY_BUNDLE_MESSAGE_ACKED': 10,
+        'GROUP_HISTORY_NOTICE_MESSAGE_ACKED': 11,
+        'GROUP_HISTORY_SEND_INELIGIBLE_AT_CTA_CLICK': 12,
+        'GROUP_HISTORY_SEND_INELIGIBLE_AT_BOTTOM_SHEET_OPEN': 13,
+        'GROUP_HISTORY_SEND_INELIGIBLE_AT_SEND_CLICK': 14,
+        'GROUP_HISTORY_DROPDOWN_MENU_ITEM_DISPLAYED': 15,
+        'GROUP_HISTORY_DROPDOWN_MENU_ITEM_CLICKED': 16,
+        'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_DISPLAY': 17,
+        'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED': 18
+        })
+    }),
+    GROUP_HISTORY_SYSTEM_MESSAGE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumGroupHistorySystemMessageType',
+        export: 'GROUP_HISTORY_SYSTEM_MESSAGE_TYPE',
+        values: Object.freeze({
+        'MANUALLY_ADD': 0,
+        'INVITE_LINK': 1,
+        'COMMUNITY': 2,
+        'INVITE_ACCEPT': 3,
+        'INVITE_AUTO_ADD': 4,
+        'UNKNOWN': 5
         })
     }),
     GROUP_INFO_SETTING_TYPE: Object.freeze({
@@ -21686,6 +21739,34 @@ const WA_WAM_EVENTS = Object.freeze({
             uiSurface: Object.freeze({ id: 6, type: 'enum', enum: 'TS_SURFACE', falcoName: 'ui_surface' }),
             unifiedSessionId: Object.freeze({ id: 7, type: 'string', falcoName: 'unified_session_id' }),
             userJourneyMs: Object.freeze({ id: 8, type: 'integer', falcoName: 'user_journey_ms' })
+        })
+    }),
+    GroupHistorySenderUserJourney: Object.freeze({
+        id: 8378,
+        falcoName: 'wam_group_history_sender_user_journey',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            bundleSendSource: Object.freeze({ id: 1, type: 'enum', enum: 'BUNDLE_SEND_SOURCE', falcoName: 'bundle_send_source' }),
+            groupHistoryMessagesCount: Object.freeze({ id: 2, type: 'integer', falcoName: 'group_history_messages_count' }),
+            groupHistoryOutWindowPinsCount: Object.freeze({ id: 3, type: 'integer', falcoName: 'group_history_out_window_pins_count' }),
+            groupHistoryPinsCount: Object.freeze({ id: 4, type: 'integer', falcoName: 'group_history_pins_count' }),
+            groupHistorySenderActionType: Object.freeze({ id: 5, type: 'enum', enum: 'GROUP_HISTORY_SENDER_ACTION_TYPE', falcoName: 'group_history_sender_action_type' }),
+            groupHistorySystemMessageType: Object.freeze({ id: 6, type: 'enum', enum: 'GROUP_HISTORY_SYSTEM_MESSAGE_TYPE', falcoName: 'group_history_system_message_type' }),
+            groupHistoryUncountedMessagesCount: Object.freeze({ id: 7, type: 'integer', falcoName: 'group_history_uncounted_messages_count' }),
+            groupSize: Object.freeze({ id: 8, type: 'integer', falcoName: 'group_size' }),
+            ineligibleReason: Object.freeze({ id: 9, type: 'enum', enum: 'GROUP_HISTORY_INELIGIBILITY_REASON', falcoName: 'ineligible_reason' }),
+            isGroupHistoryToggledOn: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_group_history_toggled_on' }),
+            isTeeBotNoticeOnly: Object.freeze({ id: 14, type: 'boolean', falcoName: 'is_tee_bot_notice_only' }),
+            recipientCount: Object.freeze({ id: 10, type: 'integer', falcoName: 'recipient_count' }),
+            uiSurface: Object.freeze({ id: 11, type: 'enum', enum: 'TS_SURFACE', falcoName: 'ui_surface' }),
+            unifiedSessionId: Object.freeze({ id: 12, type: 'string', falcoName: 'unified_session_id' }),
+            userJourneyTs: Object.freeze({ id: 13, type: 'integer', falcoName: 'user_journey_ts' }),
+            xIneligibleReasons: Object.freeze({ id: 16, type: 'string', falcoName: 'x_ineligible_reasons' })
         })
     }),
     GroupJoinC: Object.freeze({

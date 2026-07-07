@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042657073",
+  "waVersion": "2.3000.1042735850",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -38665,7 +38665,7 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "l",
+                "arg": "e.stanzaId",
                 "direction": "both"
               },
               "to": {
@@ -40465,11 +40465,11 @@
         },
         "children": [
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },
@@ -40479,11 +40479,11 @@
             "max": 1
           },
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },

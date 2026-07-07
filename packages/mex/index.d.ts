@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042657073
+// WhatsApp Version: 2.3000.1042735850
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -52,8 +52,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly EditBizProfile: WaMexPersistId
     readonly ExternalCtxAuthoriseWAChat: WaMexPersistId
     readonly FetchAboutStatus: WaMexPersistId
-    readonly FetchAdEntryPointsConfiguration: WaMexPersistId
-    readonly FetchAdEntryPointsConfigurationM1: WaMexPersistId
     readonly FetchAllNewslettersMetadata: WaMexPersistId
     readonly FetchAllSubgroups: WaMexPersistId
     readonly FetchBotCertificateRevocationList: WaMexPersistId
@@ -186,8 +184,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
     readonly ExternalCtxAuthoriseWAChat: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly FetchAboutStatus: WaMexOperationSchema<'query', readonly ['user']>
-    readonly FetchAdEntryPointsConfiguration: WaMexOperationSchema<'query', readonly []>
-    readonly FetchAdEntryPointsConfigurationM1: WaMexOperationSchema<'query', readonly []>
     readonly FetchAllNewslettersMetadata: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'fetch_wamo_sub']>
     readonly FetchAllSubgroups: WaMexOperationSchema<'query', readonly ['group_id', 'query_context', 'sub_group_hint_id']>
     readonly FetchBotCertificateRevocationList: WaMexOperationSchema<'query', readonly ['crl_name']>
@@ -512,10 +508,6 @@ export type WaMexFetchAboutStatusVariables = {
         readonly user_id?: string
     }
 }
-
-export type WaMexFetchAdEntryPointsConfigurationVariables = Readonly<Record<string, never>>
-
-export type WaMexFetchAdEntryPointsConfigurationM1Variables = Readonly<Record<string, never>>
 
 export type WaMexFetchAllNewslettersMetadataVariables = {
     readonly fetch_status_metadata?: boolean
@@ -1187,8 +1179,6 @@ export interface WaMexOperationVariables {
     readonly EditBizProfile: WaMexEditBizProfileVariables
     readonly ExternalCtxAuthoriseWAChat: WaMexExternalCtxAuthoriseWAChatVariables
     readonly FetchAboutStatus: WaMexFetchAboutStatusVariables
-    readonly FetchAdEntryPointsConfiguration: WaMexFetchAdEntryPointsConfigurationVariables
-    readonly FetchAdEntryPointsConfigurationM1: WaMexFetchAdEntryPointsConfigurationM1Variables
     readonly FetchAllNewslettersMetadata: WaMexFetchAllNewslettersMetadataVariables
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsVariables
     readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListVariables
@@ -2015,22 +2005,6 @@ export type WaMexFetchAboutStatusResponse = {
     }>
 }
 
-export type WaMexFetchAdEntryPointsConfigurationResponse = {
-    readonly ctwa_client_entry_point_entitlement?: ReadonlyArray<{
-        readonly entry_point_or_experience?: string
-        readonly should_show?: boolean
-    }>
-}
-
-export type WaMexFetchAdEntryPointsConfigurationM1Response = {
-    readonly ctwa_client_entry_point_entitlement?: ReadonlyArray<{
-        readonly entry_point_or_experience?: string
-        readonly should_show?: boolean
-        readonly content?: string
-        readonly sub_content?: string
-    }>
-}
-
 export type WaMexFetchAllNewslettersMetadataResponse = {
     readonly xwa2_newsletter_subscribed?: ReadonlyArray<{
         readonly id?: string
@@ -2213,6 +2187,7 @@ export type WaMexFetchGroupInfoResponse = {
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
                 readonly join_time?: string
+                readonly group_history_sent?: unknown
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2312,6 +2287,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
                 readonly join_time?: string
+                readonly group_history_sent?: unknown
             }>
             readonly participants_phash_match?: boolean
         }
@@ -4363,8 +4339,6 @@ export interface WaMexOperationResponses {
     readonly EditBizProfile: WaMexEditBizProfileResponse
     readonly ExternalCtxAuthoriseWAChat: WaMexExternalCtxAuthoriseWAChatResponse
     readonly FetchAboutStatus: WaMexFetchAboutStatusResponse
-    readonly FetchAdEntryPointsConfiguration: WaMexFetchAdEntryPointsConfigurationResponse
-    readonly FetchAdEntryPointsConfigurationM1: WaMexFetchAdEntryPointsConfigurationM1Response
     readonly FetchAllNewslettersMetadata: WaMexFetchAllNewslettersMetadataResponse
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsResponse
     readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListResponse

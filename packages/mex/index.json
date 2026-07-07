@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042657073",
+  "waVersion": "2.3000.1042735850",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1309,38 +1309,6 @@
         ]
       }
     },
-    "FetchAdEntryPointsConfiguration": {
-      "originalName": "WAWebFetchAdEntryPointsConfigurationQuery",
-      "docId": "9656368401073090",
-      "operationKind": "query",
-      "variables": [],
-      "variablesShape": {},
-      "response": {
-        "ctwa_client_entry_point_entitlement": [
-          {
-            "entry_point_or_experience": "string",
-            "should_show": "boolean"
-          }
-        ]
-      }
-    },
-    "FetchAdEntryPointsConfigurationM1": {
-      "originalName": "WAWebFetchAdEntryPointsConfigurationM1Query",
-      "docId": "9737776042983782",
-      "operationKind": "query",
-      "variables": [],
-      "variablesShape": {},
-      "response": {
-        "ctwa_client_entry_point_entitlement": [
-          {
-            "entry_point_or_experience": "string",
-            "should_show": "boolean",
-            "content": "string",
-            "sub_content": "string"
-          }
-        ]
-      }
-    },
     "FetchAllNewslettersMetadata": {
       "originalName": "WAWebMexFetchAllNewslettersMetadataJobQuery",
       "docId": "25399611239711790",
@@ -1535,7 +1503,7 @@
     },
     "FetchGroupInfo": {
       "originalName": "WAWebMexFetchGroupInfoJobQuery",
-      "docId": "25830934356604858",
+      "docId": "27508847222068472",
       "operationKind": "query",
       "variables": [
         "id",
@@ -1605,7 +1573,8 @@
                   }
                 },
                 "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER",
-                "join_time": "string"
+                "join_time": "string",
+                "group_history_sent": "unknown"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1650,7 +1619,7 @@
     },
     "FetchGroupInfoIncludBots": {
       "originalName": "WAWebMexFetchGroupInfoIncludBotsJobQuery",
-      "docId": "27611314235130306",
+      "docId": "27795062750123057",
       "operationKind": "query",
       "variables": [
         "id",
@@ -1722,7 +1691,8 @@
                   "jid": "string"
                 },
                 "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER",
-                "join_time": "string"
+                "join_time": "string",
+                "group_history_sent": "unknown"
               }
             ],
             "participants_phash_match": "boolean"
