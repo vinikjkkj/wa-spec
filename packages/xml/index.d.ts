@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042735850
+// WhatsApp Version: 2.3000.1042811556
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2262,9 +2262,9 @@ export interface WaXmlOperations {
                 readonly offline: number
                 readonly sts: number
                 readonly to: string
-                readonly phash: string
                 readonly participant: string
                 readonly eph_setting?: string
+                readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -12656,16 +12656,16 @@ export interface WaXmlStanzas {
                 readonly recipient?: string
             }
             readonly children: {
-                readonly meta: {
-                    readonly tag: 'meta'
-                    readonly attrs: {
-                        readonly failure_reason: number
-                    }
-                }
                 readonly user: {
                     readonly tag: 'user'
                     readonly attrs: {
                         readonly side_list: 'out'
+                    }
+                }
+                readonly meta: {
+                    readonly tag: 'meta'
+                    readonly attrs: {
+                        readonly failure_reason: number
                     }
                 }
             }
@@ -13070,9 +13070,9 @@ export interface WaXmlStanzas {
                     readonly recipient: string
                     readonly id: string
                     readonly to: string
-                    readonly phash: string
                     readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly eph_setting?: string
+                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -13298,9 +13298,9 @@ export interface WaXmlStanzas {
                     readonly offline: number
                     readonly sts: number
                     readonly to: string
-                    readonly phash: string
                     readonly participant: string
                     readonly eph_setting?: string
+                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string

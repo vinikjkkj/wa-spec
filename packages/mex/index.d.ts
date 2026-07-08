@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042735850
+// WhatsApp Version: 2.3000.1042811556
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -2187,7 +2187,7 @@ export type WaMexFetchGroupInfoResponse = {
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
                 readonly join_time?: string
-                readonly group_history_sent?: unknown
+                readonly group_history_sent?: boolean
             }>
             readonly participants_phash_match?: boolean
         }
@@ -2287,7 +2287,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
                 readonly join_time?: string
-                readonly group_history_sent?: unknown
+                readonly group_history_sent?: boolean
             }>
             readonly participants_phash_match?: boolean
         }

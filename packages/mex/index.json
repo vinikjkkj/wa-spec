@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042735850",
+  "waVersion": "2.3000.1042811556",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1574,7 +1574,7 @@
                 },
                 "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER",
                 "join_time": "string",
-                "group_history_sent": "unknown"
+                "group_history_sent": "boolean"
               }
             ],
             "participants_phash_match": "boolean"
@@ -1692,7 +1692,7 @@
                 },
                 "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER",
                 "join_time": "string",
-                "group_history_sent": "unknown"
+                "group_history_sent": "boolean"
               }
             ],
             "participants_phash_match": "boolean"
