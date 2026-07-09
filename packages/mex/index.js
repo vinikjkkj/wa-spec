@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042811556
+// WhatsApp Version: 2.3000.1042888000
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042811556
+// WhatsApp Version: 2.3000.1042888000
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -6079,7 +6079,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIX_NATIVE_ENROLLMENT_DELETE': 99,
         'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100,
         'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101,
-        'PIX_NATIVE_PROMO_SCREEN_VIEW': 102
+        'PIX_NATIVE_PROMO_SCREEN_VIEW': 102,
+        'PAYMENT_TEXT_DETECTION_CLICK': 103
         })
     }),
     INVISIBLE_MESSAGE_CATEGORY_TYPE: Object.freeze({
@@ -6824,7 +6825,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_RECREATE_AD_BIZHOME_QP': 106,
         'SMB_RECREATE_PERFORMING_AD_BIZHOME_QP': 107,
         'SMB_RECREATE_PERFORMING_AD_CHATLIST_QP': 108,
-        'SMB_BIZ_PROFILE_OVERFLOW_MENU': 109
+        'SMB_BIZ_PROFILE_OVERFLOW_MENU': 109,
+        'BIZ_PROFILE_MEDIA_PICKER': 110
         })
     }),
     LWI_ENTRY_POINT_IMPRESSION_ACTION: Object.freeze({
@@ -12482,7 +12484,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LISTS_CREATION': 20,
         'LIST_APPLICATION': 21,
         'SEND_QUICK_REPLY': 22,
-        'STATUS_CROSSPOST': 23
+        'STATUS_CROSSPOST': 23,
+        'CONNECTED_MEDIA': 24
         })
     }),
     SMB_LIST_FEATURE_NAME_TYPE: Object.freeze({
@@ -13999,7 +14002,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_LIST': 315,
         'STATUS_COMPOSER': 316,
         'GEN_AI_AI_HUB_REVIEW_CHATS': 317,
-        'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318
+        'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318,
+        'FB_MEDIA_PICKER': 319,
+        'IG_MEDIA_PICKER': 320
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -14887,7 +14892,8 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'REQUIRES_FB_LINKING': 1,
         'REQUIRES_IG_LINKING': 2,
-        'REQUIRES_FB_IG_LINKING': 3
+        'REQUIRES_FB_IG_LINKING': 3,
+        'ALREADY_TAKEN': 4
         })
     }),
     USERNAME_CREATION_FLOW_TYPE: Object.freeze({
