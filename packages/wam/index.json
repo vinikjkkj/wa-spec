@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042888000",
+  "waVersion": "2.3000.1042957109",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -3949,6 +3949,36 @@
         "COUNTRY_LEVEL": 2
       }
     },
+    "DEFAULT_PROTOCOL_RESULT_TYPE": {
+      "module": "WAWebWamEnumDefaultProtocolResultType",
+      "export": "DEFAULT_PROTOCOL_RESULT_TYPE",
+      "values": {
+        "DISPATCHED": 0,
+        "CONVERSION_FAILURE": 1,
+        "NAVIGATION_SUCCESS": 2,
+        "NAVIGATION_FAILURE": 3
+      }
+    },
+    "DEFAULT_PROTOCOL_SCHEME_TYPE": {
+      "module": "WAWebWamEnumDefaultProtocolSchemeType",
+      "export": "DEFAULT_PROTOCOL_SCHEME_TYPE",
+      "values": {
+        "TEL": 0,
+        "MS_VOIP_CALL": 1,
+        "MS_VOIP_VIDEO": 2,
+        "IM": 3,
+        "MS_IPMESSAGING": 4
+      }
+    },
+    "DEFAULT_PROTOCOL_TARGET_TYPE": {
+      "module": "WAWebWamEnumDefaultProtocolTargetType",
+      "export": "DEFAULT_PROTOCOL_TARGET_TYPE",
+      "values": {
+        "LID": 0,
+        "PHONE": 1,
+        "NONE": 2
+      }
+    },
     "DEFENSE_MODE_CLICK_CONTROL_NAME": {
       "module": "WAWebWamEnumDefenseModeClickControlName",
       "export": "DEFENSE_MODE_CLICK_CONTROL_NAME",
@@ -6414,7 +6444,9 @@
         "MUTE": 6,
         "UNMUTE": 7,
         "HIDE": 8,
-        "UNHIDE": 9
+        "UNHIDE": 9,
+        "REORDER": 10,
+        "BUCKET_MIGRATION_DONE": 11
       }
     },
     "LIST_TYPE": {
@@ -6857,7 +6889,11 @@
         "SMB_RECREATE_PERFORMING_AD_BIZHOME_QP": 107,
         "SMB_RECREATE_PERFORMING_AD_CHATLIST_QP": 108,
         "SMB_BIZ_PROFILE_OVERFLOW_MENU": 109,
-        "BIZ_PROFILE_MEDIA_PICKER": 110
+        "BIZ_PROFILE_MEDIA_PICKER": 110,
+        "SMB_PRODUCT_DETAILS_RECOMMENDATION_INLINE_BOOST": 111,
+        "SMB_CATALOG_RECOMMENDATION_UPSELL_BOTTOM_SHEET": 112,
+        "SMB_CATALOG_RECOMMENDATION_FETCH": 113,
+        "SMB_STATUS_RECOMMENDATION_FETCH": 114
       }
     },
     "LWI_ENTRY_POINT_IMPRESSION_ACTION": {
@@ -6868,7 +6904,8 @@
         "LWI_ACTION_RECOMMENDATION_FETCH_START": 2,
         "LWI_ACTION_RECOMMENDATION_FETCH_RESPONSE": 3,
         "LWI_ACTION_RECOMMENDATION_FETCH_ERROR": 4,
-        "LWI_ACTION_IMPRESSION": 5
+        "LWI_ACTION_IMPRESSION": 5,
+        "LWI_ACTION_SUPPRESSED_BY_CAP": 6
       }
     },
     "LWI_SCREEN_ACTION": {
@@ -8047,7 +8084,8 @@
         "CLOSE_SHARING_MIMICRY": 128,
         "MEDIA_BROWSER_STATUS_MENU": 129,
         "ARCHIVE_STATUS_VIEWER": 130,
-        "AI_IMAGINE_MESSAGE_QUICK_EDIT": 131
+        "AI_IMAGINE_MESSAGE_QUICK_EDIT": 131,
+        "CONTACTS_TAB": 132
       }
     },
     "MEDIA_QUALITY": {
@@ -8447,6 +8485,14 @@
         "ERROR_UPLOAD_CANCELLED_AUTOMATIC": 19,
         "ERROR_BOUNDED_STANZA_TOO_LARGE": 20,
         "AEA_SEND_RECONCILATION_FAILURE": 21
+      }
+    },
+    "MESSAGE_SEND_RETRY_SOURCE": {
+      "module": "WAWebWamEnumMessageSendRetrySource",
+      "export": "MESSAGE_SEND_RETRY_SOURCE",
+      "values": {
+        "AUTO": 1,
+        "MANUAL": 2
       }
     },
     "MESSAGE_SEND_SOURCE": {
@@ -10477,6 +10523,7 @@
         "IGDVR": 67,
         "WASG": 68,
         "BLUEVR": 69,
+        "WAIL": 70,
         "TEST": 9,
         "UNKNOWN": 10
       }
@@ -10768,7 +10815,9 @@
         "DIALER_COUNTRY_CHIP_TAPPED": 87,
         "DIALER_COUNTRY_PICKER_SELECTED": 88,
         "DIALER_NEW_COUNTRY_CODE_DETECTED": 89,
-        "DIALER_INPUT_CURSOR_ENGAGED": 90
+        "DIALER_INPUT_CURSOR_ENGAGED": 90,
+        "CALL_LOG_MULTI_SELECT_ENTER": 91,
+        "CALL_LOG_MULTI_SELECT_SELECT_ALL": 92
       }
     },
     "PRIVACY_CONTROL_ENTRY_POINT_TYPE": {
@@ -13674,7 +13723,8 @@
         "CHAT_BUBBLE": 65,
         "ADD_PARTICIPANT_PICKER_SEARCH": 66,
         "CALLS_TAB_SEARCH": 67,
-        "UPCOMING_EVENT_BANNER": 68
+        "UPCOMING_EVENT_BANNER": 68,
+        "CALL_LOG_MULTI_SELECT_TOOLBAR": 69
       }
     },
     "SUPPORT_AI_EVENT_TYPE": {
@@ -14511,7 +14561,12 @@
         "BIOMETRIC_UNLOCK": 249,
         "LOCKED_CHATS": 250,
         "REACTION_DETAILS": 251,
-        "STORAGE_WARNING": 252
+        "STORAGE_WARNING": 252,
+        "STICKER_BROWSER": 253,
+        "COMPANION_LOADING": 254,
+        "COMPANION_REGISTRATION": 255,
+        "REGISTRATION_WELCOME": 256,
+        "CALLS_TAB_SECONDARY": 257
       }
     },
     "TYPE_OF_GROUP_ENUM": {
@@ -23134,6 +23189,11 @@
           "id": 1928,
           "type": "boolean",
           "falcoName": "is_events_link"
+        },
+        "isExtensionCreator": {
+          "id": 3066,
+          "type": "boolean",
+          "falcoName": "is_extension_creator"
         },
         "isFromCallLink": {
           "id": 1316,
@@ -41857,6 +41917,11 @@
       "requiredFields": [],
       "conditions": [],
       "fields": {
+        "currentMigrationBucket": {
+          "id": 9,
+          "type": "integer",
+          "falcoName": "current_migration_bucket"
+        },
         "customListCount": {
           "id": 7,
           "type": "integer",
@@ -41894,6 +41959,11 @@
           "id": 8,
           "type": "integer",
           "falcoName": "preset_list_count"
+        },
+        "previousMigrationBucket": {
+          "id": 10,
+          "type": "integer",
+          "falcoName": "previous_migration_bucket"
         },
         "updateEntryPoint": {
           "id": 6,
@@ -46338,11 +46408,21 @@
           "type": "boolean",
           "falcoName": "is_a_group"
         },
+        "isFailedMessage": {
+          "id": 7,
+          "type": "boolean",
+          "falcoName": "is_failed_message"
+        },
         "mediaType": {
           "id": 6,
           "type": "enum",
           "falcoName": "media_type",
           "enum": "MEDIA_TYPE"
+        },
+        "messageCreateTs": {
+          "id": 8,
+          "type": "integer",
+          "falcoName": "message_create_ts"
         },
         "messagesDeleted": {
           "id": 3,
@@ -47144,6 +47224,12 @@
           "id": 17,
           "type": "boolean",
           "falcoName": "message_send_result_is_terminal"
+        },
+        "messageSendRetrySource": {
+          "id": 95,
+          "type": "enum",
+          "falcoName": "message_send_retry_source",
+          "enum": "MESSAGE_SEND_RETRY_SOURCE"
         },
         "messageSendSource": {
           "id": 66,
@@ -50180,6 +50266,16 @@
       "requiredFields": [],
       "conditions": [],
       "fields": {
+        "messageBubbleHeightPx": {
+          "id": 17,
+          "type": "integer",
+          "falcoName": "message_bubble_height_px"
+        },
+        "messageBubbleWidthPx": {
+          "id": 18,
+          "type": "integer",
+          "falcoName": "message_bubble_width_px"
+        },
         "pmxActionTarget": {
           "id": 1,
           "type": "enum",
@@ -51095,6 +51191,11 @@
           "type": "enum",
           "falcoName": "pre_call_action_type",
           "enum": "PRE_CALL_ACTION_TYPE"
+        },
+        "selectedItemCount": {
+          "id": 12,
+          "type": "integer",
+          "falcoName": "selected_item_count"
         },
         "subSurface": {
           "id": 4,
@@ -64610,6 +64711,46 @@
           "id": 4,
           "type": "string",
           "falcoName": "step"
+        }
+      }
+    },
+    "WindowsDefaultProtocolActivation": {
+      "id": 8504,
+      "module": "WAWebWindowsDefaultProtocolActivationWamEvent",
+      "falcoName": "wam_windows_default_protocol_activation",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "defaultProtocolResult": {
+          "id": 1,
+          "type": "enum",
+          "falcoName": "default_protocol_result",
+          "enum": "DEFAULT_PROTOCOL_RESULT_TYPE"
+        },
+        "defaultProtocolScheme": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "default_protocol_scheme",
+          "enum": "DEFAULT_PROTOCOL_SCHEME_TYPE"
+        },
+        "defaultProtocolTarget": {
+          "id": 3,
+          "type": "enum",
+          "falcoName": "default_protocol_target",
+          "enum": "DEFAULT_PROTOCOL_TARGET_TYPE"
+        },
+        "tsTimestampMs": {
+          "id": 4,
+          "type": "integer",
+          "falcoName": "ts_timestamp_ms"
         }
       }
     }
