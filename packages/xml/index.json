@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042957109",
+  "waVersion": "2.3000.1043012667",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -32974,8 +32974,8 @@
                 "optional": true
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "p",
                 "direction": "both"
               },
               "class": {
@@ -33224,8 +33224,8 @@
                 "optional": true
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "p",
                 "direction": "both"
               },
               "class": {
@@ -33465,18 +33465,13 @@
                 "type": "jid"
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
-                "direction": "both"
-              },
-              "t": {
-                "type": "int",
-                "arg": "Date.now().toString()",
+                "type": "jid",
+                "arg": "p",
                 "direction": "both"
               },
               "participant": {
                 "type": "deviceJid",
-                "arg": "i",
+                "arg": "l",
                 "optional": true,
                 "direction": "both"
               },
@@ -33502,6 +33497,11 @@
                 "type": "string",
                 "arg": "T",
                 "direction": "out"
+              },
+              "t": {
+                "type": "int",
+                "arg": "Date.now().toString()",
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33618,8 +33618,8 @@
                 "direction": "both"
               },
               "to": {
-                "type": "deviceJid",
-                "arg": "t.peer_jid",
+                "type": "jid",
+                "arg": "p",
                 "direction": "both"
               },
               "class": {
@@ -38660,7 +38660,7 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "e.stanzaId",
+                "arg": "l",
                 "direction": "both"
               },
               "to": {
@@ -40393,6 +40393,11 @@
       "node": {
         "tag": "ack",
         "attrs": {
+          "id": {
+            "type": "stanzaId",
+            "arg": "t",
+            "direction": "out"
+          },
           "class": {
             "type": "enum",
             "enumValues": [
@@ -40403,14 +40408,16 @@
             ],
             "direction": "out"
           },
-          "id": {
-            "type": "stanzaId",
-            "raw": "n.id",
-            "direction": "out"
-          },
           "to": {
             "type": "jid",
-            "raw": "n.from",
+            "arg": "n",
+            "optional": true,
+            "direction": "out"
+          },
+          "participant": {
+            "type": "deviceJid",
+            "arg": "r",
+            "optional": true,
             "direction": "out"
           },
           "type": {
@@ -40439,15 +40446,9 @@
             ],
             "direction": "out"
           },
-          "participant": {
-            "type": "userJid",
-            "raw": "n.participant",
-            "optional": true,
-            "direction": "out"
-          },
           "error": {
             "type": "int",
-            "arg": "t",
+            "arg": "i",
             "direction": "out"
           },
           "recipient": {
@@ -40459,11 +40460,11 @@
         },
         "children": [
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },
@@ -40473,11 +40474,11 @@
             "max": 1
           },
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },

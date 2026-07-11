@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042957109
+// WhatsApp Version: 2.3000.1043012667
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -12647,25 +12647,25 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'ack'
             readonly attrs: {
-                readonly class: 'call' | 'message' | 'notification' | 'receipt'
                 readonly id: string
-                readonly to: string
-                readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
+                readonly class: 'call' | 'message' | 'notification' | 'receipt'
+                readonly to?: string
                 readonly participant?: string
+                readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly error: number
                 readonly recipient?: string
             }
             readonly children: {
-                readonly user: {
-                    readonly tag: 'user'
-                    readonly attrs: {
-                        readonly side_list: 'out'
-                    }
-                }
                 readonly meta: {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly failure_reason: number
+                    }
+                }
+                readonly user: {
+                    readonly tag: 'user'
+                    readonly attrs: {
+                        readonly side_list: 'out'
                     }
                 }
             }
@@ -14987,11 +14987,11 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
-                    readonly t: number
                     readonly participant?: string
                     readonly recipient?: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly category: string
+                    readonly t: number
                     readonly peer_participant_pn?: string
                     readonly sts?: string
                     readonly server_id: number

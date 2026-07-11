@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1042957109
+// WhatsApp Version: 2.3000.1043012667
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1427,6 +1427,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'WA_CALL_RINGING_OR_PENDING': 2
         })
     }),
+    CA2D_EXTENSION_ADD_FAILURE_REASON: Object.freeze({
+        module: 'WAWebWamEnumCa2dExtensionAddFailureReason',
+        export: 'CA2D_EXTENSION_ADD_FAILURE_REASON',
+        values: Object.freeze({
+        'UNDEFINED': 0,
+        'OHAI_REQ_TIMEOUT': 1,
+        'OHAI_REQ_NACK': 2,
+        'ADD_EXTENSION_NACK': 3
+        })
+    }),
     CA2D_EXTENSION_CONNECTION_STATE: Object.freeze({
         module: 'WAWebWamEnumCa2dExtensionConnectionState',
         export: 'CA2D_EXTENSION_CONNECTION_STATE',
@@ -1436,7 +1446,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CREATED': 2,
         'CONNECTING': 3,
         'CONNECTED': 4,
-        'REMOVED': 5
+        'REMOVED': 5,
+        'FAILED': 6
         })
     }),
     CADMIN_DEMOTE_ORIGIN_TYPE: Object.freeze({
@@ -17007,6 +17018,7 @@ const WA_WAM_EVENTS = Object.freeze({
             bwaVidDisablingTxCandidateDuration: Object.freeze({ id: 1115, type: 'timer', falcoName: 'bwa_vid_disabling_tx_candidate_duration' }),
             bweSlrOutputBps: Object.freeze({ id: 2461, type: 'integer', falcoName: 'bwe_slr_output_bps' }),
             c50Linked: Object.freeze({ id: 3001, type: 'boolean', falcoName: 'c50_linked' }),
+            ca2dExtensionAddFailureReason: Object.freeze({ id: 3067, type: 'enum', enum: 'CA2D_EXTENSION_ADD_FAILURE_REASON', falcoName: 'ca2d_extension_add_failure_reason' }),
             ca2dExtensionAddT: Object.freeze({ id: 3034, type: 'timer', falcoName: 'ca2d_extension_add_t' }),
             ca2dExtensionConnectionState: Object.freeze({ id: 3035, type: 'enum', enum: 'CA2D_EXTENSION_CONNECTION_STATE', falcoName: 'ca2d_extension_connection_state' }),
             ca2dExtensionCreateT: Object.freeze({ id: 3036, type: 'timer', falcoName: 'ca2d_extension_create_t' }),

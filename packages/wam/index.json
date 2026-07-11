@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1042957109",
+  "waVersion": "2.3000.1043012667",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -1458,6 +1458,16 @@
         "WA_CALL_RINGING_OR_PENDING": 2
       }
     },
+    "CA2D_EXTENSION_ADD_FAILURE_REASON": {
+      "module": "WAWebWamEnumCa2dExtensionAddFailureReason",
+      "export": "CA2D_EXTENSION_ADD_FAILURE_REASON",
+      "values": {
+        "UNDEFINED": 0,
+        "OHAI_REQ_TIMEOUT": 1,
+        "OHAI_REQ_NACK": 2,
+        "ADD_EXTENSION_NACK": 3
+      }
+    },
     "CA2D_EXTENSION_CONNECTION_STATE": {
       "module": "WAWebWamEnumCa2dExtensionConnectionState",
       "export": "CA2D_EXTENSION_CONNECTION_STATE",
@@ -1467,7 +1477,8 @@
         "CREATED": 2,
         "CONNECTING": 3,
         "CONNECTED": 4,
-        "REMOVED": 5
+        "REMOVED": 5,
+        "FAILED": 6
       }
     },
     "CADMIN_DEMOTE_ORIGIN_TYPE": {
@@ -19833,6 +19844,12 @@
           "id": 3001,
           "type": "boolean",
           "falcoName": "c50_linked"
+        },
+        "ca2dExtensionAddFailureReason": {
+          "id": 3067,
+          "type": "enum",
+          "falcoName": "ca2d_extension_add_failure_reason",
+          "enum": "CA2D_EXTENSION_ADD_FAILURE_REASON"
         },
         "ca2dExtensionAddT": {
           "id": 3034,
