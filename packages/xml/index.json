@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043012667",
+  "waVersion": "2.3000.1043028647",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5681,7 +5681,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -33500,7 +33500,8 @@
               },
               "t": {
                 "type": "int",
-                "arg": "Date.now().toString()",
+                "arg": "d",
+                "optional": true,
                 "direction": "both"
               },
               "peer_participant_pn": {
@@ -38689,7 +38690,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
@@ -39499,7 +39500,7 @@
                 "type": "string",
                 "arg": "y",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "peer_recipient_lid": {
                 "type": "userJid",
