@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043042630
+// WhatsApp Version: 2.3000.1043110200
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -39,14 +39,12 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ConsumerFetchQuickPromotions: WaMexPersistId
     readonly ConsumerQuickPromotionActionGraphQL: WaMexPersistId
     readonly CreateInviteCode: WaMexPersistId
-    readonly CreateLabyrinthBackup: WaMexPersistId
     readonly CreateMarketingCampaignAction: WaMexPersistId
     readonly CreateNewsletter: WaMexPersistId
     readonly CreateNewsletterAdminInvite: WaMexPersistId
     readonly CreateReportAppeal: WaMexPersistId
     readonly CreateWhatsAppAdsIdentity: WaMexPersistId
     readonly CustomLabel3pdEvent: WaMexPersistId
-    readonly DebugLabyrinthInboxSnapshot: WaMexPersistId
     readonly DeleteNewsletter: WaMexPersistId
     readonly DemoteNewsletterAdmin: WaMexPersistId
     readonly EditBizProfile: WaMexPersistId
@@ -136,7 +134,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly UpdateNewsletter: WaMexPersistId
     readonly UpdateNewsletterUserSetting: WaMexPersistId
     readonly UpdateTextStatus: WaMexPersistId
-    readonly UploadLabyrinthMessages: WaMexPersistId
     readonly UsernameAvailability: WaMexPersistId
     readonly Usync: WaMexPersistId
     readonly WAAOnboarding: WaMexPersistId
@@ -171,14 +168,12 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ConsumerFetchQuickPromotions: WaMexOperationSchema<'query', readonly ['nux_ids', 'trigger_context']>
     readonly ConsumerQuickPromotionActionGraphQL: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateInviteCode: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly CreateLabyrinthBackup: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateMarketingCampaignAction: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateNewsletter: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly CreateReportAppeal: WaMexOperationSchema<'mutation', readonly ['reason', 'report_id']>
     readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'phone_number']>
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
-    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['params']>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly DemoteNewsletterAdmin: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
@@ -268,7 +263,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UpdateNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
     readonly UpdateNewsletterUserSetting: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateTextStatus: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
     readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_username', 'input']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -436,10 +430,6 @@ export type WaMexCreateInviteCodeVariables = {
     }
 }
 
-export type WaMexCreateLabyrinthBackupVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
 export type WaMexCreateMarketingCampaignActionVariables = {
     readonly input?: string
 }
@@ -474,15 +464,6 @@ export type WaMexCreateWhatsAppAdsIdentityVariables = {
 export type WaMexCustomLabel3pdEventVariables = {
     readonly custom_labels?: ReadonlyArray<string>
     readonly expt_group?: string
-}
-
-export type WaMexDebugLabyrinthInboxSnapshotVariables = {
-    readonly params?: {
-        readonly lower_timestamp?: string
-        readonly num_msgs?: unknown
-        readonly num_threads?: unknown
-        readonly upper_timestamp?: string
-    }
 }
 
 export type WaMexDeleteNewsletterVariables = {
@@ -1089,15 +1070,6 @@ export type WaMexUpdateTextStatusVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
-export type WaMexUploadLabyrinthMessagesVariables = {
-    readonly input?: {
-        readonly device_id?: string
-        readonly epoch_id?: string
-        readonly family_device_id?: string
-        readonly messages?: ReadonlyArray<Readonly<Record<string, unknown>>>
-    }
-}
-
 export type WaMexUsernameAvailabilityVariables = {
     readonly input?: string
     readonly session_id?: string
@@ -1166,14 +1138,12 @@ export interface WaMexOperationVariables {
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsVariables
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLVariables
     readonly CreateInviteCode: WaMexCreateInviteCodeVariables
-    readonly CreateLabyrinthBackup: WaMexCreateLabyrinthBackupVariables
     readonly CreateMarketingCampaignAction: WaMexCreateMarketingCampaignActionVariables
     readonly CreateNewsletter: WaMexCreateNewsletterVariables
     readonly CreateNewsletterAdminInvite: WaMexCreateNewsletterAdminInviteVariables
     readonly CreateReportAppeal: WaMexCreateReportAppealVariables
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityVariables
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventVariables
-    readonly DebugLabyrinthInboxSnapshot: WaMexDebugLabyrinthInboxSnapshotVariables
     readonly DeleteNewsletter: WaMexDeleteNewsletterVariables
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminVariables
     readonly EditBizProfile: WaMexEditBizProfileVariables
@@ -1263,7 +1233,6 @@ export interface WaMexOperationVariables {
     readonly UpdateNewsletter: WaMexUpdateNewsletterVariables
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingVariables
     readonly UpdateTextStatus: WaMexUpdateTextStatusVariables
-    readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesVariables
     readonly UsernameAvailability: WaMexUsernameAvailabilityVariables
     readonly Usync: WaMexUsyncVariables
     readonly WAAOnboarding: WaMexWAAOnboardingVariables
@@ -1825,17 +1794,6 @@ export type WaMexCreateInviteCodeResponse = {
     }
 }
 
-export type WaMexCreateLabyrinthBackupResponse = {
-    readonly xwa2_labyrinth_create_backup?: {
-        readonly __typename?: string
-        readonly backup_id?: string
-        readonly device_id?: string
-        readonly epoch_id?: string
-        readonly status?: string
-        readonly message?: string
-    }
-}
-
 export type WaMexCreateMarketingCampaignActionResponse = {
     readonly whatsapp_marketing_messages_create?: {
         readonly ad_campaign_group_id?: string
@@ -1946,27 +1904,6 @@ export type WaMexCustomLabel3pdEventResponse = {
         readonly ctwa_3pd_conversion_subtype?: string
         readonly ctwa_3pd_conversion_metadata?: string
     }>
-}
-
-export type WaMexDebugLabyrinthInboxSnapshotResponse = {
-    readonly get_wa_mailbox?: {
-        readonly __typename?: string
-        readonly snapshot_threads_with_messages?: {
-            readonly items_with_messages?: ReadonlyArray<{
-                readonly item?: {
-                    readonly __typename?: string
-                    readonly id?: string
-                }
-                readonly messages?: ReadonlyArray<{
-                    readonly __typename?: string
-                    readonly encrypted_payload?: unknown
-                    readonly encryption_version?: number
-                    readonly id?: string
-                }>
-            }>
-        }
-        readonly id?: string
-    }
 }
 
 export type WaMexDeleteNewsletterResponse = {
@@ -4175,19 +4112,6 @@ export type WaMexUpdateTextStatusResponse = {
     }
 }
 
-export type WaMexUploadLabyrinthMessagesResponse = {
-    readonly xwa2_labyrinth_upload_messages?: {
-        readonly __typename?: string
-        readonly results?: ReadonlyArray<{
-            readonly offline_threading_id?: string
-            readonly success?: string
-            readonly error?: boolean
-        }>
-        readonly status?: string
-        readonly message?: string
-    }
-}
-
 export type WaMexUsernameAvailabilityResponse = {
     readonly xwa2_username_check?: {
         readonly result?: 'SUCCESS'
@@ -4326,14 +4250,12 @@ export interface WaMexOperationResponses {
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsResponse
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLResponse
     readonly CreateInviteCode: WaMexCreateInviteCodeResponse
-    readonly CreateLabyrinthBackup: WaMexCreateLabyrinthBackupResponse
     readonly CreateMarketingCampaignAction: WaMexCreateMarketingCampaignActionResponse
     readonly CreateNewsletter: WaMexCreateNewsletterResponse
     readonly CreateNewsletterAdminInvite: WaMexCreateNewsletterAdminInviteResponse
     readonly CreateReportAppeal: WaMexCreateReportAppealResponse
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityResponse
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventResponse
-    readonly DebugLabyrinthInboxSnapshot: WaMexDebugLabyrinthInboxSnapshotResponse
     readonly DeleteNewsletter: WaMexDeleteNewsletterResponse
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminResponse
     readonly EditBizProfile: WaMexEditBizProfileResponse
@@ -4423,7 +4345,6 @@ export interface WaMexOperationResponses {
     readonly UpdateNewsletter: WaMexUpdateNewsletterResponse
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingResponse
     readonly UpdateTextStatus: WaMexUpdateTextStatusResponse
-    readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesResponse
     readonly UsernameAvailability: WaMexUsernameAvailabilityResponse
     readonly Usync: WaMexUsyncResponse
     readonly WAAOnboarding: WaMexWAAOnboardingResponse

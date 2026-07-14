@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043042630
+// WhatsApp Version: 2.3000.1043110200
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -13704,7 +13704,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'ADD_PARTICIPANT_PICKER_SEARCH': 66,
         'CALLS_TAB_SEARCH': 67,
         'UPCOMING_EVENT_BANNER': 68,
-        'CALL_LOG_MULTI_SELECT_TOOLBAR': 69
+        'CALL_LOG_MULTI_SELECT_TOOLBAR': 69,
+        'CALL_LOG_SWIPE': 70,
+        'CALL_LOG_CLEAR_ALL': 71
         })
     }),
     SUPPORT_AI_EVENT_TYPE: Object.freeze({
@@ -18067,6 +18069,7 @@ const WA_WAM_EVENTS = Object.freeze({
             oneSideRelayTransactionIdFirstAllocResp: Object.freeze({ id: 1490, type: 'integer', falcoName: 'one_side_relay_transaction_id_first_alloc_resp' }),
             oneToOneTerminateCount: Object.freeze({ id: 2103, type: 'integer', falcoName: 'one_to_one_terminate_count' }),
             opusVersion: Object.freeze({ id: 287, type: 'integer', falcoName: 'opus_version' }),
+            outgoingCallSetupActiveMs: Object.freeze({ id: 3068, type: 'timer', falcoName: 'outgoing_call_setup_active_ms' }),
             p2pCandPairStat: Object.freeze({ id: 2305, type: 'string', falcoName: 'p2p_cand_pair_stat' }),
             p2pConnectionQualityStat: Object.freeze({ id: 1612, type: 'string', falcoName: 'p2p_connection_quality_stat' }),
             p2pLocalCandAf: Object.freeze({ id: 1883, type: 'enum', enum: 'CLIENT_IP_VERSION', falcoName: 'p2p_local_cand_af' }),
@@ -22400,7 +22403,8 @@ const WA_WAM_EVENTS = Object.freeze({
             predefinedId: Object.freeze({ id: 5, type: 'integer', falcoName: 'predefined_id' }),
             presetListCount: Object.freeze({ id: 8, type: 'integer', falcoName: 'preset_list_count' }),
             previousMigrationBucket: Object.freeze({ id: 10, type: 'integer', falcoName: 'previous_migration_bucket' }),
-            updateEntryPoint: Object.freeze({ id: 6, type: 'enum', enum: 'UPDATE_ENTRY_POINT', falcoName: 'update_entry_point' })
+            updateEntryPoint: Object.freeze({ id: 6, type: 'enum', enum: 'UPDATE_ENTRY_POINT', falcoName: 'update_entry_point' }),
+            visibleListIds: Object.freeze({ id: 11, type: 'string', falcoName: 'visible_list_ids' })
         })
     }),
     LockFolderUnlock: Object.freeze({

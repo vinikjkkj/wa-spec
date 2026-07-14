@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043042630",
+  "waVersion": "2.3000.1043110200",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -13735,7 +13735,9 @@
         "ADD_PARTICIPANT_PICKER_SEARCH": 66,
         "CALLS_TAB_SEARCH": 67,
         "UPCOMING_EVENT_BANNER": 68,
-        "CALL_LOG_MULTI_SELECT_TOOLBAR": 69
+        "CALL_LOG_MULTI_SELECT_TOOLBAR": 69,
+        "CALL_LOG_SWIPE": 70,
+        "CALL_LOG_CLEAR_ALL": 71
       }
     },
     "SUPPORT_AI_EVENT_TYPE": {
@@ -25135,6 +25137,11 @@
           "id": 287,
           "type": "integer",
           "falcoName": "opus_version"
+        },
+        "outgoingCallSetupActiveMs": {
+          "id": 3068,
+          "type": "timer",
+          "falcoName": "outgoing_call_setup_active_ms"
         },
         "p2pCandPairStat": {
           "id": 2305,
@@ -41987,6 +41994,11 @@
           "type": "enum",
           "falcoName": "update_entry_point",
           "enum": "UPDATE_ENTRY_POINT"
+        },
+        "visibleListIds": {
+          "id": 11,
+          "type": "string",
+          "falcoName": "visible_list_ids"
         }
       }
     },

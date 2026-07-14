@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043042630
+// WhatsApp Version: 2.3000.1043110200
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -13813,7 +13813,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ADD_PARTICIPANT_PICKER_SEARCH': 66;
             readonly 'CALLS_TAB_SEARCH': 67;
             readonly 'UPCOMING_EVENT_BANNER': 68;
-            readonly 'CALL_LOG_MULTI_SELECT_TOOLBAR': 69
+            readonly 'CALL_LOG_MULTI_SELECT_TOOLBAR': 69;
+            readonly 'CALL_LOG_SWIPE': 70;
+            readonly 'CALL_LOG_CLEAR_ALL': 71
         }
     }
     readonly SUPPORT_AI_EVENT_TYPE: {
@@ -18300,6 +18302,7 @@ export declare const WA_WAM_EVENTS: {
             readonly oneSideRelayTransactionIdFirstAllocResp: { readonly id: 1490; readonly type: 'integer'; readonly falcoName: 'one_side_relay_transaction_id_first_alloc_resp' }
             readonly oneToOneTerminateCount: { readonly id: 2103; readonly type: 'integer'; readonly falcoName: 'one_to_one_terminate_count' }
             readonly opusVersion: { readonly id: 287; readonly type: 'integer'; readonly falcoName: 'opus_version' }
+            readonly outgoingCallSetupActiveMs: { readonly id: 3068; readonly type: 'timer'; readonly falcoName: 'outgoing_call_setup_active_ms' }
             readonly p2pCandPairStat: { readonly id: 2305; readonly type: 'string'; readonly falcoName: 'p2p_cand_pair_stat' }
             readonly p2pConnectionQualityStat: { readonly id: 1612; readonly type: 'string'; readonly falcoName: 'p2p_connection_quality_stat' }
             readonly p2pLocalCandAf: { readonly id: 1883; readonly type: 'enum'; readonly enum: 'CLIENT_IP_VERSION'; readonly falcoName: 'p2p_local_cand_af' }
@@ -23122,6 +23125,7 @@ export declare const WA_WAM_EVENTS: {
             readonly presetListCount: { readonly id: 8; readonly type: 'integer'; readonly falcoName: 'preset_list_count' }
             readonly previousMigrationBucket: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'previous_migration_bucket' }
             readonly updateEntryPoint: { readonly id: 6; readonly type: 'enum'; readonly enum: 'UPDATE_ENTRY_POINT'; readonly falcoName: 'update_entry_point' }
+            readonly visibleListIds: { readonly id: 11; readonly type: 'string'; readonly falcoName: 'visible_list_ids' }
         }
     }
     readonly LockFolderUnlock: {
