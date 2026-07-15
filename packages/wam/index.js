@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043110200
+// WhatsApp Version: 2.3000.1043179329
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -8352,7 +8352,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'COPY_NEWSLETTER_LINK': 31,
         'PAID_PARTNERSHIP': 32,
         'VERIFY_SECURITY_CODE': 33,
-        'ADD_TO_NOTE': 34
+        'ADD_TO_NOTE': 34,
+        'TRANSLATE': 35,
+        'SPEAK': 36
         })
     }),
     MESSAGE_DISTRIBUTION_ENUM_TYPE: Object.freeze({
@@ -14951,7 +14953,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK': 9,
         'FB_PAGE_WA_DEEPLINK': 10,
         'IG_WA_DEEPLINK': 11,
-        'USERNAME_UPSELL_SYS_MSG': 12
+        'USERNAME_UPSELL_SYS_MSG': 12,
+        'USERNAME_KEY_UPSELL_PREACTIVATION_BANNER_WA': 13,
+        'ACCOUNT_SETTING': 14
         })
     }),
     USERNAME_CREATION_ERROR_MESSAGE: Object.freeze({
@@ -27720,6 +27724,8 @@ const WA_WAM_EVENTS = Object.freeze({
             dbReadsCount: Object.freeze({ id: 14, type: 'integer', falcoName: 'db_reads_count' }),
             dbWritesCount: Object.freeze({ id: 15, type: 'integer', falcoName: 'db_writes_count' }),
             deviceCount: Object.freeze({ id: 5, type: 'integer', falcoName: 'device_count' }),
+            hasOpenAiParticipant: Object.freeze({ id: 29, type: 'boolean', falcoName: 'has_open_ai_participant' }),
+            hasTeeAiParticipant: Object.freeze({ id: 30, type: 'boolean', falcoName: 'has_tee_ai_participant' }),
             isLid: Object.freeze({ id: 8, type: 'boolean', falcoName: 'is_lid' }),
             isLowPowerMode: Object.freeze({ id: 23, type: 'boolean', falcoName: 'is_low_power_mode' }),
             localAddressingMode: Object.freeze({ id: 10, type: 'enum', enum: 'ADDRESSING_MODE', falcoName: 'local_addressing_mode' }),

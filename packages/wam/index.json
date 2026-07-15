@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043110200",
+  "waVersion": "2.3000.1043179329",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -8383,7 +8383,9 @@
         "COPY_NEWSLETTER_LINK": 31,
         "PAID_PARTNERSHIP": 32,
         "VERIFY_SECURITY_CODE": 33,
-        "ADD_TO_NOTE": 34
+        "ADD_TO_NOTE": 34,
+        "TRANSLATE": 35,
+        "SPEAK": 36
       }
     },
     "MESSAGE_DISTRIBUTION_ENUM_TYPE": {
@@ -14982,7 +14984,9 @@
         "DEEP_LINK": 9,
         "FB_PAGE_WA_DEEPLINK": 10,
         "IG_WA_DEEPLINK": 11,
-        "USERNAME_UPSELL_SYS_MSG": 12
+        "USERNAME_UPSELL_SYS_MSG": 12,
+        "USERNAME_KEY_UPSELL_PREACTIVATION_BANNER_WA": 13,
+        "ACCOUNT_SETTING": 14
       }
     },
     "USERNAME_CREATION_ERROR_MESSAGE": {
@@ -60719,6 +60723,16 @@
           "id": 5,
           "type": "integer",
           "falcoName": "device_count"
+        },
+        "hasOpenAiParticipant": {
+          "id": 29,
+          "type": "boolean",
+          "falcoName": "has_open_ai_participant"
+        },
+        "hasTeeAiParticipant": {
+          "id": 30,
+          "type": "boolean",
+          "falcoName": "has_tee_ai_participant"
         },
         "isLid": {
           "id": 8,

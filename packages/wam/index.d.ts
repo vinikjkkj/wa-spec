@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043110200
+// WhatsApp Version: 2.3000.1043179329
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -8461,7 +8461,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'COPY_NEWSLETTER_LINK': 31;
             readonly 'PAID_PARTNERSHIP': 32;
             readonly 'VERIFY_SECURITY_CODE': 33;
-            readonly 'ADD_TO_NOTE': 34
+            readonly 'ADD_TO_NOTE': 34;
+            readonly 'TRANSLATE': 35;
+            readonly 'SPEAK': 36
         }
     }
     readonly MESSAGE_DISTRIBUTION_ENUM_TYPE: {
@@ -15060,7 +15062,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DEEP_LINK': 9;
             readonly 'FB_PAGE_WA_DEEPLINK': 10;
             readonly 'IG_WA_DEEPLINK': 11;
-            readonly 'USERNAME_UPSELL_SYS_MSG': 12
+            readonly 'USERNAME_UPSELL_SYS_MSG': 12;
+            readonly 'USERNAME_KEY_UPSELL_PREACTIVATION_BANNER_WA': 13;
+            readonly 'ACCOUNT_SETTING': 14
         }
     }
     readonly USERNAME_CREATION_ERROR_MESSAGE: {
@@ -29241,6 +29245,8 @@ export declare const WA_WAM_EVENTS: {
             readonly dbReadsCount: { readonly id: 14; readonly type: 'integer'; readonly falcoName: 'db_reads_count' }
             readonly dbWritesCount: { readonly id: 15; readonly type: 'integer'; readonly falcoName: 'db_writes_count' }
             readonly deviceCount: { readonly id: 5; readonly type: 'integer'; readonly falcoName: 'device_count' }
+            readonly hasOpenAiParticipant: { readonly id: 29; readonly type: 'boolean'; readonly falcoName: 'has_open_ai_participant' }
+            readonly hasTeeAiParticipant: { readonly id: 30; readonly type: 'boolean'; readonly falcoName: 'has_tee_ai_participant' }
             readonly isLid: { readonly id: 8; readonly type: 'boolean'; readonly falcoName: 'is_lid' }
             readonly isLowPowerMode: { readonly id: 23; readonly type: 'boolean'; readonly falcoName: 'is_low_power_mode' }
             readonly localAddressingMode: { readonly id: 10; readonly type: 'enum'; readonly enum: 'ADDRESSING_MODE'; readonly falcoName: 'local_addressing_mode' }

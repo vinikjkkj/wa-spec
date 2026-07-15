@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043110200
+// WhatsApp Version: 2.3000.1043179329
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2262,26 +2262,25 @@ export interface WaXmlOperations {
                 readonly offline: number
                 readonly sts: number
                 readonly to: string
-                readonly participant: string
-                readonly eph_setting?: string
-                readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
                 readonly device_fanout?: 'false'
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
+                readonly phash?: string
+                readonly participant?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
                 readonly privacy_sensitive?: boolean
+                readonly eph_setting?: string
             }
             readonly children: {
                 readonly meta: {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly original_msg_t: number
-                        readonly metering_type: 'smb_mm'
                         readonly type: 'scheduled_message'
                         readonly st: string
                         readonly origin?: 'ctwa'
@@ -2297,6 +2296,7 @@ export interface WaXmlOperations {
                         readonly tag_reason?: string
                         readonly status_setting: string
                         readonly session_scope?: 'status'
+                        readonly metering_type: 'smb_mm'
                         readonly questiontype: 'response'
                     }
                 }
@@ -12572,11 +12572,11 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly id: string
-                readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                 readonly to: string
+                readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
-                readonly error?: number
+                readonly error: number
                 readonly recipient?: string
             }
             readonly children: {
@@ -12994,18 +12994,18 @@ export interface WaXmlStanzas {
                     readonly recipient: string
                     readonly id: string
                     readonly to: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
-                    readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly phash?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
+                    readonly eph_setting?: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -13068,13 +13068,13 @@ export interface WaXmlStanzas {
                             readonly session_scope?: 'default' | 'status'
                             readonly type?: string
                             readonly st?: number
-                            readonly metering_type: 'smb_mm'
                             readonly destination_id?: string
                             readonly sender_intent?: 'hosted'
                             readonly view_once?: 'true'
                             readonly conversation_thread_id?: string
                             readonly tag_reason?: string
                             readonly status_setting: string
+                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                         readonly children: {
@@ -13107,8 +13107,8 @@ export interface WaXmlStanzas {
                                 readonly tag: 'interactive'
                                 readonly attrs: {
                                     readonly name?: string
-                                    readonly type: 'native_flow'
                                     readonly v: '1'
+                                    readonly type: 'native_flow'
                                 }
                                 readonly children: {
                                     readonly native_flow: {
@@ -13222,26 +13222,25 @@ export interface WaXmlStanzas {
                     readonly offline: number
                     readonly sts: number
                     readonly to: string
-                    readonly participant: string
-                    readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly phash?: string
+                    readonly participant?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
+                    readonly eph_setting?: string
                 }
                 readonly children: {
                     readonly meta: {
                         readonly tag: 'meta'
                         readonly attrs: {
                             readonly original_msg_t: number
-                            readonly metering_type: 'smb_mm'
                             readonly type: 'scheduled_message'
                             readonly st: string
                             readonly origin?: 'ctwa'
@@ -13257,6 +13256,7 @@ export interface WaXmlStanzas {
                             readonly tag_reason?: string
                             readonly status_setting: string
                             readonly session_scope?: 'status'
+                            readonly metering_type: 'smb_mm'
                             readonly questiontype: 'response'
                         }
                     }
@@ -14911,9 +14911,9 @@ export interface WaXmlStanzas {
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                     readonly from: string
                     readonly to: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly t?: number
+                    readonly t: number
                     readonly participant?: string
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string
