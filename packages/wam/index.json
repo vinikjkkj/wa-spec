@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043179329",
+  "waVersion": "2.3000.1043263898",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -1183,7 +1183,8 @@
         "META_AI_SETTINGS": 45,
         "AI_STICKERS_BOTTOM_SHEET": 46,
         "AI_WEB_NAVIGATION_BAR": 47,
-        "AI_WEB_INTRO_PANEL": 48
+        "AI_WEB_INTRO_PANEL": 48,
+        "AI_CONTACTS_TAB": 49
       }
     },
     "BOT_PROMPT_TYPE": {
@@ -6152,7 +6153,8 @@
         "PIX_NATIVE_ENROLLMENT_BANNER_VIEW": 100,
         "PIX_NATIVE_FIDO_REGISTRATION_OPTIONS": 101,
         "PIX_NATIVE_PROMO_SCREEN_VIEW": 102,
-        "PAYMENT_TEXT_DETECTION_CLICK": 103
+        "PAYMENT_TEXT_DETECTION_CLICK": 103,
+        "COPY_PIX_IMPRESSION": 104
       }
     },
     "INVISIBLE_MESSAGE_CATEGORY_TYPE": {
@@ -6536,7 +6538,8 @@
         "WAITING_ROOM_JOINED_PUSH_NOTIFICATION": 38,
         "WAITING_ROOM_MULTIPLE_JOINED_PUSH_NOTIFICATION": 39,
         "CALL_TRANSFER_PUSH_NOTIFICATION": 40,
-        "XDR_CALL_TRANSFER": 41
+        "XDR_CALL_TRANSFER": 41,
+        "CHAT_EMPTY_STATE": 42
       }
     },
     "LOBBY_EXIT_TYPE": {
@@ -7432,7 +7435,24 @@
         "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_IMPRESSION": 514,
         "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_CTA_CLICK": 515,
         "LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED": 516,
-        "LWI_ACTION_SWIPE_BACK": 517
+        "LWI_ACTION_SWIPE_BACK": 517,
+        "LWI_ACTION_WINBACK_AD_CREATION_START_LEARNING_CARD_IMPRESSION": 518,
+        "LWI_ACTION_WINBACK_AD_CREATION_START_LEARNING_CTA_CLICK": 519,
+        "LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_IMPRESSION": 520,
+        "LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DONE_CLICK": 521,
+        "LWI_ACTION_WINBACK_AD_CREATION_PAC_BOTTOMSHEET_IMPRESSION": 522,
+        "LWI_ACTION_WINBACK_AD_CREATION_PAC_MANAGE_ADS_CLICK": 523,
+        "LWI_ACTION_WINBACK_AD_CREATION_PAC_BOTTOMSHEET_DISMISS": 524,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_IMPRESSION": 525,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_SEE_DETAILS_CLICK": 526,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_DISMISS": 527,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_IMPRESSION": 528,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_VIEW_DETAILS_CLICK": 529,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_DISMISS": 530,
+        "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_IMPRESSION": 531,
+        "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_SEE_DETAILS_CLICK": 532,
+        "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS": 533,
+        "LWI_ACTION_WINBACK_RECREATE_AD_CLICK": 534
       }
     },
     "LWI_SCREEN_REFERENCE": {
@@ -10226,7 +10246,10 @@
         "SYNCD_REMOVE_PIX": 349,
         "SYNCD_STORE": 350,
         "SYNCD_REMOVE": 351,
-        "SYNCD_FAILED": 352
+        "SYNCD_FAILED": 352,
+        "PAYMENTS_HOME_PIX_AREA": 353,
+        "PAYMENTS_HOME_SHARE_YOUR_PIX": 354,
+        "VIEW_IN_CHAT": 355
       }
     },
     "PAYMENT_ACTION_TYPES": {
@@ -14581,7 +14604,9 @@
         "COMPANION_LOADING": 254,
         "COMPANION_REGISTRATION": 255,
         "REGISTRATION_WELCOME": 256,
-        "CALLS_TAB_SECONDARY": 257
+        "CALLS_TAB_SECONDARY": 257,
+        "MERCHANT_APP_UNIVERSAL_LINK": 258,
+        "MERCHANT_APP_DEEPLINK": 259
       }
     },
     "TYPE_OF_GROUP_ENUM": {
@@ -15711,7 +15736,8 @@
         "COMMUNITY_EXISTING_GROUP": 9,
         "SEND_DOCUMENT": 10,
         "ADD_CONTACT": 11,
-        "ASK_META_AI": 12
+        "ASK_META_AI": 12,
+        "START_CALL": 13
       }
     },
     "WEBC_QUICK_ACTION_SURFACE": {
@@ -18889,6 +18915,11 @@
           "id": 752,
           "type": "integer",
           "falcoName": "audio_codec_encoded_voice_frames"
+        },
+        "audioCodecNumBwSwitches": {
+          "id": 3072,
+          "type": "integer",
+          "falcoName": "audio_codec_num_bw_switches"
         },
         "audioCodecReceivedFecFrames": {
           "id": 754,
@@ -22699,10 +22730,25 @@
           "type": "integer",
           "falcoName": "hbh_dc_msgs_received_count"
         },
+        "hbhDcMsgsSentBroadcastCount": {
+          "id": 3069,
+          "type": "integer",
+          "falcoName": "hbh_dc_msgs_sent_broadcast_count"
+        },
         "hbhDcMsgsSentCount": {
           "id": 3058,
           "type": "integer",
           "falcoName": "hbh_dc_msgs_sent_count"
+        },
+        "hbhDcMsgsSentRelayOnlyCount": {
+          "id": 3070,
+          "type": "integer",
+          "falcoName": "hbh_dc_msgs_sent_relay_only_count"
+        },
+        "hbhDcMsgsSentSelectiveCount": {
+          "id": 3071,
+          "type": "integer",
+          "falcoName": "hbh_dc_msgs_sent_selective_count"
         },
         "hbhDcSetupAvgT": {
           "id": 3059,
@@ -36228,6 +36274,79 @@
           "id": 9,
           "type": "integer",
           "falcoName": "storage_avail_size_with_cache"
+        }
+      }
+    },
+    "Ctwa3pdAggregatedConversion": {
+      "id": 8218,
+      "module": "WAWebCtwa3pdAggregatedConversionWamEvent",
+      "falcoName": "wam_ctwa3pd_aggregated_conversion",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "adId": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "ad_id"
+        },
+        "ctwa3pdAggregatedSchemaVersion": {
+          "id": 2,
+          "type": "integer",
+          "falcoName": "ctwa3pd_aggregated_schema_version"
+        },
+        "ctwa3pdConversionMetadata": {
+          "id": 3,
+          "type": "string",
+          "falcoName": "ctwa3pd_conversion_metadata"
+        },
+        "ctwa3pdConversionSubtype": {
+          "id": 4,
+          "type": "string",
+          "falcoName": "ctwa3pd_conversion_subtype"
+        },
+        "ctwa3pdConversionType": {
+          "id": 5,
+          "type": "string",
+          "falcoName": "ctwa3pd_conversion_type"
+        },
+        "ctwa3pdSurfaceType": {
+          "id": 6,
+          "type": "string",
+          "falcoName": "ctwa3pd_surface_type"
+        },
+        "ctwaConversationDepth": {
+          "id": 7,
+          "type": "integer",
+          "falcoName": "ctwa_conversation_depth"
+        },
+        "ctwaConversationRepeat": {
+          "id": 8,
+          "type": "integer",
+          "falcoName": "ctwa_conversation_repeat"
+        },
+        "ctwaDirectionFrom": {
+          "id": 9,
+          "type": "enum",
+          "falcoName": "ctwa_direction_from",
+          "enum": "CTWA_DIRECTION_FROM"
+        },
+        "ctwaSignals": {
+          "id": 10,
+          "type": "string",
+          "falcoName": "ctwa_signals"
+        },
+        "threadIdHmac": {
+          "id": 11,
+          "type": "string",
+          "falcoName": "thread_id_hmac"
         }
       }
     },

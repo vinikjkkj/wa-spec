@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043179329
+// WhatsApp Version: 2.3000.1043263898
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1152,7 +1152,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'META_AI_SETTINGS': 45,
         'AI_STICKERS_BOTTOM_SHEET': 46,
         'AI_WEB_NAVIGATION_BAR': 47,
-        'AI_WEB_INTRO_PANEL': 48
+        'AI_WEB_INTRO_PANEL': 48,
+        'AI_CONTACTS_TAB': 49
         })
     }),
     BOT_PROMPT_TYPE: Object.freeze({
@@ -6121,7 +6122,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIX_NATIVE_ENROLLMENT_BANNER_VIEW': 100,
         'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 101,
         'PIX_NATIVE_PROMO_SCREEN_VIEW': 102,
-        'PAYMENT_TEXT_DETECTION_CLICK': 103
+        'PAYMENT_TEXT_DETECTION_CLICK': 103,
+        'COPY_PIX_IMPRESSION': 104
         })
     }),
     INVISIBLE_MESSAGE_CATEGORY_TYPE: Object.freeze({
@@ -6505,7 +6507,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'WAITING_ROOM_JOINED_PUSH_NOTIFICATION': 38,
         'WAITING_ROOM_MULTIPLE_JOINED_PUSH_NOTIFICATION': 39,
         'CALL_TRANSFER_PUSH_NOTIFICATION': 40,
-        'XDR_CALL_TRANSFER': 41
+        'XDR_CALL_TRANSFER': 41,
+        'CHAT_EMPTY_STATE': 42
         })
     }),
     LOBBY_EXIT_TYPE: Object.freeze({
@@ -7401,7 +7404,24 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_IMPRESSION': 514,
         'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_DIALOG_CTA_CLICK': 515,
         'LWI_ACTION_HIGH_FRICTION_DURATION_WARNING_PAC_SUPPRESSED': 516,
-        'LWI_ACTION_SWIPE_BACK': 517
+        'LWI_ACTION_SWIPE_BACK': 517,
+        'LWI_ACTION_WINBACK_AD_CREATION_START_LEARNING_CARD_IMPRESSION': 518,
+        'LWI_ACTION_WINBACK_AD_CREATION_START_LEARNING_CTA_CLICK': 519,
+        'LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_IMPRESSION': 520,
+        'LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DONE_CLICK': 521,
+        'LWI_ACTION_WINBACK_AD_CREATION_PAC_BOTTOMSHEET_IMPRESSION': 522,
+        'LWI_ACTION_WINBACK_AD_CREATION_PAC_MANAGE_ADS_CLICK': 523,
+        'LWI_ACTION_WINBACK_AD_CREATION_PAC_BOTTOMSHEET_DISMISS': 524,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_IMPRESSION': 525,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_SEE_DETAILS_CLICK': 526,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_DISMISS': 527,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_IMPRESSION': 528,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_VIEW_DETAILS_CLICK': 529,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_DISMISS': 530,
+        'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_IMPRESSION': 531,
+        'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_SEE_DETAILS_CLICK': 532,
+        'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS': 533,
+        'LWI_ACTION_WINBACK_RECREATE_AD_CLICK': 534
         })
     }),
     LWI_SCREEN_REFERENCE: Object.freeze({
@@ -10195,7 +10215,10 @@ const WA_WAM_ENUMS = Object.freeze({
         'SYNCD_REMOVE_PIX': 349,
         'SYNCD_STORE': 350,
         'SYNCD_REMOVE': 351,
-        'SYNCD_FAILED': 352
+        'SYNCD_FAILED': 352,
+        'PAYMENTS_HOME_PIX_AREA': 353,
+        'PAYMENTS_HOME_SHARE_YOUR_PIX': 354,
+        'VIEW_IN_CHAT': 355
         })
     }),
     PAYMENT_ACTION_TYPES: Object.freeze({
@@ -14550,7 +14573,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'COMPANION_LOADING': 254,
         'COMPANION_REGISTRATION': 255,
         'REGISTRATION_WELCOME': 256,
-        'CALLS_TAB_SECONDARY': 257
+        'CALLS_TAB_SECONDARY': 257,
+        'MERCHANT_APP_UNIVERSAL_LINK': 258,
+        'MERCHANT_APP_DEEPLINK': 259
         })
     }),
     TYPE_OF_GROUP_ENUM: Object.freeze({
@@ -15680,7 +15705,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'COMMUNITY_EXISTING_GROUP': 9,
         'SEND_DOCUMENT': 10,
         'ADD_CONTACT': 11,
-        'ASK_META_AI': 12
+        'ASK_META_AI': 12,
+        'START_CALL': 13
         })
     }),
     WEBC_QUICK_ACTION_SURFACE: Object.freeze({
@@ -16832,6 +16858,7 @@ const WA_WAM_EVENTS = Object.freeze({
             audioCodecEncodedNonVoiceFrames: Object.freeze({ id: 753, type: 'integer', falcoName: 'audio_codec_encoded_non_voice_frames' }),
             audioCodecEncodedThrottledVoiceFrames: Object.freeze({ id: 1177, type: 'integer', falcoName: 'audio_codec_encoded_throttled_voice_frames' }),
             audioCodecEncodedVoiceFrames: Object.freeze({ id: 752, type: 'integer', falcoName: 'audio_codec_encoded_voice_frames' }),
+            audioCodecNumBwSwitches: Object.freeze({ id: 3072, type: 'integer', falcoName: 'audio_codec_num_bw_switches' }),
             audioCodecReceivedFecFrames: Object.freeze({ id: 754, type: 'integer', falcoName: 'audio_codec_received_fec_frames' }),
             audioDecodeErrors: Object.freeze({ id: 1521, type: 'integer', falcoName: 'audio_decode_errors' }),
             audioDevIsStalled: Object.freeze({ id: 2122, type: 'boolean', falcoName: 'audio_dev_is_stalled' }),
@@ -17586,7 +17613,10 @@ const WA_WAM_EVENTS = Object.freeze({
             hbhDcBytesReceivedCount: Object.freeze({ id: 3055, type: 'integer', falcoName: 'hbh_dc_bytes_received_count' }),
             hbhDcBytesSentCount: Object.freeze({ id: 3056, type: 'integer', falcoName: 'hbh_dc_bytes_sent_count' }),
             hbhDcMsgsReceivedCount: Object.freeze({ id: 3057, type: 'integer', falcoName: 'hbh_dc_msgs_received_count' }),
+            hbhDcMsgsSentBroadcastCount: Object.freeze({ id: 3069, type: 'integer', falcoName: 'hbh_dc_msgs_sent_broadcast_count' }),
             hbhDcMsgsSentCount: Object.freeze({ id: 3058, type: 'integer', falcoName: 'hbh_dc_msgs_sent_count' }),
+            hbhDcMsgsSentRelayOnlyCount: Object.freeze({ id: 3070, type: 'integer', falcoName: 'hbh_dc_msgs_sent_relay_only_count' }),
+            hbhDcMsgsSentSelectiveCount: Object.freeze({ id: 3071, type: 'integer', falcoName: 'hbh_dc_msgs_sent_selective_count' }),
             hbhDcSetupAvgT: Object.freeze({ id: 3059, type: 'timer', falcoName: 'hbh_dc_setup_avg_t' }),
             hbhDtlsConnectionState: Object.freeze({ id: 3060, type: 'enum', enum: 'HBH_DTLS_CONNECTION_STATE', falcoName: 'hbh_dtls_connection_state' }),
             hbhDtlsHandshakeCompletedCount: Object.freeze({ id: 3061, type: 'integer', falcoName: 'hbh_dtls_handshake_completed_count' }),
@@ -20678,6 +20708,29 @@ const WA_WAM_EVENTS = Object.freeze({
             mobileBuildId: Object.freeze({ id: 5, type: 'string', falcoName: 'mobile_build_id' }),
             name: Object.freeze({ id: 1, type: 'string', falcoName: 'name' }),
             storageAvailSizeWithCache: Object.freeze({ id: 9, type: 'integer', falcoName: 'storage_avail_size_with_cache' })
+        })
+    }),
+    Ctwa3pdAggregatedConversion: Object.freeze({
+        id: 8218,
+        falcoName: 'wam_ctwa3pd_aggregated_conversion',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            adId: Object.freeze({ id: 1, type: 'string', falcoName: 'ad_id' }),
+            ctwa3pdAggregatedSchemaVersion: Object.freeze({ id: 2, type: 'integer', falcoName: 'ctwa3pd_aggregated_schema_version' }),
+            ctwa3pdConversionMetadata: Object.freeze({ id: 3, type: 'string', falcoName: 'ctwa3pd_conversion_metadata' }),
+            ctwa3pdConversionSubtype: Object.freeze({ id: 4, type: 'string', falcoName: 'ctwa3pd_conversion_subtype' }),
+            ctwa3pdConversionType: Object.freeze({ id: 5, type: 'string', falcoName: 'ctwa3pd_conversion_type' }),
+            ctwa3pdSurfaceType: Object.freeze({ id: 6, type: 'string', falcoName: 'ctwa3pd_surface_type' }),
+            ctwaConversationDepth: Object.freeze({ id: 7, type: 'integer', falcoName: 'ctwa_conversation_depth' }),
+            ctwaConversationRepeat: Object.freeze({ id: 8, type: 'integer', falcoName: 'ctwa_conversation_repeat' }),
+            ctwaDirectionFrom: Object.freeze({ id: 9, type: 'enum', enum: 'CTWA_DIRECTION_FROM', falcoName: 'ctwa_direction_from' }),
+            ctwaSignals: Object.freeze({ id: 10, type: 'string', falcoName: 'ctwa_signals' }),
+            threadIdHmac: Object.freeze({ id: 11, type: 'string', falcoName: 'thread_id_hmac' })
         })
     }),
     Ctwa3pdConversion: Object.freeze({
