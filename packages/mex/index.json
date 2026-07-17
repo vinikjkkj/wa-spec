@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043263898",
+  "waVersion": "2.3000.1043338440",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -956,6 +956,48 @@
         }
       }
     },
+    "CreateLabyrinthBackup": {
+      "originalName": "WAWebCreateLabyrinthBackupJobMutation",
+      "docId": "27493963430271453",
+      "operationKind": "mutation",
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      },
+      "response": {
+        "wa_labyrinth_create_backup": {
+          "__typename": "string",
+          "backup_id": "string",
+          "device_id": "string",
+          "epoch_id": "string",
+          "status": "string",
+          "message": "string"
+        }
+      }
+    },
+    "CreateLabyrinthBackupMutation": {
+      "originalName": "WAWebMexCreateLabyrinthBackupJobMutation",
+      "docId": "27207738338837013",
+      "operationKind": "mutation",
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      },
+      "response": {
+        "xwa2_labyrinth_create_backup": {
+          "__typename": "string",
+          "backup_id": "string",
+          "device_id": "string",
+          "epoch_id": "string",
+          "status": "string",
+          "message": "string"
+        }
+      }
+    },
     "CreateMarketingCampaignAction": {
       "originalName": "WAWebCreateMarketingCampaignActionMutation",
       "docId": "26304826652483067",
@@ -1150,6 +1192,86 @@
             "ctwa_3pd_conversion_metadata": "string"
           }
         ]
+      }
+    },
+    "DebugLabyrinthInboxSnapshot": {
+      "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
+      "docId": "27416732057922291",
+      "operationKind": "query",
+      "variables": [
+        "params"
+      ],
+      "variablesShape": {
+        "params": {
+          "lower_timestamp": "string",
+          "num_msgs": "unknown",
+          "num_threads": "unknown",
+          "upper_timestamp": "string"
+        }
+      },
+      "response": {
+        "get_wa_mailbox": {
+          "__typename": "string",
+          "snapshot_threads_with_messages": {
+            "items_with_messages": [
+              {
+                "item": {
+                  "__typename": "string",
+                  "id": "string"
+                },
+                "messages": [
+                  {
+                    "__typename": "string",
+                    "encrypted_payload": "unknown",
+                    "encryption_version": "number",
+                    "id": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          "id": "string"
+        }
+      }
+    },
+    "DebugLabyrinthRange": {
+      "originalName": "WAWebDebugLabyrinthRangeQuery",
+      "docId": "27219778391054922",
+      "operationKind": "query",
+      "variables": [
+        "device_id",
+        "message_count",
+        "partial_thread_id"
+      ],
+      "variablesShape": {
+        "device_id": "string",
+        "message_count": "number",
+        "partial_thread_id": "string"
+      },
+      "response": {
+        "get_WAMessagingViewerThreadByORF": {
+          "__typename": "string",
+          "id": "string",
+          "messages": {
+            "__typename": "string",
+            "edges": [
+              {
+                "__typename": "string",
+                "cursor": "string",
+                "node": {
+                  "__typename": "string",
+                  "encrypted_payload": "unknown",
+                  "encryption_version": "number",
+                  "id": "string"
+                }
+              }
+            ],
+            "page_info": {
+              "has_next_page": "boolean",
+              "has_previous_page": "boolean"
+            }
+          }
+        }
       }
     },
     "DeleteNewsletter": {
@@ -4826,6 +4948,63 @@
       "response": {
         "xwa2_update_text_status": {
           "result": "string"
+        }
+      }
+    },
+    "UploadLabyrinthMessages": {
+      "originalName": "WAWebMexUploadLabyrinthMessagesJobMutation",
+      "docId": "27746955431579348",
+      "operationKind": "mutation",
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "device_id": "string",
+          "epoch_id": "string",
+          "family_device_id": "string",
+          "messages": [
+            {}
+          ]
+        }
+      },
+      "response": {
+        "xwa2_labyrinth_upload_messages": {
+          "__typename": "string",
+          "results": [
+            {
+              "offline_threading_id": "string",
+              "success": "string",
+              "error": "boolean"
+            }
+          ],
+          "status": "string",
+          "message": "string"
+        }
+      }
+    },
+    "UploadLabyrinthMessagesMutation": {
+      "originalName": "WAWebUploadLabyrinthMessagesJobMutation",
+      "docId": "28023438937253549",
+      "operationKind": "mutation",
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      },
+      "response": {
+        "wa_labyrinth_upload_messages": {
+          "__typename": "string",
+          "results": [
+            {
+              "offline_threading_id": "string",
+              "success": "string",
+              "error": "boolean"
+            }
+          ],
+          "status": "string",
+          "message": "string"
         }
       }
     },

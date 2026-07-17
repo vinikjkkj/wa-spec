@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043263898",
+  "waVersion": "2.3000.1043338440",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5664,19 +5664,8 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
                 "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "direction": "both"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "out"
               },
               "phash": {
                 "type": "string",
@@ -5723,6 +5712,12 @@
                   "pn"
                 ]
               },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "h",
+                "optional": true,
+                "direction": "both"
+              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -5743,6 +5738,12 @@
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
+                "optional": true,
+                "direction": "out"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
                 "optional": true,
                 "direction": "out"
               }
@@ -18420,378 +18421,7 @@
                 "max": 1
               },
               {
-                "tag": "bot",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "profile",
-                "attrs": {
-                  "v": {
-                    "type": "literal",
-                    "value": "1",
-                    "direction": "out"
-                  },
-                  "persona_id": {
-                    "type": "string",
-                    "arg": "e",
-                    "optional": true,
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "business",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "verified_name",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "devices",
-                "attrs": {
-                  "version": {
-                    "type": "int",
-                    "arg": "String(e)",
-                    "direction": "out"
-                  },
-                  "device_hash": {
-                    "type": "string",
-                    "arg": "e",
-                    "optional": true,
-                    "direction": "out"
-                  },
-                  "ts": {
-                    "type": "int",
-                    "arg": "n",
-                    "optional": true,
-                    "direction": "out"
-                  },
-                  "expected_ts": {
-                    "type": "int",
-                    "arg": "r",
-                    "optional": true,
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "disappearing_mode",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "feature",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "lid",
-                "attrs": {
-                  "jid": {
-                    "type": "userJid",
-                    "arg": "e",
-                    "optional": true,
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "picture",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
                 "tag": "tctoken",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "text_status",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "username",
-                "attrs": {
-                  "username": {
-                    "type": "string",
-                    "arg": "e",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "query",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "user",
-                "attrs": {
-                  "jid": {
-                    "type": "userJid",
-                    "arg": "n",
-                    "optional": true,
-                    "direction": "out"
-                  },
-                  "pn_jid": {
-                    "type": "userJid",
-                    "arg": "r",
-                    "optional": true,
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "list",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "iq",
-                "attrs": {
-                  "to": {
-                    "type": "literal",
-                    "value": "s.whatsapp.net",
-                    "direction": "out"
-                  },
-                  "xmlns": {
-                    "type": "literal",
-                    "value": "usync",
-                    "direction": "out"
-                  },
-                  "type": {
-                    "type": "literal",
-                    "value": "get",
-                    "direction": "out"
-                  },
-                  "id": {
-                    "type": "stanzaId",
-                    "generated": true,
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "usync",
-                "attrs": {
-                  "sid": {
-                    "type": "stanzaId",
-                    "generated": true,
-                    "direction": "out"
-                  },
-                  "index": {
-                    "type": "literal",
-                    "value": "0",
-                    "direction": "out"
-                  },
-                  "last": {
-                    "type": "literal",
-                    "value": "true",
-                    "direction": "out"
-                  },
-                  "mode": {
-                    "type": "string",
-                    "arg": "this.mode",
-                    "direction": "out"
-                  },
-                  "context": {
-                    "type": "string",
-                    "arg": "this.context",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "contact",
-                "attrs": {
-                  "addressing_mode": {
-                    "type": "enum",
-                    "arg": "o(\"WAWebUsync\").USYNC_ADDRESSING_MODE.LID",
-                    "optional": true,
-                    "direction": "out",
-                    "enumValues": [
-                      "lid",
-                      "pn"
-                    ]
-                  },
-                  "username": {
-                    "type": "string",
-                    "arg": "n",
-                    "direction": "out"
-                  },
-                  "pin": {
-                    "type": "string",
-                    "arg": "a",
-                    "optional": true,
-                    "direction": "out"
-                  },
-                  "lid": {
-                    "type": "userJid",
-                    "arg": "i",
-                    "optional": true,
-                    "direction": "out"
-                  },
-                  "type": {
-                    "type": "string",
-                    "arg": "r",
-                    "direction": "out"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "settings",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "id",
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes",
-                  "direction": "out"
-                },
-                "min": 1,
-                "max": 1
-              },
-              {
-                "tag": "value",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "signature",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_blist",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_contact",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_group_gen2",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_image",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_location",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_url",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "encrypt_v2",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "voip",
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true
-              },
-              {
-                "tag": "multi_agent",
                 "attrs": {},
                 "children": [],
                 "content": null,
@@ -25492,231 +25122,6 @@
         }
       ]
     },
-    "ReportBug": {
-      "module": "WASmaxBugReportingReportBugRPC",
-      "opName": "ReportBug",
-      "rootTag": "iq",
-      "xmlns": "fb:thrift_iq",
-      "type": "set",
-      "request": {
-        "module": "WASmaxOutBugReportingReportBugRequest",
-        "node": {
-          "tag": "iq",
-          "attrs": {
-            "xmlns": {
-              "type": "literal",
-              "value": "fb:thrift_iq"
-            },
-            "smax_id": {
-              "type": "literal",
-              "value": 105
-            },
-            "from": {
-              "type": "userJid",
-              "arg": "t",
-              "optional": true
-            },
-            "to": {
-              "type": "literal",
-              "value": "s.whatsapp.net"
-            },
-            "id": {
-              "type": "stanzaId",
-              "generated": true
-            },
-            "type": {
-              "type": "literal",
-              "value": "set"
-            }
-          },
-          "children": [
-            {
-              "tag": "description",
-              "attrs": {},
-              "children": [],
-              "presence": true
-            },
-            {
-              "tag": "debug_information_json",
-              "attrs": {},
-              "children": [],
-              "presence": true
-            },
-            {
-              "tag": "device_log_handle",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "media",
-              "attrs": {
-                "iv": {
-                  "type": "string",
-                  "arg": "n"
-                },
-                "cipherKey": {
-                  "type": "string",
-                  "arg": "r"
-                },
-                "type": {
-                  "type": "enum",
-                  "arg": "a",
-                  "optional": true,
-                  "enumValues": [
-                    "image",
-                    "video"
-                  ]
-                },
-                "fileName": {
-                  "type": "string",
-                  "arg": "i",
-                  "optional": true
-                }
-              },
-              "children": [],
-              "content": {
-                "type": "bytes"
-              },
-              "min": 0,
-              "max": 10,
-              "__helper": "REPEATED_CHILD"
-            },
-            {
-              "tag": "title",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "category",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "client_server_join_key",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "reproducibility",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            }
-          ],
-          "appliedMixin": "WASmaxOutBugReportingHackBaseIQSetRequestMixin"
-        },
-        "argShape": {
-          "t": true
-        }
-      },
-      "responses": [
-        {
-          "module": "WASmaxInBugReportingReportBugResponseError",
-          "variant": "Error",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "error"
-              }
-            },
-            "children": [
-              {
-                "tag": "error",
-                "attrs": {
-                  "text": {
-                    "type": "literal",
-                    "value": "bad-request",
-                    "optional": true
-                  },
-                  "code": {
-                    "type": "int",
-                    "optional": true
-                  }
-                },
-                "children": [],
-                "content": null,
-                "__variants": [
-                  "IQErrorBadRequest",
-                  "IQErrorInternalServerError"
-                ],
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseReportBugResponseError"
-        },
-        {
-          "module": "WASmaxInBugReportingReportBugResponseSuccess",
-          "variant": "Success",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "result"
-              }
-            },
-            "children": [
-              {
-                "tag": "task_id",
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "string"
-                },
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseReportBugResponseSuccess"
-        }
-      ]
-    },
     "ReportMessages": {
       "module": "WASmaxGroupsReportMessagesRPC",
       "opName": "ReportMessages",
@@ -26691,177 +26096,6 @@
             "content": null
           },
           "entryName": "parseSendBufferResponseSuccess"
-        }
-      ]
-    },
-    "SendFeedback": {
-      "module": "WASmaxSupportMessageFeedbackSendFeedbackRPC",
-      "opName": "SendFeedback",
-      "rootTag": "iq",
-      "xmlns": "fb:thrift_iq",
-      "type": "set",
-      "request": {
-        "module": "WASmaxOutSupportMessageFeedbackSendFeedbackRequest",
-        "node": {
-          "tag": "iq",
-          "attrs": {
-            "xmlns": {
-              "type": "literal",
-              "value": "fb:thrift_iq"
-            },
-            "smax_id": {
-              "type": "literal",
-              "value": 138
-            },
-            "from": {
-              "type": "userJid",
-              "arg": "t",
-              "optional": true
-            },
-            "to": {
-              "type": "literal",
-              "value": "s.whatsapp.net"
-            },
-            "id": {
-              "type": "stanzaId",
-              "generated": true
-            },
-            "type": {
-              "type": "literal",
-              "value": "set"
-            }
-          },
-          "children": [
-            {
-              "tag": "message",
-              "attrs": {
-                "id": {
-                  "type": "stanzaId",
-                  "arg": "r"
-                }
-              },
-              "children": [],
-              "min": 1,
-              "max": 1
-            },
-            {
-              "tag": "feedback_list",
-              "attrs": {},
-              "children": [
-                {
-                  "tag": "feedback",
-                  "attrs": {
-                    "kind": {
-                      "type": "string",
-                      "arg": "t"
-                    }
-                  },
-                  "children": [],
-                  "min": 1,
-                  "max": 10,
-                  "__helper": "REPEATED_CHILD"
-                }
-              ],
-              "min": 1,
-              "max": 1
-            }
-          ],
-          "appliedMixin": "WASmaxOutSupportMessageFeedbackHackBaseIQSetRequestMixin"
-        },
-        "argShape": {
-          "t": true
-        }
-      },
-      "responses": [
-        {
-          "module": "WASmaxInSupportMessageFeedbackSendFeedbackResponseError",
-          "variant": "Error",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "error"
-              }
-            },
-            "children": [
-              {
-                "tag": "error",
-                "attrs": {
-                  "text": {
-                    "type": "literal",
-                    "value": "bad-request",
-                    "optional": true
-                  },
-                  "code": {
-                    "type": "int",
-                    "optional": true
-                  }
-                },
-                "children": [],
-                "content": null,
-                "__variants": [
-                  "IQErrorBadRequest",
-                  "IQErrorInternalServerError",
-                  "IQErrorRateOverlimit"
-                ],
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseSendFeedbackResponseError"
-        },
-        {
-          "module": "WASmaxInSupportMessageFeedbackSendFeedbackResponseSuccess",
-          "variant": "Success",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "result"
-              }
-            },
-            "children": [
-              {
-                "tag": "result",
-                "attrs": {
-                  "status": {
-                    "type": "literal",
-                    "value": "Success"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseSendFeedbackResponseSuccess"
         }
       ]
     },
@@ -32724,6 +31958,211 @@
         }
       ]
     },
+    "UploadAdMedia": {
+      "module": "WASmaxBizCtwaNativeAdUploadAdMediaRPC",
+      "opName": "UploadAdMedia",
+      "rootTag": "iq",
+      "xmlns": "fb:thrift_iq",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutBizCtwaNativeAdUploadAdMediaRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "xmlns": {
+              "type": "literal",
+              "value": "fb:thrift_iq"
+            },
+            "smax_id": {
+              "type": "literal",
+              "value": 74
+            },
+            "from": {
+              "type": "userJid",
+              "arg": "t",
+              "optional": true
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "type": {
+              "type": "literal",
+              "value": "set"
+            }
+          },
+          "children": [
+            {
+              "tag": "media",
+              "attrs": {
+                "id": {
+                  "type": "string",
+                  "arg": "t"
+                },
+                "type": {
+                  "type": "enum",
+                  "arg": "n",
+                  "enumValues": [
+                    "image",
+                    "video"
+                  ]
+                }
+              },
+              "children": [],
+              "min": 0,
+              "max": 1,
+              "__helper": "OPTIONAL_CHILD"
+            },
+            {
+              "tag": "media_list",
+              "attrs": {
+                "id": {
+                  "type": "string",
+                  "arg": "t"
+                },
+                "type": {
+                  "type": "enum",
+                  "arg": "n",
+                  "enumValues": [
+                    "image",
+                    "video"
+                  ]
+                }
+              },
+              "children": [],
+              "min": 0,
+              "max": 10,
+              "__helper": "REPEATED_CHILD"
+            }
+          ],
+          "appliedMixin": "WASmaxOutBizCtwaNativeAdHackBaseIQSetRequestMixin"
+        },
+        "argShape": {
+          "t": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInBizCtwaNativeAdUploadAdMediaResponseError",
+          "variant": "Error",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid",
+                "optional": true
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "bad-request",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorBadRequest",
+                  "IQErrorForbidden",
+                  "IQErrorInternalServerError",
+                  "IQErrorServiceUnavailable"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseUploadAdMediaResponseError"
+        },
+        {
+          "module": "WASmaxInBizCtwaNativeAdUploadAdMediaResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "to": {
+                "type": "userJid",
+                "optional": true
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "media",
+                "attrs": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizCtwaNativeAdEnums\").ENUM_IMAGE_VIDEO",
+                    "enumValues": [
+                      "image",
+                      "video"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "tag": "media_list",
+                "attrs": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizCtwaNativeAdEnums\").ENUM_IMAGE_VIDEO",
+                    "enumValues": [
+                      "image",
+                      "video"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 10
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseUploadAdMediaResponseSuccess"
+        }
+      ]
+    },
     "WFPing": {
       "module": "WASmaxWaffleWFPingRPC",
       "opName": "WFPing",
@@ -33140,14 +32579,13 @@
                 "optional": true
               },
               "to": {
-                "type": "jid",
-                "arg": "s",
+                "type": "userJid",
+                "arg": "h",
                 "direction": "both"
               },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -33156,6 +32594,11 @@
                   "receipt",
                   "status"
                 ]
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33168,11 +32611,6 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "out"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -33391,14 +32829,13 @@
                 "optional": true
               },
               "to": {
-                "type": "jid",
-                "arg": "s",
+                "type": "userJid",
+                "arg": "h",
                 "direction": "both"
               },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -33407,6 +32844,11 @@
                   "receipt",
                   "status"
                 ]
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33419,11 +32861,6 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "out"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -33633,8 +33070,8 @@
                 "type": "jid"
               },
               "to": {
-                "type": "jid",
-                "arg": "s",
+                "type": "userJid",
+                "arg": "h",
                 "direction": "both"
               },
               "t": {
@@ -33648,10 +33085,15 @@
                 "optional": true,
                 "direction": "both"
               },
+              "recipient": {
+                "type": "userJid",
+                "arg": "u",
+                "optional": true,
+                "direction": "both"
+              },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -33661,28 +33103,22 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "both"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
                 "direction": "out"
               },
-              "recipient": {
-                "type": "userJid",
-                "arg": "I",
-                "optional": true,
-                "direction": "both"
-              },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "out"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -33787,14 +33223,13 @@
                 "direction": "both"
               },
               "to": {
-                "type": "jid",
-                "arg": "s",
+                "type": "userJid",
+                "arg": "h",
                 "direction": "both"
               },
               "class": {
                 "type": "enum",
-                "arg": "v",
-                "optional": true,
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -33803,6 +33238,11 @@
                   "receipt",
                   "status"
                 ]
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33815,11 +33255,6 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "out"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -38830,31 +38265,13 @@
               },
               "id": {
                 "type": "stanzaId",
-                "arg": "_.id",
+                "arg": "l",
                 "direction": "both"
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
                 "direction": "both"
-              },
-              "edit": {
-                "type": "enum",
-                "optional": true,
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ]
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "out"
               },
               "phash": {
                 "type": "string",
@@ -38878,6 +38295,18 @@
                 "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ae)",
                 "optional": true,
                 "direction": "both"
+              },
+              "edit": {
+                "type": "enum",
+                "optional": true,
+                "direction": "both",
+                "enumValues": [
+                  "1",
+                  "2",
+                  "3",
+                  "7",
+                  "8"
+                ]
               },
               "device_fanout": {
                 "type": "literal",
@@ -38915,6 +38344,12 @@
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
+                "optional": true,
+                "direction": "out"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
                 "optional": true,
                 "direction": "out"
               },
@@ -39656,19 +39091,8 @@
               },
               "to": {
                 "type": "jid",
-                "arg": "l",
+                "arg": "d",
                 "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "direction": "both"
-              },
-              "eph_setting": {
-                "type": "string",
-                "arg": "y",
-                "optional": true,
-                "direction": "out"
               },
               "phash": {
                 "type": "string",
@@ -39715,6 +39139,12 @@
                   "pn"
                 ]
               },
+              "participant": {
+                "type": "deviceJid",
+                "arg": "h",
+                "optional": true,
+                "direction": "both"
+              },
               "recipient": {
                 "type": "userJid",
                 "arg": "g",
@@ -39735,6 +39165,12 @@
               "privacy_sensitive": {
                 "type": "bool",
                 "arg": "_.privacySensitive.valueOf().toString()",
+                "optional": true,
+                "direction": "out"
+              },
+              "eph_setting": {
+                "type": "string",
+                "arg": "y",
                 "optional": true,
                 "direction": "out"
               }
@@ -40110,378 +39546,7 @@
             "max": 1
           },
           {
-            "tag": "bot",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "profile",
-            "attrs": {
-              "v": {
-                "type": "literal",
-                "value": "1",
-                "direction": "out"
-              },
-              "persona_id": {
-                "type": "string",
-                "arg": "e",
-                "optional": true,
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "business",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "verified_name",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "devices",
-            "attrs": {
-              "version": {
-                "type": "int",
-                "arg": "String(e)",
-                "direction": "out"
-              },
-              "device_hash": {
-                "type": "string",
-                "arg": "e",
-                "optional": true,
-                "direction": "out"
-              },
-              "ts": {
-                "type": "int",
-                "arg": "n",
-                "optional": true,
-                "direction": "out"
-              },
-              "expected_ts": {
-                "type": "int",
-                "arg": "r",
-                "optional": true,
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "disappearing_mode",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "feature",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "lid",
-            "attrs": {
-              "jid": {
-                "type": "userJid",
-                "arg": "e",
-                "optional": true,
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "picture",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
             "tag": "tctoken",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "text_status",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "username",
-            "attrs": {
-              "username": {
-                "type": "string",
-                "arg": "e",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "query",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "user",
-            "attrs": {
-              "jid": {
-                "type": "userJid",
-                "arg": "n",
-                "optional": true,
-                "direction": "out"
-              },
-              "pn_jid": {
-                "type": "userJid",
-                "arg": "r",
-                "optional": true,
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "list",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "literal",
-                "value": "s.whatsapp.net",
-                "direction": "out"
-              },
-              "xmlns": {
-                "type": "literal",
-                "value": "usync",
-                "direction": "out"
-              },
-              "type": {
-                "type": "literal",
-                "value": "get",
-                "direction": "out"
-              },
-              "id": {
-                "type": "stanzaId",
-                "generated": true,
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "usync",
-            "attrs": {
-              "sid": {
-                "type": "stanzaId",
-                "generated": true,
-                "direction": "out"
-              },
-              "index": {
-                "type": "literal",
-                "value": "0",
-                "direction": "out"
-              },
-              "last": {
-                "type": "literal",
-                "value": "true",
-                "direction": "out"
-              },
-              "mode": {
-                "type": "string",
-                "arg": "this.mode",
-                "direction": "out"
-              },
-              "context": {
-                "type": "string",
-                "arg": "this.context",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "contact",
-            "attrs": {
-              "addressing_mode": {
-                "type": "enum",
-                "arg": "o(\"WAWebUsync\").USYNC_ADDRESSING_MODE.LID",
-                "optional": true,
-                "direction": "out",
-                "enumValues": [
-                  "lid",
-                  "pn"
-                ]
-              },
-              "username": {
-                "type": "string",
-                "arg": "n",
-                "direction": "out"
-              },
-              "pin": {
-                "type": "string",
-                "arg": "a",
-                "optional": true,
-                "direction": "out"
-              },
-              "lid": {
-                "type": "userJid",
-                "arg": "i",
-                "optional": true,
-                "direction": "out"
-              },
-              "type": {
-                "type": "string",
-                "arg": "r",
-                "direction": "out"
-              }
-            },
-            "children": [],
-            "content": null,
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "settings",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "id",
-            "attrs": {},
-            "children": [],
-            "content": {
-              "type": "bytes",
-              "direction": "out"
-            },
-            "min": 1,
-            "max": 1
-          },
-          {
-            "tag": "value",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "signature",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_blist",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_contact",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_group_gen2",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_image",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_location",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_url",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "encrypt_v2",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "voip",
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "presence": true
-          },
-          {
-            "tag": "multi_agent",
             "attrs": {},
             "children": [],
             "content": null,
@@ -40940,12 +40005,12 @@
         "attrs": {
           "id": {
             "type": "stanzaId",
-            "arg": "e.stanzaId",
+            "arg": "r.stanzaId",
             "direction": "out"
           },
           "to": {
             "type": "jid",
-            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
+            "arg": "r.from",
             "direction": "out"
           },
           "class": {
@@ -40993,8 +40058,7 @@
           },
           "error": {
             "type": "int",
-            "arg": "e.error",
-            "optional": true,
+            "arg": "i",
             "direction": "out"
           },
           "recipient": {

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043263898
+// WhatsApp Version: 2.3000.1043338440
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -7530,7 +7530,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_IMPRESSION': 531;
             readonly 'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_SEE_DETAILS_CLICK': 532;
             readonly 'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS': 533;
-            readonly 'LWI_ACTION_WINBACK_RECREATE_AD_CLICK': 534
+            readonly 'LWI_ACTION_WINBACK_RECREATE_AD_CLICK': 534;
+            readonly 'LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DISMISS': 535;
+            readonly 'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536
         }
     }
     readonly LWI_SCREEN_REFERENCE: {
@@ -9110,7 +9112,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'BODY_URL_LONG_PRESS': 29;
             readonly 'USER_BLOCK_REASON_DONT_RECOGNIZE': 30;
             readonly 'IAB_LPV': 31;
-            readonly 'IAB_LPV_BODY': 32
+            readonly 'IAB_LPV_BODY': 32;
+            readonly 'PAYMENT_CTA_CLICK': 33
         }
     }
     readonly MM_USER_CONTROLS_ACTION: {
@@ -12461,7 +12464,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CTA_URL_CLICK': 0;
             readonly 'BODY_URL_CLICK': 1;
             readonly 'BODY_URL_LONG_PRESS': 2;
-            readonly 'CTA_APP_CLICK': 3
+            readonly 'CTA_APP_CLICK': 3;
+            readonly 'PAYMENT_CTA_CLICK': 4
         }
     }
     readonly SIGNAL_SHARING_STATUS: {
@@ -14201,7 +14205,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_AI_HUB_REVIEW_CHATS': 317;
             readonly 'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318;
             readonly 'FB_MEDIA_PICKER': 319;
-            readonly 'IG_MEDIA_PICKER': 320
+            readonly 'IG_MEDIA_PICKER': 320;
+            readonly 'BB_MESSAGE_PACKS_META_ONE_TAB': 321
         }
     }
     readonly SW_AEC_TYPE: {
@@ -15044,7 +15049,16 @@ export declare const WA_WAM_ENUMS: {
             readonly 'VIEW_INLINE_ERROR_USERNAME_TOO_LONG': 79;
             readonly 'VIEW_INLINE_ERROR_USERNAME_CONTAINS_INVALID_PERIODS': 80;
             readonly 'LINK_SUCCESS': 81;
-            readonly 'LINK_CANCEL': 82
+            readonly 'LINK_CANCEL': 82;
+            readonly 'APP_SWITCH_FROM_FB_KEY_FLOW': 83;
+            readonly 'APP_SWITCH_FROM_IG_KEY_FLOW': 84;
+            readonly 'USERNAME_RESERVATION_KEY_IMPRESSION': 85;
+            readonly 'USERNAME_RESERVATION_KEY_ADD_KEY_CLICKED': 86;
+            readonly 'USERNAME_RESERVATION_KEY_NOT_NOW_CLICKED': 87;
+            readonly 'USERNAME_RESERVATION_KEY_SAVE_KEY_CLICKED': 88;
+            readonly 'USERNAME_RESERVATION_KEY_CANCEL_CLICKED': 89;
+            readonly 'APP_SWITCH_TO_FB_KEY_FLOW': 90;
+            readonly 'APP_SWITCH_TO_IG_KEY_FLOW': 91
         }
     }
     readonly USERNAME_CREATION_CURRENT_SCREEN: {
@@ -17289,6 +17303,8 @@ export declare const WA_WAM_EVENTS: {
             readonly ca2dExtensionConnectionState: { readonly id: 3035; readonly type: 'enum'; readonly enum: 'CA2D_EXTENSION_CONNECTION_STATE'; readonly falcoName: 'ca2d_extension_connection_state' }
             readonly ca2dExtensionCreateT: { readonly id: 3036; readonly type: 'timer'; readonly falcoName: 'ca2d_extension_create_t' }
             readonly ca2dPreviewT: { readonly id: 3037; readonly type: 'timer'; readonly falcoName: 'ca2d_preview_t' }
+            readonly ca2dReceiverExtConnectT: { readonly id: 3074; readonly type: 'timer'; readonly falcoName: 'ca2d_receiver_ext_connect_t' }
+            readonly ca2dReceiverFirstFrameT: { readonly id: 3075; readonly type: 'timer'; readonly falcoName: 'ca2d_receiver_first_frame_t' }
             readonly callAcceptFuncT: { readonly id: 132; readonly type: 'timer'; readonly falcoName: 'call_accept_func_t' }
             readonly callAcceptRcvd: { readonly id: 2854; readonly type: 'boolean'; readonly falcoName: 'call_accept_rcvd' }
             readonly callAcceptSent: { readonly id: 2855; readonly type: 'boolean'; readonly falcoName: 'call_accept_sent' }
@@ -18166,6 +18182,7 @@ export declare const WA_WAM_EVENTS: {
             readonly mlNadlShimCreationFailureCount: { readonly id: 2622; readonly type: 'integer'; readonly falcoName: 'ml_nadl_shim_creation_failure_count' }
             readonly mlNsAspInitFailed: { readonly id: 2582; readonly type: 'boolean'; readonly falcoName: 'ml_ns_asp_init_failed' }
             readonly mlNsAspInitFailureReason: { readonly id: 2712; readonly type: 'integer'; readonly falcoName: 'ml_ns_asp_init_failure_reason' }
+            readonly mlNsAvailable: { readonly id: 3073; readonly type: 'boolean'; readonly falcoName: 'ml_ns_available' }
             readonly mlNsGetModelPathFailed: { readonly id: 2583; readonly type: 'boolean'; readonly falcoName: 'ml_ns_get_model_path_failed' }
             readonly mlNsStoppedByUser: { readonly id: 2561; readonly type: 'boolean'; readonly falcoName: 'ml_ns_stopped_by_user' }
             readonly mlNsStoppedHighCpu: { readonly id: 2562; readonly type: 'boolean'; readonly falcoName: 'ml_ns_stopped_high_cpu' }
@@ -21844,6 +21861,7 @@ export declare const WA_WAM_EVENTS: {
             readonly serverAddressingMode: { readonly id: 18; readonly type: 'enum'; readonly enum: 'ADDRESSING_MODE'; readonly falcoName: 'server_addressing_mode' }
             readonly sessionScope: { readonly id: 28; readonly type: 'enum'; readonly enum: 'SESSION_SCOPE_TYPE'; readonly falcoName: 'session_scope' }
             readonly stanzaType: { readonly id: 14; readonly type: 'enum'; readonly enum: 'STANZA_TYPE'; readonly falcoName: 'stanza_type' }
+            readonly traceIdInt: { readonly id: 31; readonly type: 'integer'; readonly falcoName: 'trace_id_int' }
             readonly typeOfGroup: { readonly id: 12; readonly type: 'enum'; readonly enum: 'TYPE_OF_GROUP_ENUM'; readonly falcoName: 'type_of_group' }
         }
     }
@@ -22829,6 +22847,7 @@ export declare const WA_WAM_EVENTS: {
             readonly revokeType: { readonly id: 8; readonly type: 'enum'; readonly enum: 'REVOKE_TYPE'; readonly falcoName: 'revoke_type' }
             readonly senderPlatform: { readonly id: 23; readonly type: 'enum'; readonly enum: 'PLATFORM_TYPE'; readonly falcoName: 'sender_platform' }
             readonly sessionScope: { readonly id: 21; readonly type: 'enum'; readonly enum: 'SESSION_SCOPE_TYPE'; readonly falcoName: 'session_scope' }
+            readonly traceIdInt: { readonly id: 24; readonly type: 'integer'; readonly falcoName: 'trace_id_int' }
             readonly typeOfGroup: { readonly id: 10; readonly type: 'enum'; readonly enum: 'TYPE_OF_GROUP_ENUM'; readonly falcoName: 'type_of_group' }
         }
     }
@@ -27667,6 +27686,7 @@ export declare const WA_WAM_EVENTS: {
             readonly elapsedTimeMs: { readonly id: 4; readonly type: 'integer'; readonly falcoName: 'elapsed_time_ms' }
             readonly previousImpressionCount: { readonly id: 5; readonly type: 'integer'; readonly falcoName: 'previous_impression_count' }
             readonly previousOptOutImpressionCount: { readonly id: 6; readonly type: 'integer'; readonly falcoName: 'previous_opt_out_impression_count' }
+            readonly smbDataSharingConsentDisclosureVersion: { readonly id: 7; readonly type: 'integer'; readonly falcoName: 'smb_data_sharing_consent_disclosure_version' }
             readonly smbDataSharingConsentScreenEntryPoint: { readonly id: 3; readonly type: 'enum'; readonly enum: 'SMB_DATA_SHARING_CONSENT_SCREEN_ENTRY_POINT'; readonly falcoName: 'smb_data_sharing_consent_screen_entry_point' }
             readonly smbDataSharingConsentScreenType: { readonly id: 1; readonly type: 'enum'; readonly enum: 'SMB_DATA_SHARING_CONSENT_SCREEN_TYPE'; readonly falcoName: 'smb_data_sharing_consent_screen_type' }
             readonly smbDataSharingConsentScreenVersion: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'smb_data_sharing_consent_screen_version' }

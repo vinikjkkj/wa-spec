@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043263898
+// WhatsApp Version: 2.3000.1043338440
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -46,8 +46,8 @@ const WA_WAM_BUFFER_CONSTANTS = Object.freeze({
     inMemoryBufferingDurationSecs: 5,
     bufferRotateIntervalSecs: 120,
     workerDataBatchSize: 100,
-    guestInMemoryBufferingDurationSecs: 1,
-    guestBufferRotateIntervalSecs: 2
+    guestInMemoryBufferingDurationSecs: null,
+    guestBufferRotateIntervalSecs: null
 })
 
 const WA_WAM_PRIVATE_STATS_IDS = Object.freeze([
@@ -7421,7 +7421,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_IMPRESSION': 531,
         'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_SEE_DETAILS_CLICK': 532,
         'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS': 533,
-        'LWI_ACTION_WINBACK_RECREATE_AD_CLICK': 534
+        'LWI_ACTION_WINBACK_RECREATE_AD_CLICK': 534,
+        'LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DISMISS': 535,
+        'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536
         })
     }),
     LWI_SCREEN_REFERENCE: Object.freeze({
@@ -9001,7 +9003,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'BODY_URL_LONG_PRESS': 29,
         'USER_BLOCK_REASON_DONT_RECOGNIZE': 30,
         'IAB_LPV': 31,
-        'IAB_LPV_BODY': 32
+        'IAB_LPV_BODY': 32,
+        'PAYMENT_CTA_CLICK': 33
         })
     }),
     MM_USER_CONTROLS_ACTION: Object.freeze({
@@ -12352,7 +12355,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CTA_URL_CLICK': 0,
         'BODY_URL_CLICK': 1,
         'BODY_URL_LONG_PRESS': 2,
-        'CTA_APP_CLICK': 3
+        'CTA_APP_CLICK': 3,
+        'PAYMENT_CTA_CLICK': 4
         })
     }),
     SIGNAL_SHARING_STATUS: Object.freeze({
@@ -14092,7 +14096,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'GEN_AI_AI_HUB_REVIEW_CHATS': 317,
         'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318,
         'FB_MEDIA_PICKER': 319,
-        'IG_MEDIA_PICKER': 320
+        'IG_MEDIA_PICKER': 320,
+        'BB_MESSAGE_PACKS_META_ONE_TAB': 321
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -14935,7 +14940,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'VIEW_INLINE_ERROR_USERNAME_TOO_LONG': 79,
         'VIEW_INLINE_ERROR_USERNAME_CONTAINS_INVALID_PERIODS': 80,
         'LINK_SUCCESS': 81,
-        'LINK_CANCEL': 82
+        'LINK_CANCEL': 82,
+        'APP_SWITCH_FROM_FB_KEY_FLOW': 83,
+        'APP_SWITCH_FROM_IG_KEY_FLOW': 84,
+        'USERNAME_RESERVATION_KEY_IMPRESSION': 85,
+        'USERNAME_RESERVATION_KEY_ADD_KEY_CLICKED': 86,
+        'USERNAME_RESERVATION_KEY_NOT_NOW_CLICKED': 87,
+        'USERNAME_RESERVATION_KEY_SAVE_KEY_CLICKED': 88,
+        'USERNAME_RESERVATION_KEY_CANCEL_CLICKED': 89,
+        'APP_SWITCH_TO_FB_KEY_FLOW': 90,
+        'APP_SWITCH_TO_IG_KEY_FLOW': 91
         })
     }),
     USERNAME_CREATION_CURRENT_SCREEN: Object.freeze({
@@ -17056,6 +17070,8 @@ const WA_WAM_EVENTS = Object.freeze({
             ca2dExtensionConnectionState: Object.freeze({ id: 3035, type: 'enum', enum: 'CA2D_EXTENSION_CONNECTION_STATE', falcoName: 'ca2d_extension_connection_state' }),
             ca2dExtensionCreateT: Object.freeze({ id: 3036, type: 'timer', falcoName: 'ca2d_extension_create_t' }),
             ca2dPreviewT: Object.freeze({ id: 3037, type: 'timer', falcoName: 'ca2d_preview_t' }),
+            ca2dReceiverExtConnectT: Object.freeze({ id: 3074, type: 'timer', falcoName: 'ca2d_receiver_ext_connect_t' }),
+            ca2dReceiverFirstFrameT: Object.freeze({ id: 3075, type: 'timer', falcoName: 'ca2d_receiver_first_frame_t' }),
             callAcceptFuncT: Object.freeze({ id: 132, type: 'timer', falcoName: 'call_accept_func_t' }),
             callAcceptRcvd: Object.freeze({ id: 2854, type: 'boolean', falcoName: 'call_accept_rcvd' }),
             callAcceptSent: Object.freeze({ id: 2855, type: 'boolean', falcoName: 'call_accept_sent' }),
@@ -17933,6 +17949,7 @@ const WA_WAM_EVENTS = Object.freeze({
             mlNadlShimCreationFailureCount: Object.freeze({ id: 2622, type: 'integer', falcoName: 'ml_nadl_shim_creation_failure_count' }),
             mlNsAspInitFailed: Object.freeze({ id: 2582, type: 'boolean', falcoName: 'ml_ns_asp_init_failed' }),
             mlNsAspInitFailureReason: Object.freeze({ id: 2712, type: 'integer', falcoName: 'ml_ns_asp_init_failure_reason' }),
+            mlNsAvailable: Object.freeze({ id: 3073, type: 'boolean', falcoName: 'ml_ns_available' }),
             mlNsGetModelPathFailed: Object.freeze({ id: 2583, type: 'boolean', falcoName: 'ml_ns_get_model_path_failed' }),
             mlNsStoppedByUser: Object.freeze({ id: 2561, type: 'boolean', falcoName: 'ml_ns_stopped_by_user' }),
             mlNsStoppedHighCpu: Object.freeze({ id: 2562, type: 'boolean', falcoName: 'ml_ns_stopped_high_cpu' }),
@@ -21323,6 +21340,7 @@ const WA_WAM_EVENTS = Object.freeze({
             serverAddressingMode: Object.freeze({ id: 18, type: 'enum', enum: 'ADDRESSING_MODE', falcoName: 'server_addressing_mode' }),
             sessionScope: Object.freeze({ id: 28, type: 'enum', enum: 'SESSION_SCOPE_TYPE', falcoName: 'session_scope' }),
             stanzaType: Object.freeze({ id: 14, type: 'enum', enum: 'STANZA_TYPE', falcoName: 'stanza_type' }),
+            traceIdInt: Object.freeze({ id: 31, type: 'integer', falcoName: 'trace_id_int' }),
             typeOfGroup: Object.freeze({ id: 12, type: 'enum', enum: 'TYPE_OF_GROUP_ENUM', falcoName: 'type_of_group' })
         })
     }),
@@ -22152,6 +22170,7 @@ const WA_WAM_EVENTS = Object.freeze({
             revokeType: Object.freeze({ id: 8, type: 'enum', enum: 'REVOKE_TYPE', falcoName: 'revoke_type' }),
             senderPlatform: Object.freeze({ id: 23, type: 'enum', enum: 'PLATFORM_TYPE', falcoName: 'sender_platform' }),
             sessionScope: Object.freeze({ id: 21, type: 'enum', enum: 'SESSION_SCOPE_TYPE', falcoName: 'session_scope' }),
+            traceIdInt: Object.freeze({ id: 24, type: 'integer', falcoName: 'trace_id_int' }),
             typeOfGroup: Object.freeze({ id: 10, type: 'enum', enum: 'TYPE_OF_GROUP_ENUM', falcoName: 'type_of_group' })
         })
     }),
@@ -26350,6 +26369,7 @@ const WA_WAM_EVENTS = Object.freeze({
             elapsedTimeMs: Object.freeze({ id: 4, type: 'integer', falcoName: 'elapsed_time_ms' }),
             previousImpressionCount: Object.freeze({ id: 5, type: 'integer', falcoName: 'previous_impression_count' }),
             previousOptOutImpressionCount: Object.freeze({ id: 6, type: 'integer', falcoName: 'previous_opt_out_impression_count' }),
+            smbDataSharingConsentDisclosureVersion: Object.freeze({ id: 7, type: 'integer', falcoName: 'smb_data_sharing_consent_disclosure_version' }),
             smbDataSharingConsentScreenEntryPoint: Object.freeze({ id: 3, type: 'enum', enum: 'SMB_DATA_SHARING_CONSENT_SCREEN_ENTRY_POINT', falcoName: 'smb_data_sharing_consent_screen_entry_point' }),
             smbDataSharingConsentScreenType: Object.freeze({ id: 1, type: 'enum', enum: 'SMB_DATA_SHARING_CONSENT_SCREEN_TYPE', falcoName: 'smb_data_sharing_consent_screen_type' }),
             smbDataSharingConsentScreenVersion: Object.freeze({ id: 2, type: 'integer', falcoName: 'smb_data_sharing_consent_screen_version' })

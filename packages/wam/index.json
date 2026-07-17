@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043263898",
+  "waVersion": "2.3000.1043338440",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -39,8 +39,8 @@
     "inMemoryBufferingDurationSecs": 5,
     "bufferRotateIntervalSecs": 120,
     "workerDataBatchSize": 100,
-    "guestInMemoryBufferingDurationSecs": 1,
-    "guestBufferRotateIntervalSecs": 2
+    "guestInMemoryBufferingDurationSecs": null,
+    "guestBufferRotateIntervalSecs": null
   },
   "privateStatsIds": [
     {
@@ -7452,7 +7452,9 @@
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_IMPRESSION": 531,
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_SEE_DETAILS_CLICK": 532,
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS": 533,
-        "LWI_ACTION_WINBACK_RECREATE_AD_CLICK": 534
+        "LWI_ACTION_WINBACK_RECREATE_AD_CLICK": 534,
+        "LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DISMISS": 535,
+        "LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED": 536
       }
     },
     "LWI_SCREEN_REFERENCE": {
@@ -9032,7 +9034,8 @@
         "BODY_URL_LONG_PRESS": 29,
         "USER_BLOCK_REASON_DONT_RECOGNIZE": 30,
         "IAB_LPV": 31,
-        "IAB_LPV_BODY": 32
+        "IAB_LPV_BODY": 32,
+        "PAYMENT_CTA_CLICK": 33
       }
     },
     "MM_USER_CONTROLS_ACTION": {
@@ -12383,7 +12386,8 @@
         "CTA_URL_CLICK": 0,
         "BODY_URL_CLICK": 1,
         "BODY_URL_LONG_PRESS": 2,
-        "CTA_APP_CLICK": 3
+        "CTA_APP_CLICK": 3,
+        "PAYMENT_CTA_CLICK": 4
       }
     },
     "SIGNAL_SHARING_STATUS": {
@@ -14123,7 +14127,8 @@
         "GEN_AI_AI_HUB_REVIEW_CHATS": 317,
         "GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD": 318,
         "FB_MEDIA_PICKER": 319,
-        "IG_MEDIA_PICKER": 320
+        "IG_MEDIA_PICKER": 320,
+        "BB_MESSAGE_PACKS_META_ONE_TAB": 321
       }
     },
     "SW_AEC_TYPE": {
@@ -14966,7 +14971,16 @@
         "VIEW_INLINE_ERROR_USERNAME_TOO_LONG": 79,
         "VIEW_INLINE_ERROR_USERNAME_CONTAINS_INVALID_PERIODS": 80,
         "LINK_SUCCESS": 81,
-        "LINK_CANCEL": 82
+        "LINK_CANCEL": 82,
+        "APP_SWITCH_FROM_FB_KEY_FLOW": 83,
+        "APP_SWITCH_FROM_IG_KEY_FLOW": 84,
+        "USERNAME_RESERVATION_KEY_IMPRESSION": 85,
+        "USERNAME_RESERVATION_KEY_ADD_KEY_CLICKED": 86,
+        "USERNAME_RESERVATION_KEY_NOT_NOW_CLICKED": 87,
+        "USERNAME_RESERVATION_KEY_SAVE_KEY_CLICKED": 88,
+        "USERNAME_RESERVATION_KEY_CANCEL_CLICKED": 89,
+        "APP_SWITCH_TO_FB_KEY_FLOW": 90,
+        "APP_SWITCH_TO_IG_KEY_FLOW": 91
       }
     },
     "USERNAME_CREATION_CURRENT_SCREEN": {
@@ -19909,6 +19923,16 @@
           "type": "timer",
           "falcoName": "ca2d_preview_t"
         },
+        "ca2dReceiverExtConnectT": {
+          "id": 3074,
+          "type": "timer",
+          "falcoName": "ca2d_receiver_ext_connect_t"
+        },
+        "ca2dReceiverFirstFrameT": {
+          "id": 3075,
+          "type": "timer",
+          "falcoName": "ca2d_receiver_first_frame_t"
+        },
         "callAcceptFuncT": {
           "id": 132,
           "type": "timer",
@@ -24334,6 +24358,11 @@
           "id": 2712,
           "type": "integer",
           "falcoName": "ml_ns_asp_init_failure_reason"
+        },
+        "mlNsAvailable": {
+          "id": 3073,
+          "type": "boolean",
+          "falcoName": "ml_ns_available"
         },
         "mlNsGetModelPathFailed": {
           "id": 2583,
@@ -38454,6 +38483,11 @@
           "falcoName": "stanza_type",
           "enum": "STANZA_TYPE"
         },
+        "traceIdInt": {
+          "id": 31,
+          "type": "integer",
+          "falcoName": "trace_id_int"
+        },
         "typeOfGroup": {
           "id": 12,
           "type": "enum",
@@ -41055,6 +41089,11 @@
           "type": "enum",
           "falcoName": "session_scope",
           "enum": "SESSION_SCOPE_TYPE"
+        },
+        "traceIdInt": {
+          "id": 24,
+          "type": "integer",
+          "falcoName": "trace_id_int"
         },
         "typeOfGroup": {
           "id": 10,
@@ -55780,6 +55819,11 @@
           "id": 6,
           "type": "integer",
           "falcoName": "previous_opt_out_impression_count"
+        },
+        "smbDataSharingConsentDisclosureVersion": {
+          "id": 7,
+          "type": "integer",
+          "falcoName": "smb_data_sharing_consent_disclosure_version"
         },
         "smbDataSharingConsentScreenEntryPoint": {
           "id": 3,
