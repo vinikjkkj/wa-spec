@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043338440
+// WhatsApp Version: 2.3000.1043415296
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -852,7 +852,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'chat',
         valueField: 'wasaRootSecretAction',
         valueProtoType: 'SyncActionValue.WASARootSecretAction',
-        valueEnumFields: null,
+        valueEnumFields: Object.freeze({ 'secrets.status': 'WASARootSecretAction.RootSecretEntry.Status' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'wasa_root_secret' }),
             Object.freeze({ type: 'jid', name: 'chatJid' })

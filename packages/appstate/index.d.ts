@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043338440
+// WhatsApp Version: 2.3000.1043415296
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -130,7 +130,7 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly UserStatusMute: WaAppstateSchema<'userStatusMute', 'regular_high', 'account', 'userStatusMuteAction', 'SyncActionValue.UserStatusMuteAction', null, readonly [{ readonly type: 'literal'; readonly value: 'userStatusMute' }, { readonly type: 'string'; readonly name: 'id' }]>
     readonly VoipRelayAllCalls: WaAppstateSchema<'setting_relayAllCalls', 'regular', 'account', 'privacySettingRelayAllCalls', 'SyncActionValue.PrivacySettingRelayAllCalls', null, readonly [{ readonly type: 'literal'; readonly value: 'setting_relayAllCalls' }]>
     readonly WaffleAccountLinkState: WaAppstateSchema<'waffle_account_link_state', 'regular_high', 'account', 'waffleAccountLinkStateAction', 'SyncActionValue.WaffleAccountLinkStateAction', { readonly 'linkState': 'WaffleAccountLinkStateAction.AccountLinkState' }, readonly [{ readonly type: 'literal'; readonly value: 'waffle_account_link_state' }]>
-    readonly WasaRootSecret: WaAppstateSchema<'wasa_root_secret', 'regular_high', 'chat', 'wasaRootSecretAction', 'SyncActionValue.WASARootSecretAction', null, readonly [{ readonly type: 'literal'; readonly value: 'wasa_root_secret' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
+    readonly WasaRootSecret: WaAppstateSchema<'wasa_root_secret', 'regular_high', 'chat', 'wasaRootSecretAction', 'SyncActionValue.WASARootSecretAction', { readonly 'secrets.status': 'WASARootSecretAction.RootSecretEntry.Status' }, readonly [{ readonly type: 'literal'; readonly value: 'wasa_root_secret' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
 }
 
 export type WaAppstateActionKey = keyof typeof WA_APPSTATE_SCHEMAS

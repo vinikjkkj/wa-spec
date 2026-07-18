@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043338440",
+  "waVersion": "2.3000.1043415296",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -1466,7 +1466,9 @@
         "UNDEFINED": 0,
         "OHAI_REQ_TIMEOUT": 1,
         "OHAI_REQ_NACK": 2,
-        "ADD_EXTENSION_NACK": 3
+        "ADD_EXTENSION_NACK": 3,
+        "OHAI_REQ_HTTP_ERROR": 4,
+        "OHAI_REQ_TEE_ERROR": 5
       }
     },
     "CA2D_EXTENSION_CONNECTION_STATE": {
@@ -3950,7 +3952,8 @@
         "DEEP_LINK_IMAGINE": 249,
         "DEEP_LINK_META_AI_INCOGNITO": 250,
         "DEEP_LINK_CHANGE_NUMBER": 251,
-        "DEEP_LINK_AI_MAGIC_CUE_SETTING": 252
+        "DEEP_LINK_AI_MAGIC_CUE_SETTING": 252,
+        "DEEP_LINK_WINBACK_METRICS": 253
       }
     },
     "DEFAULT_AUDIENCE_LOCATION_TYPE": {
@@ -9766,6 +9769,15 @@
         "ALBUM": 3
       }
     },
+    "PAID_MESSAGING_USER_INTERACTIONS_MESSAGE_EXPAND_STATE": {
+      "module": "WAWebWamEnumPaidMessagingUserInteractionsMessageExpandState",
+      "export": "PAID_MESSAGING_USER_INTERACTIONS_MESSAGE_EXPAND_STATE",
+      "values": {
+        "NOT_APPLICABLE": 0,
+        "COLLAPSED": 1,
+        "EXPANDED": 2
+      }
+    },
     "PAIRED_MEDIA_TYPE": {
       "module": "WAWebWamEnumPairedMediaType",
       "export": "PAIRED_MEDIA_TYPE",
@@ -10750,7 +10762,9 @@
         "FIFA_WORLDCUP_EXCITED_FOR_FINALS": 10,
         "PREVIOUS_SET_ABOUT": 11,
         "AWAY_LEAVE_A_MESSAGE": 12,
-        "AT_THE_GYM": 13
+        "AT_THE_GYM": 13,
+        "SLEEPING": 14,
+        "AT_WORK": 15
       }
     },
     "PREVIOUS_EPHEMERALITY_TYPE": {
@@ -14306,7 +14320,8 @@
         "AI_CREATED": 14,
         "LAYOUTS": 15,
         "CLOSE_SHARING": 16,
-        "CHANNEL_STATUS": 17
+        "CHANNEL_STATUS": 17,
+        "RESHARED_FROM_CHANNEL": 18
       }
     },
     "TRIGGER_TYPE": {
@@ -50467,6 +50482,12 @@
           "type": "integer",
           "falcoName": "message_bubble_width_px"
         },
+        "messageExpandState": {
+          "id": 19,
+          "type": "enum",
+          "falcoName": "message_expand_state",
+          "enum": "PAID_MESSAGING_USER_INTERACTIONS_MESSAGE_EXPAND_STATE"
+        },
         "pmxActionTarget": {
           "id": 1,
           "type": "enum",
@@ -61422,6 +61443,28 @@
           "id": 1,
           "type": "string",
           "falcoName": "username_exposure_context"
+        }
+      }
+    },
+    "UsernameUnknownUserDisplayed": {
+      "id": 8524,
+      "module": "WAWebUsernameUnknownUserDisplayedWamEvent",
+      "falcoName": "wam_username_unknown_user_displayed",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "unknownUserDisplayContext": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "unknown_user_display_context"
         }
       }
     },

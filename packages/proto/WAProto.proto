@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1043338440
+/// WhatsApp Version: 2.3000.1043415296
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -83,6 +83,7 @@ enum BotMetricsEntryPoint {
     GROUP_MEMBER = 54;
     CHATLIST_SEARCH = 55;
     NEW_CHAT_LIST = 56;
+    CONTACTS_TAB = 57;
 }
 
 enum BotMetricsThreadEntryPoint {
@@ -258,6 +259,7 @@ enum MutationProps {
     COEX_V2_VERSION_ACTION = 88;
     WASA_ROOT_SECRET_ACTION = 89;
     BUBBLE_LOCK_MESSAGE_ACTION = 90;
+    LABEL_SUBLIST_ACTION = 91;
     SHARE_OWN_PN = 10001;
     BUSINESS_BROADCAST_ACTION = 10002;
     AI_THREAD_DELETE_ACTION = 10003;
@@ -1517,6 +1519,7 @@ message ClientPayload {
             SMART_GLASSES = 35;
             BLUE_VR = 36;
             AR_WRIST = 37;
+            WAIL = 38;
         }
         message AppVersion {
             optional uint32 primary = 1;
@@ -2117,6 +2120,17 @@ message DecryptMessageOutput {
     optional string error = 2;
 }
 
+message DeriveMessageKeyInput {
+    optional bytes epochRootKey = 1;
+    optional bytes epochAnonId = 2;
+    optional string threadId = 3;
+}
+
+message DeriveMessageKeyOutput {
+    optional bytes messageKey = 1;
+    optional string error = 2;
+}
+
 message DeviceCapabilities {
     optional ChatLockSupportLevel chatLockSupportLevel = 1;
     optional LIDMigration lidMigration = 2;
@@ -2711,6 +2725,7 @@ message LabyrinthWaCommand {
     optional EncryptMessageInput encryptMessageInput = 2;
     optional DecryptMessageInput decryptMessageInput = 3;
     optional OrfThreadIdInput orfThreadIdInput = 4;
+    optional DeriveMessageKeyInput deriveMessageKeyInput = 5;
 }
 
 message LegacyMessage {
@@ -3980,6 +3995,14 @@ message Message {
         repeated string collectionNames = 1;
         optional int64 timestamp = 2;
     }
+    message SyncRequestMutationRetry {
+        repeated Collection collections = 1;
+        optional uint32 count = 2;
+        message Collection {
+            optional string name = 1;
+            optional uint64 storedSyncdVersion = 2;
+        }
+    }
     message AppStateSyncKeyRequest {
         repeated Message.AppStateSyncKeyId keyIds = 1;
     }
@@ -4101,6 +4124,7 @@ message Message {
         optional AIMetadataOperation aiMetadataOperation = 31;
         optional Message.MarkAsVerifiedAction markAsVerifiedAction = 32;
         optional CoexStateSync coexStateSync = 33;
+        optional Message.SyncRequestMutationRetry syncRequestMutationRetry = 34;
         enum Type {
             REVOKE = 0;
             EPHEMERAL_SETTING = 3;
@@ -4134,6 +4158,7 @@ message Message {
             AI_METADATA_OPERATION = 35;
             MARK_AS_VERIFIED_ACTION = 36;
             COEX_STATE_SYNC = 37;
+            SYNC_REQUEST_MUTATION_RETRY = 38;
         }
     }
     message CloudAPIThreadControlNotification {
@@ -4170,6 +4195,7 @@ message Message {
         optional string deeplinkPayload = 9;
         optional MessageContextInfo messageContextInfo = 10;
         optional uint32 callEntryPoint = 11;
+        optional string callReason = 12;
     }
     message VideoMessage {
         optional string url = 1;
@@ -5358,6 +5384,7 @@ message SyncActionValue {
     optional CoexV2VersionAction coexV2VersionAction = 88;
     optional WASARootSecretAction wasaRootSecretAction = 89;
     optional BubbleLockMessageAction bubbleLockMessageAction = 90;
+    optional LabelSublistAction labelSublistAction = 91;
     enum BusinessBroadcastCampaignStatus {
         DRAFT = 1;
         SCHEDULED = 2;
@@ -5371,6 +5398,11 @@ message SyncActionValue {
             optional string id = 1;
             optional bytes rootSecret = 2;
             optional int64 epoch = 3;
+            optional Status status = 4;
+            enum Status {
+                INACTIVE = 0;
+                ACTIVE = 1;
+            }
         }
     }
     message CoexV2VersionAction {
@@ -5886,6 +5918,9 @@ message SyncActionValue {
             INVITES = 14;
             THIRD_PARTY = 15;
         }
+    }
+    message LabelSublistAction {
+        optional int32 subListId = 1;
     }
     message LabelAssociationAction {
         optional bool labeled = 1;

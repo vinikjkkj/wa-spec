@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043338440",
+  "waVersion": "2.3000.1043415296",
   "collections": [
     "regular",
     "regular_low",
@@ -1457,7 +1457,9 @@
       "baseClass": "ChatSyncdActionBase",
       "valueField": "wasaRootSecretAction",
       "valueProtoType": "SyncActionValue.WASARootSecretAction",
-      "valueEnumFields": null,
+      "valueEnumFields": {
+        "secrets.status": "WASARootSecretAction.RootSecretEntry.Status"
+      },
       "chatJidIndex": 1,
       "indexParts": [
         {

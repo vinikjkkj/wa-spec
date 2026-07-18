@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043338440
+// WhatsApp Version: 2.3000.1043415296
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1435,7 +1435,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'UNDEFINED': 0,
         'OHAI_REQ_TIMEOUT': 1,
         'OHAI_REQ_NACK': 2,
-        'ADD_EXTENSION_NACK': 3
+        'ADD_EXTENSION_NACK': 3,
+        'OHAI_REQ_HTTP_ERROR': 4,
+        'OHAI_REQ_TEE_ERROR': 5
         })
     }),
     CA2D_EXTENSION_CONNECTION_STATE: Object.freeze({
@@ -3919,7 +3921,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_IMAGINE': 249,
         'DEEP_LINK_META_AI_INCOGNITO': 250,
         'DEEP_LINK_CHANGE_NUMBER': 251,
-        'DEEP_LINK_AI_MAGIC_CUE_SETTING': 252
+        'DEEP_LINK_AI_MAGIC_CUE_SETTING': 252,
+        'DEEP_LINK_WINBACK_METRICS': 253
         })
     }),
     DEFAULT_AUDIENCE_LOCATION_TYPE: Object.freeze({
@@ -9735,6 +9738,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'ALBUM': 3
         })
     }),
+    PAID_MESSAGING_USER_INTERACTIONS_MESSAGE_EXPAND_STATE: Object.freeze({
+        module: 'WAWebWamEnumPaidMessagingUserInteractionsMessageExpandState',
+        export: 'PAID_MESSAGING_USER_INTERACTIONS_MESSAGE_EXPAND_STATE',
+        values: Object.freeze({
+        'NOT_APPLICABLE': 0,
+        'COLLAPSED': 1,
+        'EXPANDED': 2
+        })
+    }),
     PAIRED_MEDIA_TYPE: Object.freeze({
         module: 'WAWebWamEnumPairedMediaType',
         export: 'PAIRED_MEDIA_TYPE',
@@ -10719,7 +10731,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'FIFA_WORLDCUP_EXCITED_FOR_FINALS': 10,
         'PREVIOUS_SET_ABOUT': 11,
         'AWAY_LEAVE_A_MESSAGE': 12,
-        'AT_THE_GYM': 13
+        'AT_THE_GYM': 13,
+        'SLEEPING': 14,
+        'AT_WORK': 15
         })
     }),
     PREVIOUS_EPHEMERALITY_TYPE: Object.freeze({
@@ -14275,7 +14289,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'AI_CREATED': 14,
         'LAYOUTS': 15,
         'CLOSE_SHARING': 16,
-        'CHANNEL_STATUS': 17
+        'CHANNEL_STATUS': 17,
+        'RESHARED_FROM_CHANNEL': 18
         })
     }),
     TRIGGER_TYPE: Object.freeze({
@@ -24776,6 +24791,7 @@ const WA_WAM_EVENTS = Object.freeze({
         fields: Object.freeze({
             messageBubbleHeightPx: Object.freeze({ id: 17, type: 'integer', falcoName: 'message_bubble_height_px' }),
             messageBubbleWidthPx: Object.freeze({ id: 18, type: 'integer', falcoName: 'message_bubble_width_px' }),
+            messageExpandState: Object.freeze({ id: 19, type: 'enum', enum: 'PAID_MESSAGING_USER_INTERACTIONS_MESSAGE_EXPAND_STATE', falcoName: 'message_expand_state' }),
             pmxActionTarget: Object.freeze({ id: 1, type: 'enum', enum: 'PAID_MESSAGING_USER_INTERACTIONS_ACTION_TARGET', falcoName: 'pmx_action_target' }),
             pmxActionType: Object.freeze({ id: 2, type: 'enum', enum: 'PAID_MESSAGING_USER_INTERACTIONS_ACTION_TYPE', falcoName: 'pmx_action_type' }),
             pmxCarouselCardIndex: Object.freeze({ id: 14, type: 'integer', falcoName: 'pmx_carousel_card_index' }),
@@ -27977,6 +27993,19 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             usernameExposureContext: Object.freeze({ id: 1, type: 'string', falcoName: 'username_exposure_context' })
+        })
+    }),
+    UsernameUnknownUserDisplayed: Object.freeze({
+        id: 8524,
+        falcoName: 'wam_username_unknown_user_displayed',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            unknownUserDisplayContext: Object.freeze({ id: 1, type: 'string', falcoName: 'unknown_user_display_context' })
         })
     }),
     VideoTranscoder: Object.freeze({
