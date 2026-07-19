@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043415296",
+  "waVersion": "2.3000.1043435019",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -32586,7 +32586,8 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32595,11 +32596,6 @@
                   "receipt",
                   "status"
                 ]
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -32612,6 +32608,11 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
               },
               "server_id": {
                 "type": "int",
@@ -32836,7 +32837,8 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -32845,11 +32847,6 @@
                   "receipt",
                   "status"
                 ]
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -32862,6 +32859,11 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
               },
               "server_id": {
                 "type": "int",
@@ -33075,26 +33077,10 @@
                 "arg": "h",
                 "direction": "both"
               },
-              "t": {
-                "type": "int",
-                "arg": "Date.now().toString()",
-                "direction": "both"
-              },
-              "participant": {
-                "type": "deviceJid",
-                "arg": "i",
-                "optional": true,
-                "direction": "both"
-              },
-              "recipient": {
-                "type": "userJid",
-                "arg": "u",
-                "optional": true,
-                "direction": "both"
-              },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -33104,14 +33090,27 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
+              "t": {
+                "type": "int",
+                "arg": "d",
+                "optional": true,
+                "direction": "both"
+              },
+              "participant": {
+                "type": "userJid",
+                "arg": "i",
+                "optional": true,
+                "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
+                "optional": true,
+                "direction": "both"
+              },
+              "recipient": {
+                "type": "userJid",
+                "arg": "I",
                 "optional": true,
                 "direction": "both"
               },
@@ -33120,6 +33119,11 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
               },
               "server_id": {
                 "type": "int",
@@ -33230,7 +33234,8 @@
               },
               "class": {
                 "type": "enum",
-                "arg": "m",
+                "arg": "v",
+                "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -33239,11 +33244,6 @@
                   "receipt",
                   "status"
                 ]
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
               },
               "peer_participant_pn": {
                 "type": "userJid",
@@ -33256,6 +33256,11 @@
                 "arg": "String(b)",
                 "optional": true,
                 "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
               },
               "server_id": {
                 "type": "int",
@@ -40054,14 +40059,15 @@
             "direction": "out"
           },
           "participant": {
-            "type": "userJid",
-            "arg": "f",
+            "type": "deviceJid",
+            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
             "optional": true,
             "direction": "out"
           },
           "error": {
             "type": "int",
-            "arg": "i",
+            "arg": "e.error",
+            "optional": true,
             "direction": "out"
           },
           "recipient": {
