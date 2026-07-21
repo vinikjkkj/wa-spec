@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043449446
+// WhatsApp Version: 2.3000.1043530892
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -15,7 +15,7 @@ export declare const WA_XML_OPERATIONS: {
     readonly [K in WaXmlOperationKey]: WaXmlOperationSummary
 }
 
-export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'Add' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'ContactForm' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'Delete' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PreSet' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'PushSet' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
+export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'Add' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'Delete' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PreSet' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'PushSet' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
 
 // Per-operation request/response shape literals — generated from the static
 // extraction over WASmaxOut*Request + WASmaxIn*Response* modules. Each
@@ -1442,115 +1442,6 @@ export interface WaXmlOperations {
                         readonly link_code_pairing_ref: {
                             readonly tag: 'link_code_pairing_ref'
                             readonly content: Uint8Array
-                        }
-                    }
-                }
-            }
-        } }
-    }
-    readonly ContactForm: {
-        readonly module: 'WASmaxSupportContactFormRPC'
-        readonly opName: 'ContactForm'
-        readonly xmlns: 'fb:thrift_iq'
-        readonly type: 'set'
-        readonly request: {
-        readonly tag: 'iq'
-        readonly attrs: {
-            readonly xmlns: 'fb:thrift_iq'
-            readonly smax_id: '3'
-            readonly from?: string
-            readonly to: 's.whatsapp.net'
-            readonly id: string
-            readonly type: 'set'
-        }
-        readonly children: {
-            readonly description: {
-                readonly tag: 'description'
-            }
-            readonly topic: {
-                readonly tag: 'topic'
-            } | undefined
-            readonly topic_id: {
-                readonly tag: 'topic_id'
-            } | undefined
-            readonly debug_information_json: {
-                readonly tag: 'debug_information_json'
-            } | undefined
-            readonly uploaded_logs_id: {
-                readonly tag: 'uploaded_logs_id'
-            } | undefined
-            readonly additional_attributes: {
-                readonly tag: 'additional_attributes'
-                readonly attrs: {
-                    readonly context_flow?: string
-                }
-            } | undefined
-        }
-    }
-        readonly response:
-        | { readonly variant: 'Error'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly to?: string
-                readonly id: string
-                readonly from: string
-                readonly type: 'error'
-            }
-            readonly children: {
-                readonly error: {
-                    readonly tag: 'error'
-                    readonly attrs: {
-                        readonly text?: 'bad-request'
-                        readonly code?: number
-                        readonly tos_version?: number
-                    }
-                }
-            }
-        } }
-        | { readonly variant: 'RetryableError'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly to?: string
-                readonly id: string
-                readonly from: string
-                readonly type: 'result'
-            }
-            readonly children: {
-                readonly response: {
-                    readonly tag: 'response'
-                    readonly attrs: {
-                        readonly error_code: number
-                        readonly next_retry_ts?: string
-                    }
-                }
-            }
-        } }
-        | { readonly variant: 'Success'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly to?: string
-                readonly id: string
-                readonly from: string
-                readonly type: 'result'
-            }
-            readonly children: {
-                readonly response: {
-                    readonly tag: 'response'
-                    readonly attrs: {
-                        readonly status: 'ok'
-                    }
-                    readonly children: {
-                        readonly message: {
-                            readonly tag: 'message'
-                            readonly content: string
-                        }
-                        readonly ticket_id: {
-                            readonly tag: 'ticket_id'
-                            readonly content: string
-                        }
-                        readonly group_jid: {
-                            readonly tag: 'group_jid'
-                            readonly content: string
                         }
                     }
                 }
@@ -3718,6 +3609,9 @@ export interface WaXmlOperations {
                     readonly meta_verified?: string
                     readonly marketing_messages?: string
                     readonly genai?: string
+                    readonly genai_image?: string
+                    readonly meta_one?: string
+                    readonly bb_pro?: string
                 }
             }
         }
@@ -3769,6 +3663,25 @@ export interface WaXmlOperations {
                     readonly tag: 'genai'
                     readonly attrs: {
                         readonly status: 'FAIL' | 'SUCCESS'
+                        readonly v1_enabled?: 'false' | 'true'
+                    }
+                } | undefined
+                readonly genai_image: {
+                    readonly tag: 'genai_image'
+                    readonly attrs: {
+                        readonly status: 'FAIL' | 'SUCCESS'
+                    }
+                } | undefined
+                readonly meta_one: {
+                    readonly tag: 'meta_one'
+                    readonly attrs: {
+                        readonly status: 'FAIL' | 'SUCCESS'
+                    }
+                } | undefined
+                readonly bb_pro: {
+                    readonly tag: 'bb_pro'
+                    readonly attrs: {
+                        readonly status: 'ELIGIBLE_TO_ONBOARD' | 'NOT_ELIGIBLE' | 'ONBOARDED'
                     }
                 } | undefined
             }
@@ -7083,8 +6996,154 @@ export interface WaXmlOperations {
                         readonly code: string
                     }
                 }
+                readonly bot: {
+                    readonly tag: 'bot'
+                }
+                readonly profile: {
+                    readonly tag: 'profile'
+                    readonly attrs: {
+                        readonly v: '1'
+                        readonly persona_id?: string
+                    }
+                }
+                readonly business: {
+                    readonly tag: 'business'
+                }
+                readonly verified_name: {
+                    readonly tag: 'verified_name'
+                }
+                readonly devices: {
+                    readonly tag: 'devices'
+                    readonly attrs: {
+                        readonly version: number
+                        readonly device_hash?: string
+                        readonly ts?: number
+                        readonly expected_ts?: number
+                    }
+                }
+                readonly disappearing_mode: {
+                    readonly tag: 'disappearing_mode'
+                }
+                readonly feature: {
+                    readonly tag: 'feature'
+                }
+                readonly lid: {
+                    readonly tag: 'lid'
+                    readonly attrs: {
+                        readonly jid?: string
+                    }
+                }
+                readonly picture: {
+                    readonly tag: 'picture'
+                }
                 readonly tctoken: {
                     readonly tag: 'tctoken'
+                }
+                readonly text_status: {
+                    readonly tag: 'text_status'
+                }
+                readonly username: {
+                    readonly tag: 'username'
+                    readonly attrs: {
+                        readonly username: string
+                    }
+                }
+                readonly query: {
+                    readonly tag: 'query'
+                }
+                readonly user: {
+                    readonly tag: 'user'
+                    readonly attrs: {
+                        readonly jid?: string
+                        readonly pn_jid?: string
+                    }
+                }
+                readonly list: {
+                    readonly tag: 'list'
+                }
+                readonly iq: {
+                    readonly tag: 'iq'
+                    readonly attrs: {
+                        readonly to: 's.whatsapp.net'
+                        readonly xmlns: 'usync' | 'privatestats'
+                        readonly type: 'get'
+                        readonly id: string
+                    }
+                }
+                readonly usync: {
+                    readonly tag: 'usync'
+                    readonly attrs: {
+                        readonly sid: string
+                        readonly index: '0'
+                        readonly last: 'true'
+                        readonly mode: string
+                        readonly context: string
+                    }
+                }
+                readonly contact: {
+                    readonly tag: 'contact'
+                    readonly attrs: {
+                        readonly addressing_mode?: 'lid' | 'pn'
+                        readonly username: string
+                        readonly pin?: string
+                        readonly lid?: string
+                        readonly type: string
+                    }
+                }
+                readonly sign_credential: {
+                    readonly tag: 'sign_credential'
+                    readonly attrs: {
+                        readonly version: '1'
+                    }
+                }
+                readonly blinded_credential: {
+                    readonly tag: 'blinded_credential'
+                }
+                readonly id: {
+                    readonly tag: 'id'
+                    readonly content: Uint8Array
+                }
+                readonly value: {
+                    readonly tag: 'value'
+                }
+                readonly signature: {
+                    readonly tag: 'signature'
+                }
+                readonly digest: {
+                    readonly tag: 'digest'
+                }
+                readonly settings: {
+                    readonly tag: 'settings'
+                }
+                readonly encrypt: {
+                    readonly tag: 'encrypt'
+                }
+                readonly encrypt_blist: {
+                    readonly tag: 'encrypt_blist'
+                }
+                readonly encrypt_contact: {
+                    readonly tag: 'encrypt_contact'
+                }
+                readonly encrypt_group_gen2: {
+                    readonly tag: 'encrypt_group_gen2'
+                }
+                readonly encrypt_image: {
+                    readonly tag: 'encrypt_image'
+                }
+                readonly encrypt_location: {
+                    readonly tag: 'encrypt_location'
+                }
+                readonly encrypt_url: {
+                    readonly tag: 'encrypt_url'
+                }
+                readonly encrypt_v2: {
+                    readonly tag: 'encrypt_v2'
+                }
+                readonly voip: {
+                    readonly tag: 'voip'
+                }
+                readonly multi_agent: {
+                    readonly tag: 'multi_agent'
                 }
                 readonly meta: {
                     readonly tag: 'meta'
@@ -14955,8 +15014,154 @@ export interface WaXmlStanzas {
                         readonly code: string
                     }
                 }
+                readonly bot: {
+                    readonly tag: 'bot'
+                }
+                readonly profile: {
+                    readonly tag: 'profile'
+                    readonly attrs: {
+                        readonly v: '1'
+                        readonly persona_id?: string
+                    }
+                }
+                readonly business: {
+                    readonly tag: 'business'
+                }
+                readonly verified_name: {
+                    readonly tag: 'verified_name'
+                }
+                readonly devices: {
+                    readonly tag: 'devices'
+                    readonly attrs: {
+                        readonly version: number
+                        readonly device_hash?: string
+                        readonly ts?: number
+                        readonly expected_ts?: number
+                    }
+                }
+                readonly disappearing_mode: {
+                    readonly tag: 'disappearing_mode'
+                }
+                readonly feature: {
+                    readonly tag: 'feature'
+                }
+                readonly lid: {
+                    readonly tag: 'lid'
+                    readonly attrs: {
+                        readonly jid?: string
+                    }
+                }
+                readonly picture: {
+                    readonly tag: 'picture'
+                }
                 readonly tctoken: {
                     readonly tag: 'tctoken'
+                }
+                readonly text_status: {
+                    readonly tag: 'text_status'
+                }
+                readonly username: {
+                    readonly tag: 'username'
+                    readonly attrs: {
+                        readonly username: string
+                    }
+                }
+                readonly query: {
+                    readonly tag: 'query'
+                }
+                readonly user: {
+                    readonly tag: 'user'
+                    readonly attrs: {
+                        readonly jid?: string
+                        readonly pn_jid?: string
+                    }
+                }
+                readonly list: {
+                    readonly tag: 'list'
+                }
+                readonly iq: {
+                    readonly tag: 'iq'
+                    readonly attrs: {
+                        readonly to: 's.whatsapp.net'
+                        readonly xmlns: 'usync' | 'privatestats'
+                        readonly type: 'get'
+                        readonly id: string
+                    }
+                }
+                readonly usync: {
+                    readonly tag: 'usync'
+                    readonly attrs: {
+                        readonly sid: string
+                        readonly index: '0'
+                        readonly last: 'true'
+                        readonly mode: string
+                        readonly context: string
+                    }
+                }
+                readonly contact: {
+                    readonly tag: 'contact'
+                    readonly attrs: {
+                        readonly addressing_mode?: 'lid' | 'pn'
+                        readonly username: string
+                        readonly pin?: string
+                        readonly lid?: string
+                        readonly type: string
+                    }
+                }
+                readonly sign_credential: {
+                    readonly tag: 'sign_credential'
+                    readonly attrs: {
+                        readonly version: '1'
+                    }
+                }
+                readonly blinded_credential: {
+                    readonly tag: 'blinded_credential'
+                }
+                readonly id: {
+                    readonly tag: 'id'
+                    readonly content: Uint8Array
+                }
+                readonly value: {
+                    readonly tag: 'value'
+                }
+                readonly signature: {
+                    readonly tag: 'signature'
+                }
+                readonly digest: {
+                    readonly tag: 'digest'
+                }
+                readonly settings: {
+                    readonly tag: 'settings'
+                }
+                readonly encrypt: {
+                    readonly tag: 'encrypt'
+                }
+                readonly encrypt_blist: {
+                    readonly tag: 'encrypt_blist'
+                }
+                readonly encrypt_contact: {
+                    readonly tag: 'encrypt_contact'
+                }
+                readonly encrypt_group_gen2: {
+                    readonly tag: 'encrypt_group_gen2'
+                }
+                readonly encrypt_image: {
+                    readonly tag: 'encrypt_image'
+                }
+                readonly encrypt_location: {
+                    readonly tag: 'encrypt_location'
+                }
+                readonly encrypt_url: {
+                    readonly tag: 'encrypt_url'
+                }
+                readonly encrypt_v2: {
+                    readonly tag: 'encrypt_v2'
+                }
+                readonly voip: {
+                    readonly tag: 'voip'
+                }
+                readonly multi_agent: {
+                    readonly tag: 'multi_agent'
                 }
                 readonly meta: {
                     readonly tag: 'meta'

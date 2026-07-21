@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043449446",
+  "waVersion": "2.3000.1043530892",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -607,7 +607,8 @@
         "CALL_LINK_CREATION": 19,
         "SHARE_UPI_QR": 20,
         "MUSIC": 21,
-        "DRAWING": 22
+        "DRAWING": 22,
+        "EVENT_V2_CREATION": 23
       }
     },
     "ATTACHMENT_TRAY_ACTION_TYPE": {
@@ -1368,7 +1369,8 @@
         "BUSINESS_SEARCH": 11,
         "META_VERIFIED": 12,
         "UNKNOWN": 13,
-        "QUICK_REPLY_SETTINGS": 14
+        "QUICK_REPLY_SETTINGS": 14,
+        "EVENT_COMPOSER": 15
       }
     },
     "BUSINESS_PROFILE_FIELD": {
@@ -3406,7 +3408,8 @@
         "NEW_CALL": 3,
         "ADD_TO_GROUP": 4,
         "CHATS_LIST_GLOBAL_SEARCH": 5,
-        "CALLS_TAB_GLOBAL_SEARCH": 6
+        "CALLS_TAB_GLOBAL_SEARCH": 6,
+        "EVENT_INVITE": 7
       }
     },
     "CONTACT_SUGGESTION": {
@@ -3653,6 +3656,15 @@
         "UNSET": 0,
         "TRUE": 1,
         "FALSE": 2
+      }
+    },
+    "CUSTOM_PAYMENT_METHODS_SYNC_STATUS": {
+      "module": "WAWebWamEnumCustomPaymentMethodsSyncStatus",
+      "export": "CUSTOM_PAYMENT_METHODS_SYNC_STATUS",
+      "values": {
+        "ATTEMPT": 0,
+        "SUCCESS": 1,
+        "FAILURE": 2
       }
     },
     "DATA_CHANNEL_CONNECTION_STATE": {
@@ -5817,7 +5829,13 @@
         "IMAGINE_ONBOARDING_GALLERY_PHOTO_CLICK": 96,
         "IMAGINE_ONBOARDING_CONFIRM_UPLOAD": 97,
         "IMAGINE_ONBOARDING_CHOOSE_DIFFERENT_PHOTO": 98,
-        "ATTACHMENT_TRAY_OPEN_CLICK": 99
+        "ATTACHMENT_TRAY_OPEN_CLICK": 99,
+        "RESTYLE_OPTION_VIEWED": 100,
+        "RESTYLE_OPTION_CLICKED": 101,
+        "RESTYLE_LONG_PRESSED": 102,
+        "SAVE_BUTTON_CLICKED": 103,
+        "REPORT_BUTTON_CLICKED": 104,
+        "REPORT_SUBMITTED": 105
       }
     },
     "IMAGINE_ACTION_SOURCE": {
@@ -7457,7 +7475,9 @@
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS": 533,
         "LWI_ACTION_WINBACK_RECREATE_AD_CLICK": 534,
         "LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DISMISS": 535,
-        "LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED": 536
+        "LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED": 536,
+        "LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_LOADING_ERROR": 537,
+        "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR": 538
       }
     },
     "LWI_SCREEN_REFERENCE": {
@@ -8227,7 +8247,8 @@
         "DOC_COLLECTION": 74,
         "VIDEO_COLLECTION": 75,
         "MIXED_COLLECTION": 76,
-        "CONDITIONAL_REVEAL": 77
+        "CONDITIONAL_REVEAL": 77,
+        "EVENT_INVITE": 78
       }
     },
     "MEDIA_UPLOAD_MODE_TYPE": {
@@ -9361,7 +9382,8 @@
         "ADMIN_GROUP_JOIN_REQUEST": 62,
         "CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE": 63,
         "BUSINESS_BROADCAST_INSIGHTS_READY": 64,
-        "NEWSLETTER_MILESTONE_UPDATE_FORWARDS": 65
+        "NEWSLETTER_MILESTONE_UPDATE_FORWARDS": 65,
+        "EVENT_INVITE_MESSAGE": 66
       }
     },
     "NS_MODE": {
@@ -10264,7 +10286,11 @@
         "SYNCD_FAILED": 352,
         "PAYMENTS_HOME_PIX_AREA": 353,
         "PAYMENTS_HOME_SHARE_YOUR_PIX": 354,
-        "VIEW_IN_CHAT": 355
+        "VIEW_IN_CHAT": 355,
+        "SYNCD_SEND_STORE": 356,
+        "SYNCD_SEND_REMOVE": 357,
+        "SYNCD_APPLY_STORE": 358,
+        "SYNCD_APPLY_REMOVE": 359
       }
     },
     "PAYMENT_ACTION_TYPES": {
@@ -10403,6 +10429,15 @@
         "MESSAGE_SENT": 9,
         "CLICK_CALL_ON_WHATSAPP": 10,
         "CLICK_INVITE_TO_WHATSAPP": 11
+      }
+    },
+    "PILL_ENTRY_POINT": {
+      "module": "WAWebWamEnumPillEntryPoint",
+      "export": "PILL_ENTRY_POINT",
+      "values": {
+        "LINK": 0,
+        "PHONE": 1,
+        "CONTACT": 2
       }
     },
     "PINNED_CHATS_PREMIUM_STATUS_TYPE": {
@@ -30539,6 +30574,11 @@
           "type": "timer",
           "falcoName": "video_render_sum_time_since_last_freeze"
         },
+        "videoRenderUniqueFps": {
+          "id": 3076,
+          "type": "number",
+          "falcoName": "video_render_unique_fps"
+        },
         "videoRenderedRxBitrate": {
           "id": 2587,
           "type": "number",
@@ -50598,6 +50638,12 @@
           "falcoName": "action_target",
           "enum": "PAYMENT_ACTION_TARGETS"
         },
+        "customPaymentMethodsSyncStatus": {
+          "id": 48,
+          "type": "enum",
+          "falcoName": "custom_payment_methods_sync_status",
+          "enum": "CUSTOM_PAYMENT_METHODS_SYNC_STATUS"
+        },
         "merchantType": {
           "id": 43,
           "type": "enum",
@@ -53359,6 +53405,11 @@
           "type": "boolean",
           "falcoName": "is_from_capi"
         },
+        "isFromPill": {
+          "id": 63,
+          "type": "boolean",
+          "falcoName": "is_from_pill"
+        },
         "isIasSubscriber": {
           "id": 62,
           "type": "boolean",
@@ -53433,6 +53484,12 @@
           "id": 5,
           "type": "boolean",
           "falcoName": "notification_enabled"
+        },
+        "pillEntryPoint": {
+          "id": 64,
+          "type": "enum",
+          "falcoName": "pill_entry_point",
+          "enum": "PILL_ENTRY_POINT"
         },
         "qbmFlag": {
           "id": 6,
@@ -53622,6 +53679,11 @@
           "type": "boolean",
           "falcoName": "is_coex"
         },
+        "isFromPill": {
+          "id": 36,
+          "type": "boolean",
+          "falcoName": "is_from_pill"
+        },
         "isIasSubscriber": {
           "id": 35,
           "type": "boolean",
@@ -53656,6 +53718,12 @@
           "id": 7,
           "type": "string",
           "falcoName": "message_type_str"
+        },
+        "pillEntryPoint": {
+          "id": 37,
+          "type": "enum",
+          "falcoName": "pill_entry_point",
+          "enum": "PILL_ENTRY_POINT"
         },
         "qbmFlag": {
           "id": 8,
@@ -53778,6 +53846,11 @@
           "type": "boolean",
           "falcoName": "is_coex"
         },
+        "isFromPill": {
+          "id": 32,
+          "type": "boolean",
+          "falcoName": "is_from_pill"
+        },
         "isIasSubscriber": {
           "id": 31,
           "type": "boolean",
@@ -53824,6 +53897,12 @@
           "type": "enum",
           "falcoName": "message_level_action",
           "enum": "MESSAGE_LEVEL_ACTION"
+        },
+        "pillEntryPoint": {
+          "id": 33,
+          "type": "enum",
+          "falcoName": "pill_entry_point",
+          "enum": "PILL_ENTRY_POINT"
         },
         "submessageFieldJsonArray": {
           "id": 18,
@@ -54005,6 +54084,11 @@
           "type": "boolean",
           "falcoName": "is_from_capi"
         },
+        "isFromPill": {
+          "id": 60,
+          "type": "boolean",
+          "falcoName": "is_from_pill"
+        },
         "isIasSubscriber": {
           "id": 59,
           "type": "boolean",
@@ -54054,6 +54138,12 @@
           "id": 6,
           "type": "string",
           "falcoName": "message_type_str"
+        },
+        "pillEntryPoint": {
+          "id": 61,
+          "type": "enum",
+          "falcoName": "pill_entry_point",
+          "enum": "PILL_ENTRY_POINT"
         },
         "qbmFlag": {
           "id": 4,
@@ -57419,6 +57509,11 @@
           "id": 2,
           "type": "boolean",
           "falcoName": "is_first_view"
+        },
+        "isGroupMentioned": {
+          "id": 53,
+          "type": "boolean",
+          "falcoName": "is_group_mentioned"
         },
         "isLastStatus": {
           "id": 43,

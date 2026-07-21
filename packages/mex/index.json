@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043449446",
+  "waVersion": "2.3000.1043530892",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -958,7 +958,7 @@
     },
     "CreateLabyrinthBackup": {
       "originalName": "WAWebCreateLabyrinthBackupJobMutation",
-      "docId": "27493963430271453",
+      "docId": "28017003717917462",
       "operationKind": "mutation",
       "variables": [
         "input"
@@ -969,6 +969,7 @@
       "response": {
         "wa_labyrinth_create_backup": {
           "__typename": "string",
+          "mailbox_id": "string",
           "backup_id": "string",
           "device_id": "string",
           "epoch_id": "string",

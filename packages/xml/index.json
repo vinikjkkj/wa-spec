@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043449446",
+  "waVersion": "2.3000.1043530892",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -3498,280 +3498,6 @@
             "content": null
           },
           "entryName": "parseCompanionHelloResponseNotifyCompanion"
-        }
-      ]
-    },
-    "ContactForm": {
-      "module": "WASmaxSupportContactFormRPC",
-      "opName": "ContactForm",
-      "rootTag": "iq",
-      "xmlns": "fb:thrift_iq",
-      "type": "set",
-      "request": {
-        "module": "WASmaxOutSupportContactFormRequest",
-        "node": {
-          "tag": "iq",
-          "attrs": {
-            "xmlns": {
-              "type": "literal",
-              "value": "fb:thrift_iq"
-            },
-            "smax_id": {
-              "type": "literal",
-              "value": 3
-            },
-            "from": {
-              "type": "userJid",
-              "arg": "t",
-              "optional": true
-            },
-            "to": {
-              "type": "literal",
-              "value": "s.whatsapp.net"
-            },
-            "id": {
-              "type": "stanzaId",
-              "generated": true
-            },
-            "type": {
-              "type": "literal",
-              "value": "set"
-            }
-          },
-          "children": [
-            {
-              "tag": "description",
-              "attrs": {},
-              "children": [],
-              "presence": true
-            },
-            {
-              "tag": "topic",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "topic_id",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "debug_information_json",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "uploaded_logs_id",
-              "attrs": {},
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD",
-              "presence": true
-            },
-            {
-              "tag": "additional_attributes",
-              "attrs": {
-                "context_flow": {
-                  "type": "string",
-                  "arg": "t",
-                  "optional": true
-                }
-              },
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD"
-            }
-          ],
-          "appliedMixin": "WASmaxOutSupportHackBaseIQSetRequestMixin"
-        },
-        "argShape": {
-          "t": true
-        }
-      },
-      "responses": [
-        {
-          "module": "WASmaxInSupportContactFormResponseError",
-          "variant": "Error",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "error"
-              }
-            },
-            "children": [
-              {
-                "tag": "error",
-                "attrs": {
-                  "text": {
-                    "type": "literal",
-                    "value": "bad-request",
-                    "optional": true
-                  },
-                  "code": {
-                    "type": "int",
-                    "optional": true
-                  },
-                  "tos_version": {
-                    "type": "int",
-                    "min": 1,
-                    "max": 65535,
-                    "optional": true
-                  }
-                },
-                "children": [],
-                "content": null,
-                "__variants": [
-                  "IQErrorBadRequest",
-                  "IQErrorNoticeRequired",
-                  "IQErrorInternalServerError"
-                ],
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseContactFormResponseError"
-        },
-        {
-          "module": "WASmaxInSupportContactFormResponseRetryableError",
-          "variant": "RetryableError",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "result"
-              }
-            },
-            "children": [
-              {
-                "tag": "response",
-                "attrs": {
-                  "error_code": {
-                    "type": "int"
-                  },
-                  "next_retry_ts": {
-                    "type": "string",
-                    "optional": true
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseContactFormResponseRetryableError"
-        },
-        {
-          "module": "WASmaxInSupportContactFormResponseSuccess",
-          "variant": "Success",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "result"
-              }
-            },
-            "children": [
-              {
-                "tag": "response",
-                "attrs": {
-                  "status": {
-                    "type": "literal",
-                    "value": "ok"
-                  }
-                },
-                "children": [
-                  {
-                    "tag": "message",
-                    "attrs": {},
-                    "children": [],
-                    "content": {
-                      "type": "string"
-                    },
-                    "min": 1,
-                    "max": 1
-                  },
-                  {
-                    "tag": "ticket_id",
-                    "attrs": {},
-                    "children": [],
-                    "content": {
-                      "type": "string"
-                    },
-                    "min": 1,
-                    "max": 1
-                  },
-                  {
-                    "tag": "group_jid",
-                    "attrs": {},
-                    "children": [],
-                    "content": {
-                      "type": "string"
-                    },
-                    "min": 1,
-                    "max": 1
-                  }
-                ],
-                "content": null,
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseContactFormResponseSuccess"
         }
       ]
     },
@@ -9621,17 +9347,32 @@
               "attrs": {
                 "meta_verified": {
                   "type": "string",
-                  "arg": "n",
+                  "arg": "r",
                   "optional": true
                 },
                 "marketing_messages": {
                   "type": "string",
-                  "arg": "r",
+                  "arg": "a",
                   "optional": true
                 },
                 "genai": {
                   "type": "string",
-                  "arg": "a",
+                  "arg": "i",
+                  "optional": true
+                },
+                "genai_image": {
+                  "type": "string",
+                  "arg": "l",
+                  "optional": true
+                },
+                "meta_one": {
+                  "type": "string",
+                  "arg": "s",
+                  "optional": true
+                },
+                "bb_pro": {
+                  "type": "string",
+                  "arg": "u",
                   "optional": true
                 }
               },
@@ -9782,6 +9523,67 @@
                     "enumValues": [
                       "FAIL",
                       "SUCCESS"
+                    ]
+                  },
+                  "v1_enabled": {
+                    "type": "enum",
+                    "optional": true,
+                    "enumRef": "o(\"WASmaxInBizMarketingMessageEnums\").ENUM_FALSE_TRUE",
+                    "enumValues": [
+                      "false",
+                      "true"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "tag": "genai_image",
+                "attrs": {
+                  "status": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizMarketingMessageEnums\").ENUM_FAIL_SUCCESS",
+                    "enumValues": [
+                      "FAIL",
+                      "SUCCESS"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "tag": "meta_one",
+                "attrs": {
+                  "status": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizMarketingMessageEnums\").ENUM_FAIL_SUCCESS",
+                    "enumValues": [
+                      "FAIL",
+                      "SUCCESS"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "tag": "bb_pro",
+                "attrs": {
+                  "status": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizMarketingMessageEnums\").ENUM_ELIGIBLETOONBOARD_NOTELIGIBLE_ONBOARDED",
+                    "enumValues": [
+                      "ELIGIBLE_TO_ONBOARD",
+                      "NOT_ELIGIBLE",
+                      "ONBOARDED"
                     ]
                   }
                 },
@@ -18422,7 +18224,409 @@
                 "max": 1
               },
               {
+                "tag": "bot",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "profile",
+                "attrs": {
+                  "v": {
+                    "type": "literal",
+                    "value": "1",
+                    "direction": "out"
+                  },
+                  "persona_id": {
+                    "type": "string",
+                    "arg": "e",
+                    "optional": true,
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "business",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "verified_name",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "devices",
+                "attrs": {
+                  "version": {
+                    "type": "int",
+                    "arg": "String(e)",
+                    "direction": "out"
+                  },
+                  "device_hash": {
+                    "type": "string",
+                    "arg": "e",
+                    "optional": true,
+                    "direction": "out"
+                  },
+                  "ts": {
+                    "type": "int",
+                    "arg": "n",
+                    "optional": true,
+                    "direction": "out"
+                  },
+                  "expected_ts": {
+                    "type": "int",
+                    "arg": "r",
+                    "optional": true,
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "disappearing_mode",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "feature",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "lid",
+                "attrs": {
+                  "jid": {
+                    "type": "userJid",
+                    "arg": "e",
+                    "optional": true,
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "picture",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
                 "tag": "tctoken",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "text_status",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "username",
+                "attrs": {
+                  "username": {
+                    "type": "string",
+                    "arg": "e",
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "query",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "user",
+                "attrs": {
+                  "jid": {
+                    "type": "userJid",
+                    "arg": "n",
+                    "optional": true,
+                    "direction": "out"
+                  },
+                  "pn_jid": {
+                    "type": "userJid",
+                    "arg": "r",
+                    "optional": true,
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "list",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "iq",
+                "attrs": {
+                  "to": {
+                    "type": "literal",
+                    "value": "s.whatsapp.net",
+                    "direction": "both"
+                  },
+                  "xmlns": {
+                    "type": "enum",
+                    "enumValues": [
+                      "usync",
+                      "privatestats"
+                    ],
+                    "direction": "out"
+                  },
+                  "type": {
+                    "type": "literal",
+                    "value": "get",
+                    "direction": "both"
+                  },
+                  "id": {
+                    "type": "stanzaId",
+                    "generated": true,
+                    "direction": "both"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "usync",
+                "attrs": {
+                  "sid": {
+                    "type": "stanzaId",
+                    "generated": true,
+                    "direction": "out"
+                  },
+                  "index": {
+                    "type": "literal",
+                    "value": "0",
+                    "direction": "out"
+                  },
+                  "last": {
+                    "type": "literal",
+                    "value": "true",
+                    "direction": "out"
+                  },
+                  "mode": {
+                    "type": "string",
+                    "arg": "this.mode",
+                    "direction": "out"
+                  },
+                  "context": {
+                    "type": "string",
+                    "arg": "this.context",
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "contact",
+                "attrs": {
+                  "addressing_mode": {
+                    "type": "enum",
+                    "arg": "o(\"WAWebUsync\").USYNC_ADDRESSING_MODE.LID",
+                    "optional": true,
+                    "direction": "out",
+                    "enumValues": [
+                      "lid",
+                      "pn"
+                    ]
+                  },
+                  "username": {
+                    "type": "string",
+                    "arg": "n",
+                    "direction": "out"
+                  },
+                  "pin": {
+                    "type": "string",
+                    "arg": "a",
+                    "optional": true,
+                    "direction": "out"
+                  },
+                  "lid": {
+                    "type": "userJid",
+                    "arg": "i",
+                    "optional": true,
+                    "direction": "out"
+                  },
+                  "type": {
+                    "type": "string",
+                    "arg": "r",
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "sign_credential",
+                "attrs": {
+                  "version": {
+                    "type": "literal",
+                    "value": "1",
+                    "direction": "out"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "blinded_credential",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "id",
+                "attrs": {},
+                "children": [],
+                "content": {
+                  "type": "bytes",
+                  "direction": "out"
+                },
+                "min": 1,
+                "max": 1
+              },
+              {
+                "tag": "value",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "signature",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "digest",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "settings",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_blist",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_contact",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_group_gen2",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_image",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_location",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_url",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "encrypt_v2",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "voip",
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true
+              },
+              {
+                "tag": "multi_agent",
                 "attrs": {},
                 "children": [],
                 "content": null,
@@ -32601,13 +32805,13 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "category": {
                 "type": "string",
@@ -32852,13 +33056,13 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "category": {
                 "type": "string",
@@ -33106,7 +33310,7 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "recipient": {
                 "type": "userJid",
@@ -33118,7 +33322,7 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "category": {
                 "type": "string",
@@ -33249,13 +33453,13 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
+                "direction": "out"
               },
               "category": {
                 "type": "string",
@@ -39554,7 +39758,409 @@
             "max": 1
           },
           {
+            "tag": "bot",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "profile",
+            "attrs": {
+              "v": {
+                "type": "literal",
+                "value": "1",
+                "direction": "out"
+              },
+              "persona_id": {
+                "type": "string",
+                "arg": "e",
+                "optional": true,
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "business",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "verified_name",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "devices",
+            "attrs": {
+              "version": {
+                "type": "int",
+                "arg": "String(e)",
+                "direction": "out"
+              },
+              "device_hash": {
+                "type": "string",
+                "arg": "e",
+                "optional": true,
+                "direction": "out"
+              },
+              "ts": {
+                "type": "int",
+                "arg": "n",
+                "optional": true,
+                "direction": "out"
+              },
+              "expected_ts": {
+                "type": "int",
+                "arg": "r",
+                "optional": true,
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "disappearing_mode",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "feature",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "lid",
+            "attrs": {
+              "jid": {
+                "type": "userJid",
+                "arg": "e",
+                "optional": true,
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "picture",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
             "tag": "tctoken",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "text_status",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "username",
+            "attrs": {
+              "username": {
+                "type": "string",
+                "arg": "e",
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "query",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "user",
+            "attrs": {
+              "jid": {
+                "type": "userJid",
+                "arg": "n",
+                "optional": true,
+                "direction": "out"
+              },
+              "pn_jid": {
+                "type": "userJid",
+                "arg": "r",
+                "optional": true,
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "list",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "iq",
+            "attrs": {
+              "to": {
+                "type": "literal",
+                "value": "s.whatsapp.net",
+                "direction": "both"
+              },
+              "xmlns": {
+                "type": "enum",
+                "enumValues": [
+                  "usync",
+                  "privatestats"
+                ],
+                "direction": "out"
+              },
+              "type": {
+                "type": "literal",
+                "value": "get",
+                "direction": "both"
+              },
+              "id": {
+                "type": "stanzaId",
+                "generated": true,
+                "direction": "both"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "usync",
+            "attrs": {
+              "sid": {
+                "type": "stanzaId",
+                "generated": true,
+                "direction": "out"
+              },
+              "index": {
+                "type": "literal",
+                "value": "0",
+                "direction": "out"
+              },
+              "last": {
+                "type": "literal",
+                "value": "true",
+                "direction": "out"
+              },
+              "mode": {
+                "type": "string",
+                "arg": "this.mode",
+                "direction": "out"
+              },
+              "context": {
+                "type": "string",
+                "arg": "this.context",
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "contact",
+            "attrs": {
+              "addressing_mode": {
+                "type": "enum",
+                "arg": "o(\"WAWebUsync\").USYNC_ADDRESSING_MODE.LID",
+                "optional": true,
+                "direction": "out",
+                "enumValues": [
+                  "lid",
+                  "pn"
+                ]
+              },
+              "username": {
+                "type": "string",
+                "arg": "n",
+                "direction": "out"
+              },
+              "pin": {
+                "type": "string",
+                "arg": "a",
+                "optional": true,
+                "direction": "out"
+              },
+              "lid": {
+                "type": "userJid",
+                "arg": "i",
+                "optional": true,
+                "direction": "out"
+              },
+              "type": {
+                "type": "string",
+                "arg": "r",
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "sign_credential",
+            "attrs": {
+              "version": {
+                "type": "literal",
+                "value": "1",
+                "direction": "out"
+              }
+            },
+            "children": [],
+            "content": null,
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "blinded_credential",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "id",
+            "attrs": {},
+            "children": [],
+            "content": {
+              "type": "bytes",
+              "direction": "out"
+            },
+            "min": 1,
+            "max": 1
+          },
+          {
+            "tag": "value",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "signature",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "digest",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "settings",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_blist",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_contact",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_group_gen2",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_image",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_location",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_url",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "encrypt_v2",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "voip",
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true
+          },
+          {
+            "tag": "multi_agent",
             "attrs": {},
             "children": [],
             "content": null,

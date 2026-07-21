@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043449446
+// WhatsApp Version: 2.3000.1043530892
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -576,7 +576,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALL_LINK_CREATION': 19,
         'SHARE_UPI_QR': 20,
         'MUSIC': 21,
-        'DRAWING': 22
+        'DRAWING': 22,
+        'EVENT_V2_CREATION': 23
         })
     }),
     ATTACHMENT_TRAY_ACTION_TYPE: Object.freeze({
@@ -1337,7 +1338,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'BUSINESS_SEARCH': 11,
         'META_VERIFIED': 12,
         'UNKNOWN': 13,
-        'QUICK_REPLY_SETTINGS': 14
+        'QUICK_REPLY_SETTINGS': 14,
+        'EVENT_COMPOSER': 15
         })
     }),
     BUSINESS_PROFILE_FIELD: Object.freeze({
@@ -3375,7 +3377,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'NEW_CALL': 3,
         'ADD_TO_GROUP': 4,
         'CHATS_LIST_GLOBAL_SEARCH': 5,
-        'CALLS_TAB_GLOBAL_SEARCH': 6
+        'CALLS_TAB_GLOBAL_SEARCH': 6,
+        'EVENT_INVITE': 7
         })
     }),
     CONTACT_SUGGESTION: Object.freeze({
@@ -3622,6 +3625,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'UNSET': 0,
         'TRUE': 1,
         'FALSE': 2
+        })
+    }),
+    CUSTOM_PAYMENT_METHODS_SYNC_STATUS: Object.freeze({
+        module: 'WAWebWamEnumCustomPaymentMethodsSyncStatus',
+        export: 'CUSTOM_PAYMENT_METHODS_SYNC_STATUS',
+        values: Object.freeze({
+        'ATTEMPT': 0,
+        'SUCCESS': 1,
+        'FAILURE': 2
         })
     }),
     DATA_CHANNEL_CONNECTION_STATE: Object.freeze({
@@ -5786,7 +5798,13 @@ const WA_WAM_ENUMS = Object.freeze({
         'IMAGINE_ONBOARDING_GALLERY_PHOTO_CLICK': 96,
         'IMAGINE_ONBOARDING_CONFIRM_UPLOAD': 97,
         'IMAGINE_ONBOARDING_CHOOSE_DIFFERENT_PHOTO': 98,
-        'ATTACHMENT_TRAY_OPEN_CLICK': 99
+        'ATTACHMENT_TRAY_OPEN_CLICK': 99,
+        'RESTYLE_OPTION_VIEWED': 100,
+        'RESTYLE_OPTION_CLICKED': 101,
+        'RESTYLE_LONG_PRESSED': 102,
+        'SAVE_BUTTON_CLICKED': 103,
+        'REPORT_BUTTON_CLICKED': 104,
+        'REPORT_SUBMITTED': 105
         })
     }),
     IMAGINE_ACTION_SOURCE: Object.freeze({
@@ -7426,7 +7444,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS': 533,
         'LWI_ACTION_WINBACK_RECREATE_AD_CLICK': 534,
         'LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DISMISS': 535,
-        'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536
+        'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536,
+        'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_LOADING_ERROR': 537,
+        'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR': 538
         })
     }),
     LWI_SCREEN_REFERENCE: Object.freeze({
@@ -8196,7 +8216,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DOC_COLLECTION': 74,
         'VIDEO_COLLECTION': 75,
         'MIXED_COLLECTION': 76,
-        'CONDITIONAL_REVEAL': 77
+        'CONDITIONAL_REVEAL': 77,
+        'EVENT_INVITE': 78
         })
     }),
     MEDIA_UPLOAD_MODE_TYPE: Object.freeze({
@@ -9330,7 +9351,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'ADMIN_GROUP_JOIN_REQUEST': 62,
         'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63,
         'BUSINESS_BROADCAST_INSIGHTS_READY': 64,
-        'NEWSLETTER_MILESTONE_UPDATE_FORWARDS': 65
+        'NEWSLETTER_MILESTONE_UPDATE_FORWARDS': 65,
+        'EVENT_INVITE_MESSAGE': 66
         })
     }),
     NS_MODE: Object.freeze({
@@ -10233,7 +10255,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'SYNCD_FAILED': 352,
         'PAYMENTS_HOME_PIX_AREA': 353,
         'PAYMENTS_HOME_SHARE_YOUR_PIX': 354,
-        'VIEW_IN_CHAT': 355
+        'VIEW_IN_CHAT': 355,
+        'SYNCD_SEND_STORE': 356,
+        'SYNCD_SEND_REMOVE': 357,
+        'SYNCD_APPLY_STORE': 358,
+        'SYNCD_APPLY_REMOVE': 359
         })
     }),
     PAYMENT_ACTION_TYPES: Object.freeze({
@@ -10372,6 +10398,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE_SENT': 9,
         'CLICK_CALL_ON_WHATSAPP': 10,
         'CLICK_INVITE_TO_WHATSAPP': 11
+        })
+    }),
+    PILL_ENTRY_POINT: Object.freeze({
+        module: 'WAWebWamEnumPillEntryPoint',
+        export: 'PILL_ENTRY_POINT',
+        values: Object.freeze({
+        'LINK': 0,
+        'PHONE': 1,
+        'CONTACT': 2
         })
     }),
     PINNED_CHATS_PREMIUM_STATUS_TYPE: Object.freeze({
@@ -19193,6 +19228,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoRenderNumSinceLastFreeze5s: Object.freeze({ id: 570, type: 'integer', falcoName: 'video_render_num_since_last_freeze5s' }),
             videoRenderPauseT: Object.freeze({ id: 1132, type: 'timer', falcoName: 'video_render_pause_t' }),
             videoRenderSumTimeSinceLastFreeze: Object.freeze({ id: 568, type: 'timer', falcoName: 'video_render_sum_time_since_last_freeze' }),
+            videoRenderUniqueFps: Object.freeze({ id: 3076, type: 'number', falcoName: 'video_render_unique_fps' }),
             videoRenderedRxBitrate: Object.freeze({ id: 2587, type: 'number', falcoName: 'video_rendered_rx_bitrate' }),
             videoRetxRtcpNack: Object.freeze({ id: 1178, type: 'integer', falcoName: 'video_retx_rtcp_nack' }),
             videoRetxRtcpPli: Object.freeze({ id: 1179, type: 'integer', falcoName: 'video_retx_rtcp_pli' }),
@@ -24821,6 +24857,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             actionTarget: Object.freeze({ id: 4, type: 'enum', enum: 'PAYMENT_ACTION_TARGETS', falcoName: 'action_target' }),
+            customPaymentMethodsSyncStatus: Object.freeze({ id: 48, type: 'enum', enum: 'CUSTOM_PAYMENT_METHODS_SYNC_STATUS', falcoName: 'custom_payment_methods_sync_status' }),
             merchantType: Object.freeze({ id: 43, type: 'enum', enum: 'MERCHANT_TYPE_TYPE', falcoName: 'merchant_type' }),
             p2mType: Object.freeze({ id: 44, type: 'enum', enum: 'P2M_TYPE_TYPE', falcoName: 'p2m_type' }),
             paymentAccountRowSelected: Object.freeze({ id: 24, type: 'integer', falcoName: 'payment_account_row_selected' }),
@@ -25661,6 +25698,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isCoex: Object.freeze({ id: 56, type: 'boolean', falcoName: 'is_coex' }),
             isFromAdsManagerMm: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_from_ads_manager_mm' }),
             isFromCapi: Object.freeze({ id: 16, type: 'boolean', falcoName: 'is_from_capi' }),
+            isFromPill: Object.freeze({ id: 63, type: 'boolean', falcoName: 'is_from_pill' }),
             isIasSubscriber: Object.freeze({ id: 62, type: 'boolean', falcoName: 'is_ias_subscriber' }),
             isInsubContact: Object.freeze({ id: 39, type: 'boolean', falcoName: 'is_insub_contact' }),
             isMuted: Object.freeze({ id: 20, type: 'boolean', falcoName: 'is_muted' }),
@@ -25676,6 +25714,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageTypeStr: Object.freeze({ id: 7, type: 'string', falcoName: 'message_type_str' }),
             muted: Object.freeze({ id: 4, type: 'boolean', falcoName: 'muted' }),
             notificationEnabled: Object.freeze({ id: 5, type: 'boolean', falcoName: 'notification_enabled' }),
+            pillEntryPoint: Object.freeze({ id: 64, type: 'enum', enum: 'PILL_ENTRY_POINT', falcoName: 'pill_entry_point' }),
             qbmFlag: Object.freeze({ id: 6, type: 'enum', enum: 'QBM_FLAG', falcoName: 'qbm_flag' }),
             qbmFlagStr: Object.freeze({ id: 12, type: 'string', falcoName: 'qbm_flag_str' }),
             readReceiptsEnabled: Object.freeze({ id: 9, type: 'boolean', falcoName: 'read_receipts_enabled' }),
@@ -25721,6 +25760,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isBizIntent: Object.freeze({ id: 13, type: 'boolean', falcoName: 'is_biz_intent' }),
             isBroadcastMessage: Object.freeze({ id: 14, type: 'boolean', falcoName: 'is_broadcast_message' }),
             isCoex: Object.freeze({ id: 31, type: 'boolean', falcoName: 'is_coex' }),
+            isFromPill: Object.freeze({ id: 36, type: 'boolean', falcoName: 'is_from_pill' }),
             isIasSubscriber: Object.freeze({ id: 35, type: 'boolean', falcoName: 'is_ias_subscriber' }),
             isInsubContact: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_insub_contact' }),
             isOba: Object.freeze({ id: 19, type: 'boolean', falcoName: 'is_oba' }),
@@ -25728,6 +25768,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageFieldJsonArray: Object.freeze({ id: 21, type: 'string', falcoName: 'message_field_json_array' }),
             messageIdHmac: Object.freeze({ id: 11, type: 'string', falcoName: 'message_id_hmac' }),
             messageTypeStr: Object.freeze({ id: 7, type: 'string', falcoName: 'message_type_str' }),
+            pillEntryPoint: Object.freeze({ id: 37, type: 'enum', enum: 'PILL_ENTRY_POINT', falcoName: 'pill_entry_point' }),
             qbmFlag: Object.freeze({ id: 8, type: 'enum', enum: 'QBM_FLAG', falcoName: 'qbm_flag' }),
             submessageFieldJsonArray: Object.freeze({ id: 22, type: 'string', falcoName: 'submessage_field_json_array' }),
             threadIdHmac: Object.freeze({ id: 9, type: 'string', falcoName: 'thread_id_hmac' }),
@@ -25760,6 +25801,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isBizIntent: Object.freeze({ id: 10, type: 'boolean', falcoName: 'is_biz_intent' }),
             isBroadcastMessage: Object.freeze({ id: 11, type: 'boolean', falcoName: 'is_broadcast_message' }),
             isCoex: Object.freeze({ id: 27, type: 'boolean', falcoName: 'is_coex' }),
+            isFromPill: Object.freeze({ id: 32, type: 'boolean', falcoName: 'is_from_pill' }),
             isIasSubscriber: Object.freeze({ id: 31, type: 'boolean', falcoName: 'is_ias_subscriber' }),
             isInsubContact: Object.freeze({ id: 4, type: 'boolean', falcoName: 'is_insub_contact' }),
             isOba: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_oba' }),
@@ -25769,6 +25811,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageHasUrl: Object.freeze({ id: 6, type: 'boolean', falcoName: 'message_has_url' }),
             messageIdHmac: Object.freeze({ id: 7, type: 'string', falcoName: 'message_id_hmac' }),
             messageLevelAction: Object.freeze({ id: 8, type: 'enum', enum: 'MESSAGE_LEVEL_ACTION', falcoName: 'message_level_action' }),
+            pillEntryPoint: Object.freeze({ id: 33, type: 'enum', enum: 'PILL_ENTRY_POINT', falcoName: 'pill_entry_point' }),
             submessageFieldJsonArray: Object.freeze({ id: 18, type: 'string', falcoName: 'submessage_field_json_array' }),
             threadIdHmac: Object.freeze({ id: 9, type: 'string', falcoName: 'thread_id_hmac' }),
             threadLidHmac: Object.freeze({ id: 14, type: 'string', falcoName: 'thread_lid_hmac' }),
@@ -25813,6 +25856,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isCoex: Object.freeze({ id: 55, type: 'boolean', falcoName: 'is_coex' }),
             isFromAdsManagerMm: Object.freeze({ id: 10, type: 'boolean', falcoName: 'is_from_ads_manager_mm' }),
             isFromCapi: Object.freeze({ id: 11, type: 'boolean', falcoName: 'is_from_capi' }),
+            isFromPill: Object.freeze({ id: 60, type: 'boolean', falcoName: 'is_from_pill' }),
             isIasSubscriber: Object.freeze({ id: 59, type: 'boolean', falcoName: 'is_ias_subscriber' }),
             isInsubContact: Object.freeze({ id: 35, type: 'boolean', falcoName: 'is_insub_contact' }),
             isMuted: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_muted' }),
@@ -25823,6 +25867,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageHasUrl: Object.freeze({ id: 17, type: 'boolean', falcoName: 'message_has_url' }),
             messageIdHmac: Object.freeze({ id: 13, type: 'string', falcoName: 'message_id_hmac' }),
             messageTypeStr: Object.freeze({ id: 6, type: 'string', falcoName: 'message_type_str' }),
+            pillEntryPoint: Object.freeze({ id: 61, type: 'enum', enum: 'PILL_ENTRY_POINT', falcoName: 'pill_entry_point' }),
             qbmFlag: Object.freeze({ id: 4, type: 'enum', enum: 'QBM_FLAG', falcoName: 'qbm_flag' }),
             readReceiptsEnabled: Object.freeze({ id: 12, type: 'boolean', falcoName: 'read_receipts_enabled' }),
             readSource: Object.freeze({ id: 5, type: 'enum', enum: 'READ_SOURCE', falcoName: 'read_source' }),
@@ -26814,6 +26859,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isCloseSharingPost: Object.freeze({ id: 42, type: 'boolean', falcoName: 'is_close_sharing_post' }),
             isEngagementCard: Object.freeze({ id: 45, type: 'boolean', falcoName: 'is_engagement_card' }),
             isFirstView: Object.freeze({ id: 2, type: 'boolean', falcoName: 'is_first_view' }),
+            isGroupMentioned: Object.freeze({ id: 53, type: 'boolean', falcoName: 'is_group_mentioned' }),
             isLastStatus: Object.freeze({ id: 43, type: 'boolean', falcoName: 'is_last_status' }),
             isPosterBiz: Object.freeze({ id: 3, type: 'boolean', falcoName: 'is_poster_biz' }),
             isResharable: Object.freeze({ id: 49, type: 'boolean', falcoName: 'is_resharable' }),

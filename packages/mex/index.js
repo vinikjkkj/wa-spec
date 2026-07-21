@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043449446
+// WhatsApp Version: 2.3000.1043530892
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -27,7 +27,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ConsumerFetchQuickPromotions: Object.freeze({ docId: '35462584533386409', clientDocId: '35462584533386409' }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
     CreateInviteCode: Object.freeze({ docId: '26155584267463745', clientDocId: '26155584267463745' }),
-    CreateLabyrinthBackup: Object.freeze({ docId: '27493963430271453', clientDocId: '27493963430271453' }),
+    CreateLabyrinthBackup: Object.freeze({ docId: '28017003717917462', clientDocId: '28017003717917462' }),
     CreateLabyrinthBackupMutation: Object.freeze({ docId: '27207738338837013', clientDocId: '27207738338837013' }),
     CreateMarketingCampaignAction: Object.freeze({ docId: '26304826652483067', clientDocId: '26304826652483067' }),
     CreateNewsletter: Object.freeze({ docId: '25149874324715067', clientDocId: '25149874324715067' }),
