@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043530892",
+  "waVersion": "2.3000.1043609466",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -3568,6 +3568,43 @@
       "values": {
         "COPY_CODE": 0,
         "AUTOFILL": 1
+      }
+    },
+    "CTWA_1PD_CONVERSION_TYPE": {
+      "module": "WAWebWamEnumCtwa1pdConversionType",
+      "export": "CTWA_1PD_CONVERSION_TYPE",
+      "values": {
+        "FIRST_CUSTOMER_MESSAGE": 0,
+        "FIRST_CUSTOMER_MESSAGE_CONTINUATION": 1,
+        "FIRST_BIZ_REPLY": 2,
+        "FIRST_BIZ_REPLY_CONTINUATION": 3,
+        "SECOND_CUSTOMER_MESSAGE": 4,
+        "SECOND_CUSTOMER_MESSAGE_CONTINUATION": 5,
+        "SECOND_BIZ_REPLY": 6,
+        "SECOND_BIZ_REPLY_CONTINUATION": 7,
+        "THIRD_CUSTOMER_MESSAGE": 8,
+        "THIRD_CUSTOMER_MESSAGE_CONTINUATION": 9,
+        "THIRD_BIZ_REPLY": 10,
+        "FIRST_CUSTOMER_CALL": 11,
+        "FIRST_BIZ_CALL": 12,
+        "FIRST_CUSTOMER_LONG_CALL": 13,
+        "FIRST_BIZ_LONG_CALL": 14,
+        "WHATSAPP_FLOWS_SUBMITTED": 15,
+        "AGM_CTA_CLICK": 16,
+        "MESSAGE": 17,
+        "CALL": 18,
+        "LONG_CALL": 19,
+        "EXTRA_LONG_CALL": 20,
+        "BIZ_BLOCK": 21,
+        "BIZ_REPORT": 22,
+        "PAYMENT": 23,
+        "SHORT_CALL": 24,
+        "USER_BLOCK": 25,
+        "USER_REPORT": 26,
+        "USER_BLOCK_AND_REPORT": 27,
+        "MESSAGE_ON_DELIVERY": 28,
+        "CALL_OVER_120S": 29,
+        "BIZ_CONV_FEEDBACK": 30
       }
     },
     "CTWA_AD_ACCOUNT_TYPE": {
@@ -36358,6 +36395,81 @@
           "id": 9,
           "type": "integer",
           "falcoName": "storage_avail_size_with_cache"
+        }
+      }
+    },
+    "Ctwa1pdConversion": {
+      "id": 5140,
+      "module": "WAWebCtwa1pdConversionWamEvent",
+      "falcoName": "wam_ctwa1pd_conversion",
+      "channel": "private",
+      "privateStatsIdInt": 0,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "bizPlatform": {
+          "id": 3,
+          "type": "enum",
+          "falcoName": "biz_platform",
+          "enum": "BIZ_PLATFORM"
+        },
+        "ctwa1pdConversionMetadata": {
+          "id": 8,
+          "type": "string",
+          "falcoName": "ctwa1pd_conversion_metadata"
+        },
+        "ctwa1pdConversionSchemaVersion": {
+          "id": 9,
+          "type": "integer",
+          "falcoName": "ctwa1pd_conversion_schema_version"
+        },
+        "ctwa1pdConversionType": {
+          "id": 1,
+          "type": "enum",
+          "falcoName": "ctwa1pd_conversion_type",
+          "enum": "CTWA_1PD_CONVERSION_TYPE"
+        },
+        "ctwaConversationDepth": {
+          "id": 10,
+          "type": "integer",
+          "falcoName": "ctwa_conversation_depth"
+        },
+        "ctwaConversationRepeat": {
+          "id": 11,
+          "type": "integer",
+          "falcoName": "ctwa_conversation_repeat"
+        },
+        "ctwaDirectionFrom": {
+          "id": 12,
+          "type": "enum",
+          "falcoName": "ctwa_direction_from",
+          "enum": "CTWA_DIRECTION_FROM"
+        },
+        "ctwaSignals": {
+          "id": 7,
+          "type": "string",
+          "falcoName": "ctwa_signals"
+        },
+        "ctwaTrackingPayload": {
+          "id": 2,
+          "type": "string",
+          "falcoName": "ctwa_tracking_payload"
+        },
+        "isLatestConversionToken": {
+          "id": 13,
+          "type": "boolean",
+          "falcoName": "is_latest_conversion_token"
+        },
+        "twoMeasurementEnabled": {
+          "id": 14,
+          "type": "boolean",
+          "falcoName": "two_measurement_enabled"
         }
       }
     },

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1043530892
+/// WhatsApp Version: 2.3000.1043609466
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -5918,6 +5918,7 @@ message SyncActionValue {
             LOCKED = 13;
             INVITES = 14;
             THIRD_PARTY = 15;
+            LEAD = 16;
         }
     }
     message LabelSublistAction {

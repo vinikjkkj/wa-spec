@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043530892
+// WhatsApp Version: 2.3000.1043609466
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -3537,6 +3537,43 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'COPY_CODE': 0,
         'AUTOFILL': 1
+        })
+    }),
+    CTWA_1PD_CONVERSION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCtwa1pdConversionType',
+        export: 'CTWA_1PD_CONVERSION_TYPE',
+        values: Object.freeze({
+        'FIRST_CUSTOMER_MESSAGE': 0,
+        'FIRST_CUSTOMER_MESSAGE_CONTINUATION': 1,
+        'FIRST_BIZ_REPLY': 2,
+        'FIRST_BIZ_REPLY_CONTINUATION': 3,
+        'SECOND_CUSTOMER_MESSAGE': 4,
+        'SECOND_CUSTOMER_MESSAGE_CONTINUATION': 5,
+        'SECOND_BIZ_REPLY': 6,
+        'SECOND_BIZ_REPLY_CONTINUATION': 7,
+        'THIRD_CUSTOMER_MESSAGE': 8,
+        'THIRD_CUSTOMER_MESSAGE_CONTINUATION': 9,
+        'THIRD_BIZ_REPLY': 10,
+        'FIRST_CUSTOMER_CALL': 11,
+        'FIRST_BIZ_CALL': 12,
+        'FIRST_CUSTOMER_LONG_CALL': 13,
+        'FIRST_BIZ_LONG_CALL': 14,
+        'WHATSAPP_FLOWS_SUBMITTED': 15,
+        'AGM_CTA_CLICK': 16,
+        'MESSAGE': 17,
+        'CALL': 18,
+        'LONG_CALL': 19,
+        'EXTRA_LONG_CALL': 20,
+        'BIZ_BLOCK': 21,
+        'BIZ_REPORT': 22,
+        'PAYMENT': 23,
+        'SHORT_CALL': 24,
+        'USER_BLOCK': 25,
+        'USER_REPORT': 26,
+        'USER_BLOCK_AND_REPORT': 27,
+        'MESSAGE_ON_DELIVERY': 28,
+        'CALL_OVER_120S': 29,
+        'BIZ_CONV_FEEDBACK': 30
         })
     }),
     CTWA_AD_ACCOUNT_TYPE: Object.freeze({
@@ -20776,6 +20813,29 @@ const WA_WAM_EVENTS = Object.freeze({
             mobileBuildId: Object.freeze({ id: 5, type: 'string', falcoName: 'mobile_build_id' }),
             name: Object.freeze({ id: 1, type: 'string', falcoName: 'name' }),
             storageAvailSizeWithCache: Object.freeze({ id: 9, type: 'integer', falcoName: 'storage_avail_size_with_cache' })
+        })
+    }),
+    Ctwa1pdConversion: Object.freeze({
+        id: 5140,
+        falcoName: 'wam_ctwa1pd_conversion',
+        channel: 'private',
+        privateStatsIdInt: 0,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            bizPlatform: Object.freeze({ id: 3, type: 'enum', enum: 'BIZ_PLATFORM', falcoName: 'biz_platform' }),
+            ctwa1pdConversionMetadata: Object.freeze({ id: 8, type: 'string', falcoName: 'ctwa1pd_conversion_metadata' }),
+            ctwa1pdConversionSchemaVersion: Object.freeze({ id: 9, type: 'integer', falcoName: 'ctwa1pd_conversion_schema_version' }),
+            ctwa1pdConversionType: Object.freeze({ id: 1, type: 'enum', enum: 'CTWA_1PD_CONVERSION_TYPE', falcoName: 'ctwa1pd_conversion_type' }),
+            ctwaConversationDepth: Object.freeze({ id: 10, type: 'integer', falcoName: 'ctwa_conversation_depth' }),
+            ctwaConversationRepeat: Object.freeze({ id: 11, type: 'integer', falcoName: 'ctwa_conversation_repeat' }),
+            ctwaDirectionFrom: Object.freeze({ id: 12, type: 'enum', enum: 'CTWA_DIRECTION_FROM', falcoName: 'ctwa_direction_from' }),
+            ctwaSignals: Object.freeze({ id: 7, type: 'string', falcoName: 'ctwa_signals' }),
+            ctwaTrackingPayload: Object.freeze({ id: 2, type: 'string', falcoName: 'ctwa_tracking_payload' }),
+            isLatestConversionToken: Object.freeze({ id: 13, type: 'boolean', falcoName: 'is_latest_conversion_token' }),
+            twoMeasurementEnabled: Object.freeze({ id: 14, type: 'boolean', falcoName: 'two_measurement_enabled' })
         })
     }),
     Ctwa3pdAggregatedConversion: Object.freeze({
