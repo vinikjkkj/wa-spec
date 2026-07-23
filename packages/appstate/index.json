@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043609466",
+  "waVersion": "2.3000.1043683339",
   "collections": [
     "regular",
     "regular_low",
@@ -756,6 +756,32 @@
         {
           "type": "literal",
           "value": "label_reordering"
+        }
+      ]
+    },
+    "LabelSublist": {
+      "module": "WAWebLabelSublistSync",
+      "name": "label_sublist",
+      "collection": "regular",
+      "version": 1,
+      "scope": "chatOrContact",
+      "baseClass": "ChatOrContactSyncdActionBase",
+      "valueField": "labelSublistAction",
+      "valueProtoType": "SyncActionValue.LabelSublistAction",
+      "valueEnumFields": null,
+      "chatJidIndex": 2,
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "label_sublist"
+        },
+        {
+          "type": "string",
+          "name": "predefinedId"
+        },
+        {
+          "type": "jid",
+          "name": "chatJid"
         }
       ]
     },

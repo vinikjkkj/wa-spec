@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043609466",
+  "waVersion": "2.3000.1043683339",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",

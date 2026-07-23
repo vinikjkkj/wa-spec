@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043609466
+// WhatsApp Version: 2.3000.1043683339
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -4080,7 +4080,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DEEP_LINK_META_AI_INCOGNITO': 250;
             readonly 'DEEP_LINK_CHANGE_NUMBER': 251;
             readonly 'DEEP_LINK_AI_MAGIC_CUE_SETTING': 252;
-            readonly 'DEEP_LINK_WINBACK_METRICS': 253
+            readonly 'DEEP_LINK_WINBACK_METRICS': 253;
+            readonly 'DEEP_LINK_AGE_COLLECTION': 254;
+            readonly 'DEEP_LINK_SETTINGS_ACCOUNT_PASSWORD': 255
         }
     }
     readonly DEFAULT_AUDIENCE_LOCATION_TYPE: {
@@ -7592,7 +7594,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_DISMISS': 535;
             readonly 'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536;
             readonly 'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_LOADING_ERROR': 537;
-            readonly 'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR': 538
+            readonly 'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR': 538;
+            readonly 'QR_SCANNER_ZOOM': 539
         }
     }
     readonly LWI_SCREEN_REFERENCE: {
@@ -10405,7 +10408,11 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SYNCD_SEND_STORE': 356;
             readonly 'SYNCD_SEND_REMOVE': 357;
             readonly 'SYNCD_APPLY_STORE': 358;
-            readonly 'SYNCD_APPLY_REMOVE': 359
+            readonly 'SYNCD_APPLY_REMOVE': 359;
+            readonly 'AMOUNT_DETECT_ADD_PIX_KEY': 360;
+            readonly 'AMOUNT_DETECT_SEND_PIX_KEY': 361;
+            readonly 'AMOUNT_DETECT_REQUEST_PAYMENT': 362;
+            readonly 'AMOUNT_DETECT_GO_TO_PAYMENTS': 363
         }
     }
     readonly PAYMENT_ACTION_TYPES: {
@@ -15170,7 +15177,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ACCOUNT_CENTER_HELP_ARTICLE': 16;
             readonly 'FB_ACCOUNT_ALREADY_LINKED_DIALOG': 17;
             readonly 'SMB_LINKING_BOTTOMSHEET': 18;
-            readonly 'USERNAME_PIN_GENERATOR': 19
+            readonly 'USERNAME_PIN_GENERATOR': 19;
+            readonly 'USERNAME_ACTIVATION_JITTERED': 20
         }
     }
     readonly USERNAME_CREATION_ENTRYPOINT: {

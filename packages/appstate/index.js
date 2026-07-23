@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043609466
+// WhatsApp Version: 2.3000.1043683339
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -435,6 +435,20 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'label_reordering' })
+        ])
+    }),
+    LabelSublist: Object.freeze({
+        name: 'label_sublist',
+        collection: 'regular',
+        version: 1,
+        scope: 'chatOrContact',
+        valueField: 'labelSublistAction',
+        valueProtoType: 'SyncActionValue.LabelSublistAction',
+        valueEnumFields: null,
+        indexParts: Object.freeze([
+            Object.freeze({ type: 'literal', value: 'label_sublist' }),
+            Object.freeze({ type: 'string', name: 'predefinedId' }),
+            Object.freeze({ type: 'jid', name: 'chatJid' })
         ])
     }),
     LidContact: Object.freeze({

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043609466
+// WhatsApp Version: 2.3000.1043683339
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -98,6 +98,7 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly LabelEdit: WaAppstateSchema<'label_edit', 'regular', 'account', 'labelEditAction', 'SyncActionValue.LabelEditAction', { readonly 'type': 'LabelEditAction.ListType' }, readonly [{ readonly type: 'literal'; readonly value: 'label_edit' }, { readonly type: 'string'; readonly name: 'id' }]>
     readonly LabelJid: WaAppstateSchema<'label_jid', 'regular', 'chatOrContact', 'labelAssociationAction', 'SyncActionValue.LabelAssociationAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_jid' }, { readonly type: 'string'; readonly name: 'labelId' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
     readonly LabelReordering: WaAppstateSchema<'label_reordering', 'regular', 'account', 'labelReorderingAction', 'SyncActionValue.LabelReorderingAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_reordering' }]>
+    readonly LabelSublist: WaAppstateSchema<'label_sublist', 'regular', 'chatOrContact', 'labelSublistAction', 'SyncActionValue.LabelSublistAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_sublist' }, { readonly type: 'string'; readonly name: 'predefinedId' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
     readonly LidContact: WaAppstateSchema<'lid_contact', 'critical_unblock_low', 'account', 'lidContactAction', 'SyncActionValue.LidContactAction', null, readonly [{ readonly type: 'literal'; readonly value: 'lid_contact' }, { readonly type: 'string'; readonly name: 'id' }]>
     readonly LocaleSetting: WaAppstateSchema<'setting_locale', 'critical_block', 'account', 'localeSetting', 'SyncActionValue.LocaleSetting', null, readonly [{ readonly type: 'literal'; readonly value: 'setting_locale' }]>
     readonly LockChat: WaAppstateSchema<'lock', 'regular_low', 'chat', 'lockChatAction', 'SyncActionValue.LockChatAction', null, readonly [{ readonly type: 'literal'; readonly value: 'lock' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>

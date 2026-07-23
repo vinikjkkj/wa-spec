@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043609466
+// WhatsApp Version: 2.3000.1043683339
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2153,8 +2153,6 @@ export interface WaXmlOperations {
                 readonly offline: number
                 readonly sts: number
                 readonly to: string
-                readonly participant: string
-                readonly eph_setting?: string
                 readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
@@ -2162,10 +2160,12 @@ export interface WaXmlOperations {
                 readonly device_fanout?: 'false'
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
+                readonly participant?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
                 readonly privacy_sensitive?: boolean
+                readonly eph_setting?: string
             }
             readonly children: {
                 readonly meta: {
@@ -12404,12 +12404,12 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'ack'
             readonly attrs: {
+                readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                 readonly id: string
                 readonly to: string
-                readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
-                readonly error?: number
+                readonly error: number
                 readonly recipient?: string
             }
             readonly children: {
@@ -12827,18 +12827,18 @@ export interface WaXmlStanzas {
                     readonly recipient: string
                     readonly id: string
                     readonly to: string
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
-                    readonly eph_setting?: string
                     readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
+                    readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
+                    readonly eph_setting?: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -13056,8 +13056,6 @@ export interface WaXmlStanzas {
                     readonly offline: number
                     readonly sts: number
                     readonly to: string
-                    readonly participant: string
-                    readonly eph_setting?: string
                     readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
@@ -13065,10 +13063,12 @@ export interface WaXmlStanzas {
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly participant?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
+                    readonly eph_setting?: string
                 }
                 readonly children: {
                     readonly meta: {
@@ -14576,10 +14576,10 @@ export interface WaXmlStanzas {
                     readonly t: number
                     readonly offline?: number
                     readonly to: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14663,10 +14663,10 @@ export interface WaXmlStanzas {
                     readonly t: number
                     readonly offline?: number
                     readonly to: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14747,11 +14747,11 @@ export interface WaXmlStanzas {
                     readonly to: string
                     readonly t: number
                     readonly participant?: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly peer_participant_pn?: string
                     readonly recipient?: string
-                    readonly sts?: string
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly category: string
+                    readonly peer_participant_pn?: string
+                    readonly sts?: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14783,10 +14783,10 @@ export interface WaXmlStanzas {
                     readonly participant_username?: string
                     readonly t: number
                     readonly to: string
-                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
-                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
