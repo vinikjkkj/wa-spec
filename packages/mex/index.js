@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043683339
+// WhatsApp Version: 2.3000.1043761285
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -102,9 +102,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     NewsletterPinMessages: Object.freeze({ docId: '27165709459706559', clientDocId: '27165709459706559' }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ docId: '24636260219323456', clientDocId: '24636260219323456' }),
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
-    QueryCatalog: Object.freeze({ docId: '9916553288394782', clientDocId: '9916553288394782' }),
-    QueryCatalogHasCategories: Object.freeze({ docId: '9759957480718978', clientDocId: '9759957480718978' }),
-    QueryCatalogProduct: Object.freeze({ docId: '9647868451963105', clientDocId: '9647868451963105' }),
+    QueryCatalog: Object.freeze({ docId: '30445081048424116', clientDocId: '30445081048424116' }),
+    QueryCatalogHasCategories: Object.freeze({ docId: '9746549555457302', clientDocId: '9746549555457302' }),
+    QueryCatalogProduct: Object.freeze({ docId: '9660926520672123', clientDocId: '9660926520672123' }),
     QueryProductCollections: Object.freeze({ docId: '9430970660362540', clientDocId: '9430970660362540' }),
     QueryProductListCatalog: Object.freeze({ docId: '30125049463760630', clientDocId: '30125049463760630' }),
     QueryProductSingleCollection: Object.freeze({ docId: '9546992575408789', clientDocId: '9546992575408789' }),

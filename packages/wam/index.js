@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043683339
+// WhatsApp Version: 2.3000.1043761285
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -7486,7 +7486,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536,
         'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_LOADING_ERROR': 537,
         'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR': 538,
-        'QR_SCANNER_ZOOM': 539
+        'QR_SCANNER_ZOOM': 539,
+        'LWI_ACTION_WINBACK_THRESHOLD_SCALE_CLICK': 540
         })
     }),
     LWI_SCREEN_REFERENCE: Object.freeze({
@@ -8440,7 +8441,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'VERIFY_SECURITY_CODE': 33,
         'ADD_TO_NOTE': 34,
         'TRANSLATE': 35,
-        'SPEAK': 36
+        'SPEAK': 36,
+        'VIEW_TRANSLATION': 37,
+        'REMOVE_TRANSLATION': 38
         })
     }),
     MESSAGE_DISTRIBUTION_ENUM_TYPE: Object.freeze({
@@ -9392,7 +9395,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63,
         'BUSINESS_BROADCAST_INSIGHTS_READY': 64,
         'NEWSLETTER_MILESTONE_UPDATE_FORWARDS': 65,
-        'EVENT_INVITE_MESSAGE': 66
+        'EVENT_INVITE_MESSAGE': 66,
+        'EVENT_V2_UPDATE': 67,
+        'EVENT_V2_RSVP': 68,
+        'EVENT_V2_DELETE': 69,
+        'EVENT_V2_REMINDER': 70,
+        'EVENT_V2_SUSPENDED': 71
         })
     }),
     NS_MODE: Object.freeze({
@@ -14190,7 +14198,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318,
         'FB_MEDIA_PICKER': 319,
         'IG_MEDIA_PICKER': 320,
-        'BB_MESSAGE_PACKS_META_ONE_TAB': 321
+        'BB_MESSAGE_PACKS_META_ONE_TAB': 321,
+        'GEN_AI_BOOK_APPOINTMENTS_NUX': 322,
+        'GEN_AI_BOOK_APPOINTMENTS_OUTLOOK_CONNECT': 323
         })
     }),
     SW_AEC_TYPE: Object.freeze({
@@ -15043,7 +15053,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'USERNAME_RESERVATION_KEY_SAVE_KEY_CLICKED': 88,
         'USERNAME_RESERVATION_KEY_CANCEL_CLICKED': 89,
         'APP_SWITCH_TO_FB_KEY_FLOW': 90,
-        'APP_SWITCH_TO_IG_KEY_FLOW': 91
+        'APP_SWITCH_TO_IG_KEY_FLOW': 91,
+        'ACTIVATION_REQUEST_JITTERED': 92
         })
     }),
     USERNAME_CREATION_CURRENT_SCREEN: Object.freeze({
@@ -15068,8 +15079,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'ACCOUNT_CENTER_HELP_ARTICLE': 16,
         'FB_ACCOUNT_ALREADY_LINKED_DIALOG': 17,
         'SMB_LINKING_BOTTOMSHEET': 18,
-        'USERNAME_PIN_GENERATOR': 19,
-        'USERNAME_ACTIVATION_JITTERED': 20
+        'USERNAME_PIN_GENERATOR': 19
         })
     }),
     USERNAME_CREATION_ENTRYPOINT: Object.freeze({
@@ -21418,6 +21428,8 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             dyiReportType: Object.freeze({ id: 1, type: 'enum', enum: 'DYI_REPORT_TYPE_CODE', falcoName: 'dyi_report_type' }),
+            dyiRequestErrorMessage: Object.freeze({ id: 3, type: 'string', falcoName: 'dyi_request_error_message' }),
+            dyiRequestSuccess: Object.freeze({ id: 4, type: 'boolean', falcoName: 'dyi_request_success' }),
             dyiTriggerType: Object.freeze({ id: 2, type: 'enum', enum: 'DYI_TRIGGER_TYPE_CODE', falcoName: 'dyi_trigger_type' })
         })
     }),
@@ -22536,6 +22548,7 @@ const WA_WAM_EVENTS = Object.freeze({
             numberOfPnChatsWithoutMapping: Object.freeze({ id: 5, type: 'integer', falcoName: 'number_of_pn_chats_without_mapping' }),
             numberOfPnGroups: Object.freeze({ id: 13, type: 'integer', falcoName: 'number_of_pn_groups' }),
             numberOfPnOnlyGroups: Object.freeze({ id: 19, type: 'integer', falcoName: 'number_of_pn_only_groups' }),
+            numberOfPnOnlyGroupsNotMember: Object.freeze({ id: 20, type: 'integer', falcoName: 'number_of_pn_only_groups_not_member' }),
             numberOfPnhCtwaThreadsKnownMapping: Object.freeze({ id: 2, type: 'integer', falcoName: 'number_of_pnh_ctwa_threads_known_mapping' }),
             numberOfPnhCtwaThreadsMissingMapping: Object.freeze({ id: 3, type: 'integer', falcoName: 'number_of_pnh_ctwa_threads_missing_mapping' }),
             numberOfRegularPnChats: Object.freeze({ id: 14, type: 'integer', falcoName: 'number_of_regular_pn_chats' }),

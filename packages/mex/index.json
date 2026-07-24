@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043683339",
+  "waVersion": "2.3000.1043761285",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -3862,7 +3862,7 @@
     },
     "QueryCatalog": {
       "originalName": "WAWebQueryCatalogQuery",
-      "docId": "9916553288394782",
+      "docId": "30445081048424116",
       "operationKind": "query",
       "variables": [
         "request"
@@ -3999,7 +3999,7 @@
     },
     "QueryCatalogHasCategories": {
       "originalName": "WAWebQueryCatalogHasCategoriesQuery",
-      "docId": "9759957480718978",
+      "docId": "9746549555457302",
       "operationKind": "query",
       "variables": [
         "request"
@@ -4026,7 +4026,7 @@
     },
     "QueryCatalogProduct": {
       "originalName": "WAWebQueryCatalogProductQuery",
-      "docId": "9647868451963105",
+      "docId": "9660926520672123",
       "operationKind": "query",
       "variables": [
         "request"

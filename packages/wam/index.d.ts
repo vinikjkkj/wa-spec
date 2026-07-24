@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043683339
+// WhatsApp Version: 2.3000.1043761285
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -7595,7 +7595,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED': 536;
             readonly 'LWI_ACTION_WINBACK_AD_COMPLETION_BOTTOMSHEET_LOADING_ERROR': 537;
             readonly 'LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR': 538;
-            readonly 'QR_SCANNER_ZOOM': 539
+            readonly 'QR_SCANNER_ZOOM': 539;
+            readonly 'LWI_ACTION_WINBACK_THRESHOLD_SCALE_CLICK': 540
         }
     }
     readonly LWI_SCREEN_REFERENCE: {
@@ -8549,7 +8550,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'VERIFY_SECURITY_CODE': 33;
             readonly 'ADD_TO_NOTE': 34;
             readonly 'TRANSLATE': 35;
-            readonly 'SPEAK': 36
+            readonly 'SPEAK': 36;
+            readonly 'VIEW_TRANSLATION': 37;
+            readonly 'REMOVE_TRANSLATION': 38
         }
     }
     readonly MESSAGE_DISTRIBUTION_ENUM_TYPE: {
@@ -9501,7 +9504,12 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE': 63;
             readonly 'BUSINESS_BROADCAST_INSIGHTS_READY': 64;
             readonly 'NEWSLETTER_MILESTONE_UPDATE_FORWARDS': 65;
-            readonly 'EVENT_INVITE_MESSAGE': 66
+            readonly 'EVENT_INVITE_MESSAGE': 66;
+            readonly 'EVENT_V2_UPDATE': 67;
+            readonly 'EVENT_V2_RSVP': 68;
+            readonly 'EVENT_V2_DELETE': 69;
+            readonly 'EVENT_V2_REMINDER': 70;
+            readonly 'EVENT_V2_SUSPENDED': 71
         }
     }
     readonly NS_MODE: {
@@ -14299,7 +14307,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318;
             readonly 'FB_MEDIA_PICKER': 319;
             readonly 'IG_MEDIA_PICKER': 320;
-            readonly 'BB_MESSAGE_PACKS_META_ONE_TAB': 321
+            readonly 'BB_MESSAGE_PACKS_META_ONE_TAB': 321;
+            readonly 'GEN_AI_BOOK_APPOINTMENTS_NUX': 322;
+            readonly 'GEN_AI_BOOK_APPOINTMENTS_OUTLOOK_CONNECT': 323
         }
     }
     readonly SW_AEC_TYPE: {
@@ -15152,7 +15162,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'USERNAME_RESERVATION_KEY_SAVE_KEY_CLICKED': 88;
             readonly 'USERNAME_RESERVATION_KEY_CANCEL_CLICKED': 89;
             readonly 'APP_SWITCH_TO_FB_KEY_FLOW': 90;
-            readonly 'APP_SWITCH_TO_IG_KEY_FLOW': 91
+            readonly 'APP_SWITCH_TO_IG_KEY_FLOW': 91;
+            readonly 'ACTIVATION_REQUEST_JITTERED': 92
         }
     }
     readonly USERNAME_CREATION_CURRENT_SCREEN: {
@@ -15177,8 +15188,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ACCOUNT_CENTER_HELP_ARTICLE': 16;
             readonly 'FB_ACCOUNT_ALREADY_LINKED_DIALOG': 17;
             readonly 'SMB_LINKING_BOTTOMSHEET': 18;
-            readonly 'USERNAME_PIN_GENERATOR': 19;
-            readonly 'USERNAME_ACTIVATION_JITTERED': 20
+            readonly 'USERNAME_PIN_GENERATOR': 19
         }
     }
     readonly USERNAME_CREATION_ENTRYPOINT: {
@@ -21939,6 +21949,8 @@ export declare const WA_WAM_EVENTS: {
         readonly conditions: readonly []
         readonly fields: {
             readonly dyiReportType: { readonly id: 1; readonly type: 'enum'; readonly enum: 'DYI_REPORT_TYPE_CODE'; readonly falcoName: 'dyi_report_type' }
+            readonly dyiRequestErrorMessage: { readonly id: 3; readonly type: 'string'; readonly falcoName: 'dyi_request_error_message' }
+            readonly dyiRequestSuccess: { readonly id: 4; readonly type: 'boolean'; readonly falcoName: 'dyi_request_success' }
             readonly dyiTriggerType: { readonly id: 2; readonly type: 'enum'; readonly enum: 'DYI_TRIGGER_TYPE_CODE'; readonly falcoName: 'dyi_trigger_type' }
         }
     }
@@ -23253,6 +23265,7 @@ export declare const WA_WAM_EVENTS: {
             readonly numberOfPnChatsWithoutMapping: { readonly id: 5; readonly type: 'integer'; readonly falcoName: 'number_of_pn_chats_without_mapping' }
             readonly numberOfPnGroups: { readonly id: 13; readonly type: 'integer'; readonly falcoName: 'number_of_pn_groups' }
             readonly numberOfPnOnlyGroups: { readonly id: 19; readonly type: 'integer'; readonly falcoName: 'number_of_pn_only_groups' }
+            readonly numberOfPnOnlyGroupsNotMember: { readonly id: 20; readonly type: 'integer'; readonly falcoName: 'number_of_pn_only_groups_not_member' }
             readonly numberOfPnhCtwaThreadsKnownMapping: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'number_of_pnh_ctwa_threads_known_mapping' }
             readonly numberOfPnhCtwaThreadsMissingMapping: { readonly id: 3; readonly type: 'integer'; readonly falcoName: 'number_of_pnh_ctwa_threads_missing_mapping' }
             readonly numberOfRegularPnChats: { readonly id: 14; readonly type: 'integer'; readonly falcoName: 'number_of_regular_pn_chats' }
