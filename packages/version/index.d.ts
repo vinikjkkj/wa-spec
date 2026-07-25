@@ -1,4 +1,4 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043761285
+// WhatsApp Version: 2.3000.1043840091
 
 export declare const WA_VERSION: string

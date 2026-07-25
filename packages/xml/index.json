@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043761285",
+  "waVersion": "2.3000.1043840091",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -4548,7 +4548,8 @@
                         ]
                       },
                       "credential-id": {
-                        "type": "string"
+                        "type": "string",
+                        "optional": true
                       },
                       "p2p-eligible": {
                         "type": "enum",
@@ -5404,26 +5405,21 @@
                 "optional": true,
                 "direction": "out"
               },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
               "peer_recipient_lid": {
-                "type": "userJid",
-                "arg": "re",
-                "optional": true,
-                "direction": "both"
-              },
-              "peer_recipient_pn": {
                 "type": "userJid",
                 "arg": "oe",
                 "optional": true,
                 "direction": "both"
               },
+              "peer_recipient_pn": {
+                "type": "userJid",
+                "arg": "ae",
+                "optional": true,
+                "direction": "both"
+              },
               "peer_recipient_username": {
                 "type": "string",
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ae)",
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
               },
@@ -5435,19 +5431,25 @@
               },
               "recipient_pn": {
                 "type": "userJid",
-                "arg": "ne",
+                "arg": "re",
                 "optional": true,
                 "direction": "out"
               },
               "addressing_mode": {
                 "type": "enum",
-                "arg": "Ee",
+                "arg": "Ie",
                 "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "lid",
                   "pn"
                 ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "O",
+                "optional": true,
+                "direction": "both"
               },
               "recipient": {
                 "type": "userJid",
@@ -24681,6 +24683,972 @@
         }
       ]
     },
+    "RemoveCustomPaymentMethod": {
+      "module": "WASmaxBrPaymentRemoveCustomPaymentMethodRPC",
+      "opName": "RemoveCustomPaymentMethod",
+      "rootTag": "iq",
+      "xmlns": "w:pay",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutBrPaymentRemoveCustomPaymentMethodRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "type": {
+              "type": "literal",
+              "value": "set"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "w:pay"
+            }
+          },
+          "children": [
+            {
+              "tag": "account",
+              "attrs": {
+                "action": {
+                  "type": "literal",
+                  "value": "remove-custom-payment-method"
+                },
+                "credential_id": {
+                  "type": "string",
+                  "arg": "t"
+                },
+                "country": {
+                  "type": "literal",
+                  "value": "BR"
+                }
+              },
+              "children": [],
+              "min": 1,
+              "max": 1
+            }
+          ],
+          "appliedMixin": "WASmaxOutBrPaymentSetIQMixin"
+        },
+        "argShape": {
+          "e": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInBrPaymentRemoveCustomPaymentMethodResponseError",
+          "variant": "Error",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              },
+              "id": {
+                "type": "stanzaId"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "enum",
+                    "enumValues": [
+                      "INCORRECT_NONCE",
+                      "TOO_MANY_ATTEMPTS",
+                      "already-exists",
+                      "bad-request",
+                      "conflict",
+                      "feature-not-implemented",
+                      "forbidden",
+                      "gone",
+                      "internal-server-error",
+                      "item-not-found",
+                      "not-acceptable",
+                      "rate-overlimit",
+                      "service-unavailable"
+                    ]
+                  },
+                  "code": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseRemoveCustomPaymentMethodResponseError"
+        },
+        {
+          "module": "WASmaxInBrPaymentRemoveCustomPaymentMethodResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "account",
+                "attrs": {
+                  "action": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "int",
+                    "optional": true
+                  },
+                  "instance-id": {
+                    "type": "string",
+                    "optional": true
+                  },
+                  "wa-support-phone-number": {
+                    "type": "string",
+                    "optional": true
+                  }
+                },
+                "children": [
+                  {
+                    "tag": "card",
+                    "attrs": {
+                      "image-content-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "binding-type": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "needs-device-binding": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "optional": true,
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "state": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_ACTIVE_DELETED_INACTIVE_NEEDSRETOKENIZATION_NEEDSRETOKENIZATIONDELETED_SUSPENDED",
+                        "enumValues": [
+                          "ACTIVE",
+                          "DELETED",
+                          "INACTIVE",
+                          "NEEDS_RETOKENIZATION",
+                          "NEEDS_RETOKENIZATION_DELETED",
+                          "SUSPENDED"
+                        ]
+                      },
+                      "bank-name": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "bank-phone-number": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "automatic-binding": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "last4": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "verified": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "optional": true,
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "type": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "network-type": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "time-last-added": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "display-state": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_ACTIVE_EXPIRED_SUSPENDED_VOIDED",
+                        "enumValues": [
+                          "ACTIVE",
+                          "EXPIRED",
+                          "SUSPENDED",
+                          "VOIDED"
+                        ]
+                      },
+                      "default-credit": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "optional": true,
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-debit": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "optional": true,
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-credit-p2p": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-credit-p2m": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-debit-p2p": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-debit-p2m": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "credential-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "country": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "created": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "p2p-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "p2m-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "image": {
+                        "type": "string",
+                        "optional": true
+                      }
+                    },
+                    "children": [
+                      {
+                        "tag": "capabilities",
+                        "attrs": {
+                          "editable": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "verifiable": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "default-eligible": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "default-eligible-p2p": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "default-eligible-p2m": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "p2p-send": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_DISABLED_ENABLED_REQUIRESVERIFICATION",
+                            "enumValues": [
+                              "DISABLED",
+                              "ENABLED",
+                              "REQUIRES_VERIFICATION"
+                            ]
+                          },
+                          "p2p-receive": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_DISABLED_ENABLED_REQUIRESVERIFICATION",
+                            "enumValues": [
+                              "DISABLED",
+                              "ENABLED",
+                              "REQUIRES_VERIFICATION"
+                            ]
+                          },
+                          "p2m-send": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_DISABLED_ENABLED_REQUIRESVERIFICATION",
+                            "enumValues": [
+                              "DISABLED",
+                              "ENABLED",
+                              "REQUIRES_VERIFICATION"
+                            ]
+                          },
+                          "p2m-receive": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_DISABLED_ENABLED_REQUIRESVERIFICATION",
+                            "enumValues": [
+                              "DISABLED",
+                              "ENABLED",
+                              "REQUIRES_VERIFICATION"
+                            ]
+                          }
+                        },
+                        "children": [],
+                        "content": null,
+                        "min": 1,
+                        "max": 1
+                      }
+                    ],
+                    "content": null,
+                    "__variants": [
+                      "BRCard",
+                      "MXCard",
+                      "ESCard"
+                    ],
+                    "min": 0,
+                    "max": null
+                  },
+                  {
+                    "tag": "bank",
+                    "attrs": {
+                      "type": {
+                        "type": "literal",
+                        "value": "upi"
+                      },
+                      "vpa": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "vpa-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "account-number": {
+                        "type": "string"
+                      },
+                      "mmid": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "account-name": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "is-mpin-set": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "atm-pin-length": {
+                        "type": "int",
+                        "min": 0,
+                        "max": 100
+                      },
+                      "mpin-length": {
+                        "type": "int",
+                        "min": 0,
+                        "max": 100
+                      },
+                      "otp-length": {
+                        "type": "int",
+                        "min": 0,
+                        "max": 100
+                      },
+                      "image": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "bank-name": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "bank-phone-number": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "code": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "pin-format-version": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_1_2",
+                        "enumValues": [
+                          "1",
+                          "2"
+                        ]
+                      },
+                      "upi-bank-info": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "transaction-prefix": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "account-type": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "bank-ref-id": {
+                        "type": "int",
+                        "optional": true
+                      },
+                      "ifsc-code": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "account-ref-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "is-aadhaar-enabled": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "is_international_pay_enabled": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-credit": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "optional": true,
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-debit": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "optional": true,
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-credit-p2p": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-credit-p2m": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-debit-p2p": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "default-debit-p2m": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "credential-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "country": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "created": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "p2p-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "p2m-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": null
+                  },
+                  {
+                    "tag": "merchant",
+                    "attrs": {
+                      "gateway-name": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "display-state": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_ACCOUNTPENDINGLINKING_ACTIVE_EXTERNALLYDISABLED_HARDBLOCKED_INACTIVE_INITED_INTEGRITYBLOCKED_PENDING_SOFTBLOCKED",
+                        "enumValues": [
+                          "ACCOUNT_PENDING_LINKING",
+                          "ACTIVE",
+                          "EXTERNALLY_DISABLED",
+                          "HARD_BLOCKED",
+                          "INACTIVE",
+                          "INITED",
+                          "INTEGRITY_BLOCKED",
+                          "PENDING",
+                          "SOFT_BLOCKED"
+                        ]
+                      },
+                      "dashboard-url": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "logo-uri": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "max_installment_count": {
+                        "type": "int",
+                        "optional": true
+                      },
+                      "merchant-id": {
+                        "type": "string"
+                      },
+                      "business-name": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "can-sell": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "can-payout": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "can-add-payout": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "support-phone-number": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "provider-type": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "pix-onboarding-state": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1_2",
+                        "enumValues": [
+                          "0",
+                          "1",
+                          "2"
+                        ]
+                      },
+                      "credential-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "country": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "created": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "p2p-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "p2m-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      }
+                    },
+                    "children": [
+                      {
+                        "tag": "payout",
+                        "attrs": {
+                          "type": {
+                            "type": "literal",
+                            "value": "bank",
+                            "optional": true
+                          },
+                          "account-number": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "bank-name": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "code": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "verification-status": {
+                            "type": "enum",
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_FAILED_PENDING_VERIFIED",
+                            "optional": true,
+                            "enumValues": [
+                              "FAILED",
+                              "PENDING",
+                              "VERIFIED"
+                            ]
+                          },
+                          "credential-id": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "country": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "created": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "p2p-eligible": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "p2m-eligible": {
+                            "type": "enum",
+                            "optional": true,
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                            "enumValues": [
+                              "0",
+                              "1"
+                            ]
+                          },
+                          "last4": {
+                            "type": "string",
+                            "optional": true
+                          }
+                        },
+                        "children": [],
+                        "content": null,
+                        "__variants": [
+                          "PayoutBank",
+                          "PayoutPrepaidCard"
+                        ],
+                        "min": 0,
+                        "max": null
+                      }
+                    ],
+                    "content": null,
+                    "min": 0,
+                    "max": null
+                  },
+                  {
+                    "tag": "alias",
+                    "attrs": {
+                      "type": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "alias_value": {
+                        "type": "string"
+                      },
+                      "alias_id": {
+                        "type": "string"
+                      },
+                      "alias_type": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_MOBILENUMBER_NUMERICID",
+                        "enumValues": [
+                          "mobile_number",
+                          "numeric_id"
+                        ]
+                      },
+                      "alias_status": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_ACTIVE_ACTIVEPENDING_ACTIVESTATUSPENDING_AVAILABLE_AVAILABLEPENDING_AVAILABLESTATUSPENDING_BLOCKED_DEREGISTERED_DEREGISTEREDPENDING_INACTIVE_INACTIVEPENDING_INACTIVESTATUSPENDING_UNKNOWN",
+                        "enumValues": [
+                          "active",
+                          "active_pending",
+                          "active_status_pending",
+                          "available",
+                          "available_pending",
+                          "available_status_pending",
+                          "blocked",
+                          "deregistered",
+                          "deregistered_pending",
+                          "inactive",
+                          "inactive_pending",
+                          "inactive_status_pending",
+                          "unknown"
+                        ]
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "min": 0,
+                    "max": 100
+                  },
+                  {
+                    "tag": "custom_payment_method",
+                    "attrs": {
+                      "type": {
+                        "type": "enum",
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_PAYONDELIVERY_PIXKEY",
+                        "enumValues": [
+                          "pay_on_delivery",
+                          "pix_key"
+                        ]
+                      },
+                      "country": {
+                        "type": "literal",
+                        "optional": true,
+                        "value": "BR"
+                      },
+                      "created": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "flow": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_P2M_P2P",
+                        "enumValues": [
+                          "p2m",
+                          "p2p"
+                        ]
+                      },
+                      "credential-id": {
+                        "type": "string",
+                        "optional": true
+                      },
+                      "p2p-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      },
+                      "p2m-eligible": {
+                        "type": "enum",
+                        "optional": true,
+                        "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_0_1",
+                        "enumValues": [
+                          "0",
+                          "1"
+                        ]
+                      }
+                    },
+                    "children": [
+                      {
+                        "tag": "metadata_info",
+                        "attrs": {},
+                        "children": [
+                          {
+                            "tag": "metadata",
+                            "attrs": {
+                              "key": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "string"
+                              }
+                            },
+                            "children": [],
+                            "content": null,
+                            "min": 1,
+                            "max": 5
+                          }
+                        ],
+                        "content": null,
+                        "min": 1,
+                        "max": 1
+                      }
+                    ],
+                    "content": null,
+                    "min": 0,
+                    "max": 5
+                  }
+                ],
+                "content": null,
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseRemoveCustomPaymentMethodResponseSuccess"
+        }
+      ]
+    },
     "RemoveParticipants": {
       "module": "WASmaxGroupsRemoveParticipantsRPC",
       "opName": "RemoveParticipants",
@@ -31759,211 +32727,6 @@
         }
       ]
     },
-    "UploadAdMedia": {
-      "module": "WASmaxBizCtwaNativeAdUploadAdMediaRPC",
-      "opName": "UploadAdMedia",
-      "rootTag": "iq",
-      "xmlns": "fb:thrift_iq",
-      "type": "set",
-      "request": {
-        "module": "WASmaxOutBizCtwaNativeAdUploadAdMediaRequest",
-        "node": {
-          "tag": "iq",
-          "attrs": {
-            "xmlns": {
-              "type": "literal",
-              "value": "fb:thrift_iq"
-            },
-            "smax_id": {
-              "type": "literal",
-              "value": 74
-            },
-            "from": {
-              "type": "userJid",
-              "arg": "t",
-              "optional": true
-            },
-            "to": {
-              "type": "literal",
-              "value": "s.whatsapp.net"
-            },
-            "id": {
-              "type": "stanzaId",
-              "generated": true
-            },
-            "type": {
-              "type": "literal",
-              "value": "set"
-            }
-          },
-          "children": [
-            {
-              "tag": "media",
-              "attrs": {
-                "id": {
-                  "type": "string",
-                  "arg": "t"
-                },
-                "type": {
-                  "type": "enum",
-                  "arg": "n",
-                  "enumValues": [
-                    "image",
-                    "video"
-                  ]
-                }
-              },
-              "children": [],
-              "min": 0,
-              "max": 1,
-              "__helper": "OPTIONAL_CHILD"
-            },
-            {
-              "tag": "media_list",
-              "attrs": {
-                "id": {
-                  "type": "string",
-                  "arg": "t"
-                },
-                "type": {
-                  "type": "enum",
-                  "arg": "n",
-                  "enumValues": [
-                    "image",
-                    "video"
-                  ]
-                }
-              },
-              "children": [],
-              "min": 0,
-              "max": 10,
-              "__helper": "REPEATED_CHILD"
-            }
-          ],
-          "appliedMixin": "WASmaxOutBizCtwaNativeAdHackBaseIQSetRequestMixin"
-        },
-        "argShape": {
-          "t": true
-        }
-      },
-      "responses": [
-        {
-          "module": "WASmaxInBizCtwaNativeAdUploadAdMediaResponseError",
-          "variant": "Error",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid",
-                "optional": true
-              },
-              "type": {
-                "type": "literal",
-                "value": "error"
-              }
-            },
-            "children": [
-              {
-                "tag": "error",
-                "attrs": {
-                  "text": {
-                    "type": "literal",
-                    "value": "bad-request",
-                    "optional": true
-                  },
-                  "code": {
-                    "type": "int",
-                    "optional": true
-                  }
-                },
-                "children": [],
-                "content": null,
-                "__variants": [
-                  "IQErrorBadRequest",
-                  "IQErrorForbidden",
-                  "IQErrorInternalServerError",
-                  "IQErrorServiceUnavailable"
-                ],
-                "min": 1,
-                "max": 1
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseUploadAdMediaResponseError"
-        },
-        {
-          "module": "WASmaxInBizCtwaNativeAdUploadAdMediaResponseSuccess",
-          "variant": "Success",
-          "node": {
-            "tag": "iq",
-            "attrs": {
-              "to": {
-                "type": "userJid",
-                "optional": true
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "from": {
-                "type": "jid"
-              },
-              "type": {
-                "type": "literal",
-                "value": "result"
-              }
-            },
-            "children": [
-              {
-                "tag": "media",
-                "attrs": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "enum",
-                    "enumRef": "o(\"WASmaxInBizCtwaNativeAdEnums\").ENUM_IMAGE_VIDEO",
-                    "enumValues": [
-                      "image",
-                      "video"
-                    ]
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 0,
-                "max": 1
-              },
-              {
-                "tag": "media_list",
-                "attrs": {
-                  "id": {
-                    "type": "string"
-                  },
-                  "type": {
-                    "type": "enum",
-                    "enumRef": "o(\"WASmaxInBizCtwaNativeAdEnums\").ENUM_IMAGE_VIDEO",
-                    "enumValues": [
-                      "image",
-                      "video"
-                    ]
-                  }
-                },
-                "children": [],
-                "content": null,
-                "min": 0,
-                "max": 10
-              }
-            ],
-            "content": null
-          },
-          "entryName": "parseUploadAdMediaResponseSuccess"
-        }
-      ]
-    },
     "WFPing": {
       "module": "WASmaxWaffleWFPingRPC",
       "opName": "WFPing",
@@ -32396,11 +33159,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -32411,6 +33169,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -32646,11 +33409,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -32661,6 +33419,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -32899,15 +33662,9 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
-              },
               "t": {
                 "type": "int",
-                "arg": "d",
-                "optional": true,
+                "arg": "Date.now().toString()",
                 "direction": "both"
               },
               "peer_participant_pn": {
@@ -32920,6 +33677,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -33041,11 +33803,6 @@
                   "status"
                 ]
               },
-              "category": {
-                "type": "string",
-                "arg": "T",
-                "direction": "out"
-              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -33056,6 +33813,11 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
+                "direction": "both"
+              },
+              "category": {
+                "type": "string",
+                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -38093,26 +38855,21 @@
                 "optional": true,
                 "direction": "out"
               },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
               "peer_recipient_lid": {
-                "type": "userJid",
-                "arg": "re",
-                "optional": true,
-                "direction": "both"
-              },
-              "peer_recipient_pn": {
                 "type": "userJid",
                 "arg": "oe",
                 "optional": true,
                 "direction": "both"
               },
+              "peer_recipient_pn": {
+                "type": "userJid",
+                "arg": "ae",
+                "optional": true,
+                "direction": "both"
+              },
               "peer_recipient_username": {
                 "type": "string",
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ae)",
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
               },
@@ -38124,19 +38881,25 @@
               },
               "recipient_pn": {
                 "type": "userJid",
-                "arg": "ne",
+                "arg": "re",
                 "optional": true,
                 "direction": "out"
               },
               "addressing_mode": {
                 "type": "enum",
-                "arg": "Ee",
+                "arg": "Ie",
                 "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "lid",
                   "pn"
                 ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "O",
+                "optional": true,
+                "direction": "both"
               },
               "category": {
                 "type": "literal",
@@ -38285,9 +39048,8 @@
                   },
                   "local_automated_type": {
                     "type": "enum",
-                    "arg": "me",
-                    "optional": true,
-                    "direction": "out",
+                    "arg": "u.localAutomatedType",
+                    "direction": "both",
                     "enumValues": [
                       "1p_partial",
                       "3p_full",
@@ -38296,21 +39058,18 @@
                   },
                   "client_thread_id": {
                     "type": "string",
-                    "arg": "W.key.id",
-                    "optional": true,
-                    "direction": "out"
+                    "arg": "u.clientThreadId",
+                    "direction": "both"
                   },
                   "mode_selection": {
                     "type": "string",
-                    "arg": "pe",
-                    "optional": true,
-                    "direction": "out"
+                    "arg": "u.modeSelection",
+                    "direction": "both"
                   },
                   "mode_selected": {
                     "type": "string",
-                    "arg": "_e",
-                    "optional": true,
-                    "direction": "out"
+                    "arg": "u.modeSelected",
+                    "direction": "both"
                   },
                   "is_lid": {
                     "type": "literal",
@@ -38907,26 +39666,21 @@
                 "optional": true,
                 "direction": "out"
               },
-              "phash": {
-                "type": "string",
-                "arg": "c",
-                "direction": "both"
-              },
               "peer_recipient_lid": {
-                "type": "userJid",
-                "arg": "re",
-                "optional": true,
-                "direction": "both"
-              },
-              "peer_recipient_pn": {
                 "type": "userJid",
                 "arg": "oe",
                 "optional": true,
                 "direction": "both"
               },
+              "peer_recipient_pn": {
+                "type": "userJid",
+                "arg": "ae",
+                "optional": true,
+                "direction": "both"
+              },
               "peer_recipient_username": {
                 "type": "string",
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ae)",
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ie)",
                 "optional": true,
                 "direction": "both"
               },
@@ -38938,19 +39692,25 @@
               },
               "recipient_pn": {
                 "type": "userJid",
-                "arg": "ne",
+                "arg": "re",
                 "optional": true,
                 "direction": "out"
               },
               "addressing_mode": {
                 "type": "enum",
-                "arg": "Ee",
+                "arg": "Ie",
                 "optional": true,
                 "direction": "both",
                 "enumValues": [
                   "lid",
                   "pn"
                 ]
+              },
+              "phash": {
+                "type": "string",
+                "arg": "O",
+                "optional": true,
+                "direction": "both"
               },
               "recipient": {
                 "type": "userJid",
@@ -39804,9 +40564,14 @@
       "node": {
         "tag": "ack",
         "attrs": {
+          "to": {
+            "type": "jid",
+            "arg": "n",
+            "direction": "out"
+          },
           "id": {
             "type": "stanzaId",
-            "arg": "t",
+            "arg": "a",
             "direction": "out"
           },
           "class": {
@@ -39818,18 +40583,6 @@
               "receipt",
               "status"
             ],
-            "direction": "out"
-          },
-          "to": {
-            "type": "jid",
-            "arg": "n",
-            "optional": true,
-            "direction": "out"
-          },
-          "participant": {
-            "type": "deviceJid",
-            "arg": "r",
-            "optional": true,
             "direction": "out"
           },
           "type": {
@@ -39858,9 +40611,15 @@
             ],
             "direction": "out"
           },
+          "participant": {
+            "type": "deviceJid",
+            "arg": "r",
+            "optional": true,
+            "direction": "out"
+          },
           "error": {
             "type": "int",
-            "arg": "i",
+            "arg": "t",
             "direction": "out"
           },
           "recipient": {
@@ -39872,11 +40631,11 @@
         },
         "children": [
           {
-            "tag": "meta",
+            "tag": "user",
             "attrs": {
-              "failure_reason": {
-                "type": "int",
-                "arg": "l",
+              "side_list": {
+                "type": "literal",
+                "value": "out",
                 "direction": "out"
               }
             },
@@ -39886,11 +40645,11 @@
             "max": 1
           },
           {
-            "tag": "user",
+            "tag": "meta",
             "attrs": {
-              "side_list": {
-                "type": "literal",
-                "value": "out",
+              "failure_reason": {
+                "type": "int",
+                "arg": "l",
                 "direction": "out"
               }
             },

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043761285
+// WhatsApp Version: 2.3000.1043840091
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -4255,7 +4255,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'APP_LOCK_ENABLE': 2;
             readonly 'APP_LOCK_DISABLE': 3;
             readonly 'APP_LOCK_ENABLED_CONFIRM': 4;
-            readonly 'HARD_REFRESH': 5
+            readonly 'HARD_REFRESH': 5;
+            readonly 'NOTIFICATION_MESSAGE_OPT_IN': 6;
+            readonly 'NOTIFICATION_CALL_OPT_IN': 7
         }
     }
     readonly DISAPPEARING_CHAT_INITIATOR_TYPE: {
@@ -15934,7 +15936,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SEND_DOCUMENT': 10;
             readonly 'ADD_CONTACT': 11;
             readonly 'ASK_META_AI': 12;
-            readonly 'START_CALL': 13
+            readonly 'START_CALL': 13;
+            readonly 'GO_TO_CALLS': 14
         }
     }
     readonly WEBC_QUICK_ACTION_SURFACE: {

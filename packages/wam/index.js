@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043761285
+// WhatsApp Version: 2.3000.1043840091
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -4146,7 +4146,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'APP_LOCK_ENABLE': 2,
         'APP_LOCK_DISABLE': 3,
         'APP_LOCK_ENABLED_CONFIRM': 4,
-        'HARD_REFRESH': 5
+        'HARD_REFRESH': 5,
+        'NOTIFICATION_MESSAGE_OPT_IN': 6,
+        'NOTIFICATION_CALL_OPT_IN': 7
         })
     }),
     DISAPPEARING_CHAT_INITIATOR_TYPE: Object.freeze({
@@ -15825,7 +15827,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'SEND_DOCUMENT': 10,
         'ADD_CONTACT': 11,
         'ASK_META_AI': 12,
-        'START_CALL': 13
+        'START_CALL': 13,
+        'GO_TO_CALLS': 14
         })
     }),
     WEBC_QUICK_ACTION_SURFACE: Object.freeze({

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043761285
+// WhatsApp Version: 2.3000.1043840091
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -15,7 +15,7 @@ export declare const WA_XML_OPERATIONS: {
     readonly [K in WaXmlOperationKey]: WaXmlOperationSummary
 }
 
-export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'Add' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'Delete' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PreSet' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'PushSet' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveParticipants' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'UploadAdMedia' | 'WFPing' | 'WaitingRoomToggleCallLink'
+export type WaXmlOperationKey = 'AcceptGroupAdd' | 'AcknowledgeGroup' | 'ActiveIQ' | 'Add' | 'AddParticipants' | 'Availability' | 'BannerSuggestion' | 'Batch' | 'BatchGetGroupInfo' | 'BotList' | 'CampaignStateChangedNotification' | 'CancelGroupMembershipRequests' | 'ChatBlockGet' | 'ChatBlockSet' | 'Client' | 'ClientExpiration' | 'ClientNotification' | 'CompanionFinish' | 'CompanionHello' | 'Create' | 'CreateCustomPaymentMethod' | 'CreateSubGroupSuggestion' | 'Delete' | 'DeleteParentGroup' | 'DeliverNewsletter' | 'EncryptedPayloadRequest' | 'Event' | 'FetchKeyBundles' | 'FetchMissingPreKeys' | 'ForceDeleteState' | 'ForceSuspendState' | 'GenerateAccessTokens' | 'GenerateWAEntACUser' | 'Get' | 'GetAccessTokenAndSessionCookies' | 'GetAccountNonce' | 'GetBlockList' | 'GetBusinessEligibility' | 'GetCertificate' | 'GetContactBlacklist' | 'GetCountryCode' | 'GetDisclosureStageByIds' | 'GetDisclosures' | 'GetExperimentConfig' | 'GetGroupExperimentConfig' | 'GetGroupInfo' | 'GetGroupProfilePictures' | 'GetInviteGroupInfo' | 'GetLinkedAccounts' | 'GetLinkedGroup' | 'GetLinkedGroupsParticipants' | 'GetMembershipApprovalRequests' | 'GetNewsletterMessageUpdates' | 'GetNewsletterMessages' | 'GetNewsletterResponses' | 'GetNewsletterStatusUpdates' | 'GetNewsletterStatuses' | 'GetOptOutList' | 'GetParticipatingGroups' | 'GetPasskeyRequestOptions' | 'GetPrivacySetting' | 'GetRef' | 'GetReportedMessages' | 'GetSMBMeteredMessagingCheckout' | 'GroupReport' | 'GroupsDirtyNotification' | 'IncomingNewsletterStatus' | 'IndividualReport' | 'JoinLinkedGroup' | 'LinkCreate' | 'LinkQuery' | 'LinkSubGroups' | 'LiveUpdatesNotification' | 'MembershipRequestsAction' | 'MyAddOns' | 'NewsletterReport' | 'NonceNotification' | 'OffboardingNotification' | 'OnboardingStatusNotification' | 'PassiveIQ' | 'PasskeyPrologueRequestNotification' | 'PostNewsletterStatus' | 'PreSet' | 'PrimaryHelloNotifyCompanion' | 'PromoteDemote' | 'PromoteDemoteAdmin' | 'PublishNewsletter' | 'PublishView' | 'PushSet' | 'QPNotification' | 'RefreshAccessTokens' | 'RefreshCodeNotifyCompanion' | 'RemoveCustomPaymentMethod' | 'RemoveParticipants' | 'ReportMessages' | 'RequestSilentNonce' | 'ResetSmbLastQpPrefetchTimestamp' | 'RevokeRequestCode' | 'SendAccountRecoveryNonce' | 'SendBuffer' | 'ServerNotification' | 'ServerUpdate' | 'Set' | 'SetCompanionNonce' | 'SetDescription' | 'SetEncryptedPairingRequest' | 'SetPasskeyPrologue' | 'SetPaymentsTOSv3' | 'SetPrimaryEphemeralIdentityNotification' | 'SetPrivacySetting' | 'SetProperty' | 'SetReg' | 'SetResult' | 'SetSubject' | 'SetToCompanion' | 'Share' | 'SignCredential' | 'StateExists' | 'StatusMyAddOns' | 'StatusReport' | 'StatusReportV2' | 'SubGroupSuggestionsAction' | 'Subscribe' | 'SubscribeToLiveUpdates' | 'SyncPrivacySetting' | 'UnlinkGroups' | 'UpdateBlockList' | 'UpdateOptOutList' | 'UpdatePreference' | 'WFPing' | 'WaitingRoomToggleCallLink'
 
 // Per-operation request/response shape literals — generated from the static
 // extraction over WASmaxOut*Request + WASmaxIn*Response* modules. Each
@@ -1824,7 +1824,7 @@ export interface WaXmlOperations {
                                 readonly country?: 'BR'
                                 readonly created?: string
                                 readonly flow?: 'p2m' | 'p2p'
-                                readonly 'credential-id': string
+                                readonly 'credential-id'?: string
                                 readonly 'p2p-eligible'?: '0' | '1'
                                 readonly 'p2m-eligible'?: '0' | '1'
                             }
@@ -2155,13 +2155,13 @@ export interface WaXmlOperations {
                 readonly to: string
                 readonly participant: string
                 readonly eph_setting?: string
-                readonly phash: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
                 readonly device_fanout?: 'false'
                 readonly recipient_pn?: string
                 readonly addressing_mode?: 'lid' | 'pn'
+                readonly phash?: string
                 readonly recipient?: string
                 readonly category?: 'peer'
                 readonly push_priority: string
@@ -9434,6 +9434,233 @@ export interface WaXmlOperations {
             }
         } }
     }
+    readonly RemoveCustomPaymentMethod: {
+        readonly module: 'WASmaxBrPaymentRemoveCustomPaymentMethodRPC'
+        readonly opName: 'RemoveCustomPaymentMethod'
+        readonly xmlns: 'w:pay'
+        readonly type: 'set'
+        readonly request: {
+        readonly tag: 'iq'
+        readonly attrs: {
+            readonly type: 'set'
+            readonly to: 's.whatsapp.net'
+            readonly id: string
+            readonly xmlns: 'w:pay'
+        }
+        readonly children: {
+            readonly account: {
+                readonly tag: 'account'
+                readonly attrs: {
+                    readonly action: 'remove-custom-payment-method'
+                    readonly credential_id: string
+                    readonly country: 'BR'
+                }
+            }
+        }
+    }
+        readonly response:
+        | { readonly variant: 'Error'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly from: string
+                readonly type: 'error'
+                readonly id: string
+            }
+            readonly children: {
+                readonly error: {
+                    readonly tag: 'error'
+                    readonly attrs: {
+                        readonly text: 'INCORRECT_NONCE' | 'TOO_MANY_ATTEMPTS' | 'already-exists' | 'bad-request' | 'conflict' | 'feature-not-implemented' | 'forbidden' | 'gone' | 'internal-server-error' | 'item-not-found' | 'not-acceptable' | 'rate-overlimit' | 'service-unavailable'
+                        readonly code: number
+                    }
+                }
+            }
+        } }
+        | { readonly variant: 'Success'; readonly value: {
+            readonly tag: 'iq'
+            readonly attrs: {
+                readonly id: string
+                readonly from: string
+                readonly type: 'result'
+            }
+            readonly children: {
+                readonly account: {
+                    readonly tag: 'account'
+                    readonly attrs: {
+                        readonly action: string
+                        readonly version?: number
+                        readonly 'instance-id'?: string
+                        readonly 'wa-support-phone-number'?: string
+                    }
+                    readonly children: {
+                        readonly card: ReadonlyArray<{
+                            readonly tag: 'card'
+                            readonly attrs: {
+                                readonly 'image-content-id'?: string
+                                readonly 'binding-type'?: string
+                                readonly 'needs-device-binding'?: '0' | '1'
+                                readonly state?: 'ACTIVE' | 'DELETED' | 'INACTIVE' | 'NEEDS_RETOKENIZATION' | 'NEEDS_RETOKENIZATION_DELETED' | 'SUSPENDED'
+                                readonly 'bank-name'?: string
+                                readonly 'bank-phone-number'?: string
+                                readonly 'automatic-binding'?: '0' | '1'
+                                readonly last4?: string
+                                readonly verified?: '0' | '1'
+                                readonly type?: string
+                                readonly 'network-type'?: string
+                                readonly 'time-last-added'?: string
+                                readonly 'display-state'?: 'ACTIVE' | 'EXPIRED' | 'SUSPENDED' | 'VOIDED'
+                                readonly 'default-credit'?: '0' | '1'
+                                readonly 'default-debit'?: '0' | '1'
+                                readonly 'default-credit-p2p'?: '0' | '1'
+                                readonly 'default-credit-p2m'?: '0' | '1'
+                                readonly 'default-debit-p2p'?: '0' | '1'
+                                readonly 'default-debit-p2m'?: '0' | '1'
+                                readonly 'credential-id'?: string
+                                readonly country?: string
+                                readonly created?: string
+                                readonly 'p2p-eligible'?: '0' | '1'
+                                readonly 'p2m-eligible'?: '0' | '1'
+                                readonly image?: string
+                            }
+                            readonly children: {
+                                readonly capabilities: {
+                                    readonly tag: 'capabilities'
+                                    readonly attrs: {
+                                        readonly editable: '0' | '1'
+                                        readonly verifiable: '0' | '1'
+                                        readonly 'default-eligible': '0' | '1'
+                                        readonly 'default-eligible-p2p'?: '0' | '1'
+                                        readonly 'default-eligible-p2m'?: '0' | '1'
+                                        readonly 'p2p-send': 'DISABLED' | 'ENABLED' | 'REQUIRES_VERIFICATION'
+                                        readonly 'p2p-receive': 'DISABLED' | 'ENABLED' | 'REQUIRES_VERIFICATION'
+                                        readonly 'p2m-send': 'DISABLED' | 'ENABLED' | 'REQUIRES_VERIFICATION'
+                                        readonly 'p2m-receive': 'DISABLED' | 'ENABLED' | 'REQUIRES_VERIFICATION'
+                                    }
+                                }
+                            }
+                        }>
+                        readonly bank: ReadonlyArray<{
+                            readonly tag: 'bank'
+                            readonly attrs: {
+                                readonly type: 'upi'
+                                readonly vpa?: string
+                                readonly provider: string
+                                readonly 'vpa-id'?: string
+                                readonly 'account-number': string
+                                readonly mmid?: string
+                                readonly 'account-name'?: string
+                                readonly 'is-mpin-set': '0' | '1'
+                                readonly 'atm-pin-length': number
+                                readonly 'mpin-length': number
+                                readonly 'otp-length': number
+                                readonly image?: string
+                                readonly 'bank-name'?: string
+                                readonly 'bank-phone-number'?: string
+                                readonly code?: string
+                                readonly 'pin-format-version': '1' | '2'
+                                readonly 'upi-bank-info'?: string
+                                readonly 'transaction-prefix'?: string
+                                readonly 'account-type'?: string
+                                readonly 'bank-ref-id'?: number
+                                readonly 'ifsc-code'?: string
+                                readonly 'account-ref-id'?: string
+                                readonly 'is-aadhaar-enabled'?: '0' | '1'
+                                readonly is_international_pay_enabled?: '0' | '1'
+                                readonly 'default-credit'?: '0' | '1'
+                                readonly 'default-debit'?: '0' | '1'
+                                readonly 'default-credit-p2p'?: '0' | '1'
+                                readonly 'default-credit-p2m'?: '0' | '1'
+                                readonly 'default-debit-p2p'?: '0' | '1'
+                                readonly 'default-debit-p2m'?: '0' | '1'
+                                readonly 'credential-id'?: string
+                                readonly country?: string
+                                readonly created?: string
+                                readonly 'p2p-eligible'?: '0' | '1'
+                                readonly 'p2m-eligible'?: '0' | '1'
+                            }
+                        }>
+                        readonly merchant: ReadonlyArray<{
+                            readonly tag: 'merchant'
+                            readonly attrs: {
+                                readonly 'gateway-name'?: string
+                                readonly 'display-state': 'ACCOUNT_PENDING_LINKING' | 'ACTIVE' | 'EXTERNALLY_DISABLED' | 'HARD_BLOCKED' | 'INACTIVE' | 'INITED' | 'INTEGRITY_BLOCKED' | 'PENDING' | 'SOFT_BLOCKED'
+                                readonly 'dashboard-url'?: string
+                                readonly 'logo-uri'?: string
+                                readonly max_installment_count?: number
+                                readonly 'merchant-id': string
+                                readonly 'business-name'?: string
+                                readonly 'can-sell': '0' | '1'
+                                readonly 'can-payout': '0' | '1'
+                                readonly 'can-add-payout': '0' | '1'
+                                readonly 'support-phone-number'?: string
+                                readonly 'provider-type'?: string
+                                readonly 'pix-onboarding-state'?: '0' | '1' | '2'
+                                readonly 'credential-id'?: string
+                                readonly country?: string
+                                readonly created?: string
+                                readonly 'p2p-eligible'?: '0' | '1'
+                                readonly 'p2m-eligible'?: '0' | '1'
+                            }
+                            readonly children: {
+                                readonly payout: ReadonlyArray<{
+                                    readonly tag: 'payout'
+                                    readonly attrs: {
+                                        readonly type?: 'bank'
+                                        readonly 'account-number'?: string
+                                        readonly 'bank-name'?: string
+                                        readonly code?: string
+                                        readonly 'verification-status'?: 'FAILED' | 'PENDING' | 'VERIFIED'
+                                        readonly 'credential-id'?: string
+                                        readonly country?: string
+                                        readonly created?: string
+                                        readonly 'p2p-eligible'?: '0' | '1'
+                                        readonly 'p2m-eligible'?: '0' | '1'
+                                        readonly last4?: string
+                                    }
+                                }>
+                            }
+                        }>
+                        readonly alias: ReadonlyArray<{
+                            readonly tag: 'alias'
+                            readonly attrs: {
+                                readonly type?: string
+                                readonly alias_value: string
+                                readonly alias_id: string
+                                readonly alias_type: 'mobile_number' | 'numeric_id'
+                                readonly alias_status?: 'active' | 'active_pending' | 'active_status_pending' | 'available' | 'available_pending' | 'available_status_pending' | 'blocked' | 'deregistered' | 'deregistered_pending' | 'inactive' | 'inactive_pending' | 'inactive_status_pending' | 'unknown'
+                            }
+                        }>
+                        readonly custom_payment_method: ReadonlyArray<{
+                            readonly tag: 'custom_payment_method'
+                            readonly attrs: {
+                                readonly type: 'pay_on_delivery' | 'pix_key'
+                                readonly country?: 'BR'
+                                readonly created?: string
+                                readonly flow?: 'p2m' | 'p2p'
+                                readonly 'credential-id'?: string
+                                readonly 'p2p-eligible'?: '0' | '1'
+                                readonly 'p2m-eligible'?: '0' | '1'
+                            }
+                            readonly children: {
+                                readonly metadata_info: {
+                                    readonly tag: 'metadata_info'
+                                    readonly children: {
+                                        readonly metadata: ReadonlyArray<{
+                                            readonly tag: 'metadata'
+                                            readonly attrs: {
+                                                readonly key: string
+                                                readonly value: string
+                                            }
+                                        }>
+                                    }
+                                }
+                            }
+                        }>
+                    }
+                }
+            }
+        } }
+    }
     readonly RemoveParticipants: {
         readonly module: 'WASmaxGroupsRemoveParticipantsRPC'
         readonly opName: 'RemoveParticipants'
@@ -12158,82 +12385,6 @@ export interface WaXmlOperations {
             }
         } }
     }
-    readonly UploadAdMedia: {
-        readonly module: 'WASmaxBizCtwaNativeAdUploadAdMediaRPC'
-        readonly opName: 'UploadAdMedia'
-        readonly xmlns: 'fb:thrift_iq'
-        readonly type: 'set'
-        readonly request: {
-        readonly tag: 'iq'
-        readonly attrs: {
-            readonly xmlns: 'fb:thrift_iq'
-            readonly smax_id: '74'
-            readonly from?: string
-            readonly to: 's.whatsapp.net'
-            readonly id: string
-            readonly type: 'set'
-        }
-        readonly children: {
-            readonly media: {
-                readonly tag: 'media'
-                readonly attrs: {
-                    readonly id: string
-                    readonly type: 'image' | 'video'
-                }
-            } | undefined
-            readonly media_list: ReadonlyArray<{
-                readonly tag: 'media_list'
-                readonly attrs: {
-                    readonly id: string
-                    readonly type: 'image' | 'video'
-                }
-            }>
-        }
-    }
-        readonly response:
-        | { readonly variant: 'Error'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly id: string
-                readonly from?: string
-                readonly type: 'error'
-            }
-            readonly children: {
-                readonly error: {
-                    readonly tag: 'error'
-                    readonly attrs: {
-                        readonly text?: 'bad-request'
-                        readonly code?: number
-                    }
-                }
-            }
-        } }
-        | { readonly variant: 'Success'; readonly value: {
-            readonly tag: 'iq'
-            readonly attrs: {
-                readonly to?: string
-                readonly id: string
-                readonly from: string
-                readonly type: 'result'
-            }
-            readonly children: {
-                readonly media: {
-                    readonly tag: 'media'
-                    readonly attrs: {
-                        readonly id: string
-                        readonly type: 'image' | 'video'
-                    }
-                } | undefined
-                readonly media_list: ReadonlyArray<{
-                    readonly tag: 'media_list'
-                    readonly attrs: {
-                        readonly id: string
-                        readonly type: 'image' | 'video'
-                    }
-                }>
-            }
-        } }
-    }
     readonly WFPing: {
         readonly module: 'WASmaxWaffleWFPingRPC'
         readonly opName: 'WFPing'
@@ -12404,25 +12555,25 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'ack'
             readonly attrs: {
+                readonly to: string
                 readonly id: string
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly to?: string
-                readonly participant?: string
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
+                readonly participant?: string
                 readonly error: number
                 readonly recipient?: string
             }
             readonly children: {
-                readonly meta: {
-                    readonly tag: 'meta'
-                    readonly attrs: {
-                        readonly failure_reason: number
-                    }
-                }
                 readonly user: {
                     readonly tag: 'user'
                     readonly attrs: {
                         readonly side_list: 'out'
+                    }
+                }
+                readonly meta: {
+                    readonly tag: 'meta'
+                    readonly attrs: {
+                        readonly failure_reason: number
                     }
                 }
             }
@@ -12829,13 +12980,13 @@ export interface WaXmlStanzas {
                     readonly to: string
                     readonly edit?: '1' | '2' | '3' | '7' | '8'
                     readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly phash?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
                     readonly privacy_sensitive?: boolean
@@ -12866,10 +13017,10 @@ export interface WaXmlStanzas {
                             readonly type?: 'command' | 'prompt' | 'voice'
                             readonly persona_type?: '1p' | 'default' | 'ugc'
                             readonly agent_engagement_type?: string
-                            readonly local_automated_type?: '1p_partial' | '3p_full' | 'unknown'
-                            readonly client_thread_id?: string
-                            readonly mode_selection?: string
-                            readonly mode_selected?: string
+                            readonly local_automated_type: '1p_partial' | '3p_full' | 'unknown'
+                            readonly client_thread_id: string
+                            readonly mode_selection: string
+                            readonly mode_selected: string
                             readonly is_lid?: 'true'
                         }
                     } | undefined
@@ -13058,13 +13209,13 @@ export interface WaXmlStanzas {
                     readonly to: string
                     readonly participant: string
                     readonly eph_setting?: string
-                    readonly phash: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly addressing_mode?: 'lid' | 'pn'
+                    readonly phash?: string
                     readonly recipient?: string
                     readonly category?: 'peer'
                     readonly push_priority: string
@@ -14577,9 +14728,9 @@ export interface WaXmlStanzas {
                     readonly offline?: number
                     readonly to: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14664,9 +14815,9 @@ export interface WaXmlStanzas {
                     readonly offline?: number
                     readonly to: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14748,10 +14899,10 @@ export interface WaXmlStanzas {
                     readonly participant?: string
                     readonly recipient?: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
-                    readonly t?: number
+                    readonly t: number
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
@@ -14784,9 +14935,9 @@ export interface WaXmlStanzas {
                     readonly t: number
                     readonly to: string
                     readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                    readonly category: string
                     readonly peer_participant_pn?: string
                     readonly sts?: string
+                    readonly category: string
                     readonly server_id: number
                 }
                 readonly children: {
