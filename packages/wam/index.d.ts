@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043840091
+// WhatsApp Version: 2.3000.1043860931
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 

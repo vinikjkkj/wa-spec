@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043840091",
+  "waVersion": "2.3000.1043860931",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -32727,6 +32727,211 @@
         }
       ]
     },
+    "UploadAdMedia": {
+      "module": "WASmaxBizCtwaNativeAdUploadAdMediaRPC",
+      "opName": "UploadAdMedia",
+      "rootTag": "iq",
+      "xmlns": "fb:thrift_iq",
+      "type": "set",
+      "request": {
+        "module": "WASmaxOutBizCtwaNativeAdUploadAdMediaRequest",
+        "node": {
+          "tag": "iq",
+          "attrs": {
+            "xmlns": {
+              "type": "literal",
+              "value": "fb:thrift_iq"
+            },
+            "smax_id": {
+              "type": "literal",
+              "value": 74
+            },
+            "from": {
+              "type": "userJid",
+              "arg": "t",
+              "optional": true
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "id": {
+              "type": "stanzaId",
+              "generated": true
+            },
+            "type": {
+              "type": "literal",
+              "value": "set"
+            }
+          },
+          "children": [
+            {
+              "tag": "media",
+              "attrs": {
+                "id": {
+                  "type": "string",
+                  "arg": "t"
+                },
+                "type": {
+                  "type": "enum",
+                  "arg": "n",
+                  "enumValues": [
+                    "image",
+                    "video"
+                  ]
+                }
+              },
+              "children": [],
+              "min": 0,
+              "max": 1,
+              "__helper": "OPTIONAL_CHILD"
+            },
+            {
+              "tag": "media_list",
+              "attrs": {
+                "id": {
+                  "type": "string",
+                  "arg": "t"
+                },
+                "type": {
+                  "type": "enum",
+                  "arg": "n",
+                  "enumValues": [
+                    "image",
+                    "video"
+                  ]
+                }
+              },
+              "children": [],
+              "min": 0,
+              "max": 10,
+              "__helper": "REPEATED_CHILD"
+            }
+          ],
+          "appliedMixin": "WASmaxOutBizCtwaNativeAdHackBaseIQSetRequestMixin"
+        },
+        "argShape": {
+          "t": true
+        }
+      },
+      "responses": [
+        {
+          "module": "WASmaxInBizCtwaNativeAdUploadAdMediaResponseError",
+          "variant": "Error",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid",
+                "optional": true
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "tag": "error",
+                "attrs": {
+                  "text": {
+                    "type": "literal",
+                    "value": "bad-request",
+                    "optional": true
+                  },
+                  "code": {
+                    "type": "int",
+                    "optional": true
+                  }
+                },
+                "children": [],
+                "content": null,
+                "__variants": [
+                  "IQErrorBadRequest",
+                  "IQErrorForbidden",
+                  "IQErrorInternalServerError",
+                  "IQErrorServiceUnavailable"
+                ],
+                "min": 1,
+                "max": 1
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseUploadAdMediaResponseError"
+        },
+        {
+          "module": "WASmaxInBizCtwaNativeAdUploadAdMediaResponseSuccess",
+          "variant": "Success",
+          "node": {
+            "tag": "iq",
+            "attrs": {
+              "to": {
+                "type": "userJid",
+                "optional": true
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "tag": "media",
+                "attrs": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizCtwaNativeAdEnums\").ENUM_IMAGE_VIDEO",
+                    "enumValues": [
+                      "image",
+                      "video"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "tag": "media_list",
+                "attrs": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "enum",
+                    "enumRef": "o(\"WASmaxInBizCtwaNativeAdEnums\").ENUM_IMAGE_VIDEO",
+                    "enumValues": [
+                      "image",
+                      "video"
+                    ]
+                  }
+                },
+                "children": [],
+                "content": null,
+                "min": 0,
+                "max": 10
+              }
+            ],
+            "content": null
+          },
+          "entryName": "parseUploadAdMediaResponseSuccess"
+        }
+      ]
+    },
     "WFPing": {
       "module": "WASmaxWaffleWFPingRPC",
       "opName": "WFPing",
@@ -33143,8 +33348,8 @@
                 "optional": true
               },
               "to": {
-                "type": "jid",
-                "arg": "p",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
                 "direction": "both"
               },
               "class": {
@@ -33159,6 +33364,11 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -33169,11 +33379,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -33393,8 +33598,8 @@
                 "optional": true
               },
               "to": {
-                "type": "jid",
-                "arg": "p",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
                 "direction": "both"
               },
               "class": {
@@ -33409,6 +33614,11 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -33419,11 +33629,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -33634,8 +33839,8 @@
                 "type": "jid"
               },
               "to": {
-                "type": "jid",
-                "arg": "p",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
                 "direction": "both"
               },
               "participant": {
@@ -33662,6 +33867,11 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "t": {
                 "type": "int",
                 "arg": "Date.now().toString()",
@@ -33677,11 +33887,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -33787,8 +33992,8 @@
                 "direction": "both"
               },
               "to": {
-                "type": "jid",
-                "arg": "p",
+                "type": "deviceJid",
+                "arg": "t.peer_jid",
                 "direction": "both"
               },
               "class": {
@@ -33803,6 +34008,11 @@
                   "status"
                 ]
               },
+              "category": {
+                "type": "string",
+                "arg": "T",
+                "direction": "out"
+              },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
@@ -33813,11 +34023,6 @@
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "both"
-              },
-              "category": {
-                "type": "string",
-                "arg": "T",
                 "direction": "both"
               },
               "server_id": {
@@ -40564,14 +40769,14 @@
       "node": {
         "tag": "ack",
         "attrs": {
-          "to": {
-            "type": "jid",
-            "arg": "n",
-            "direction": "out"
-          },
           "id": {
             "type": "stanzaId",
-            "arg": "a",
+            "arg": "e.stanzaId",
+            "direction": "out"
+          },
+          "to": {
+            "type": "jid",
+            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
             "direction": "out"
           },
           "class": {
@@ -40612,8 +40817,8 @@
             "direction": "out"
           },
           "participant": {
-            "type": "deviceJid",
-            "arg": "r",
+            "type": "userJid",
+            "arg": "f",
             "optional": true,
             "direction": "out"
           },
