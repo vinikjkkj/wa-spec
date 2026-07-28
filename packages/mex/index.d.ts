@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043878645
+// WhatsApp Version: 2.3000.1043969568
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -111,6 +111,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly LogNewsletterExposures: WaMexPersistId
     readonly NativeMLModel: WaMexPersistId
     readonly NewsletterAddPaidPartnershipLabel: WaMexPersistId
+    readonly NewsletterLabelAiContent: WaMexPersistId
     readonly NewsletterPinMessages: WaMexPersistId
     readonly NewsletterQuestionResponseStateUpdate: WaMexPersistId
     readonly NewsletterUnpinMessages: WaMexPersistId
@@ -247,6 +248,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly LogNewsletterExposures: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly NativeMLModel: WaMexOperationSchema<'query', readonly ['client_capability_metadata', 'model_request_metadatas']>
     readonly NewsletterAddPaidPartnershipLabel: WaMexOperationSchema<'mutation', readonly ['message_type', 'newsletter_id', 'server_id']>
+    readonly NewsletterLabelAiContent: WaMexOperationSchema<'mutation', readonly ['message_type', 'newsletter_id', 'server_id']>
     readonly NewsletterPinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
     readonly NewsletterQuestionResponseStateUpdate: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'response_server_id', 'server_id', 'state']>
     readonly NewsletterUnpinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
@@ -897,6 +899,12 @@ export type WaMexNewsletterAddPaidPartnershipLabelVariables = {
     readonly server_id?: string
 }
 
+export type WaMexNewsletterLabelAiContentVariables = {
+    readonly message_type?: string
+    readonly newsletter_id?: string
+    readonly server_id?: string
+}
+
 export type WaMexNewsletterPinMessagesVariables = {
     readonly input?: {
         readonly message_ids?: ReadonlyArray<string>
@@ -1262,6 +1270,7 @@ export interface WaMexOperationVariables {
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresVariables
     readonly NativeMLModel: WaMexNativeMLModelVariables
     readonly NewsletterAddPaidPartnershipLabel: WaMexNewsletterAddPaidPartnershipLabelVariables
+    readonly NewsletterLabelAiContent: WaMexNewsletterLabelAiContentVariables
     readonly NewsletterPinMessages: WaMexNewsletterPinMessagesVariables
     readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateVariables
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesVariables
@@ -3543,6 +3552,12 @@ export type WaMexNewsletterAddPaidPartnershipLabelResponse = {
     }
 }
 
+export type WaMexNewsletterLabelAiContentResponse = {
+    readonly xwa2_newsletter_label_ai_content?: {
+        readonly id?: string
+    }
+}
+
 export type WaMexNewsletterPinMessagesResponse = {
     readonly xwa2_newsletter_pin_messages?: {
         readonly id?: string
@@ -4481,6 +4496,7 @@ export interface WaMexOperationResponses {
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresResponse
     readonly NativeMLModel: WaMexNativeMLModelResponse
     readonly NewsletterAddPaidPartnershipLabel: WaMexNewsletterAddPaidPartnershipLabelResponse
+    readonly NewsletterLabelAiContent: WaMexNewsletterLabelAiContentResponse
     readonly NewsletterPinMessages: WaMexNewsletterPinMessagesResponse
     readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateResponse
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesResponse

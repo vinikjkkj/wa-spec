@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043878645",
+  "waVersion": "2.3000.1043969568",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -12387,7 +12387,8 @@
         "STATUS_NOTIFICATION_TONE_ID": 29,
         "SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION": 30,
         "CHAT_THEME_ID": 31,
-        "COLOR_SCHEME_ID": 32
+        "COLOR_SCHEME_ID": 32,
+        "IS_TEXT_MESSAGE_ANIMATION_ENABLED": 33
       }
     },
     "SFU_DOWNLINK_ML_UNDERSHOOT_PYTORCH_EDGE_LIB_LOAD_ERROR_CODE": {
@@ -20003,6 +20004,11 @@
           "id": 3001,
           "type": "boolean",
           "falcoName": "c50_linked"
+        },
+        "ca2dEverConnected": {
+          "id": 3077,
+          "type": "boolean",
+          "falcoName": "ca2d_ever_connected"
         },
         "ca2dExtensionAddFailureReason": {
           "id": 3067,
@@ -37817,6 +37823,11 @@
           "id": 192,
           "type": "integer",
           "falcoName": "synced_in_network_contacts_size"
+        },
+        "textMessageAnimationEnabled": {
+          "id": 259,
+          "type": "boolean",
+          "falcoName": "text_message_animation_enabled"
         },
         "totalCountInNetworkUniquePhoneNumber": {
           "id": 193,

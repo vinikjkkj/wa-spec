@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043878645
+// WhatsApp Version: 2.3000.1043969568
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -12465,7 +12465,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'STATUS_NOTIFICATION_TONE_ID': 29;
             readonly 'SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION': 30;
             readonly 'CHAT_THEME_ID': 31;
-            readonly 'COLOR_SCHEME_ID': 32
+            readonly 'COLOR_SCHEME_ID': 32;
+            readonly 'IS_TEXT_MESSAGE_ANIMATION_ENABLED': 33
         }
     }
     readonly SFU_DOWNLINK_ML_UNDERSHOOT_PYTORCH_EDGE_LIB_LOAD_ERROR_CODE: {
@@ -17406,6 +17407,7 @@ export declare const WA_WAM_EVENTS: {
             readonly bwaVidDisablingTxCandidateDuration: { readonly id: 1115; readonly type: 'timer'; readonly falcoName: 'bwa_vid_disabling_tx_candidate_duration' }
             readonly bweSlrOutputBps: { readonly id: 2461; readonly type: 'integer'; readonly falcoName: 'bwe_slr_output_bps' }
             readonly c50Linked: { readonly id: 3001; readonly type: 'boolean'; readonly falcoName: 'c50_linked' }
+            readonly ca2dEverConnected: { readonly id: 3077; readonly type: 'boolean'; readonly falcoName: 'ca2d_ever_connected' }
             readonly ca2dExtensionAddFailureReason: { readonly id: 3067; readonly type: 'enum'; readonly enum: 'CA2D_EXTENSION_ADD_FAILURE_REASON'; readonly falcoName: 'ca2d_extension_add_failure_reason' }
             readonly ca2dExtensionAddT: { readonly id: 3034; readonly type: 'timer'; readonly falcoName: 'ca2d_extension_add_t' }
             readonly ca2dExtensionConnectionState: { readonly id: 3035; readonly type: 'enum'; readonly enum: 'CA2D_EXTENSION_CONNECTION_STATE'; readonly falcoName: 'ca2d_extension_connection_state' }
@@ -21659,6 +21661,7 @@ export declare const WA_WAM_EVENTS: {
             readonly supportedDecoders: { readonly id: 169; readonly type: 'string'; readonly falcoName: 'supported_decoders' }
             readonly supportedEncoders: { readonly id: 170; readonly type: 'string'; readonly falcoName: 'supported_encoders' }
             readonly syncedInNetworkContactsSize: { readonly id: 192; readonly type: 'integer'; readonly falcoName: 'synced_in_network_contacts_size' }
+            readonly textMessageAnimationEnabled: { readonly id: 259; readonly type: 'boolean'; readonly falcoName: 'text_message_animation_enabled' }
             readonly totalCountInNetworkUniquePhoneNumber: { readonly id: 193; readonly type: 'integer'; readonly falcoName: 'total_count_in_network_unique_phone_number' }
             readonly totalCountSyncedInNetworkUniquePhoneNumber: { readonly id: 194; readonly type: 'integer'; readonly falcoName: 'total_count_synced_in_network_unique_phone_number' }
             readonly totalMissedCalls: { readonly id: 232; readonly type: 'integer'; readonly falcoName: 'total_missed_calls' }

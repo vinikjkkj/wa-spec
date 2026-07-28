@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043878645
+// WhatsApp Version: 2.3000.1043969568
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -12356,7 +12356,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_NOTIFICATION_TONE_ID': 29,
         'SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION': 30,
         'CHAT_THEME_ID': 31,
-        'COLOR_SCHEME_ID': 32
+        'COLOR_SCHEME_ID': 32,
+        'IS_TEXT_MESSAGE_ANIMATION_ENABLED': 33
         })
     }),
     SFU_DOWNLINK_ML_UNDERSHOOT_PYTORCH_EDGE_LIB_LOAD_ERROR_CODE: Object.freeze({
@@ -17173,6 +17174,7 @@ const WA_WAM_EVENTS = Object.freeze({
             bwaVidDisablingTxCandidateDuration: Object.freeze({ id: 1115, type: 'timer', falcoName: 'bwa_vid_disabling_tx_candidate_duration' }),
             bweSlrOutputBps: Object.freeze({ id: 2461, type: 'integer', falcoName: 'bwe_slr_output_bps' }),
             c50Linked: Object.freeze({ id: 3001, type: 'boolean', falcoName: 'c50_linked' }),
+            ca2dEverConnected: Object.freeze({ id: 3077, type: 'boolean', falcoName: 'ca2d_ever_connected' }),
             ca2dExtensionAddFailureReason: Object.freeze({ id: 3067, type: 'enum', enum: 'CA2D_EXTENSION_ADD_FAILURE_REASON', falcoName: 'ca2d_extension_add_failure_reason' }),
             ca2dExtensionAddT: Object.freeze({ id: 3034, type: 'timer', falcoName: 'ca2d_extension_add_t' }),
             ca2dExtensionConnectionState: Object.freeze({ id: 3035, type: 'enum', enum: 'CA2D_EXTENSION_CONNECTION_STATE', falcoName: 'ca2d_extension_connection_state' }),
@@ -21190,6 +21192,7 @@ const WA_WAM_EVENTS = Object.freeze({
             supportedDecoders: Object.freeze({ id: 169, type: 'string', falcoName: 'supported_decoders' }),
             supportedEncoders: Object.freeze({ id: 170, type: 'string', falcoName: 'supported_encoders' }),
             syncedInNetworkContactsSize: Object.freeze({ id: 192, type: 'integer', falcoName: 'synced_in_network_contacts_size' }),
+            textMessageAnimationEnabled: Object.freeze({ id: 259, type: 'boolean', falcoName: 'text_message_animation_enabled' }),
             totalCountInNetworkUniquePhoneNumber: Object.freeze({ id: 193, type: 'integer', falcoName: 'total_count_in_network_unique_phone_number' }),
             totalCountSyncedInNetworkUniquePhoneNumber: Object.freeze({ id: 194, type: 'integer', falcoName: 'total_count_synced_in_network_unique_phone_number' }),
             totalMissedCalls: Object.freeze({ id: 232, type: 'integer', falcoName: 'total_missed_calls' }),
