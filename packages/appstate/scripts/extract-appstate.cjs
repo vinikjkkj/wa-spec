@@ -74,8 +74,19 @@ function findModuleBody(bundles, modName) {
 
 // --- WASyncdConst: action key → wire name, collection key → wire name, constants ---
 
+// The module was renamed `WASyncdConst` → `WAWebSyncdConst` around WA Web
+// 2.3000.1044xxx. Both names are accepted so a single extractor build works
+// across the rename; the alternation below is shared by every call site that
+// matches a `<dep>("…Const")` reference.
+const SYNCD_CONST_MODULES = ['WAWebSyncdConst', 'WASyncdConst']
+const SYNCD_CONST_ALT = SYNCD_CONST_MODULES.join('|')
+
 function parseSyncdConst(bundles) {
-    const found = findModuleBody(bundles, 'WASyncdConst')
+    let found = null
+    for (const name of SYNCD_CONST_MODULES) {
+        found = findModuleBody(bundles, name)
+        if (found) break
+    }
     if (!found) return { actions: {}, collections: {}, constants: {} }
     const body = found.text
 
@@ -535,14 +546,16 @@ function scanConstructorAssigns(fb) {
 // Match `<dep>("WASyncdConst").<table>.<KEY>` where dep is any single-char loader.
 function matchSyncdConstRef(expr, table) {
     if (!expr) return null
-    const m = expr.match(new RegExp(`\\("WASyncdConst"\\)\\.${table}\\.([A-Za-z_$][\\w$]*)`))
+    const m = expr.match(new RegExp(`\\("(?:${SYNCD_CONST_ALT})"\\)\\.${table}\\.([A-Za-z_$][\\w$]*)`))
     return m ? m[1] : null
 }
 
 function extractActionKey(fb) {
     // `i.getAction = function(){return <dep>("WASyncdConst").Actions.<KEY>}`
     const m = fb.match(
-        /\bgetAction\s*=\s*function\s*\([^)]*\)\s*\{\s*return\s+[A-Za-z_$][\w$]*\("WASyncdConst"\)\.Actions\.([A-Za-z_$][\w$]*)/
+        new RegExp(
+            `\\bgetAction\\s*=\\s*function\\s*\\([^)]*\\)\\s*\\{\\s*return\\s+[A-Za-z_$][\\w$]*\\("(?:${SYNCD_CONST_ALT})"\\)\\.Actions\\.([A-Za-z_$][\\w$]*)`
+        )
     )
     return m ? m[1] : null
 }
@@ -558,7 +571,7 @@ function resolveVersion(raw, constants) {
     const n = Number(raw)
     if (Number.isFinite(n)) return n
     // Try `<dep>("WASyncdConst").<CONST_NAME>`
-    const m = raw.match(/\("WASyncdConst"\)\.([A-Z][A-Z0-9_]*)/)
+    const m = raw.match(new RegExp(`\\("(?:${SYNCD_CONST_ALT})"\\)\\.([A-Z][A-Z0-9_]*)`))
     if (m && constants[m[1]] != null) return constants[m[1]]
     return null
 }
