@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043969568",
+  "waVersion": "2.3000.1044052011",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -970,27 +970,6 @@
         "wa_labyrinth_create_backup": {
           "__typename": "string",
           "mailbox_id": "string",
-          "backup_id": "string",
-          "device_id": "string",
-          "epoch_id": "string",
-          "status": "string",
-          "message": "string"
-        }
-      }
-    },
-    "CreateLabyrinthBackupMutation": {
-      "originalName": "WAWebMexCreateLabyrinthBackupJobMutation",
-      "docId": "27207738338837013",
-      "operationKind": "mutation",
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {}
-      },
-      "response": {
-        "xwa2_labyrinth_create_backup": {
-          "__typename": "string",
           "backup_id": "string",
           "device_id": "string",
           "epoch_id": "string",
@@ -4985,38 +4964,6 @@
       }
     },
     "UploadLabyrinthMessages": {
-      "originalName": "WAWebMexUploadLabyrinthMessagesJobMutation",
-      "docId": "27746955431579348",
-      "operationKind": "mutation",
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {
-          "device_id": "string",
-          "epoch_id": "string",
-          "family_device_id": "string",
-          "messages": [
-            {}
-          ]
-        }
-      },
-      "response": {
-        "xwa2_labyrinth_upload_messages": {
-          "__typename": "string",
-          "results": [
-            {
-              "offline_threading_id": "string",
-              "success": "string",
-              "error": "boolean"
-            }
-          ],
-          "status": "string",
-          "message": "string"
-        }
-      }
-    },
-    "UploadLabyrinthMessagesMutation": {
       "originalName": "WAWebUploadLabyrinthMessagesJobMutation",
       "docId": "28023438937253549",
       "operationKind": "mutation",

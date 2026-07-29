@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043969568",
+  "waVersion": "2.3000.1044052011",
   "operations": {
     "AcceptGroupAdd": {
       "module": "WASmaxGroupsAcceptGroupAddRPC",
@@ -5588,7 +5588,7 @@
                   },
                   "status_setting": {
                     "type": "string",
-                    "raw": "T(w.setting)",
+                    "raw": "T(A.setting)",
                     "direction": "out"
                   },
                   "session_scope": {
@@ -33373,13 +33373,13 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -33623,13 +33623,13 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -33874,20 +33874,21 @@
               },
               "t": {
                 "type": "int",
-                "arg": "Date.now().toString()",
+                "arg": "d",
+                "optional": true,
                 "direction": "both"
               },
               "peer_participant_pn": {
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -34017,13 +34018,13 @@
                 "type": "userJid",
                 "arg": "s",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "sts": {
                 "type": "string",
                 "arg": "String(b)",
                 "optional": true,
-                "direction": "out"
+                "direction": "both"
               },
               "server_id": {
                 "type": "int",
@@ -39242,9 +39243,9 @@
                   },
                   "persona_type": {
                     "type": "enum",
-                    "arg": "I",
+                    "arg": "D",
                     "optional": true,
-                    "direction": "out",
+                    "direction": "both",
                     "enumValues": [
                       "1p",
                       "default",
@@ -39253,7 +39254,7 @@
                   },
                   "agent_engagement_type": {
                     "type": "string",
-                    "arg": "U",
+                    "arg": "t",
                     "optional": true,
                     "direction": "both"
                   },
@@ -39460,7 +39461,7 @@
                   },
                   "status_setting": {
                     "type": "string",
-                    "raw": "T(w.setting)",
+                    "raw": "T(A.setting)",
                     "direction": "out"
                   },
                   "questiontype": {
@@ -40054,7 +40055,7 @@
                   },
                   "status_setting": {
                     "type": "string",
-                    "raw": "T(w.setting)",
+                    "raw": "T(A.setting)",
                     "direction": "out"
                   },
                   "session_scope": {

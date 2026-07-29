@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043969568
+// WhatsApp Version: 2.3000.1044052011
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -928,6 +928,26 @@ const WA_WAM_ENUMS = Object.freeze({
         'UNKNOWN': 1,
         'NO_ACTION_REQUIRED': 2,
         'HAS_PENDING_ACTIONS': 3
+        })
+    }),
+    BIZ_AI_ASSET_MATERIALIZATION_FAILURE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumBizAiAssetMaterializationFailureType',
+        export: 'BIZ_AI_ASSET_MATERIALIZATION_FAILURE_TYPE',
+        values: Object.freeze({
+        'CONTEXT_GENERATION': 0,
+        'ASSET_RETRIEVAL': 1,
+        'CDN_GENERATION': 2,
+        'UNKNOWN_TYPE': 3,
+        'GENERAL_FAILURE': 4
+        })
+    }),
+    BIZ_AI_RENDER_OUTCOME_TYPE: Object.freeze({
+        module: 'WAWebWamEnumBizAiRenderOutcomeType',
+        export: 'BIZ_AI_RENDER_OUTCOME_TYPE',
+        values: Object.freeze({
+        'SUCCESS': 0,
+        'FALLBACK': 1,
+        'ERROR': 2
         })
     }),
     BIZ_CATALOG_TYPE: Object.freeze({
@@ -16573,6 +16593,27 @@ const WA_WAM_EVENTS = Object.freeze({
             bannerType: Object.freeze({ id: 1, type: 'enum', enum: 'BANNER_TYPES', falcoName: 'banner_type' }),
             deviceId: Object.freeze({ id: 4, type: 'string', falcoName: 'device_id' }),
             notificationLogId: Object.freeze({ id: 5, type: 'string', falcoName: 'notification_log_id' })
+        })
+    }),
+    BizAiComponentInteraction: Object.freeze({
+        id: 8490,
+        falcoName: 'wam_biz_ai_component_interaction',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            bizAiAssetMaterializationAssetId: Object.freeze({ id: 5, type: 'string', falcoName: 'biz_ai_asset_materialization_asset_id' }),
+            bizAiAssetMaterializationAssetType: Object.freeze({ id: 6, type: 'string', falcoName: 'biz_ai_asset_materialization_asset_type' }),
+            bizAiAssetMaterializationFailureType: Object.freeze({ id: 7, type: 'enum', enum: 'BIZ_AI_ASSET_MATERIALIZATION_FAILURE_TYPE', falcoName: 'biz_ai_asset_materialization_failure_type' }),
+            bizAiButtonAction: Object.freeze({ id: 1, type: 'string', falcoName: 'biz_ai_button_action' }),
+            bizAiClientHasFallbackText: Object.freeze({ id: 11, type: 'boolean', falcoName: 'biz_ai_client_has_fallback_text' }),
+            bizAiComponentType: Object.freeze({ id: 2, type: 'string', falcoName: 'biz_ai_component_type' }),
+            bizAiErrorDetail: Object.freeze({ id: 3, type: 'string', falcoName: 'biz_ai_error_detail' }),
+            bizAiMessageUuid: Object.freeze({ id: 8, type: 'string', falcoName: 'biz_ai_message_uuid' }),
+            bizAiRenderOutcome: Object.freeze({ id: 4, type: 'enum', enum: 'BIZ_AI_RENDER_OUTCOME_TYPE', falcoName: 'biz_ai_render_outcome' })
         })
     }),
     BizCatalogView: Object.freeze({

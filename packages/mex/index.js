@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043969568
+// WhatsApp Version: 2.3000.1044052011
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -28,7 +28,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
     CreateInviteCode: Object.freeze({ docId: '26155584267463745', clientDocId: '26155584267463745' }),
     CreateLabyrinthBackup: Object.freeze({ docId: '28017003717917462', clientDocId: '28017003717917462' }),
-    CreateLabyrinthBackupMutation: Object.freeze({ docId: '27207738338837013', clientDocId: '27207738338837013' }),
     CreateMarketingCampaignAction: Object.freeze({ docId: '26304826652483067', clientDocId: '26304826652483067' }),
     CreateNewsletter: Object.freeze({ docId: '25149874324715067', clientDocId: '25149874324715067' }),
     CreateNewsletterAdminInvite: Object.freeze({ docId: '9387141988078609', clientDocId: '9387141988078609' }),
@@ -128,8 +127,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     UpdateNewsletter: Object.freeze({ docId: '24250201037901610', clientDocId: '24250201037901610' }),
     UpdateNewsletterUserSetting: Object.freeze({ docId: '31938993655691868', clientDocId: '31938993655691868' }),
     UpdateTextStatus: Object.freeze({ docId: '9152604461510864', clientDocId: '9152604461510864' }),
-    UploadLabyrinthMessages: Object.freeze({ docId: '27746955431579348', clientDocId: '27746955431579348' }),
-    UploadLabyrinthMessagesMutation: Object.freeze({ docId: '28023438937253549', clientDocId: '28023438937253549' }),
+    UploadLabyrinthMessages: Object.freeze({ docId: '28023438937253549', clientDocId: '28023438937253549' }),
     UsernameAvailability: Object.freeze({ docId: '26122779627399568', clientDocId: '26122779627399568' }),
     Usync: Object.freeze({ docId: '29829202653362039', clientDocId: '29829202653362039' }),
     WAAOnboarding: Object.freeze({ docId: '25173295938976172', clientDocId: '25173295938976172' }),
@@ -165,7 +163,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateInviteCode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateLabyrinthBackup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    CreateLabyrinthBackupMutation: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateMarketingCampaignAction: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateNewsletterAdminInvite: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
@@ -266,7 +263,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     UpdateNewsletterUserSetting: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateTextStatus: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UploadLabyrinthMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    UploadLabyrinthMessagesMutation: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UsernameAvailability: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input', 'session_id', 'source']) }),
     Usync: Object.freeze({ operationKind: 'query', variables: Object.freeze(['include_about_status', 'include_country_code', 'include_username', 'input']) }),
     WAAOnboarding: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

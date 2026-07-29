@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1043969568
+// WhatsApp Version: 2.3000.1044052011
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -40,7 +40,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ConsumerQuickPromotionActionGraphQL: WaMexPersistId
     readonly CreateInviteCode: WaMexPersistId
     readonly CreateLabyrinthBackup: WaMexPersistId
-    readonly CreateLabyrinthBackupMutation: WaMexPersistId
     readonly CreateMarketingCampaignAction: WaMexPersistId
     readonly CreateNewsletter: WaMexPersistId
     readonly CreateNewsletterAdminInvite: WaMexPersistId
@@ -141,7 +140,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly UpdateNewsletterUserSetting: WaMexPersistId
     readonly UpdateTextStatus: WaMexPersistId
     readonly UploadLabyrinthMessages: WaMexPersistId
-    readonly UploadLabyrinthMessagesMutation: WaMexPersistId
     readonly UsernameAvailability: WaMexPersistId
     readonly Usync: WaMexPersistId
     readonly WAAOnboarding: WaMexPersistId
@@ -177,7 +175,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ConsumerQuickPromotionActionGraphQL: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateInviteCode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateLabyrinthBackup: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly CreateLabyrinthBackupMutation: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateMarketingCampaignAction: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateNewsletter: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
@@ -278,7 +275,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UpdateNewsletterUserSetting: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateTextStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly UploadLabyrinthMessagesMutation: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
     readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_username', 'input']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -447,10 +443,6 @@ export type WaMexCreateInviteCodeVariables = {
 }
 
 export type WaMexCreateLabyrinthBackupVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexCreateLabyrinthBackupMutationVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
@@ -1118,15 +1110,6 @@ export type WaMexUpdateTextStatusVariables = {
 }
 
 export type WaMexUploadLabyrinthMessagesVariables = {
-    readonly input?: {
-        readonly device_id?: string
-        readonly epoch_id?: string
-        readonly family_device_id?: string
-        readonly messages?: ReadonlyArray<Readonly<Record<string, unknown>>>
-    }
-}
-
-export type WaMexUploadLabyrinthMessagesMutationVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
@@ -1199,7 +1182,6 @@ export interface WaMexOperationVariables {
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLVariables
     readonly CreateInviteCode: WaMexCreateInviteCodeVariables
     readonly CreateLabyrinthBackup: WaMexCreateLabyrinthBackupVariables
-    readonly CreateLabyrinthBackupMutation: WaMexCreateLabyrinthBackupMutationVariables
     readonly CreateMarketingCampaignAction: WaMexCreateMarketingCampaignActionVariables
     readonly CreateNewsletter: WaMexCreateNewsletterVariables
     readonly CreateNewsletterAdminInvite: WaMexCreateNewsletterAdminInviteVariables
@@ -1300,7 +1282,6 @@ export interface WaMexOperationVariables {
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingVariables
     readonly UpdateTextStatus: WaMexUpdateTextStatusVariables
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesVariables
-    readonly UploadLabyrinthMessagesMutation: WaMexUploadLabyrinthMessagesMutationVariables
     readonly UsernameAvailability: WaMexUsernameAvailabilityVariables
     readonly Usync: WaMexUsyncVariables
     readonly WAAOnboarding: WaMexWAAOnboardingVariables
@@ -1866,17 +1847,6 @@ export type WaMexCreateLabyrinthBackupResponse = {
     readonly wa_labyrinth_create_backup?: {
         readonly __typename?: string
         readonly mailbox_id?: string
-        readonly backup_id?: string
-        readonly device_id?: string
-        readonly epoch_id?: string
-        readonly status?: string
-        readonly message?: string
-    }
-}
-
-export type WaMexCreateLabyrinthBackupMutationResponse = {
-    readonly xwa2_labyrinth_create_backup?: {
-        readonly __typename?: string
         readonly backup_id?: string
         readonly device_id?: string
         readonly epoch_id?: string
@@ -4261,19 +4231,6 @@ export type WaMexUpdateTextStatusResponse = {
 }
 
 export type WaMexUploadLabyrinthMessagesResponse = {
-    readonly xwa2_labyrinth_upload_messages?: {
-        readonly __typename?: string
-        readonly results?: ReadonlyArray<{
-            readonly offline_threading_id?: string
-            readonly success?: string
-            readonly error?: boolean
-        }>
-        readonly status?: string
-        readonly message?: string
-    }
-}
-
-export type WaMexUploadLabyrinthMessagesMutationResponse = {
     readonly wa_labyrinth_upload_messages?: {
         readonly __typename?: string
         readonly results?: ReadonlyArray<{
@@ -4425,7 +4382,6 @@ export interface WaMexOperationResponses {
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLResponse
     readonly CreateInviteCode: WaMexCreateInviteCodeResponse
     readonly CreateLabyrinthBackup: WaMexCreateLabyrinthBackupResponse
-    readonly CreateLabyrinthBackupMutation: WaMexCreateLabyrinthBackupMutationResponse
     readonly CreateMarketingCampaignAction: WaMexCreateMarketingCampaignActionResponse
     readonly CreateNewsletter: WaMexCreateNewsletterResponse
     readonly CreateNewsletterAdminInvite: WaMexCreateNewsletterAdminInviteResponse
@@ -4526,7 +4482,6 @@ export interface WaMexOperationResponses {
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingResponse
     readonly UpdateTextStatus: WaMexUpdateTextStatusResponse
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesResponse
-    readonly UploadLabyrinthMessagesMutation: WaMexUploadLabyrinthMessagesMutationResponse
     readonly UsernameAvailability: WaMexUsernameAvailabilityResponse
     readonly Usync: WaMexUsyncResponse
     readonly WAAOnboarding: WaMexWAAOnboardingResponse

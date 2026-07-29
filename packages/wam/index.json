@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1043969568",
+  "waVersion": "2.3000.1044052011",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -959,6 +959,26 @@
         "UNKNOWN": 1,
         "NO_ACTION_REQUIRED": 2,
         "HAS_PENDING_ACTIONS": 3
+      }
+    },
+    "BIZ_AI_ASSET_MATERIALIZATION_FAILURE_TYPE": {
+      "module": "WAWebWamEnumBizAiAssetMaterializationFailureType",
+      "export": "BIZ_AI_ASSET_MATERIALIZATION_FAILURE_TYPE",
+      "values": {
+        "CONTEXT_GENERATION": 0,
+        "ASSET_RETRIEVAL": 1,
+        "CDN_GENERATION": 2,
+        "UNKNOWN_TYPE": 3,
+        "GENERAL_FAILURE": 4
+      }
+    },
+    "BIZ_AI_RENDER_OUTCOME_TYPE": {
+      "module": "WAWebWamEnumBizAiRenderOutcomeType",
+      "export": "BIZ_AI_RENDER_OUTCOME_TYPE",
+      "values": {
+        "SUCCESS": 0,
+        "FALLBACK": 1,
+        "ERROR": 2
       }
     },
     "BIZ_CATALOG_TYPE": {
@@ -17598,6 +17618,70 @@
           "id": 5,
           "type": "string",
           "falcoName": "notification_log_id"
+        }
+      }
+    },
+    "BizAiComponentInteraction": {
+      "id": 8490,
+      "module": "WAWebBizAiComponentInteractionWamEvent",
+      "falcoName": "wam_biz_ai_component_interaction",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "bizAiAssetMaterializationAssetId": {
+          "id": 5,
+          "type": "string",
+          "falcoName": "biz_ai_asset_materialization_asset_id"
+        },
+        "bizAiAssetMaterializationAssetType": {
+          "id": 6,
+          "type": "string",
+          "falcoName": "biz_ai_asset_materialization_asset_type"
+        },
+        "bizAiAssetMaterializationFailureType": {
+          "id": 7,
+          "type": "enum",
+          "falcoName": "biz_ai_asset_materialization_failure_type",
+          "enum": "BIZ_AI_ASSET_MATERIALIZATION_FAILURE_TYPE"
+        },
+        "bizAiButtonAction": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "biz_ai_button_action"
+        },
+        "bizAiClientHasFallbackText": {
+          "id": 11,
+          "type": "boolean",
+          "falcoName": "biz_ai_client_has_fallback_text"
+        },
+        "bizAiComponentType": {
+          "id": 2,
+          "type": "string",
+          "falcoName": "biz_ai_component_type"
+        },
+        "bizAiErrorDetail": {
+          "id": 3,
+          "type": "string",
+          "falcoName": "biz_ai_error_detail"
+        },
+        "bizAiMessageUuid": {
+          "id": 8,
+          "type": "string",
+          "falcoName": "biz_ai_message_uuid"
+        },
+        "bizAiRenderOutcome": {
+          "id": 4,
+          "type": "enum",
+          "falcoName": "biz_ai_render_outcome",
+          "enum": "BIZ_AI_RENDER_OUTCOME_TYPE"
         }
       }
     },
