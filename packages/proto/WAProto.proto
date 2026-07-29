@@ -647,7 +647,9 @@ message AIRichResponseContentItemsMetadata {
         CAROUSEL = 1;
     }
     message AIRichResponseContentItemMetadata {
-        optional AIRichResponseContentItemsMetadata.AIRichResponseReelItem reelItem = 1;
+        oneof aiRichResponseContentItem {
+            AIRichResponseContentItemsMetadata.AIRichResponseReelItem reelItem = 1;
+        }
     }
     message AIRichResponseReelItem {
         optional string title = 1;
@@ -828,16 +830,20 @@ message Armadillo {
     message Metadata {
     }
     message Payload {
-        optional Armadillo.Content content = 1;
-        optional Armadillo.ApplicationData applicationData = 2;
-        optional Armadillo.Signal signal = 3;
-        optional Armadillo.SubProtocolPayload subProtocol = 4;
+        oneof payload {
+            Armadillo.Content content = 1;
+            Armadillo.ApplicationData applicationData = 2;
+            Armadillo.Signal signal = 3;
+            Armadillo.SubProtocolPayload subProtocol = 4;
+        }
     }
     message SubProtocolPayload {
         optional FUTURE_PROOF_BEHAVIOR futureProof = 1;
     }
     message Signal {
-        optional EncryptedBackupsSecrets encryptedBackupsSecrets = 1;
+        oneof signal {
+            EncryptedBackupsSecrets encryptedBackupsSecrets = 1;
+        }
         message EncryptedBackupsSecrets {
             optional uint64 backupId = 1;
             optional uint64 serverDataId = 2;
@@ -854,9 +860,11 @@ message Armadillo {
         }
     }
     message ApplicationData {
-        optional MetadataSyncNotification metadataSync = 1;
-        optional AIBotResponseMessage aiBotResponse = 2;
-        optional MessageHistoryDocumentMessage messageHistoryDocumentMessage = 3;
+        oneof applicationData {
+            MetadataSyncNotification metadataSync = 1;
+            AIBotResponseMessage aiBotResponse = 2;
+            MessageHistoryDocumentMessage messageHistoryDocumentMessage = 3;
+        }
         message MessageHistoryDocumentMessage {
             optional SubProtocol document = 1;
         }
@@ -867,10 +875,12 @@ message Armadillo {
         }
         message MetadataSyncAction {
             optional int64 actionTimestamp = 1;
-            optional SyncChatAction chatAction = 101;
-            optional SyncMessageAction messageAction = 102;
-            optional SyncSpectraAction spectraAction = 103;
-            optional SyncAttachmentInterventionAction attachmentInterventionAction = 104;
+            oneof actionType {
+                SyncChatAction chatAction = 101;
+                SyncMessageAction messageAction = 102;
+                SyncSpectraAction spectraAction = 103;
+                SyncAttachmentInterventionAction attachmentInterventionAction = 104;
+            }
             message SyncAttachmentInterventionAction {
                 optional MessageKey messageKey = 1;
                 optional ARMADILLO_APPLICATION_DATA_METADATA_SYNC_ACTION_SYNC_ATTACHMENT_INTERVENTION_ACTION_INTERVENTION_TYPE interventionType = 2;
@@ -883,15 +893,19 @@ message Armadillo {
             }
             message SyncMessageAction {
                 optional MessageKey key = 1;
-                optional ActionMessageDelete messageDelete = 101;
+                oneof action {
+                    ActionMessageDelete messageDelete = 101;
+                }
                 message ActionMessageDelete {
                 }
             }
             message SyncChatAction {
                 optional string chatId = 1;
-                optional ActionChatArchive chatArchive = 101;
-                optional ActionChatDelete chatDelete = 102;
-                optional ActionChatRead chatRead = 103;
+                oneof action {
+                    ActionChatArchive chatArchive = 101;
+                    ActionChatDelete chatDelete = 102;
+                    ActionChatRead chatRead = 103;
+                }
                 message ActionChatRead {
                     optional Armadillo.ApplicationData.MetadataSyncAction.SyncActionMessageRange messageRange = 1;
                     optional bool read = 2;
@@ -919,18 +933,20 @@ message Armadillo {
         }
     }
     message Content {
-        optional CommonSticker commonSticker = 1;
-        optional ScreenshotAction screenshotAction = 3;
-        optional ExtendedContentMessage extendedContentMessage = 4;
-        optional RavenMessage ravenMessage = 5;
-        optional RavenActionNotifMessage ravenActionNotifMessage = 6;
-        optional ExtendedContentMessageWithSear extendedMessageContentWithSear = 7;
-        optional ImageGalleryMessage imageGalleryMessage = 8;
-        optional PaymentsTransactionMessage paymentsTransactionMessage = 10;
-        optional BumpExistingMessage bumpExistingMessage = 11;
-        optional NoteReplyMessage noteReplyMessage = 13;
-        optional RavenMessage ravenMessageMsgr = 14;
-        optional NetworkVerificationMessage networkVerificationMessage = 15;
+        oneof content {
+            CommonSticker commonSticker = 1;
+            ScreenshotAction screenshotAction = 3;
+            ExtendedContentMessage extendedContentMessage = 4;
+            RavenMessage ravenMessage = 5;
+            RavenActionNotifMessage ravenActionNotifMessage = 6;
+            ExtendedContentMessageWithSear extendedMessageContentWithSear = 7;
+            ImageGalleryMessage imageGalleryMessage = 8;
+            PaymentsTransactionMessage paymentsTransactionMessage = 10;
+            BumpExistingMessage bumpExistingMessage = 11;
+            NoteReplyMessage noteReplyMessage = 13;
+            RavenMessage ravenMessageMsgr = 14;
+            NetworkVerificationMessage networkVerificationMessage = 15;
+        }
         message PaymentsTransactionMessage {
             optional uint64 transactionId = 1;
             optional string amount = 2;
@@ -945,9 +961,11 @@ message Armadillo {
             optional string noteId = 1;
             optional MessageText noteText = 2;
             optional int64 noteTimestampMs = 3;
-            optional MessageText textContent = 4;
-            optional SubProtocol stickerContent = 5;
-            optional SubProtocol videoContent = 6;
+            oneof noteReplyContent {
+                MessageText textContent = 4;
+                SubProtocol stickerContent = 5;
+                SubProtocol videoContent = 6;
+            }
         }
         message BumpExistingMessage {
             optional MessageKey key = 1;
@@ -972,8 +990,10 @@ message Armadillo {
         }
         message RavenMessage {
             optional ARMADILLO_CONTENT_RAVEN_MESSAGE_EPHEMERAL_TYPE ephemeralType = 1;
-            optional SubProtocol imageMessage = 2;
-            optional SubProtocol videoMessage = 3;
+            oneof mediaContent {
+                SubProtocol imageMessage = 2;
+                SubProtocol videoMessage = 3;
+            }
         }
         message CommonSticker {
             optional ARMADILLO_CONTENT_COMMON_STICKER_STICKER_TYPE stickerType = 1;
@@ -1030,10 +1050,12 @@ message AvatarUserSettings {
 
 message BackupMessage {
     optional Metadata metadata = 1;
-    optional bytes encryptedTransportMessage = 2;
-    optional Subprotocol encryptedTransportEvent = 5;
-    optional Subprotocol encryptedTransportLocallyTransformedMessage = 6;
-    optional Subprotocol miTransportAdminMessage = 7;
+    oneof payload {
+        bytes encryptedTransportMessage = 2;
+        Subprotocol encryptedTransportEvent = 5;
+        Subprotocol encryptedTransportLocallyTransformedMessage = 6;
+        Subprotocol miTransportAdminMessage = 7;
+    }
 }
 
 message BizAccountLinkInfo {
@@ -2084,10 +2106,12 @@ message ConsumerApplication {
     optional Payload payload = 1;
     optional Metadata metadata = 2;
     message Payload {
-        optional ConsumerApplication.Content content = 1;
-        optional ConsumerApplication.ApplicationData applicationData = 2;
-        optional ConsumerApplication.Signal signal = 3;
-        optional ConsumerApplication.SubProtocolPayload subProtocol = 4;
+        oneof payload {
+            ConsumerApplication.Content content = 1;
+            ConsumerApplication.ApplicationData applicationData = 2;
+            ConsumerApplication.Signal signal = 3;
+            ConsumerApplication.SubProtocolPayload subProtocol = 4;
+        }
     }
     message SubProtocolPayload {
         optional FUTURE_PROOF_BEHAVIOR futureProof = 1;
@@ -2098,27 +2122,31 @@ message ConsumerApplication {
     message Signal {
     }
     message ApplicationData {
-        optional ConsumerApplication.RevokeMessage revoke = 1;
+        oneof applicationContent {
+            ConsumerApplication.RevokeMessage revoke = 1;
+        }
     }
     message Content {
-        optional MessageText messageText = 1;
-        optional ConsumerApplication.ImageMessage imageMessage = 2;
-        optional ConsumerApplication.ContactMessage contactMessage = 3;
-        optional ConsumerApplication.LocationMessage locationMessage = 4;
-        optional ConsumerApplication.ExtendedTextMessage extendedTextMessage = 5;
-        optional ConsumerApplication.StatusTextMesage statusTextMessage = 6;
-        optional ConsumerApplication.DocumentMessage documentMessage = 7;
-        optional ConsumerApplication.AudioMessage audioMessage = 8;
-        optional ConsumerApplication.VideoMessage videoMessage = 9;
-        optional ConsumerApplication.ContactsArrayMessage contactsArrayMessage = 10;
-        optional ConsumerApplication.LiveLocationMessage liveLocationMessage = 11;
-        optional ConsumerApplication.StickerMessage stickerMessage = 12;
-        optional ConsumerApplication.GroupInviteMessage groupInviteMessage = 13;
-        optional ConsumerApplication.ViewOnceMessage viewOnceMessage = 14;
-        optional ConsumerApplication.ReactionMessage reactionMessage = 16;
-        optional ConsumerApplication.PollCreationMessage pollCreationMessage = 17;
-        optional ConsumerApplication.PollUpdateMessage pollUpdateMessage = 18;
-        optional ConsumerApplication.EditMessage editMessage = 19;
+        oneof content {
+            MessageText messageText = 1;
+            ConsumerApplication.ImageMessage imageMessage = 2;
+            ConsumerApplication.ContactMessage contactMessage = 3;
+            ConsumerApplication.LocationMessage locationMessage = 4;
+            ConsumerApplication.ExtendedTextMessage extendedTextMessage = 5;
+            ConsumerApplication.StatusTextMesage statusTextMessage = 6;
+            ConsumerApplication.DocumentMessage documentMessage = 7;
+            ConsumerApplication.AudioMessage audioMessage = 8;
+            ConsumerApplication.VideoMessage videoMessage = 9;
+            ConsumerApplication.ContactsArrayMessage contactsArrayMessage = 10;
+            ConsumerApplication.LiveLocationMessage liveLocationMessage = 11;
+            ConsumerApplication.StickerMessage stickerMessage = 12;
+            ConsumerApplication.GroupInviteMessage groupInviteMessage = 13;
+            ConsumerApplication.ViewOnceMessage viewOnceMessage = 14;
+            ConsumerApplication.ReactionMessage reactionMessage = 16;
+            ConsumerApplication.PollCreationMessage pollCreationMessage = 17;
+            ConsumerApplication.PollUpdateMessage pollUpdateMessage = 18;
+            ConsumerApplication.EditMessage editMessage = 19;
+        }
     }
     message EditMessage {
         optional MessageKey key = 1;
@@ -2162,8 +2190,10 @@ message ConsumerApplication {
         optional MessageKey key = 1;
     }
     message ViewOnceMessage {
-        optional ConsumerApplication.ImageMessage imageMessage = 1;
-        optional ConsumerApplication.VideoMessage videoMessage = 2;
+        oneof viewOnceContent {
+            ConsumerApplication.ImageMessage imageMessage = 1;
+            ConsumerApplication.VideoMessage videoMessage = 2;
+        }
     }
     message GroupInviteMessage {
         optional string groupJid = 1;
@@ -2229,7 +2259,9 @@ message ConsumerApplication {
     }
     message InteractiveAnnotation {
         repeated ConsumerApplication.Point polygonVertices = 1;
-        optional ConsumerApplication.Location location = 2;
+        oneof action {
+            ConsumerApplication.Location location = 2;
+        }
     }
     message Point {
         optional double x = 1;
@@ -2252,8 +2284,10 @@ message ContactTransport {
         optional string displayName = 1;
     }
     message Integral {
-        optional string vcard = 1;
-        optional WAMediaTransport downloadableVcard = 2;
+        oneof contact {
+            string vcard = 1;
+            WAMediaTransport downloadableVcard = 2;
+        }
     }
 }
 
@@ -2928,8 +2962,10 @@ message EditMsgHistoryTableSchemaProto {
 }
 
 message EmbeddedContent {
-    optional EmbeddedMessage embeddedMessage = 1;
-    optional EmbeddedMusic embeddedMusic = 2;
+    oneof content {
+        EmbeddedMessage embeddedMessage = 1;
+        EmbeddedMusic embeddedMusic = 2;
+    }
 }
 
 message EmbeddedMessage {
@@ -3329,10 +3365,12 @@ message HistorySyncMsg {
 }
 
 message HydratedTemplateButton {
-    optional HydratedQuickReplyButton quickReplyButton = 1;
-    optional HydratedURLButton urlButton = 2;
-    optional HydratedCallButton callButton = 3;
     optional uint32 index = 4;
+    oneof hydratedButton {
+        HydratedQuickReplyButton quickReplyButton = 1;
+        HydratedURLButton urlButton = 2;
+        HydratedCallButton callButton = 3;
+    }
     message HydratedCallButton {
         optional string displayText = 1;
         optional string phoneNumber = 2;
@@ -3448,13 +3486,15 @@ message InlineContact {
 
 message InteractiveAnnotation {
     repeated Point polygonVertices = 1;
-    optional Location location = 2;
-    optional ContextInfo.ForwardedNewsletterMessageInfo newsletter = 3;
     optional bool shouldSkipConfirmation = 4;
     optional EmbeddedContent embeddedContent = 5;
-    optional bool embeddedAction = 6;
-    optional TapLinkAction tapAction = 7;
     optional StatusLinkType statusLinkType = 8;
+    oneof action {
+        Location location = 2;
+        ContextInfo.ForwardedNewsletterMessageInfo newsletter = 3;
+        bool embeddedAction = 6;
+        TapLinkAction tapAction = 7;
+    }
     enum StatusLinkType {
         RASTERIZED_LINK_PREVIEW = 1;
         RASTERIZED_LINK_TRUNCATED = 2;
@@ -3488,9 +3528,11 @@ message KeyId {
 }
 
 message KeyTransparencyCommand {
-    optional VerifyKeyTransparencyForUserSignalCommand verifyKtForUserSignal = 5;
-    optional VerifyKeyTransparencyForUserMinosCommand verifyKtForUserMinos = 6;
-    optional VerifyKeyTransparencyForUserMandrakeCommand verifyKtForUserMandrake = 7;
+    oneof commandInput {
+        VerifyKeyTransparencyForUserSignalCommand verifyKtForUserSignal = 5;
+        VerifyKeyTransparencyForUserMinosCommand verifyKtForUserMinos = 6;
+        VerifyKeyTransparencyForUserMandrakeCommand verifyKtForUserMandrake = 7;
+    }
 }
 
 message LIDMigrationMappingSyncMessage {
@@ -3498,11 +3540,13 @@ message LIDMigrationMappingSyncMessage {
 }
 
 message LabyrinthWaCommand {
-    optional CreateBackupInput createBackupInput = 1;
-    optional EncryptMessageInput encryptMessageInput = 2;
-    optional DecryptMessageInput decryptMessageInput = 3;
-    optional OrfThreadIdInput orfThreadIdInput = 4;
-    optional DeriveMessageKeyInput deriveMessageKeyInput = 5;
+    oneof commandInput {
+        CreateBackupInput createBackupInput = 1;
+        EncryptMessageInput encryptMessageInput = 2;
+        DecryptMessageInput decryptMessageInput = 3;
+        OrfThreadIdInput orfThreadIdInput = 4;
+        DeriveMessageKeyInput deriveMessageKeyInput = 5;
+    }
 }
 
 message LatestSenderTimestampsMsProto {
@@ -3535,7 +3579,9 @@ message LocalizedName {
 }
 
 message LocallyTransformedMessage {
-    optional PollUpdateAdminMessage pollUpdateMessage = 1;
+    oneof content {
+        PollUpdateAdminMessage pollUpdateMessage = 1;
+    }
     message PollUpdateAdminMessage {
         optional string pollCreationMessageId = 1;
         optional string pollUpdateMessageId = 2;
@@ -4079,25 +4125,29 @@ message Message {
     }
     message ButtonsResponseMessage {
         optional string selectedButtonId = 1;
-        optional string selectedDisplayText = 2;
         optional ContextInfo contextInfo = 3;
         optional Type type = 4;
+        oneof response {
+            string selectedDisplayText = 2;
+        }
         enum Type {
             UNKNOWN = 0;
             DISPLAY_TEXT = 1;
         }
     }
     message ButtonsMessage {
-        optional string text = 1;
-        optional Message.DocumentMessage documentMessage = 2;
-        optional Message.ImageMessage imageMessage = 3;
-        optional Message.VideoMessage videoMessage = 4;
-        optional Message.LocationMessage locationMessage = 5;
         optional string contentText = 6;
         optional string footerText = 7;
         optional ContextInfo contextInfo = 8;
         repeated Button buttons = 9;
         optional HeaderType headerType = 10;
+        oneof header {
+            string text = 1;
+            Message.DocumentMessage documentMessage = 2;
+            Message.ImageMessage imageMessage = 3;
+            Message.VideoMessage videoMessage = 4;
+            Message.LocationMessage locationMessage = 5;
+        }
         enum HeaderType {
             UNKNOWN = 0;
             EMPTY = 1;
@@ -4204,8 +4254,10 @@ message Message {
     }
     message InteractiveResponseMessage {
         optional Body body = 1;
-        optional NativeFlowResponseMessage nativeFlowResponseMessage = 2;
         optional ContextInfo contextInfo = 15;
+        oneof interactiveResponseMessage {
+            NativeFlowResponseMessage nativeFlowResponseMessage = 2;
+        }
         message NativeFlowResponseMessage {
             optional string name = 1;
             optional string paramsJson = 2;
@@ -4224,13 +4276,15 @@ message Message {
         optional Header header = 1;
         optional Body body = 2;
         optional Footer footer = 3;
-        optional ShopMessage shopStorefrontMessage = 4;
-        optional CollectionMessage collectionMessage = 5;
-        optional NativeFlowMessage nativeFlowMessage = 6;
-        optional CarouselMessage carouselMessage = 7;
         optional BloksWidget bloksWidget = 8;
         optional ContextInfo contextInfo = 15;
         optional UrlTrackingMap urlTrackingMap = 16;
+        oneof interactiveMessage {
+            ShopMessage shopStorefrontMessage = 4;
+            CollectionMessage collectionMessage = 5;
+            NativeFlowMessage nativeFlowMessage = 6;
+            CarouselMessage carouselMessage = 7;
+        }
         message CarouselMessage {
             repeated Message.InteractiveMessage cards = 1;
             optional int32 messageVersion = 2;
@@ -4274,8 +4328,10 @@ message Message {
         }
         message Footer {
             optional string text = 1;
-            optional Message.AudioMessage audioMessage = 2;
             optional bool hasMediaAttachment = 3;
+            oneof media {
+                Message.AudioMessage audioMessage = 2;
+            }
         }
         message Body {
             optional string text = 1;
@@ -4283,14 +4339,16 @@ message Message {
         message Header {
             optional string title = 1;
             optional string subtitle = 2;
-            optional Message.DocumentMessage documentMessage = 3;
-            optional Message.ImageMessage imageMessage = 4;
             optional bool hasMediaAttachment = 5;
-            optional bytes jpegThumbnail = 6;
-            optional Message.VideoMessage videoMessage = 7;
-            optional Message.LocationMessage locationMessage = 8;
-            optional Message.ProductMessage productMessage = 9;
             optional Message.InteractiveMessage.BloksWidget bloksWidget = 10;
+            oneof media {
+                Message.DocumentMessage documentMessage = 3;
+                Message.ImageMessage imageMessage = 4;
+                bytes jpegThumbnail = 6;
+                Message.VideoMessage videoMessage = 7;
+                Message.LocationMessage locationMessage = 8;
+                Message.ProductMessage productMessage = 9;
+            }
         }
     }
     message ListResponseMessage {
@@ -4416,33 +4474,39 @@ message Message {
         optional uint32 selectedCarouselCardIndex = 5;
     }
     message TemplateMessage {
-        optional FourRowTemplate fourRowTemplate = 1;
-        optional HydratedFourRowTemplate hydratedFourRowTemplate = 2;
         optional ContextInfo contextInfo = 3;
         optional HydratedFourRowTemplate hydratedTemplate = 4;
-        optional Message.InteractiveMessage interactiveMessageTemplate = 5;
         optional string templateId = 9;
+        oneof format {
+            FourRowTemplate fourRowTemplate = 1;
+            HydratedFourRowTemplate hydratedFourRowTemplate = 2;
+            Message.InteractiveMessage interactiveMessageTemplate = 5;
+        }
         message HydratedFourRowTemplate {
-            optional Message.DocumentMessage documentMessage = 1;
-            optional string hydratedTitleText = 2;
-            optional Message.ImageMessage imageMessage = 3;
-            optional Message.VideoMessage videoMessage = 4;
-            optional Message.LocationMessage locationMessage = 5;
             optional string hydratedContentText = 6;
             optional string hydratedFooterText = 7;
             repeated HydratedTemplateButton hydratedButtons = 8;
             optional string templateId = 9;
             optional bool maskLinkedDevices = 10;
+            oneof title {
+                Message.DocumentMessage documentMessage = 1;
+                string hydratedTitleText = 2;
+                Message.ImageMessage imageMessage = 3;
+                Message.VideoMessage videoMessage = 4;
+                Message.LocationMessage locationMessage = 5;
+            }
         }
         message FourRowTemplate {
-            optional Message.DocumentMessage documentMessage = 1;
-            optional Message.HighlyStructuredMessage highlyStructuredMessage = 2;
-            optional Message.ImageMessage imageMessage = 3;
-            optional Message.VideoMessage videoMessage = 4;
-            optional Message.LocationMessage locationMessage = 5;
             optional Message.HighlyStructuredMessage content = 6;
             optional Message.HighlyStructuredMessage footer = 7;
             repeated TemplateButton buttons = 8;
+            oneof title {
+                Message.DocumentMessage documentMessage = 1;
+                Message.HighlyStructuredMessage highlyStructuredMessage = 2;
+                Message.ImageMessage imageMessage = 3;
+                Message.VideoMessage videoMessage = 4;
+                Message.LocationMessage locationMessage = 5;
+            }
         }
     }
     message StickerMessage {
@@ -4579,11 +4643,15 @@ message Message {
         optional Message.TemplateMessage hydratedHsm = 9;
         message HSMLocalizableParameter {
             optional string default = 1;
-            optional HSMCurrency currency = 2;
-            optional HSMDateTime dateTime = 3;
+            oneof paramOneof {
+                HSMCurrency currency = 2;
+                HSMDateTime dateTime = 3;
+            }
             message HSMDateTime {
-                optional HSMDateTimeComponent component = 1;
-                optional HSMDateTimeUnixEpoch unixEpoch = 2;
+                oneof datetimeOneof {
+                    HSMDateTimeComponent component = 1;
+                    HSMDateTimeUnixEpoch unixEpoch = 2;
+                }
                 message HSMDateTimeUnixEpoch {
                     optional int64 timestamp = 1;
                 }
@@ -4914,10 +4982,12 @@ message Message {
         optional int64 settingTimestampMs = 1;
         optional bool clearTheme = 2;
         optional string colorSchemeId = 3;
-        optional Message.ChatDefaultWallpaper defaultWallpaper = 10;
-        optional Message.ChatSolidColorWallpaper solidColor = 11;
-        optional Message.ChatStockImageWallpaper stockImage = 12;
-        optional Message.ChatCustomImageWallpaper customImage = 13;
+        oneof wallpaper {
+            Message.ChatDefaultWallpaper defaultWallpaper = 10;
+            Message.ChatSolidColorWallpaper solidColor = 11;
+            Message.ChatStockImageWallpaper stockImage = 12;
+            Message.ChatCustomImageWallpaper customImage = 13;
+        }
     }
     message MarkAsVerifiedAction {
         optional string userJidString = 1;
@@ -5351,9 +5421,6 @@ message MessageApplication {
     optional Payload payload = 1;
     optional Metadata metadata = 2;
     message Metadata {
-        optional MessageApplication.EphemeralSetting chatEphemeralSetting = 1;
-        optional EphemeralSettingMap ephemeralSettingList = 2;
-        optional bytes ephemeralSharedSecret = 3;
         optional uint32 forwardingScore = 5;
         optional bool isForwarded = 6;
         optional SubProtocol businessMetadata = 7;
@@ -5368,6 +5435,11 @@ message MessageApplication {
         optional string botResponseId = 16;
         optional string collapsibleId = 17;
         optional string secondaryOtid = 18;
+        oneof ephemeral {
+            MessageApplication.EphemeralSetting chatEphemeralSetting = 1;
+            EphemeralSettingMap ephemeralSettingList = 2;
+            bytes ephemeralSharedSecret = 3;
+        }
         message QuotedMessage {
             optional string stanzaId = 1;
             optional string remoteJid = 2;
@@ -5380,19 +5452,23 @@ message MessageApplication {
         }
     }
     message Payload {
-        optional MessageApplication.Content coreContent = 1;
-        optional MessageApplication.Signal signal = 2;
-        optional MessageApplication.ApplicationData applicationData = 3;
-        optional MessageApplication.SubProtocolPayload subProtocol = 4;
+        oneof content {
+            MessageApplication.Content coreContent = 1;
+            MessageApplication.Signal signal = 2;
+            MessageApplication.ApplicationData applicationData = 3;
+            MessageApplication.SubProtocolPayload subProtocol = 4;
+        }
     }
     message SubProtocolPayload {
         optional FUTURE_PROOF_BEHAVIOR futureProof = 1;
-        optional SubProtocol consumerMessage = 2;
-        optional SubProtocol businessMessage = 3;
-        optional SubProtocol paymentMessage = 4;
-        optional SubProtocol multiDevice = 5;
-        optional SubProtocol voip = 6;
-        optional SubProtocol armadillo = 7;
+        oneof subProtocol {
+            SubProtocol consumerMessage = 2;
+            SubProtocol businessMessage = 3;
+            SubProtocol paymentMessage = 4;
+            SubProtocol multiDevice = 5;
+            SubProtocol voip = 6;
+            SubProtocol armadillo = 7;
+        }
     }
     message ApplicationData {
     }
@@ -5579,8 +5655,10 @@ message MessagesTableSchemaProto {
 }
 
 message MetaSyncActionProto {
-    optional MetaSyncChatActionProto chatAction = 1;
-    optional MetaSyncMessageActionProto messageAction = 2;
+    oneof action {
+        MetaSyncChatActionProto chatAction = 1;
+        MetaSyncMessageActionProto messageAction = 2;
+    }
 }
 
 message MetaSyncAppDataProto {
@@ -5629,50 +5707,52 @@ message Metadata {
 }
 
 message MiTransportAdminMessage {
-    optional ChatThemeChanged chatThemeChanged = 1;
-    optional NicknameChanged nicknameChanged = 2;
-    optional GroupParticipantChanged groupParticipantChanged = 3;
-    optional GroupAdminChanged groupAdminChanged = 4;
-    optional GroupNameChanged groupNameChanged = 5;
-    optional GroupMembershipAddModeChanged groupMembershipAddModeChanged = 6;
-    optional MessagePinned messagePinned = 7;
-    optional GroupImageChanged groupImageChanged = 8;
-    optional QuickReactionChanged quickReactionChanged = 9;
-    optional LinkCta linkCta = 10;
-    optional IconChanged iconChanged = 11;
-    optional DisappearingSettingChanged disappearingSettingChanged = 12;
-    optional LimitSharingChanged limitSharingChanged = 13;
-    optional XmatDisappearingSetting xmatDisappearingSetting = 14;
-    optional XmatFriendRequestConfirmedEncrypted xmatFriendRequestConfirmedEncrypted = 15;
-    optional XmatInstantGameEncryptedDynamicCustomUpdate xmatInstantGameEncryptedDynamicCustomUpdate = 16;
-    optional XmatLinkCTA xmatLinkCta = 17;
-    optional XmatMagicWords xmatMagicWords = 18;
-    optional XmatMessagingLimitSharing xmatMessagingLimitSharing = 19;
-    optional XmatMessengerQRCodeScanned xmatMessengerQrCodeScanned = 20;
-    optional XmatMessengerSharedAlbumAddition xmatMessengerSharedAlbumAddition = 21;
-    optional XmatMessengerSharedAlbumContentRemoval xmatMessengerSharedAlbumContentRemoval = 22;
-    optional XmatMessengerSharedAlbumDeletion xmatMessengerSharedAlbumDeletion = 23;
-    optional XmatMessengerSharedAlbumRename xmatMessengerSharedAlbumRename = 24;
-    optional XmatMessengerSharedAlbum xmatMessengerSharedAlbum = 25;
-    optional XmatThemeColor xmatThemeColor = 26;
-    optional XmatThreadIcon xmatThreadIcon = 27;
-    optional XmatThreadNickname xmatThreadNickname = 28;
-    optional XmatThreadQuickReaction xmatThreadQuickReaction = 29;
-    optional XmatUpdatePayments xmatUpdatePayments = 30;
-    optional XmatPinMessageV2 xmatPinMessageV2 = 31;
-    optional XmatUnpinMessageV2 xmatUnpinMessageV2 = 32;
-    optional XmatGenAITaskAdd xmatGenaiTaskAdd = 33;
     optional bool skipBumpThread = 34;
     optional bool skipSnippetUpdate = 35;
     optional string readonlyMetadataDataclass = 36;
-    optional XmatAddParticipants xmatAddParticipants = 37;
-    optional XmatRemoveParticipant xmatRemoveParticipant = 38;
-    optional XmatChangeThreadAdmins xmatChangeThreadAdmins = 39;
-    optional XmatChangeThreadName xmatChangeThreadName = 40;
-    optional XmatGroupThreadCreated xmatGroupThreadCreated = 41;
-    optional XmatSetParticipantUpdateMode xmatSetParticipantUpdateMode = 42;
-    optional XmatMessengerMessageReminderSet xmatMessengerMessageReminderSet = 43;
-    optional XmatMessengerMessageReminderTriggered xmatMessengerMessageReminderTriggered = 44;
+    oneof content {
+        ChatThemeChanged chatThemeChanged = 1;
+        NicknameChanged nicknameChanged = 2;
+        GroupParticipantChanged groupParticipantChanged = 3;
+        GroupAdminChanged groupAdminChanged = 4;
+        GroupNameChanged groupNameChanged = 5;
+        GroupMembershipAddModeChanged groupMembershipAddModeChanged = 6;
+        MessagePinned messagePinned = 7;
+        GroupImageChanged groupImageChanged = 8;
+        QuickReactionChanged quickReactionChanged = 9;
+        LinkCta linkCta = 10;
+        IconChanged iconChanged = 11;
+        DisappearingSettingChanged disappearingSettingChanged = 12;
+        LimitSharingChanged limitSharingChanged = 13;
+        XmatDisappearingSetting xmatDisappearingSetting = 14;
+        XmatFriendRequestConfirmedEncrypted xmatFriendRequestConfirmedEncrypted = 15;
+        XmatInstantGameEncryptedDynamicCustomUpdate xmatInstantGameEncryptedDynamicCustomUpdate = 16;
+        XmatLinkCTA xmatLinkCta = 17;
+        XmatMagicWords xmatMagicWords = 18;
+        XmatMessagingLimitSharing xmatMessagingLimitSharing = 19;
+        XmatMessengerQRCodeScanned xmatMessengerQrCodeScanned = 20;
+        XmatMessengerSharedAlbumAddition xmatMessengerSharedAlbumAddition = 21;
+        XmatMessengerSharedAlbumContentRemoval xmatMessengerSharedAlbumContentRemoval = 22;
+        XmatMessengerSharedAlbumDeletion xmatMessengerSharedAlbumDeletion = 23;
+        XmatMessengerSharedAlbumRename xmatMessengerSharedAlbumRename = 24;
+        XmatMessengerSharedAlbum xmatMessengerSharedAlbum = 25;
+        XmatThemeColor xmatThemeColor = 26;
+        XmatThreadIcon xmatThreadIcon = 27;
+        XmatThreadNickname xmatThreadNickname = 28;
+        XmatThreadQuickReaction xmatThreadQuickReaction = 29;
+        XmatUpdatePayments xmatUpdatePayments = 30;
+        XmatPinMessageV2 xmatPinMessageV2 = 31;
+        XmatUnpinMessageV2 xmatUnpinMessageV2 = 32;
+        XmatGenAITaskAdd xmatGenaiTaskAdd = 33;
+        XmatAddParticipants xmatAddParticipants = 37;
+        XmatRemoveParticipant xmatRemoveParticipant = 38;
+        XmatChangeThreadAdmins xmatChangeThreadAdmins = 39;
+        XmatChangeThreadName xmatChangeThreadName = 40;
+        XmatGroupThreadCreated xmatGroupThreadCreated = 41;
+        XmatSetParticipantUpdateMode xmatSetParticipantUpdateMode = 42;
+        XmatMessengerMessageReminderSet xmatMessengerMessageReminderSet = 43;
+        XmatMessengerMessageReminderTriggered xmatMessengerMessageReminderTriggered = 44;
+    }
     message XmatMessengerMessageReminderTriggered {
         optional int64 offlineThreadingId = 1;
         optional int64 scheduledTime = 2;
@@ -5839,7 +5919,9 @@ message MiTransportAdminMessage {
         optional string threadIcon = 1;
     }
     message LinkCta {
-        optional UkOsaAdminText ukOsaAdminText = 1;
+        oneof content {
+            UkOsaAdminText ukOsaAdminText = 1;
+        }
         message UkOsaAdminText {
             optional string initiatorUserId = 2;
         }
@@ -6035,12 +6117,16 @@ message MultiDevice {
     message Metadata {
     }
     message Payload {
-        optional MultiDevice.ApplicationData applicationData = 1;
-        optional MultiDevice.Signal signal = 2;
+        oneof payload {
+            MultiDevice.ApplicationData applicationData = 1;
+            MultiDevice.Signal signal = 2;
+        }
     }
     message ApplicationData {
-        optional AppStateSyncKeyShareMessage appStateSyncKeyShare = 1;
-        optional AppStateSyncKeyRequestMessage appStateSyncKeyRequest = 2;
+        oneof applicationData {
+            AppStateSyncKeyShareMessage appStateSyncKeyShare = 1;
+            AppStateSyncKeyRequestMessage appStateSyncKeyRequest = 2;
+        }
         message AppStateSyncKeyRequestMessage {
             repeated MultiDevice.ApplicationData.AppStateSyncKeyId keyIds = 1;
         }
@@ -6698,12 +6784,14 @@ message SignedPreKeyRecordStructure {
 message StatusAttribution {
     optional Type type = 1;
     optional string actionUrl = 2;
-    optional StatusReshare statusReshare = 3;
-    optional ExternalShare externalShare = 4;
-    optional Music music = 5;
-    optional GroupStatus groupStatus = 6;
-    optional RLAttribution rlAttribution = 7;
-    optional AiCreatedAttribution aiCreatedAttribution = 8;
+    oneof attributionData {
+        StatusReshare statusReshare = 3;
+        ExternalShare externalShare = 4;
+        Music music = 5;
+        GroupStatus groupStatus = 6;
+        RLAttribution rlAttribution = 7;
+        AiCreatedAttribution aiCreatedAttribution = 8;
+    }
     enum Type {
         UNKNOWN = 0;
         RESHARE = 1;
@@ -7639,10 +7727,12 @@ message TasksTableSchemaProto {
 }
 
 message TemplateButton {
-    optional QuickReplyButton quickReplyButton = 1;
-    optional URLButton urlButton = 2;
-    optional CallButton callButton = 3;
     optional uint32 index = 4;
+    oneof button {
+        QuickReplyButton quickReplyButton = 1;
+        URLButton urlButton = 2;
+        CallButton callButton = 3;
+    }
     message CallButton {
         optional Message.HighlyStructuredMessage displayText = 1;
         optional Message.HighlyStructuredMessage phoneNumber = 2;
@@ -7694,11 +7784,15 @@ message ThreadsTableSchemaProto {
 }
 
 message TransportEvent {
-    optional Placeholder placeholder = 1;
-    optional Event event = 2;
+    oneof content {
+        Placeholder placeholder = 1;
+        Event event = 2;
+    }
     message Event {
-        optional DeviceChange deviceChange = 1;
-        optional IcdcAlert icdcAlert = 2;
+        oneof event {
+            DeviceChange deviceChange = 1;
+            IcdcAlert icdcAlert = 2;
+        }
         message IcdcAlert {
             optional Type type = 1;
             enum Type {
@@ -7791,8 +7885,10 @@ message UserPassword {
         optional string key = 1;
         optional Value value = 2;
         message Value {
-            optional bytes asBlob = 1;
-            optional uint32 asUnsignedInteger = 2;
+            oneof value {
+                bytes asBlob = 1;
+                uint32 asUnsignedInteger = 2;
+            }
         }
     }
 }

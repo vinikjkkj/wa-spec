@@ -276,12 +276,88 @@ function parseEnumLiteral(s, start) {
     return out
 }
 
-// Parse `<var>.internalSpec = {fieldName:[tag, typeExpr, refExpr?], ...}`.
-// Returns { fieldName: { tag, typeByte, refExpr } }.
-function parseInternalSpec(s, start, protoConstAlias) {
+// Parse a `__oneofs__` value: `{groupName:["fieldA","fieldB"], ...}`.
+// Returns { groupName: [fieldName, ...] }. Anything that isn't a string-array
+// literal is skipped rather than guessed at.
+function parseOneofs(s, start) {
     if (s[start] !== '{') return {}
     let i = start + 1
     const out = {}
+    i = skipWs(s, i)
+    while (i < s.length && s[i] !== '}') {
+        let key = null
+        const kst = i
+        if (s[i] === '"' || s[i] === "'") {
+            const q = s[i]
+            i++
+            const k0 = i
+            while (i < s.length && s[i] !== q) {
+                if (s[i] === '\\') i++
+                i++
+            }
+            key = s.slice(k0, i)
+            i++
+        } else if (/[A-Za-z_$]/.test(s[i])) {
+            while (i < s.length && /[\w$]/.test(s[i])) i++
+            key = s.slice(kst, i)
+        }
+        i = skipWs(s, i)
+        if (s[i] !== ':') {
+            i = skipExpr(s, i, [',', '}'])
+            if (s[i] === ',') i++
+            i = skipWs(s, i)
+            continue
+        }
+        i++
+        i = skipWs(s, i)
+        if (s[i] !== '[') {
+            i = skipExpr(s, i, [',', '}'])
+            if (s[i] === ',') i++
+            i = skipWs(s, i)
+            continue
+        }
+        i++ // skip [
+        const members = []
+        i = skipWs(s, i)
+        while (i < s.length && s[i] !== ']') {
+            if (s[i] === '"' || s[i] === "'") {
+                const q = s[i]
+                i++
+                const m0 = i
+                while (i < s.length && s[i] !== q) {
+                    if (s[i] === '\\') i++
+                    i++
+                }
+                members.push(s.slice(m0, i))
+                i++
+            } else {
+                i = skipExpr(s, i, [',', ']'])
+            }
+            i = skipWs(s, i)
+            if (s[i] === ',') i++
+            i = skipWs(s, i)
+        }
+        if (s[i] === ']') i++
+        i = skipWs(s, i)
+        if (s[i] === ',') i++
+        i = skipWs(s, i)
+        if (key && members.length) out[key] = members
+    }
+    return out
+}
+
+// Parse `<var>.internalSpec = {fieldName:[tag, typeExpr, refExpr?], ...}`.
+// Returns { fields: { fieldName: { tag, typeByte, refExpr } }, oneofs }.
+//
+// Besides field entries, the spec object may carry a `__oneofs__` key mapping
+// a group name to the member field names — that is how the runtime records
+// protobuf `oneof` groups. It is metadata, not a field, so it is returned
+// separately.
+function parseInternalSpec(s, start, protoConstAlias) {
+    if (s[start] !== '{') return { fields: {}, oneofs: {} }
+    let i = start + 1
+    const out = {}
+    let oneofs = {}
     i = skipWs(s, i)
     while (i < s.length && s[i] !== '}') {
         // key
@@ -311,6 +387,14 @@ function parseInternalSpec(s, start, protoConstAlias) {
         }
         i++
         i = skipWs(s, i)
+        // `__oneofs__` carries an object, not a field tuple.
+        if (key === '__oneofs__' && s[i] === '{') {
+            oneofs = parseOneofs(s, i)
+            i = skipExpr(s, i, [',', '}'])
+            if (s[i] === ',') i++
+            i = skipWs(s, i)
+            continue
+        }
         // Expect `[`
         if (s[i] !== '[') {
             i = skipExpr(s, i, [',', '}'])
@@ -355,7 +439,7 @@ function parseInternalSpec(s, start, protoConstAlias) {
             out[key] = { tag, typeByte, refExpr }
         }
     }
-    return out
+    return { fields: out, oneofs }
 }
 
 // Normalise inline alias-bind expressions like `(<id>=<param>("<dep>"))` →
@@ -459,7 +543,7 @@ function extractFromModule(modName, body) {
     while ((nm = nameRe.exec(factoryBody))) {
         const lhs = nm[1]
         const name = nm[2]
-        if (!localMessages.has(lhs)) localMessages.set(lhs, { name, fields: null })
+        if (!localMessages.has(lhs)) localMessages.set(lhs, { name, fields: null, oneofs: null })
         else localMessages.get(lhs).name = name
     }
     const specRe = /([A-Za-z_$][\w$]*)\.internalSpec\s*=\s*\{/g
@@ -467,9 +551,10 @@ function extractFromModule(modName, body) {
     while ((sm = specRe.exec(factoryBody))) {
         const lhs = sm[1]
         const openBrace = sm.index + sm[0].length - 1
-        const fields = parseInternalSpec(factoryBody, openBrace, protoConstAlias)
-        const existing = localMessages.get(lhs) || { name: null, fields: null }
+        const { fields, oneofs } = parseInternalSpec(factoryBody, openBrace, protoConstAlias)
+        const existing = localMessages.get(lhs) || { name: null, fields: null, oneofs: null }
         existing.fields = fields
+        existing.oneofs = oneofs
         localMessages.set(lhs, existing)
     }
 
@@ -566,6 +651,7 @@ function extractProto(bundles, options = {}) {
                     localVar,
                     mod,
                     fields: local.fields || {},
+                    oneofs: local.oneofs || {},
                     sourceModule: modName
                 })
             }
@@ -653,6 +739,9 @@ function extractProto(bundles, options = {}) {
     const enums = {} // qualified -> { values: [{name, number}] }
     let resolvedRefs = 0
     let unresolvedRefs = 0
+    let oneofGroups = 0
+    let oneofMembers = 0
+    const oneofsSkipped = []
 
     for (const [qualified, entry] of messageRegistry) {
         const fields = {}
@@ -727,7 +816,37 @@ function extractProto(bundles, options = {}) {
                 required: isRequired
             }
         }
-        messages[qualified] = { fields }
+        // Validate the oneof groups against what protobuf actually allows.
+        // WA's runtime metadata is looser than the SDL: a member may be absent
+        // from the spec, and repeated/map fields cannot live in a oneof. A
+        // group name also shares the field namespace, so a collision would
+        // make the SDL uncompilable. Anything rejected here degrades to a
+        // plain field rather than being dropped from the message.
+        const oneofs = {}
+        for (const [groupName, members] of Object.entries(entry.oneofs || {})) {
+            if (Object.prototype.hasOwnProperty.call(fields, groupName)) {
+                oneofsSkipped.push({ message: qualified, group: groupName, reason: 'name collides with a field' })
+                continue
+            }
+            const usable = members.filter((m) => {
+                const f = fields[m]
+                if (!f) return false
+                return !f.repeated && !f.isMap
+            })
+            const rejected = members.length - usable.length
+            if (rejected > 0) {
+                oneofsSkipped.push({
+                    message: qualified,
+                    group: groupName,
+                    reason: `${rejected} member(s) not oneof-eligible`
+                })
+            }
+            if (usable.length === 0) continue
+            oneofs[groupName] = usable
+            oneofGroups++
+            oneofMembers += usable.length
+        }
+        messages[qualified] = { fields, oneofs }
     }
     for (const [qualified, entry] of enumRegistry) {
         enums[qualified] = { values: entry.values }
@@ -741,7 +860,10 @@ function extractProto(bundles, options = {}) {
             messagesExtracted: Object.keys(messages).length,
             enumsExtracted: Object.keys(enums).length,
             refsResolved: resolvedRefs,
-            refsUnresolved: unresolvedRefs
+            refsUnresolved: unresolvedRefs,
+            oneofGroups,
+            oneofMembers,
+            oneofsSkipped
         }
     }
 }
@@ -821,13 +943,18 @@ function relativiseTypeName(type, scope) {
     return type
 }
 
-function emitField(name, field, scope = []) {
+// `inOneof` members must be emitted without a label — protobuf forbids
+// optional/repeated inside a oneof block.
+function emitField(name, field, scope = [], inOneof = false) {
     const type = relativiseTypeName(field.type, scope)
     if (field.isMap) {
         return `${type} ${name} = ${field.tag};`
     }
-    const label = field.repeated ? 'repeated' : 'optional'
     const opts = field.packed ? ' [packed=true]' : ''
+    if (inOneof) {
+        return `${type} ${name} = ${field.tag}${opts};`
+    }
+    const label = field.repeated ? 'repeated' : 'optional'
     return `${label} ${type} ${name} = ${field.tag}${opts};`
 }
 
@@ -839,8 +966,28 @@ function emitMessage(name, msg, nestedNode, scope = []) {
     const lines = [`message ${name} {`]
     const ownScope = [...scope, name]
     if (msg) {
-        const fields = Object.entries(msg.fields).sort((a, b) => a[1].tag - b[1].tag)
+        const oneofs = msg.oneofs ?? {}
+        // Members live inside their group's block, so keep them out of the
+        // flat field list.
+        const claimed = new Set(Object.values(oneofs).flat())
+        const fields = Object.entries(msg.fields)
+            .filter(([fName]) => !claimed.has(fName))
+            .sort((a, b) => a[1].tag - b[1].tag)
         for (const [fName, f] of fields) lines.push(`    ${emitField(fName, f, ownScope)}`)
+        // Groups are ordered by their lowest member tag, so the emitted SDL
+        // stays stable across runs regardless of object key order.
+        const groups = Object.entries(oneofs).sort((a, b) => {
+            const lo = (ms) => Math.min(...ms.map((m) => msg.fields[m]?.tag ?? Infinity))
+            return lo(a[1]) - lo(b[1]) || (a[0] < b[0] ? -1 : 1)
+        })
+        for (const [groupName, members] of groups) {
+            lines.push(`    oneof ${groupName} {`)
+            const sorted = [...members].sort((a, b) => msg.fields[a].tag - msg.fields[b].tag)
+            for (const m of sorted) {
+                lines.push(`        ${emitField(m, msg.fields[m], ownScope, true)}`)
+            }
+            lines.push(`    }`)
+        }
     }
     if (nestedNode) {
         for (const [eName, en] of nestedNode.enums) {
