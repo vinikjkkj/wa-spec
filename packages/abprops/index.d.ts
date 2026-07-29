@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044071294
+// WhatsApp Version: 2.3000.1044083468
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -2143,7 +2143,6 @@ export declare const WA_ABPROPS: {
     readonly web_voip_video_mid_cap_height: { readonly code: 28044; readonly type: "int"; readonly defaultValue: 360; readonly debugDefaultValue: 360 }
     readonly web_voip_video_mid_cap_width: { readonly code: 28043; readonly type: "int"; readonly defaultValue: 640; readonly debugDefaultValue: 640 }
     readonly web_voip_video_renderer: { readonly code: 20573; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
-    readonly web_waffle: { readonly code: 14300; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_wam_max_buffer_upload_size_bytes: { readonly code: 9501; readonly type: "int"; readonly defaultValue: 64000; readonly debugDefaultValue: 64000 }
     readonly web_whats_new_auto_modal: { readonly code: 29621; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_whats_new_auto_modal_content_version: { readonly code: 33475; readonly type: "int"; readonly defaultValue: 2; readonly debugDefaultValue: 2 }
@@ -2920,7 +2919,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 14279: "is_part_of_gsc_experiment"
     readonly 14286: "username_numeric_code_v4"
     readonly 14294: "web_catalog_recovery_flow_enabled"
-    readonly 14300: "web_waffle"
     readonly 14303: "lid_trusted_token_issue_to_lid"
     readonly 14317: "support_lids"
     readonly 14333: "payment_support_lids"

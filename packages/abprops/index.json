@@ -1,6 +1,6 @@
 {
-  "waVersion": "2.3000.1044071294",
-  "propCount": 2151,
+  "waVersion": "2.3000.1044083468",
+  "propCount": 2150,
   "groupPropCount": 14,
   "usedBeforeInitialization": [
     "community_admin_promotion_one_time_prompt",
@@ -12735,12 +12735,6 @@
       "type": "int",
       "defaultValue": 0,
       "debugDefaultValue": 0
-    },
-    "web_waffle": {
-      "code": 14300,
-      "type": "bool",
-      "defaultValue": false,
-      "debugDefaultValue": false
     },
     "web_wam_max_buffer_upload_size_bytes": {
       "code": 9501,

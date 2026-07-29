@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1044052011",
+  "waVersion": "2.3000.1044083468",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -114,7 +114,9 @@
         "COMMUNITY_MEMBERS_LIST": 4,
         "FORWARD_CONTACTS": 5,
         "PROFILE_INFO_BOTTOM_SHEET": 6,
-        "PROFILE_INFO": 7
+        "PROFILE_INFO": 7,
+        "CONTACTS_TAB_FAVORITES": 8,
+        "CONTACTS_TAB_LIST": 9
       }
     },
     "ABOUT_ENTRYPOINT_TYPE": {
@@ -941,7 +943,8 @@
         "SMB_PAYMENT_MERCHANT_HARD_BLOCKED_ACCOUNT_STATUS_BANNER": 118,
         "SMB_PAYMENT_MERCHANT_SOFT_BLOCKED_ACCOUNT_STATUS_BANNER": 119,
         "SMB_PAYMENT_MERCHANT_INTEGRITY_BLOCKED_ACCOUNT_STATUS_BANNER": 120,
-        "SMB_SHOP_SUNSET_BANNER": 121
+        "SMB_SHOP_SUNSET_BANNER": 121,
+        "CHANNEL_ADMIN_PROFILES_ADOPTION": 122
       }
     },
     "BB_TIER_TYPE": {
@@ -1490,7 +1493,8 @@
         "OHAI_REQ_NACK": 2,
         "ADD_EXTENSION_NACK": 3,
         "OHAI_REQ_HTTP_ERROR": 4,
-        "OHAI_REQ_TEE_ERROR": 5
+        "OHAI_REQ_TEE_ERROR": 5,
+        "FIRST_FRAME_TIMEOUT": 6
       }
     },
     "CA2D_EXTENSION_CONNECTION_STATE": {
@@ -4024,7 +4028,8 @@
         "DEEP_LINK_AI_MAGIC_CUE_SETTING": 252,
         "DEEP_LINK_WINBACK_METRICS": 253,
         "DEEP_LINK_AGE_COLLECTION": 254,
-        "DEEP_LINK_SETTINGS_ACCOUNT_PASSWORD": 255
+        "DEEP_LINK_SETTINGS_ACCOUNT_PASSWORD": 255,
+        "DEEP_LINK_BUSINESS_FOLDER": 256
       }
     },
     "DEFAULT_AUDIENCE_LOCATION_TYPE": {
@@ -5416,7 +5421,11 @@
         "GROUP_HISTORY_DROPDOWN_MENU_ITEM_DISPLAYED": 15,
         "GROUP_HISTORY_DROPDOWN_MENU_ITEM_CLICKED": 16,
         "SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_DISPLAY": 17,
-        "SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED": 18
+        "SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED": 18,
+        "GROUP_HISTORY_BOTTOMSHEET_DISPLAYED": 19,
+        "GROUP_HISTORY_BOTTOMSHEET_CONFIRM_BUTTON_CLICKED": 20,
+        "GROUP_HISTORY_BOTTOMSHEET_CANCEL_BUTTON_CLICKED": 21,
+        "GROUP_HISTORY_BOTTOMSHEET_DISMISSED": 22
       }
     },
     "GROUP_HISTORY_SYSTEM_MESSAGE_TYPE": {
@@ -12943,7 +12952,8 @@
         "MEDIA_BROWSER_STATUS_MENU": 57,
         "ARCHIVE_STATUS_VIEWER": 58,
         "ME_TAB": 59,
-        "CONTACTS_TAB": 60
+        "CONTACTS_TAB": 60,
+        "CHANNEL_THREAD_SCREEN_PROFILE_RING": 61
       }
     },
     "STATUS_CROSSPOST_SHARE_TYPE_ENUM": {
@@ -14433,7 +14443,8 @@
         "LAYOUTS": 15,
         "CLOSE_SHARING": 16,
         "CHANNEL_STATUS": 17,
-        "RESHARED_FROM_CHANNEL": 18
+        "RESHARED_FROM_CHANNEL": 18,
+        "USERNAME_STATUS": 19
       }
     },
     "TRIGGER_TYPE": {
@@ -16124,6 +16135,36 @@
       "values": {
         "NATIVE_WEB": 0,
         "EXTERNAL_WEB": 1
+      }
+    },
+    "WEB_HYBRID_APP_RATE_AND_REVIEW_PROMPT_DIALOG_STATUS_RESULT": {
+      "module": "WAWebWamEnumWebHybridAppRateAndReviewPromptDialogStatusResult",
+      "export": "WEB_HYBRID_APP_RATE_AND_REVIEW_PROMPT_DIALOG_STATUS_RESULT",
+      "values": {
+        "CONFIRMED": 0,
+        "CLOSED": 1,
+        "DISMISSED": 2,
+        "SIDELOADED": 3
+      }
+    },
+    "WEB_HYBRID_APP_RATE_AND_REVIEW_REQUEST_SOURCE": {
+      "module": "WAWebWamEnumWebHybridAppRateAndReviewRequestSource",
+      "export": "WEB_HYBRID_APP_RATE_AND_REVIEW_REQUEST_SOURCE",
+      "values": {
+        "OTHER": 0,
+        "HELP_SECTION_IN_SETTINGS": 1,
+        "NAVIGATION_PANEL_BUTTON": 2,
+        "PROMPT_DIALOG": 3
+      }
+    },
+    "WEB_HYBRID_APP_RATE_AND_REVIEW_STATUS_RESULT": {
+      "module": "WAWebWamEnumWebHybridAppRateAndReviewStatusResult",
+      "export": "WEB_HYBRID_APP_RATE_AND_REVIEW_STATUS_RESULT",
+      "values": {
+        "SUCCEEDED": 0,
+        "CANCELED_BY_USER": 1,
+        "NETWORK_ERROR": 2,
+        "ERROR": 3
       }
     },
     "WEB_NOTIFICATION_SETTING_TYPE": {
@@ -20089,6 +20130,11 @@
           "type": "boolean",
           "falcoName": "c50_linked"
         },
+        "ca2dE2eNetworkDelayMs": {
+          "id": 3080,
+          "type": "number",
+          "falcoName": "ca2d_e2e_network_delay_ms"
+        },
         "ca2dEverConnected": {
           "id": 3077,
           "type": "boolean",
@@ -20115,6 +20161,16 @@
           "id": 3036,
           "type": "timer",
           "falcoName": "ca2d_extension_create_t"
+        },
+        "ca2dNetCathodeSfuRttMs": {
+          "id": 3081,
+          "type": "number",
+          "falcoName": "ca2d_net_cathode_sfu_rtt_ms"
+        },
+        "ca2dNetCreatorSfuRttMs": {
+          "id": 3082,
+          "type": "number",
+          "falcoName": "ca2d_net_creator_sfu_rtt_ms"
         },
         "ca2dPreviewT": {
           "id": 3037,
@@ -21964,6 +22020,16 @@
           "id": 1879,
           "type": "integer",
           "falcoName": "device_native_sampling_rate"
+        },
+        "deviceSocManufacturer": {
+          "id": 3078,
+          "type": "string",
+          "falcoName": "device_soc_manufacturer"
+        },
+        "deviceSocModel": {
+          "id": 3079,
+          "type": "string",
+          "falcoName": "device_soc_model"
         },
         "dlOnlyHighPlrPct": {
           "id": 1364,
@@ -38137,6 +38203,11 @@
           "falcoName": "deep_link_type",
           "enum": "DEEP_LINK_TYPE"
         },
+        "failureReason": {
+          "id": 9,
+          "type": "string",
+          "falcoName": "failure_reason"
+        },
         "isContact": {
           "id": 4,
           "type": "boolean",
@@ -51998,6 +52069,11 @@
           "id": 6,
           "type": "string",
           "falcoName": "protobuf_validation_rule_id"
+        },
+        "protobufValidationThumbnailFormat": {
+          "id": 10,
+          "type": "string",
+          "falcoName": "protobuf_validation_thumbnail_format"
         }
       }
     },
@@ -52760,6 +52836,16 @@
       "requiredFields": [],
       "conditions": [],
       "fields": {
+        "audioDriverRestartCount": {
+          "id": 52,
+          "type": "integer",
+          "falcoName": "audio_driver_restart_count"
+        },
+        "audioDriverRestartReason": {
+          "id": 53,
+          "type": "integer",
+          "falcoName": "audio_driver_restart_reason"
+        },
         "isMetaAiThread": {
           "id": 15,
           "type": "boolean",
@@ -61799,6 +61885,41 @@
       "requiredFields": [],
       "conditions": [],
       "fields": {
+        "clientTsMs": {
+          "id": 2,
+          "type": "integer",
+          "falcoName": "client_ts_ms"
+        },
+        "durationInSecs": {
+          "id": 3,
+          "type": "integer",
+          "falcoName": "duration_in_secs"
+        },
+        "hasPn": {
+          "id": 4,
+          "type": "boolean",
+          "falcoName": "has_pn"
+        },
+        "hasPush": {
+          "id": 5,
+          "type": "boolean",
+          "falcoName": "has_push"
+        },
+        "hasUn": {
+          "id": 6,
+          "type": "boolean",
+          "falcoName": "has_un"
+        },
+        "isFirstDisplay": {
+          "id": 7,
+          "type": "boolean",
+          "falcoName": "is_first_display"
+        },
+        "jidType": {
+          "id": 8,
+          "type": "string",
+          "falcoName": "jid_type"
+        },
         "unknownUserDisplayContext": {
           "id": 1,
           "type": "string",
@@ -62660,6 +62781,38 @@
         }
       }
     },
+    "WebArkoseToken": {
+      "id": 7028,
+      "module": "WAWebWebArkoseTokenWamEvent",
+      "falcoName": "wam_web_arkose_token",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "mdClientSessionId": {
+          "id": 3,
+          "type": "string",
+          "falcoName": "md_client_session_id"
+        },
+        "mdSessionId": {
+          "id": 2,
+          "type": "string",
+          "falcoName": "md_session_id"
+        },
+        "token": {
+          "id": 1,
+          "type": "string",
+          "falcoName": "token"
+        }
+      }
+    },
     "WebContactListStartNewChat": {
       "id": 4560,
       "module": "WAWebWebContactListStartNewChatWamEvent",
@@ -62874,6 +63027,83 @@
           "id": 1,
           "type": "boolean",
           "falcoName": "hd_media_selected"
+        }
+      }
+    },
+    "WebHybridAppRateAndReviewPromptDialogShown": {
+      "id": 7104,
+      "module": "WAWebWebHybridAppRateAndReviewPromptDialogShownWamEvent",
+      "falcoName": "wam_web_hybrid_app_rate_and_review_prompt_dialog_shown",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "webHybridAppRateAndReviewPromptDialogShownTime": {
+          "id": 1,
+          "type": "timer",
+          "falcoName": "web_hybrid_app_rate_and_review_prompt_dialog_shown_time"
+        },
+        "webHybridAppRateAndReviewPromptDialogStatusResult": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "web_hybrid_app_rate_and_review_prompt_dialog_status_result",
+          "enum": "WEB_HYBRID_APP_RATE_AND_REVIEW_PROMPT_DIALOG_STATUS_RESULT"
+        },
+        "webHybridDontShowAgainAppRateAndReviewChecked": {
+          "id": 3,
+          "type": "boolean",
+          "falcoName": "web_hybrid_dont_show_again_app_rate_and_review_checked"
+        }
+      }
+    },
+    "WebHybridAppRateAndReviewRequested": {
+      "id": 7106,
+      "module": "WAWebWebHybridAppRateAndReviewRequestedWamEvent",
+      "falcoName": "wam_web_hybrid_app_rate_and_review_requested",
+      "channel": "regular",
+      "privateStatsIdInt": null,
+      "emittedByWorker": false,
+      "weight": {
+        "default": 1,
+        "gkx26259": 1,
+        "gkx26258": 1
+      },
+      "requiredFields": [],
+      "conditions": [],
+      "fields": {
+        "webHybridAppRateAndReviewRequestDialogShownTime": {
+          "id": 1,
+          "type": "timer",
+          "falcoName": "web_hybrid_app_rate_and_review_request_dialog_shown_time"
+        },
+        "webHybridAppRateAndReviewRequestSource": {
+          "id": 2,
+          "type": "enum",
+          "falcoName": "web_hybrid_app_rate_and_review_request_source",
+          "enum": "WEB_HYBRID_APP_RATE_AND_REVIEW_REQUEST_SOURCE"
+        },
+        "webHybridAppRateAndReviewStatusResult": {
+          "id": 3,
+          "type": "enum",
+          "falcoName": "web_hybrid_app_rate_and_review_status_result",
+          "enum": "WEB_HYBRID_APP_RATE_AND_REVIEW_STATUS_RESULT"
+        },
+        "webHybridAppRateAndReviewWasReviewUpdated": {
+          "id": 4,
+          "type": "boolean",
+          "falcoName": "web_hybrid_app_rate_and_review_was_review_updated"
+        },
+        "webHybridFallbackedToMsStoreReviewPipeline": {
+          "id": 5,
+          "type": "boolean",
+          "falcoName": "web_hybrid_fallbacked_to_ms_store_review_pipeline"
         }
       }
     },

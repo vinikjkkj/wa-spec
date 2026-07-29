@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044071294
+// WhatsApp Version: 2.3000.1044083468
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -2124,7 +2124,6 @@ const WA_ABPROPS = Object.freeze({
     web_voip_video_mid_cap_height: Object.freeze({ code: 28044, type: "int", defaultValue: 360, debugDefaultValue: 360 }),
     web_voip_video_mid_cap_width: Object.freeze({ code: 28043, type: "int", defaultValue: 640, debugDefaultValue: 640 }),
     web_voip_video_renderer: Object.freeze({ code: 20573, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
-    web_waffle: Object.freeze({ code: 14300, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_wam_max_buffer_upload_size_bytes: Object.freeze({ code: 9501, type: "int", defaultValue: 64000, debugDefaultValue: 64000 }),
     web_whats_new_auto_modal: Object.freeze({ code: 29621, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_whats_new_auto_modal_content_version: Object.freeze({ code: 33475, type: "int", defaultValue: 2, debugDefaultValue: 2 }),
@@ -2904,7 +2903,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     14279: "is_part_of_gsc_experiment",
     14286: "username_numeric_code_v4",
     14294: "web_catalog_recovery_flow_enabled",
-    14300: "web_waffle",
     14303: "lid_trusted_token_issue_to_lid",
     14317: "support_lids",
     14333: "payment_support_lids",

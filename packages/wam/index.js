@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044052011
+// WhatsApp Version: 2.3000.1044083468
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -83,7 +83,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'COMMUNITY_MEMBERS_LIST': 4,
         'FORWARD_CONTACTS': 5,
         'PROFILE_INFO_BOTTOM_SHEET': 6,
-        'PROFILE_INFO': 7
+        'PROFILE_INFO': 7,
+        'CONTACTS_TAB_FAVORITES': 8,
+        'CONTACTS_TAB_LIST': 9
         })
     }),
     ABOUT_ENTRYPOINT_TYPE: Object.freeze({
@@ -910,7 +912,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_PAYMENT_MERCHANT_HARD_BLOCKED_ACCOUNT_STATUS_BANNER': 118,
         'SMB_PAYMENT_MERCHANT_SOFT_BLOCKED_ACCOUNT_STATUS_BANNER': 119,
         'SMB_PAYMENT_MERCHANT_INTEGRITY_BLOCKED_ACCOUNT_STATUS_BANNER': 120,
-        'SMB_SHOP_SUNSET_BANNER': 121
+        'SMB_SHOP_SUNSET_BANNER': 121,
+        'CHANNEL_ADMIN_PROFILES_ADOPTION': 122
         })
     }),
     BB_TIER_TYPE: Object.freeze({
@@ -1459,7 +1462,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'OHAI_REQ_NACK': 2,
         'ADD_EXTENSION_NACK': 3,
         'OHAI_REQ_HTTP_ERROR': 4,
-        'OHAI_REQ_TEE_ERROR': 5
+        'OHAI_REQ_TEE_ERROR': 5,
+        'FIRST_FRAME_TIMEOUT': 6
         })
     }),
     CA2D_EXTENSION_CONNECTION_STATE: Object.freeze({
@@ -3993,7 +3997,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_AI_MAGIC_CUE_SETTING': 252,
         'DEEP_LINK_WINBACK_METRICS': 253,
         'DEEP_LINK_AGE_COLLECTION': 254,
-        'DEEP_LINK_SETTINGS_ACCOUNT_PASSWORD': 255
+        'DEEP_LINK_SETTINGS_ACCOUNT_PASSWORD': 255,
+        'DEEP_LINK_BUSINESS_FOLDER': 256
         })
     }),
     DEFAULT_AUDIENCE_LOCATION_TYPE: Object.freeze({
@@ -5385,7 +5390,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_HISTORY_DROPDOWN_MENU_ITEM_DISPLAYED': 15,
         'GROUP_HISTORY_DROPDOWN_MENU_ITEM_CLICKED': 16,
         'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_DISPLAY': 17,
-        'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED': 18
+        'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED': 18,
+        'GROUP_HISTORY_BOTTOMSHEET_DISPLAYED': 19,
+        'GROUP_HISTORY_BOTTOMSHEET_CONFIRM_BUTTON_CLICKED': 20,
+        'GROUP_HISTORY_BOTTOMSHEET_CANCEL_BUTTON_CLICKED': 21,
+        'GROUP_HISTORY_BOTTOMSHEET_DISMISSED': 22
         })
     }),
     GROUP_HISTORY_SYSTEM_MESSAGE_TYPE: Object.freeze({
@@ -12912,7 +12921,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'MEDIA_BROWSER_STATUS_MENU': 57,
         'ARCHIVE_STATUS_VIEWER': 58,
         'ME_TAB': 59,
-        'CONTACTS_TAB': 60
+        'CONTACTS_TAB': 60,
+        'CHANNEL_THREAD_SCREEN_PROFILE_RING': 61
         })
     }),
     STATUS_CROSSPOST_SHARE_TYPE_ENUM: Object.freeze({
@@ -14402,7 +14412,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LAYOUTS': 15,
         'CLOSE_SHARING': 16,
         'CHANNEL_STATUS': 17,
-        'RESHARED_FROM_CHANNEL': 18
+        'RESHARED_FROM_CHANNEL': 18,
+        'USERNAME_STATUS': 19
         })
     }),
     TRIGGER_TYPE: Object.freeze({
@@ -16095,6 +16106,36 @@ const WA_WAM_ENUMS = Object.freeze({
         'EXTERNAL_WEB': 1
         })
     }),
+    WEB_HYBRID_APP_RATE_AND_REVIEW_PROMPT_DIALOG_STATUS_RESULT: Object.freeze({
+        module: 'WAWebWamEnumWebHybridAppRateAndReviewPromptDialogStatusResult',
+        export: 'WEB_HYBRID_APP_RATE_AND_REVIEW_PROMPT_DIALOG_STATUS_RESULT',
+        values: Object.freeze({
+        'CONFIRMED': 0,
+        'CLOSED': 1,
+        'DISMISSED': 2,
+        'SIDELOADED': 3
+        })
+    }),
+    WEB_HYBRID_APP_RATE_AND_REVIEW_REQUEST_SOURCE: Object.freeze({
+        module: 'WAWebWamEnumWebHybridAppRateAndReviewRequestSource',
+        export: 'WEB_HYBRID_APP_RATE_AND_REVIEW_REQUEST_SOURCE',
+        values: Object.freeze({
+        'OTHER': 0,
+        'HELP_SECTION_IN_SETTINGS': 1,
+        'NAVIGATION_PANEL_BUTTON': 2,
+        'PROMPT_DIALOG': 3
+        })
+    }),
+    WEB_HYBRID_APP_RATE_AND_REVIEW_STATUS_RESULT: Object.freeze({
+        module: 'WAWebWamEnumWebHybridAppRateAndReviewStatusResult',
+        export: 'WEB_HYBRID_APP_RATE_AND_REVIEW_STATUS_RESULT',
+        values: Object.freeze({
+        'SUCCEEDED': 0,
+        'CANCELED_BY_USER': 1,
+        'NETWORK_ERROR': 2,
+        'ERROR': 3
+        })
+    }),
     WEB_NOTIFICATION_SETTING_TYPE: Object.freeze({
         module: 'WAWebWamEnumWebNotificationSettingType',
         export: 'WEB_NOTIFICATION_SETTING_TYPE',
@@ -17215,11 +17256,14 @@ const WA_WAM_EVENTS = Object.freeze({
             bwaVidDisablingTxCandidateDuration: Object.freeze({ id: 1115, type: 'timer', falcoName: 'bwa_vid_disabling_tx_candidate_duration' }),
             bweSlrOutputBps: Object.freeze({ id: 2461, type: 'integer', falcoName: 'bwe_slr_output_bps' }),
             c50Linked: Object.freeze({ id: 3001, type: 'boolean', falcoName: 'c50_linked' }),
+            ca2dE2eNetworkDelayMs: Object.freeze({ id: 3080, type: 'number', falcoName: 'ca2d_e2e_network_delay_ms' }),
             ca2dEverConnected: Object.freeze({ id: 3077, type: 'boolean', falcoName: 'ca2d_ever_connected' }),
             ca2dExtensionAddFailureReason: Object.freeze({ id: 3067, type: 'enum', enum: 'CA2D_EXTENSION_ADD_FAILURE_REASON', falcoName: 'ca2d_extension_add_failure_reason' }),
             ca2dExtensionAddT: Object.freeze({ id: 3034, type: 'timer', falcoName: 'ca2d_extension_add_t' }),
             ca2dExtensionConnectionState: Object.freeze({ id: 3035, type: 'enum', enum: 'CA2D_EXTENSION_CONNECTION_STATE', falcoName: 'ca2d_extension_connection_state' }),
             ca2dExtensionCreateT: Object.freeze({ id: 3036, type: 'timer', falcoName: 'ca2d_extension_create_t' }),
+            ca2dNetCathodeSfuRttMs: Object.freeze({ id: 3081, type: 'number', falcoName: 'ca2d_net_cathode_sfu_rtt_ms' }),
+            ca2dNetCreatorSfuRttMs: Object.freeze({ id: 3082, type: 'number', falcoName: 'ca2d_net_creator_sfu_rtt_ms' }),
             ca2dPreviewT: Object.freeze({ id: 3037, type: 'timer', falcoName: 'ca2d_preview_t' }),
             ca2dReceiverExtConnectT: Object.freeze({ id: 3074, type: 'timer', falcoName: 'ca2d_receiver_ext_connect_t' }),
             ca2dReceiverFirstFrameT: Object.freeze({ id: 3075, type: 'timer', falcoName: 'ca2d_receiver_first_frame_t' }),
@@ -17585,6 +17629,8 @@ const WA_WAM_EVENTS = Object.freeze({
             deviceClass: Object.freeze({ id: 1269, type: 'string', falcoName: 'device_class' }),
             deviceHardware: Object.freeze({ id: 229, type: 'string', falcoName: 'device_hardware' }),
             deviceNativeSamplingRate: Object.freeze({ id: 1879, type: 'integer', falcoName: 'device_native_sampling_rate' }),
+            deviceSocManufacturer: Object.freeze({ id: 3078, type: 'string', falcoName: 'device_soc_manufacturer' }),
+            deviceSocModel: Object.freeze({ id: 3079, type: 'string', falcoName: 'device_soc_model' }),
             dlOnlyHighPlrPct: Object.freeze({ id: 1364, type: 'number', falcoName: 'dl_only_high_plr_pct' }),
             dndRingPath: Object.freeze({ id: 2923, type: 'enum', enum: 'DND_RING_PATH_TYPE', falcoName: 'dnd_ring_path' }),
             doNotDisturbEnabled: Object.freeze({ id: 1597, type: 'boolean', falcoName: 'do_not_disturb_enabled' }),
@@ -21312,6 +21358,7 @@ const WA_WAM_EVENTS = Object.freeze({
             deepLinkOpenFrom: Object.freeze({ id: 2, type: 'enum', enum: 'DEEP_LINK_OPEN_FROM', falcoName: 'deep_link_open_from' }),
             deepLinkSessionId: Object.freeze({ id: 6, type: 'string', falcoName: 'deep_link_session_id' }),
             deepLinkType: Object.freeze({ id: 3, type: 'enum', enum: 'DEEP_LINK_TYPE', falcoName: 'deep_link_type' }),
+            failureReason: Object.freeze({ id: 9, type: 'string', falcoName: 'failure_reason' }),
             isContact: Object.freeze({ id: 4, type: 'boolean', falcoName: 'is_contact' }),
             linkOwnerType: Object.freeze({ id: 5, type: 'enum', enum: 'OWNER_TYPE', falcoName: 'link_owner_type' }),
             sourceSurface: Object.freeze({ id: 7, type: 'integer', falcoName: 'source_surface' })
@@ -25324,7 +25371,8 @@ const WA_WAM_EVENTS = Object.freeze({
             protobufValidationExpression: Object.freeze({ id: 3, type: 'string', falcoName: 'protobuf_validation_expression' }),
             protobufValidationFlow: Object.freeze({ id: 4, type: 'enum', enum: 'PROTOBUF_VALIDATION_FLOW', falcoName: 'protobuf_validation_flow' }),
             protobufValidationPath: Object.freeze({ id: 5, type: 'string', falcoName: 'protobuf_validation_path' }),
-            protobufValidationRuleId: Object.freeze({ id: 6, type: 'string', falcoName: 'protobuf_validation_rule_id' })
+            protobufValidationRuleId: Object.freeze({ id: 6, type: 'string', falcoName: 'protobuf_validation_rule_id' }),
+            protobufValidationThumbnailFormat: Object.freeze({ id: 10, type: 'string', falcoName: 'protobuf_validation_thumbnail_format' })
         })
     }),
     PsApiSignupFlow: Object.freeze({
@@ -25618,6 +25666,8 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            audioDriverRestartCount: Object.freeze({ id: 52, type: 'integer', falcoName: 'audio_driver_restart_count' }),
+            audioDriverRestartReason: Object.freeze({ id: 53, type: 'integer', falcoName: 'audio_driver_restart_reason' }),
             isMetaAiThread: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_meta_ai_thread' }),
             pttAuddevRecorderAvgCbT: Object.freeze({ id: 17, type: 'timer', falcoName: 'ptt_auddev_recorder_avg_cb_t' }),
             pttAuddevRecorderInitT: Object.freeze({ id: 18, type: 'timer', falcoName: 'ptt_auddev_recorder_init_t' }),
@@ -28179,6 +28229,13 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            clientTsMs: Object.freeze({ id: 2, type: 'integer', falcoName: 'client_ts_ms' }),
+            durationInSecs: Object.freeze({ id: 3, type: 'integer', falcoName: 'duration_in_secs' }),
+            hasPn: Object.freeze({ id: 4, type: 'boolean', falcoName: 'has_pn' }),
+            hasPush: Object.freeze({ id: 5, type: 'boolean', falcoName: 'has_push' }),
+            hasUn: Object.freeze({ id: 6, type: 'boolean', falcoName: 'has_un' }),
+            isFirstDisplay: Object.freeze({ id: 7, type: 'boolean', falcoName: 'is_first_display' }),
+            jidType: Object.freeze({ id: 8, type: 'string', falcoName: 'jid_type' }),
             unknownUserDisplayContext: Object.freeze({ id: 1, type: 'string', falcoName: 'unknown_user_display_context' })
         })
     }),
@@ -28442,6 +28499,21 @@ const WA_WAM_EVENTS = Object.freeze({
             isFromWamsys: Object.freeze({ id: 3, type: 'boolean', falcoName: 'is_from_wamsys' })
         })
     }),
+    WebArkoseToken: Object.freeze({
+        id: 7028,
+        falcoName: 'wam_web_arkose_token',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            mdClientSessionId: Object.freeze({ id: 3, type: 'string', falcoName: 'md_client_session_id' }),
+            mdSessionId: Object.freeze({ id: 2, type: 'string', falcoName: 'md_session_id' }),
+            token: Object.freeze({ id: 1, type: 'string', falcoName: 'token' })
+        })
+    }),
     WebContactListStartNewChat: Object.freeze({
         id: 4560,
         falcoName: 'wam_web_contact_list_start_new_chat',
@@ -28553,6 +28625,38 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             hdMediaSelected: Object.freeze({ id: 1, type: 'boolean', falcoName: 'hd_media_selected' })
+        })
+    }),
+    WebHybridAppRateAndReviewPromptDialogShown: Object.freeze({
+        id: 7104,
+        falcoName: 'wam_web_hybrid_app_rate_and_review_prompt_dialog_shown',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            webHybridAppRateAndReviewPromptDialogShownTime: Object.freeze({ id: 1, type: 'timer', falcoName: 'web_hybrid_app_rate_and_review_prompt_dialog_shown_time' }),
+            webHybridAppRateAndReviewPromptDialogStatusResult: Object.freeze({ id: 2, type: 'enum', enum: 'WEB_HYBRID_APP_RATE_AND_REVIEW_PROMPT_DIALOG_STATUS_RESULT', falcoName: 'web_hybrid_app_rate_and_review_prompt_dialog_status_result' }),
+            webHybridDontShowAgainAppRateAndReviewChecked: Object.freeze({ id: 3, type: 'boolean', falcoName: 'web_hybrid_dont_show_again_app_rate_and_review_checked' })
+        })
+    }),
+    WebHybridAppRateAndReviewRequested: Object.freeze({
+        id: 7106,
+        falcoName: 'wam_web_hybrid_app_rate_and_review_requested',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            webHybridAppRateAndReviewRequestDialogShownTime: Object.freeze({ id: 1, type: 'timer', falcoName: 'web_hybrid_app_rate_and_review_request_dialog_shown_time' }),
+            webHybridAppRateAndReviewRequestSource: Object.freeze({ id: 2, type: 'enum', enum: 'WEB_HYBRID_APP_RATE_AND_REVIEW_REQUEST_SOURCE', falcoName: 'web_hybrid_app_rate_and_review_request_source' }),
+            webHybridAppRateAndReviewStatusResult: Object.freeze({ id: 3, type: 'enum', enum: 'WEB_HYBRID_APP_RATE_AND_REVIEW_STATUS_RESULT', falcoName: 'web_hybrid_app_rate_and_review_status_result' }),
+            webHybridAppRateAndReviewWasReviewUpdated: Object.freeze({ id: 4, type: 'boolean', falcoName: 'web_hybrid_app_rate_and_review_was_review_updated' }),
+            webHybridFallbackedToMsStoreReviewPipeline: Object.freeze({ id: 5, type: 'boolean', falcoName: 'web_hybrid_fallbacked_to_ms_store_review_pipeline' })
         })
     }),
     WebWamForceFlush: Object.freeze({
