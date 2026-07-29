@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044083468
+// WhatsApp Version: unknown
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -457,7 +457,7 @@ export type WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeVar
 
 export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables = {
     readonly accountID?: string
-    readonly ads_andromeda_bulk_edit_campaign_group_budget?: unknown
+    readonly ads_andromeda_bulk_edit_campaign_group_budget?: boolean
     readonly campaignGroupRelayIDs?: unknown
     readonly contextKey?: unknown
 }
@@ -743,9 +743,9 @@ export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
 
 export type WaMexEBMessageRangeQueryForThreadsVariables = {
     readonly app_id?: string
-    readonly includeAttachmentData?: unknown
+    readonly includeAttachmentData?: boolean
     readonly restore_payload_strings?: unknown
-    readonly restore_type?: string
+    readonly restore_type?: 'INITIAL_RESTORE' | 'RANGE_QUERY_RESTORE'
 }
 
 export type WaMexEBMinosFetchContactKeysVariables = {

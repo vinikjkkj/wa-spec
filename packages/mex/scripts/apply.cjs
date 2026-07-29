@@ -787,6 +787,50 @@ ${responseMapLines}
             `${wireStats.enumMerged} enum-merged, ${wireStats.changedConflicting} corrected)`
         )
     }
+    // Report against the emitted IR, so the counts reflect what actually
+    // ships — after enum discovery and wire overrides have had their say.
+    reportUnknownLeaves(ir.operations, sortedKeys)
+}
+
+// Report how many leaves ended as `unknown`. Type inference degrades quietly
+// by design — an operation whose call site we cannot classify still gets a
+// correct shape, just untyped leaves. That means a jump in unknowns (e.g. a
+// new corpus exposing operations invoked through an unfamiliar pattern) is
+// invisible unless it is counted, so surface it next to the other stats.
+function countUnknownLeaves(node) {
+    if (node === 'unknown') return 1
+    if (node === null || typeof node !== 'object') return 0
+    let n = 0
+    for (const v of Object.values(node)) n += countUnknownLeaves(v)
+    return n
+}
+
+function reportUnknownLeaves(operations, sortedKeys) {
+    let vars = 0
+    let resp = 0
+    const worst = []
+    for (const k of sortedKeys) {
+        const op = operations[k]
+        if (!op) continue
+        const v = countUnknownLeaves(op.variablesShape ?? {})
+        const r = countUnknownLeaves(op.response ?? {})
+        vars += v
+        resp += r
+        if (v + r > 0) worst.push({ op: k, total: v + r })
+    }
+    if (vars + resp === 0) {
+        console.log(`apply: leaf types — all leaves typed`)
+        return
+    }
+    worst.sort((a, b) => b.total - a.total)
+    const top = worst
+        .slice(0, 3)
+        .map((w) => `${w.op}:${w.total}`)
+        .join(', ')
+    console.log(
+        `apply: leaf types — ${vars + resp} unknown leaves (${vars} in variables, ${resp} in responses) ` +
+            `across ${worst.length}/${sortedKeys.length} ops; worst ${top}${worst.length > 3 ? '…' : ''}`
+    )
 }
 
 main()

@@ -311,6 +311,15 @@ function classifyCallExpr(expr) {
     if (/^JSON\.stringify\s*\(/.test(expr)) return 'string'
     // Boolean coercion
     if (/^Boolean\s*\(/.test(expr)) return 'boolean'
+    // Meta gating primitives. These are not name guesses — each returns a
+    // boolean by construction:
+    //   gkx("123")          gatekeeper check
+    //   justknobx._("123")  JustKnobs check
+    //   qex._("123")        QuickExperiment boolean param
+    // They reach here as `<loader>("gkx")("123")` after minification, and are
+    // a common RHS in variable-builder modules.
+    if (/^[a-z_$][\w$]*\s*\(\s*"(?:gkx|justknobx|qex)"\s*\)\s*(?:\.\s*_\s*)?\(/.test(expr)) return 'boolean'
+    if (/^(?:gkx|justknobx|qex)\s*(?:\.\s*_\s*)?\(/.test(expr)) return 'boolean'
     // Array constructors / methods returning arrays
     if (/^Array\.(from|of|isArray)\b/.test(expr)) return 'unknown' // structural, not a leaf
     // WA utility module patterns: o("WAFooUtils").bar(...)  /  n("WAFooUtils").bar

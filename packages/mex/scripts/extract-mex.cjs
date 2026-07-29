@@ -585,9 +585,11 @@ function extractMex(bundles) {
     const callerByGraphql = {}
     const graphqlModules = new Set()
     const dependents = {} // moduleName → [modules that depend on it]
+    const depsOf = {} // moduleName → [modules it depends on]
     for (const b of bundles) {
         for (const h of iterModuleHeaders(b.text)) {
             if (h.name.endsWith('.graphql')) graphqlModules.add(h.name)
+            if (!depsOf[h.name]) depsOf[h.name] = h.deps
             for (const dep of h.deps) {
                 if (dep.endsWith('.graphql') && !callerByGraphql[dep]) {
                     callerByGraphql[dep] = h.name
@@ -666,6 +668,24 @@ function extractMex(bundles) {
                 if (cb) {
                     respBodies.push(cb)
                     respPositions.push(findFetchQueryPos(cb))
+                }
+            }
+            // Some Jobs don't build the variables literal themselves — they
+            // delegate to a dedicated builder module they DEPEND on, e.g.
+            // `EBMessageRangeQueryForThreads` calling
+            // `EBMessageRangeQueryForThreadsQueryVariables.…(…)` and handing
+            // the result straight to its query runner. Those builders are
+            // `return {<var>: <expr>}` factories, so their bodies are exactly
+            // the construction site the input scan needs — but they are
+            // dependencies, not dependents, so the consumer walk above never
+            // reaches them. Pull in deps whose name marks them as variable
+            // builders for this operation.
+            for (const dep of depsOf[callerName] || []) {
+                if (!/Variables$/.test(dep)) continue
+                const db = findModuleBody(bundles, dep)
+                if (db) {
+                    respBodies.push(db)
+                    respPositions.push(findFetchQueryPos(db))
                 }
             }
         }

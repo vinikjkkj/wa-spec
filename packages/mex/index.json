@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1044083468",
+  "waVersion": "unknown",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -297,7 +297,7 @@
       ],
       "variablesShape": {
         "accountID": "string",
-        "ads_andromeda_bulk_edit_campaign_group_budget": "unknown",
+        "ads_andromeda_bulk_edit_campaign_group_budget": "boolean",
         "campaignGroupRelayIDs": "unknown",
         "contextKey": "unknown"
       },
@@ -1946,9 +1946,9 @@
       ],
       "variablesShape": {
         "app_id": "string",
-        "includeAttachmentData": "unknown",
+        "includeAttachmentData": "boolean",
         "restore_payload_strings": "unknown",
-        "restore_type": "string"
+        "restore_type": "enum:INITIAL_RESTORE|RANGE_QUERY_RESTORE"
       },
       "response": {
         "viewer": {
