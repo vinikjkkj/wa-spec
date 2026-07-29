@@ -52,8 +52,23 @@ jobs:
             - name: Install
               run: npm install
 
+            # Pulls the upstream bundle archive for the current revision. The
+            # endpoint lives in a repository secret rather than in the tree, so
+            # it stays out of the public source and out of the published
+            # @vinikjkkj/wa-fetcher package. The fetcher never prints the URL —
+            # a failed request would otherwise echo a signed redirect.
+            #
+            # xvfb is still here because the browser scrape remains the
+            # fallback path when the plain revision lookup fails.
             - name: Fetch raw bundles
-              run: xvfb-run --auto-servernum -- npm run fetch
+              env:
+                  WA_ARCHIVE_URL: ${{ secrets.WA_ARCHIVE_URL }}
+              run: |
+                  if [ -z "$WA_ARCHIVE_URL" ]; then
+                      echo "::error::WA_ARCHIVE_URL secret is not configured"
+                      exit 1
+                  fi
+                  xvfb-run --auto-servernum -- npm run fetch
 
             - name: Extract mex bindings
               run: npm run extract:mex
@@ -71,6 +86,9 @@ jobs:
 
             - name: Extract WAM (analytics/metrics) schemas
               run: npm run extract:wam
+
+            - name: Extract AB props (experiment configs)
+              run: npm run extract:abprops
 
             - name: Extract WA Web version string
               run: npm run extract:version
@@ -92,6 +110,7 @@ jobs:
                           packages/appstate/index.json packages/appstate/index.js packages/appstate/index.d.ts \
                           packages/xml/index.json packages/xml/index.js packages/xml/index.d.ts \
                           packages/wam/index.json packages/wam/index.js packages/wam/index.d.ts \
+                          packages/abprops/index.json packages/abprops/index.js packages/abprops/index.d.ts \
                           packages/version/version.json packages/version/index.js packages/version/index.d.ts || true
                   if git diff --staged --quiet; then
                       echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -107,8 +126,9 @@ jobs:
                       --workspace @vinikjkkj/wa-appstate \
                       --workspace @vinikjkkj/wa-xml \
                       --workspace @vinikjkkj/wa-wam \
+                      --workspace @vinikjkkj/wa-abprops \
                       --workspace @vinikjkkj/wa-version
-                  git add packages/mex/package.json packages/proto/package.json packages/appstate/package.json packages/xml/package.json packages/wam/package.json packages/version/package.json package-lock.json
+                  git add packages/mex/package.json packages/proto/package.json packages/appstate/package.json packages/xml/package.json packages/wam/package.json packages/abprops/package.json packages/version/package.json package-lock.json
 
                   git commit -m "chore: extract WA Web ${WA_VERSION} (${NEW_VERSION})"
                   git push
@@ -117,7 +137,7 @@ jobs:
               if: steps.diff.outputs.changed == 'true' && (github.event_name == 'schedule' || inputs.publish == 'true')
               run: |
                   NEW_VERSION="${{ steps.diff.outputs.new-version }}"
-                  for pkg in mex proto appstate xml wam version; do
+                  for pkg in mex proto appstate xml wam abprops version; do
                       cd "packages/$pkg"
                       # --provenance generates a signed attestation tying this
                       # tarball to this exact workflow run; requires trusted
