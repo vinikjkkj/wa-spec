@@ -3,6 +3,18 @@
 /**
  * @vinikjkkj/wa-fetcher
  *
+ * Two sources for the same corpus:
+ *
+ *   fetchArchive()  — preferred. Pulls the upstream bundle archive for the
+ *                     current revision. ~17k WA* modules.
+ *   fetchBundles()  — legacy scrape. Downloads only the chunks the SPA loads.
+ *                     ~14.5k WA* modules.
+ *
+ *   const { fetchArchive } = require('@vinikjkkj/wa-fetcher')
+ *   const dump = await fetchArchive({ out: 'dump' })
+ *   //   dump.bundles[]    [{ file, bytes, sha256 }, ...]
+ *   //   dump.paths.raw    absolute path to <out>/raw/<version>/
+ *
  *   const { discoverBundleUrls } = require('@vinikjkkj/wa-fetcher')
  *   const { waVersion, urls } = await discoverBundleUrls()
  *   //   urls[]            ['https://static.whatsapp.net/.../chunk.js', ...]
@@ -11,13 +23,13 @@
  *   const { fetchBundles } = require('@vinikjkkj/wa-fetcher')
  *   const dump = await fetchBundles({ out: 'dump' })
  *   //   dump.bundles[]    [{ url, file, bytes }, ...]
- *   //   dump.paths.raw    absolute path to <out>/raw/<version>/
  *   //   dump.paths.manifest
  */
 
 const fs = require('node:fs')
 const path = require('node:path')
 const { connect } = require('puppeteer-real-browser')
+const { ARCHIVE_URL_ENV, resolveRevision, fetchArchive, unpackArchive } = require('./archive.cjs')
 
 const WHATSAPP_URL = 'https://web.whatsapp.com/'
 const NAV_TIMEOUT_MS = 60_000
@@ -239,4 +251,41 @@ function sanitizeFilename(url) {
     return `${stem}-${hash}${ext}`
 }
 
-module.exports = { discoverBundleUrls, fetchBundles }
+/**
+ * Browser-backed revision lookup, used as the fallback when the plain HTML
+ * read in archive.cjs fails (Meta changing the served markup, a block page,
+ * etc.). Returns the same `{ revision, waVersion }` shape.
+ */
+async function resolveRevisionViaBrowser(opts = {}) {
+    const { browser, page } = await openPage(opts)
+    try {
+        const waVersion = await page.evaluate(VERSION_FN)
+        if (!waVersion) throw new Error('browser revision lookup failed: window.Debug.VERSION unset')
+        const revision = String(waVersion).split('.').pop()
+        if (!/^\d{6,}$/.test(revision)) {
+            throw new Error(`browser revision lookup failed: unexpected version '${waVersion}'`)
+        }
+        return { revision, waVersion }
+    } finally {
+        await browser.close().catch(() => {})
+    }
+}
+
+/**
+ * `fetchArchive` with the browser fallback wired in. Prefer this over calling
+ * `fetchArchive` from archive.cjs directly — that module is browser-free by
+ * design and cannot fall back on its own.
+ */
+function fetchArchiveWithFallback(opts = {}) {
+    return fetchArchive({ resolveRevisionFallback: resolveRevisionViaBrowser, ...opts })
+}
+
+module.exports = {
+    ARCHIVE_URL_ENV,
+    discoverBundleUrls,
+    fetchBundles,
+    fetchArchive: fetchArchiveWithFallback,
+    resolveRevision,
+    resolveRevisionViaBrowser,
+    unpackArchive
+}

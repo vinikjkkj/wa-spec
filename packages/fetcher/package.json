@@ -1,7 +1,7 @@
 {
     "name": "@vinikjkkj/wa-fetcher",
-    "version": "0.2.0",
-    "description": "Headless scraper for web.whatsapp.com bundles — downloads every loaded JS chunk + emits a manifest. Pairs with @vinikjkkj/wa-mex and @vinikjkkj/wa-proto.",
+    "version": "0.3.0",
+    "description": "Bundle source for web.whatsapp.com — pulls the upstream bundle archive (or scrapes loaded chunks) + emits a manifest. Pairs with @vinikjkkj/wa-mex and @vinikjkkj/wa-proto.",
     "keywords": [
         "whatsapp",
         "whatsapp-web",
