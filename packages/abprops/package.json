@@ -1,0 +1,52 @@
+{
+    "name": "@vinikjkkj/wa-abprops",
+    "version": "2.3000.1044071294-e8a5558",
+    "description": "WhatsApp Web AB props (server-driven experiment configs) — config codes, value types, defaults and debug defaults (daily-extracted).",
+    "keywords": [
+        "whatsapp",
+        "whatsapp-web",
+        "abprops",
+        "ab-props",
+        "experiments",
+        "feature-flags",
+        "gating",
+        "wa-spec"
+    ],
+    "license": "MIT",
+    "author": {
+        "name": "vinikjkkj",
+        "url": "https://github.com/vinikjkkj"
+    },
+    "homepage": "https://github.com/vinikjkkj/wa-spec/tree/main/packages/abprops#readme",
+    "bugs": {
+        "url": "https://github.com/vinikjkkj/wa-spec/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vinikjkkj/wa-spec.git",
+        "directory": "packages/abprops"
+    },
+    "funding": [
+        {
+            "type": "github",
+            "url": "https://github.com/sponsors/vinikjkkj"
+        }
+    ],
+    "main": "index.js",
+    "types": "index.d.ts",
+    "sideEffects": false,
+    "files": [
+        "index.js",
+        "index.d.ts",
+        "README.md"
+    ],
+    "scripts": {
+        "apply": "node ./scripts/apply.cjs"
+    },
+    "engines": {
+        "node": ">=20.9.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}
