@@ -1,5 +1,5 @@
 {
-  "waVersion": "unknown",
+  "waVersion": "2.3000.1044135300",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -364,7 +364,7 @@
     },
     "AdsManagerLiveDataCampaign": {
       "originalName": "AdsManagerLiveDataCampaignQuery",
-      "docId": "27159491043750088",
+      "docId": "37233827832899810",
       "operationKind": "query",
       "variables": [
         "ids",
@@ -387,7 +387,7 @@
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
-      "docId": "27975011648798423",
+      "docId": "28315138954759521",
       "operationKind": "query",
       "variables": [],
       "variablesShape": {},
@@ -2516,7 +2516,7 @@
               "username": "string"
             }
           },
-          "state": "enum:ACTIVE",
+          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
           "subject": {
             "creator": {
               "id": "string",
@@ -2632,7 +2632,7 @@
               "username": "string"
             }
           },
-          "state": "enum:ACTIVE",
+          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
           "subject": {
             "creator": {
               "id": "string",
@@ -4915,7 +4915,7 @@
       "response": {
         "set_automatic_advanced_matching_ads_pixel": {
           "ads_pixel": {
-            "id": "string",
+            "id": "boolean",
             "name": "string",
             "enable_automatic_matching": "unknown"
           }

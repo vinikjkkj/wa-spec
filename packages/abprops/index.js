@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044083468
+// WhatsApp Version: 2.3000.1044135300
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -576,6 +576,7 @@ const WA_ABPROPS = Object.freeze({
     ctwa_3pd_data_sharing_on_thread_entry: Object.freeze({ code: 13485, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ctwa_3pd_data_sharing_title_change: Object.freeze({ code: 29332, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ctwa_3pd_opt_out_counter_optimization_enabled: Object.freeze({ code: 24984, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ctwa_3pd_post_dc_depth_limit: Object.freeze({ code: 24061, type: "int", defaultValue: 0, debugDefaultValue: 7 }),
     ctwa_ad_account_nonce_push_wait_timeout_web: Object.freeze({ code: 8664, type: "int", defaultValue: 20, debugDefaultValue: 20 }),
     ctwa_ad_account_nonce_retries_max_web: Object.freeze({ code: 8663, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     ctwa_ad_account_token_storage_kill_switch_web: Object.freeze({ code: 8166, type: "bool", defaultValue: true, debugDefaultValue: false }),
@@ -3369,6 +3370,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     24024: "group_from_group",
     24047: "aura_ringtones_enabled",
     24050: "aura_ringtones_benefit_active",
+    24061: "ctwa_3pd_post_dc_depth_limit",
     24109: "ai_unified_response_imagine_receiver_web_enabled",
     24110: "wa_status_chain_new_at_end",
     24114: "biz_ai_agent_3p_store_links_enabled",

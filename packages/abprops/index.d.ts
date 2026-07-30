@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044083468
+// WhatsApp Version: 2.3000.1044135300
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -595,6 +595,7 @@ export declare const WA_ABPROPS: {
     readonly ctwa_3pd_data_sharing_on_thread_entry: { readonly code: 13485; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ctwa_3pd_data_sharing_title_change: { readonly code: 29332; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_3pd_opt_out_counter_optimization_enabled: { readonly code: 24984; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ctwa_3pd_post_dc_depth_limit: { readonly code: 24061; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 7 }
     readonly ctwa_ad_account_nonce_push_wait_timeout_web: { readonly code: 8664; readonly type: "int"; readonly defaultValue: 20; readonly debugDefaultValue: 20 }
     readonly ctwa_ad_account_nonce_retries_max_web: { readonly code: 8663; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly ctwa_ad_account_token_storage_kill_switch_web: { readonly code: 8166; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: false }
@@ -3385,6 +3386,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 24024: "group_from_group"
     readonly 24047: "aura_ringtones_enabled"
     readonly 24050: "aura_ringtones_benefit_active"
+    readonly 24061: "ctwa_3pd_post_dc_depth_limit"
     readonly 24109: "ai_unified_response_imagine_receiver_web_enabled"
     readonly 24110: "wa_status_chain_new_at_end"
     readonly 24114: "biz_ai_agent_3p_store_links_enabled"

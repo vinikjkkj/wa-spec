@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044083468
+// WhatsApp Version: 2.3000.1044135300
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2789,9 +2789,9 @@ export interface WaXmlOperations {
                 readonly device_fanout?: 'false'
                 readonly recipient_pn?: string
                 readonly phash?: string
+                readonly eph_setting?: string
                 readonly notify?: string
                 readonly sender_lid?: string
-                readonly eph_setting?: string
                 readonly verified_name: string
                 readonly value: string
                 readonly ttl?: number
@@ -17095,8 +17095,8 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly id: string
-                readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                 readonly to: string
+                readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
                 readonly participant?: string
                 readonly error?: number
@@ -17532,10 +17532,10 @@ export interface WaXmlStanzas {
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly phash?: string
+                    readonly eph_setting?: string
                     readonly notify?: string
                     readonly sender_lid?: string
                     readonly offline: number
-                    readonly eph_setting?: string
                     readonly value: string
                     readonly ttl?: number
                     readonly name: 'full_catalog'
@@ -17958,9 +17958,9 @@ export interface WaXmlStanzas {
                     readonly device_fanout?: 'false'
                     readonly recipient_pn?: string
                     readonly phash?: string
+                    readonly eph_setting?: string
                     readonly notify?: string
                     readonly sender_lid?: string
-                    readonly eph_setting?: string
                     readonly verified_name: string
                     readonly value: string
                     readonly ttl?: number

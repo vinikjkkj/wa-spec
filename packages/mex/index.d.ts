@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: unknown
+// WhatsApp Version: 2.3000.1044135300
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -3183,7 +3183,7 @@ export type WaMexFetchGroupInfoResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE'
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
         readonly subject?: {
             readonly creator?: {
                 readonly id?: string
@@ -3281,7 +3281,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE'
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
         readonly subject?: {
             readonly creator?: {
                 readonly id?: string
@@ -4640,7 +4640,7 @@ export type WaMexMAIBAMessagePLEDisclaimerContentPFRResponse = {
 export type WaMexMAIBAMessageSignalsCTARendererResponse = {
     readonly set_automatic_advanced_matching_ads_pixel?: {
         readonly ads_pixel?: {
-            readonly id?: string
+            readonly id?: boolean
             readonly name?: string
             readonly enable_automatic_matching?: unknown
         }

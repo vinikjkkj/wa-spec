@@ -1,6 +1,6 @@
 {
-  "waVersion": "2.3000.1044083468",
-  "propCount": 2150,
+  "waVersion": "2.3000.1044135300",
+  "propCount": 2151,
   "groupPropCount": 14,
   "usedBeforeInitialization": [
     "community_admin_promotion_one_time_prompt",
@@ -3447,6 +3447,12 @@
       "type": "bool",
       "defaultValue": false,
       "debugDefaultValue": false
+    },
+    "ctwa_3pd_post_dc_depth_limit": {
+      "code": 24061,
+      "type": "int",
+      "defaultValue": 0,
+      "debugDefaultValue": 7
     },
     "ctwa_ad_account_nonce_push_wait_timeout_web": {
       "code": 8664,
