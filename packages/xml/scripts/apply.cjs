@@ -75,7 +75,11 @@ function loadBundles(dir) {
         console.error(`bundles dir not found: ${dir}`)
         process.exit(1)
     }
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.js'))
+    // Sorted so bundle order is deterministic. Several extractors resolve a
+    // module by first match, and the archive defines most modules in more
+    // than one file, so raw readdir order let the chosen variant vary
+    // between runs on identical input.
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.js')).sort()
     if (files.length === 0) {
         console.error(`no .js bundles in ${dir}`)
         process.exit(1)

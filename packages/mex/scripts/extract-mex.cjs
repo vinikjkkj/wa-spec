@@ -49,8 +49,23 @@ const NOISE =
     /BizAd|BizAi|BizCatalog|BizPay|BizBroadcast|Comet|LWI|MWChat|Mmlite|BizMeta|BizCommerce|BizAccount|BizDeli|BizMass|BizMcomm|BizMessageTemplate|BizOrder|BizPlatform|BizPostpaid|BizSendOptIn|BizSetting|BizShipping|BizQuickReplies|BizLabel|BizAway|BizGreeting|BizOnboarding|BizGroup|BizHub|BizInstall|BizInterop|BizLogin|BizPnh|BizQrCode|BizQuote|BizRecurring|BizRequest|BizSubscribed|BizUpsell|BizVerify|BizWa|BizWam|BizWelcome|BizYou|MetaAi|MetaTransp|Saved|Telemetry|Subscribe|Galaxy|Hatch|LinkedAccounts|Provisioning|RtcRing|XplatGen|Wallet|Transaction|Boost/i
 
 // Locate the parenthesised body of `__d("<name>", ...)` in any of the bundle texts.
+//
+// A module name usually resolves to several bodies: the archive ships the same
+// source transpiled more than once, most commonly a plain build alongside a
+// React-Compiler build that pulls in `react-compiler-runtime` and wraps values
+// in memo-cache slots. Those wrappers change how expressions read, so the
+// variant we pick changes inferred leaf types — returning whichever body the
+// bundle walk reached first made the output depend on file order.
+//
+// Pick the shortest distinct body instead. Transpile passes add wrapper code,
+// they don't remove it, so the shortest variant is the least transformed one
+// and the closest to the source the inference patterns were written against.
+// Ties break on content, so the choice depends only on the bodies themselves —
+// not on file order, and not on the content-addressed file names (which change
+// every build).
 function findModuleBody(bundles, modName) {
     const needle = `__d("${modName}"`
+    const found = []
     for (const b of bundles) {
         const idx = b.text.indexOf(needle)
         if (idx === -1) continue
@@ -58,11 +73,18 @@ function findModuleBody(bundles, modName) {
         for (let i = idx; i < b.text.length; i++) {
             if (b.text[i] === '(') depth++
             else if (b.text[i] === ')') {
-                if (--depth === 0) return b.text.slice(idx, i + 1)
+                if (--depth === 0) {
+                    found.push(b.text.slice(idx, i + 1))
+                    break
+                }
             }
         }
     }
-    return null
+    if (found.length === 0) return null
+    const uniq = [...new Set(found)]
+    if (uniq.length === 1) return uniq[0]
+    uniq.sort((x, y) => x.length - y.length || (x < y ? -1 : x > y ? 1 : 0))
+    return uniq[0]
 }
 
 // Build a tracer that resolves bare identifiers to their literal values by
@@ -582,22 +604,41 @@ function extractMex(bundles) {
     // Index every module header so we can map .graphql -> first caller, and
     // also track inverse dependencies so we can collect 2nd-hop consumer
     // bodies (the Job module's callers, which see the pass-through response).
-    const callerByGraphql = {}
+    // The archive defines nearly every module in more than one file (multiple
+    // transpile variants of the same source), so a module name maps to many
+    // header occurrences. Everything derived here must therefore be
+    // order-independent: pick by a stable rule, not by whichever occurrence
+    // the bundle walk happened to reach first.
+    const callersByGraphql = {} // .graphql → Set of modules depending on it
     const graphqlModules = new Set()
-    const dependents = {} // moduleName → [modules that depend on it]
-    const depsOf = {} // moduleName → [modules it depends on]
+    const dependentSets = {} // moduleName → Set of modules that depend on it
+    const depsOf = {} // moduleName → Set of modules it depends on (union of variants)
     for (const b of bundles) {
         for (const h of iterModuleHeaders(b.text)) {
             if (h.name.endsWith('.graphql')) graphqlModules.add(h.name)
-            if (!depsOf[h.name]) depsOf[h.name] = h.deps
+            // Union across variants: variants of one module can declare
+            // different dep lists, and taking whichever came first made the
+            // dep set depend on file order.
+            const ds = (depsOf[h.name] = depsOf[h.name] || new Set())
             for (const dep of h.deps) {
-                if (dep.endsWith('.graphql') && !callerByGraphql[dep]) {
-                    callerByGraphql[dep] = h.name
+                ds.add(dep)
+                if (dep.endsWith('.graphql')) {
+                    ;(callersByGraphql[dep] = callersByGraphql[dep] || new Set()).add(h.name)
                 }
-                ;(dependents[dep] = dependents[dep] || []).push(h.name)
+                ;(dependentSets[dep] = dependentSets[dep] || new Set()).add(h.name)
             }
         }
     }
+    // Collapse to sorted arrays. Deduping matters on its own: `dependents`
+    // used to hold one entry per *occurrence*, so the consumer slice below
+    // could spend all its slots on repeats of a single module.
+    const dependents = {}
+    for (const [k, set] of Object.entries(dependentSets)) dependents[k] = [...set].sort()
+    // A .graphql can have several distinct callers. Take the lexicographically
+    // first as the primary — module names are stable across builds, unlike the
+    // content-addressed file names that decided this before.
+    const callerByGraphql = {}
+    for (const [k, set] of Object.entries(callersByGraphql)) callerByGraphql[k] = [...set].sort()[0]
     // Pre-discover enums once so the shape recovery (recoverArrayItemShape →
     // parseObjectShapeInline) can disambiguate `id: <ref>.X.Y` references —
     // when `X` is a numeric enum (InternalEnum with integer values like
@@ -686,6 +727,19 @@ function extractMex(bundles) {
                 if (db) {
                     respBodies.push(db)
                     respPositions.push(findFetchQueryPos(db))
+                }
+            }
+            // When several modules invoke the same .graphql, only one can be
+            // the primary (it defines the structural shape), but the others
+            // see the same variables and response — so their bodies are extra
+            // evidence rather than a competing answer. Feeding them in makes
+            // the result independent of which caller won the primary slot.
+            for (const alt of callersByGraphql[gqlName] || []) {
+                if (alt === callerName) continue
+                const ab = findModuleBody(bundles, alt)
+                if (ab) {
+                    respBodies.push(ab)
+                    respPositions.push(findFetchQueryPos(ab))
                 }
             }
         }
