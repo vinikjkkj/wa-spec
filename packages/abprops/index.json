@@ -1,6 +1,6 @@
 {
-  "waVersion": "2.3000.1044135300",
-  "propCount": 2151,
+  "waVersion": "2.3000.1044218870",
+  "propCount": 2154,
   "groupPropCount": 14,
   "usedBeforeInitialization": [
     "community_admin_promotion_one_time_prompt",
@@ -93,12 +93,6 @@
       "type": "int",
       "defaultValue": 33,
       "debugDefaultValue": 33
-    },
-    "admin_revoke_receiver": {
-      "code": 1177,
-      "type": "bool",
-      "defaultValue": false,
-      "debugDefaultValue": true
     },
     "adv_accept_hosted_devices": {
       "code": 6939,
@@ -1678,6 +1672,12 @@
       "defaultValue": 0,
       "debugDefaultValue": 0
     },
+    "biz_ai_web_ai_hub_chat_nav_enabled": {
+      "code": 34204,
+      "type": "bool",
+      "defaultValue": false,
+      "debugDefaultValue": false
+    },
     "biz_ai_web_ai_hub_tap_cta_show_alert": {
       "code": 17093,
       "type": "bool",
@@ -1692,6 +1692,12 @@
     },
     "biz_ai_web_gdrive_enabled": {
       "code": 32906,
+      "type": "bool",
+      "defaultValue": false,
+      "debugDefaultValue": false
+    },
+    "biz_ai_web_hub_chat_enabled": {
+      "code": 34203,
       "type": "bool",
       "defaultValue": false,
       "debugDefaultValue": false
@@ -2080,12 +2086,6 @@
       "defaultValue": 0,
       "debugDefaultValue": 0
     },
-    "call_info_use_typed_jid": {
-      "code": 29027,
-      "type": "int",
-      "defaultValue": 0,
-      "debugDefaultValue": 0
-    },
     "call_offer_failed_soft_landing_screen_version": {
       "code": 10559,
       "type": "int",
@@ -2145,12 +2145,6 @@
       "type": "int",
       "defaultValue": 5800,
       "debugDefaultValue": 5800
-    },
-    "calling_e2e_keygen_via_self_lid": {
-      "code": 26411,
-      "type": "int",
-      "defaultValue": 0,
-      "debugDefaultValue": 0
     },
     "calling_lid_version": {
       "code": 3358,
@@ -4294,6 +4288,12 @@
       "defaultValue": true,
       "debugDefaultValue": true
     },
+    "enable_hybrid_open_with_shared_buffer": {
+      "code": 34175,
+      "type": "bool",
+      "defaultValue": false,
+      "debugDefaultValue": false
+    },
     "enable_hybrid_video_transcoding": {
       "code": 19895,
       "type": "bool",
@@ -4752,6 +4752,12 @@
     },
     "enable_windows_xdr_chat_handoff": {
       "code": 24783,
+      "type": "bool",
+      "defaultValue": false,
+      "debugDefaultValue": true
+    },
+    "enable_windows_xdr_wns_pkey": {
+      "code": 32324,
       "type": "bool",
       "defaultValue": false,
       "debugDefaultValue": true
@@ -5238,12 +5244,6 @@
     },
     "group_join_request_can_send_optional_message": {
       "code": 3384,
-      "type": "bool",
-      "defaultValue": false,
-      "debugDefaultValue": false
-    },
-    "group_join_request_can_view_optional_message": {
-      "code": 3383,
       "type": "bool",
       "defaultValue": false,
       "debugDefaultValue": false
@@ -5858,6 +5858,12 @@
       "code": 16104,
       "type": "bool",
       "defaultValue": false,
+      "debugDefaultValue": true
+    },
+    "lid_migration_daily_group_composition_enabled": {
+      "code": 34155,
+      "type": "bool",
+      "defaultValue": true,
       "debugDefaultValue": true
     },
     "lid_migration_for_biz_profile_enabled": {
@@ -11632,6 +11638,12 @@
       "defaultValue": false,
       "debugDefaultValue": false
     },
+    "web_calling_pause_bg_during_call_mode": {
+      "code": 34144,
+      "type": "int",
+      "defaultValue": 0,
+      "debugDefaultValue": 0
+    },
     "web_calling_perf_optimizations_bitmask": {
       "code": 22186,
       "type": "int",
@@ -12741,6 +12753,12 @@
       "type": "int",
       "defaultValue": 0,
       "debugDefaultValue": 0
+    },
+    "web_waffle": {
+      "code": 14300,
+      "type": "bool",
+      "defaultValue": false,
+      "debugDefaultValue": false
     },
     "web_wam_max_buffer_upload_size_bytes": {
       "code": 9501,

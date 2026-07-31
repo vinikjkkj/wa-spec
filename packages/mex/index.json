@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1044135300",
+  "waVersion": "2.3000.1044218870",
   "operations": {
     "ACSServerProviderConfig": {
       "originalName": "WAWebACSServerProviderConfigQuery",
@@ -1902,22 +1902,6 @@
         }
       }
     },
-    "E2EEMetadataMailboxSetGroupParticipantUpdateMode": {
-      "originalName": "E2EEMetadataMailboxSetGroupParticipantUpdateModeMutation",
-      "docId": "25003687469299390",
-      "operationKind": "mutation",
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {}
-      },
-      "response": {
-        "xfb_e2ee_metadata_mailbox_set_group_participant_update_mode": {
-          "success": "boolean"
-        }
-      }
-    },
     "E2EEMetadataMailboxSetGroupSubject": {
       "originalName": "E2EEMetadataMailboxSetGroupSubjectMutation",
       "docId": "25456033884014560",
@@ -2516,7 +2500,7 @@
               "username": "string"
             }
           },
-          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
+          "state": "enum:ACTIVE",
           "subject": {
             "creator": {
               "id": "string",
@@ -2632,7 +2616,7 @@
               "username": "string"
             }
           },
-          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
+          "state": "enum:ACTIVE",
           "subject": {
             "creator": {
               "id": "string",
@@ -2794,21 +2778,6 @@
             "id": "string"
           }
         ]
-      }
-    },
-    "FetchNativeAdsMvpEligibility": {
-      "originalName": "WAWebFetchNativeAdsMvpEligibilityQuery",
-      "docId": "26673846358955912",
-      "operationKind": "query",
-      "variables": [],
-      "variablesShape": {},
-      "response": {
-        "wa_smb_native_ads_web_info": {
-          "lifetime_native_ctwa_advertiser": "boolean",
-          "webclient_l90_ad_creator": "boolean",
-          "is_page_asset_linked": "boolean",
-          "is_pageless_asset_linked": "boolean"
-        }
       }
     },
     "FetchNewChatMessageCappingInfo": {
@@ -3475,7 +3444,14 @@
         "input": {
           "newsletter_id": "string",
           "metrics": [
-            {}
+            {
+              "id": "number",
+              "type": "string",
+              "group_by": {
+                "number_of_days": "number"
+              },
+              "limit": "number"
+            }
           ]
         }
       },

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044135300
+// WhatsApp Version: 2.3000.1044218870
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -4114,6 +4114,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'NORMAL': 2
         })
     }),
+    DEVICE_AGC_STATE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumDeviceAgcStateType',
+        export: 'DEVICE_AGC_STATE_TYPE',
+        values: Object.freeze({
+        'UNKNOWN': 0,
+        'UNAVAILABLE': 1,
+        'ENABLE_FAILED': 2,
+        'ENABLED': 3
+        })
+    }),
     DEVICE_APPEARANCE_TYPE: Object.freeze({
         module: 'WAWebWamEnumDeviceAppearanceType',
         export: 'DEVICE_APPEARANCE_TYPE',
@@ -4146,6 +4156,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'AR_GLASS': 6,
         'WEARABLES_WHATSAPI': 7,
         'UNDEFINED': 100
+        })
+    }),
+    DEVICE_NS_STATE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumDeviceNsStateType',
+        export: 'DEVICE_NS_STATE_TYPE',
+        values: Object.freeze({
+        'UNKNOWN': 0,
+        'UNAVAILABLE': 1,
+        'ENABLE_FAILED': 2,
+        'ENABLED': 3
         })
     }),
     DEVICE_TYPE: Object.freeze({
@@ -10342,7 +10362,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'AMOUNT_DETECT_ADD_PIX_KEY': 360,
         'AMOUNT_DETECT_SEND_PIX_KEY': 361,
         'AMOUNT_DETECT_REQUEST_PAYMENT': 362,
-        'AMOUNT_DETECT_GO_TO_PAYMENTS': 363
+        'AMOUNT_DETECT_GO_TO_PAYMENTS': 363,
+        'QR_CODE_UPI_VIEW_BUTTON': 364
         })
     }),
     PAYMENT_ACTION_TYPES: Object.freeze({
@@ -10506,7 +10527,12 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'PIN_IN_CHAT_INTERACTION_TYPE',
         values: Object.freeze({
         'TAP_ON_BANNER': 1,
-        'TAP_ON_SYSTEM_MESSAGE': 2
+        'TAP_ON_SYSTEM_MESSAGE': 2,
+        'IMPRESSION': 3,
+        'EXPAND': 4,
+        'ROW_TAP': 5,
+        'CONTEXT_MENU_OPEN': 6,
+        'COLLAPSE': 7
         })
     }),
     PIN_IN_CHAT_TYPE: Object.freeze({
@@ -11605,7 +11631,8 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'PUSH_PROVIDER',
         values: Object.freeze({
         'FCM': 0,
-        'FBNS': 1
+        'FBNS': 1,
+        'ADM': 2
         })
     }),
     PYTORCH_EDGE_LIB_LOAD_ERROR_CODE: Object.freeze({
@@ -14718,7 +14745,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'REGISTRATION_WELCOME': 256,
         'CALLS_TAB_SECONDARY': 257,
         'MERCHANT_APP_UNIVERSAL_LINK': 258,
-        'MERCHANT_APP_DEEPLINK': 259
+        'MERCHANT_APP_DEEPLINK': 259,
+        'PINBOARD': 260
         })
     }),
     TYPE_OF_GROUP_ENUM: Object.freeze({
@@ -16747,6 +16775,7 @@ const WA_WAM_EVENTS = Object.freeze({
             aiCreationPersonalityCategoryInsert: Object.freeze({ id: 26, type: 'string', falcoName: 'ai_creation_personality_category_insert' }),
             aiCreationPersonalityCategorySelect: Object.freeze({ id: 27, type: 'string', falcoName: 'ai_creation_personality_category_select' }),
             aiDiscoveryTab: Object.freeze({ id: 4, type: 'string', falcoName: 'ai_discovery_tab' }),
+            aiHomeQpPromotionId: Object.freeze({ id: 53, type: 'integer', falcoName: 'ai_home_qp_promotion_id' }),
             aiSessionId: Object.freeze({ id: 18, type: 'string', falcoName: 'ai_session_id' }),
             aiVoiceOnSelectionDefault: Object.freeze({ id: 24, type: 'boolean', falcoName: 'ai_voice_on_selection_default' }),
             aiVoiceSelectionEnum: Object.freeze({ id: 25, type: 'string', falcoName: 'ai_voice_selection_enum' }),
@@ -19952,6 +19981,8 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            aiProvenanceLabelEnabled: Object.freeze({ id: 13, type: 'boolean', falcoName: 'ai_provenance_label_enabled' }),
+            aiProvenanceLabelShown: Object.freeze({ id: 14, type: 'boolean', falcoName: 'ai_provenance_label_shown' }),
             channelUserType: Object.freeze({ id: 10, type: 'enum', enum: 'CHANNEL_USER_TYPE', falcoName: 'channel_user_type' }),
             cid: Object.freeze({ id: 1, type: 'string', falcoName: 'cid' }),
             containsMusic: Object.freeze({ id: 9, type: 'boolean', falcoName: 'contains_music' }),
@@ -25099,7 +25130,8 @@ const WA_WAM_EVENTS = Object.freeze({
             mediaType: Object.freeze({ id: 5, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'media_type' }),
             pinCount: Object.freeze({ id: 6, type: 'integer', falcoName: 'pin_count' }),
             pinInChatInteractionType: Object.freeze({ id: 7, type: 'enum', enum: 'PIN_IN_CHAT_INTERACTION_TYPE', falcoName: 'pin_in_chat_interaction_type' }),
-            pinIndex: Object.freeze({ id: 9, type: 'integer', falcoName: 'pin_index' })
+            pinIndex: Object.freeze({ id: 9, type: 'integer', falcoName: 'pin_index' }),
+            uiSurface: Object.freeze({ id: 10, type: 'enum', enum: 'TS_SURFACE', falcoName: 'ui_surface' })
         })
     }),
     PinInChatMessageSend: Object.freeze({
@@ -25467,6 +25499,7 @@ const WA_WAM_EVENTS = Object.freeze({
             fmxEntryPoint: Object.freeze({ id: 3, type: 'enum', enum: 'FMX_ENTRY_POINT', falcoName: 'fmx_entry_point' }),
             fmxEvent: Object.freeze({ id: 4, type: 'enum', enum: 'FMX_EVENT', falcoName: 'fmx_event' }),
             highlightGroupType: Object.freeze({ id: 5, type: 'enum', enum: 'HIGHLIGHT_GROUP_TYPE', falcoName: 'highlight_group_type' }),
+            isDifferentCountry: Object.freeze({ id: 10, type: 'boolean', falcoName: 'is_different_country' }),
             isSenderSmb: Object.freeze({ id: 6, type: 'boolean', falcoName: 'is_sender_smb' }),
             isSuspiciousFmx: Object.freeze({ id: 8, type: 'boolean', falcoName: 'is_suspicious_fmx' }),
             newAccountShown: Object.freeze({ id: 9, type: 'boolean', falcoName: 'new_account_shown' }),
@@ -25668,6 +25701,8 @@ const WA_WAM_EVENTS = Object.freeze({
         fields: Object.freeze({
             audioDriverRestartCount: Object.freeze({ id: 52, type: 'integer', falcoName: 'audio_driver_restart_count' }),
             audioDriverRestartReason: Object.freeze({ id: 53, type: 'integer', falcoName: 'audio_driver_restart_reason' }),
+            deviceAgcState: Object.freeze({ id: 54, type: 'enum', enum: 'DEVICE_AGC_STATE_TYPE', falcoName: 'device_agc_state' }),
+            deviceNsState: Object.freeze({ id: 55, type: 'enum', enum: 'DEVICE_NS_STATE_TYPE', falcoName: 'device_ns_state' }),
             isMetaAiThread: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_meta_ai_thread' }),
             pttAuddevRecorderAvgCbT: Object.freeze({ id: 17, type: 'timer', falcoName: 'ptt_auddev_recorder_avg_cb_t' }),
             pttAuddevRecorderInitT: Object.freeze({ id: 18, type: 'timer', falcoName: 'ptt_auddev_recorder_init_t' }),
@@ -27028,6 +27063,8 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            aiProvenanceLabelEnabled: Object.freeze({ id: 54, type: 'boolean', falcoName: 'ai_provenance_label_enabled' }),
+            aiProvenanceLabelShown: Object.freeze({ id: 55, type: 'boolean', falcoName: 'ai_provenance_label_shown' }),
             channelStatusId: Object.freeze({ id: 46, type: 'integer', falcoName: 'channel_status_id' }),
             channelUserType: Object.freeze({ id: 47, type: 'enum', enum: 'CHANNEL_USER_TYPE', falcoName: 'channel_user_type' }),
             cid: Object.freeze({ id: 48, type: 'string', falcoName: 'cid' }),

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044135300
+// WhatsApp Version: 2.3000.1044218870
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -76,7 +76,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexPersistId
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
-    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
     readonly EBMessageRangeQueryForThreads: WaMexPersistId
     readonly EBMinosFetchContactKeys: WaMexPersistId
@@ -95,7 +94,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchGroupInviteCode: WaMexPersistId
     readonly FetchGroupIsInternal: WaMexPersistId
     readonly FetchIntegritySignals: WaMexPersistId
-    readonly FetchNativeAdsMvpEligibility: WaMexPersistId
     readonly FetchNewChatMessageCappingInfo: WaMexPersistId
     readonly FetchNewsletter: WaMexPersistId
     readonly FetchNewsletterAdminCapabilities: WaMexPersistId
@@ -267,7 +265,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EBMessageRangeQueryForThreads: WaMexOperationSchema<'query', readonly ['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']>
     readonly EBMinosFetchContactKeys: WaMexOperationSchema<'query', readonly ['input']>
@@ -286,7 +283,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchGroupInviteCode: WaMexOperationSchema<'query', readonly ['id', 'query_context']>
     readonly FetchGroupIsInternal: WaMexOperationSchema<'query', readonly ['id']>
     readonly FetchIntegritySignals: WaMexOperationSchema<'query', readonly ['input']>
-    readonly FetchNativeAdsMvpEligibility: WaMexOperationSchema<'query', readonly []>
     readonly FetchNewChatMessageCappingInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_pinned_messages', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
     readonly FetchNewsletterAdminCapabilities: WaMexOperationSchema<'query', readonly ['newsletter_id']>
@@ -733,10 +729,6 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
-export type WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
 export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -833,8 +825,6 @@ export type WaMexFetchIntegritySignalsVariables = {
     }
 }
 
-export type WaMexFetchNativeAdsMvpEligibilityVariables = Readonly<Record<string, never>>
-
 export type WaMexFetchNewChatMessageCappingInfoVariables = {
     readonly input?: {
         readonly type?: 'INDIVIDUAL_NEW_CHAT_THREAD'
@@ -920,7 +910,14 @@ export type WaMexFetchNewsletterFollowersVariables = {
 export type WaMexFetchNewsletterInsightsVariables = {
     readonly input?: {
         readonly newsletter_id?: string
-        readonly metrics?: ReadonlyArray<Readonly<Record<string, unknown>>>
+        readonly metrics?: ReadonlyArray<{
+            readonly id?: number
+            readonly type?: string
+            readonly group_by?: {
+                readonly number_of_days?: number
+            }
+            readonly limit?: number
+        }>
     }
 }
 
@@ -1605,7 +1602,6 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexE2EEMetadataMailboxLeaveGroupVariables
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
-    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsVariables
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysVariables
@@ -1624,7 +1620,6 @@ export interface WaMexOperationVariables {
     readonly FetchGroupInviteCode: WaMexFetchGroupInviteCodeVariables
     readonly FetchGroupIsInternal: WaMexFetchGroupIsInternalVariables
     readonly FetchIntegritySignals: WaMexFetchIntegritySignalsVariables
-    readonly FetchNativeAdsMvpEligibility: WaMexFetchNativeAdsMvpEligibilityVariables
     readonly FetchNewChatMessageCappingInfo: WaMexFetchNewChatMessageCappingInfoVariables
     readonly FetchNewsletter: WaMexFetchNewsletterVariables
     readonly FetchNewsletterAdminCapabilities: WaMexFetchNewsletterAdminCapabilitiesVariables
@@ -2777,12 +2772,6 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse = {
     }
 }
 
-export type WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeResponse = {
-    readonly xfb_e2ee_metadata_mailbox_set_group_participant_update_mode?: {
-        readonly success?: boolean
-    }
-}
-
 export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
     readonly xfb_e2ee_metadata_mailbox_set_group_subject?: {
         readonly success?: boolean
@@ -3183,7 +3172,7 @@ export type WaMexFetchGroupInfoResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
+        readonly state?: 'ACTIVE'
         readonly subject?: {
             readonly creator?: {
                 readonly id?: string
@@ -3281,7 +3270,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
+        readonly state?: 'ACTIVE'
         readonly subject?: {
             readonly creator?: {
                 readonly id?: string
@@ -3395,15 +3384,6 @@ export type WaMexFetchIntegritySignalsResponse = {
         }
         readonly id?: string
     }>
-}
-
-export type WaMexFetchNativeAdsMvpEligibilityResponse = {
-    readonly wa_smb_native_ads_web_info?: {
-        readonly lifetime_native_ctwa_advertiser?: boolean
-        readonly webclient_l90_ad_creator?: boolean
-        readonly is_page_asset_linked?: boolean
-        readonly is_pageless_asset_linked?: boolean
-    }
 }
 
 export type WaMexFetchNewChatMessageCappingInfoResponse = {
@@ -5763,7 +5743,6 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexE2EEMetadataMailboxLeaveGroupResponse
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
-    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsResponse
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysResponse
@@ -5782,7 +5761,6 @@ export interface WaMexOperationResponses {
     readonly FetchGroupInviteCode: WaMexFetchGroupInviteCodeResponse
     readonly FetchGroupIsInternal: WaMexFetchGroupIsInternalResponse
     readonly FetchIntegritySignals: WaMexFetchIntegritySignalsResponse
-    readonly FetchNativeAdsMvpEligibility: WaMexFetchNativeAdsMvpEligibilityResponse
     readonly FetchNewChatMessageCappingInfo: WaMexFetchNewChatMessageCappingInfoResponse
     readonly FetchNewsletter: WaMexFetchNewsletterResponse
     readonly FetchNewsletterAdminCapabilities: WaMexFetchNewsletterAdminCapabilitiesResponse

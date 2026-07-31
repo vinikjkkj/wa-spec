@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1044135300
+/// WhatsApp Version: 2.3000.1044218870
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -4743,9 +4743,8 @@ message Message {
             message ContactRefreshResponse {
                 repeated string coveredRequestIds = 1;
                 optional uint64 collectionVersion = 2;
-                optional int64 primaryProcessStartTimestampMs = 3;
-                optional int64 primaryProcessEndTimestampMs = 4;
-                optional uint32 uploadedContactCount = 5;
+                optional int64 primaryDurationMs = 3;
+                optional uint32 uniqueContactCount = 4;
             }
             message BizBroadcastInsightsContactListResponse {
                 optional string campaignId = 1;

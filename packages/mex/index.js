@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044135300
+// WhatsApp Version: 2.3000.1044218870
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -64,7 +64,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     E2EEMetadataMailboxLeaveGroup: Object.freeze({ docId: '25248874731435400', clientDocId: '25248874731435400' }),
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ docId: '25059194933691009', clientDocId: '25059194933691009' }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ docId: '25043279768674646', clientDocId: '25043279768674646' }),
-    E2EEMetadataMailboxSetGroupParticipantUpdateMode: Object.freeze({ docId: '25003687469299390', clientDocId: '25003687469299390' }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ docId: '25456033884014560', clientDocId: '25456033884014560' }),
     EBMessageRangeQueryForThreads: Object.freeze({ docId: '28066954479559383', clientDocId: '28066954479559383' }),
     EBMinosFetchContactKeys: Object.freeze({ docId: '26531892553066563', clientDocId: '26531892553066563' }),
@@ -83,7 +82,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchGroupInviteCode: Object.freeze({ docId: '29247029834912157', clientDocId: '29247029834912157' }),
     FetchGroupIsInternal: Object.freeze({ docId: '34119218944390847', clientDocId: '34119218944390847' }),
     FetchIntegritySignals: Object.freeze({ docId: '26438847999065394', clientDocId: '26438847999065394' }),
-    FetchNativeAdsMvpEligibility: Object.freeze({ docId: '26673846358955912', clientDocId: '26673846358955912' }),
     FetchNewChatMessageCappingInfo: Object.freeze({ docId: '24503548349331633', clientDocId: '24503548349331633' }),
     FetchNewsletter: Object.freeze({ docId: '27456920720571478', clientDocId: '27456920720571478' }),
     FetchNewsletterAdminCapabilities: Object.freeze({ docId: '9801384413216421', clientDocId: '9801384413216421' }),
@@ -255,7 +253,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     E2EEMetadataMailboxLeaveGroup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    E2EEMetadataMailboxSetGroupParticipantUpdateMode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     EBMessageRangeQueryForThreads: Object.freeze({ operationKind: 'query', variables: Object.freeze(['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']) }),
     EBMinosFetchContactKeys: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
@@ -274,7 +271,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     FetchGroupInviteCode: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'query_context']) }),
     FetchGroupIsInternal: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     FetchIntegritySignals: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
-    FetchNativeAdsMvpEligibility: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchNewChatMessageCappingInfo: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     FetchNewsletter: Object.freeze({ operationKind: 'query', variables: Object.freeze(['fetch_creation_time', 'fetch_full_image', 'fetch_pinned_messages', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']) }),
     FetchNewsletterAdminCapabilities: Object.freeze({ operationKind: 'query', variables: Object.freeze(['newsletter_id']) }),

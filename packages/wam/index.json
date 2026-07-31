@@ -1,5 +1,5 @@
 {
-  "waVersion": "2.3000.1044135300",
+  "waVersion": "2.3000.1044218870",
   "protocolVersion": 5,
   "channels": [
     "private",
@@ -4145,6 +4145,16 @@
         "NORMAL": 2
       }
     },
+    "DEVICE_AGC_STATE_TYPE": {
+      "module": "WAWebWamEnumDeviceAgcStateType",
+      "export": "DEVICE_AGC_STATE_TYPE",
+      "values": {
+        "UNKNOWN": 0,
+        "UNAVAILABLE": 1,
+        "ENABLE_FAILED": 2,
+        "ENABLED": 3
+      }
+    },
     "DEVICE_APPEARANCE_TYPE": {
       "module": "WAWebWamEnumDeviceAppearanceType",
       "export": "DEVICE_APPEARANCE_TYPE",
@@ -4177,6 +4187,16 @@
         "AR_GLASS": 6,
         "WEARABLES_WHATSAPI": 7,
         "UNDEFINED": 100
+      }
+    },
+    "DEVICE_NS_STATE_TYPE": {
+      "module": "WAWebWamEnumDeviceNsStateType",
+      "export": "DEVICE_NS_STATE_TYPE",
+      "values": {
+        "UNKNOWN": 0,
+        "UNAVAILABLE": 1,
+        "ENABLE_FAILED": 2,
+        "ENABLED": 3
       }
     },
     "DEVICE_TYPE": {
@@ -10373,7 +10393,8 @@
         "AMOUNT_DETECT_ADD_PIX_KEY": 360,
         "AMOUNT_DETECT_SEND_PIX_KEY": 361,
         "AMOUNT_DETECT_REQUEST_PAYMENT": 362,
-        "AMOUNT_DETECT_GO_TO_PAYMENTS": 363
+        "AMOUNT_DETECT_GO_TO_PAYMENTS": 363,
+        "QR_CODE_UPI_VIEW_BUTTON": 364
       }
     },
     "PAYMENT_ACTION_TYPES": {
@@ -10537,7 +10558,12 @@
       "export": "PIN_IN_CHAT_INTERACTION_TYPE",
       "values": {
         "TAP_ON_BANNER": 1,
-        "TAP_ON_SYSTEM_MESSAGE": 2
+        "TAP_ON_SYSTEM_MESSAGE": 2,
+        "IMPRESSION": 3,
+        "EXPAND": 4,
+        "ROW_TAP": 5,
+        "CONTEXT_MENU_OPEN": 6,
+        "COLLAPSE": 7
       }
     },
     "PIN_IN_CHAT_TYPE": {
@@ -11636,7 +11662,8 @@
       "export": "PUSH_PROVIDER",
       "values": {
         "FCM": 0,
-        "FBNS": 1
+        "FBNS": 1,
+        "ADM": 2
       }
     },
     "PYTORCH_EDGE_LIB_LOAD_ERROR_CODE": {
@@ -14749,7 +14776,8 @@
         "REGISTRATION_WELCOME": 256,
         "CALLS_TAB_SECONDARY": 257,
         "MERCHANT_APP_UNIVERSAL_LINK": 258,
-        "MERCHANT_APP_DEEPLINK": 259
+        "MERCHANT_APP_DEEPLINK": 259,
+        "PINBOARD": 260
       }
     },
     "TYPE_OF_GROUP_ENUM": {
@@ -18030,6 +18058,11 @@
           "id": 4,
           "type": "string",
           "falcoName": "ai_discovery_tab"
+        },
+        "aiHomeQpPromotionId": {
+          "id": 53,
+          "type": "integer",
+          "falcoName": "ai_home_qp_promotion_id"
         },
         "aiSessionId": {
           "id": 18,
@@ -33117,6 +33150,16 @@
       "requiredFields": [],
       "conditions": [],
       "fields": {
+        "aiProvenanceLabelEnabled": {
+          "id": 13,
+          "type": "boolean",
+          "falcoName": "ai_provenance_label_enabled"
+        },
+        "aiProvenanceLabelShown": {
+          "id": 14,
+          "type": "boolean",
+          "falcoName": "ai_provenance_label_shown"
+        },
         "channelUserType": {
           "id": 10,
           "type": "enum",
@@ -51265,6 +51308,12 @@
           "id": 9,
           "type": "integer",
           "falcoName": "pin_index"
+        },
+        "uiSurface": {
+          "id": 10,
+          "type": "enum",
+          "falcoName": "ui_surface",
+          "enum": "TS_SURFACE"
         }
       }
     },
@@ -52343,6 +52392,11 @@
           "falcoName": "highlight_group_type",
           "enum": "HIGHLIGHT_GROUP_TYPE"
         },
+        "isDifferentCountry": {
+          "id": 10,
+          "type": "boolean",
+          "falcoName": "is_different_country"
+        },
         "isSenderSmb": {
           "id": 6,
           "type": "boolean",
@@ -52845,6 +52899,18 @@
           "id": 53,
           "type": "integer",
           "falcoName": "audio_driver_restart_reason"
+        },
+        "deviceAgcState": {
+          "id": 54,
+          "type": "enum",
+          "falcoName": "device_agc_state",
+          "enum": "DEVICE_AGC_STATE_TYPE"
+        },
+        "deviceNsState": {
+          "id": 55,
+          "type": "enum",
+          "falcoName": "device_ns_state",
+          "enum": "DEVICE_NS_STATE_TYPE"
         },
         "isMetaAiThread": {
           "id": 15,
@@ -57790,6 +57856,16 @@
       "requiredFields": [],
       "conditions": [],
       "fields": {
+        "aiProvenanceLabelEnabled": {
+          "id": 54,
+          "type": "boolean",
+          "falcoName": "ai_provenance_label_enabled"
+        },
+        "aiProvenanceLabelShown": {
+          "id": 55,
+          "type": "boolean",
+          "falcoName": "ai_provenance_label_shown"
+        },
         "channelStatusId": {
           "id": 46,
           "type": "integer",
