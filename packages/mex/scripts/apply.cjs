@@ -20,13 +20,14 @@ const { buildOverrides, applyOverrides } = require('./wire-overrides.cjs')
 const { discoverEnums, matchEnumForLeaf } = require('./enum-discovery.cjs')
 
 function parseArgs(argv) {
-    const opts = { bundles: null, manifest: null, out: null, waVersion: null }
+    const opts = { bundles: null, manifest: null, out: null, waVersion: null , allowShrink: false }
     for (let i = 2; i < argv.length; i++) {
         const a = argv[i]
         if (a === '--bundles') opts.bundles = argv[++i]
         else if (a === '--manifest') opts.manifest = argv[++i]
         else if (a === '--out') opts.out = argv[++i]
         else if (a === '--wa-version') opts.waVersion = argv[++i]
+        else if (a === '--allow-shrink') opts.allowShrink = true
         else if (a === '--help' || a === '-h') {
             printHelp()
             process.exit(0)
@@ -66,6 +67,66 @@ function printHelp() {
             '  --wa-version <ver>  pin the version stamped into output headers'
         ].join('\n')
     )
+}
+
+// Reorder object keys alphabetically, in place, leaving array order alone.
+// The IR is emitted in discovery order, so any code motion upstream reshuffles
+// keys and rewrites whole blocks of the artifact. Reviewing a daily diff is
+// what catches a bad extraction, so that noise has a cost. Array order is left
+// untouched — element order can be part of the schema, key order never is.
+// In-place so the reordering reaches every emitter that shares these objects.
+function canonicaliseKeyOrder(node) {
+    if (Array.isArray(node)) {
+        for (const v of node) canonicaliseKeyOrder(v)
+        return node
+    }
+    if (!node || typeof node !== 'object') return node
+    for (const k of Object.keys(node).sort()) {
+        const v = node[k]
+        delete node[k]
+        node[k] = canonicaliseKeyOrder(v)
+    }
+    return node
+}
+
+// Refuse to overwrite a good artifact with a sharply smaller one.
+//
+// Extraction fails quietly: when WA renames a module the walkers stop matching
+// and the output is smaller but still well-formed, so nothing downstream
+// objects and the shrunken version gets published. That is how appstate
+// shipped an empty table to npm twice. A drop needs a human to confirm it.
+function guardAgainstShrink(outDir, counts, allowShrink) {
+    let prev
+    try {
+        prev = JSON.parse(fs.readFileSync(path.join(outDir, 'index.json'), 'utf8'))
+    } catch {
+        return // nothing to compare against — first run
+    }
+    const before = countIr(prev)
+    const drops = []
+    for (const [name, now] of Object.entries(counts)) {
+        const was = before[name] ?? 0
+        if (was === 0 || now >= was || was - now <= 2 || now >= was * 0.9) continue
+        drops.push(`${name}: ${was} → ${now} (-${(100 - (now / was) * 100).toFixed(1)}%)`)
+    }
+    if (drops.length === 0) return
+    console.error('apply: refusing to write — sharp drop against the artifact being replaced:')
+    for (const d of drops) console.error(`  ${d}`)
+    if (allowShrink) {
+        console.error('  --allow-shrink given, writing anyway')
+        return
+    }
+    console.error('  re-run with --allow-shrink once the drop is confirmed to be real')
+    process.exit(1)
+}
+
+function countIr(ir) {
+    let leaves = 0
+    ;(function walk(o) {
+        if (!o || typeof o !== 'object') { if (typeof o === 'string') leaves++; return }
+        for (const v of Object.values(o)) walk(v)
+    })(ir.operations ?? {})
+    return { operations: Object.keys(ir.operations ?? {}).length, leaves }
 }
 
 function loadBundles(dir) {
@@ -665,6 +726,8 @@ function main() {
             response: op.response
         }
     }
+    guardAgainstShrink(outDir, countIr(ir), opts.allowShrink)
+    canonicaliseKeyOrder(ir)
     fs.writeFileSync(path.join(outDir, 'index.json'), JSON.stringify(ir, null, 2) + '\n')
 
     // ---- index.js (CommonJS runtime) ----
