@@ -1086,7 +1086,16 @@ function buildBodyContext(body) {
 
     // Constants: var X = {KEY1:"v1",KEY2:"v2"}  — capture the literal map
     const constObj = Object.create(null)        // objName → { key → string }
-    const objRe = /\b(?:var|let|const)?\s*([A-Z][\w$]*)\s*=\s*\{([^{}]{1,1000})\}/g
+    // The binding name is matched loosely on purpose. Requiring an initial
+    // capital only ever matched unminified sources: in shipped bundles these
+    // enum maps are renamed to short lowercase identifiers, so
+    // `var y={ACTIVE:"ACTIVE",TERMINATED:"NON_EXISTENT",…}` was never indexed
+    // and every `<field> === y.SUSPENDED` comparison resolved to undefined.
+    // What keeps this tight is not the binding name but the shape: keys must
+    // be UPPER_SNAKE and values string literals, the object has to be
+    // compared against the leaf for any value to be collected, and
+    // finalizeClassification drops values that aren't wire-shaped.
+    const objRe = /\b(?:var|let|const)?\s*([A-Za-z_$][\w$]*)\s*=\s*\{([^{}]{1,1000})\}/g
     while ((m = objRe.exec(body))) {
         const name = m[1]
         const inner = m[2]

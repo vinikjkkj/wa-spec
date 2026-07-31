@@ -561,6 +561,19 @@ function findMethodImplementation(bundles, methodName) {
     if (!methodName) return null
     const escaped = methodName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
     const headerRe = new RegExp(`${LB}${escaped}\\s*:\\s*function\\s*\\(`)
+    // Same duplication problem as findModuleBody, and worse: a method name is
+    // not unique across the codebase, so the matches include unrelated methods
+    // that merely share it. `getMetrics` resolves to four distinct bodies here
+    // — an opaque `{return[c,d]}`, a single-call wrapper, the newsletter
+    // insights builder we actually want, and a counter aggregator returning a
+    // plain object. Taking the first made the recovered shape depend on file
+    // order; taking the longest reliably picked the unrelated aggregator.
+    //
+    // Select on shape instead: the caller mines a returned array of object
+    // literals, so prefer a body that has one, and only then fall back. Within
+    // a tier the longest wins (richest literal) and ties break on content, so
+    // the result never depends on file order.
+    const candidates = []
     for (const b of bundles) {
         const m = headerRe.exec(b.text)
         if (!m) continue
@@ -595,9 +608,17 @@ function findMethodImplementation(bundles, methodName) {
             else if (c === '}') depth--
             j++
         }
-        return b.text.slice(i, j) // includes outer { ... }
+        candidates.push(b.text.slice(i, j)) // includes outer { ... }
     }
-    return null
+    if (candidates.length === 0) return null
+    const uniq = [...new Set(candidates)]
+    if (uniq.length === 1) return uniq[0]
+    const tier = (b) => (/return\s*\[\s*\{/.test(b) ? 0 : /return\s*\[/.test(b) ? 1 : 2)
+    uniq.sort(
+        (x, y) =>
+            tier(x) - tier(y) || y.length - x.length || (x < y ? -1 : x > y ? 1 : 0)
+    )
+    return uniq[0]
 }
 
 function extractMex(bundles) {
