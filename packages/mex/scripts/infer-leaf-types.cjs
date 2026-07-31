@@ -1651,10 +1651,89 @@ function recoverArrayItemShape(fieldName, finder, enumIndex) {
         let j = i + 1
         while (j < body.length && /\s/.test(body[j])) j++
         if (body[j] !== '{') continue
-        const r = parseObjectShapeInline(body, j, enumIndex)
-        if (r && r.value && typeof r.value === 'object' && Object.keys(r.value).length > 0) return r.value
+        // Parse every element, not just the first. These builders list one
+        // object per variant — `[{type:"FOLLOWS",…},{type:"UNFOLLOWS",…}]` —
+        // so the elements together carry the value set for the keys that
+        // differ. Reading only element 0 saw a lone literal and reported
+        // `string`, discarding the rest of the enum.
+        const shapes = []
+        let cur = j
+        while (cur < body.length && body[cur] === '{' && shapes.length < 24) {
+            const r = parseObjectShapeInline(body, cur, enumIndex)
+            if (!r || !r.value || typeof r.value !== 'object') break
+            shapes.push(r.value)
+            let k = r.end
+            while (k < body.length && /\s/.test(body[k])) k++
+            if (body[k] !== ',') break
+            k++
+            while (k < body.length && /\s/.test(body[k])) k++
+            cur = k
+        }
+        if (shapes.length === 0) continue
+        const merged = mergeArrayItemShapes(shapes)
+        if (merged && Object.keys(merged).length > 0) return merged
     }
     return null
+}
+
+// Merge the per-element shapes recovered from a builder's returned array.
+//
+// Same key across elements: union `enum:` tags, keep a concrete tag over
+// `null`, and fall back to `string` when tags genuinely conflict. An enum
+// that ends up with a single value is demoted to `string` — one observed
+// literal is not evidence of a closed set, and a one-value union would type
+// the field more narrowly than the wire allows.
+function mergeArrayItemShapes(shapes) {
+    if (shapes.length === 1) return demoteLoneEnums(shapes[0])
+    const out = {}
+    const keys = new Set(shapes.flatMap((s) => Object.keys(s)))
+    for (const key of keys) {
+        const vals = shapes.map((s) => s[key]).filter((v) => v !== undefined)
+        const objs = vals.filter((v) => v && typeof v === 'object' && !Array.isArray(v))
+        if (objs.length === vals.length && objs.length > 0) {
+            out[key] = mergeArrayItemShapes(objs)
+            continue
+        }
+        const arrays = vals.filter((v) => Array.isArray(v))
+        if (arrays.length === vals.length && arrays.length > 0) {
+            const inner = arrays.map((a) => a[0]).filter((v) => v && typeof v === 'object')
+            out[key] = inner.length ? [mergeArrayItemShapes(inner)] : arrays[0]
+            continue
+        }
+        const tags = vals.filter((v) => typeof v === 'string')
+        if (tags.length === 0) {
+            out[key] = vals.find((v) => v !== null) ?? null
+            continue
+        }
+        const enumVals = new Set()
+        const plain = new Set()
+        for (const t of tags) {
+            if (t.startsWith('enum:')) for (const v of t.slice(5).split('|')) enumVals.add(v)
+            else plain.add(t)
+        }
+        if (enumVals.size > 0 && plain.size === 0) {
+            out[key] = enumVals.size === 1 ? 'string' : 'enum:' + [...enumVals].sort().join('|')
+        } else if (plain.size === 1 && enumVals.size === 0) {
+            out[key] = [...plain][0]
+        } else {
+            // enum mixed with a scalar tag, or two different scalar tags —
+            // the safe common ground is the scalar the literals came from.
+            out[key] = plain.has('string') || enumVals.size > 0 ? 'string' : [...plain][0]
+        }
+    }
+    return out
+}
+
+// Collapse `enum:X` tags carrying exactly one value back to `string`.
+function demoteLoneEnums(shape) {
+    if (Array.isArray(shape)) return shape.map(demoteLoneEnums)
+    if (!shape || typeof shape !== 'object') {
+        if (typeof shape === 'string' && shape.startsWith('enum:') && !shape.includes('|')) return 'string'
+        return shape
+    }
+    const out = {}
+    for (const [k, v] of Object.entries(shape)) out[k] = demoteLoneEnums(v)
+    return out
 }
 
 // Local minimal object-shape parser — duplicate of extract-mex's
@@ -1774,7 +1853,15 @@ function parseObjectShapeInline(s, start, enumIndex) {
 function classifyInlineRhs(expr, enumIndex) {
     if (!expr) return null
     const c = expr[0]
-    if (c === '"' || c === "'" || c === '`') return 'string'
+    if (c === '"' || c === "'" || c === '`') {
+        // A wire-shaped literal is reported as a one-value enum so the caller
+        // can union it across the array's elements. A single element on its
+        // own proves nothing about the full value set, so mergeArrayItemShapes
+        // collapses a lone value back to `string`.
+        const lit = expr.slice(1, -1)
+        if (/^[A-Z][A-Z0-9_]{0,49}$/.test(lit)) return 'enum:' + lit
+        return 'string'
+    }
     if (/^-?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?$/.test(expr)) return 'number'
     if (expr === 'true' || expr === 'false' || expr === '!0' || expr === '!1') return 'boolean'
     if (expr === 'null' || expr === 'undefined' || expr === 'void 0') return null
