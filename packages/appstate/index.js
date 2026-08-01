@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044218870
+// WhatsApp Version: 2.3000.1044293308
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -181,7 +181,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'callLogAction',
         valueProtoType: 'SyncActionValue.CallLogAction',
-        valueEnumFields: Object.freeze({ 'callLogRecord.callResult': 'CallLogRecord.CallResult', 'callLogRecord.silenceReason': 'CallLogRecord.SilenceReason', 'callLogRecord.participants.callResult': 'CallLogRecord.CallResult', 'callLogRecord.callType': 'CallLogRecord.CallType' }),
+        valueEnumFields: Object.freeze({ 'callLogRecord.callResult': 'CallLogRecord.CallResult', 'callLogRecord.callType': 'CallLogRecord.CallType', 'callLogRecord.participants.callResult': 'CallLogRecord.CallResult', 'callLogRecord.silenceReason': 'CallLogRecord.SilenceReason' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'call_log' })
         ])
@@ -737,7 +737,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'settingsSyncAction',
         valueProtoType: 'SyncActionValue.SettingsSyncAction',
-        valueEnumFields: Object.freeze({ 'bannerNotificationDisplayMode': 'SettingsSyncAction.DisplayMode', 'unreadCounterBadgeDisplayMode': 'SettingsSyncAction.DisplayMode', 'mediaUploadQuality': 'SettingsSyncAction.MediaQualitySetting' }),
+        valueEnumFields: Object.freeze({ 'bannerNotificationDisplayMode': 'SettingsSyncAction.DisplayMode', 'mediaUploadQuality': 'SettingsSyncAction.MediaQualitySetting', 'unreadCounterBadgeDisplayMode': 'SettingsSyncAction.DisplayMode' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'settings_sync' }),
             Object.freeze({ type: 'enum', name: 'settingPlatform', protoEnum: 'SettingsSyncAction.SettingPlatform' }),

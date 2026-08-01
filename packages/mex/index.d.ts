@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044218870
+// WhatsApp Version: 2.3000.1044293308
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -182,6 +182,8 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly SupportBugReportSubmit: WaMexPersistId
     readonly SupportContactFormSubmit: WaMexPersistId
     readonly SupportMessageFeedbackSubmit: WaMexPersistId
+    readonly TeamLinkCreateInvitation: WaMexPersistId
+    readonly TeamLinkListInvitations: WaMexPersistId
     readonly TransferCommunityOwnership: WaMexPersistId
     readonly UpdateGroupProperty: WaMexPersistId
     readonly UpdateNewsletter: WaMexPersistId
@@ -371,6 +373,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly SupportBugReportSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportContactFormSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportMessageFeedbackSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly TeamLinkCreateInvitation: WaMexOperationSchema<'mutation', readonly ['employeeName', 'lid']>
+    readonly TeamLinkListInvitations: WaMexOperationSchema<'query', readonly []>
     readonly TransferCommunityOwnership: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateGroupProperty: WaMexOperationSchema<'mutation', readonly ['group_id', 'update']>
     readonly UpdateNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
@@ -398,9 +402,9 @@ export type WaMexACSServerProviderConfigVariables = {
 
 export type WaMexACSServerProviderIssuanceVariables = {
     readonly input?: {
-        readonly project_name?: string
         readonly config_id?: string
         readonly issue_element?: string
+        readonly project_name?: string
         readonly request_proof?: string
     }
 }
@@ -508,18 +512,18 @@ export type WaMexBizCustomUrlGetUserGraphqlVariables = {
 
 export type WaMexBizGetCategoriesVariables = {
     readonly query_params?: {
-        readonly query?: string
         readonly locale?: string
         readonly operation?: 'PROFILE_TYPEAHEAD'
+        readonly query?: string
         readonly version?: 'V_1'
     }
 }
 
 export type WaMexBizGetCategoriesV2Variables = {
     readonly query_params?: {
-        readonly query?: string
         readonly locale?: string
         readonly operation?: 'PROFILE_TYPEAHEAD'
+        readonly query?: string
         readonly version?: 'V_2'
     }
 }
@@ -563,16 +567,16 @@ export type WaMexBizProfileRootVariables = Readonly<Record<string, never>>
 export type WaMexBizQueryOrderVariables = {
     readonly request?: {
         readonly order?: {
-            readonly jid?: string
-            readonly token?: {
-                readonly sensitive_string_value?: string
-            }
+            readonly direct_connection_encrypted_info?: string
             readonly id?: string
             readonly image_dimensions?: {
                 readonly height?: number
                 readonly width?: number
             }
-            readonly direct_connection_encrypted_info?: string
+            readonly jid?: string
+            readonly token?: {
+                readonly sensitive_string_value?: string
+            }
         }
     }
 }
@@ -607,9 +611,9 @@ export type WaMexConsumerFetchQuickPromotionsVariables = {
     readonly nux_ids?: ReadonlyArray<string>
     readonly trigger_context?: {
         readonly wa_smb_trigger_context?: {
-            readonly is_from_wa_smb?: boolean
             readonly app_version?: number
             readonly country?: string
+            readonly is_from_wa_smb?: boolean
             readonly locale?: string
         }
     }
@@ -621,18 +625,18 @@ export type WaMexConsumerQuickPromotionActionGraphQLVariables = {
 
 export type WaMexCreateEnforcementAppealVariables = {
     readonly input?: {
-        readonly entity_id?: string
-        readonly enforcement_id?: string
-        readonly appeal_reason?: string
         readonly additional_appeal_reason?: string
+        readonly appeal_reason?: string
+        readonly enforcement_id?: string
+        readonly entity_id?: string
         readonly locale?: string
     }
 }
 
 export type WaMexCreateInviteCodeVariables = {
     readonly input?: {
-        readonly receiver?: string
         readonly entry_point?: string
+        readonly receiver?: string
         readonly server_send_sms?: boolean
     }
 }
@@ -647,8 +651,8 @@ export type WaMexCreateMarketingCampaignActionVariables = {
 
 export type WaMexCreateNewsletterVariables = {
     readonly input?: {
-        readonly name?: string
         readonly description?: string
+        readonly name?: string
         readonly picture?: string
     }
 }
@@ -814,10 +818,10 @@ export type WaMexFetchGroupIsInternalVariables = {
 export type WaMexFetchIntegritySignalsVariables = {
     readonly input?: {
         readonly query_input?: ReadonlyArray<{
-            readonly jid?: string
             readonly integrity_signals?: {
                 readonly use_case?: 'CHAT_FMX'
             }
+            readonly jid?: string
         }>
         readonly telemetry?: {
             readonly context?: 'INTERACTIVE'
@@ -875,22 +879,22 @@ export type WaMexFetchNewsletterDirectoryCategoriesPreviewVariables = {
 export type WaMexFetchNewsletterDirectoryListVariables = {
     readonly fetch_status_metadata?: boolean
     readonly input?: {
-        readonly view?: string
         readonly filters?: {
-            readonly country_codes?: ReadonlyArray<string>
             readonly categories?: ReadonlyArray<string>
+            readonly country_codes?: ReadonlyArray<string>
         }
         readonly limit?: number
         readonly start_cursor?: string
+        readonly view?: string
     }
 }
 
 export type WaMexFetchNewsletterDirectorySearchResultsVariables = {
     readonly fetch_status_metadata?: boolean
     readonly input?: {
-        readonly search_text?: string
         readonly categories?: ReadonlyArray<string>
         readonly limit?: number
+        readonly search_text?: string
         readonly start_cursor?: string
     }
 }
@@ -902,22 +906,22 @@ export type WaMexFetchNewsletterEnforcementsVariables = {
 
 export type WaMexFetchNewsletterFollowersVariables = {
     readonly input?: {
-        readonly newsletter_id?: string
         readonly count?: number
+        readonly newsletter_id?: string
     }
 }
 
 export type WaMexFetchNewsletterInsightsVariables = {
     readonly input?: {
-        readonly newsletter_id?: string
         readonly metrics?: ReadonlyArray<{
-            readonly id?: number
-            readonly type?: string
             readonly group_by?: {
                 readonly number_of_days?: number
             }
+            readonly id?: number
             readonly limit?: number
+            readonly type?: 'FOLLOWS' | 'UNFOLLOWS'
         }>
+        readonly newsletter_id?: string
     }
 }
 
@@ -939,8 +943,8 @@ export type WaMexFetchNewsletterPendingInvitesVariables = {
 export type WaMexFetchNewsletterPollVotersVariables = {
     readonly input?: {
         readonly limit?: number
-        readonly server_id?: string
         readonly newsletter_id?: string
+        readonly server_id?: string
         readonly vote_hash?: string
     }
 }
@@ -963,9 +967,9 @@ export type WaMexFetchQuickPromotionsVariables = {
     readonly nux_ids?: ReadonlyArray<string>
     readonly trigger_context?: {
         readonly wa_smb_trigger_context?: {
-            readonly is_from_wa_smb?: boolean
             readonly app_version?: number
             readonly country?: string
+            readonly is_from_wa_smb?: boolean
             readonly locale?: string
         }
     }
@@ -976,17 +980,17 @@ export type WaMexFetchReachoutTimelockVariables = Readonly<Record<string, never>
 export type WaMexFetchRecommendedNewslettersVariables = {
     readonly fetch_status_metadata?: boolean
     readonly input?: {
-        readonly limit?: number
         readonly country_codes?: ReadonlyArray<string>
+        readonly limit?: number
     }
 }
 
 export type WaMexFetchSimilarNewslettersVariables = {
     readonly fetch_status_metadata?: boolean
     readonly input?: {
-        readonly newsletter_id?: string
-        readonly limit?: number
         readonly country_codes?: ReadonlyArray<string>
+        readonly limit?: number
+        readonly newsletter_id?: string
     }
 }
 
@@ -1043,8 +1047,8 @@ export type WaMexGetPrivacyListsVariables = {
         readonly query_input?: ReadonlyArray<{
             readonly jid?: string
             readonly privacy_contact_list_type?: {
-                readonly dhash?: string
                 readonly category?: string
+                readonly dhash?: string
                 readonly type?: string
             }
         }>
@@ -1088,16 +1092,16 @@ export type WaMexGraphQLVerifyPostcodeVariables = {
 
 export type WaMexGroupStoreInviteSmsVariables = {
     readonly input?: {
-        readonly partcipants?: ReadonlyArray<Readonly<Record<string, unknown>>>
         readonly group_jid?: string
+        readonly partcipants?: ReadonlyArray<Readonly<Record<string, unknown>>>
     }
 }
 
 export type WaMexGroupSuspensionAppealVariables = {
     readonly input?: {
-        readonly group_jid?: string
         readonly appeal_reason?: string
         readonly debug_info?: string
+        readonly group_jid?: string
     }
 }
 
@@ -1105,8 +1109,8 @@ export type WaMexIntegrityChallengeResponseVariables = {
     readonly input?: {
         readonly challenge_type?: string
         readonly passkey_response?: {
-            readonly signed_challenge?: string
             readonly prf_available?: boolean
+            readonly signed_challenge?: string
         }
     }
 }
@@ -1130,8 +1134,8 @@ export type WaMexLidChangeNotificationVariables = Readonly<Record<string, never>
 export type WaMexLogNewsletterExposuresVariables = {
     readonly input?: {
         readonly exposures?: ReadonlyArray<{
-            readonly newsletter_id?: string
             readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUIZ' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
+            readonly newsletter_id?: string
         }>
     }
 }
@@ -1234,17 +1238,17 @@ export type WaMexPaymentsPasskeyHasCredentialVariables = Readonly<Record<string,
 export type WaMexQueryCatalogVariables = {
     readonly request?: {
         readonly product_catalog?: {
-            readonly jid?: string
-            readonly allow_shop_source?: 'ALLOWSHOPSOURCE_FALSE' | 'ALLOWSHOPSOURCE_TRUE'
-            readonly width?: string
-            readonly height?: string
-            readonly direct_connection_encrypted_info?: string
-            readonly limit?: string
             readonly after?: string
+            readonly allow_shop_source?: 'ALLOWSHOPSOURCE_FALSE' | 'ALLOWSHOPSOURCE_TRUE'
             readonly catalog_session_id?: string
+            readonly direct_connection_encrypted_info?: string
+            readonly height?: string
+            readonly jid?: string
+            readonly limit?: string
             readonly variant_info_fields?: Readonly<Record<string, unknown>>
             readonly variant_thumbnail_height?: string
             readonly variant_thumbnail_width?: string
+            readonly width?: string
         }
     }
 }
@@ -1253,9 +1257,9 @@ export type WaMexQueryCatalogHasCategoriesVariables = {
     readonly request?: {
         readonly categories?: {
             readonly biz_jid?: string
+            readonly catalog_session_id?: string
             readonly direct_connection_encrypted_info?: string
             readonly image_dimensions?: Readonly<Record<string, unknown>>
-            readonly catalog_session_id?: string
         }
     }
 }
@@ -1263,15 +1267,15 @@ export type WaMexQueryCatalogHasCategoriesVariables = {
 export type WaMexQueryCatalogProductVariables = {
     readonly request?: {
         readonly product?: {
+            readonly direct_connection_encrypted_info?: string
+            readonly fetch_compliance_info?: string
+            readonly height?: string
             readonly jid?: string
             readonly product_id?: string
-            readonly width?: string
-            readonly height?: string
-            readonly fetch_compliance_info?: string
-            readonly direct_connection_encrypted_info?: string
             readonly variant_info_fields?: Readonly<Record<string, unknown>>
             readonly variant_thumbnail_height?: string
             readonly variant_thumbnail_width?: string
+            readonly width?: string
         }
     }
 }
@@ -1279,16 +1283,16 @@ export type WaMexQueryCatalogProductVariables = {
 export type WaMexQueryProductCollectionsVariables = {
     readonly request?: {
         readonly collections?: {
+            readonly after?: string
             readonly biz_jid?: string
             readonly collection_limit?: string
-            readonly item_limit?: string
-            readonly after?: string
-            readonly width?: string
-            readonly height?: string
             readonly direct_connection_encrypted_info?: string
+            readonly height?: string
+            readonly item_limit?: string
             readonly variant_info_fields?: Readonly<Record<string, unknown>>
             readonly variant_thumbnail_height?: string
             readonly variant_thumbnail_width?: string
+            readonly width?: string
         }
     }
 }
@@ -1296,13 +1300,13 @@ export type WaMexQueryProductCollectionsVariables = {
 export type WaMexQueryProductListCatalogVariables = {
     readonly request?: {
         readonly product_list?: {
+            readonly direct_connection_encrypted_info?: string
+            readonly height?: string
             readonly jid?: string
             readonly products?: ReadonlyArray<{
                 readonly id?: string
             }>
             readonly width?: string
-            readonly height?: string
-            readonly direct_connection_encrypted_info?: string
         }
     }
 }
@@ -1310,16 +1314,16 @@ export type WaMexQueryProductListCatalogVariables = {
 export type WaMexQueryProductSingleCollectionVariables = {
     readonly request?: {
         readonly collection?: {
+            readonly after?: string
             readonly biz_jid?: string
+            readonly direct_connection_encrypted_info?: string
+            readonly height?: string
             readonly id?: string
             readonly limit?: string
-            readonly after?: string
-            readonly width?: string
-            readonly height?: string
-            readonly direct_connection_encrypted_info?: string
             readonly variant_info_fields?: Readonly<Record<string, unknown>>
             readonly variant_thumbnail_height?: string
             readonly variant_thumbnail_width?: string
+            readonly width?: string
         }
     }
 }
@@ -1354,9 +1358,9 @@ export type WaMexRequestClientLogsForBugVariables = {
 
 export type WaMexRequestOTEVariables = {
     readonly input?: {
-        readonly type?: 'INDIVIDUAL_NEW_CHAT_THREAD'
-        readonly selected_reason?: string
         readonly reason_text?: string
+        readonly selected_reason?: string
+        readonly type?: 'INDIVIDUAL_NEW_CHAT_THREAD'
     }
 }
 
@@ -1429,6 +1433,13 @@ export type WaMexSupportMessageFeedbackSubmitVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexTeamLinkCreateInvitationVariables = {
+    readonly employeeName?: string
+    readonly lid?: string
+}
+
+export type WaMexTeamLinkListInvitationsVariables = Readonly<Record<string, never>>
+
 export type WaMexTransferCommunityOwnershipVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -1441,8 +1452,8 @@ export type WaMexUpdateGroupPropertyVariables = {
 export type WaMexUpdateNewsletterVariables = {
     readonly newsletter_id?: string
     readonly updates?: {
-        readonly name?: string
         readonly description?: string
+        readonly name?: string
         readonly picture?: string
         readonly settings?: Readonly<Record<string, unknown>>
     }
@@ -1708,6 +1719,8 @@ export interface WaMexOperationVariables {
     readonly SupportBugReportSubmit: WaMexSupportBugReportSubmitVariables
     readonly SupportContactFormSubmit: WaMexSupportContactFormSubmitVariables
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitVariables
+    readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationVariables
+    readonly TeamLinkListInvitations: WaMexTeamLinkListInvitationsVariables
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipVariables
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyVariables
     readonly UpdateNewsletter: WaMexUpdateNewsletterVariables
@@ -1743,7 +1756,6 @@ export type WaMexACSServerProviderConfigResponse = {
 
 export type WaMexACSServerProviderIssuanceResponse = {
     readonly xwa_wa_acs_issue_credentials?: {
-        readonly success?: boolean
         readonly creds?: {
             readonly evaluation?: ReadonlyArray<{
                 readonly data?: string
@@ -1754,6 +1766,7 @@ export type WaMexACSServerProviderIssuanceResponse = {
             }>
         }
         readonly error_message?: string
+        readonly success?: boolean
     }
 }
 
@@ -1766,19 +1779,19 @@ export type WaMexAcceptNewsletterAdminInviteResponse = {
 
 export type WaMexAdAccountReviewBaseCardResponse = {
     readonly maiba_ad_account?: {
-        readonly name?: string
         readonly account_dsl?: {
             readonly formatted_amount?: number
         }
         readonly account_status?: 'ACTIVE'
         readonly dsl_eligibility_status?: string
+        readonly name?: string
     }
 }
 
 export type WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusResponse = {
     readonly xfb_maiba_account_status_review?: {
-        readonly review_status?: string
         readonly id?: string
+        readonly review_status?: string
     }
 }
 
@@ -1799,11 +1812,11 @@ export type WaMexAdPreferencesDemographicCategoryOptOutResponse = {
 
 export type WaMexAdPreferencesHideAdvertiserResponse = {
     readonly advertiser_hide?: {
-        readonly client_mutation_id?: string
         readonly advertiser?: {
             readonly id?: string
             readonly is_hidden?: boolean
         }
+        readonly client_mutation_id?: string
     }
 }
 
@@ -1817,12 +1830,12 @@ export type WaMexAdPreferencesInterestCategoryOptOutResponse = {
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse = {
     readonly set_aplus_cfeature_sticky_status_ads_ad_account_settings?: {
         readonly ads_ad_account_settings?: {
-            readonly id?: string
             readonly feature_sticky_entries?: ReadonlyArray<{
                 readonly feature_name?: string
                 readonly status?: string
                 readonly timestamp?: string
             }>
+            readonly id?: string
         }
     }
 }
@@ -1840,29 +1853,29 @@ export type WaMexAdsAdAccountSettingsStoreSourceServerResponse = {
 
 export type WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse = {
     readonly ad_account?: {
-        readonly tax_country?: unknown
-        readonly can_manage_agency_fee?: boolean
-        readonly can_see_agency_fee?: boolean
         readonly agency_fee_config?: {
             readonly default_agency_fee_pct?: unknown
-            readonly is_agency_fee_disabled?: boolean
             readonly id?: string
+            readonly is_agency_fee_disabled?: boolean
         }
+        readonly can_manage_agency_fee?: boolean
+        readonly can_see_agency_fee?: boolean
         readonly id?: string
+        readonly tax_country?: unknown
     }
 }
 
 export type WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeResponse = {
     readonly ad_account?: {
-        readonly tax_country?: unknown
-        readonly can_manage_agency_fee?: boolean
-        readonly can_see_agency_fee?: boolean
         readonly agency_fee_config?: {
             readonly default_agency_fee_pct?: unknown
-            readonly is_agency_fee_disabled?: boolean
             readonly id?: string
+            readonly is_agency_fee_disabled?: boolean
         }
+        readonly can_manage_agency_fee?: boolean
+        readonly can_see_agency_fee?: boolean
         readonly id?: string
+        readonly tax_country?: unknown
     }
 }
 
@@ -1874,36 +1887,36 @@ export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response = {
 
 export type WaMexAdsBulkEditVARNCAConflictWrapper_Response = {
     readonly ad_account?: {
+        readonly id?: string
         readonly value_adjustment_rule_collection?: {
             readonly nodes?: ReadonlyArray<{
-                readonly id?: string
-                readonly name?: string
-                readonly status?: string
-                readonly product_type?: string
                 readonly campaigns?: {
                     readonly count?: unknown
                 }
+                readonly id?: string
+                readonly name?: string
                 readonly personas?: {
                     readonly nodes?: ReadonlyArray<{
-                        readonly id?: string
-                        readonly name?: string
                         readonly adjustment_sign?: unknown
                         readonly adjustment_weight?: unknown
-                        readonly status?: string
                         readonly criterias?: {
                             readonly nodes?: ReadonlyArray<{
-                                readonly id?: string
                                 readonly criteria_type?: string
+                                readonly id?: string
                                 readonly operator?: unknown
                                 readonly predicate_types?: unknown
                                 readonly predicates?: unknown
                             }>
                         }
+                        readonly id?: string
+                        readonly name?: string
+                        readonly status?: string
                     }>
                 }
+                readonly product_type?: string
+                readonly status?: string
             }>
         }
-        readonly id?: string
     }
 }
 
@@ -1948,12 +1961,12 @@ export type WaMexAuthAgentFeaturePolicyResponse = {
 
 export type WaMexBPAccessTokenAndSessionCookiesResponse = {
     readonly xwa_bp_access_token_and_session_cookies?: {
-        readonly status?: string
         readonly access_token?: string
-        readonly session_cookies?: string
-        readonly bp_id?: string
         readonly access_token_type?: string
+        readonly bp_id?: string
         readonly email_attr?: string
+        readonly session_cookies?: string
+        readonly status?: string
     }
 }
 
@@ -1961,35 +1974,35 @@ export type WaMexBizCreateOrderResponse = {
     readonly xwa_checkout_place_order?: {
         readonly order?: {
             readonly order_id?: string
-            readonly token?: string
             readonly price?: {
                 readonly currency?: string
+                readonly price_status?: string
                 readonly subtotal_amount?: number
                 readonly total_amount?: number
-                readonly price_status?: string
             }
+            readonly token?: string
         }
     }
 }
 
 export type WaMexBizCustomUrlGetUserGraphqlResponse = {
     readonly xwa_custom_url_get_user?: {
-        readonly success?: boolean
-        readonly lid?: string
         readonly error_code?: number
         readonly error_text?: string
+        readonly lid?: string
+        readonly success?: boolean
     }
 }
 
 export type WaMexBizGetCategoriesResponse = {
     readonly whatsapp_catkit_typeahead_proxy?: {
         readonly categories?: ReadonlyArray<{
-            readonly id?: string
             readonly display_name?: string
+            readonly id?: string
         }>
         readonly not_a_biz?: {
-            readonly id?: string
             readonly display_name?: string
+            readonly id?: string
         }
     }
 }
@@ -1997,53 +2010,53 @@ export type WaMexBizGetCategoriesResponse = {
 export type WaMexBizGetCategoriesV2Response = {
     readonly whatsapp_catkit_typeahead_proxy?: {
         readonly categories?: ReadonlyArray<{
-            readonly id?: string
-            readonly display_name?: string
             readonly categories?: ReadonlyArray<{
-                readonly id?: string
-                readonly display_name?: string
                 readonly categories?: ReadonlyArray<{
-                    readonly id?: string
                     readonly display_name?: string
+                    readonly id?: string
                 }>
+                readonly display_name?: string
+                readonly id?: string
             }>
+            readonly display_name?: string
+            readonly id?: string
         }>
         readonly not_a_biz?: {
-            readonly id?: string
             readonly display_name?: string
+            readonly id?: string
         }
     }
 }
 
 export type WaMexBizGetCustomUrlUserGraphqlResponse = {
     readonly xwa_custom_url_get_user?: {
+        readonly error_code?: number
+        readonly error_text?: string
         readonly success?: boolean
         readonly user?: {
             readonly jid?: string
         }
-        readonly error_code?: number
-        readonly error_text?: string
     }
 }
 
 export type WaMexBizGetMerchantComplianceResponse = {
     readonly xfb_whatsapp_biz_merchant_compliance_info?: {
         readonly merchant_info?: {
-            readonly entity_name?: string
-            readonly entity_type?: string
-            readonly is_registered?: boolean
-            readonly entity_type_custom?: string
             readonly customer_care_details?: {
                 readonly email?: string
                 readonly landline_number?: string
                 readonly mobile_number?: string
             }
+            readonly entity_name?: string
+            readonly entity_type?: string
+            readonly entity_type_custom?: string
             readonly grievance_officer_details?: {
-                readonly name?: string
                 readonly email?: string
                 readonly landline_number?: string
                 readonly mobile_number?: string
+                readonly name?: string
             }
+            readonly is_registered?: boolean
         }
     }
 }
@@ -2051,8 +2064,8 @@ export type WaMexBizGetMerchantComplianceResponse = {
 export type WaMexBizGetPriceTiersResponse = {
     readonly xwa_whatsapp_get_pricing_tiers?: {
         readonly price_tiers?: ReadonlyArray<{
-            readonly id?: string
             readonly description?: string
+            readonly id?: string
             readonly symbol?: string
         }>
     }
@@ -2060,111 +2073,111 @@ export type WaMexBizGetPriceTiersResponse = {
 
 export type WaMexBizGetProfileShimlinksResponse = {
     readonly xwa_whatsapp_smb_get_profile_linkshims?: ReadonlyArray<{
-        readonly website?: string
         readonly shimmed_website_url?: string
+        readonly website?: string
     }>
 }
 
 export type WaMexBizGraphQLRefreshCartResponse = {
     readonly xwa_checkout_refresh_cart?: {
         readonly cart?: {
-            readonly products?: ReadonlyArray<{
-                readonly is_hidden?: boolean
-                readonly availability?: string
-                readonly product_availability?: string
-                readonly status_info?: {
-                    readonly reject_reason?: string
-                    readonly status?: string
-                    readonly can_appeal?: boolean
-                    readonly commerce_url?: string
-                }
-                readonly image_fetch_status?: string
-                readonly price?: string
+            readonly price_details?: {
                 readonly currency?: string
-                readonly retailer_id?: string
-                readonly name?: string
+                readonly price_status?: string
+                readonly subtotal_amount?: number
+                readonly total_amount?: number
+            }
+            readonly products?: ReadonlyArray<{
+                readonly availability?: string
+                readonly belongs_to?: string
+                readonly compliance_category?: string
+                readonly compliance_info?: {
+                    readonly country_code_origin?: string
+                    readonly importer_address?: {
+                        readonly city?: string
+                        readonly country_code?: string
+                        readonly postal_code?: string
+                        readonly region?: string
+                        readonly street1?: string
+                        readonly street2?: string
+                    }
+                    readonly importer_name?: string
+                }
+                readonly currency?: string
                 readonly description?: string
-                readonly url?: string
                 readonly id?: string
+                readonly image_fetch_status?: string
+                readonly is_hidden?: boolean
+                readonly max_available?: number
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
-                        readonly request_image_url?: string
                         readonly original_dimensions?: {
                             readonly height?: number
                             readonly width?: number
                         }
+                        readonly request_image_url?: string
                     }>
                     readonly videos?: ReadonlyArray<{
-                        readonly thumbnail_url?: string
-                        readonly original_video_url?: string
                         readonly id?: string
+                        readonly original_video_url?: string
+                        readonly thumbnail_url?: string
                     }>
                 }
+                readonly name?: string
+                readonly price?: string
+                readonly product_availability?: string
+                readonly retailer_id?: string
                 readonly sale_price?: {
+                    readonly end_date?: string
                     readonly price?: string
                     readonly start_date?: string
-                    readonly end_date?: string
                 }
-                readonly max_available?: number
-                readonly belongs_to?: string
                 readonly status?: string
-                readonly compliance_category?: string
-                readonly compliance_info?: {
-                    readonly country_code_origin?: string
-                    readonly importer_name?: string
-                    readonly importer_address?: {
-                        readonly street1?: string
-                        readonly street2?: string
-                        readonly city?: string
-                        readonly region?: string
-                        readonly postal_code?: string
-                        readonly country_code?: string
-                    }
+                readonly status_info?: {
+                    readonly can_appeal?: boolean
+                    readonly commerce_url?: string
+                    readonly reject_reason?: string
+                    readonly status?: string
                 }
+                readonly url?: string
                 readonly variant_info?: {
-                    readonly types?: ReadonlyArray<{
-                        readonly name?: string
-                        readonly options?: ReadonlyArray<{
-                            readonly value?: string
-                            readonly thumbnail_media?: {
-                                readonly original_dimensions?: {
-                                    readonly width?: number
-                                    readonly height?: number
-                                }
-                                readonly request_image_url?: string
-                                readonly original_image_url?: string
-                                readonly id?: string
-                            }
-                        }>
-                    }>
-                    readonly listing_details?: {
-                        readonly description?: string
-                        readonly multi_price?: string
-                        readonly lowest_price?: string
-                    }
-                    readonly variant_properties?: ReadonlyArray<{
-                        readonly value?: string
-                        readonly name?: string
-                    }>
                     readonly availability?: {
                         readonly listing?: ReadonlyArray<{
                             readonly is_available?: boolean
-                            readonly product_id?: string
                             readonly options?: ReadonlyArray<{
                                 readonly name?: string
                                 readonly value?: string
                             }>
+                            readonly product_id?: string
                         }>
                     }
+                    readonly listing_details?: {
+                        readonly description?: string
+                        readonly lowest_price?: string
+                        readonly multi_price?: string
+                    }
+                    readonly types?: ReadonlyArray<{
+                        readonly name?: string
+                        readonly options?: ReadonlyArray<{
+                            readonly thumbnail_media?: {
+                                readonly id?: string
+                                readonly original_dimensions?: {
+                                    readonly height?: number
+                                    readonly width?: number
+                                }
+                                readonly original_image_url?: string
+                                readonly request_image_url?: string
+                            }
+                            readonly value?: string
+                        }>
+                    }>
+                    readonly variant_properties?: ReadonlyArray<{
+                        readonly name?: string
+                        readonly value?: string
+                    }>
                 }
             }>
-            readonly price_details?: {
-                readonly total_amount?: number
-                readonly subtotal_amount?: number
-                readonly currency?: string
-                readonly price_status?: string
-            }
         }
     }
 }
@@ -2172,17 +2185,17 @@ export type WaMexBizGraphQLRefreshCartResponse = {
 export type WaMexBizProfileAddressAutocompleteResponse = {
     readonly whatsapp_maps_typeahead?: {
         readonly items?: ReadonlyArray<{
-            readonly id?: string
-            readonly location?: {
-                readonly latitude?: number
-                readonly longitude?: number
-            }
             readonly address?: {
                 readonly city?: string
                 readonly country?: string
                 readonly postalcode?: string
                 readonly stateprovince?: string
                 readonly streetaddress?: string
+            }
+            readonly id?: string
+            readonly location?: {
+                readonly latitude?: number
+                readonly longitude?: number
             }
             readonly title?: string
         }>
@@ -2193,32 +2206,32 @@ export type WaMexBizProfileRootResponse = {
     readonly viewer?: {
         readonly backing_waba?: {
             readonly business_profile?: {
-                readonly id?: string
-                readonly description?: string
-                readonly email?: string
-                readonly physical_address?: unknown
-                readonly websites?: unknown
                 readonly about?: unknown
-                readonly latitude?: number
-                readonly longitude?: number
-                readonly service_areas?: ReadonlyArray<{
-                    readonly radius_meters?: unknown
-                    readonly description?: string
-                }>
                 readonly business_hours?: {
-                    readonly timezone_id?: string
                     readonly note?: string
                     readonly operating_ranges?: ReadonlyArray<{
-                        readonly mode?: string
-                        readonly day_of_week?: number
-                        readonly open_time?: string
                         readonly close_time?: string
+                        readonly day_of_week?: number
+                        readonly mode?: string
+                        readonly open_time?: string
                     }>
+                    readonly timezone_id?: string
                 }
+                readonly description?: string
+                readonly email?: string
+                readonly id?: string
+                readonly latitude?: number
                 readonly localized_categories?: ReadonlyArray<{
                     readonly id?: string
                     readonly localized_display_name?: string
                 }>
+                readonly longitude?: number
+                readonly physical_address?: unknown
+                readonly service_areas?: ReadonlyArray<{
+                    readonly description?: string
+                    readonly radius_meters?: unknown
+                }>
+                readonly websites?: unknown
             }
             readonly id?: string
         }
@@ -2229,30 +2242,30 @@ export type WaMexBizQueryOrderResponse = {
     readonly xwa_checkout_get_order_info?: {
         readonly order?: {
             readonly creation_time_stamp?: string
-            readonly products?: ReadonlyArray<{
-                readonly id?: string
-                readonly name?: string
-                readonly price?: string
+            readonly price_details?: {
                 readonly currency?: string
-                readonly variant_info?: {
-                    readonly variant_properties?: ReadonlyArray<{
-                        readonly name?: string
-                        readonly value?: string
-                    }>
-                }
+                readonly subtotal_amount?: string
+                readonly total_amount?: string
+            }
+            readonly products?: ReadonlyArray<{
+                readonly currency?: string
+                readonly id?: string
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
                         readonly request_image_url?: string
                     }>
                 }
+                readonly name?: string
+                readonly price?: string
                 readonly quantity?: string
+                readonly variant_info?: {
+                    readonly variant_properties?: ReadonlyArray<{
+                        readonly name?: string
+                        readonly value?: string
+                    }>
+                }
             }>
-            readonly price_details?: {
-                readonly subtotal_amount?: string
-                readonly currency?: string
-                readonly total_amount?: string
-            }
         }
     }
 }
@@ -2261,21 +2274,21 @@ export type WaMexBizSetMerchantComplianceResponse = {
     readonly xfb_whatsapp_biz_merchant_set_compliance_info?: {
         readonly __typename?: string
         readonly merchant_info?: {
-            readonly entity_name?: string
-            readonly entity_type?: string
-            readonly is_registered?: boolean
-            readonly entity_type_custom?: string
             readonly customer_care_details?: {
                 readonly email?: string
                 readonly landline_number?: string
                 readonly mobile_number?: string
             }
+            readonly entity_name?: string
+            readonly entity_type?: string
+            readonly entity_type_custom?: string
             readonly grievance_officer_details?: {
-                readonly name?: string
                 readonly email?: string
                 readonly landline_number?: string
                 readonly mobile_number?: string
+                readonly name?: string
             }
+            readonly is_registered?: boolean
         }
     }
 }
@@ -2295,11 +2308,11 @@ export type WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalResponse = {
 export type WaMexCachedTokenResponse = {
     readonly xwa2_ent_trade_canonical_nonce_for_access_tokens?: {
         readonly encrypted_access_tokens?: {
-            readonly key?: string
-            readonly data?: string
-            readonly tag?: string
-            readonly nonce?: string
             readonly algorithm?: string
+            readonly data?: string
+            readonly key?: string
+            readonly nonce?: string
+            readonly tag?: string
         }
     }
 }
@@ -2319,170 +2332,170 @@ export type WaMexChangeNewsletterOwnerResponse = {
 
 export type WaMexConsumerFetchQuickPromotionsResponse = {
     readonly quick_promotion_multiverse_batch_fetch_root?: ReadonlyArray<{
-        readonly surface_nux_id?: string
         readonly eligible_promotions?: {
             readonly edges?: ReadonlyArray<{
                 readonly client_ttl_seconds?: number
-                readonly priority?: number
                 readonly is_holdout?: boolean
                 readonly log_eligibility_waterfall?: string
-                readonly time_range?: {
-                    readonly start?: string
-                    readonly end?: string
-                }
                 readonly node?: {
                     readonly __typename?: string
-                    readonly promotion_id?: string
-                    readonly is_server_force_pass?: boolean
                     readonly ab_prop_name?: string
-                    readonly max_impressions?: number
-                    readonly surface_delay_in_seconds?: number
-                    readonly encrypted_logging_data?: string
                     readonly client_side_dry_run?: boolean
-                    readonly creatives?: ReadonlyArray<{
-                        readonly __typename?: string
-                        readonly title?: {
-                            readonly text?: string
-                        }
-                        readonly content?: {
-                            readonly text?: string
-                        }
-                        readonly primary_action?: {
-                            readonly __typename?: string
-                            readonly title?: {
-                                readonly text?: string
-                            }
-                            readonly limit?: number
-                            readonly url?: string
-                        }
-                        readonly dismiss_action?: {
-                            readonly __typename?: string
-                            readonly limit?: string
-                        }
-                        readonly wa_light_mode_media_details?: {
-                            readonly jpeg_thumbnail?: string
-                        }
-                        readonly wa_dark_mode_media_details?: {
-                            readonly jpeg_thumbnail?: string
-                        }
-                        readonly accessibility_text_for_image?: string
-                        readonly is_dismissible?: boolean
-                        readonly id?: string
-                    }>
                     readonly content_attributes?: {
                         readonly wa_banner_background_color?: {
-                            readonly light_mode_highlight_color?: string
+                            readonly dark_mode_background_color?: string
                             readonly dark_mode_highlight_color?: string
                             readonly light_mode_background_color?: string
-                            readonly dark_mode_background_color?: string
+                            readonly light_mode_highlight_color?: string
                         }
-                        readonly wa_primary_cta_alternative_url?: string
                         readonly wa_eligible_duration_after_impression_in_seconds?: number
+                        readonly wa_primary_cta_alternative_url?: string
                     }
-                    readonly wa_qp_content_attributes_do_not_use?: ReadonlyArray<{
-                        readonly name?: string
-                        readonly value?: string
-                    }>
                     readonly contextual_filters_for_wa_do_not_use?: {
                         readonly clause_type?: string
-                        readonly filters?: ReadonlyArray<{
-                            readonly filter_name?: string
-                            readonly parameters?: ReadonlyArray<{
-                                readonly key?: string
-                                readonly value?: string
-                            }>
-                            readonly passes_if_client_not_supported?: boolean
-                            readonly filter_result?: string
-                        }>
                         readonly clauses?: ReadonlyArray<{
                             readonly clause_type?: string
-                            readonly filters?: ReadonlyArray<{
-                                readonly filter_name?: string
-                                readonly parameters?: ReadonlyArray<{
-                                    readonly key?: string
-                                    readonly value?: string
-                                }>
-                                readonly passes_if_client_not_supported?: boolean
-                                readonly filter_result?: string
-                            }>
                             readonly clauses?: ReadonlyArray<{
                                 readonly clause_type?: string
-                                readonly filters?: ReadonlyArray<{
-                                    readonly filter_name?: string
-                                    readonly parameters?: ReadonlyArray<{
-                                        readonly key?: string
-                                        readonly value?: string
-                                    }>
-                                    readonly passes_if_client_not_supported?: boolean
-                                    readonly filter_result?: string
-                                }>
                                 readonly clauses?: ReadonlyArray<{
                                     readonly clause_type?: string
-                                    readonly filters?: ReadonlyArray<{
-                                        readonly filter_name?: string
-                                        readonly parameters?: ReadonlyArray<{
-                                            readonly key?: string
-                                            readonly value?: string
-                                        }>
-                                        readonly passes_if_client_not_supported?: boolean
-                                        readonly filter_result?: string
-                                    }>
                                     readonly clauses?: ReadonlyArray<{
                                         readonly clause_type?: string
-                                        readonly filters?: ReadonlyArray<{
-                                            readonly filter_name?: string
-                                            readonly parameters?: ReadonlyArray<{
-                                                readonly key?: string
-                                                readonly value?: string
-                                            }>
-                                            readonly passes_if_client_not_supported?: boolean
-                                            readonly filter_result?: string
-                                        }>
                                         readonly clauses?: ReadonlyArray<{
                                             readonly clause_type?: string
-                                            readonly filters?: ReadonlyArray<{
-                                                readonly filter_name?: string
-                                                readonly parameters?: ReadonlyArray<{
-                                                    readonly key?: string
-                                                    readonly value?: string
-                                                }>
-                                                readonly passes_if_client_not_supported?: boolean
-                                                readonly filter_result?: string
-                                            }>
                                             readonly clauses?: ReadonlyArray<{
                                                 readonly clause_type?: string
-                                                readonly filters?: ReadonlyArray<{
-                                                    readonly filter_name?: string
-                                                    readonly parameters?: ReadonlyArray<{
-                                                        readonly key?: string
-                                                        readonly value?: string
-                                                    }>
-                                                    readonly passes_if_client_not_supported?: boolean
-                                                    readonly filter_result?: string
-                                                }>
                                                 readonly clauses?: ReadonlyArray<{
                                                     readonly clause_type?: string
                                                     readonly filters?: ReadonlyArray<{
                                                         readonly filter_name?: string
+                                                        readonly filter_result?: string
                                                         readonly parameters?: ReadonlyArray<{
                                                             readonly key?: string
                                                             readonly value?: string
                                                         }>
                                                         readonly passes_if_client_not_supported?: boolean
-                                                        readonly filter_result?: string
                                                     }>
                                                 }>
+                                                readonly filters?: ReadonlyArray<{
+                                                    readonly filter_name?: string
+                                                    readonly filter_result?: string
+                                                    readonly parameters?: ReadonlyArray<{
+                                                        readonly key?: string
+                                                        readonly value?: string
+                                                    }>
+                                                    readonly passes_if_client_not_supported?: boolean
+                                                }>
+                                            }>
+                                            readonly filters?: ReadonlyArray<{
+                                                readonly filter_name?: string
+                                                readonly filter_result?: string
+                                                readonly parameters?: ReadonlyArray<{
+                                                    readonly key?: string
+                                                    readonly value?: string
+                                                }>
+                                                readonly passes_if_client_not_supported?: boolean
                                             }>
                                         }>
+                                        readonly filters?: ReadonlyArray<{
+                                            readonly filter_name?: string
+                                            readonly filter_result?: string
+                                            readonly parameters?: ReadonlyArray<{
+                                                readonly key?: string
+                                                readonly value?: string
+                                            }>
+                                            readonly passes_if_client_not_supported?: boolean
+                                        }>
+                                    }>
+                                    readonly filters?: ReadonlyArray<{
+                                        readonly filter_name?: string
+                                        readonly filter_result?: string
+                                        readonly parameters?: ReadonlyArray<{
+                                            readonly key?: string
+                                            readonly value?: string
+                                        }>
+                                        readonly passes_if_client_not_supported?: boolean
                                     }>
                                 }>
+                                readonly filters?: ReadonlyArray<{
+                                    readonly filter_name?: string
+                                    readonly filter_result?: string
+                                    readonly parameters?: ReadonlyArray<{
+                                        readonly key?: string
+                                        readonly value?: string
+                                    }>
+                                    readonly passes_if_client_not_supported?: boolean
+                                }>
+                            }>
+                            readonly filters?: ReadonlyArray<{
+                                readonly filter_name?: string
+                                readonly filter_result?: string
+                                readonly parameters?: ReadonlyArray<{
+                                    readonly key?: string
+                                    readonly value?: string
+                                }>
+                                readonly passes_if_client_not_supported?: boolean
                             }>
                         }>
+                        readonly filters?: ReadonlyArray<{
+                            readonly filter_name?: string
+                            readonly filter_result?: string
+                            readonly parameters?: ReadonlyArray<{
+                                readonly key?: string
+                                readonly value?: string
+                            }>
+                            readonly passes_if_client_not_supported?: boolean
+                        }>
                     }
+                    readonly creatives?: ReadonlyArray<{
+                        readonly __typename?: string
+                        readonly accessibility_text_for_image?: string
+                        readonly content?: {
+                            readonly text?: string
+                        }
+                        readonly dismiss_action?: {
+                            readonly __typename?: string
+                            readonly limit?: string
+                        }
+                        readonly id?: string
+                        readonly is_dismissible?: boolean
+                        readonly primary_action?: {
+                            readonly __typename?: string
+                            readonly limit?: number
+                            readonly title?: {
+                                readonly text?: string
+                            }
+                            readonly url?: string
+                        }
+                        readonly title?: {
+                            readonly text?: string
+                        }
+                        readonly wa_dark_mode_media_details?: {
+                            readonly jpeg_thumbnail?: string
+                        }
+                        readonly wa_light_mode_media_details?: {
+                            readonly jpeg_thumbnail?: string
+                        }
+                    }>
+                    readonly encrypted_logging_data?: string
                     readonly id?: string
+                    readonly is_server_force_pass?: boolean
+                    readonly max_impressions?: number
+                    readonly promotion_id?: string
+                    readonly surface_delay_in_seconds?: number
+                    readonly wa_qp_content_attributes_do_not_use?: ReadonlyArray<{
+                        readonly name?: string
+                        readonly value?: string
+                    }>
+                }
+                readonly priority?: number
+                readonly time_range?: {
+                    readonly end?: string
+                    readonly start?: string
                 }
             }>
         }
+        readonly surface_nux_id?: string
     }>
 }
 
@@ -2508,12 +2521,12 @@ export type WaMexCreateInviteCodeResponse = {
 export type WaMexCreateLabyrinthBackupResponse = {
     readonly wa_labyrinth_create_backup?: {
         readonly __typename?: string
-        readonly mailbox_id?: string
         readonly backup_id?: string
         readonly device_id?: string
         readonly epoch_id?: string
-        readonly status?: string
+        readonly mailbox_id?: string
         readonly message?: string
+        readonly status?: string
     }
 }
 
@@ -2521,13 +2534,13 @@ export type WaMexCreateMarketingCampaignActionResponse = {
     readonly whatsapp_marketing_messages_create?: {
         readonly ad_campaign_group_id?: string
         readonly ad_campaign_id?: string
+        readonly ad_creative_id?: string
         readonly ad_group_id?: string
         readonly ad_id?: string
-        readonly ad_creative_id?: string
         readonly campaign_name?: string
-        readonly status?: string
         readonly lifetime_budget?: string
         readonly start_time?: string
+        readonly status?: string
     }
 }
 
@@ -2538,79 +2551,79 @@ export type WaMexCreateNewsletterResponse = {
             readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
-            readonly name?: {
-                readonly id?: string
-                readonly text?: string
-                readonly update_time?: string
-            }
+            readonly creation_time?: string
             readonly description?: {
                 readonly id?: string
                 readonly text?: string
                 readonly update_time?: string
             }
+            readonly handle?: string
+            readonly invite?: string
+            readonly name?: {
+                readonly id?: string
+                readonly text?: string
+                readonly update_time?: string
+            }
             readonly picture?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'IMAGE' | 'PREVIEW'
-                readonly direct_path?: string
             }
             readonly preview?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'PREVIEW'
-                readonly direct_path?: string
             }
-            readonly invite?: string
-            readonly handle?: string
-            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly subscribers_count?: string
-            readonly creation_time?: string
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
         }
         readonly viewer_metadata?: {
+            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly settings?: ReadonlyArray<{
                 readonly type?: 'MUTE_ADMIN_ACTIVITY' | 'MUTE_FOLLOWER_ACTIVITY'
                 readonly value?: 'OFF' | 'ON'
             }>
-            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
         }
     }
 }
 
 export type WaMexCreateNewsletterAdminInviteResponse = {
     readonly xwa2_newsletter_admin_invite_create?: {
-        readonly invite_expiration_time?: string
         readonly id?: string
+        readonly invite_expiration_time?: string
     }
 }
 
 export type WaMexCreateReportAppealResponse = {
     readonly xwa2_create_channel_report_appeal_v2?: {
-        readonly report_id?: string
-        readonly status?: string
+        readonly appeal?: {
+            readonly appeal_id?: string
+            readonly appeal_reason?: string
+            readonly creation_time?: string
+            readonly report_id?: string
+            readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
+        }
+        readonly appeal_reason_options?: ReadonlyArray<{
+            readonly label?: string
+            readonly reason?: string
+        }>
+        readonly channel_jid?: string
+        readonly channel_name?: string
         readonly creation_time?: string
         readonly last_update_time?: string
-        readonly channel_name?: string
-        readonly channel_jid?: string
-        readonly appeal_reason_options?: ReadonlyArray<{
-            readonly reason?: string
-            readonly label?: string
-        }>
+        readonly report_id?: string
         readonly reported_content_data?: {
             readonly __typename?: string
-            readonly server_msg_id?: string
-            readonly server_id?: string
-            readonly server_response_id?: string
             readonly notify_name?: string
             readonly question_data?: {
                 readonly __typename?: string
                 readonly server_msg_id?: string
             }
+            readonly server_id?: string
+            readonly server_msg_id?: string
+            readonly server_response_id?: string
         }
-        readonly appeal?: {
-            readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
-            readonly appeal_reason?: string
-            readonly creation_time?: string
-            readonly report_id?: string
-            readonly appeal_id?: string
-        }
+        readonly status?: string
     }
 }
 
@@ -2622,16 +2635,17 @@ export type WaMexCreateWhatsAppAdsIdentityResponse = {
 
 export type WaMexCustomLabel3pdEventResponse = {
     readonly xwa_get_3pd_event?: ReadonlyArray<{
-        readonly custom_label?: string
-        readonly ctwa_3pd_conversion_type?: string
-        readonly ctwa_3pd_conversion_subtype?: string
         readonly ctwa_3pd_conversion_metadata?: string
+        readonly ctwa_3pd_conversion_subtype?: string
+        readonly ctwa_3pd_conversion_type?: string
+        readonly custom_label?: string
     }>
 }
 
 export type WaMexDebugLabyrinthInboxSnapshotResponse = {
     readonly get_wa_mailbox?: {
         readonly __typename?: string
+        readonly id?: string
         readonly snapshot_threads_with_messages?: {
             readonly items_with_messages?: ReadonlyArray<{
                 readonly item?: {
@@ -2646,7 +2660,6 @@ export type WaMexDebugLabyrinthInboxSnapshotResponse = {
                 }>
             }>
         }
-        readonly id?: string
     }
 }
 
@@ -2698,16 +2711,16 @@ export type WaMexE2EEMetadataMailboxAddGroupParticipantsResponse = {
 
 export type WaMexE2EEMetadataMailboxCreateGroupThreadResponse = {
     readonly xfb_create_group_thread_through_mi?: {
-        readonly success?: boolean
+        readonly exception_error_code?: unknown
         readonly gid?: unknown
-        readonly thread_already_exists?: unknown
         readonly participants?: ReadonlyArray<{
             readonly contact_id?: string
             readonly is_addressable?: boolean
             readonly status?: string
             readonly type?: 'COMMUNITY' | 'DEFAULT' | 'LINKED_ANNOUNCEMENT_GROUP' | 'LINKED_GENERAL_GROUP' | 'LINKED_SUBGROUP'
         }>
-        readonly exception_error_code?: unknown
+        readonly success?: boolean
+        readonly thread_already_exists?: unknown
     }
 }
 
@@ -2719,38 +2732,38 @@ export type WaMexE2EEMetadataMailboxDemoteGroupParticipantsResponse = {
 
 export type WaMexE2EEMetadataMailboxFetchGroupInfoV4Response = {
     readonly xfb_fetch_group_info_from_mi_v4?: {
-        readonly success?: boolean
-        readonly transport_thread_fbid?: string
-        readonly participant_update_mode?: 'OPEN'
-        readonly creator_id?: string
         readonly creation_ts_ms?: string
+        readonly creator_id?: string
+        readonly exception_error_code?: unknown
+        readonly group_domain?: unknown
+        readonly group_evolution_version?: number
+        readonly open_thread_id?: string
+        readonly participant_update_mode?: 'OPEN'
+        readonly participant_version_id?: number
+        readonly participants?: ReadonlyArray<{
+            readonly contact_id?: string
+            readonly dma_interop_device_id?: string
+            readonly dma_interop_integrator_id?: string
+            readonly is_addressable?: boolean
+            readonly status?: string
+            readonly type?: 'E2EE_GROUP_PARTICIPANT_TYPE_ADMIN' | 'E2EE_GROUP_PARTICIPANT_TYPE_SUPER_ADMIN'
+        }>
         readonly subject_change?: {
             readonly subject?: string
             readonly subject_change_ts_ms?: number
             readonly subject_changer_id?: string
         }
-        readonly participants?: ReadonlyArray<{
-            readonly contact_id?: string
-            readonly is_addressable?: boolean
-            readonly type?: 'E2EE_GROUP_PARTICIPANT_TYPE_ADMIN' | 'E2EE_GROUP_PARTICIPANT_TYPE_SUPER_ADMIN'
-            readonly status?: string
-            readonly dma_interop_integrator_id?: string
-            readonly dma_interop_device_id?: string
-        }>
-        readonly participant_version_id?: number
+        readonly success?: boolean
         readonly thread_ephemerality_data?: {
-            readonly mode?: string
-            readonly ttl_sec?: number
+            readonly e2ee_attribution_timestamp_ms?: number
+            readonly last_set_action_log_type?: string
             readonly last_set_actor_id?: string
             readonly last_set_timestamp_ms?: number
-            readonly last_set_action_log_type?: string
             readonly last_set_ttl_sec?: number
-            readonly e2ee_attribution_timestamp_ms?: number
+            readonly mode?: string
+            readonly ttl_sec?: number
         }
-        readonly group_evolution_version?: number
-        readonly open_thread_id?: string
-        readonly group_domain?: unknown
-        readonly exception_error_code?: unknown
+        readonly transport_thread_fbid?: string
     }
 }
 
@@ -2781,8 +2794,10 @@ export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
 export type WaMexEBMessageRangeQueryForThreadsResponse = {
     readonly viewer?: {
         readonly encrypted_backup?: {
+            readonly id?: string
             readonly mailbox?: {
                 readonly messages_from_selected_threads?: ReadonlyArray<{
+                    readonly backup_id?: string
                     readonly encrypted_messages?: ReadonlyArray<{
                         readonly attachment_data?: ReadonlyArray<{
                             readonly attachment_cdn_url?: string
@@ -2792,20 +2807,12 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                             readonly echo_document_string?: unknown
                             readonly encryption_version?: number
                             readonly epoch_anon_id?: string
-                            readonly epoch_id?: string
                             readonly epoch_fingerprint?: unknown
+                            readonly epoch_id?: string
                         }
                         readonly otid?: unknown
                         readonly protobuf_stanzas?: {
                             readonly message_tags?: ReadonlyArray<string>
-                            readonly top_level_protobuf?: {
-                                readonly encrypted_protobuf_stanza?: unknown
-                                readonly encryption_version?: number
-                                readonly epoch_anon_id?: string
-                                readonly epoch_id?: string
-                                readonly protobuf_timestamp_ms?: number
-                                readonly sk_ciphertext?: string
-                            }
                             readonly supplemental_protobufs?: ReadonlyArray<{
                                 readonly encrypted_protobuf_stanza?: unknown
                                 readonly encryption_version?: number
@@ -2816,50 +2823,48 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                                 readonly supplemental_key?: string
                                 readonly supplemental_otid?: unknown
                             }>
-                            readonly top_level_protobuf_unencrypted?: {
-                                readonly unencrypted_protobuf?: unknown
+                            readonly supplemental_protobufs_v2?: ReadonlyArray<{
+                                readonly actor_token?: string
+                                readonly encrypted_protobuf?: unknown
+                                readonly franking_tag?: string
+                                readonly mek_fbid?: string
+                                readonly mek_id?: string
+                                readonly message_encryption_version?: number
+                                readonly message_metadata_version?: number
+                                readonly protobuf_timestamp?: string
+                                readonly reporting_tag?: string
+                                readonly supplemental_key?: string
+                                readonly supplemental_otid?: unknown
+                                readonly transport_sender_message_signature?: string
+                                readonly transport_sender_signing_pk?: unknown
+                            }>
+                            readonly top_level_protobuf?: {
+                                readonly encrypted_protobuf_stanza?: unknown
+                                readonly encryption_version?: number
+                                readonly epoch_anon_id?: string
+                                readonly epoch_id?: string
                                 readonly protobuf_timestamp_ms?: number
+                                readonly sk_ciphertext?: string
+                            }
+                            readonly top_level_protobuf_unencrypted?: {
+                                readonly protobuf_timestamp_ms?: number
+                                readonly unencrypted_protobuf?: unknown
                             }
                             readonly top_level_protobuf_v2?: {
                                 readonly actor_token?: string
                                 readonly encrypted_protobuf?: unknown
+                                readonly franking_tag?: string
                                 readonly mek_fbid?: string
                                 readonly mek_id?: string
-                                readonly protobuf_timestamp?: string
-                                readonly transport_sender_signing_pk?: unknown
-                                readonly transport_sender_message_signature?: string
-                                readonly franking_tag?: string
-                                readonly reporting_tag?: string
                                 readonly message_encryption_version?: number
                                 readonly message_metadata_version?: number
+                                readonly protobuf_timestamp?: string
+                                readonly reporting_tag?: string
+                                readonly transport_sender_message_signature?: string
+                                readonly transport_sender_signing_pk?: unknown
                             }
-                            readonly supplemental_protobufs_v2?: ReadonlyArray<{
-                                readonly actor_token?: string
-                                readonly encrypted_protobuf?: unknown
-                                readonly protobuf_timestamp?: string
-                                readonly mek_fbid?: string
-                                readonly mek_id?: string
-                                readonly supplemental_key?: string
-                                readonly supplemental_otid?: unknown
-                                readonly transport_sender_signing_pk?: unknown
-                                readonly transport_sender_message_signature?: string
-                                readonly franking_tag?: string
-                                readonly reporting_tag?: string
-                                readonly message_encryption_version?: number
-                                readonly message_metadata_version?: number
-                            }>
                         }
                     }>
-                    readonly backup_id?: string
-                    readonly message_range_info?: {
-                        readonly has_more_before?: boolean
-                        readonly has_more_after?: boolean
-                        readonly next_message_timestamp_ms_before?: unknown
-                        readonly next_message_timestamp_ms_after?: unknown
-                    }
-                    readonly should_delete_mailbox?: boolean
-                    readonly exception_string?: unknown
-                    readonly thread_not_found?: unknown
                     readonly epoch_derivation_set?: {
                         readonly epoch_edges?: ReadonlyArray<{
                             readonly backward_edge?: unknown
@@ -2874,42 +2879,30 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                                 readonly epoch_anon_id?: string
                                 readonly epoch_id?: string
                             }
+                            readonly from_epoch_fingerprint?: unknown
                             readonly to_epoch?: {
                                 readonly epoch_anon_id?: string
                                 readonly epoch_id?: string
                             }
-                            readonly from_epoch_fingerprint?: unknown
                             readonly to_epoch_fingerprint?: unknown
                         }>
+                    }
+                    readonly exception_string?: unknown
+                    readonly message_range_info?: {
+                        readonly has_more_after?: boolean
+                        readonly has_more_before?: boolean
+                        readonly next_message_timestamp_ms_after?: unknown
+                        readonly next_message_timestamp_ms_before?: unknown
                     }
                     readonly minos_decryption_keys?: ReadonlyArray<{
                         readonly id?: string
                         readonly keys?: {
-                            readonly mek_info?: {
-                                readonly mek_id?: string
-                                readonly roster_hash?: string
-                                readonly encrypted_mek?: unknown
-                                readonly mek_creation_timestamp?: string
-                                readonly mek_encryption_version?: number
-                            }
-                            readonly recipient_info?: {
-                                readonly epoch_fbid?: string
-                                readonly epoch_anon_id?: string
-                                readonly epoch_head?: unknown
-                            }
                             readonly mek_creator_info?: {
-                                readonly minos_keys?: {
-                                    readonly sender_auth_pk?: unknown
-                                    readonly sender_epoch_head?: unknown
-                                }
-                                readonly transport_keys?: {
-                                    readonly ephm_hpke_pk?: unknown
-                                    readonly ephm_signature?: string
-                                    readonly mek_creator_transport_signing_pk?: unknown
-                                }
                                 readonly mandrake_keys?: {
                                     readonly encrypted_mek?: unknown
                                     readonly mek_encryption_version?: number
+                                    readonly recipient_encrypted_mmk?: unknown
+                                    readonly recipient_encrypted_mmk_mailbox_head_hash?: string
                                     readonly recipient_mailbox_head_hash?: string
                                     readonly recipient_membership_proof?: string
                                     readonly recipient_membership_proof_leaf_index?: number
@@ -2927,15 +2920,35 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                                     readonly sender_mailbox_signing_pk?: unknown
                                     readonly sender_previous_epoch_head?: unknown
                                     readonly sender_user_fbid?: string
-                                    readonly recipient_encrypted_mmk?: unknown
-                                    readonly recipient_encrypted_mmk_mailbox_head_hash?: string
                                 }
+                                readonly minos_keys?: {
+                                    readonly sender_auth_pk?: unknown
+                                    readonly sender_epoch_head?: unknown
+                                }
+                                readonly transport_keys?: {
+                                    readonly ephm_hpke_pk?: unknown
+                                    readonly ephm_signature?: string
+                                    readonly mek_creator_transport_signing_pk?: unknown
+                                }
+                            }
+                            readonly mek_info?: {
+                                readonly encrypted_mek?: unknown
+                                readonly mek_creation_timestamp?: string
+                                readonly mek_encryption_version?: number
+                                readonly mek_id?: string
+                                readonly roster_hash?: string
+                            }
+                            readonly recipient_info?: {
+                                readonly epoch_anon_id?: string
+                                readonly epoch_fbid?: string
+                                readonly epoch_head?: unknown
                             }
                         }
                     }>
+                    readonly should_delete_mailbox?: boolean
+                    readonly thread_not_found?: unknown
                 }>
             }
-            readonly id?: string
         }
     }
 }
@@ -2943,21 +2956,21 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
 export type WaMexEBMinosFetchContactKeysResponse = {
     readonly xfb_minos_fetch_mailbox_public_keys?: {
         readonly __typename?: string
+        readonly code?: string
         readonly contact_id_to_minos_params?: ReadonlyArray<{
             readonly contact_id?: string
             readonly mailbox_public_keys?: {
+                readonly auth_pk_b64?: unknown
                 readonly enc_pk_b64?: unknown
                 readonly epoch_anon_id_b64?: unknown
                 readonly epoch_head_b64?: unknown
                 readonly epoch_head_ctime?: unknown
-                readonly auth_pk_b64?: unknown
-                readonly sign_pk_b64?: unknown
+                readonly fbid?: unknown
                 readonly prev_epoch_head_b64?: unknown
                 readonly self_signature_b64?: unknown
-                readonly fbid?: unknown
+                readonly sign_pk_b64?: unknown
             }
         }>
-        readonly code?: string
         readonly message?: string
     }
 }
@@ -2965,19 +2978,20 @@ export type WaMexEBMinosFetchContactKeysResponse = {
 export type WaMexEBMinosUploadMessagesResponse = {
     readonly xfb_upload_encrypted_msg_to_backup?: {
         readonly backup_write_result_response?: {
-            readonly is_success?: boolean
             readonly delete_mailbox?: unknown
+            readonly is_success?: boolean
             readonly protobuf_params?: {
                 readonly delete_on_success?: unknown
             }
         }
+        readonly exception_string?: unknown
         readonly labyrinth_1_1?: {
-            readonly is_success?: boolean
             readonly device_epoch_status?: string
+            readonly is_success?: boolean
             readonly mek_registration_results?: ReadonlyArray<{
-                readonly mek_id_base64?: unknown
-                readonly mek_fbid?: string
                 readonly is_success?: boolean
+                readonly mek_fbid?: string
+                readonly mek_id_base64?: unknown
             }>
             readonly update_outdated_contact_minos_keys?: {
                 readonly update_response_params?: ReadonlyArray<{
@@ -2985,29 +2999,28 @@ export type WaMexEBMinosUploadMessagesResponse = {
                     readonly minos_params_for_update_contact?: {
                         readonly contact_id?: string
                         readonly minos_params?: {
-                            readonly mailbox_encryption_public_key_base64?: unknown
                             readonly epoch_anon_id_base64?: unknown
                             readonly epoch_head_base64?: unknown
                             readonly epoch_head_creation_time?: string
+                            readonly mailbox_encryption_public_key_base64?: unknown
+                            readonly minos_epoch_signature_self_base64?: unknown
+                            readonly minos_mailbox_auth_pubkey_base64?: unknown
                             readonly minos_mailbox_public_keys_fbid?: string
                             readonly minos_mailbox_signing_pubkey_base64?: unknown
-                            readonly minos_mailbox_auth_pubkey_base64?: unknown
-                            readonly minos_epoch_signature_self_base64?: unknown
                             readonly minos_previous_epoch_head_base64?: unknown
                         }
                     }
                 }>
             }
         }
-        readonly exception_string?: unknown
     }
 }
 
 export type WaMexEBRegisterMinosMessageEncryptionKeyResponse = {
     readonly xfb_minos_register_message_encryption_key?: {
         readonly __typename?: string
-        readonly mek_fbid?: string
         readonly code?: string
+        readonly mek_fbid?: string
         readonly message?: string
     }
 }
@@ -3018,8 +3031,8 @@ export type WaMexEditBizProfileResponse = {
 
 export type WaMexExternalCtxAuthoriseWAChatResponse = {
     readonly xwa_external_ctx_authorise_wa_chat?: {
-        readonly success?: boolean
         readonly partner_name?: string
+        readonly success?: boolean
     }
 }
 
@@ -3038,81 +3051,81 @@ export type WaMexFetchAllNewslettersMetadataResponse = {
         readonly state?: {
             readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
+        readonly status_metadata?: {
+            readonly last_status_sent_time?: string
+            readonly last_status_server_id?: string
+        }
         readonly thread_metadata?: {
             readonly creation_time?: string
+            readonly description?: {
+                readonly id?: string
+                readonly text?: string
+                readonly update_time?: string
+            }
+            readonly handle?: string
+            readonly invite?: string
             readonly name?: {
                 readonly id?: string
                 readonly text?: string
                 readonly update_time?: string
             }
             readonly picture?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'IMAGE' | 'PREVIEW'
-                readonly direct_path?: string
             }
             readonly preview?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'PREVIEW'
-                readonly direct_path?: string
             }
-            readonly description?: {
-                readonly id?: string
-                readonly text?: string
-                readonly update_time?: string
-            }
-            readonly invite?: string
-            readonly handle?: string
-            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly settings?: {
                 readonly reaction_codes?: {
                     readonly value?: 'ALL'
                 }
             }
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly wamo_sub?: {
                 readonly plan_id?: string
             }
         }
         readonly viewer_metadata?: {
+            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly settings?: ReadonlyArray<{
                 readonly type?: 'MUTE_ADMIN_ACTIVITY' | 'MUTE_FOLLOWER_ACTIVITY'
                 readonly value?: 'OFF' | 'ON'
             }>
-            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly wamo_sub_status?: 'ACTIVE' | 'INACTIVE'
-        }
-        readonly status_metadata?: {
-            readonly last_status_server_id?: string
-            readonly last_status_sent_time?: string
         }
     }>
 }
 
 export type WaMexFetchAllSubgroupsResponse = {
     readonly xwa2_group_query_by_id?: {
-        readonly id?: string
         readonly __typename?: string
         readonly default_sub_group?: {
             readonly id?: string
             readonly subject?: {
-                readonly value?: string
                 readonly creation_time?: string
+                readonly value?: string
             }
         }
+        readonly id?: string
         readonly sub_groups?: {
             readonly edges?: ReadonlyArray<{
                 readonly node?: {
                     readonly id?: string
-                    readonly subject?: {
-                        readonly value?: string
-                        readonly creation_time?: string
+                    readonly membership_approval_requests?: {
+                        readonly total_count?: number
                     }
                     readonly properties?: {
                         readonly general_chat?: boolean
-                        readonly membership_approval_mode_enabled?: boolean
                         readonly hidden_group?: boolean
+                        readonly membership_approval_mode_enabled?: boolean
                     }
-                    readonly membership_approval_requests?: {
-                        readonly total_count?: number
+                    readonly subject?: {
+                        readonly creation_time?: string
+                        readonly value?: string
                     }
                 }
             }>
@@ -3130,38 +3143,37 @@ export type WaMexFetchBotCertificateRevocationListResponse = {
 export type WaMexFetchBotProfilesGQLResponse = {
     readonly xfb_fetch_genai_personas?: ReadonlyArray<{
         readonly __typename?: string
-        readonly id?: string
-        readonly jid?: string
-        readonly is_meta_created?: boolean
         readonly creator?: {
             readonly name?: string
             readonly profile_uri?: string
         }
+        readonly id?: string
+        readonly is_meta_created?: boolean
+        readonly jid?: string
         readonly latest_published_version_for_viewer?: {
             readonly __typename?: string
-            readonly name?: string
             readonly description?: string
             readonly icebreaker_prompt_list?: ReadonlyArray<string>
-            readonly posing_as_professional?: boolean
             readonly id?: string
+            readonly name?: string
+            readonly posing_as_professional?: boolean
         }
     }>
 }
 
 export type WaMexFetchDynamicAIModesResponse = {
     readonly xfb_meta_ai_modes?: ReadonlyArray<{
-        readonly mode_id?: string
-        readonly type?: string
         readonly is_experimental?: boolean
-        readonly title?: string
+        readonly mode_id?: string
         readonly subtitle?: string
+        readonly title?: string
+        readonly type?: string
     }>
 }
 
 export type WaMexFetchGroupInfoResponse = {
     readonly xwa2_group_query_by_id?: {
         readonly __typename?: string
-        readonly id?: string
         readonly creation_time?: string
         readonly creator?: {
             readonly id?: string
@@ -3172,22 +3184,7 @@ export type WaMexFetchGroupInfoResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE'
-        readonly subject?: {
-            readonly creator?: {
-                readonly id?: string
-                readonly lid?: string
-                readonly pn?: string
-                readonly username_info?: {
-                    readonly __typename?: string
-                    readonly username?: string
-                }
-            }
-            readonly creation_time?: string
-            readonly value?: string
-        }
         readonly description?: {
-            readonly id?: string
             readonly creation_time?: string
             readonly creator?: {
                 readonly id?: string
@@ -3198,68 +3195,83 @@ export type WaMexFetchGroupInfoResponse = {
                     readonly username?: string
                 }
             }
+            readonly id?: string
             readonly value?: string
         }
+        readonly id?: string
+        readonly membership_approval_request?: boolean
+        readonly missing_participant_identification?: boolean
         readonly participants?: {
             readonly edges?: ReadonlyArray<{
+                readonly group_history_sent?: boolean
+                readonly join_time?: string
                 readonly node?: {
+                    readonly display_name?: string
                     readonly id?: string
                     readonly lid?: string
                     readonly pn?: string
-                    readonly display_name?: string
                     readonly username_info?: {
                         readonly __typename?: string
                         readonly username?: string
                     }
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
-                readonly join_time?: string
-                readonly group_history_sent?: boolean
             }>
             readonly participants_phash_match?: boolean
         }
-        readonly total_participants_count?: number
-        readonly missing_participant_identification?: boolean
         readonly properties?: {
+            readonly allow_admin_reports?: boolean
             readonly allow_non_admin_sub_group_creation?: boolean
-            readonly closed_by_membership_approval_mode?: boolean
+            readonly announcement?: boolean
             readonly appeal_status?: string
             readonly appeal_update_time?: string
-            readonly limit_sharing?: {
-                readonly limit_sharing_enabled?: boolean
-            }
-            readonly lid_migration_state?: {
-                readonly addressing_mode?: 'LID'
-            }
+            readonly auto_add_disabled?: boolean
+            readonly capi?: boolean
+            readonly closed_by_membership_approval_mode?: boolean
             readonly ephemeral?: {
                 readonly expiration_time_in_sec?: number
             }
+            readonly general_chat?: boolean
+            readonly group_safety_check?: boolean
             readonly growth_locked2?: {
                 readonly locked?: boolean
             }
-            readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
-            readonly parent_group_jid?: string
-            readonly group_safety_check?: boolean
-            readonly allow_admin_reports?: boolean
-            readonly announcement?: boolean
+            readonly hidden_group?: boolean
+            readonly lid_migration_state?: {
+                readonly addressing_mode?: 'LID'
+            }
+            readonly limit_sharing?: {
+                readonly limit_sharing_enabled?: boolean
+            }
             readonly locked?: boolean
+            readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: 'ALL_MEMBER_SHARE'
             readonly membership_approval_mode_enabled?: boolean
-            readonly general_chat?: boolean
-            readonly auto_add_disabled?: boolean
-            readonly hidden_group?: boolean
-            readonly capi?: boolean
+            readonly parent_group_jid?: string
             readonly support?: boolean
         }
-        readonly membership_approval_request?: boolean
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
+        readonly subject?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly lid?: string
+                readonly pn?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly value?: string
+        }
+        readonly total_participants_count?: number
     }
 }
 
 export type WaMexFetchGroupInfoIncludBotsResponse = {
     readonly xwa2_group_query_by_id?: {
         readonly __typename?: string
-        readonly id?: string
         readonly creation_time?: string
         readonly creator?: {
             readonly id?: string
@@ -3270,22 +3282,7 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 readonly username?: string
             }
         }
-        readonly state?: 'ACTIVE'
-        readonly subject?: {
-            readonly creator?: {
-                readonly id?: string
-                readonly lid?: string
-                readonly pn?: string
-                readonly username_info?: {
-                    readonly __typename?: string
-                    readonly username?: string
-                }
-            }
-            readonly creation_time?: string
-            readonly value?: string
-        }
         readonly description?: {
-            readonly id?: string
             readonly creation_time?: string
             readonly creator?: {
                 readonly id?: string
@@ -3296,106 +3293,122 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                     readonly username?: string
                 }
             }
+            readonly id?: string
             readonly value?: string
         }
+        readonly id?: string
+        readonly membership_approval_request?: boolean
+        readonly missing_participant_identification?: boolean
         readonly participants?: {
             readonly edges?: ReadonlyArray<{
+                readonly group_history_sent?: boolean
+                readonly join_time?: string
                 readonly participant?: {
                     readonly __typename?: string
+                    readonly display_name?: string
                     readonly id?: string
+                    readonly jid?: string
                     readonly lid?: string
                     readonly pn?: string
-                    readonly display_name?: string
                     readonly username_info?: {
                         readonly __typename?: string
                         readonly username?: string
                     }
-                    readonly jid?: string
                 }
                 readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
-                readonly join_time?: string
-                readonly group_history_sent?: boolean
             }>
             readonly participants_phash_match?: boolean
         }
-        readonly total_participants_count?: number
-        readonly missing_participant_identification?: boolean
         readonly properties?: {
+            readonly allow_admin_reports?: boolean
             readonly allow_non_admin_sub_group_creation?: boolean
-            readonly closed_by_membership_approval_mode?: boolean
+            readonly announcement?: boolean
             readonly appeal_status?: string
             readonly appeal_update_time?: string
-            readonly limit_sharing?: {
-                readonly limit_sharing_enabled?: boolean
-            }
-            readonly lid_migration_state?: {
-                readonly addressing_mode?: 'LID'
-            }
+            readonly auto_add_disabled?: boolean
+            readonly capi?: boolean
+            readonly closed_by_membership_approval_mode?: boolean
             readonly ephemeral?: {
                 readonly expiration_time_in_sec?: number
             }
+            readonly general_chat?: boolean
+            readonly group_safety_check?: boolean
             readonly growth_locked2?: {
                 readonly locked?: boolean
             }
-            readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
-            readonly parent_group_jid?: string
-            readonly group_safety_check?: boolean
-            readonly allow_admin_reports?: boolean
-            readonly announcement?: boolean
+            readonly hidden_group?: boolean
+            readonly lid_migration_state?: {
+                readonly addressing_mode?: 'LID'
+            }
+            readonly limit_sharing?: {
+                readonly limit_sharing_enabled?: boolean
+            }
             readonly locked?: boolean
+            readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: 'ALL_MEMBER_SHARE'
             readonly membership_approval_mode_enabled?: boolean
-            readonly general_chat?: boolean
-            readonly auto_add_disabled?: boolean
-            readonly hidden_group?: boolean
-            readonly capi?: boolean
+            readonly parent_group_jid?: string
             readonly support?: boolean
         }
-        readonly membership_approval_request?: boolean
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
+        readonly subject?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly lid?: string
+                readonly pn?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly value?: string
+        }
+        readonly total_participants_count?: number
     }
 }
 
 export type WaMexFetchGroupInviteCodeResponse = {
     readonly xwa2_group_query_by_id?: {
         readonly __typename?: string
-        readonly invite_code?: string
         readonly id?: string
+        readonly invite_code?: string
     }
 }
 
 export type WaMexFetchGroupIsInternalResponse = {
     readonly xwa2_group_query_by_id?: {
         readonly __typename?: string
+        readonly id?: string
         readonly properties?: {
             readonly internal?: boolean
         }
-        readonly id?: string
     }
 }
 
 export type WaMexFetchIntegritySignalsResponse = {
     readonly xwa2_fetch_wa_users?: ReadonlyArray<{
         readonly __typename?: string
+        readonly id?: string
         readonly integrity_signals_info?: {
             readonly __typename?: string
-            readonly is_suspicious_start_chat?: boolean
             readonly is_new_account?: boolean
+            readonly is_suspicious_start_chat?: boolean
         }
-        readonly id?: string
     }>
 }
 
 export type WaMexFetchNewChatMessageCappingInfoResponse = {
     readonly xwa2_message_capping_info?: {
+        readonly capping_status?: string
+        readonly cycle_end_timestamp?: string
+        readonly cycle_start_timestamp?: string
+        readonly mv_status?: string
+        readonly ote_status?: string
+        readonly server_sent_timestamp?: string
         readonly total_quota?: string
         readonly used_quota?: string
-        readonly cycle_start_timestamp?: string
-        readonly cycle_end_timestamp?: string
-        readonly server_sent_timestamp?: string
-        readonly ote_status?: string
-        readonly mv_status?: string
-        readonly capping_status?: string
     }
 }
 
@@ -3405,56 +3418,56 @@ export type WaMexFetchNewsletterResponse = {
         readonly state?: {
             readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
+        readonly status_metadata?: {
+            readonly last_status_sent_time?: string
+            readonly last_status_server_id?: string
+        }
         readonly thread_metadata?: {
             readonly creation_time?: string
+            readonly description?: {
+                readonly id?: string
+                readonly text?: string
+                readonly update_time?: string
+            }
+            readonly handle?: string
+            readonly invite?: string
             readonly name?: {
                 readonly id?: string
                 readonly text?: string
                 readonly update_time?: string
             }
             readonly picture?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'IMAGE' | 'PREVIEW'
-                readonly direct_path?: string
             }
+            readonly pinned_messages?: ReadonlyArray<{
+                readonly expiry_ts?: string
+                readonly message_id?: string
+            }>
             readonly preview?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'PREVIEW'
-                readonly direct_path?: string
             }
-            readonly description?: {
-                readonly id?: string
-                readonly text?: string
-                readonly update_time?: string
-            }
-            readonly invite?: string
-            readonly handle?: string
-            readonly subscribers_count?: string
-            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly settings?: {
                 readonly reaction_codes?: {
                     readonly value?: 'ALL'
                 }
             }
+            readonly subscribers_count?: string
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly wamo_sub?: {
                 readonly plan_id?: string
             }
-            readonly pinned_messages?: ReadonlyArray<{
-                readonly message_id?: string
-                readonly expiry_ts?: string
-            }>
         }
         readonly viewer_metadata?: {
+            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly settings?: ReadonlyArray<{
                 readonly type?: 'MUTE_ADMIN_ACTIVITY' | 'MUTE_FOLLOWER_ACTIVITY'
                 readonly value?: 'OFF' | 'ON'
             }>
-            readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             readonly wamo_sub_status?: 'ACTIVE' | 'INACTIVE'
-        }
-        readonly status_metadata?: {
-            readonly last_status_server_id?: string
-            readonly last_status_sent_time?: string
         }
     }
 }
@@ -3473,8 +3486,8 @@ export type WaMexFetchNewsletterAdminInfoResponse = {
             readonly id?: string
             readonly name?: string
             readonly picture?: {
-                readonly id?: string
                 readonly direct_path?: string
+                readonly id?: string
             }
         }
         readonly admin_settings?: {
@@ -3488,20 +3501,20 @@ export type WaMexFetchNewsletterDehydratedResponse = {
     readonly xwa2_newsletter?: {
         readonly id?: string
         readonly thread_metadata?: {
-            readonly subscribers_count?: string
-            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
+            readonly pinned_messages?: ReadonlyArray<{
+                readonly expiry_ts?: string
+                readonly message_id?: string
+            }>
             readonly settings?: {
                 readonly reaction_codes?: {
                     readonly value?: 'ALL'
                 }
             }
+            readonly subscribers_count?: string
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             readonly wamo_sub?: {
                 readonly plan_id?: string
             }
-            readonly pinned_messages?: ReadonlyArray<{
-                readonly message_id?: string
-                readonly expiry_ts?: string
-            }>
         }
         readonly viewer_metadata?: {
             readonly wamo_sub_status?: 'ACTIVE' | 'INACTIVE'
@@ -3516,31 +3529,31 @@ export type WaMexFetchNewsletterDirectoryCategoriesPreviewResponse = {
             readonly category_title?: string
             readonly newsletters?: ReadonlyArray<{
                 readonly id?: string
+                readonly status_metadata?: {
+                    readonly last_status_sent_time?: string
+                    readonly last_status_server_id?: string
+                }
                 readonly thread_metadata?: {
                     readonly creation_time?: string
-                    readonly invite?: string
-                    readonly handle?: string
-                    readonly subscribers_count?: string
-                    readonly name?: {
-                        readonly id?: string
-                        readonly text?: string
-                        readonly update_time?: string
-                    }
                     readonly description?: {
                         readonly id?: string
                         readonly text?: string
                         readonly update_time?: string
                     }
-                    readonly picture?: {
+                    readonly handle?: string
+                    readonly invite?: string
+                    readonly name?: {
                         readonly id?: string
+                        readonly text?: string
+                        readonly update_time?: string
+                    }
+                    readonly picture?: {
                         readonly direct_path?: string
+                        readonly id?: string
                         readonly type?: 'IMAGE' | 'PREVIEW'
                     }
+                    readonly subscribers_count?: string
                     readonly verification?: 'UNVERIFIED' | 'VERIFIED'
-                }
-                readonly status_metadata?: {
-                    readonly last_status_server_id?: string
-                    readonly last_status_sent_time?: string
                 }
             }>
         }>
@@ -3550,38 +3563,38 @@ export type WaMexFetchNewsletterDirectoryCategoriesPreviewResponse = {
 export type WaMexFetchNewsletterDirectoryListResponse = {
     readonly xwa2_newsletters_directory_list?: {
         readonly page_info?: {
+            readonly endCursor?: string
             readonly hasNextPage?: boolean
             readonly hasPreviousPage?: boolean
             readonly startCursor?: string
-            readonly endCursor?: string
         }
         readonly result?: ReadonlyArray<{
             readonly id?: string
+            readonly status_metadata?: {
+                readonly last_status_sent_time?: string
+                readonly last_status_server_id?: string
+            }
             readonly thread_metadata?: {
                 readonly creation_time?: string
-                readonly invite?: string
-                readonly handle?: string
-                readonly subscribers_count?: string
-                readonly name?: {
-                    readonly id?: string
-                    readonly text?: string
-                    readonly update_time?: string
-                }
                 readonly description?: {
                     readonly id?: string
                     readonly text?: string
                     readonly update_time?: string
                 }
-                readonly picture?: {
+                readonly handle?: string
+                readonly invite?: string
+                readonly name?: {
                     readonly id?: string
+                    readonly text?: string
+                    readonly update_time?: string
+                }
+                readonly picture?: {
                     readonly direct_path?: string
+                    readonly id?: string
                     readonly type?: 'IMAGE' | 'PREVIEW'
                 }
+                readonly subscribers_count?: string
                 readonly verification?: 'UNVERIFIED' | 'VERIFIED'
-            }
-            readonly status_metadata?: {
-                readonly last_status_server_id?: string
-                readonly last_status_sent_time?: string
             }
         }>
     }
@@ -3590,38 +3603,38 @@ export type WaMexFetchNewsletterDirectoryListResponse = {
 export type WaMexFetchNewsletterDirectorySearchResultsResponse = {
     readonly xwa2_newsletters_directory_search?: {
         readonly page_info?: {
+            readonly endCursor?: string
             readonly hasNextPage?: boolean
             readonly hasPreviousPage?: boolean
             readonly startCursor?: string
-            readonly endCursor?: string
         }
         readonly result?: ReadonlyArray<{
             readonly id?: string
+            readonly status_metadata?: {
+                readonly last_status_sent_time?: string
+                readonly last_status_server_id?: string
+            }
             readonly thread_metadata?: {
                 readonly creation_time?: string
-                readonly invite?: string
-                readonly handle?: string
-                readonly subscribers_count?: string
-                readonly name?: {
-                    readonly id?: string
-                    readonly text?: string
-                    readonly update_time?: string
-                }
                 readonly description?: {
                     readonly id?: string
                     readonly text?: string
                     readonly update_time?: string
                 }
-                readonly picture?: {
+                readonly handle?: string
+                readonly invite?: string
+                readonly name?: {
                     readonly id?: string
+                    readonly text?: string
+                    readonly update_time?: string
+                }
+                readonly picture?: {
                     readonly direct_path?: string
+                    readonly id?: string
                     readonly type?: 'IMAGE' | 'PREVIEW'
                 }
+                readonly subscribers_count?: string
                 readonly verification?: 'UNVERIFIED' | 'VERIFIED'
-            }
-            readonly status_metadata?: {
-                readonly last_status_server_id?: string
-                readonly last_status_sent_time?: string
             }
         }>
     }
@@ -3630,181 +3643,181 @@ export type WaMexFetchNewsletterDirectorySearchResultsResponse = {
 export type WaMexFetchNewsletterEnforcementsResponse = {
     readonly xwa2_channel_enforcements?: {
         readonly admin_profiles?: ReadonlyArray<{
-            readonly enforcement_creation_time?: string
             readonly appeal_creation_time?: string
-            readonly appeal_state?: string
-            readonly enforcement_violation_category?: string
-            readonly enforcement_source?: string
-            readonly enforcement_id?: string
             readonly appeal_reason_options?: ReadonlyArray<{
-                readonly reason?: string
                 readonly label?: string
+                readonly reason?: string
             }>
+            readonly appeal_state?: string
+            readonly enforcement_creation_time?: string
             readonly enforcement_extra_data?: {
-                readonly ip_violation_report_data?: {
-                    readonly report_fbid?: string
-                    readonly appeal_form_url?: string
-                    readonly reporter_email?: string
-                    readonly reporter_name?: string
-                }
                 readonly enforcement_target_data?: {
                     readonly __typename?: string
                     readonly id?: string
                     readonly name?: string
                     readonly picture?: {
-                        readonly id?: string
                         readonly direct_path?: string
+                        readonly id?: string
                     }
                 }
-            }
-            readonly enforcement_policy_information?: {
-                readonly overview?: string
-                readonly headline?: string
-                readonly subtitle?: string
-                readonly explanation?: string
-                readonly admin_disclaimer?: string
-            }
-        }>
-        readonly profile_picture_deletions?: ReadonlyArray<{
-            readonly enforcement_creation_time?: string
-            readonly appeal_creation_time?: string
-            readonly appeal_state?: string
-            readonly enforcement_violation_category?: string
-            readonly enforcement_source?: string
-            readonly enforcement_id?: string
-            readonly appeal_reason_options?: ReadonlyArray<{
-                readonly reason?: string
-                readonly label?: string
-            }>
-            readonly enforcement_extra_data?: {
                 readonly ip_violation_report_data?: {
-                    readonly report_fbid?: string
                     readonly appeal_form_url?: string
+                    readonly report_fbid?: string
                     readonly reporter_email?: string
                     readonly reporter_name?: string
                 }
             }
-            readonly enforcement_policy_information?: {
-                readonly overview?: string
-                readonly headline?: string
-                readonly subtitle?: string
-                readonly explanation?: string
-                readonly admin_disclaimer?: string
-            }
-        }>
-        readonly suspensions?: ReadonlyArray<{
-            readonly appeal_creation_time?: string
-            readonly enforcement_creation_time?: string
-            readonly appeal_state?: string
-            readonly enforcement_violation_category?: string
             readonly enforcement_id?: string
-            readonly enforcement_source?: string
-            readonly appeal_reason_options?: ReadonlyArray<{
-                readonly reason?: string
-                readonly label?: string
-            }>
-            readonly enforcement_extra_data?: {
-                readonly ip_violation_report_data?: {
-                    readonly report_fbid?: string
-                    readonly appeal_form_url?: string
-                    readonly reporter_email?: string
-                    readonly reporter_name?: string
-                }
-                readonly enforcement_target_data?: {
-                    readonly __typename?: string
-                    readonly server_msg_id?: string
-                    readonly server_id?: string
-                    readonly id?: string
-                }
-                readonly appeal_extra_data?: {
-                    readonly appeal_form_url?: string
-                }
-            }
             readonly enforcement_policy_information?: {
-                readonly overview?: string
-                readonly headline?: string
-                readonly subtitle?: string
-                readonly explanation?: string
                 readonly admin_disclaimer?: string
+                readonly explanation?: string
+                readonly headline?: string
+                readonly overview?: string
+                readonly subtitle?: string
             }
-        }>
-        readonly violating_messages?: ReadonlyArray<{
-            readonly base_enforcement_data?: {
-                readonly enforcement_creation_time?: string
-                readonly appeal_creation_time?: string
-                readonly appeal_state?: string
-                readonly enforcement_id?: string
-                readonly enforcement_violation_category?: string
-                readonly enforcement_source?: string
-                readonly appeal_reason_options?: ReadonlyArray<{
-                    readonly reason?: string
-                    readonly label?: string
-                }>
-                readonly enforcement_extra_data?: {
-                    readonly ip_violation_report_data?: {
-                        readonly report_fbid?: string
-                        readonly appeal_form_url?: string
-                        readonly reporter_email?: string
-                        readonly reporter_name?: string
-                    }
-                }
-                readonly enforcement_policy_information?: {
-                    readonly overview?: string
-                    readonly headline?: string
-                    readonly subtitle?: string
-                    readonly explanation?: string
-                    readonly admin_disclaimer?: string
-                }
-            }
-            readonly content_data?: {
-                readonly __typename?: string
-                readonly server_msg_id?: string
-                readonly server_id?: string
-            }
+            readonly enforcement_source?: string
+            readonly enforcement_violation_category?: string
         }>
         readonly geosuspensions?: ReadonlyArray<{
             readonly base_enforcement_data?: {
-                readonly enforcement_creation_time?: string
                 readonly appeal_creation_time?: string
-                readonly appeal_state?: string
-                readonly enforcement_id?: string
-                readonly enforcement_violation_category?: string
-                readonly enforcement_source?: string
                 readonly appeal_reason_options?: ReadonlyArray<{
-                    readonly reason?: string
                     readonly label?: string
+                    readonly reason?: string
                 }>
+                readonly appeal_state?: string
+                readonly enforcement_creation_time?: string
                 readonly enforcement_extra_data?: {
-                    readonly ip_violation_report_data?: {
-                        readonly report_fbid?: string
-                        readonly appeal_form_url?: string
-                        readonly reporter_email?: string
-                        readonly reporter_name?: string
-                    }
-                    readonly enforcement_target_data?: {
-                        readonly __typename?: string
-                        readonly server_msg_id?: string
-                        readonly server_id?: string
-                        readonly id?: string
-                    }
                     readonly appeal_extra_data?: {
                         readonly appeal_form_url?: string
+                    }
+                    readonly enforcement_origin_legal_basis?: string
+                    readonly enforcement_origin_workflow?: string
+                    readonly enforcement_target_data?: {
+                        readonly __typename?: string
+                        readonly id?: string
+                        readonly server_id?: string
+                        readonly server_msg_id?: string
                     }
                     readonly enforcing_entity_data?: {
                         readonly name?: string
                     }
-                    readonly enforcement_origin_workflow?: string
-                    readonly enforcement_origin_legal_basis?: string
+                    readonly ip_violation_report_data?: {
+                        readonly appeal_form_url?: string
+                        readonly report_fbid?: string
+                        readonly reporter_email?: string
+                        readonly reporter_name?: string
+                    }
                 }
+                readonly enforcement_id?: string
                 readonly enforcement_policy_information?: {
-                    readonly overview?: string
-                    readonly headline?: string
-                    readonly subtitle?: string
-                    readonly explanation?: string
                     readonly admin_disclaimer?: string
+                    readonly explanation?: string
+                    readonly headline?: string
+                    readonly overview?: string
+                    readonly subtitle?: string
                 }
+                readonly enforcement_source?: string
+                readonly enforcement_violation_category?: string
             }
             readonly country_codes?: ReadonlyArray<string>
+        }>
+        readonly profile_picture_deletions?: ReadonlyArray<{
+            readonly appeal_creation_time?: string
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly label?: string
+                readonly reason?: string
+            }>
+            readonly appeal_state?: string
+            readonly enforcement_creation_time?: string
+            readonly enforcement_extra_data?: {
+                readonly ip_violation_report_data?: {
+                    readonly appeal_form_url?: string
+                    readonly report_fbid?: string
+                    readonly reporter_email?: string
+                    readonly reporter_name?: string
+                }
+            }
+            readonly enforcement_id?: string
+            readonly enforcement_policy_information?: {
+                readonly admin_disclaimer?: string
+                readonly explanation?: string
+                readonly headline?: string
+                readonly overview?: string
+                readonly subtitle?: string
+            }
+            readonly enforcement_source?: string
+            readonly enforcement_violation_category?: string
+        }>
+        readonly suspensions?: ReadonlyArray<{
+            readonly appeal_creation_time?: string
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly label?: string
+                readonly reason?: string
+            }>
+            readonly appeal_state?: string
+            readonly enforcement_creation_time?: string
+            readonly enforcement_extra_data?: {
+                readonly appeal_extra_data?: {
+                    readonly appeal_form_url?: string
+                }
+                readonly enforcement_target_data?: {
+                    readonly __typename?: string
+                    readonly id?: string
+                    readonly server_id?: string
+                    readonly server_msg_id?: string
+                }
+                readonly ip_violation_report_data?: {
+                    readonly appeal_form_url?: string
+                    readonly report_fbid?: string
+                    readonly reporter_email?: string
+                    readonly reporter_name?: string
+                }
+            }
+            readonly enforcement_id?: string
+            readonly enforcement_policy_information?: {
+                readonly admin_disclaimer?: string
+                readonly explanation?: string
+                readonly headline?: string
+                readonly overview?: string
+                readonly subtitle?: string
+            }
+            readonly enforcement_source?: string
+            readonly enforcement_violation_category?: string
+        }>
+        readonly violating_messages?: ReadonlyArray<{
+            readonly base_enforcement_data?: {
+                readonly appeal_creation_time?: string
+                readonly appeal_reason_options?: ReadonlyArray<{
+                    readonly label?: string
+                    readonly reason?: string
+                }>
+                readonly appeal_state?: string
+                readonly enforcement_creation_time?: string
+                readonly enforcement_extra_data?: {
+                    readonly ip_violation_report_data?: {
+                        readonly appeal_form_url?: string
+                        readonly report_fbid?: string
+                        readonly reporter_email?: string
+                        readonly reporter_name?: string
+                    }
+                }
+                readonly enforcement_id?: string
+                readonly enforcement_policy_information?: {
+                    readonly admin_disclaimer?: string
+                    readonly explanation?: string
+                    readonly headline?: string
+                    readonly overview?: string
+                    readonly subtitle?: string
+                }
+                readonly enforcement_source?: string
+                readonly enforcement_violation_category?: string
+            }
+            readonly content_data?: {
+                readonly __typename?: string
+                readonly server_id?: string
+                readonly server_msg_id?: string
+            }
         }>
     }
 }
@@ -3813,17 +3826,6 @@ export type WaMexFetchNewsletterFollowersResponse = {
     readonly xwa2_newsletter_followers?: {
         readonly followers?: {
             readonly edges?: ReadonlyArray<{
-                readonly node?: {
-                    readonly id?: string
-                    readonly display_name?: string
-                    readonly pn?: string
-                    readonly username_info?: {
-                        readonly __typename?: string
-                        readonly username?: string
-                    }
-                }
-                readonly follow_time?: string
-                readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
                 readonly admin_profile?: {
                     readonly id?: string
                     readonly name?: string
@@ -3832,6 +3834,17 @@ export type WaMexFetchNewsletterFollowersResponse = {
                         readonly id?: string
                     }
                 }
+                readonly follow_time?: string
+                readonly node?: {
+                    readonly display_name?: string
+                    readonly id?: string
+                    readonly pn?: string
+                    readonly username_info?: {
+                        readonly __typename?: string
+                        readonly username?: string
+                    }
+                }
+                readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
             }>
         }
     }
@@ -3839,29 +3852,29 @@ export type WaMexFetchNewsletterFollowersResponse = {
 
 export type WaMexFetchNewsletterInsightsResponse = {
     readonly xwa2_newsletter_admin_insights?: {
-        readonly newsletter_id?: string
-        readonly state?: {
-            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
-        }
         readonly last_update_time?: string
         readonly metrics_status?: string
+        readonly newsletter_id?: string
         readonly result?: ReadonlyArray<{
             readonly id?: string
             readonly values?: ReadonlyArray<{
-                readonly value?: string
                 readonly country?: string
                 readonly role?: 'ADMIN' | 'GUEST' | 'OWNER' | 'SUBSCRIBER'
                 readonly timestamp?: string
+                readonly value?: string
             }>
         }>
+        readonly state?: {
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
+        }
     }
 }
 
 export type WaMexFetchNewsletterIsDomainPreviewableResponse = {
     readonly xwa2_newsletter_message_integrity?: {
         readonly url_previews?: ReadonlyArray<{
-            readonly url_domain?: string
             readonly is_previewable?: boolean
+            readonly url_domain?: string
         }>
     }
 }
@@ -3884,13 +3897,13 @@ export type WaMexFetchNewsletterMessageReactionSenderListResponse = {
 
 export type WaMexFetchNewsletterPendingInvitesResponse = {
     readonly xwa2_newsletter_admin?: {
+        readonly id?: string
         readonly pending_admin_invites?: ReadonlyArray<{
             readonly user?: {
-                readonly pn?: string
                 readonly id?: string
+                readonly pn?: string
             }
         }>
-        readonly id?: string
     }
 }
 
@@ -3913,34 +3926,34 @@ export type WaMexFetchNewsletterPollVotersResponse = {
 export type WaMexFetchNewsletterReportsResponse = {
     readonly xwa2_channels_reports?: {
         readonly channels_reports?: ReadonlyArray<{
-            readonly report_id?: string
-            readonly status?: string
+            readonly appeal?: {
+                readonly appeal_id?: string
+                readonly appeal_reason?: string
+                readonly creation_time?: string
+                readonly report_id?: string
+                readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
+            }
+            readonly appeal_reason_options?: ReadonlyArray<{
+                readonly label?: string
+                readonly reason?: string
+            }>
+            readonly channel_jid?: string
+            readonly channel_name?: string
             readonly creation_time?: string
             readonly last_update_time?: string
-            readonly channel_name?: string
-            readonly channel_jid?: string
-            readonly appeal_reason_options?: ReadonlyArray<{
-                readonly reason?: string
-                readonly label?: string
-            }>
+            readonly report_id?: string
             readonly reported_content_data?: {
                 readonly __typename?: string
-                readonly server_msg_id?: string
-                readonly server_id?: string
-                readonly server_response_id?: string
                 readonly notify_name?: string
                 readonly question_data?: {
                     readonly __typename?: string
                     readonly server_msg_id?: string
                 }
+                readonly server_id?: string
+                readonly server_msg_id?: string
+                readonly server_response_id?: string
             }
-            readonly appeal?: {
-                readonly state?: 'CONTENT_UNAVAILABLE' | 'NON_APPEALABLE' | 'NOT_APPEALED' | 'PENDING' | 'REJECT' | 'SUCCESS'
-                readonly appeal_reason?: string
-                readonly creation_time?: string
-                readonly report_id?: string
-                readonly appeal_id?: string
-            }
+            readonly status?: string
         }>
     }
 }
@@ -3968,229 +3981,229 @@ export type WaMexFetchPlaintextLinkPreviewResponse = {
         readonly description?: string
         readonly direct_path?: string
         readonly hash?: string
+        readonly height?: number
         readonly preview_type?: 'IMAGE'
         readonly thumb_data?: string
         readonly title?: string
-        readonly height?: number
         readonly width?: number
     }
 }
 
 export type WaMexFetchQuickPromotionsResponse = {
     readonly quick_promotion_batch_fetch_root?: ReadonlyArray<{
-        readonly surface_nux_id?: string
         readonly eligible_promotions?: {
             readonly edges?: ReadonlyArray<{
                 readonly client_ttl_seconds?: number
-                readonly priority?: number
                 readonly is_holdout?: boolean
                 readonly log_eligibility_waterfall?: string
-                readonly time_range?: {
-                    readonly start?: string
-                    readonly end?: string
-                }
                 readonly node?: {
-                    readonly promotion_id?: string
-                    readonly is_server_force_pass?: boolean
                     readonly ab_prop_name?: string
-                    readonly surface_delay_in_seconds?: number
-                    readonly encrypted_logging_data?: string
                     readonly client_side_dry_run?: boolean
-                    readonly creatives?: ReadonlyArray<{
-                        readonly title?: {
-                            readonly text?: string
+                    readonly content_attributes?: {
+                        readonly wa_banner_background_color?: {
+                            readonly dark_mode_background_color?: string
+                            readonly dark_mode_highlight_color?: string
+                            readonly light_mode_background_color?: string
+                            readonly light_mode_highlight_color?: string
                         }
+                        readonly wa_eligible_duration_after_impression_in_seconds?: number
+                        readonly wa_primary_cta_alternative_url?: string
+                    }
+                    readonly contextual_filters_for_wa_do_not_use?: {
+                        readonly clause_type?: string
+                        readonly clauses?: ReadonlyArray<{
+                            readonly clause_type?: string
+                            readonly clauses?: ReadonlyArray<{
+                                readonly clause_type?: string
+                                readonly clauses?: ReadonlyArray<{
+                                    readonly clause_type?: string
+                                    readonly clauses?: ReadonlyArray<{
+                                        readonly clause_type?: string
+                                        readonly clauses?: ReadonlyArray<{
+                                            readonly clause_type?: string
+                                            readonly clauses?: ReadonlyArray<{
+                                                readonly clause_type?: string
+                                                readonly clauses?: ReadonlyArray<{
+                                                    readonly clause_type?: string
+                                                    readonly filters?: ReadonlyArray<{
+                                                        readonly filter_name?: string
+                                                        readonly filter_result?: string
+                                                        readonly parameters?: ReadonlyArray<{
+                                                            readonly key?: string
+                                                            readonly value?: string
+                                                        }>
+                                                        readonly passes_if_client_not_supported?: boolean
+                                                    }>
+                                                }>
+                                                readonly filters?: ReadonlyArray<{
+                                                    readonly filter_name?: string
+                                                    readonly filter_result?: string
+                                                    readonly parameters?: ReadonlyArray<{
+                                                        readonly key?: string
+                                                        readonly value?: string
+                                                    }>
+                                                    readonly passes_if_client_not_supported?: boolean
+                                                }>
+                                            }>
+                                            readonly filters?: ReadonlyArray<{
+                                                readonly filter_name?: string
+                                                readonly filter_result?: string
+                                                readonly parameters?: ReadonlyArray<{
+                                                    readonly key?: string
+                                                    readonly value?: string
+                                                }>
+                                                readonly passes_if_client_not_supported?: boolean
+                                            }>
+                                        }>
+                                        readonly filters?: ReadonlyArray<{
+                                            readonly filter_name?: string
+                                            readonly filter_result?: string
+                                            readonly parameters?: ReadonlyArray<{
+                                                readonly key?: string
+                                                readonly value?: string
+                                            }>
+                                            readonly passes_if_client_not_supported?: boolean
+                                        }>
+                                    }>
+                                    readonly filters?: ReadonlyArray<{
+                                        readonly filter_name?: string
+                                        readonly filter_result?: string
+                                        readonly parameters?: ReadonlyArray<{
+                                            readonly key?: string
+                                            readonly value?: string
+                                        }>
+                                        readonly passes_if_client_not_supported?: boolean
+                                    }>
+                                }>
+                                readonly filters?: ReadonlyArray<{
+                                    readonly filter_name?: string
+                                    readonly filter_result?: string
+                                    readonly parameters?: ReadonlyArray<{
+                                        readonly key?: string
+                                        readonly value?: string
+                                    }>
+                                    readonly passes_if_client_not_supported?: boolean
+                                }>
+                            }>
+                            readonly filters?: ReadonlyArray<{
+                                readonly filter_name?: string
+                                readonly filter_result?: string
+                                readonly parameters?: ReadonlyArray<{
+                                    readonly key?: string
+                                    readonly value?: string
+                                }>
+                                readonly passes_if_client_not_supported?: boolean
+                            }>
+                        }>
+                        readonly filters?: ReadonlyArray<{
+                            readonly filter_name?: string
+                            readonly filter_result?: string
+                            readonly parameters?: ReadonlyArray<{
+                                readonly key?: string
+                                readonly value?: string
+                            }>
+                            readonly passes_if_client_not_supported?: boolean
+                        }>
+                    }
+                    readonly creatives?: ReadonlyArray<{
+                        readonly accessibility_text_for_image?: string
                         readonly content?: {
                             readonly text?: string
                         }
+                        readonly id?: string
+                        readonly is_dismissible?: boolean
                         readonly primary_action?: {
                             readonly title?: {
                                 readonly text?: string
                             }
                             readonly url?: string
                         }
-                        readonly wa_light_mode_media_details?: {
-                            readonly jpeg_thumbnail?: string
+                        readonly title?: {
+                            readonly text?: string
                         }
                         readonly wa_dark_mode_media_details?: {
                             readonly jpeg_thumbnail?: string
                         }
-                        readonly accessibility_text_for_image?: string
-                        readonly is_dismissible?: boolean
-                        readonly id?: string
-                    }>
-                    readonly content_attributes?: {
-                        readonly wa_banner_background_color?: {
-                            readonly light_mode_highlight_color?: string
-                            readonly dark_mode_highlight_color?: string
-                            readonly light_mode_background_color?: string
-                            readonly dark_mode_background_color?: string
+                        readonly wa_light_mode_media_details?: {
+                            readonly jpeg_thumbnail?: string
                         }
-                        readonly wa_primary_cta_alternative_url?: string
-                        readonly wa_eligible_duration_after_impression_in_seconds?: number
+                    }>
+                    readonly encrypted_logging_data?: string
+                    readonly id?: string
+                    readonly is_server_force_pass?: boolean
+                    readonly promotion_id?: string
+                    readonly surface_delay_in_seconds?: number
+                    readonly user_interaction_info?: {
+                        readonly dismiss_click_count_for_user?: number
+                        readonly dismiss_max_instances?: unknown
+                        readonly impression_count_for_user?: number
+                        readonly impression_max_instances?: unknown
+                        readonly primary_click_count_for_user?: number
+                        readonly primary_click_max_instances?: unknown
+                        readonly secondary_click_count_for_user?: number
                     }
                     readonly wa_qp_content_attributes_do_not_use?: ReadonlyArray<{
                         readonly name?: string
                         readonly value?: string
                     }>
-                    readonly contextual_filters_for_wa_do_not_use?: {
-                        readonly clause_type?: string
-                        readonly filters?: ReadonlyArray<{
-                            readonly filter_name?: string
-                            readonly parameters?: ReadonlyArray<{
-                                readonly key?: string
-                                readonly value?: string
-                            }>
-                            readonly passes_if_client_not_supported?: boolean
-                            readonly filter_result?: string
-                        }>
-                        readonly clauses?: ReadonlyArray<{
-                            readonly clause_type?: string
-                            readonly filters?: ReadonlyArray<{
-                                readonly filter_name?: string
-                                readonly parameters?: ReadonlyArray<{
-                                    readonly key?: string
-                                    readonly value?: string
-                                }>
-                                readonly passes_if_client_not_supported?: boolean
-                                readonly filter_result?: string
-                            }>
-                            readonly clauses?: ReadonlyArray<{
-                                readonly clause_type?: string
-                                readonly filters?: ReadonlyArray<{
-                                    readonly filter_name?: string
-                                    readonly parameters?: ReadonlyArray<{
-                                        readonly key?: string
-                                        readonly value?: string
-                                    }>
-                                    readonly passes_if_client_not_supported?: boolean
-                                    readonly filter_result?: string
-                                }>
-                                readonly clauses?: ReadonlyArray<{
-                                    readonly clause_type?: string
-                                    readonly filters?: ReadonlyArray<{
-                                        readonly filter_name?: string
-                                        readonly parameters?: ReadonlyArray<{
-                                            readonly key?: string
-                                            readonly value?: string
-                                        }>
-                                        readonly passes_if_client_not_supported?: boolean
-                                        readonly filter_result?: string
-                                    }>
-                                    readonly clauses?: ReadonlyArray<{
-                                        readonly clause_type?: string
-                                        readonly filters?: ReadonlyArray<{
-                                            readonly filter_name?: string
-                                            readonly parameters?: ReadonlyArray<{
-                                                readonly key?: string
-                                                readonly value?: string
-                                            }>
-                                            readonly passes_if_client_not_supported?: boolean
-                                            readonly filter_result?: string
-                                        }>
-                                        readonly clauses?: ReadonlyArray<{
-                                            readonly clause_type?: string
-                                            readonly filters?: ReadonlyArray<{
-                                                readonly filter_name?: string
-                                                readonly parameters?: ReadonlyArray<{
-                                                    readonly key?: string
-                                                    readonly value?: string
-                                                }>
-                                                readonly passes_if_client_not_supported?: boolean
-                                                readonly filter_result?: string
-                                            }>
-                                            readonly clauses?: ReadonlyArray<{
-                                                readonly clause_type?: string
-                                                readonly filters?: ReadonlyArray<{
-                                                    readonly filter_name?: string
-                                                    readonly parameters?: ReadonlyArray<{
-                                                        readonly key?: string
-                                                        readonly value?: string
-                                                    }>
-                                                    readonly passes_if_client_not_supported?: boolean
-                                                    readonly filter_result?: string
-                                                }>
-                                                readonly clauses?: ReadonlyArray<{
-                                                    readonly clause_type?: string
-                                                    readonly filters?: ReadonlyArray<{
-                                                        readonly filter_name?: string
-                                                        readonly parameters?: ReadonlyArray<{
-                                                            readonly key?: string
-                                                            readonly value?: string
-                                                        }>
-                                                        readonly passes_if_client_not_supported?: boolean
-                                                        readonly filter_result?: string
-                                                    }>
-                                                }>
-                                            }>
-                                        }>
-                                    }>
-                                }>
-                            }>
-                        }>
-                    }
-                    readonly user_interaction_info?: {
-                        readonly impression_max_instances?: unknown
-                        readonly impression_count_for_user?: number
-                        readonly dismiss_max_instances?: unknown
-                        readonly dismiss_click_count_for_user?: number
-                        readonly primary_click_max_instances?: unknown
-                        readonly primary_click_count_for_user?: number
-                        readonly secondary_click_count_for_user?: number
-                    }
-                    readonly id?: string
+                }
+                readonly priority?: number
+                readonly time_range?: {
+                    readonly end?: string
+                    readonly start?: string
                 }
             }>
         }
+        readonly surface_nux_id?: string
     }>
 }
 
 export type WaMexFetchReachoutTimelockResponse = {
     readonly xwa2_fetch_account_reachout_timelock?: {
+        readonly enforcement_type?: 'ADMIN_PROFILE' | 'GEOSUSPEND' | 'GEOSUSPEND_INFORM' | 'PROFILE_PICTURE_DELETION' | 'SUSPEND' | 'SUSPEND_INFORM' | 'VIOLATING_MSG'
         readonly is_active?: boolean
         readonly time_enforcement_ends?: string
-        readonly enforcement_type?: 'ADMIN_PROFILE' | 'GEOSUSPEND' | 'GEOSUSPEND_INFORM' | 'PROFILE_PICTURE_DELETION' | 'SUSPEND' | 'SUSPEND_INFORM' | 'VIOLATING_MSG'
     }
 }
 
 export type WaMexFetchRecommendedNewslettersResponse = {
     readonly xwa2_newsletters_recommended?: {
         readonly page_info?: {
+            readonly endCursor?: string
             readonly hasNextPage?: boolean
             readonly hasPreviousPage?: boolean
             readonly startCursor?: string
-            readonly endCursor?: string
         }
         readonly result?: ReadonlyArray<{
             readonly id?: string
             readonly state?: {
                 readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
             }
+            readonly status_metadata?: {
+                readonly last_status_sent_time?: string
+                readonly last_status_server_id?: string
+            }
             readonly thread_metadata?: {
                 readonly creation_time?: string
-                readonly name?: {
-                    readonly id?: string
-                    readonly text?: string
-                    readonly update_time?: string
-                }
                 readonly description?: {
                     readonly id?: string
                     readonly text?: string
                     readonly update_time?: string
                 }
+                readonly handle?: string
+                readonly invite?: string
+                readonly name?: {
+                    readonly id?: string
+                    readonly text?: string
+                    readonly update_time?: string
+                }
                 readonly preview?: {
+                    readonly direct_path?: string
                     readonly id?: string
                     readonly type?: 'PREVIEW'
-                    readonly direct_path?: string
                 }
-                readonly invite?: string
-                readonly handle?: string
-                readonly verification?: 'UNVERIFIED' | 'VERIFIED'
                 readonly subscribers_count?: string
-            }
-            readonly status_metadata?: {
-                readonly last_status_server_id?: string
-                readonly last_status_sent_time?: string
+                readonly verification?: 'UNVERIFIED' | 'VERIFIED'
             }
         }>
     }
@@ -4200,6 +4213,12 @@ export type WaMexFetchSimilarNewslettersResponse = {
     readonly xwa2_newsletters_similar?: {
         readonly result?: ReadonlyArray<{
             readonly id?: string
+            readonly state?: {
+                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
+            }
+            readonly status_metadata?: {
+                readonly last_status_server_id?: string
+            }
             readonly thread_metadata?: {
                 readonly name?: {
                     readonly id?: string
@@ -4207,17 +4226,11 @@ export type WaMexFetchSimilarNewslettersResponse = {
                     readonly update_time?: string
                 }
                 readonly picture?: {
+                    readonly direct_path?: string
                     readonly id?: string
                     readonly type?: 'IMAGE' | 'PREVIEW'
-                    readonly direct_path?: string
                 }
                 readonly verification?: 'UNVERIFIED' | 'VERIFIED'
-            }
-            readonly status_metadata?: {
-                readonly last_status_server_id?: string
-            }
-            readonly state?: {
-                readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
             }
         }>
     }
@@ -4230,21 +4243,21 @@ export type WaMexFetchSubgroupSuggestionsResponse = {
         readonly sub_group_suggestions?: {
             readonly edges?: ReadonlyArray<{
                 readonly node?: {
-                    readonly id?: string
-                    readonly subject?: {
-                        readonly value?: string
-                    }
-                    readonly description?: {
-                        readonly value?: string
-                        readonly id?: string
-                    }
+                    readonly creation_time?: string
                     readonly creator?: {
                         readonly id?: string
                     }
-                    readonly creation_time?: string
-                    readonly total_participants_count?: number
-                    readonly is_existing_group?: boolean
+                    readonly description?: {
+                        readonly id?: string
+                        readonly value?: string
+                    }
                     readonly hidden_group?: boolean
+                    readonly id?: string
+                    readonly is_existing_group?: boolean
+                    readonly subject?: {
+                        readonly value?: string
+                    }
+                    readonly total_participants_count?: number
                 }
             }>
         }
@@ -4263,34 +4276,34 @@ export type WaMexFetchSubscriptionEntryPointsResponse = {
 
 export type WaMexFetchSubscriptionsResponse = {
     readonly xwa_get_subscriptions?: {
-        readonly subscriptions?: ReadonlyArray<{
-            readonly id?: string
-            readonly status?: 'ACTIVE' | 'CANCELED'
-            readonly end_time?: string
-            readonly creation_time?: string
-            readonly tier?: string
-            readonly source?: string
-            readonly is_platform_changed?: boolean
-            readonly start_time?: string
-        }>
         readonly feature_flags?: ReadonlyArray<{
-            readonly name?: string
             readonly enabled?: boolean
             readonly expiration_time?: string
             readonly limit?: number
+            readonly name?: string
+        }>
+        readonly subscriptions?: ReadonlyArray<{
+            readonly creation_time?: string
+            readonly end_time?: string
+            readonly id?: string
+            readonly is_platform_changed?: boolean
+            readonly source?: string
+            readonly start_time?: string
+            readonly status?: 'ACTIVE' | 'CANCELED'
+            readonly tier?: string
         }>
     }
 }
 
 export type WaMexFetchTextStatusListResponse = {
     readonly xwa2_text_status_list?: ReadonlyArray<{
-        readonly jid?: string
-        readonly text?: string
-        readonly last_update_time?: string
-        readonly ephemeral_duration_sec?: number
         readonly emoji?: {
             readonly content?: string
         }
+        readonly ephemeral_duration_sec?: number
+        readonly jid?: string
+        readonly last_update_time?: string
+        readonly text?: string
     }>
 }
 
@@ -4322,12 +4335,12 @@ export type WaMexGetFBAccountPagesResponse = {
     readonly user?: {
         readonly facebook_pages?: {
             readonly nodes?: ReadonlyArray<{
-                readonly name?: string
                 readonly id?: string
+                readonly name?: string
+                readonly permitted_tasks?: string
                 readonly profile_picture?: {
                     readonly uri?: string
                 }
-                readonly permitted_tasks?: string
             }>
         }
         readonly id?: string
@@ -4339,8 +4352,8 @@ export type WaMexGetNumbersForBrandIdsResponse = {
         readonly brand_ids_data?: ReadonlyArray<{
             readonly brand_id?: string
             readonly error?: boolean
-            readonly phone_numbers?: ReadonlyArray<string>
             readonly lids?: ReadonlyArray<string>
+            readonly phone_numbers?: ReadonlyArray<string>
         }>
     }
 }
@@ -4348,8 +4361,8 @@ export type WaMexGetNumbersForBrandIdsResponse = {
 export type WaMexGetPrivacyListsResponse = {
     readonly xwa2_fetch_wa_users?: ReadonlyArray<{
         readonly __typename?: string
+        readonly id?: string
         readonly privacy_contact_list?: {
-            readonly dhash?: string
             readonly contacts?: ReadonlyArray<{
                 readonly jid?: string
                 readonly pn_jid?: string
@@ -4358,30 +4371,30 @@ export type WaMexGetPrivacyListsResponse = {
                     readonly username?: string
                 }
             }>
+            readonly dhash?: string
         }
-        readonly id?: string
     }>
 }
 
 export type WaMexGetPrivacySettingsResponse = {
     readonly xwa2_fetch_wa_users?: ReadonlyArray<{
         readonly __typename?: string
+        readonly id?: string
         readonly privacy_settings?: {
             readonly settings?: ReadonlyArray<{
                 readonly feature?: 'ABOUT' | 'CALLADD' | 'DEFENSE' | 'DEPENDENT_ACCOUNT_CALLING' | 'DEPENDENT_ACCOUNT_MESSAGES' | 'GROUPADD' | 'LAST' | 'LINKED_PROFILES' | 'MESSAGES' | 'ONLINE' | 'PIX' | 'PROFILE' | 'READRECEIPTS' | 'STICKERS'
                 readonly setting?: 'ALL' | 'MYCONTACTS' | 'OFF'
             }>
         }
-        readonly id?: string
     }>
 }
 
 export type WaMexGetUsernameResponse = {
     readonly xwa2_username_get?: {
         readonly username_info?: {
-            readonly username?: string
-            readonly state?: string
             readonly pin?: string
+            readonly state?: string
+            readonly username?: string
         }
     }
 }
@@ -4405,8 +4418,8 @@ export type WaMexGraphQLProductCatalogGetPublicKeyResponse = {
 export type WaMexGraphQLVerifyPostcodeResponse = {
     readonly xwa_product_catalog_get_verify_postcode?: {
         readonly postcode_verification_result?: {
-            readonly result_code?: string
             readonly encrypted_location_name?: string
+            readonly result_code?: string
         }
     }
 }
@@ -4422,16 +4435,16 @@ export type WaMexGroupStoreInviteSmsResponse = {
 
 export type WaMexGroupSuspensionAppealResponse = {
     readonly wa_create_group_suspension_appeal?: {
-        readonly response_code?: string
-        readonly error_message?: string
         readonly appeal_creation_time?: string
+        readonly error_message?: string
+        readonly response_code?: string
     }
 }
 
 export type WaMexIntegrityChallengeResponseResponse = {
     readonly xwa2_submit_integrity_challenge_response?: {
-        readonly success?: boolean
         readonly error_message?: string
+        readonly success?: boolean
     }
 }
 
@@ -4448,8 +4461,8 @@ export type WaMexKeyTransparencyGraphQLClient_Response = {
     readonly xfb_messenger_kt_lookup?: {
         readonly account_responses?: ReadonlyArray<{
             readonly account_fbid?: string
-            readonly proto_for_client?: unknown
             readonly pending_sequencing?: unknown
+            readonly proto_for_client?: unknown
         }>
     }
 }
@@ -4465,8 +4478,8 @@ export type WaMexLeaveNewsletterResponse = {
 
 export type WaMexLidChangeNotificationResponse = {
     readonly xwa2_notify_lid_change?: {
-        readonly old?: string
         readonly new?: string
+        readonly old?: string
     }
 }
 
@@ -4482,34 +4495,34 @@ export type WaMexMAIBAInlineAssetSelectorWidgetAssetIDsResponse = {
 
 export type WaMexMAIBAInlineAssetSelectorWidgetAssetsResponse = {
     readonly xfb_maiba_support_ai_asset_api?: ReadonlyArray<{
-        readonly name?: string
         readonly asset_id?: string
-        readonly type?: string
+        readonly id?: string
         readonly image_url?: string
+        readonly name?: string
         readonly pill_label?: string
         readonly pill_status?: string
         readonly platform?: unknown
-        readonly id?: string
+        readonly type?: string
     }>
 }
 
 export type WaMexMAIBAMessageCreatorCardsRendererResponse = {
     readonly cam_ai_search_creators_by_ids?: ReadonlyArray<{
-        readonly creator_user_id?: string
         readonly creator_igid?: unknown
         readonly creator_profile_materialized?: {
             readonly followers_number?: unknown
             readonly profile_pic_uri_without_fallback?: unknown
         }
+        readonly creator_user_id?: string
         readonly cross_platform_insights?: {
-            readonly ig_insights?: {
+            readonly fb_insights?: {
                 readonly __typename?: string
                 readonly followers_count?: {
                     readonly value?: string
                 }
                 readonly id?: string
             }
-            readonly fb_insights?: {
+            readonly ig_insights?: {
                 readonly __typename?: string
                 readonly followers_count?: {
                     readonly value?: string
@@ -4523,8 +4536,8 @@ export type WaMexMAIBAMessageCreatorCardsRendererResponse = {
 
 export type WaMexMAIBAMessageLiveBrowserRendererScreenshotResponse = {
     readonly xfb_maiba_browser_screenshot?: {
-        readonly screenshot_url?: string
         readonly screenshot_data?: unknown
+        readonly screenshot_url?: string
         readonly status?: string
     }
 }
@@ -4532,87 +4545,87 @@ export type WaMexMAIBAMessageLiveBrowserRendererScreenshotResponse = {
 export type WaMexMAIBAMessagePLEDisclaimerContentPFRResponse = {
     readonly xfb_ugp_gen_pfrs?: {
         readonly contents?: ReadonlyArray<{
-            readonly recommendation_type?: string
             readonly recommendation_contents?: ReadonlyArray<{
-                readonly recommendation_id?: string
                 readonly outcome?: {
-                    readonly title?: {
-                        readonly text?: string
-                        readonly inline_style_ranges?: ReadonlyArray<{
-                            readonly offset?: number
-                            readonly length?: number
-                            readonly inline_style?: unknown
+                    readonly explanation?: {
+                        readonly body?: ReadonlyArray<{
+                            readonly image_ranges?: ReadonlyArray<{
+                                readonly entity_with_image?: {
+                                    readonly __typename?: string
+                                    readonly id?: string
+                                    readonly image?: {
+                                        readonly downloadable_uri?: string
+                                    }
+                                }
+                                readonly length?: number
+                                readonly offset?: number
+                            }>
+                            readonly inline_style_ranges?: ReadonlyArray<{
+                                readonly inline_style?: unknown
+                                readonly length?: number
+                                readonly offset?: number
+                            }>
+                            readonly ranges?: ReadonlyArray<{
+                                readonly entity?: {
+                                    readonly __typename?: string
+                                    readonly id?: string
+                                    readonly url?: string
+                                }
+                                readonly length?: number
+                                readonly offset?: number
+                            }>
+                            readonly text?: string
                         }>
-                    }
-                    readonly lift?: {
-                        readonly text?: string
+                        readonly footer?: {
+                            readonly image_ranges?: ReadonlyArray<{
+                                readonly entity_with_image?: {
+                                    readonly __typename?: string
+                                    readonly id?: string
+                                    readonly image?: {
+                                        readonly downloadable_uri?: string
+                                    }
+                                }
+                                readonly length?: number
+                                readonly offset?: number
+                            }>
+                            readonly inline_style_ranges?: ReadonlyArray<{
+                                readonly inline_style?: unknown
+                                readonly length?: number
+                                readonly offset?: number
+                            }>
+                            readonly ranges?: ReadonlyArray<{
+                                readonly entity?: {
+                                    readonly __typename?: string
+                                    readonly id?: string
+                                    readonly url?: string
+                                }
+                                readonly length?: number
+                                readonly offset?: number
+                            }>
+                            readonly text?: string
+                        }
+                        readonly title?: {
+                            readonly text?: string
+                        }
                     }
                     readonly footer?: {
                         readonly text?: string
                     }
-                    readonly explanation?: {
-                        readonly title?: {
-                            readonly text?: string
-                        }
-                        readonly body?: ReadonlyArray<{
-                            readonly text?: string
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly offset?: number
-                                readonly length?: number
-                                readonly inline_style?: unknown
-                            }>
-                            readonly ranges?: ReadonlyArray<{
-                                readonly offset?: number
-                                readonly length?: number
-                                readonly entity?: {
-                                    readonly url?: string
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                }
-                            }>
-                            readonly image_ranges?: ReadonlyArray<{
-                                readonly offset?: number
-                                readonly length?: number
-                                readonly entity_with_image?: {
-                                    readonly __typename?: string
-                                    readonly image?: {
-                                        readonly downloadable_uri?: string
-                                    }
-                                    readonly id?: string
-                                }
-                            }>
+                    readonly lift?: {
+                        readonly text?: string
+                    }
+                    readonly title?: {
+                        readonly inline_style_ranges?: ReadonlyArray<{
+                            readonly inline_style?: unknown
+                            readonly length?: number
+                            readonly offset?: number
                         }>
-                        readonly footer?: {
-                            readonly text?: string
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly offset?: number
-                                readonly length?: number
-                                readonly inline_style?: unknown
-                            }>
-                            readonly ranges?: ReadonlyArray<{
-                                readonly offset?: number
-                                readonly length?: number
-                                readonly entity?: {
-                                    readonly url?: string
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                }
-                            }>
-                            readonly image_ranges?: ReadonlyArray<{
-                                readonly offset?: number
-                                readonly length?: number
-                                readonly entity_with_image?: {
-                                    readonly __typename?: string
-                                    readonly image?: {
-                                        readonly downloadable_uri?: string
-                                    }
-                                    readonly id?: string
-                                }
-                            }>
-                        }
+                        readonly text?: string
                     }
                 }
+                readonly recommendation_id?: string
             }>
+            readonly recommendation_type?: string
         }>
     }
 }
@@ -4620,46 +4633,46 @@ export type WaMexMAIBAMessagePLEDisclaimerContentPFRResponse = {
 export type WaMexMAIBAMessageSignalsCTARendererResponse = {
     readonly set_automatic_advanced_matching_ads_pixel?: {
         readonly ads_pixel?: {
-            readonly id?: boolean
-            readonly name?: string
             readonly enable_automatic_matching?: unknown
+            readonly id?: string
+            readonly name?: string
         }
     }
 }
 
 export type WaMexMAIBARecordAsyncAuthConsentResponse = {
     readonly maiba_record_async_auth_consent?: {
-        readonly success?: boolean
         readonly error_message?: string
+        readonly success?: boolean
     }
 }
 
 export type WaMexMessengerAdPreviewConversationResponse = {
     readonly page?: {
+        readonly id?: string
         readonly smc_product_catalog?: {
+            readonly catalog_product_count?: number
             readonly is_eligible?: boolean
-            readonly selected_products?: ReadonlyArray<{
-                readonly product_name?: string
-                readonly da_display_preview_url?: string
-                readonly sale_price?: string
-            }>
             readonly products?: ReadonlyArray<{
                 readonly da_display_preview_url?: string
             }>
-            readonly catalog_product_count?: number
+            readonly selected_products?: ReadonlyArray<{
+                readonly da_display_preview_url?: string
+                readonly product_name?: string
+                readonly sale_price?: string
+            }>
         }
-        readonly id?: string
     }
 }
 
 export type WaMexMpsReceiverFetchGraphQLStickerResponse = {
     readonly media_receiver_fetch_deidentified?: {
-        readonly receiver_fetch_id?: string
         readonly cdn_url?: string
         readonly expiration_timestamp_ms?: number
-        readonly mime_type?: string
-        readonly width?: number
         readonly height?: number
+        readonly mime_type?: string
+        readonly receiver_fetch_id?: string
+        readonly width?: number
     }
 }
 
@@ -4671,30 +4684,30 @@ export type WaMexMpsReceiverFetchGraphQLXMAResponse = {
 
 export type WaMexNativeMLModelResponse = {
     readonly aim_model_batched_manifest?: {
+        readonly asset_count?: number
+        readonly entry_point?: string
+        readonly model_count?: number
         readonly models?: ReadonlyArray<{
-            readonly name?: string
-            readonly version?: number
             readonly assets?: ReadonlyArray<{
-                readonly name?: string
-                readonly id?: string
-                readonly cache_key?: string
-                readonly source_content_hash?: string
-                readonly md5_hash?: string
                 readonly asset_handle?: string
-                readonly creation_time?: string
-                readonly url?: string
-                readonly filesize_bytes?: number
-                readonly compression_type?: string
                 readonly asset_type?: string
+                readonly cache_key?: string
+                readonly compression_type?: string
+                readonly creation_time?: string
+                readonly filesize_bytes?: number
+                readonly id?: string
+                readonly md5_hash?: string
+                readonly name?: string
+                readonly source_content_hash?: string
+                readonly url?: string
             }>
+            readonly name?: string
             readonly properties?: ReadonlyArray<{
                 readonly name?: string
                 readonly value?: string
             }>
+            readonly version?: number
         }>
-        readonly entry_point?: string
-        readonly asset_count?: number
-        readonly model_count?: number
         readonly status?: string
         readonly status_details?: string
     }
@@ -4723,8 +4736,8 @@ export type WaMexNewsletterPinMessagesResponse = {
         readonly id?: string
         readonly thread_metadata?: {
             readonly pinned_messages?: ReadonlyArray<{
-                readonly message_id?: string
                 readonly expiry_ts?: string
+                readonly message_id?: string
             }>
         }
     }
@@ -4741,8 +4754,8 @@ export type WaMexNewsletterUnpinMessagesResponse = {
         readonly id?: string
         readonly thread_metadata?: {
             readonly pinned_messages?: ReadonlyArray<{
-                readonly message_id?: string
                 readonly expiry_ts?: string
+                readonly message_id?: string
             }>
         }
     }
@@ -4758,28 +4771,31 @@ export type WaMexQueryCatalogResponse = {
     readonly xwa_product_catalog_get_product_catalog?: {
         readonly __typename?: string
         readonly product_catalog?: {
+            readonly paging?: {
+                readonly after?: string
+                readonly before?: string
+            }
             readonly products?: ReadonlyArray<{
+                readonly belongs_to?: string
+                readonly compliance_category?: string
+                readonly compliance_info?: {
+                    readonly country_code_origin?: string
+                    readonly importer_address?: {
+                        readonly city?: string
+                        readonly country_code?: string
+                        readonly postal_code?: string
+                        readonly region?: string
+                        readonly street1?: string
+                        readonly street2?: string
+                    }
+                    readonly importer_name?: string
+                }
+                readonly currency?: string
+                readonly description?: string
                 readonly id?: string
-                readonly retailer_id?: string
                 readonly is_hidden?: boolean
                 readonly is_sanctioned?: boolean
-                readonly product_availability?: string
                 readonly max_available?: number
-                readonly name?: string
-                readonly description?: string
-                readonly url?: string
-                readonly shimmed_url?: string
-                readonly currency?: string
-                readonly price?: string
-                readonly status_info?: {
-                    readonly can_appeal?: boolean
-                    readonly status?: string
-                }
-                readonly sale_price?: {
-                    readonly price?: string
-                    readonly start_date?: string
-                    readonly end_date?: string
-                }
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
@@ -4792,26 +4808,22 @@ export type WaMexQueryCatalogResponse = {
                         readonly thumbnail_url?: string
                     }>
                 }
-                readonly belongs_to?: string
-                readonly compliance_category?: string
-                readonly compliance_info?: {
-                    readonly country_code_origin?: string
-                    readonly importer_name?: string
-                    readonly importer_address?: {
-                        readonly street1?: string
-                        readonly street2?: string
-                        readonly postal_code?: string
-                        readonly city?: string
-                        readonly region?: string
-                        readonly country_code?: string
-                    }
+                readonly name?: string
+                readonly price?: string
+                readonly product_availability?: string
+                readonly retailer_id?: string
+                readonly sale_price?: {
+                    readonly end_date?: string
+                    readonly price?: string
+                    readonly start_date?: string
                 }
+                readonly shimmed_url?: string
+                readonly status_info?: {
+                    readonly can_appeal?: boolean
+                    readonly status?: string
+                }
+                readonly url?: string
                 readonly variant_info?: {
-                    readonly listing_details?: {
-                        readonly description?: string
-                        readonly multi_price?: string
-                        readonly lowest_price?: string
-                    }
                     readonly availability?: {
                         readonly listing?: ReadonlyArray<{
                             readonly is_available?: boolean
@@ -4822,10 +4834,14 @@ export type WaMexQueryCatalogResponse = {
                             readonly product_id?: string
                         }>
                     }
+                    readonly listing_details?: {
+                        readonly description?: string
+                        readonly lowest_price?: string
+                        readonly multi_price?: string
+                    }
                     readonly types?: ReadonlyArray<{
                         readonly name?: string
                         readonly options?: ReadonlyArray<{
-                            readonly value?: string
                             readonly thumbnail_media?: {
                                 readonly id?: string
                                 readonly original_dimensions?: {
@@ -4835,6 +4851,7 @@ export type WaMexQueryCatalogResponse = {
                                 readonly original_image_url?: string
                                 readonly request_image_url?: string
                             }
+                            readonly value?: string
                         }>
                     }>
                     readonly variant_properties?: ReadonlyArray<{
@@ -4843,10 +4860,6 @@ export type WaMexQueryCatalogResponse = {
                     }>
                 }
             }>
-            readonly paging?: {
-                readonly before?: string
-                readonly after?: string
-            }
         }
     }
 }
@@ -4863,27 +4876,26 @@ export type WaMexQueryCatalogProductResponse = {
     readonly xwa_product_catalog_get_product?: {
         readonly product_catalog?: {
             readonly product?: {
+                readonly belongs_to?: string
+                readonly compliance_category?: string
+                readonly compliance_info?: {
+                    readonly country_code_origin?: string
+                    readonly importer_address?: {
+                        readonly city?: string
+                        readonly country_code?: string
+                        readonly postal_code?: string
+                        readonly region?: string
+                        readonly street1?: string
+                        readonly street2?: string
+                    }
+                    readonly importer_name?: string
+                }
+                readonly currency?: string
+                readonly description?: string
                 readonly id?: string
-                readonly retailer_id?: string
                 readonly is_hidden?: boolean
                 readonly is_sanctioned?: boolean
-                readonly product_availability?: string
                 readonly max_available?: number
-                readonly name?: string
-                readonly description?: string
-                readonly url?: string
-                readonly shimmed_url?: string
-                readonly currency?: string
-                readonly price?: string
-                readonly status_info?: {
-                    readonly can_appeal?: boolean
-                    readonly status?: string
-                }
-                readonly sale_price?: {
-                    readonly price?: string
-                    readonly start_date?: string
-                    readonly end_date?: string
-                }
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
@@ -4896,26 +4908,22 @@ export type WaMexQueryCatalogProductResponse = {
                         readonly thumbnail_url?: string
                     }>
                 }
-                readonly belongs_to?: string
-                readonly compliance_category?: string
-                readonly compliance_info?: {
-                    readonly country_code_origin?: string
-                    readonly importer_name?: string
-                    readonly importer_address?: {
-                        readonly street1?: string
-                        readonly street2?: string
-                        readonly postal_code?: string
-                        readonly city?: string
-                        readonly region?: string
-                        readonly country_code?: string
-                    }
+                readonly name?: string
+                readonly price?: string
+                readonly product_availability?: string
+                readonly retailer_id?: string
+                readonly sale_price?: {
+                    readonly end_date?: string
+                    readonly price?: string
+                    readonly start_date?: string
                 }
+                readonly shimmed_url?: string
+                readonly status_info?: {
+                    readonly can_appeal?: boolean
+                    readonly status?: string
+                }
+                readonly url?: string
                 readonly variant_info?: {
-                    readonly listing_details?: {
-                        readonly description?: string
-                        readonly multi_price?: string
-                        readonly lowest_price?: string
-                    }
                     readonly availability?: {
                         readonly listing?: ReadonlyArray<{
                             readonly is_available?: boolean
@@ -4926,10 +4934,14 @@ export type WaMexQueryCatalogProductResponse = {
                             readonly product_id?: string
                         }>
                     }
+                    readonly listing_details?: {
+                        readonly description?: string
+                        readonly lowest_price?: string
+                        readonly multi_price?: string
+                    }
                     readonly types?: ReadonlyArray<{
                         readonly name?: string
                         readonly options?: ReadonlyArray<{
-                            readonly value?: string
                             readonly thumbnail_media?: {
                                 readonly id?: string
                                 readonly original_dimensions?: {
@@ -4939,6 +4951,7 @@ export type WaMexQueryCatalogProductResponse = {
                                 readonly original_image_url?: string
                                 readonly request_image_url?: string
                             }
+                            readonly value?: string
                         }>
                     }>
                     readonly variant_properties?: ReadonlyArray<{
@@ -4957,34 +4970,27 @@ export type WaMexQueryProductCollectionsResponse = {
         readonly collections?: ReadonlyArray<{
             readonly id?: string
             readonly name?: string
-            readonly status_info?: {
-                readonly status?: string
-                readonly can_appeal?: string
-                readonly reject_reason?: string
-                readonly commerce_url?: string
-            }
             readonly products?: ReadonlyArray<{
+                readonly belongs_to?: string
+                readonly compliance_category?: string
+                readonly compliance_info?: {
+                    readonly country_code_origin?: string
+                    readonly importer_address?: {
+                        readonly city?: string
+                        readonly country_code?: string
+                        readonly postal_code?: string
+                        readonly region?: string
+                        readonly street1?: string
+                        readonly street2?: string
+                    }
+                    readonly importer_name?: string
+                }
+                readonly currency?: string
+                readonly description?: string
                 readonly id?: string
-                readonly retailer_id?: string
                 readonly is_hidden?: boolean
                 readonly is_sanctioned?: boolean
-                readonly product_availability?: string
                 readonly max_available?: number
-                readonly name?: string
-                readonly description?: string
-                readonly url?: string
-                readonly shimmed_url?: string
-                readonly currency?: string
-                readonly price?: string
-                readonly status_info?: {
-                    readonly can_appeal?: string
-                    readonly status?: string
-                }
-                readonly sale_price?: {
-                    readonly price?: string
-                    readonly start_date?: string
-                    readonly end_date?: string
-                }
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
@@ -4997,26 +5003,22 @@ export type WaMexQueryProductCollectionsResponse = {
                         readonly thumbnail_url?: string
                     }>
                 }
-                readonly belongs_to?: string
-                readonly compliance_category?: string
-                readonly compliance_info?: {
-                    readonly country_code_origin?: string
-                    readonly importer_name?: string
-                    readonly importer_address?: {
-                        readonly street1?: string
-                        readonly street2?: string
-                        readonly postal_code?: string
-                        readonly city?: string
-                        readonly region?: string
-                        readonly country_code?: string
-                    }
+                readonly name?: string
+                readonly price?: string
+                readonly product_availability?: string
+                readonly retailer_id?: string
+                readonly sale_price?: {
+                    readonly end_date?: string
+                    readonly price?: string
+                    readonly start_date?: string
                 }
+                readonly shimmed_url?: string
+                readonly status_info?: {
+                    readonly can_appeal?: string
+                    readonly status?: string
+                }
+                readonly url?: string
                 readonly variant_info?: {
-                    readonly listing_details?: {
-                        readonly description?: string
-                        readonly multi_price?: string
-                        readonly lowest_price?: string
-                    }
                     readonly availability?: {
                         readonly listing?: ReadonlyArray<{
                             readonly is_available?: boolean
@@ -5027,10 +5029,14 @@ export type WaMexQueryProductCollectionsResponse = {
                             readonly product_id?: string
                         }>
                     }
+                    readonly listing_details?: {
+                        readonly description?: string
+                        readonly lowest_price?: string
+                        readonly multi_price?: string
+                    }
                     readonly types?: ReadonlyArray<{
                         readonly name?: string
                         readonly options?: ReadonlyArray<{
-                            readonly value?: string
                             readonly thumbnail_media?: {
                                 readonly id?: string
                                 readonly original_dimensions?: {
@@ -5040,6 +5046,7 @@ export type WaMexQueryProductCollectionsResponse = {
                                 readonly original_image_url?: string
                                 readonly request_image_url?: string
                             }
+                            readonly value?: string
                         }>
                     }>
                     readonly variant_properties?: ReadonlyArray<{
@@ -5048,6 +5055,12 @@ export type WaMexQueryProductCollectionsResponse = {
                     }>
                 }
             }>
+            readonly status_info?: {
+                readonly can_appeal?: string
+                readonly commerce_url?: string
+                readonly reject_reason?: string
+                readonly status?: string
+            }
         }>
         readonly paging?: {
             readonly after?: string
@@ -5060,27 +5073,26 @@ export type WaMexQueryProductListCatalogResponse = {
         readonly __typename?: string
         readonly product_list?: {
             readonly products?: ReadonlyArray<{
+                readonly belongs_to?: string
+                readonly compliance_category?: string
+                readonly compliance_info?: {
+                    readonly country_code_origin?: string
+                    readonly importer_address?: {
+                        readonly city?: string
+                        readonly country_code?: string
+                        readonly postal_code?: string
+                        readonly region?: string
+                        readonly street1?: string
+                        readonly street2?: string
+                    }
+                    readonly importer_name?: string
+                }
+                readonly currency?: string
+                readonly description?: string
                 readonly id?: string
-                readonly retailer_id?: string
                 readonly is_hidden?: boolean
                 readonly is_sanctioned?: boolean
-                readonly product_availability?: string
                 readonly max_available?: number
-                readonly name?: string
-                readonly description?: string
-                readonly url?: string
-                readonly shimmed_url?: string
-                readonly currency?: string
-                readonly price?: string
-                readonly status_info?: {
-                    readonly can_appeal?: boolean
-                    readonly status?: string
-                }
-                readonly sale_price?: {
-                    readonly price?: string
-                    readonly start_date?: string
-                    readonly end_date?: string
-                }
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
@@ -5093,26 +5105,22 @@ export type WaMexQueryProductListCatalogResponse = {
                         readonly thumbnail_url?: string
                     }>
                 }
-                readonly belongs_to?: string
-                readonly compliance_category?: string
-                readonly compliance_info?: {
-                    readonly country_code_origin?: string
-                    readonly importer_name?: string
-                    readonly importer_address?: {
-                        readonly street1?: string
-                        readonly street2?: string
-                        readonly postal_code?: string
-                        readonly city?: string
-                        readonly region?: string
-                        readonly country_code?: string
-                    }
+                readonly name?: string
+                readonly price?: string
+                readonly product_availability?: string
+                readonly retailer_id?: string
+                readonly sale_price?: {
+                    readonly end_date?: string
+                    readonly price?: string
+                    readonly start_date?: string
                 }
+                readonly shimmed_url?: string
+                readonly status_info?: {
+                    readonly can_appeal?: boolean
+                    readonly status?: string
+                }
+                readonly url?: string
                 readonly variant_info?: {
-                    readonly listing_details?: {
-                        readonly description?: string
-                        readonly multi_price?: string
-                        readonly lowest_price?: string
-                    }
                     readonly availability?: {
                         readonly listing?: ReadonlyArray<{
                             readonly is_available?: boolean
@@ -5123,10 +5131,14 @@ export type WaMexQueryProductListCatalogResponse = {
                             readonly product_id?: string
                         }>
                     }
+                    readonly listing_details?: {
+                        readonly description?: string
+                        readonly lowest_price?: string
+                        readonly multi_price?: string
+                    }
                     readonly types?: ReadonlyArray<{
                         readonly name?: string
                         readonly options?: ReadonlyArray<{
-                            readonly value?: string
                             readonly thumbnail_media?: {
                                 readonly id?: string
                                 readonly original_dimensions?: {
@@ -5136,6 +5148,7 @@ export type WaMexQueryProductListCatalogResponse = {
                                 readonly original_image_url?: string
                                 readonly request_image_url?: string
                             }
+                            readonly value?: string
                         }>
                     }>
                     readonly variant_properties?: ReadonlyArray<{
@@ -5153,34 +5166,27 @@ export type WaMexQueryProductSingleCollectionResponse = {
         readonly collection?: {
             readonly id?: string
             readonly name?: string
-            readonly status_info?: {
-                readonly status?: string
-                readonly can_appeal?: string
-                readonly reject_reason?: string
-                readonly commerce_url?: string
-            }
             readonly products?: ReadonlyArray<{
+                readonly belongs_to?: string
+                readonly compliance_category?: string
+                readonly compliance_info?: {
+                    readonly country_code_origin?: string
+                    readonly importer_address?: {
+                        readonly city?: string
+                        readonly country_code?: string
+                        readonly postal_code?: string
+                        readonly region?: string
+                        readonly street1?: string
+                        readonly street2?: string
+                    }
+                    readonly importer_name?: string
+                }
+                readonly currency?: string
+                readonly description?: string
                 readonly id?: string
-                readonly retailer_id?: string
                 readonly is_hidden?: boolean
                 readonly is_sanctioned?: boolean
-                readonly product_availability?: string
                 readonly max_available?: number
-                readonly name?: string
-                readonly description?: string
-                readonly url?: string
-                readonly shimmed_url?: string
-                readonly currency?: string
-                readonly price?: string
-                readonly status_info?: {
-                    readonly can_appeal?: string
-                    readonly status?: string
-                }
-                readonly sale_price?: {
-                    readonly price?: string
-                    readonly start_date?: string
-                    readonly end_date?: string
-                }
                 readonly media?: {
                     readonly images?: ReadonlyArray<{
                         readonly id?: string
@@ -5193,26 +5199,22 @@ export type WaMexQueryProductSingleCollectionResponse = {
                         readonly thumbnail_url?: string
                     }>
                 }
-                readonly belongs_to?: string
-                readonly compliance_category?: string
-                readonly compliance_info?: {
-                    readonly country_code_origin?: string
-                    readonly importer_name?: string
-                    readonly importer_address?: {
-                        readonly street1?: string
-                        readonly street2?: string
-                        readonly postal_code?: string
-                        readonly city?: string
-                        readonly region?: string
-                        readonly country_code?: string
-                    }
+                readonly name?: string
+                readonly price?: string
+                readonly product_availability?: string
+                readonly retailer_id?: string
+                readonly sale_price?: {
+                    readonly end_date?: string
+                    readonly price?: string
+                    readonly start_date?: string
                 }
+                readonly shimmed_url?: string
+                readonly status_info?: {
+                    readonly can_appeal?: string
+                    readonly status?: string
+                }
+                readonly url?: string
                 readonly variant_info?: {
-                    readonly listing_details?: {
-                        readonly description?: string
-                        readonly multi_price?: string
-                        readonly lowest_price?: string
-                    }
                     readonly availability?: {
                         readonly listing?: ReadonlyArray<{
                             readonly is_available?: boolean
@@ -5223,10 +5225,14 @@ export type WaMexQueryProductSingleCollectionResponse = {
                             readonly product_id?: string
                         }>
                     }
+                    readonly listing_details?: {
+                        readonly description?: string
+                        readonly lowest_price?: string
+                        readonly multi_price?: string
+                    }
                     readonly types?: ReadonlyArray<{
                         readonly name?: string
                         readonly options?: ReadonlyArray<{
-                            readonly value?: string
                             readonly thumbnail_media?: {
                                 readonly id?: string
                                 readonly original_dimensions?: {
@@ -5236,6 +5242,7 @@ export type WaMexQueryProductSingleCollectionResponse = {
                                 readonly original_image_url?: string
                                 readonly request_image_url?: string
                             }
+                            readonly value?: string
                         }>
                     }>
                     readonly variant_properties?: ReadonlyArray<{
@@ -5244,6 +5251,12 @@ export type WaMexQueryProductSingleCollectionResponse = {
                     }>
                 }
             }>
+            readonly status_info?: {
+                readonly can_appeal?: string
+                readonly commerce_url?: string
+                readonly reject_reason?: string
+                readonly status?: string
+            }
         }
         readonly paging?: {
             readonly after?: string
@@ -5254,6 +5267,7 @@ export type WaMexQueryProductSingleCollectionResponse = {
 export type WaMexQuerySubgroupParticipantCountResponse = {
     readonly xwa2_group_query_by_id?: {
         readonly __typename?: string
+        readonly id?: string
         readonly sub_groups?: {
             readonly edges?: ReadonlyArray<{
                 readonly node?: {
@@ -5262,7 +5276,6 @@ export type WaMexQuerySubgroupParticipantCountResponse = {
                 }
             }>
         }
-        readonly id?: string
     }
 }
 
@@ -5285,14 +5298,14 @@ export type WaMexRequestClientLogsForBugResponse = {
 
 export type WaMexRequestOTEResponse = {
     readonly xwa2_ncm_request_ote?: {
+        readonly capping_status?: string
+        readonly cycle_end_timestamp?: string
+        readonly cycle_start_timestamp?: string
+        readonly mv_status?: string
+        readonly ote_status?: string
+        readonly server_sent_timestamp?: string
         readonly total_quota?: unknown
         readonly used_quota?: unknown
-        readonly cycle_start_timestamp?: string
-        readonly cycle_end_timestamp?: string
-        readonly server_sent_timestamp?: string
-        readonly ote_status?: string
-        readonly mv_status?: string
-        readonly capping_status?: string
     }
 }
 
@@ -5329,27 +5342,27 @@ export type WaMexSetUsernameKeyResponse = {
 export type WaMexSignupMetadataResponse = {
     readonly wa_signup_metadata?: {
         readonly id?: string
-        readonly signup_message?: string
         readonly privacy_policy_url?: string
+        readonly signup_message?: string
     }
 }
 
 export type WaMexStartConversationTemplateReengagementWithCatalogSectionResponse = {
     readonly page?: {
+        readonly id?: string
         readonly smc_product_catalog?: {
+            readonly ad_catalog_id?: string
             readonly catalog_info?: {
                 readonly catalog_id?: string
             }
-            readonly ad_catalog_id?: string
         }
-        readonly id?: string
     }
 }
 
 export type WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegenerationResponse = {
     readonly ad_account?: {
-        readonly is_eligible_for_ai_regeneration?: boolean
         readonly id?: string
+        readonly is_eligible_for_ai_regeneration?: boolean
     }
 }
 
@@ -5361,40 +5374,60 @@ export type WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMess
 
 export type WaMexStartConversationsTemplateFAQGenAIRegenerationResponse = {
     readonly xfb_get_ai_regenerated_icebreaker_automated_response?: {
-        readonly icebreaker?: {
-            readonly title?: boolean
-            readonly response?: string
-        }
         readonly ai_regeneration_id?: string
+        readonly icebreaker?: {
+            readonly response?: string
+            readonly title?: string
+        }
     }
 }
 
 export type WaMexSupportBugReportSubmitResponse = {
     readonly xwa_wa_support_bug_report_submit?: {
-        readonly success?: boolean
+        readonly bug_report_id?: string
         readonly error_code?: number
         readonly error_message?: string
-        readonly bug_report_id?: string
+        readonly success?: boolean
         readonly task_id?: string
     }
 }
 
 export type WaMexSupportContactFormSubmitResponse = {
     readonly xwa_wa_support_contact_form_submit?: {
-        readonly success?: boolean
         readonly error_code?: number
         readonly error_message?: string
-        readonly ticket_id?: string
+        readonly success?: boolean
         readonly support_phone_number_jid?: string
+        readonly ticket_id?: string
     }
 }
 
 export type WaMexSupportMessageFeedbackSubmitResponse = {
     readonly xwa_wa_support_message_feedback_submit?: {
-        readonly success?: boolean
         readonly error_code?: number
         readonly error_message?: string
+        readonly success?: boolean
     }
+}
+
+export type WaMexTeamLinkCreateInvitationResponse = {
+    readonly whatsapp_teamlink_create_agent_invitation?: {
+        readonly employee_lid?: string
+        readonly employee_name?: string
+        readonly expires_at?: string
+        readonly invitation_status?: string
+        readonly nonce_code?: string
+    }
+}
+
+export type WaMexTeamLinkListInvitationsResponse = {
+    readonly whatsapp_teamlink_list_agent_invitations?: ReadonlyArray<{
+        readonly employee_lid?: string
+        readonly employee_name?: string
+        readonly expires_at?: string
+        readonly invitation_status?: string
+        readonly nonce_code?: string
+    }>
 }
 
 export type WaMexTransferCommunityOwnershipResponse = {
@@ -5420,35 +5453,35 @@ export type WaMexUpdateNewsletterResponse = {
             readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
         }
         readonly thread_metadata?: {
-            readonly name?: {
-                readonly id?: string
-                readonly text?: string
-                readonly update_time?: string
-            }
+            readonly creation_time?: string
             readonly description?: {
                 readonly id?: string
                 readonly text?: string
                 readonly update_time?: string
             }
+            readonly handle?: string
+            readonly invite?: string
+            readonly name?: {
+                readonly id?: string
+                readonly text?: string
+                readonly update_time?: string
+            }
             readonly picture?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'IMAGE' | 'PREVIEW'
-                readonly direct_path?: string
             }
             readonly preview?: {
+                readonly direct_path?: string
                 readonly id?: string
                 readonly type?: 'PREVIEW'
-                readonly direct_path?: string
             }
-            readonly invite?: string
-            readonly handle?: string
-            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
-            readonly creation_time?: string
             readonly settings?: {
                 readonly reaction_codes?: {
                     readonly value?: 'ALL'
                 }
             }
+            readonly verification?: 'UNVERIFIED' | 'VERIFIED'
         }
     }
 }
@@ -5471,13 +5504,13 @@ export type WaMexUpdateTextStatusResponse = {
 export type WaMexUploadLabyrinthMessagesResponse = {
     readonly wa_labyrinth_upload_messages?: {
         readonly __typename?: string
+        readonly message?: string
         readonly results?: ReadonlyArray<{
+            readonly error?: boolean
             readonly offline_threading_id?: string
             readonly success?: string
-            readonly error?: boolean
         }>
         readonly status?: string
-        readonly message?: string
     }
 }
 
@@ -5491,23 +5524,23 @@ export type WaMexUsernameAvailabilityResponse = {
 export type WaMexUsyncResponse = {
     readonly xwa2_fetch_wa_users?: ReadonlyArray<{
         readonly __typename?: string
-        readonly jid?: string
-        readonly country_code?: string
-        readonly username_info?: {
-            readonly __typename?: string
-            readonly username?: string
-            readonly state?: string
-            readonly timestamp?: string
-            readonly pin?: string
-            readonly status?: string
-        }
         readonly about_status_info?: {
             readonly __typename?: string
+            readonly status?: string
             readonly text?: string
             readonly timestamp?: string
-            readonly status?: string
         }
+        readonly country_code?: string
         readonly id?: string
+        readonly jid?: string
+        readonly username_info?: {
+            readonly __typename?: string
+            readonly pin?: string
+            readonly state?: string
+            readonly status?: string
+            readonly timestamp?: string
+            readonly username?: string
+        }
     }>
 }
 
@@ -5520,17 +5553,17 @@ export type WaMexWAAOnboardingResponse = {
 
 export type WaMexWAMFlowsCTWAEditorModalResponse = {
     readonly flow?: {
-        readonly welj?: unknown
-        readonly status?: string
         readonly id?: string
+        readonly status?: string
+        readonly welj?: unknown
     }
     readonly flowJSON?: unknown
 }
 
 export type WaMexWAMFlowsCTWAFlowPreviewResponse = {
     readonly flow?: {
-        readonly welj?: string
         readonly id?: string
+        readonly welj?: string
     }
     readonly flowJSON?: unknown
 }
@@ -5538,25 +5571,25 @@ export type WaMexWAMFlowsCTWAFlowPreviewResponse = {
 export type WaMexWaffleFXServiceDataQueryV2Response = {
     readonly waffle_fx_service_data?: {
         readonly services?: {
+            readonly foa_to_wa_link_eligibility?: {
+                readonly is_eligible_to_link_to_linked_fb?: boolean
+                readonly is_eligible_to_link_to_linked_ig?: boolean
+                readonly is_eligible_to_link_to_linked_rl?: boolean
+                readonly is_eligible_to_link_to_unlinked_fb?: boolean
+                readonly is_eligible_to_link_to_unlinked_ig?: boolean
+                readonly is_eligible_to_link_to_unlinked_rl?: boolean
+            }
+            readonly waffle_afs?: {
+                readonly waffle_wes?: string
+            }
             readonly waffle_sxs?: ReadonlyArray<{
-                readonly waffle_di?: string
                 readonly waffle_da?: string
+                readonly waffle_di?: string
                 readonly waffle_xss?: ReadonlyArray<{
                     readonly waffle_iaxe?: string
                     readonly waffle_x_surface?: string
                 }>
             }>
-            readonly waffle_afs?: {
-                readonly waffle_wes?: string
-            }
-            readonly foa_to_wa_link_eligibility?: {
-                readonly is_eligible_to_link_to_unlinked_fb?: boolean
-                readonly is_eligible_to_link_to_linked_fb?: boolean
-                readonly is_eligible_to_link_to_unlinked_ig?: boolean
-                readonly is_eligible_to_link_to_linked_ig?: boolean
-                readonly is_eligible_to_link_to_unlinked_rl?: boolean
-                readonly is_eligible_to_link_to_linked_rl?: boolean
-            }
         }
     }
 }
@@ -5568,27 +5601,27 @@ export type WaMexWaffleFXWAMOUpdateUOOMResponse = {
 export type WaMexWaffleXEResponse = {
     readonly waffle_xe_root?: {
         readonly purpose_public_keys?: {
-            readonly purpose_public_ek?: string
-            readonly purpose_public_ik?: string
-            readonly purpose_public_ik_sig?: string
-            readonly purpose_public_ik_enc_certificate?: string
             readonly purpose_dummy_ciphertext?: string
             readonly purpose_dummy_nonce?: string
+            readonly purpose_public_ek?: string
+            readonly purpose_public_ik?: string
+            readonly purpose_public_ik_enc_certificate?: string
+            readonly purpose_public_ik_sig?: string
         }
-        readonly waffle_unique_ids?: string
         readonly waffle_d?: ReadonlyArray<{
-            readonly waffle_xas?: {
-                readonly waffle_xan?: string
-                readonly waffle_xs?: string
-            }
             readonly waffle_di?: string
-        }>
-        readonly waffle_xps?: ReadonlyArray<{
             readonly waffle_xas?: {
                 readonly waffle_xan?: string
                 readonly waffle_xs?: string
             }
+        }>
+        readonly waffle_unique_ids?: string
+        readonly waffle_xps?: ReadonlyArray<{
             readonly waffle_hcbc?: string
+            readonly waffle_xas?: {
+                readonly waffle_xan?: string
+                readonly waffle_xs?: string
+            }
         }>
     }
 }
@@ -5600,32 +5633,32 @@ export type WaMexuseFlowJSONValidationLibraryResponse = {
 export type WaMexuseIsMessengerPlatformBotResponse = {
     readonly node?: {
         readonly __typename?: string
-        readonly is_messenger_platform_bot?: boolean
         readonly id?: string
+        readonly is_messenger_platform_bot?: boolean
     }
 }
 
 export type WaMexuseMAIBADraftStatusResponse = {
+    readonly campaignGroup?: {
+        readonly __typename?: string
+        readonly effective_status?: string
+        readonly id?: string
+    }
     readonly node?: {
         readonly __typename?: string
         readonly fragments?: {
             readonly edges?: ReadonlyArray<{
                 readonly node?: {
                     readonly action?: 'ADD'
-                    readonly ad_object_type?: string
                     readonly ad_market_id?: string
+                    readonly ad_object_type?: string
                     readonly draft_fragment_status?: 'DELETED'
-                    readonly publish_status?: 'SUCCESS'
                     readonly id?: string
+                    readonly publish_status?: 'SUCCESS'
                 }
             }>
         }
         readonly id?: string
-    }
-    readonly campaignGroup?: {
-        readonly __typename?: string
-        readonly id?: string
-        readonly effective_status?: string
     }
 }
 
@@ -5637,8 +5670,8 @@ export type WaMexuseMAIBAMediaResponse = {
                 readonly adgroups?: {
                     readonly nodes?: ReadonlyArray<{
                         readonly creative?: {
-                            readonly thumbnail_url?: string
                             readonly id?: string
+                            readonly thumbnail_url?: string
                         }
                         readonly id?: string
                     }>
@@ -5649,15 +5682,15 @@ export type WaMexuseMAIBAMediaResponse = {
         readonly adgroups?: {
             readonly nodes?: ReadonlyArray<{
                 readonly creative?: {
-                    readonly thumbnail_url?: string
                     readonly id?: string
+                    readonly thumbnail_url?: string
                 }
                 readonly id?: string
             }>
         }
         readonly creative?: {
-            readonly thumbnail_url?: string
             readonly id?: string
+            readonly thumbnail_url?: string
         }
         readonly id?: string
     }>
@@ -5849,6 +5882,8 @@ export interface WaMexOperationResponses {
     readonly SupportBugReportSubmit: WaMexSupportBugReportSubmitResponse
     readonly SupportContactFormSubmit: WaMexSupportContactFormSubmitResponse
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitResponse
+    readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationResponse
+    readonly TeamLinkListInvitations: WaMexTeamLinkListInvitationsResponse
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipResponse
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyResponse
     readonly UpdateNewsletter: WaMexUpdateNewsletterResponse

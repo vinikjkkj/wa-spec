@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1044218870
+/// WhatsApp Version: 2.3000.1044293308
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -3546,6 +3546,7 @@ message LabyrinthWaCommand {
         DecryptMessageInput decryptMessageInput = 3;
         OrfThreadIdInput orfThreadIdInput = 4;
         DeriveMessageKeyInput deriveMessageKeyInput = 5;
+        RotateEpochInput rotateEpochInput = 6;
     }
 }
 
@@ -6649,6 +6650,37 @@ message ReportingTokenInfo {
 message RetryCountPerDeviceProto {
     optional string deviceJid = 1;
     optional int32 count = 2;
+}
+
+message RotateEpochInput {
+    optional bytes currentEpochRootKey = 1;
+    optional uint64 currentEpochAnonId = 2;
+    optional uint64 currentEpochFbid = 3;
+    optional uint64 newEpochFbid = 4;
+    optional bytes epochStoragePrivateKey = 5;
+    repeated RotateEpochMemberInput members = 6;
+}
+
+message RotateEpochMemberEdge {
+    optional uint64 deviceId = 1;
+    optional bytes encryptedEpochKey = 2;
+    optional bytes deviceEpochHmac = 3;
+}
+
+message RotateEpochMemberInput {
+    optional uint64 deviceId = 1;
+    optional bytes epochStoragePublicKey = 2;
+    optional bytes devicePublicKey = 3;
+}
+
+message RotateEpochOutput {
+    optional bytes newEpochRootKey = 1;
+    optional uint64 newEpochAnonId = 2;
+    optional bytes epochAnonId = 3;
+    optional bytes epochData = 4;
+    repeated RotateEpochMemberEdge memberEdges = 5;
+    optional bytes epochRootKeyFingerprint = 6;
+    optional string error = 7;
 }
 
 message RoutingInfo {

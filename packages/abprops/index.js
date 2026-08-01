@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044218870
+// WhatsApp Version: 2.3000.1044293308
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -24,6 +24,7 @@ const WA_ABPROPS = Object.freeze({
     after_read_sending_enabled: Object.freeze({ code: 25648, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_chat_enabled: Object.freeze({ code: 31063, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_link_enabled: Object.freeze({ code: 31064, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_3p_bot_product_chat_rendering_enabled: Object.freeze({ code: 34186, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_account_linking_enabled: Object.freeze({ code: 13856, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_all_languages_enabled: Object.freeze({ code: 16091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_asset_replacement_enabled: Object.freeze({ code: 28265, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -318,6 +319,7 @@ const WA_ABPROPS = Object.freeze({
     br_consumer_delete_payment_info_web_enabled: Object.freeze({ code: 34062, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_payments_home_web_enabled: Object.freeze({ code: 32968, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_actions_web_enabled: Object.freeze({ code: 33028, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    br_consumer_pix_groups_web_enabled: Object.freeze({ code: 34235, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_sync_receive_enabled: Object.freeze({ code: 33219, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_sync_receive_web_enabled: Object.freeze({ code: 33244, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_enable_payment_logos_on_bubble: Object.freeze({ code: 8160, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -425,12 +427,12 @@ const WA_ABPROPS = Object.freeze({
     channels_admin_reply_receiver_enabled: Object.freeze({ code: 7237, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_album_receiver_enabled: Object.freeze({ code: 23809, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_album_sender_enabled: Object.freeze({ code: 23859, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    channels_audio_files_display_waveform_enabled: Object.freeze({ code: 6996, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    channels_audio_files_receiver_enabled: Object.freeze({ code: 6506, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    channels_audio_files_sender_enabled: Object.freeze({ code: 6505, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    channels_audio_files_display_waveform_enabled: Object.freeze({ code: 6996, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_audio_files_receiver_enabled: Object.freeze({ code: 6506, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_audio_files_sender_enabled: Object.freeze({ code: 6505, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_audio_files_sender_waveform_enabled: Object.freeze({ code: 6943, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_capabilities_enabled: Object.freeze({ code: 10328, type: "bool", defaultValue: true, debugDefaultValue: true }),
-    channels_context_card_invite_followers_enabled: Object.freeze({ code: 27449, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    channels_context_card_invite_followers_enabled: Object.freeze({ code: 27449, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_creation_enabled: Object.freeze({ code: 3878, type: "int", defaultValue: 0, debugDefaultValue: 2 }),
     channels_creation_entrypoint_in_directory_enabled: Object.freeze({ code: 18613, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     channels_creation_entrypoint_in_updates_tab_enabled: Object.freeze({ code: 18925, type: "int", defaultValue: 0, debugDefaultValue: 1 }),
@@ -875,7 +877,6 @@ const WA_ABPROPS = Object.freeze({
     group_history_settings_query: Object.freeze({ code: 22230, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_settings_toggle_ui: Object.freeze({ code: 21481, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_support_history_sync_receiver_pre_chat: Object.freeze({ code: 20658, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    group_join_request_can_send_optional_message: Object.freeze({ code: 3384, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_join_request_m2_banner_on_conversation: Object.freeze({ code: 2449, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_max_subject: Object.freeze({ code: 14801, type: "int", defaultValue: 100, debugDefaultValue: 100 }),
     group_member_updates_hide_in_thread_enabled: Object.freeze({ code: 24584, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1225,6 +1226,7 @@ const WA_ABPROPS = Object.freeze({
     pinned_messages_sender_short_expiry_durations_enabled: Object.freeze({ code: 4432, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pix_onboarding_new_content_enabled: Object.freeze({ code: 23953, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pix_payment_request_update_status_enabled: Object.freeze({ code: 27006, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    pix_payment_request_web_enabled: Object.freeze({ code: 34199, type: "bool", defaultValue: false, debugDefaultValue: false }),
     placeholder_message_key_hash_logging: Object.freeze({ code: 2639, type: "bool", defaultValue: false, debugDefaultValue: true }),
     placeholder_message_resend: Object.freeze({ code: 3579, type: "bool", defaultValue: false, debugDefaultValue: false }),
     placeholder_message_resend_maximum_days_limit: Object.freeze({ code: 3639, type: "int", defaultValue: 14, debugDefaultValue: 14 }),
@@ -1530,6 +1532,7 @@ const WA_ABPROPS = Object.freeze({
     unified_response_markdown_links_enabled: Object.freeze({ code: 30330, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unified_session_log_call_event: Object.freeze({ code: 8582, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unify_end_call_events: Object.freeze({ code: 2856, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    unknown_user_target_rid_logging: Object.freeze({ code: 34232, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unknown_user_wam_max_events_per_window: Object.freeze({ code: 32946, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     updated_harmful_document_dialog: Object.freeze({ code: 15022, type: "bool", defaultValue: false, debugDefaultValue: true }),
     updates_privacy_notice_rollout_date: Object.freeze({ code: 14387, type: "int", defaultValue: 1742310000, debugDefaultValue: 1742310000 }),
@@ -1562,6 +1565,7 @@ const WA_ABPROPS = Object.freeze({
     username_exposed_logging_enabled: Object.freeze({ code: 25353, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_global_search_enabled: Object.freeze({ code: 18251, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_group_mutation_enabled: Object.freeze({ code: 16148, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    username_key_entry_ui_v2: Object.freeze({ code: 34226, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_key_redesign_enabled: Object.freeze({ code: 29026, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_key_upsell_max_characters: Object.freeze({ code: 25790, type: "int", defaultValue: 8, debugDefaultValue: 8 }),
     username_key_upsell_max_numbers: Object.freeze({ code: 25789, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
@@ -2387,7 +2391,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     3356: "ptv_max_duration_seconds",
     3358: "calling_lid_version",
     3376: "wa_ctwa_web_entrypoint_manage_ads_home_header_dropdown_enabled",
-    3384: "group_join_request_can_send_optional_message",
     3467: "smb_project_waldo_set_price_tier_biz_profile_enabled",
     3482: "ptv_autoplay_enabled",
     3483: "ptv_autoplay_loop_limit",
@@ -4336,8 +4339,13 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34144: "web_calling_pause_bg_during_call_mode",
     34155: "lid_migration_daily_group_composition_enabled",
     34175: "enable_hybrid_open_with_shared_buffer",
+    34186: "ai_3p_bot_product_chat_rendering_enabled",
+    34199: "pix_payment_request_web_enabled",
     34203: "biz_ai_web_hub_chat_enabled",
-    34204: "biz_ai_web_ai_hub_chat_nav_enabled"
+    34204: "biz_ai_web_ai_hub_chat_nav_enabled",
+    34226: "username_key_entry_ui_v2",
+    34232: "unknown_user_target_rid_logging",
+    34235: "br_consumer_pix_groups_web_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

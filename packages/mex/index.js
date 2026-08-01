@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044218870
+// WhatsApp Version: 2.3000.1044293308
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -170,6 +170,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     SupportBugReportSubmit: Object.freeze({ docId: '25952242091096312', clientDocId: '25952242091096312' }),
     SupportContactFormSubmit: Object.freeze({ docId: '26494666453460666', clientDocId: '26494666453460666' }),
     SupportMessageFeedbackSubmit: Object.freeze({ docId: '25772720305756789', clientDocId: '25772720305756789' }),
+    TeamLinkCreateInvitation: Object.freeze({ docId: '27693700016951648', clientDocId: '27693700016951648' }),
+    TeamLinkListInvitations: Object.freeze({ docId: '27966540672965115', clientDocId: '27966540672965115' }),
     TransferCommunityOwnership: Object.freeze({ docId: '29643783178598899', clientDocId: '29643783178598899' }),
     UpdateGroupProperty: Object.freeze({ docId: '9418211574894172', clientDocId: '9418211574894172' }),
     UpdateNewsletter: Object.freeze({ docId: '24250201037901610', clientDocId: '24250201037901610' }),
@@ -359,6 +361,8 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     SupportBugReportSubmit: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     SupportContactFormSubmit: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     SupportMessageFeedbackSubmit: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    TeamLinkCreateInvitation: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['employeeName', 'lid']) }),
+    TeamLinkListInvitations: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     TransferCommunityOwnership: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateGroupProperty: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['group_id', 'update']) }),
     UpdateNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'updates']) }),
