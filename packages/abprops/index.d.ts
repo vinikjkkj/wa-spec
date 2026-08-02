@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044293308
+// WhatsApp Version: 2.3000.1044312693
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
