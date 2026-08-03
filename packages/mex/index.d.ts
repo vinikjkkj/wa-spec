@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044312693
+// WhatsApp Version: 2.3000.1044332936
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -56,6 +56,8 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ChangeNewsletterOwner: WaMexPersistId
     readonly ConsumerFetchQuickPromotions: WaMexPersistId
     readonly ConsumerQuickPromotionActionGraphQL: WaMexPersistId
+    readonly ContactManagerCustomerProfileUpsert: WaMexPersistId
+    readonly ContactManagerCustomerProfiles: WaMexPersistId
     readonly CreateEnforcementAppeal: WaMexPersistId
     readonly CreateInviteCode: WaMexPersistId
     readonly CreateLabyrinthBackup: WaMexPersistId
@@ -247,6 +249,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ChangeNewsletterOwner: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly ConsumerFetchQuickPromotions: WaMexOperationSchema<'query', readonly ['nux_ids', 'trigger_context']>
     readonly ConsumerQuickPromotionActionGraphQL: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly ContactManagerCustomerProfileUpsert: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly ContactManagerCustomerProfiles: WaMexOperationSchema<'query', readonly ['input']>
     readonly CreateEnforcementAppeal: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateInviteCode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateLabyrinthBackup: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -621,6 +625,20 @@ export type WaMexConsumerFetchQuickPromotionsVariables = {
 
 export type WaMexConsumerQuickPromotionActionGraphQLVariables = {
     readonly input?: string
+}
+
+export type WaMexContactManagerCustomerProfileUpsertVariables = {
+    readonly input?: ReadonlyArray<unknown>
+}
+
+export type WaMexContactManagerCustomerProfilesVariables = {
+    readonly input?: {
+        readonly candidate_lids?: ReadonlyArray<string>
+        readonly cursor?: string
+        readonly page_size?: number
+        readonly sort_column?: string
+        readonly sort_descending?: boolean
+    }
 }
 
 export type WaMexCreateEnforcementAppealVariables = {
@@ -1593,6 +1611,8 @@ export interface WaMexOperationVariables {
     readonly ChangeNewsletterOwner: WaMexChangeNewsletterOwnerVariables
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsVariables
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLVariables
+    readonly ContactManagerCustomerProfileUpsert: WaMexContactManagerCustomerProfileUpsertVariables
+    readonly ContactManagerCustomerProfiles: WaMexContactManagerCustomerProfilesVariables
     readonly CreateEnforcementAppeal: WaMexCreateEnforcementAppealVariables
     readonly CreateInviteCode: WaMexCreateInviteCodeVariables
     readonly CreateLabyrinthBackup: WaMexCreateLabyrinthBackupVariables
@@ -2502,6 +2522,30 @@ export type WaMexConsumerFetchQuickPromotionsResponse = {
 export type WaMexConsumerQuickPromotionActionGraphQLResponse = {
     readonly wa_consumer_quick_promotion_log_event?: {
         readonly client_mutation_id?: string
+    }
+}
+
+export type WaMexContactManagerCustomerProfileUpsertResponse = {
+    readonly xfb_wa_upsert_customer_profiles?: {
+        readonly profiles?: ReadonlyArray<{
+            readonly lid?: string
+        }>
+    }
+}
+
+export type WaMexContactManagerCustomerProfilesResponse = {
+    readonly xfb_wa_customer_profiles?: {
+        readonly cursor?: string
+        readonly profiles?: ReadonlyArray<{
+            readonly acquisition_source?: string
+            readonly email?: string
+            readonly last_updates?: ReadonlyArray<{
+                readonly ts?: unknown
+            }>
+            readonly lead_stage?: unknown
+            readonly lid?: string
+            readonly name?: string
+        }>
     }
 }
 
@@ -5756,6 +5800,8 @@ export interface WaMexOperationResponses {
     readonly ChangeNewsletterOwner: WaMexChangeNewsletterOwnerResponse
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsResponse
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLResponse
+    readonly ContactManagerCustomerProfileUpsert: WaMexContactManagerCustomerProfileUpsertResponse
+    readonly ContactManagerCustomerProfiles: WaMexContactManagerCustomerProfilesResponse
     readonly CreateEnforcementAppeal: WaMexCreateEnforcementAppealResponse
     readonly CreateInviteCode: WaMexCreateInviteCodeResponse
     readonly CreateLabyrinthBackup: WaMexCreateLabyrinthBackupResponse

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044312693
+// WhatsApp Version: 2.3000.1044332936
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -44,6 +44,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ChangeNewsletterOwner: Object.freeze({ docId: '9546742745432473', clientDocId: '9546742745432473' }),
     ConsumerFetchQuickPromotions: Object.freeze({ docId: '35462584533386409', clientDocId: '35462584533386409' }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
+    ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '27789071790751197', clientDocId: '27789071790751197' }),
+    ContactManagerCustomerProfiles: Object.freeze({ docId: '27747880408206174', clientDocId: '27747880408206174' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
     CreateInviteCode: Object.freeze({ docId: '26155584267463745', clientDocId: '26155584267463745' }),
     CreateLabyrinthBackup: Object.freeze({ docId: '28017003717917462', clientDocId: '28017003717917462' }),
@@ -235,6 +237,8 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ChangeNewsletterOwner: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
     ConsumerFetchQuickPromotions: Object.freeze({ operationKind: 'query', variables: Object.freeze(['nux_ids', 'trigger_context']) }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    ContactManagerCustomerProfileUpsert: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    ContactManagerCustomerProfiles: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     CreateEnforcementAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateInviteCode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateLabyrinthBackup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

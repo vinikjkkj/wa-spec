@@ -1366,6 +1366,66 @@
         "input": "string"
       }
     },
+    "ContactManagerCustomerProfileUpsert": {
+      "docId": "27789071790751197",
+      "operationKind": "mutation",
+      "originalName": "WAWebContactManagerCustomerProfileUpsertMutation",
+      "response": {
+        "xfb_wa_upsert_customer_profiles": {
+          "profiles": [
+            {
+              "lid": "string"
+            }
+          ]
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": [
+          "unknown"
+        ]
+      }
+    },
+    "ContactManagerCustomerProfiles": {
+      "docId": "27747880408206174",
+      "operationKind": "query",
+      "originalName": "WAWebContactManagerCustomerProfilesQuery",
+      "response": {
+        "xfb_wa_customer_profiles": {
+          "cursor": "string",
+          "profiles": [
+            {
+              "acquisition_source": "string",
+              "email": "string",
+              "last_updates": [
+                {
+                  "ts": "unknown"
+                }
+              ],
+              "lead_stage": "unknown",
+              "lid": "string",
+              "name": "string"
+            }
+          ]
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "candidate_lids": [
+            "string"
+          ],
+          "cursor": "string",
+          "page_size": "number",
+          "sort_column": "string",
+          "sort_descending": "boolean"
+        }
+      }
+    },
     "CreateEnforcementAppeal": {
       "docId": "9848815108513025",
       "operationKind": "mutation",
@@ -6880,5 +6940,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1044312693"
+  "waVersion": "2.3000.1044332936"
 }
