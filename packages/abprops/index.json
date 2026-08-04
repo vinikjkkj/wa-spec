@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2158,
+  "propCount": 2181,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -1156,6 +1156,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_web_ask_meta_ai_media_forward_enabled": {
+      "code": 34257,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_web_forward_flow_enabled": {
       "code": 19676,
       "debugDefaultValue": false,
@@ -1212,6 +1218,12 @@
     },
     "allow_backfill_with_v0_to_v1_primary_version_transition": {
       "code": 32186,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "android_inbox_mentions_replies_filter": {
+      "code": 33633,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -1314,6 +1326,12 @@
     },
     "aura_focus_lists_benefit_active": {
       "code": 32724,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "aura_focus_lists_default_list_enabled": {
+      "code": 34252,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -2434,6 +2452,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "channel_status_consumption_music_enabled": {
+      "code": 26774,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channel_status_creation": {
       "code": 23994,
       "debugDefaultValue": false,
@@ -3417,6 +3441,12 @@
       "debugDefaultValue": 1320,
       "defaultValue": 1320,
       "type": "int"
+    },
+    "context_menu_content_fix": {
+      "code": 34337,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "country_client_gating_enabled": {
       "code": 1105,
@@ -5578,6 +5608,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "im_a2ui_require_bot_attribution": {
+      "code": 34324,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "im_bloks_widget_enable": {
       "code": 25071,
       "debugDefaultValue": true,
@@ -7212,7 +7248,7 @@
     },
     "payments_upr_custom_payment_methods_sync_countries": {
       "code": 30647,
-      "debugDefaultValue": "",
+      "debugDefaultValue": " MX, ID, HK, TW, AE, EG, TR",
       "defaultValue": "",
       "type": "string"
     },
@@ -7278,7 +7314,7 @@
     },
     "payments_upr_send_key_from_web": {
       "code": 32826,
-      "debugDefaultValue": "",
+      "debugDefaultValue": " MX, ID, HK, TW, AE, EG, TR",
       "defaultValue": "",
       "type": "string"
     },
@@ -7332,6 +7368,12 @@
     },
     "phone_number_sharing_flow": {
       "code": 15653,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "pinned_message_banner_notch_animation_enabled": {
+      "code": 34369,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -7764,7 +7806,7 @@
     },
     "recommended_channels_background_refresh": {
       "code": 4309,
-      "debugDefaultValue": 1800000,
+      "debugDefaultValue": 14400000,
       "defaultValue": 14400000,
       "type": "int"
     },
@@ -8262,6 +8304,12 @@
     },
     "smb_bb_in_thread_insight_metrics_enabled": {
       "code": 31676,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_bb_pro_business_verification": {
+      "code": 34341,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -9264,7 +9312,7 @@
     },
     "updates_quick_promotion_banner_enabled": {
       "code": 13997,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -9441,6 +9489,18 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "username_key_max_length": {
+      "code": 34348,
+      "debugDefaultValue": 6,
+      "defaultValue": 6,
+      "type": "int"
+    },
+    "username_key_min_length": {
+      "code": 34347,
+      "debugDefaultValue": 4,
+      "defaultValue": 4,
+      "type": "int"
     },
     "username_key_redesign_enabled": {
       "code": 29026,
@@ -9700,6 +9760,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_biz_gap_enforcement_rules_sync_to_meta_enabled_ac_linked_user": {
+      "code": 34290,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_biz_payment_template_click_signals": {
       "code": 33170,
       "debugDefaultValue": false,
@@ -9714,6 +9780,12 @@
     },
     "wa_catalog_graphql_use_lid_enabled": {
       "code": 30797,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_coex_biz_ai_capping_eligible": {
+      "code": 34276,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -10212,6 +10284,12 @@
     },
     "wa_web_chat_themes_solid_wallpaper_sync_encode": {
       "code": 32878,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_chat_themes_stock_wallpaper_sync_encode": {
+      "code": 34349,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -11554,6 +11632,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_batched_status_sending_enabled": {
+      "code": 34366,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_bb_genai_composer_min_words": {
       "code": 32054,
       "debugDefaultValue": 4,
@@ -11926,6 +12010,12 @@
       "defaultValue": 5,
       "type": "int"
     },
+    "web_e2e_status_likes_sending_enabled": {
+      "code": 34296,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_email_invites_group_info": {
       "code": 33556,
       "debugDefaultValue": false,
@@ -12148,6 +12238,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_loom_stuck_trace_timeout_ms": {
+      "code": 34304,
+      "debugDefaultValue": 120000,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "web_low_end_device_level": {
       "code": 18747,
       "debugDefaultValue": 0,
@@ -12198,6 +12294,12 @@
     },
     "web_memlab_fixes": {
       "code": 33563,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_memlab_fixes_2": {
+      "code": 34305,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -12640,6 +12742,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_status_recv_via_smax": {
+      "code": 34258,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_status_send_via_smax": {
+      "code": 34259,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_sticker_suggestions_enable": {
       "code": 4726,
       "debugDefaultValue": false,
@@ -12964,6 +13078,30 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "win_hybrid_vsr_button_enabled": {
+      "code": 34272,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "win_hybrid_vsr_button_enabled_2": {
+      "code": 34279,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "win_hybrid_vsr_enabled": {
+      "code": 34271,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "win_hybrid_vsr_enabled_2": {
+      "code": 34280,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "win_network_state_watchdog_interval": {
       "code": 7737,
       "debugDefaultValue": 30,
@@ -13068,5 +13206,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044332936"
+  "waVersion": "2.3000.1044425644"
 }

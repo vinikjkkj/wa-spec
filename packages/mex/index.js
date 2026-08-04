@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044332936
+// WhatsApp Version: 2.3000.1044425644
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -55,7 +55,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateReportAppeal: Object.freeze({ docId: '27103316329328467', clientDocId: '27103316329328467' }),
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27416732057922291', clientDocId: '27416732057922291' }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '26544537655223129', clientDocId: '26544537655223129' }),
     DebugLabyrinthRange: Object.freeze({ docId: '27219778391054922', clientDocId: '27219778391054922' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
     DemoteNewsletterAdmin: Object.freeze({ docId: '9880997548630971', clientDocId: '9880997548630971' }),
@@ -174,6 +174,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     SupportMessageFeedbackSubmit: Object.freeze({ docId: '25772720305756789', clientDocId: '25772720305756789' }),
     TeamLinkCreateInvitation: Object.freeze({ docId: '27693700016951648', clientDocId: '27693700016951648' }),
     TeamLinkListInvitations: Object.freeze({ docId: '27966540672965115', clientDocId: '27966540672965115' }),
+    TeamLinkRemoveInvitation: Object.freeze({ docId: '27015637738109068', clientDocId: '27015637738109068' }),
     TransferCommunityOwnership: Object.freeze({ docId: '29643783178598899', clientDocId: '29643783178598899' }),
     UpdateGroupProperty: Object.freeze({ docId: '9418211574894172', clientDocId: '9418211574894172' }),
     UpdateNewsletter: Object.freeze({ docId: '24250201037901610', clientDocId: '24250201037901610' }),
@@ -367,6 +368,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     SupportMessageFeedbackSubmit: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     TeamLinkCreateInvitation: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['employeeName', 'lid']) }),
     TeamLinkListInvitations: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
+    TeamLinkRemoveInvitation: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['lid']) }),
     TransferCommunityOwnership: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateGroupProperty: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['group_id', 'update']) }),
     UpdateNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'updates']) }),

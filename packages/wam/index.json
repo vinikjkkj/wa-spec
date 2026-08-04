@@ -9840,6 +9840,32 @@
         "MINI_CONTACT_SHEET_VIDEO": 2
       }
     },
+    "PATHFINDER_HEALTH_EVENT_TYPE": {
+      "export": "PATHFINDER_HEALTH_EVENT_TYPE",
+      "module": "WAWebWamEnumPathfinderHealthEventType",
+      "values": {
+        "CHANNEL_SEND_FAILURE": 1,
+        "CORRUPT_DATA_SKIPPED": 9,
+        "DIRECTORY_CREATION_FAILURE": 14,
+        "DISK_READ_FAILURE": 6,
+        "DISK_STORE_DEGRADATION": 10,
+        "DISK_WRITE_FAILURE": 5,
+        "EVENT_PROCESSING_EXCEPTION": 2,
+        "FILE_DELETE_FAILURE": 15,
+        "FILE_ROTATION_FAILURE": 7,
+        "INTERACTION_BUFFER_OVERFLOW": 3,
+        "LOGGER_EXCEPTION": 11,
+        "MAIN_THREAD_FILE_IO": 19,
+        "MALFORMED_METADATA": 12,
+        "PRE_INTERACTION_BUFFER_OVERFLOW": 4,
+        "RESOURCE_NAME_RESOLUTION_FAILED": 17,
+        "SERIALIZATION_FAILURE": 8,
+        "SESSION_ID_UNAVAILABLE": 16,
+        "TRACE_PROVIDER_FAILURE": 13,
+        "UNSUPPORTED_USER_ACTION": 18,
+        "WEB_SESSION_FOOTPRINT": 20
+      }
+    },
     "PAYMENTS_CONTACTS_BUCKET_TYPE": {
       "export": "PAYMENTS_CONTACTS_BUCKET_TYPE",
       "module": "WAWebWamEnumPaymentsContactsBucketType",
@@ -14605,6 +14631,7 @@
         "MEDIA_PICKER_SINGLE": 191,
         "MEDIA_VIEWER": 12,
         "MERCHANT_APP_DEEPLINK": 259,
+        "MERCHANT_APP_STORE": 261,
         "MERCHANT_APP_UNIVERSAL_LINK": 258,
         "MESSAGE_EDIT": 218,
         "MESSAGE_MENU": 80,
@@ -50536,6 +50563,34 @@
         "gkx26259": 1
       }
     },
+    "PathfinderFrameworkHealth": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_pathfinder_framework_health",
+      "fields": {
+        "pathfinderHealthEventData": {
+          "falcoName": "pathfinder_health_event_data",
+          "id": 1,
+          "type": "string"
+        },
+        "pathfinderHealthEventType": {
+          "enum": "PATHFINDER_HEALTH_EVENT_TYPE",
+          "falcoName": "pathfinder_health_event_type",
+          "id": 2,
+          "type": "enum"
+        }
+      },
+      "id": 7688,
+      "module": "WAWebPathfinderFrameworkHealthWamEvent",
+      "privateStatsIdInt": null,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
     "PaymentsUserAction": {
       "channel": "regular",
       "conditions": [],
@@ -65677,7 +65732,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044332936",
+  "waVersion": "2.3000.1044425644",
   "wireFormat": {
     "markers": {
       "event": 1,

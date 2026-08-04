@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044332936
+// WhatsApp Version: 2.3000.1044425644
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -9894,6 +9894,32 @@ const WA_WAM_ENUMS = Object.freeze({
         'MINI_CONTACT_SHEET_VIDEO': 2
         })
     }),
+    PATHFINDER_HEALTH_EVENT_TYPE: Object.freeze({
+        module: 'WAWebWamEnumPathfinderHealthEventType',
+        export: 'PATHFINDER_HEALTH_EVENT_TYPE',
+        values: Object.freeze({
+        'CHANNEL_SEND_FAILURE': 1,
+        'CORRUPT_DATA_SKIPPED': 9,
+        'DIRECTORY_CREATION_FAILURE': 14,
+        'DISK_READ_FAILURE': 6,
+        'DISK_STORE_DEGRADATION': 10,
+        'DISK_WRITE_FAILURE': 5,
+        'EVENT_PROCESSING_EXCEPTION': 2,
+        'FILE_DELETE_FAILURE': 15,
+        'FILE_ROTATION_FAILURE': 7,
+        'INTERACTION_BUFFER_OVERFLOW': 3,
+        'LOGGER_EXCEPTION': 11,
+        'MAIN_THREAD_FILE_IO': 19,
+        'MALFORMED_METADATA': 12,
+        'PRE_INTERACTION_BUFFER_OVERFLOW': 4,
+        'RESOURCE_NAME_RESOLUTION_FAILED': 17,
+        'SERIALIZATION_FAILURE': 8,
+        'SESSION_ID_UNAVAILABLE': 16,
+        'TRACE_PROVIDER_FAILURE': 13,
+        'UNSUPPORTED_USER_ACTION': 18,
+        'WEB_SESSION_FOOTPRINT': 20
+        })
+    }),
     PAYMENTS_CONTACTS_BUCKET_TYPE: Object.freeze({
         module: 'WAWebWamEnumPaymentsContactsBucketType',
         export: 'PAYMENTS_CONTACTS_BUCKET_TYPE',
@@ -14659,6 +14685,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'MEDIA_PICKER_SINGLE': 191,
         'MEDIA_VIEWER': 12,
         'MERCHANT_APP_DEEPLINK': 259,
+        'MERCHANT_APP_STORE': 261,
         'MERCHANT_APP_UNIVERSAL_LINK': 258,
         'MESSAGE_EDIT': 218,
         'MESSAGE_MENU': 80,
@@ -25086,6 +25113,20 @@ const WA_WAM_EVENTS = Object.freeze({
             pmxTapTargetType: Object.freeze({ id: 15, type: 'enum', enum: 'TAP_TARGET_TYPE', falcoName: 'pmx_tap_target_type' }),
             pmxTextTruncationLimit: Object.freeze({ id: 16, type: 'integer', falcoName: 'pmx_text_truncation_limit' }),
             templateId: Object.freeze({ id: 7, type: 'string', falcoName: 'template_id' })
+        })
+    }),
+    PathfinderFrameworkHealth: Object.freeze({
+        id: 7688,
+        falcoName: 'wam_pathfinder_framework_health',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            pathfinderHealthEventData: Object.freeze({ id: 1, type: 'string', falcoName: 'pathfinder_health_event_data' }),
+            pathfinderHealthEventType: Object.freeze({ id: 2, type: 'enum', enum: 'PATHFINDER_HEALTH_EVENT_TYPE', falcoName: 'pathfinder_health_event_type' })
         })
     }),
     PaymentsUserAction: Object.freeze({

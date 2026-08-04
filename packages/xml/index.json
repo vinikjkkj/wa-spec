@@ -7426,7 +7426,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "F",
+                "arg": "O",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -7449,7 +7449,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ne",
+                "arg": "re",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -7694,7 +7694,7 @@
                   },
                   "status_setting": {
                     "direction": "out",
-                    "raw": "E(A.setting)",
+                    "raw": "T(A.setting)",
                     "type": "string"
                   },
                   "tag_reason": {
@@ -43466,6 +43466,11 @@
                 {
                   "appliedMixin": "WASmaxOutSpamReportableNewsletterStatusMixin",
                   "attrs": {
+                    "from": {
+                      "arg": "r",
+                      "optional": true,
+                      "type": "userJid"
+                    },
                     "server_id": {
                       "arg": "t",
                       "type": "int"
@@ -46904,7 +46909,7 @@
             "type": "int"
           },
           "id": {
-            "arg": "n.stanzaId",
+            "arg": "e.ackId",
             "direction": "out",
             "type": "stanzaId"
           },
@@ -46921,8 +46926,8 @@
             "type": "userJid"
           },
           "to": {
-            "arg": "n.from",
             "direction": "out",
+            "raw": "p(e.to)",
             "type": "jid"
           },
           "type": {
@@ -48395,7 +48400,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "F",
+                "arg": "O",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -48418,7 +48423,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ne",
+                "arg": "re",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -48663,7 +48668,7 @@
                   },
                   "status_setting": {
                     "direction": "out",
-                    "raw": "E(A.setting)",
+                    "raw": "T(A.setting)",
                     "type": "string"
                   },
                   "tag_reason": {
@@ -49461,7 +49466,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "S.id",
+                "arg": "e.stanzaId",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -49534,7 +49539,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "F",
+                "arg": "O",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -49555,7 +49560,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ne",
+                "arg": "re",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -49821,7 +49826,7 @@
                     "type": "string"
                   },
                   "persona_type": {
-                    "arg": "k",
+                    "arg": "E",
                     "direction": "both",
                     "enumValues": [
                       "1p",
@@ -50147,7 +50152,7 @@
                   },
                   "status_setting": {
                     "direction": "out",
-                    "raw": "E(A.setting)",
+                    "raw": "T(A.setting)",
                     "type": "string"
                   },
                   "tag_reason": {
@@ -54770,9 +54775,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "D",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -55096,9 +55101,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "D",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -55538,5 +55543,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1044332936"
+  "waVersion": "2.3000.1044425644"
 }

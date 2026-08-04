@@ -1688,7 +1688,7 @@
       }
     },
     "DebugLabyrinthInboxSnapshot": {
-      "docId": "27416732057922291",
+      "docId": "26544537655223129",
       "operationKind": "query",
       "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
       "response": {
@@ -6380,6 +6380,23 @@
       "variables": [],
       "variablesShape": {}
     },
+    "TeamLinkRemoveInvitation": {
+      "docId": "27015637738109068",
+      "operationKind": "mutation",
+      "originalName": "WAWebTeamLinkRemoveInvitationMutation",
+      "response": {
+        "whatsapp_teamlink_remove_agent_invitation": {
+          "removed": "boolean",
+          "was_onboarded": "boolean"
+        }
+      },
+      "variables": [
+        "lid"
+      ],
+      "variablesShape": {
+        "lid": "string"
+      }
+    },
     "TransferCommunityOwnership": {
       "docId": "29643783178598899",
       "operationKind": "mutation",
@@ -6940,5 +6957,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1044332936"
+  "waVersion": "2.3000.1044425644"
 }

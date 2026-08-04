@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044332936
+// WhatsApp Version: 2.3000.1044425644
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -186,6 +186,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly SupportMessageFeedbackSubmit: WaMexPersistId
     readonly TeamLinkCreateInvitation: WaMexPersistId
     readonly TeamLinkListInvitations: WaMexPersistId
+    readonly TeamLinkRemoveInvitation: WaMexPersistId
     readonly TransferCommunityOwnership: WaMexPersistId
     readonly UpdateGroupProperty: WaMexPersistId
     readonly UpdateNewsletter: WaMexPersistId
@@ -379,6 +380,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly SupportMessageFeedbackSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly TeamLinkCreateInvitation: WaMexOperationSchema<'mutation', readonly ['employeeName', 'lid']>
     readonly TeamLinkListInvitations: WaMexOperationSchema<'query', readonly []>
+    readonly TeamLinkRemoveInvitation: WaMexOperationSchema<'mutation', readonly ['lid']>
     readonly TransferCommunityOwnership: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateGroupProperty: WaMexOperationSchema<'mutation', readonly ['group_id', 'update']>
     readonly UpdateNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
@@ -1458,6 +1460,10 @@ export type WaMexTeamLinkCreateInvitationVariables = {
 
 export type WaMexTeamLinkListInvitationsVariables = Readonly<Record<string, never>>
 
+export type WaMexTeamLinkRemoveInvitationVariables = {
+    readonly lid?: string
+}
+
 export type WaMexTransferCommunityOwnershipVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -1741,6 +1747,7 @@ export interface WaMexOperationVariables {
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitVariables
     readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationVariables
     readonly TeamLinkListInvitations: WaMexTeamLinkListInvitationsVariables
+    readonly TeamLinkRemoveInvitation: WaMexTeamLinkRemoveInvitationVariables
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipVariables
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyVariables
     readonly UpdateNewsletter: WaMexUpdateNewsletterVariables
@@ -5474,6 +5481,13 @@ export type WaMexTeamLinkListInvitationsResponse = {
     }>
 }
 
+export type WaMexTeamLinkRemoveInvitationResponse = {
+    readonly whatsapp_teamlink_remove_agent_invitation?: {
+        readonly removed?: boolean
+        readonly was_onboarded?: boolean
+    }
+}
+
 export type WaMexTransferCommunityOwnershipResponse = {
     readonly xwa2_group_update_users_role?: {
         readonly group_id?: string
@@ -5930,6 +5944,7 @@ export interface WaMexOperationResponses {
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitResponse
     readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationResponse
     readonly TeamLinkListInvitations: WaMexTeamLinkListInvitationsResponse
+    readonly TeamLinkRemoveInvitation: WaMexTeamLinkRemoveInvitationResponse
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipResponse
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyResponse
     readonly UpdateNewsletter: WaMexUpdateNewsletterResponse
