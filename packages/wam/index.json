@@ -4767,6 +4767,7 @@
         "BB_THREAD_USED_ALL_BB_CREDIT_MV_BANNER": 56,
         "BB_THREAD_USED_MOST_BB_CREDIT_MV_BANNER": 57,
         "BB_TOOLS_PAGE": 77,
+        "BIZ_PROFILE_CONNECTED_MEDIA": 92,
         "BUSINESS_HOME": 17,
         "BUSINESS_TOOLS": 19,
         "CATALOG_PRODUCT_DETAILS": 34,
@@ -9995,6 +9996,7 @@
       "module": "WAWebWamEnumPaymentActionTargets",
       "values": {
         "ACCEPT_PAYMENT": 40,
+        "ACCEPT_TOS": 372,
         "ACCOUNT_ROW": 308,
         "ADD_ACCOUNT_BUTTON": 234,
         "ADD_ACCOUNT_ROW": 307,
@@ -10066,6 +10068,7 @@
         "CREATE_ACCOUNT_BUTTON": 71,
         "CREATE_FORM_BUTTON": 289,
         "CREATE_FROM_TEMPLATE": 283,
+        "CREATE_PAYMENT_ACCOUNT": 373,
         "CREATE_WITH_META_AI": 287,
         "CUSTOMER_INFO_TEMPLATE": 245,
         "CUSTOMER_SUPPORT_BUTTON": 93,
@@ -10303,6 +10306,7 @@
         "SPLIT_MESSAGE_BUBBLE": 345,
         "SPLIT_MESSAGE_BUBBLE_PAY_NOW_BUTTON": 302,
         "SPLIT_MESSAGE_BUBBLE_VIEW_DETAILS_BUTTON": 303,
+        "SPLIT_REQUEST_SELECT_CONTACT": 369,
         "STATUS_BUTTON": 165,
         "SUBMIT_BUTTON": 114,
         "SUCCESS": 291,
@@ -10344,12 +10348,14 @@
         "VIEW_ALL_MERCHANTS": 188,
         "VIEW_BALANCE": 258,
         "VIEW_CONTACT_TRANSACTIONS": 343,
+        "VIEW_DETAILS_BUTTON": 370,
         "VIEW_IN_CHAT": 355,
         "VIEW_ORDERS_BUTTON": 189,
         "VIEW_PARTNER_DASHBOARD": 109,
         "VIEW_PARTNER_WEBSITE": 110,
         "VIEW_PAYMENT_DETAILS": 238,
         "VIEW_PIX_PAYMENT_REQUEST": 254,
+        "VIEW_SPLIT_EXPENSE_BUTTON": 371,
         "VIEW_UPDATES": 106,
         "VIEW_UPI_PROFILE_BUTTON": 129,
         "VIEW_UPI_QR_BUTTON": 263,
@@ -12867,6 +12873,7 @@
         "EXTERNAL": 2,
         "FORWARD": 3,
         "GALLERY": 4,
+        "LOCATION": 9,
         "RESHARE": 6
       }
     },
@@ -12915,6 +12922,7 @@
         "GROUP_STATUS_CHAT_HEADER": 50,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING": 53,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING_DROPDOWN": 54,
+        "GROUP_STATUS_REPLY_WITH_STATUS": 62,
         "GROUP_STATUS_TAB_CAMERA": 40,
         "GROUP_STATUS_TAB_PEN": 41,
         "GROUP_STATUS_TAB_SELF_POG": 39,
@@ -12972,6 +12980,8 @@
         "CAMERA_VIDEO_TAB_TAPPED": 62,
         "CAPTION_TEXT_ADDED": 56,
         "CAPTION_TEXT_TAPPED": 55,
+        "CHANGE_BACKGROUND_COLOR": 161,
+        "CHANGE_LOCATION_FORMAT": 160,
         "COMPOSER_DISCARD_DIALOG_ACCEPTED": 77,
         "COMPOSER_DISCARD_DIALOG_DELETE_DRAFT": 153,
         "COMPOSER_DISCARD_DIALOG_DISMISSED": 76,
@@ -13027,6 +13037,7 @@
         "LAYOUTS_EDITOR_SCREEN_SWAP_HOVERED": 135,
         "LAYOUTS_EDITOR_SCREEN_SWAP_INITIATED": 132,
         "LAYOUTS_EDITOR_SCREEN_SWAP_SUCCESS": 134,
+        "LOCATION_ICON_TAPPED": 159,
         "MAXIMISE_INLINE_VIDEO_BUTTON_CLICKED": 143,
         "MEDIA_COMPOSER_FILTER_CLOSED": 69,
         "MEDIA_COMPOSER_FILTER_OPENED": 67,
@@ -13041,6 +13052,7 @@
         "MEDIA_PICKER_IMAGINE_BOTTOM_SHEET": 137,
         "MEDIA_PICKER_IMP": 154,
         "MEDIA_PICKER_LAYOUTS": 109,
+        "MEDIA_PICKER_LOCATION": 158,
         "MEDIA_PICKER_MEDIA_SELECTED": 59,
         "MEDIA_PICKER_MULTISELECT_TOGGLE_TAPPED": 107,
         "MEDIA_PICKER_MUSIC_ACTION": 106,
@@ -13167,6 +13179,7 @@
         "REACTION_STICKER_RECEIVED": 9,
         "REACTION_STICKER_SENT": 8,
         "REPLY": 3,
+        "REPLY_WITH_STATUS": 12,
         "STATUS_RESHARE_RECEIVED": 7,
         "STATUS_RESHARE_SENT": 6
       }
@@ -13223,6 +13236,16 @@
         "SD": 0
       }
     },
+    "STATUS_PLACEHOLDER_TYPE": {
+      "export": "STATUS_PLACEHOLDER_TYPE",
+      "module": "WAWebWamEnumStatusPlaceholderType",
+      "values": {
+        "FUTUREPROOF": 4,
+        "NONE": 1,
+        "NOT_VIEWABLE": 3,
+        "PLACEHOLDER": 2
+      }
+    },
     "STATUS_POSTER_CONTACT_TYPE": {
       "export": "STATUS_POSTER_CONTACT_TYPE",
       "module": "WAWebWamEnumStatusPosterContactType",
@@ -13277,6 +13300,7 @@
         "GROUP_STATUS_CHAT_HEADER": 49,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING": 52,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING_DROPDOWN": 53,
+        "GROUP_STATUS_REPLY_WITH_STATUS": 60,
         "GROUP_STATUS_TAB_CAMERA": 40,
         "GROUP_STATUS_TAB_PEN": 41,
         "GROUP_STATUS_TAB_SELF_POG": 39,
@@ -13565,6 +13589,7 @@
         "GIF": 3,
         "IMAGE": 1,
         "INLINE_VIDEO": 9,
+        "LOCATION": 10,
         "MUSIC_STANDALONE": 6,
         "PLACEHOLDER": 8,
         "TEXT": 5,
@@ -16277,6 +16302,60 @@
         "WHATSAPP_SETTINGS": 13
       }
     },
+    "WSUA_ACTION": {
+      "export": "WSUA_ACTION",
+      "module": "WAWebWamEnumWsuaAction",
+      "values": {
+        "CLICK": 1,
+        "DISMISS": 2,
+        "VIEW": 3
+      }
+    },
+    "WSUA_ACTION_TARGET": {
+      "export": "WSUA_ACTION_TARGET",
+      "module": "WAWebWamEnumWsuaActionTarget",
+      "values": {
+        "ADD_FULL_NAME_BUTTON": 28,
+        "APP_ICON": 8,
+        "APP_THEME": 9,
+        "CALL_RINGTONE_LIST_ITEM": 13,
+        "CHAT_PIN": 15,
+        "CONTINUE_BUTTON": 21,
+        "DISMISS_BUTTON": 19,
+        "EXPLORE_BENEFITS": 10,
+        "EXPLORE_BENEFITS_BUTTON": 12,
+        "GET_META_ONE_BUSINESS": 39,
+        "GET_MORE_FOR_LESS": 33,
+        "GET_MORE_WITH_ONE_SUB": 32,
+        "GET_WHATSAPP_PLUS_BUTTON": 11,
+        "JOIN_WAITLIST_BUTTON": 4,
+        "JOIN_WAITLIST_DEEPLINK": 3,
+        "LEARN_MORE": 18,
+        "LEAVE_WAITLIST_BUTTON": 5,
+        "LIST_ALERT_TONE": 25,
+        "LIST_RINGTONE": 26,
+        "LIST_THEME": 24,
+        "MANAGE_BUTTON": 17,
+        "META_AI": 23,
+        "META_ONE_BUSINESS_ENTRY_POINT": 38,
+        "META_ONE_CONSUMER": 31,
+        "NOT_NOW_BUTTON": 2,
+        "OK_BUTTON": 1,
+        "PREMIUM_STICKER": 30,
+        "PREMIUM_STICKER_PACK": 29,
+        "QUICK_PROMOTION_DEEPLINK": 27,
+        "SUBSCRIPTIONS_ENTRY_POINT": 20,
+        "SUBSCRIPTIONS_ENTRY_POINT_LIST_ITEM": 7,
+        "UNDO_BUTTON": 6,
+        "UPSELL_CARD": 37,
+        "UPSELL_CTA": 16,
+        "VIEW_ALL_BENEFITS": 35,
+        "VIEW_ALL_BENEFITS_BUTTON": 36,
+        "VIEW_ALL_PLANS": 34,
+        "VIEW_STICKER_PACK": 14,
+        "WHATSAPP_PLUS": 22
+      }
+    },
     "WSUA_PRODUCT_TYPE": {
       "export": "WSUA_PRODUCT_TYPE",
       "module": "WAWebWamEnumWsuaProductType",
@@ -16287,6 +16366,154 @@
         "META_ONE_CONSUMER": 5,
         "NOVA": 1,
         "WA_PLUS": 2
+      }
+    },
+    "WSUA_REFERRAL": {
+      "export": "WSUA_REFERRAL",
+      "module": "WAWebWamEnumWsuaReferral",
+      "values": {
+        "APPEARANCE_SETTINGS": 2,
+        "APP_ICON_SETTINGS": 3,
+        "APP_THEME_SETTINGS": 4,
+        "BIZ_AI": 34,
+        "BIZ_AI_AGENT_THREAD": 30,
+        "BIZ_AI_HOME": 31,
+        "BIZ_AI_THREAD": 33,
+        "BUSINESS_BROADCAST_HOME": 27,
+        "BUSINESS_BROADCAST_REVIEW_SCREEN": 29,
+        "BUSINESS_BROADCAST_THREAD": 28,
+        "BUSINESS_CARD": 12,
+        "BUSINESS_TOOLS": 10,
+        "CALLS_TAB": 11,
+        "CHAT_LIST": 32,
+        "CHAT_PIN": 9,
+        "CHAT_RINGTONE": 6,
+        "CONVERSATION_THREAD": 13,
+        "CUSTOM_URL": 16,
+        "DEFAULT_RINGTONE": 5,
+        "LINKED_DEVICES": 17,
+        "LIST_ALERT_TONE": 19,
+        "LIST_RINGTONE": 20,
+        "LIST_THEME": 18,
+        "META_AI_IMAGINE": 22,
+        "META_AI_SETTINGS": 24,
+        "META_AI_THINKING": 21,
+        "META_AI_VIDEO": 23,
+        "META_ONE_ELIGIBLE_BOTTOMSHEET": 26,
+        "NOTIFICATION": 14,
+        "QUICK_PROMOTION": 15,
+        "SETTINGS": 1,
+        "STICKER_RECEIVED": 8,
+        "STICKER_TRAY": 7,
+        "VALUE_SCREEN": 25
+      }
+    },
+    "WSUA_SCREEN": {
+      "export": "WSUA_SCREEN",
+      "module": "WAWebWamEnumWsuaScreen",
+      "values": {
+        "AI_HANDOFF": 49,
+        "AI_RESPONSES": 54,
+        "AI_TAB_THINKING": 41,
+        "APPEARANCE_SETTINGS": 5,
+        "APPT_BOOKING": 52,
+        "APP_ICON_SETTINGS": 6,
+        "APP_THEME_SETTINGS": 7,
+        "BB_CREDITS": 28,
+        "BIZ_AI_AGENT_THREAD": 46,
+        "BIZ_AI_HOME": 47,
+        "BUSINESS_BROADCAST_HOME": 43,
+        "BUSINESS_BROADCAST_REVIEW_SCREEN": 45,
+        "BUSINESS_BROADCAST_THREAD": 44,
+        "BUSINESS_CARD": 26,
+        "BUSINESS_TOOLS": 19,
+        "CALLS_TAB": 25,
+        "CHAT_ASSIGNMENT": 27,
+        "CHAT_HOME": 15,
+        "CHAT_LIST": 48,
+        "CHAT_NOTIFICATION_SETTINGS": 11,
+        "CHAT_RINGTONE": 12,
+        "CHAT_THREAD": 33,
+        "CHAT_THREAD_IMAGINE": 37,
+        "CHAT_THREAD_THINKING": 36,
+        "CHAT_THREAD_VIDEO": 38,
+        "CUSTOMER_LEAD_GEN": 51,
+        "CUSTOM_URL": 18,
+        "DEFAULT_NOTIFICATION_SETTINGS": 9,
+        "DEFAULT_RINGTONE": 10,
+        "EDIT_PROFILE": 24,
+        "EDUCATION": 30,
+        "JOIN_WAITLIST_BOTTOMSHEET": 3,
+        "LINKED_DEVICES": 17,
+        "LIST_SETTINGS": 16,
+        "MESSAGE_CAPPING": 21,
+        "META_AI_SETTINGS": 34,
+        "META_ONE_ELIGIBLE_BOTTOMSHEET": 42,
+        "NOTIFICATIONS": 29,
+        "ON_WAITLIST_BOTTOMSHEET": 2,
+        "PAYMENT_CHECKOUT": 53,
+        "PRIVACY_INTERSTITIAL": 22,
+        "PROMO_BOTTOMSHEET": 8,
+        "PROMO_ELIGIBILITY_CHECK": 39,
+        "PROTECTED_ACCOUNTS": 23,
+        "QUICK_PROMOTION": 4,
+        "SETTINGS": 1,
+        "SMART_COMPOSER": 50,
+        "STICKER_RECEIVED": 14,
+        "STICKER_TRAY": 13,
+        "SUBSCRIPTION_MANAGEMENT": 20,
+        "SUB_HUB": 32,
+        "TIER_SELECTION_SCREEN": 40,
+        "VALID_NAME_BOTTOMSHEET": 35,
+        "VALUE_SCREEN": 31
+      }
+    },
+    "WSUA_SCREEN_ELEMENT": {
+      "export": "WSUA_SCREEN_ELEMENT",
+      "module": "WAWebWamEnumWsuaScreenElement",
+      "values": {
+        "APP_ICON": 5,
+        "APP_THEME": 6,
+        "BADGE": 13,
+        "BB_APPROACHING_LIMIT": 29,
+        "BB_CREDIT_EXPIRED": 30,
+        "BB_LIMIT_REACHED": 28,
+        "BB_NUX": 27,
+        "BENEFITS_LIST": 26,
+        "BIZ_AI_LIMIT_REACHED": 32,
+        "BIZ_AI_META_ONE_ENTRYPOINT": 33,
+        "BIZ_AI_NEARING_LIMIT": 31,
+        "CALL_RINGTONE_LIST_ITEM": 9,
+        "CHAT_PIN": 10,
+        "EDUCATION_CARD": 12,
+        "EXPLORE_BENEFITS": 7,
+        "GET_MORE_FOR_LESS": 23,
+        "GET_MORE_WITH_ONE_SUB": 22,
+        "GET_WHATSAPP_PLUS_BUTTON": 8,
+        "LEAVE_WAITLIST_TOAST": 2,
+        "LIST_ALERT_TONE": 15,
+        "LIST_ITEM": 3,
+        "LIST_RINGTONE": 16,
+        "LIST_THEME": 14,
+        "META_ONE_BENEFITS": 19,
+        "PREMIUM_STICKER": 21,
+        "PREMIUM_STICKER_PACK": 20,
+        "QP_BANNER": 1,
+        "SUBSCRIPTIONS_LIST_ITEM": 4,
+        "TIER_CARD": 24,
+        "TOAST_BANNER": 18,
+        "UNIFIED_RESPONSE_UPSELL": 17,
+        "UPSELL_BANNER": 11,
+        "UPSELL_CARD": 25
+      }
+    },
+    "WSUA_TIER": {
+      "export": "WSUA_TIER",
+      "module": "WAWebWamEnumWsuaTier",
+      "values": {
+        "TIER_1": 1,
+        "TIER_2": 2,
+        "TIER_3": 3
       }
     },
     "XMPP_STATUS": {
@@ -37157,6 +37384,16 @@
           "id": 114,
           "type": "integer"
         },
+        "interopContactsSize": {
+          "falcoName": "interop_contacts_size",
+          "id": 260,
+          "type": "integer"
+        },
+        "interopContactsSizePerIntegrator": {
+          "falcoName": "interop_contacts_size_per_integrator",
+          "id": 261,
+          "type": "string"
+        },
         "isCanonicalEntPresent": {
           "falcoName": "is_canonical_ent_present",
           "id": 234,
@@ -57658,6 +57895,12 @@
           "id": 13,
           "type": "enum"
         },
+        "statusPlaceholderType": {
+          "enum": "STATUS_PLACEHOLDER_TYPE",
+          "falcoName": "status_placeholder_type",
+          "id": 56,
+          "type": "enum"
+        },
         "statusPogIndex": {
           "falcoName": "status_pog_index",
           "id": 15,
@@ -58897,6 +59140,90 @@
       "id": 3222,
       "module": "WAWebStructuredMessageReceiveWamEvent",
       "privateStatsIdInt": 0,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
+    "SubscriptionUserAction": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_subscription_user_action",
+      "fields": {
+        "wsuaAction": {
+          "enum": "WSUA_ACTION",
+          "falcoName": "wsua_action",
+          "id": 1,
+          "type": "enum"
+        },
+        "wsuaActionTarget": {
+          "enum": "WSUA_ACTION_TARGET",
+          "falcoName": "wsua_action_target",
+          "id": 2,
+          "type": "enum"
+        },
+        "wsuaActiveSubscriptions": {
+          "falcoName": "wsua_active_subscriptions",
+          "id": 10,
+          "type": "string"
+        },
+        "wsuaBenefitGroup": {
+          "falcoName": "wsua_benefit_group",
+          "id": 11,
+          "type": "string"
+        },
+        "wsuaBenefitsShown": {
+          "falcoName": "wsua_benefits_shown",
+          "id": 9,
+          "type": "string"
+        },
+        "wsuaProductType": {
+          "enum": "WSUA_PRODUCT_TYPE",
+          "falcoName": "wsua_product_type",
+          "id": 3,
+          "type": "enum"
+        },
+        "wsuaQuickPromotionId": {
+          "falcoName": "wsua_quick_promotion_id",
+          "id": 4,
+          "type": "string"
+        },
+        "wsuaReferral": {
+          "enum": "WSUA_REFERRAL",
+          "falcoName": "wsua_referral",
+          "id": 5,
+          "type": "enum"
+        },
+        "wsuaScreen": {
+          "enum": "WSUA_SCREEN",
+          "falcoName": "wsua_screen",
+          "id": 6,
+          "type": "enum"
+        },
+        "wsuaScreenElement": {
+          "enum": "WSUA_SCREEN_ELEMENT",
+          "falcoName": "wsua_screen_element",
+          "id": 7,
+          "type": "enum"
+        },
+        "wsuaSessionId": {
+          "falcoName": "wsua_session_id",
+          "id": 8,
+          "type": "string"
+        },
+        "wsuaTier": {
+          "enum": "WSUA_TIER",
+          "falcoName": "wsua_tier",
+          "id": 12,
+          "type": "enum"
+        }
+      },
+      "id": 7458,
+      "module": "WAWebSubscriptionUserActionWamEvent",
+      "privateStatsIdInt": null,
       "requiredFields": [],
       "weight": {
         "default": 1,
@@ -61599,6 +61926,11 @@
         "hasUn": {
           "falcoName": "has_un",
           "id": 6,
+          "type": "boolean"
+        },
+        "inDb": {
+          "falcoName": "in_db",
+          "id": 10,
           "type": "boolean"
         },
         "isFirstDisplay": {
@@ -65732,7 +66064,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044425644",
+  "waVersion": "2.3000.1044515310",
   "wireFormat": {
     "markers": {
       "event": 1,

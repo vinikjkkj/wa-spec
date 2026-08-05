@@ -549,24 +549,6 @@
       "valueProtoType": "SyncActionValue.DetectedOutcomesStatusAction",
       "version": 1
     },
-    "DeviceCapabilities": {
-      "baseClass": "AccountSyncdActionBase",
-      "chatJidIndex": null,
-      "collection": "regular_low",
-      "indexParts": [
-        {
-          "type": "literal",
-          "value": "device_capabilities"
-        }
-      ],
-      "module": "WAWebDeviceCapabilitiesSync",
-      "name": "device_capabilities",
-      "scope": "account",
-      "valueEnumFields": null,
-      "valueField": "deviceCapabilities",
-      "valueProtoType": "DeviceCapabilities",
-      "version": 7
-    },
     "DisableLinkPreviews": {
       "baseClass": "AccountSyncdActionBase",
       "chatJidIndex": null,
@@ -1498,5 +1480,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1044425644"
+  "waVersion": "2.3000.1044515310"
 }

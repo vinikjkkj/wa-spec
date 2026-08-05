@@ -46903,21 +46903,21 @@
             "type": "enum"
           },
           "error": {
-            "arg": "e.error",
+            "arg": "t.error",
             "direction": "out",
             "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "e.ackId",
+            "arg": "r.stanzaId",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
+            "arg": "f",
             "direction": "out",
             "optional": true,
-            "type": "deviceJid"
+            "type": "userJid"
           },
           "recipient": {
             "arg": "r",
@@ -46926,8 +46926,8 @@
             "type": "userJid"
           },
           "to": {
+            "arg": "r.from",
             "direction": "out",
-            "raw": "p(e.to)",
             "type": "jid"
           },
           "type": {
@@ -46960,20 +46960,6 @@
         "children": [
           {
             "attrs": {
-              "failure_reason": {
-                "arg": "l",
-                "direction": "out",
-                "type": "int"
-              }
-            },
-            "children": [],
-            "content": null,
-            "max": 1,
-            "min": 1,
-            "tag": "meta"
-          },
-          {
-            "attrs": {
               "side_list": {
                 "direction": "out",
                 "type": "literal",
@@ -46985,6 +46971,20 @@
             "max": 1,
             "min": 1,
             "tag": "user"
+          },
+          {
+            "attrs": {
+              "failure_reason": {
+                "arg": "l",
+                "direction": "out",
+                "type": "int"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "meta"
           }
         ],
         "content": null,
@@ -49466,7 +49466,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "e.stanzaId",
+                "arg": "S.id",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -54701,7 +54701,7 @@
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -54744,7 +54744,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -54765,7 +54765,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -54775,9 +54775,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "D",
+                "arg": "h",
                 "direction": "both",
-                "type": "jid"
+                "type": "userJid"
               },
               "type": {
                 "direction": "both",
@@ -55019,7 +55019,7 @@
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55070,7 +55070,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55091,7 +55091,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55101,9 +55101,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "D",
+                "arg": "h",
                 "direction": "both",
-                "type": "jid"
+                "type": "userJid"
               },
               "type": {
                 "direction": "both",
@@ -55543,5 +55543,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1044425644"
+  "waVersion": "2.3000.1044515310"
 }

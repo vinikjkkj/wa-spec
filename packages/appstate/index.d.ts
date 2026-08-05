@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044425644
+// WhatsApp Version: 2.3000.1044515310
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -89,7 +89,6 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly DeleteChat: WaAppstateSchema<'deleteChat', 'regular_high', 'chatMessageRange', 'deleteChatAction', 'SyncActionValue.DeleteChatAction', null, readonly [{ readonly type: 'literal'; readonly value: 'deleteChat' }, { readonly type: 'jid'; readonly name: 'chatJid' }, { readonly type: 'string'; readonly name: 'deleteMedia' }]>
     readonly DeleteMessageForMe: WaAppstateSchema<'deleteMessageForMe', 'regular_high', 'message', 'deleteMessageForMeAction', 'SyncActionValue.DeleteMessageForMeAction', null, readonly [{ readonly type: 'literal'; readonly value: 'deleteMessageForMe' }, { readonly type: 'jid'; readonly name: 'remote' }, { readonly type: 'string'; readonly name: 'id' }, { readonly type: 'boolString'; readonly name: 'fromMe' }, { readonly type: 'jidOrZero'; readonly name: 'participant' }]>
     readonly DetectedOutcomeStatus: WaAppstateSchema<'detected_outcomes_status_action', 'regular', 'account', 'detectedOutcomesStatusAction', 'SyncActionValue.DetectedOutcomesStatusAction', null, readonly [{ readonly type: 'literal'; readonly value: 'detected_outcomes_status_action' }]>
-    readonly DeviceCapabilities: WaAppstateSchema<'device_capabilities', 'regular_low', 'account', 'deviceCapabilities', 'DeviceCapabilities', null, readonly [{ readonly type: 'literal'; readonly value: 'device_capabilities' }]>
     readonly DisableLinkPreviews: WaAppstateSchema<'setting_disableLinkPreviews', 'regular', 'account', 'privacySettingDisableLinkPreviewsAction', 'SyncActionValue.PrivacySettingDisableLinkPreviewsAction', null, readonly [{ readonly type: 'literal'; readonly value: 'setting_disableLinkPreviews' }]>
     readonly ExternalWebBeta: WaAppstateSchema<'external_web_beta', 'regular', 'account', 'externalWebBetaAction', 'SyncActionValue.ExternalWebBetaAction', null, readonly [{ readonly type: 'literal'; readonly value: 'external_web_beta' }]>
     readonly FavoriteSticker: WaAppstateSchema<'favoriteSticker', 'regular_low', 'account', 'stickerAction', 'SyncActionValue.StickerAction', null, readonly [{ readonly type: 'literal'; readonly value: 'favoriteSticker' }, { readonly type: 'string'; readonly name: 'filehash' }]>

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044425644
+// WhatsApp Version: 2.3000.1044515310
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -43,6 +43,7 @@ export declare const WA_ABPROPS: {
     readonly after_read_sending_enabled: { readonly code: 25648; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_3p_agent_chat_enabled: { readonly code: 31063; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_3p_agent_link_enabled: { readonly code: 31064; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ai_3p_agent_media_support_mode: { readonly code: 34393; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly ai_3p_bot_product_chat_rendering_enabled: { readonly code: 34186; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_account_linking_enabled: { readonly code: 13856; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_all_languages_enabled: { readonly code: 16091; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -4408,6 +4409,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 34349: "wa_web_chat_themes_stock_wallpaper_sync_encode"
     readonly 34366: "web_batched_status_sending_enabled"
     readonly 34369: "pinned_message_banner_notch_animation_enabled"
+    readonly 34393: "ai_3p_agent_media_support_mode"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

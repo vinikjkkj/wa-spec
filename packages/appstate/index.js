@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044425644
+// WhatsApp Version: 2.3000.1044515310
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -318,18 +318,6 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'detected_outcomes_status_action' })
-        ])
-    }),
-    DeviceCapabilities: Object.freeze({
-        name: 'device_capabilities',
-        collection: 'regular_low',
-        version: 7,
-        scope: 'account',
-        valueField: 'deviceCapabilities',
-        valueProtoType: 'DeviceCapabilities',
-        valueEnumFields: null,
-        indexParts: Object.freeze([
-            Object.freeze({ type: 'literal', value: 'device_capabilities' })
         ])
     }),
     DisableLinkPreviews: Object.freeze({

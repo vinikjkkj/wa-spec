@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2181,
+  "propCount": 2182,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -189,6 +189,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_3p_agent_media_support_mode": {
+      "code": 34393,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
     },
     "ai_3p_bot_product_chat_rendering_enabled": {
       "code": 34186,
@@ -13206,5 +13212,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044425644"
+  "waVersion": "2.3000.1044515310"
 }

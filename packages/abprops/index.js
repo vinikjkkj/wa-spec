@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044425644
+// WhatsApp Version: 2.3000.1044515310
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -24,6 +24,7 @@ const WA_ABPROPS = Object.freeze({
     after_read_sending_enabled: Object.freeze({ code: 25648, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_chat_enabled: Object.freeze({ code: 31063, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_link_enabled: Object.freeze({ code: 31064, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_3p_agent_media_support_mode: Object.freeze({ code: 34393, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     ai_3p_bot_product_chat_rendering_enabled: Object.freeze({ code: 34186, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_account_linking_enabled: Object.freeze({ code: 13856, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_all_languages_enabled: Object.freeze({ code: 16091, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4391,7 +4392,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34348: "username_key_max_length",
     34349: "wa_web_chat_themes_stock_wallpaper_sync_encode",
     34366: "web_batched_status_sending_enabled",
-    34369: "pinned_message_banner_notch_animation_enabled"
+    34369: "pinned_message_banner_notch_animation_enabled",
+    34393: "ai_3p_agent_media_support_mode"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({
