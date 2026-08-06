@@ -1525,6 +1525,8 @@
         "GROUP_CHAT_INFO": 10,
         "GROUP_CHAT_PICKER": 24,
         "GROUP_CHAT_RECENT_LOCATION": 11,
+        "GROUP_INFO_BOTTOM_SHEET_CALLS_TAB": 89,
+        "GROUP_INFO_BOTTOM_SHEET_CHATS_TAB": 88,
         "HEDWIG": 51,
         "INTERACTIVE_MESSAGE": 36,
         "IOS_INTENT": 18,
@@ -5561,6 +5563,13 @@
         "X_SMALL": 2
       }
     },
+    "GROUP_SUSPENSION_APPEAL_ENTRY_POINT": {
+      "export": "GROUP_SUSPENSION_APPEAL_ENTRY_POINT",
+      "module": "WAWebWamEnumGroupSuspensionAppealEntryPoint",
+      "values": {
+        "SPAM_FOLDER": 1
+      }
+    },
     "GROUP_SUSPENSION_APPEAL_UI_ACTION": {
       "export": "GROUP_SUSPENSION_APPEAL_UI_ACTION",
       "module": "WAWebWamEnumGroupSuspensionAppealUiAction",
@@ -6544,6 +6553,8 @@
         "EVENT_INDIVIDUAL_CHAT": 24,
         "EVENT_MESSAGE": 34,
         "GROUP_CHAT_INFO": 11,
+        "GROUP_INFO_BOTTOM_SHEET_CALLS_TAB": 44,
+        "GROUP_INFO_BOTTOM_SHEET_CHATS_TAB": 43,
         "IN_APP_NOTIFICATION": 7,
         "LINKED_GROUP_CALL_SYSTEM_MESSAGE": 8,
         "LINK_CREATOR_CALL_CONNECTED_PUSH_NOTIFICATION": 31,
@@ -10174,6 +10185,7 @@
         "PASSKEY_TOGGLE_ON": 309,
         "PASSKEY_UPSELL_DISMISS": 314,
         "PAUSE_BUTTON": 117,
+        "PAYMENTS_HOME_MANAGE_PIX_KEYS": 374,
         "PAYMENTS_HOME_PIX_AREA": 353,
         "PAYMENTS_HOME_PIX_KEY": 256,
         "PAYMENTS_HOME_REQUEST_PAYMENT": 255,
@@ -11260,6 +11272,7 @@
       "export": "PROMPT_TRIGGER_POINT",
       "module": "WAWebWamEnumPromptTriggerPoint",
       "values": {
+        "AI_HOME_QP": 3,
         "CONVERSATION_STARTER": 2,
         "USER_INPUT": 1
       }
@@ -12918,6 +12931,8 @@
         "EXTERNAL_SHARE": 1,
         "FORWARD_FROM_STATUS": 35,
         "FORWARD_TO_STATUS": 2,
+        "GROUP_INFO_BOTTOM_SHEET_CALLS_TAB": 64,
+        "GROUP_INFO_BOTTOM_SHEET_CHATS_TAB": 63,
         "GROUP_INFO_PAGE": 36,
         "GROUP_STATUS_CHAT_HEADER": 50,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING": 53,
@@ -13296,6 +13311,7 @@
         "EXTERNAL_SHARE": 4,
         "FORWARD_FROM_MESSAGES": 3,
         "FORWARD_FROM_STATUS": 34,
+        "GROUP_CHAT_ATTACHMENT_TRAY": 61,
         "GROUP_INFO_PAGE": 35,
         "GROUP_STATUS_CHAT_HEADER": 49,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING": 52,
@@ -13436,6 +13452,8 @@
         "CUSTOM_AUDIENCE_UNSELECT_ALL_CLICK": 25,
         "CUSTOM_AUDIENCE_UPDATED": 20,
         "EXCLUDE_CONTACT_LIST_LAUNCHED": 3,
+        "GROUP_STATUS_CLICKED": 46,
+        "GROUP_STATUS_PICKER_LAUNCHED": 45,
         "INCLUDE_CONTACT_LIST_LAUNCHED": 2,
         "LIST_CONTACT_DESELECTED": 13,
         "LIST_CONTACT_SELECTED": 12,
@@ -16277,9 +16295,16 @@
       "module": "WAWebWamEnumWpbujSource",
       "values": {
         "APP_WIDE": 1,
+        "CHAT_LIST_BACKUP_SETUP_PROMPT": 11,
+        "CHAT_LIST_FIX_ENCRYPTION_BANNER": 9,
         "GROUP": 3,
         "LIST": 4,
-        "ONE_TO_ONE": 2
+        "ONE_TO_ONE": 2,
+        "REGISTRATION_RESTORE_SETUP": 10,
+        "SETTINGS_BACKUP_PROVIDER_ROW": 5,
+        "SETTINGS_ENABLE_CLOUD_BACKUPS_BANNER": 8,
+        "SETTINGS_FINISH_BACKUP_SETUP_BANNER": 6,
+        "SETTINGS_FIX_ENCRYPTION_BANNER": 7
       }
     },
     "WPBUJ_SURFACE": {
@@ -16290,6 +16315,8 @@
         "APPEARANCE_SETTINGS": 11,
         "APP_ICON": 2,
         "APP_THEME": 1,
+        "BACKUP_NEW_USER_SETUP": 16,
+        "BACKUP_PROVIDER_SELECTION": 15,
         "CHAT_THEME": 5,
         "LIST": 4,
         "NOTIFICATION_SETTINGS": 12,
@@ -17861,6 +17888,11 @@
           "falcoName": "ai_home_qp_promotion_id",
           "id": 53,
           "type": "integer"
+        },
+        "aiQpPromotionId": {
+          "falcoName": "ai_qp_promotion_id",
+          "id": 54,
+          "type": "string"
         },
         "aiSessionId": {
           "falcoName": "ai_session_id",
@@ -22848,6 +22880,16 @@
           "id": 3056,
           "type": "integer"
         },
+        "hbhDcConnectionLostCrash": {
+          "falcoName": "hbh_dc_connection_lost_crash",
+          "id": 3083,
+          "type": "integer"
+        },
+        "hbhDcConnectionLostGoaway": {
+          "falcoName": "hbh_dc_connection_lost_goaway",
+          "id": 3084,
+          "type": "integer"
+        },
         "hbhDcMsgsReceivedCount": {
           "falcoName": "hbh_dc_msgs_received_count",
           "id": 3057,
@@ -22873,10 +22915,40 @@
           "id": 3071,
           "type": "integer"
         },
+        "hbhDcReconnectSuccess": {
+          "falcoName": "hbh_dc_reconnect_success",
+          "id": 3085,
+          "type": "integer"
+        },
         "hbhDcSetupAvgT": {
           "falcoName": "hbh_dc_setup_avg_t",
           "id": 3059,
           "type": "timer"
+        },
+        "hbhDcSframeDecryptCount": {
+          "falcoName": "hbh_dc_sframe_decrypt_count",
+          "id": 3086,
+          "type": "integer"
+        },
+        "hbhDcSframeDecryptFailCount": {
+          "falcoName": "hbh_dc_sframe_decrypt_fail_count",
+          "id": 3087,
+          "type": "integer"
+        },
+        "hbhDcSframeEncryptCount": {
+          "falcoName": "hbh_dc_sframe_encrypt_count",
+          "id": 3088,
+          "type": "integer"
+        },
+        "hbhDcStandbyRearm": {
+          "falcoName": "hbh_dc_standby_rearm",
+          "id": 3089,
+          "type": "integer"
+        },
+        "hbhDcTeardownCount": {
+          "falcoName": "hbh_dc_teardown_count",
+          "id": 3090,
+          "type": "integer"
         },
         "hbhDtlsConnectionState": {
           "enum": "HBH_DTLS_CONNECTION_STATE",
@@ -40947,6 +41019,12 @@
           "id": 5,
           "type": "string"
         },
+        "groupSuspensionAppealEntryPoint": {
+          "enum": "GROUP_SUSPENSION_APPEAL_ENTRY_POINT",
+          "falcoName": "group_suspension_appeal_entry_point",
+          "id": 7,
+          "type": "enum"
+        },
         "groupSuspensionAppealErrorMessage": {
           "falcoName": "group_suspension_appeal_error_message",
           "id": 6,
@@ -58602,6 +58680,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_status_viewer_action",
       "fields": {
+        "actionIndex": {
+          "falcoName": "action_index",
+          "id": 8,
+          "type": "integer"
+        },
         "attributionType": {
           "enum": "TOP_BAR_ATTRIBUTION_TYPE",
           "falcoName": "attribution_type",
@@ -58619,11 +58702,36 @@
           "id": 5,
           "type": "enum"
         },
+        "linkLoadTime": {
+          "falcoName": "link_load_time",
+          "id": 9,
+          "type": "integer"
+        },
+        "linkOpenResult": {
+          "falcoName": "link_open_result",
+          "id": 10,
+          "type": "string"
+        },
+        "psaCampaignId": {
+          "falcoName": "psa_campaign_id",
+          "id": 11,
+          "type": "string"
+        },
         "statusCategory": {
           "enum": "STATUS_CATEGORY",
           "falcoName": "status_category",
           "id": 4,
           "type": "enum"
+        },
+        "statusId": {
+          "falcoName": "status_id",
+          "id": 12,
+          "type": "string"
+        },
+        "statusViewerSessionId": {
+          "falcoName": "status_viewer_session_id",
+          "id": 13,
+          "type": "integer"
         },
         "urlStatusClicked": {
           "enum": "URL_STATUS_CLICKED",
@@ -66064,7 +66172,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044515310",
+  "waVersion": "2.3000.1044610476",
   "wireFormat": {
     "markers": {
       "event": 1,

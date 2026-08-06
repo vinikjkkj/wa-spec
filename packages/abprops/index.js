@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044515310
+// WhatsApp Version: 2.3000.1044610476
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -326,6 +326,7 @@ const WA_ABPROPS = Object.freeze({
     br_consumer_pix_groups_web_enabled: Object.freeze({ code: 34235, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_sync_receive_enabled: Object.freeze({ code: 33219, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_sync_receive_web_enabled: Object.freeze({ code: 33244, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    br_consumer_transactions_date_filter_web_enabled: Object.freeze({ code: 34454, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_enable_payment_logos_on_bubble: Object.freeze({ code: 8160, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_payments_home_duration_rule_for_pux_banner: Object.freeze({ code: 22249, type: "int", defaultValue: 604800, debugDefaultValue: 604800 }),
     br_payments_payment_detection_enhancement: Object.freeze({ code: 27309, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1464,7 +1465,6 @@ const WA_ABPROPS = Object.freeze({
     smbi_premium_broadcast_max_recipient_limit: Object.freeze({ code: 23857, type: "int", defaultValue: 256, debugDefaultValue: 500 }),
     smbw_business_broadcast_duplicate_enabled: Object.freeze({ code: 29021, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smbw_business_broadcast_smart_column_detection_enabled: Object.freeze({ code: 27999, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    smoothie_performance_css_dom: Object.freeze({ code: 18995, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smoothie_performance_msg_send: Object.freeze({ code: 17942, type: "bool", defaultValue: true, debugDefaultValue: true }),
     smoothie_performance_resize_followup: Object.freeze({ code: 18992, type: "bool", defaultValue: false, debugDefaultValue: false }),
     snapl_newsletter_logging_encrypted_rid_enabled: Object.freeze({ code: 32239, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1541,6 +1541,7 @@ const WA_ABPROPS = Object.freeze({
     unified_response_markdown_links_enabled: Object.freeze({ code: 30330, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unified_session_log_call_event: Object.freeze({ code: 8582, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unify_end_call_events: Object.freeze({ code: 2856, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    unknown_user_persistence_logging_enabled: Object.freeze({ code: 34465, type: "bool", defaultValue: true, debugDefaultValue: true }),
     unknown_user_target_rid_logging: Object.freeze({ code: 34232, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unknown_user_wam_max_events_per_window: Object.freeze({ code: 32946, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     updated_harmful_document_dialog: Object.freeze({ code: 15022, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2105,6 +2106,7 @@ const WA_ABPROPS = Object.freeze({
     web_resume_optimized_read_receipt_send_interval: Object.freeze({ code: 5502, type: "int", defaultValue: 500, debugDefaultValue: 500 }),
     web_screen_lock_max_retries: Object.freeze({ code: 2622, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     web_search_results_type_date_filters: Object.freeze({ code: 32787, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_self_adv_daily_use_lid: Object.freeze({ code: 34414, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_send_hid_failed_decrypt_in_receipts_enabled: Object.freeze({ code: 31113, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_send_invisible_msg_max_group_size: Object.freeze({ code: 1945, type: "int", defaultValue: 1024, debugDefaultValue: 1024 }),
     web_send_invisible_msg_min_group_size: Object.freeze({ code: 1100, type: "int", defaultValue: 128, debugDefaultValue: 128 }),
@@ -2185,6 +2187,7 @@ const WA_ABPROPS = Object.freeze({
     winrt_renderer: Object.freeze({ code: 10966, type: "bool", defaultValue: true, debugDefaultValue: true }),
     wmi_async_await_prep: Object.freeze({ code: 29197, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_jm_to_ts_m1: Object.freeze({ code: 32880, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wmi_jm_to_ts_serviced: Object.freeze({ code: 34410, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_task_scheduler_second_step: Object.freeze({ code: 30276, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_worker_scheduler_web: Object.freeze({ code: 27237, type: "bool", defaultValue: false, debugDefaultValue: false }),
     xplat_attachment_format_check_v2: Object.freeze({ code: 8082, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -3138,7 +3141,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     18984: "channels_question_fetch_responses_page_size",
     18988: "channels_question_forward_message_types_chat_m1_enabled",
     18992: "smoothie_performance_resize_followup",
-    18995: "smoothie_performance_css_dom",
     19039: "coex_edit_msg_enabled",
     19053: "channels_reply_forward_message_types_chat_m1_enabled",
     19059: "utility_order_status_logging_enabled",
@@ -4393,7 +4395,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34349: "wa_web_chat_themes_stock_wallpaper_sync_encode",
     34366: "web_batched_status_sending_enabled",
     34369: "pinned_message_banner_notch_animation_enabled",
-    34393: "ai_3p_agent_media_support_mode"
+    34393: "ai_3p_agent_media_support_mode",
+    34410: "wmi_jm_to_ts_serviced",
+    34414: "web_self_adv_daily_use_lid",
+    34454: "br_consumer_transactions_date_filter_web_enabled",
+    34465: "unknown_user_persistence_logging_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

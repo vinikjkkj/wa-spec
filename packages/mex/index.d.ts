@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044515310
+// WhatsApp Version: 2.3000.1044610476
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -79,7 +79,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
-    readonly EBMessageRangeQueryForThreads: WaMexPersistId
     readonly EBMinosFetchContactKeys: WaMexPersistId
     readonly EBMinosUploadMessages: WaMexPersistId
     readonly EBRegisterMinosMessageEncryptionKey: WaMexPersistId
@@ -273,7 +272,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly EBMessageRangeQueryForThreads: WaMexOperationSchema<'query', readonly ['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']>
     readonly EBMinosFetchContactKeys: WaMexOperationSchema<'query', readonly ['input']>
     readonly EBMinosUploadMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EBRegisterMinosMessageEncryptionKey: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -755,13 +753,6 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables = {
 
 export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
     readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexEBMessageRangeQueryForThreadsVariables = {
-    readonly app_id?: string
-    readonly includeAttachmentData?: boolean
-    readonly restore_payload_strings?: unknown
-    readonly restore_type?: 'INITIAL_RESTORE' | 'RANGE_QUERY_RESTORE'
 }
 
 export type WaMexEBMinosFetchContactKeysVariables = {
@@ -1640,7 +1631,6 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
-    readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsVariables
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysVariables
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesVariables
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyVariables
@@ -2839,168 +2829,6 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse = {
 export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
     readonly xfb_e2ee_metadata_mailbox_set_group_subject?: {
         readonly success?: boolean
-    }
-}
-
-export type WaMexEBMessageRangeQueryForThreadsResponse = {
-    readonly viewer?: {
-        readonly encrypted_backup?: {
-            readonly id?: string
-            readonly mailbox?: {
-                readonly messages_from_selected_threads?: ReadonlyArray<{
-                    readonly backup_id?: string
-                    readonly encrypted_messages?: ReadonlyArray<{
-                        readonly attachment_data?: ReadonlyArray<{
-                            readonly attachment_cdn_url?: string
-                            readonly attachment_object_id?: string
-                        }>
-                        readonly echo_document?: {
-                            readonly echo_document_string?: unknown
-                            readonly encryption_version?: number
-                            readonly epoch_anon_id?: string
-                            readonly epoch_fingerprint?: unknown
-                            readonly epoch_id?: string
-                        }
-                        readonly otid?: unknown
-                        readonly protobuf_stanzas?: {
-                            readonly message_tags?: ReadonlyArray<string>
-                            readonly supplemental_protobufs?: ReadonlyArray<{
-                                readonly encrypted_protobuf_stanza?: unknown
-                                readonly encryption_version?: number
-                                readonly epoch_anon_id?: string
-                                readonly epoch_id?: string
-                                readonly protobuf_timestamp_ms?: number
-                                readonly sk_ciphertext?: string
-                                readonly supplemental_key?: string
-                                readonly supplemental_otid?: unknown
-                            }>
-                            readonly supplemental_protobufs_v2?: ReadonlyArray<{
-                                readonly actor_token?: string
-                                readonly encrypted_protobuf?: unknown
-                                readonly franking_tag?: string
-                                readonly mek_fbid?: string
-                                readonly mek_id?: string
-                                readonly message_encryption_version?: number
-                                readonly message_metadata_version?: number
-                                readonly protobuf_timestamp?: string
-                                readonly reporting_tag?: string
-                                readonly supplemental_key?: string
-                                readonly supplemental_otid?: unknown
-                                readonly transport_sender_message_signature?: string
-                                readonly transport_sender_signing_pk?: unknown
-                            }>
-                            readonly top_level_protobuf?: {
-                                readonly encrypted_protobuf_stanza?: unknown
-                                readonly encryption_version?: number
-                                readonly epoch_anon_id?: string
-                                readonly epoch_id?: string
-                                readonly protobuf_timestamp_ms?: number
-                                readonly sk_ciphertext?: string
-                            }
-                            readonly top_level_protobuf_unencrypted?: {
-                                readonly protobuf_timestamp_ms?: number
-                                readonly unencrypted_protobuf?: unknown
-                            }
-                            readonly top_level_protobuf_v2?: {
-                                readonly actor_token?: string
-                                readonly encrypted_protobuf?: unknown
-                                readonly franking_tag?: string
-                                readonly mek_fbid?: string
-                                readonly mek_id?: string
-                                readonly message_encryption_version?: number
-                                readonly message_metadata_version?: number
-                                readonly protobuf_timestamp?: string
-                                readonly reporting_tag?: string
-                                readonly transport_sender_message_signature?: string
-                                readonly transport_sender_signing_pk?: unknown
-                            }
-                        }
-                    }>
-                    readonly epoch_derivation_set?: {
-                        readonly epoch_edges?: ReadonlyArray<{
-                            readonly backward_edge?: unknown
-                            readonly forward_edge?: {
-                                readonly auth_public_key?: string
-                                readonly encrypted_entropy?: unknown
-                                readonly entropy_fingerprint?: unknown
-                                readonly epoch_storage_public_key?: string
-                                readonly psk_fingerprint?: unknown
-                            }
-                            readonly from_epoch?: {
-                                readonly epoch_anon_id?: string
-                                readonly epoch_id?: string
-                            }
-                            readonly from_epoch_fingerprint?: unknown
-                            readonly to_epoch?: {
-                                readonly epoch_anon_id?: string
-                                readonly epoch_id?: string
-                            }
-                            readonly to_epoch_fingerprint?: unknown
-                        }>
-                    }
-                    readonly exception_string?: unknown
-                    readonly message_range_info?: {
-                        readonly has_more_after?: boolean
-                        readonly has_more_before?: boolean
-                        readonly next_message_timestamp_ms_after?: unknown
-                        readonly next_message_timestamp_ms_before?: unknown
-                    }
-                    readonly minos_decryption_keys?: ReadonlyArray<{
-                        readonly id?: string
-                        readonly keys?: {
-                            readonly mek_creator_info?: {
-                                readonly mandrake_keys?: {
-                                    readonly encrypted_mek?: unknown
-                                    readonly mek_encryption_version?: number
-                                    readonly recipient_encrypted_mmk?: unknown
-                                    readonly recipient_encrypted_mmk_mailbox_head_hash?: string
-                                    readonly recipient_mailbox_head_hash?: string
-                                    readonly recipient_membership_proof?: string
-                                    readonly recipient_membership_proof_leaf_index?: number
-                                    readonly recipient_membership_proof_total_leaves?: unknown
-                                    readonly recipient_mmk_auth_pk?: unknown
-                                    readonly recipient_mmk_device_roster_hash?: string
-                                    readonly recipient_mmk_enc_pk?: unknown
-                                    readonly recipient_mmk_epoch_head?: unknown
-                                    readonly recipient_mmk_sequence_number?: unknown
-                                    readonly recipient_mmk_sig_pk?: unknown
-                                    readonly recipients_hash?: string
-                                    readonly sender_epoch_number?: unknown
-                                    readonly sender_mailbox_auth_pk?: unknown
-                                    readonly sender_mailbox_encryption_pk?: unknown
-                                    readonly sender_mailbox_signing_pk?: unknown
-                                    readonly sender_previous_epoch_head?: unknown
-                                    readonly sender_user_fbid?: string
-                                }
-                                readonly minos_keys?: {
-                                    readonly sender_auth_pk?: unknown
-                                    readonly sender_epoch_head?: unknown
-                                }
-                                readonly transport_keys?: {
-                                    readonly ephm_hpke_pk?: unknown
-                                    readonly ephm_signature?: string
-                                    readonly mek_creator_transport_signing_pk?: unknown
-                                }
-                            }
-                            readonly mek_info?: {
-                                readonly encrypted_mek?: unknown
-                                readonly mek_creation_timestamp?: string
-                                readonly mek_encryption_version?: number
-                                readonly mek_id?: string
-                                readonly roster_hash?: string
-                            }
-                            readonly recipient_info?: {
-                                readonly epoch_anon_id?: string
-                                readonly epoch_fbid?: string
-                                readonly epoch_head?: unknown
-                            }
-                        }
-                    }>
-                    readonly should_delete_mailbox?: boolean
-                    readonly thread_not_found?: unknown
-                }>
-            }
-        }
     }
 }
 
@@ -5837,7 +5665,6 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
-    readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsResponse
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysResponse
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesResponse
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyResponse

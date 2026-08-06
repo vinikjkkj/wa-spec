@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044515310
+// WhatsApp Version: 2.3000.1044610476
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1579,6 +1579,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_CHAT_INFO': 10,
         'GROUP_CHAT_PICKER': 24,
         'GROUP_CHAT_RECENT_LOCATION': 11,
+        'GROUP_INFO_BOTTOM_SHEET_CALLS_TAB': 89,
+        'GROUP_INFO_BOTTOM_SHEET_CHATS_TAB': 88,
         'HEDWIG': 51,
         'INTERACTIVE_MESSAGE': 36,
         'IOS_INTENT': 18,
@@ -5615,6 +5617,13 @@ const WA_WAM_ENUMS = Object.freeze({
         'X_SMALL': 2
         })
     }),
+    GROUP_SUSPENSION_APPEAL_ENTRY_POINT: Object.freeze({
+        module: 'WAWebWamEnumGroupSuspensionAppealEntryPoint',
+        export: 'GROUP_SUSPENSION_APPEAL_ENTRY_POINT',
+        values: Object.freeze({
+        'SPAM_FOLDER': 1
+        })
+    }),
     GROUP_SUSPENSION_APPEAL_UI_ACTION: Object.freeze({
         module: 'WAWebWamEnumGroupSuspensionAppealUiAction',
         export: 'GROUP_SUSPENSION_APPEAL_UI_ACTION',
@@ -6598,6 +6607,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'EVENT_INDIVIDUAL_CHAT': 24,
         'EVENT_MESSAGE': 34,
         'GROUP_CHAT_INFO': 11,
+        'GROUP_INFO_BOTTOM_SHEET_CALLS_TAB': 44,
+        'GROUP_INFO_BOTTOM_SHEET_CHATS_TAB': 43,
         'IN_APP_NOTIFICATION': 7,
         'LINKED_GROUP_CALL_SYSTEM_MESSAGE': 8,
         'LINK_CREATOR_CALL_CONNECTED_PUSH_NOTIFICATION': 31,
@@ -10228,6 +10239,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PASSKEY_TOGGLE_ON': 309,
         'PASSKEY_UPSELL_DISMISS': 314,
         'PAUSE_BUTTON': 117,
+        'PAYMENTS_HOME_MANAGE_PIX_KEYS': 374,
         'PAYMENTS_HOME_PIX_AREA': 353,
         'PAYMENTS_HOME_PIX_KEY': 256,
         'PAYMENTS_HOME_REQUEST_PAYMENT': 255,
@@ -11314,6 +11326,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumPromptTriggerPoint',
         export: 'PROMPT_TRIGGER_POINT',
         values: Object.freeze({
+        'AI_HOME_QP': 3,
         'CONVERSATION_STARTER': 2,
         'USER_INPUT': 1
         })
@@ -12972,6 +12985,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'EXTERNAL_SHARE': 1,
         'FORWARD_FROM_STATUS': 35,
         'FORWARD_TO_STATUS': 2,
+        'GROUP_INFO_BOTTOM_SHEET_CALLS_TAB': 64,
+        'GROUP_INFO_BOTTOM_SHEET_CHATS_TAB': 63,
         'GROUP_INFO_PAGE': 36,
         'GROUP_STATUS_CHAT_HEADER': 50,
         'GROUP_STATUS_CHAT_HEADER_PROFILE_RING': 53,
@@ -13350,6 +13365,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'EXTERNAL_SHARE': 4,
         'FORWARD_FROM_MESSAGES': 3,
         'FORWARD_FROM_STATUS': 34,
+        'GROUP_CHAT_ATTACHMENT_TRAY': 61,
         'GROUP_INFO_PAGE': 35,
         'GROUP_STATUS_CHAT_HEADER': 49,
         'GROUP_STATUS_CHAT_HEADER_PROFILE_RING': 52,
@@ -13490,6 +13506,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CUSTOM_AUDIENCE_UNSELECT_ALL_CLICK': 25,
         'CUSTOM_AUDIENCE_UPDATED': 20,
         'EXCLUDE_CONTACT_LIST_LAUNCHED': 3,
+        'GROUP_STATUS_CLICKED': 46,
+        'GROUP_STATUS_PICKER_LAUNCHED': 45,
         'INCLUDE_CONTACT_LIST_LAUNCHED': 2,
         'LIST_CONTACT_DESELECTED': 13,
         'LIST_CONTACT_SELECTED': 12,
@@ -16331,9 +16349,16 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'WPBUJ_SOURCE',
         values: Object.freeze({
         'APP_WIDE': 1,
+        'CHAT_LIST_BACKUP_SETUP_PROMPT': 11,
+        'CHAT_LIST_FIX_ENCRYPTION_BANNER': 9,
         'GROUP': 3,
         'LIST': 4,
-        'ONE_TO_ONE': 2
+        'ONE_TO_ONE': 2,
+        'REGISTRATION_RESTORE_SETUP': 10,
+        'SETTINGS_BACKUP_PROVIDER_ROW': 5,
+        'SETTINGS_ENABLE_CLOUD_BACKUPS_BANNER': 8,
+        'SETTINGS_FINISH_BACKUP_SETUP_BANNER': 6,
+        'SETTINGS_FIX_ENCRYPTION_BANNER': 7
         })
     }),
     WPBUJ_SURFACE: Object.freeze({
@@ -16344,6 +16369,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'APPEARANCE_SETTINGS': 11,
         'APP_ICON': 2,
         'APP_THEME': 1,
+        'BACKUP_NEW_USER_SETUP': 16,
+        'BACKUP_PROVIDER_SELECTION': 15,
         'CHAT_THEME': 5,
         'LIST': 4,
         'NOTIFICATION_SETTINGS': 12,
@@ -17065,6 +17092,7 @@ const WA_WAM_EVENTS = Object.freeze({
             aiCreationPersonalityCategorySelect: Object.freeze({ id: 27, type: 'string', falcoName: 'ai_creation_personality_category_select' }),
             aiDiscoveryTab: Object.freeze({ id: 4, type: 'string', falcoName: 'ai_discovery_tab' }),
             aiHomeQpPromotionId: Object.freeze({ id: 53, type: 'integer', falcoName: 'ai_home_qp_promotion_id' }),
+            aiQpPromotionId: Object.freeze({ id: 54, type: 'string', falcoName: 'ai_qp_promotion_id' }),
             aiSessionId: Object.freeze({ id: 18, type: 'string', falcoName: 'ai_session_id' }),
             aiVoiceOnSelectionDefault: Object.freeze({ id: 24, type: 'boolean', falcoName: 'ai_voice_on_selection_default' }),
             aiVoiceSelectionEnum: Object.freeze({ id: 25, type: 'string', falcoName: 'ai_voice_selection_enum' }),
@@ -18143,12 +18171,20 @@ const WA_WAM_EVENTS = Object.freeze({
             hasWorkingDualStackP2p: Object.freeze({ id: 2071, type: 'boolean', falcoName: 'has_working_dual_stack_p2p' }),
             hbhDcBytesReceivedCount: Object.freeze({ id: 3055, type: 'integer', falcoName: 'hbh_dc_bytes_received_count' }),
             hbhDcBytesSentCount: Object.freeze({ id: 3056, type: 'integer', falcoName: 'hbh_dc_bytes_sent_count' }),
+            hbhDcConnectionLostCrash: Object.freeze({ id: 3083, type: 'integer', falcoName: 'hbh_dc_connection_lost_crash' }),
+            hbhDcConnectionLostGoaway: Object.freeze({ id: 3084, type: 'integer', falcoName: 'hbh_dc_connection_lost_goaway' }),
             hbhDcMsgsReceivedCount: Object.freeze({ id: 3057, type: 'integer', falcoName: 'hbh_dc_msgs_received_count' }),
             hbhDcMsgsSentBroadcastCount: Object.freeze({ id: 3069, type: 'integer', falcoName: 'hbh_dc_msgs_sent_broadcast_count' }),
             hbhDcMsgsSentCount: Object.freeze({ id: 3058, type: 'integer', falcoName: 'hbh_dc_msgs_sent_count' }),
             hbhDcMsgsSentRelayOnlyCount: Object.freeze({ id: 3070, type: 'integer', falcoName: 'hbh_dc_msgs_sent_relay_only_count' }),
             hbhDcMsgsSentSelectiveCount: Object.freeze({ id: 3071, type: 'integer', falcoName: 'hbh_dc_msgs_sent_selective_count' }),
+            hbhDcReconnectSuccess: Object.freeze({ id: 3085, type: 'integer', falcoName: 'hbh_dc_reconnect_success' }),
             hbhDcSetupAvgT: Object.freeze({ id: 3059, type: 'timer', falcoName: 'hbh_dc_setup_avg_t' }),
+            hbhDcSframeDecryptCount: Object.freeze({ id: 3086, type: 'integer', falcoName: 'hbh_dc_sframe_decrypt_count' }),
+            hbhDcSframeDecryptFailCount: Object.freeze({ id: 3087, type: 'integer', falcoName: 'hbh_dc_sframe_decrypt_fail_count' }),
+            hbhDcSframeEncryptCount: Object.freeze({ id: 3088, type: 'integer', falcoName: 'hbh_dc_sframe_encrypt_count' }),
+            hbhDcStandbyRearm: Object.freeze({ id: 3089, type: 'integer', falcoName: 'hbh_dc_standby_rearm' }),
+            hbhDcTeardownCount: Object.freeze({ id: 3090, type: 'integer', falcoName: 'hbh_dc_teardown_count' }),
             hbhDtlsConnectionState: Object.freeze({ id: 3060, type: 'enum', enum: 'HBH_DTLS_CONNECTION_STATE', falcoName: 'hbh_dtls_connection_state' }),
             hbhDtlsHandshakeCompletedCount: Object.freeze({ id: 3061, type: 'integer', falcoName: 'hbh_dtls_handshake_completed_count' }),
             hbhDtlsHandshakeFailedCount: Object.freeze({ id: 3062, type: 'integer', falcoName: 'hbh_dtls_handshake_failed_count' }),
@@ -22606,6 +22642,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             groupJid: Object.freeze({ id: 5, type: 'string', falcoName: 'group_jid' }),
+            groupSuspensionAppealEntryPoint: Object.freeze({ id: 7, type: 'enum', enum: 'GROUP_SUSPENSION_APPEAL_ENTRY_POINT', falcoName: 'group_suspension_appeal_entry_point' }),
             groupSuspensionAppealErrorMessage: Object.freeze({ id: 6, type: 'string', falcoName: 'group_suspension_appeal_error_message' }),
             groupSuspensionAppealUiAction: Object.freeze({ id: 1, type: 'enum', enum: 'GROUP_SUSPENSION_APPEAL_UI_ACTION', falcoName: 'group_suspension_appeal_ui_action' }),
             groupSuspensionAppealUiSurface: Object.freeze({ id: 2, type: 'enum', enum: 'GROUP_SUSPENSION_APPEAL_UI_SURFACE', falcoName: 'group_suspension_appeal_ui_surface' }),
@@ -27600,10 +27637,16 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            actionIndex: Object.freeze({ id: 8, type: 'integer', falcoName: 'action_index' }),
             attributionType: Object.freeze({ id: 1, type: 'enum', enum: 'TOP_BAR_ATTRIBUTION_TYPE', falcoName: 'attribution_type' }),
             attributionTypes: Object.freeze({ id: 3, type: 'string', falcoName: 'attribution_types' }),
             externalSourceDomainType: Object.freeze({ id: 5, type: 'enum', enum: 'INLINE_VIDEO_TYPE', falcoName: 'external_source_domain_type' }),
+            linkLoadTime: Object.freeze({ id: 9, type: 'integer', falcoName: 'link_load_time' }),
+            linkOpenResult: Object.freeze({ id: 10, type: 'string', falcoName: 'link_open_result' }),
+            psaCampaignId: Object.freeze({ id: 11, type: 'string', falcoName: 'psa_campaign_id' }),
             statusCategory: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_CATEGORY', falcoName: 'status_category' }),
+            statusId: Object.freeze({ id: 12, type: 'string', falcoName: 'status_id' }),
+            statusViewerSessionId: Object.freeze({ id: 13, type: 'integer', falcoName: 'status_viewer_session_id' }),
             urlStatusClicked: Object.freeze({ id: 6, type: 'enum', enum: 'URL_STATUS_CLICKED', falcoName: 'url_status_clicked' }),
             urlStatusType: Object.freeze({ id: 7, type: 'enum', enum: 'URL_STATUS_TYPE', falcoName: 'url_status_type' }),
             viewerActionType: Object.freeze({ id: 2, type: 'enum', enum: 'STATUS_VIEW_ACTION_TYPE', falcoName: 'viewer_action_type' })

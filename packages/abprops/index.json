@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2182,
+  "propCount": 2185,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -1998,6 +1998,12 @@
     },
     "br_consumer_pix_sync_receive_web_enabled": {
       "code": 33244,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "br_consumer_transactions_date_filter_web_enabled": {
+      "code": 34454,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8830,12 +8836,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "smoothie_performance_css_dom": {
-      "code": 18995,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "smoothie_performance_msg_send": {
       "code": 17942,
       "debugDefaultValue": true,
@@ -9290,6 +9290,12 @@
       "code": 2856,
       "debugDefaultValue": false,
       "defaultValue": false,
+      "type": "bool"
+    },
+    "unknown_user_persistence_logging_enabled": {
+      "code": 34465,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "unknown_user_target_rid_logging": {
@@ -12676,6 +12682,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_self_adv_daily_use_lid": {
+      "code": 34414,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_send_hid_failed_decrypt_in_receipts_enabled": {
       "code": 31113,
       "debugDefaultValue": true,
@@ -13156,6 +13168,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wmi_jm_to_ts_serviced": {
+      "code": 34410,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wmi_task_scheduler_second_step": {
       "code": 30276,
       "debugDefaultValue": false,
@@ -13212,5 +13230,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044515310"
+  "waVersion": "2.3000.1044610476"
 }
