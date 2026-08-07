@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044610476
+// WhatsApp Version: 2.3000.1044699208
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -808,6 +808,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'APP_LOCK_UPSELL': 77,
         'AVATAR_BOTTOMSHEET': 95,
         'AVATAR_DEPRECATION': 106,
+        'BACKUPS_AUTH_ERROR': 123,
         'BACKUP_ERROR': 53,
         'BACKUP_ERROR_GENERIC': 83,
         'BACKUP_ERROR_NOT_ENOUGH_STORAGE': 85,
@@ -2296,7 +2297,9 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'CHANNEL_ENTRY_POINT',
         values: Object.freeze({
         'ADMIN_INVITE_MESSAGE': 11,
+        'ARCHIVED_CHATS': 28,
         'CHANNEL_NOTIFICATIONS_SETTINGS': 26,
+        'CHAT_LIST': 27,
         'DEEPLINK': 4,
         'DIRECTORY': 2,
         'DIRECTORY_CATEGORIES': 14,
@@ -2504,6 +2507,7 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'BROADCAST_LIST': 4,
         'BUSINESS': 3,
+        'CHANNEL': 5,
         'GROUP': 2,
         'INDIVIDUAL': 1
         })
@@ -11165,6 +11169,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLOSE_FRIENDS': 7,
         'CUSTOM_LIST': 8,
         'EVERYONE': 5,
+        'GROUP_STATUS': 9,
         'KNOWN': 6,
         'MY_CONTACTS': 3,
         'MY_CONTACTS_EXCEPT': 4,
@@ -12357,6 +12362,7 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'ALL_CONTACTS': 1,
         'ALL_CONTACTS_EXCEPT': 2,
+        'GROUP_STATUS': 6,
         'ONLY_SHARE_WITH_CLOSE_FRIENDS': 4,
         'ONLY_SHARE_WITH_CONTACTS': 3,
         'ONLY_SHARE_WITH_CUSTOM_LIST': 5
@@ -12483,6 +12489,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'REPLACE_TEXT_WITH_EMOJI': 3,
         'SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION': 30,
         'STATUS_NOTIFICATION_TONE_ID': 29,
+        'STOCK_WALLPAPER_IMAGE_ID': 34,
         'UNREAD_COUNTER_BADGE_DISPLAY_MODE': 5,
         'WALLPAPER_ID': 14
         })
@@ -13550,6 +13557,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLOSE_FRIENDS': 4,
         'CUSTOM_LIST': 5,
         'EXCEPT': 2,
+        'GROUP_STATUS': 6,
         'ONLY_WITH': 3
         })
     }),
@@ -17608,11 +17616,13 @@ const WA_WAM_EVENTS = Object.freeze({
             ca2dExtensionAddT: Object.freeze({ id: 3034, type: 'timer', falcoName: 'ca2d_extension_add_t' }),
             ca2dExtensionConnectionState: Object.freeze({ id: 3035, type: 'enum', enum: 'CA2D_EXTENSION_CONNECTION_STATE', falcoName: 'ca2d_extension_connection_state' }),
             ca2dExtensionCreateT: Object.freeze({ id: 3036, type: 'timer', falcoName: 'ca2d_extension_create_t' }),
+            ca2dFailCount: Object.freeze({ id: 3091, type: 'integer', falcoName: 'ca2d_fail_count' }),
             ca2dNetCathodeSfuRttMs: Object.freeze({ id: 3081, type: 'number', falcoName: 'ca2d_net_cathode_sfu_rtt_ms' }),
             ca2dNetCreatorSfuRttMs: Object.freeze({ id: 3082, type: 'number', falcoName: 'ca2d_net_creator_sfu_rtt_ms' }),
             ca2dPreviewT: Object.freeze({ id: 3037, type: 'timer', falcoName: 'ca2d_preview_t' }),
             ca2dReceiverExtConnectT: Object.freeze({ id: 3074, type: 'timer', falcoName: 'ca2d_receiver_ext_connect_t' }),
             ca2dReceiverFirstFrameT: Object.freeze({ id: 3075, type: 'timer', falcoName: 'ca2d_receiver_first_frame_t' }),
+            ca2dSuccCount: Object.freeze({ id: 3092, type: 'integer', falcoName: 'ca2d_succ_count' }),
             callAcceptFuncT: Object.freeze({ id: 132, type: 'timer', falcoName: 'call_accept_func_t' }),
             callAcceptRcvd: Object.freeze({ id: 2854, type: 'boolean', falcoName: 'call_accept_rcvd' }),
             callAcceptSent: Object.freeze({ id: 2855, type: 'boolean', falcoName: 'call_accept_sent' }),
@@ -26056,6 +26066,8 @@ const WA_WAM_EVENTS = Object.freeze({
             pttAvgNoiseLoudnessReduction: Object.freeze({ id: 12, type: 'number', falcoName: 'ptt_avg_noise_loudness_reduction' }),
             pttAvgSpeechLoudness: Object.freeze({ id: 13, type: 'number', falcoName: 'ptt_avg_speech_loudness' }),
             pttAvgSpeechLoudnessReduction: Object.freeze({ id: 14, type: 'number', falcoName: 'ptt_avg_speech_loudness_reduction' }),
+            pttCaptureSampleRateEffectiveHz: Object.freeze({ id: 56, type: 'integer', falcoName: 'ptt_capture_sample_rate_effective_hz' }),
+            pttCaptureSampleRateRequestedHz: Object.freeze({ id: 57, type: 'integer', falcoName: 'ptt_capture_sample_rate_requested_hz' }),
             pttDraftPlayCnt: Object.freeze({ id: 7, type: 'integer', falcoName: 'ptt_draft_play_cnt' }),
             pttDraftSeekCnt: Object.freeze({ id: 8, type: 'integer', falcoName: 'ptt_draft_seek_cnt' }),
             pttDuration: Object.freeze({ id: 5, type: 'timer', falcoName: 'ptt_duration' }),
@@ -27703,7 +27715,8 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
-            stickerErrorType: Object.freeze({ id: 1, type: 'enum', enum: 'STICKER_ERROR_TYPE', falcoName: 'sticker_error_type' })
+            stickerErrorType: Object.freeze({ id: 1, type: 'enum', enum: 'STICKER_ERROR_TYPE', falcoName: 'sticker_error_type' }),
+            stickerMessageType: Object.freeze({ id: 2, type: 'enum', enum: 'STICKER_SEND_MESSAGE_TYPE', falcoName: 'sticker_message_type' })
         })
     }),
     StickerLatency: Object.freeze({

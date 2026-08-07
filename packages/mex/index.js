@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044610476
+// WhatsApp Version: 2.3000.1044699208
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -66,6 +66,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     E2EEMetadataMailboxLeaveGroup: Object.freeze({ docId: '25248874731435400', clientDocId: '25248874731435400' }),
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ docId: '25059194933691009', clientDocId: '25059194933691009' }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ docId: '25043279768674646', clientDocId: '25043279768674646' }),
+    E2EEMetadataMailboxSetGroupParticipantUpdateMode: Object.freeze({ docId: '25003687469299390', clientDocId: '25003687469299390' }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ docId: '25456033884014560', clientDocId: '25456033884014560' }),
     EBMinosFetchContactKeys: Object.freeze({ docId: '26531892553066563', clientDocId: '26531892553066563' }),
     EBMinosUploadMessages: Object.freeze({ docId: '27566072369743752', clientDocId: '27566072369743752' }),
@@ -259,6 +260,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     E2EEMetadataMailboxLeaveGroup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    E2EEMetadataMailboxSetGroupParticipantUpdateMode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     EBMinosFetchContactKeys: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     EBMinosUploadMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

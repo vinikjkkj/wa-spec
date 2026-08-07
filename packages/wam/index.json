@@ -754,6 +754,7 @@
         "APP_LOCK_UPSELL": 77,
         "AVATAR_BOTTOMSHEET": 95,
         "AVATAR_DEPRECATION": 106,
+        "BACKUPS_AUTH_ERROR": 123,
         "BACKUP_ERROR": 53,
         "BACKUP_ERROR_GENERIC": 83,
         "BACKUP_ERROR_NOT_ENOUGH_STORAGE": 85,
@@ -2242,7 +2243,9 @@
       "module": "WAWebWamEnumChannelEntryPoint",
       "values": {
         "ADMIN_INVITE_MESSAGE": 11,
+        "ARCHIVED_CHATS": 28,
         "CHANNEL_NOTIFICATIONS_SETTINGS": 26,
+        "CHAT_LIST": 27,
         "DEEPLINK": 4,
         "DIRECTORY": 2,
         "DIRECTORY_CATEGORIES": 14,
@@ -2450,6 +2453,7 @@
       "values": {
         "BROADCAST_LIST": 4,
         "BUSINESS": 3,
+        "CHANNEL": 5,
         "GROUP": 2,
         "INDIVIDUAL": 1
       }
@@ -11111,6 +11115,7 @@
         "CLOSE_FRIENDS": 7,
         "CUSTOM_LIST": 8,
         "EVERYONE": 5,
+        "GROUP_STATUS": 9,
         "KNOWN": 6,
         "MY_CONTACTS": 3,
         "MY_CONTACTS_EXCEPT": 4,
@@ -12303,6 +12308,7 @@
       "values": {
         "ALL_CONTACTS": 1,
         "ALL_CONTACTS_EXCEPT": 2,
+        "GROUP_STATUS": 6,
         "ONLY_SHARE_WITH_CLOSE_FRIENDS": 4,
         "ONLY_SHARE_WITH_CONTACTS": 3,
         "ONLY_SHARE_WITH_CUSTOM_LIST": 5
@@ -12429,6 +12435,7 @@
         "REPLACE_TEXT_WITH_EMOJI": 3,
         "SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION": 30,
         "STATUS_NOTIFICATION_TONE_ID": 29,
+        "STOCK_WALLPAPER_IMAGE_ID": 34,
         "UNREAD_COUNTER_BADGE_DISPLAY_MODE": 5,
         "WALLPAPER_ID": 14
       }
@@ -13496,6 +13503,7 @@
         "CLOSE_FRIENDS": 4,
         "CUSTOM_LIST": 5,
         "EXCEPT": 2,
+        "GROUP_STATUS": 6,
         "ONLY_WITH": 3
       }
     },
@@ -20029,6 +20037,11 @@
           "id": 3036,
           "type": "timer"
         },
+        "ca2dFailCount": {
+          "falcoName": "ca2d_fail_count",
+          "id": 3091,
+          "type": "integer"
+        },
         "ca2dNetCathodeSfuRttMs": {
           "falcoName": "ca2d_net_cathode_sfu_rtt_ms",
           "id": 3081,
@@ -20053,6 +20066,11 @@
           "falcoName": "ca2d_receiver_first_frame_t",
           "id": 3075,
           "type": "timer"
+        },
+        "ca2dSuccCount": {
+          "falcoName": "ca2d_succ_count",
+          "id": 3092,
+          "type": "integer"
         },
         "callAcceptFuncT": {
           "falcoName": "call_accept_func_t",
@@ -52885,6 +52903,16 @@
           "id": 14,
           "type": "number"
         },
+        "pttCaptureSampleRateEffectiveHz": {
+          "falcoName": "ptt_capture_sample_rate_effective_hz",
+          "id": 56,
+          "type": "integer"
+        },
+        "pttCaptureSampleRateRequestedHz": {
+          "falcoName": "ptt_capture_sample_rate_requested_hz",
+          "id": 57,
+          "type": "integer"
+        },
         "pttDraftPlayCnt": {
           "falcoName": "ptt_draft_play_cnt",
           "id": 7,
@@ -58894,6 +58922,12 @@
           "enum": "STICKER_ERROR_TYPE",
           "falcoName": "sticker_error_type",
           "id": 1,
+          "type": "enum"
+        },
+        "stickerMessageType": {
+          "enum": "STICKER_SEND_MESSAGE_TYPE",
+          "falcoName": "sticker_message_type",
+          "id": 2,
           "type": "enum"
         }
       },
@@ -66172,7 +66206,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044610476",
+  "waVersion": "2.3000.1044699208",
   "wireFormat": {
     "markers": {
       "event": 1,

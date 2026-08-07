@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2185,
+  "propCount": 2193,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -201,6 +201,12 @@
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_3p_bot_product_nux_notice_id": {
+      "code": 34541,
+      "debugDefaultValue": "20260806",
+      "defaultValue": "20260806",
+      "type": "string"
     },
     "ai_account_linking_enabled": {
       "code": 13856,
@@ -1980,6 +1986,12 @@
     },
     "br_consumer_pix_actions_web_enabled": {
       "code": 33028,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "br_consumer_pix_contact_info_web_enabled": {
+      "code": 34555,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -3972,7 +3984,7 @@
     },
     "device_capabilities_v2_sync_enabled": {
       "code": 33380,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -7606,6 +7618,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "pq_1on1_message_enabled": {
+      "code": 24160,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "pq_keys_upload": {
+      "code": 21198,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "premium_blue_enabled": {
       "code": 5318,
       "debugDefaultValue": false,
@@ -7880,6 +7904,12 @@
       "code": 32910,
       "debugDefaultValue": true,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "rich_format_logging_enabled": {
+      "code": 29428,
+      "debugDefaultValue": false,
+      "defaultValue": false,
       "type": "bool"
     },
     "rich_order_status_wa_web": {
@@ -8980,6 +9010,12 @@
       "defaultValue": 30,
       "type": "int"
     },
+    "status_viewer_action_psa_link_click_logging_enabled": {
+      "code": 34489,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "status_web_ranking": {
       "code": 31666,
       "debugDefaultValue": false,
@@ -9303,6 +9339,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "unknown_user_wam_emit_cooldown_secs": {
+      "code": 34551,
+      "debugDefaultValue": 30,
+      "defaultValue": 30,
+      "type": "int"
     },
     "unknown_user_wam_max_events_per_window": {
       "code": 32946,
@@ -11380,12 +11422,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "wds_web_action_tile_refresh": {
-      "code": 28564,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "wds_web_badge": {
       "code": 27856,
       "debugDefaultValue": true,
@@ -11649,6 +11685,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "web_batched_status_split_to_parts": {
+      "code": 34539,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
     },
     "web_bb_genai_composer_min_words": {
       "code": 32054,
@@ -12736,6 +12778,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_status_batch_size": {
+      "code": 34540,
+      "debugDefaultValue": 500,
+      "defaultValue": 500,
+      "type": "int"
+    },
     "web_status_crossposting_enabled": {
       "code": 21501,
       "debugDefaultValue": false,
@@ -13230,5 +13278,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044610476"
+  "waVersion": "2.3000.1044699208"
 }

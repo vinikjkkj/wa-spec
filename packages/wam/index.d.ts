@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044610476
+// WhatsApp Version: 2.3000.1044699208
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -917,6 +917,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'APP_LOCK_UPSELL': 77;
             readonly 'AVATAR_BOTTOMSHEET': 95;
             readonly 'AVATAR_DEPRECATION': 106;
+            readonly 'BACKUPS_AUTH_ERROR': 123;
             readonly 'BACKUP_ERROR': 53;
             readonly 'BACKUP_ERROR_GENERIC': 83;
             readonly 'BACKUP_ERROR_NOT_ENOUGH_STORAGE': 85;
@@ -2405,7 +2406,9 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'CHANNEL_ENTRY_POINT'
         readonly values: {
             readonly 'ADMIN_INVITE_MESSAGE': 11;
+            readonly 'ARCHIVED_CHATS': 28;
             readonly 'CHANNEL_NOTIFICATIONS_SETTINGS': 26;
+            readonly 'CHAT_LIST': 27;
             readonly 'DEEPLINK': 4;
             readonly 'DIRECTORY': 2;
             readonly 'DIRECTORY_CATEGORIES': 14;
@@ -2613,6 +2616,7 @@ export declare const WA_WAM_ENUMS: {
         readonly values: {
             readonly 'BROADCAST_LIST': 4;
             readonly 'BUSINESS': 3;
+            readonly 'CHANNEL': 5;
             readonly 'GROUP': 2;
             readonly 'INDIVIDUAL': 1
         }
@@ -11274,6 +11278,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLOSE_FRIENDS': 7;
             readonly 'CUSTOM_LIST': 8;
             readonly 'EVERYONE': 5;
+            readonly 'GROUP_STATUS': 9;
             readonly 'KNOWN': 6;
             readonly 'MY_CONTACTS': 3;
             readonly 'MY_CONTACTS_EXCEPT': 4;
@@ -12466,6 +12471,7 @@ export declare const WA_WAM_ENUMS: {
         readonly values: {
             readonly 'ALL_CONTACTS': 1;
             readonly 'ALL_CONTACTS_EXCEPT': 2;
+            readonly 'GROUP_STATUS': 6;
             readonly 'ONLY_SHARE_WITH_CLOSE_FRIENDS': 4;
             readonly 'ONLY_SHARE_WITH_CONTACTS': 3;
             readonly 'ONLY_SHARE_WITH_CUSTOM_LIST': 5
@@ -12592,6 +12598,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'REPLACE_TEXT_WITH_EMOJI': 3;
             readonly 'SHOULD_PLAY_SOUND_FOR_CALL_NOTIFICATION': 30;
             readonly 'STATUS_NOTIFICATION_TONE_ID': 29;
+            readonly 'STOCK_WALLPAPER_IMAGE_ID': 34;
             readonly 'UNREAD_COUNTER_BADGE_DISPLAY_MODE': 5;
             readonly 'WALLPAPER_ID': 14
         }
@@ -13659,6 +13666,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLOSE_FRIENDS': 4;
             readonly 'CUSTOM_LIST': 5;
             readonly 'EXCEPT': 2;
+            readonly 'GROUP_STATUS': 6;
             readonly 'ONLY_WITH': 3
         }
     }
@@ -17845,11 +17853,13 @@ export declare const WA_WAM_EVENTS: {
             readonly ca2dExtensionAddT: { readonly id: 3034; readonly type: 'timer'; readonly falcoName: 'ca2d_extension_add_t' }
             readonly ca2dExtensionConnectionState: { readonly id: 3035; readonly type: 'enum'; readonly enum: 'CA2D_EXTENSION_CONNECTION_STATE'; readonly falcoName: 'ca2d_extension_connection_state' }
             readonly ca2dExtensionCreateT: { readonly id: 3036; readonly type: 'timer'; readonly falcoName: 'ca2d_extension_create_t' }
+            readonly ca2dFailCount: { readonly id: 3091; readonly type: 'integer'; readonly falcoName: 'ca2d_fail_count' }
             readonly ca2dNetCathodeSfuRttMs: { readonly id: 3081; readonly type: 'number'; readonly falcoName: 'ca2d_net_cathode_sfu_rtt_ms' }
             readonly ca2dNetCreatorSfuRttMs: { readonly id: 3082; readonly type: 'number'; readonly falcoName: 'ca2d_net_creator_sfu_rtt_ms' }
             readonly ca2dPreviewT: { readonly id: 3037; readonly type: 'timer'; readonly falcoName: 'ca2d_preview_t' }
             readonly ca2dReceiverExtConnectT: { readonly id: 3074; readonly type: 'timer'; readonly falcoName: 'ca2d_receiver_ext_connect_t' }
             readonly ca2dReceiverFirstFrameT: { readonly id: 3075; readonly type: 'timer'; readonly falcoName: 'ca2d_receiver_first_frame_t' }
+            readonly ca2dSuccCount: { readonly id: 3092; readonly type: 'integer'; readonly falcoName: 'ca2d_succ_count' }
             readonly callAcceptFuncT: { readonly id: 132; readonly type: 'timer'; readonly falcoName: 'call_accept_func_t' }
             readonly callAcceptRcvd: { readonly id: 2854; readonly type: 'boolean'; readonly falcoName: 'call_accept_rcvd' }
             readonly callAcceptSent: { readonly id: 2855; readonly type: 'boolean'; readonly falcoName: 'call_accept_sent' }
@@ -27253,6 +27263,8 @@ export declare const WA_WAM_EVENTS: {
             readonly pttAvgNoiseLoudnessReduction: { readonly id: 12; readonly type: 'number'; readonly falcoName: 'ptt_avg_noise_loudness_reduction' }
             readonly pttAvgSpeechLoudness: { readonly id: 13; readonly type: 'number'; readonly falcoName: 'ptt_avg_speech_loudness' }
             readonly pttAvgSpeechLoudnessReduction: { readonly id: 14; readonly type: 'number'; readonly falcoName: 'ptt_avg_speech_loudness_reduction' }
+            readonly pttCaptureSampleRateEffectiveHz: { readonly id: 56; readonly type: 'integer'; readonly falcoName: 'ptt_capture_sample_rate_effective_hz' }
+            readonly pttCaptureSampleRateRequestedHz: { readonly id: 57; readonly type: 'integer'; readonly falcoName: 'ptt_capture_sample_rate_requested_hz' }
             readonly pttDraftPlayCnt: { readonly id: 7; readonly type: 'integer'; readonly falcoName: 'ptt_draft_play_cnt' }
             readonly pttDraftSeekCnt: { readonly id: 8; readonly type: 'integer'; readonly falcoName: 'ptt_draft_seek_cnt' }
             readonly pttDuration: { readonly id: 5; readonly type: 'timer'; readonly falcoName: 'ptt_duration' }
@@ -29133,6 +29145,7 @@ export declare const WA_WAM_EVENTS: {
         readonly conditions: readonly []
         readonly fields: {
             readonly stickerErrorType: { readonly id: 1; readonly type: 'enum'; readonly enum: 'STICKER_ERROR_TYPE'; readonly falcoName: 'sticker_error_type' }
+            readonly stickerMessageType: { readonly id: 2; readonly type: 'enum'; readonly enum: 'STICKER_SEND_MESSAGE_TYPE'; readonly falcoName: 'sticker_message_type' }
         }
     }
     readonly StickerLatency: {

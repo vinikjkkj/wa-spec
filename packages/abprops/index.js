@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044610476
+// WhatsApp Version: 2.3000.1044699208
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -26,6 +26,7 @@ const WA_ABPROPS = Object.freeze({
     ai_3p_agent_link_enabled: Object.freeze({ code: 31064, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_media_support_mode: Object.freeze({ code: 34393, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     ai_3p_bot_product_chat_rendering_enabled: Object.freeze({ code: 34186, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    ai_3p_bot_product_nux_notice_id: Object.freeze({ code: 34541, type: "string", defaultValue: "20260806", debugDefaultValue: "20260806" }),
     ai_account_linking_enabled: Object.freeze({ code: 13856, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_all_languages_enabled: Object.freeze({ code: 16091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_asset_replacement_enabled: Object.freeze({ code: 28265, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -323,6 +324,7 @@ const WA_ABPROPS = Object.freeze({
     br_consumer_delete_payment_info_web_enabled: Object.freeze({ code: 34062, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_payments_home_web_enabled: Object.freeze({ code: 32968, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_actions_web_enabled: Object.freeze({ code: 33028, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    br_consumer_pix_contact_info_web_enabled: Object.freeze({ code: 34555, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_groups_web_enabled: Object.freeze({ code: 34235, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_sync_receive_enabled: Object.freeze({ code: 33219, type: "bool", defaultValue: false, debugDefaultValue: false }),
     br_consumer_pix_sync_receive_web_enabled: Object.freeze({ code: 33244, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -654,7 +656,7 @@ const WA_ABPROPS = Object.freeze({
     dev_prop_float: Object.freeze({ code: 1067, type: "float", defaultValue: 0, debugDefaultValue: 0 }),
     dev_prop_int: Object.freeze({ code: 1066, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     dev_prop_string: Object.freeze({ code: 1064, type: "string", defaultValue: "", debugDefaultValue: "" }),
-    device_capabilities_v2_sync_enabled: Object.freeze({ code: 33380, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    device_capabilities_v2_sync_enabled: Object.freeze({ code: 33380, type: "bool", defaultValue: false, debugDefaultValue: false }),
     device_switching_enabled: Object.freeze({ code: 3205, type: "bool", defaultValue: false, debugDefaultValue: false }),
     dialer_pad_for_new_chats: Object.freeze({ code: 18688, type: "bool", defaultValue: false, debugDefaultValue: false }),
     direct_connection_business_numbers: Object.freeze({ code: 1846, type: "string", defaultValue: "16005554444,918591749310,917977079770", debugDefaultValue: "16005554444,918591749310,917977079770" }),
@@ -1260,6 +1262,8 @@ const WA_ABPROPS = Object.freeze({
     poll_result_snapshot_polltype_envelope_enabled: Object.freeze({ code: 12258, type: "bool", defaultValue: false, debugDefaultValue: true }),
     poll_tc_receiving_enabled: Object.freeze({ code: 31592, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_tc_sending_enabled: Object.freeze({ code: 31593, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    pq_1on1_message_enabled: Object.freeze({ code: 24160, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    pq_keys_upload: Object.freeze({ code: 21198, type: "bool", defaultValue: false, debugDefaultValue: false }),
     premium_blue_enabled: Object.freeze({ code: 5318, type: "bool", defaultValue: false, debugDefaultValue: false }),
     premium_broadcast_smb_capping_enabled: Object.freeze({ code: 13808, type: "bool", defaultValue: false, debugDefaultValue: true }),
     premium_msg_bb_campaign_sync_enabled: Object.freeze({ code: 29650, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1306,6 +1310,7 @@ const WA_ABPROPS = Object.freeze({
     report_to_admin_kill_switch: Object.freeze({ code: 3695, type: "bool", defaultValue: false, debugDefaultValue: true }),
     reuse_cached_certs_for_data_channel: Object.freeze({ code: 12913, type: "bool", defaultValue: false, debugDefaultValue: true }),
     reveal_username_non_linking_rejection_reason_enabled: Object.freeze({ code: 32910, type: "bool", defaultValue: true, debugDefaultValue: true }),
+    rich_format_logging_enabled: Object.freeze({ code: 29428, type: "bool", defaultValue: false, debugDefaultValue: false }),
     rich_order_status_wa_web: Object.freeze({ code: 16534, type: "bool", defaultValue: false, debugDefaultValue: false }),
     rnr_days_cooldown: Object.freeze({ code: 18703, type: "int", defaultValue: 100000, debugDefaultValue: 100000 }),
     rnr_min_days_user_active: Object.freeze({ code: 18702, type: "int", defaultValue: 2, debugDefaultValue: 2 }),
@@ -1489,6 +1494,7 @@ const WA_ABPROPS = Object.freeze({
     status_reaction_emojis: Object.freeze({ code: 1852, type: "string", defaultValue: "[128525, 128514, 128558, 128546, 128591, 128079, 127881, 128175]", debugDefaultValue: "[128525, 128514, 128558, 128546, 128591, 128079, 127881, 128175]" }),
     status_save_to_camera_roll_enabled: Object.freeze({ code: 13280, type: "bool", defaultValue: false, debugDefaultValue: true }),
     status_video_max_duration: Object.freeze({ code: 175, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
+    status_viewer_action_psa_link_click_logging_enabled: Object.freeze({ code: 34489, type: "bool", defaultValue: false, debugDefaultValue: true }),
     status_web_ranking: Object.freeze({ code: 31666, type: "bool", defaultValue: false, debugDefaultValue: false }),
     sticker_store_testing_enabled: Object.freeze({ code: 25639, type: "bool", defaultValue: false, debugDefaultValue: false }),
     stickers_emoji_tagging_enabled: Object.freeze({ code: 26465, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1543,6 +1549,7 @@ const WA_ABPROPS = Object.freeze({
     unify_end_call_events: Object.freeze({ code: 2856, type: "bool", defaultValue: false, debugDefaultValue: false }),
     unknown_user_persistence_logging_enabled: Object.freeze({ code: 34465, type: "bool", defaultValue: true, debugDefaultValue: true }),
     unknown_user_target_rid_logging: Object.freeze({ code: 34232, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    unknown_user_wam_emit_cooldown_secs: Object.freeze({ code: 34551, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
     unknown_user_wam_max_events_per_window: Object.freeze({ code: 32946, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     updated_harmful_document_dialog: Object.freeze({ code: 15022, type: "bool", defaultValue: false, debugDefaultValue: true }),
     updates_privacy_notice_rollout_date: Object.freeze({ code: 14387, type: "int", defaultValue: 1742310000, debugDefaultValue: 1742310000 }),
@@ -1889,7 +1896,6 @@ const WA_ABPROPS = Object.freeze({
     waweb_enable_legacy_image_zoom: Object.freeze({ code: 27239, type: "bool", defaultValue: false, debugDefaultValue: false }),
     waweb_status_close_friends_viewer_side_enabled: Object.freeze({ code: 26659, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wds_radius_and_casing: Object.freeze({ code: 3350, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    wds_web_action_tile_refresh: Object.freeze({ code: 28564, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wds_web_badge: Object.freeze({ code: 27856, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wds_web_chip: Object.freeze({ code: 20970, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wds_web_composer_toolbar_v2: Object.freeze({ code: 26773, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1934,6 +1940,7 @@ const WA_ABPROPS = Object.freeze({
     web_autodownload_stickers: Object.freeze({ code: 7422, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_background_sync_v2: Object.freeze({ code: 8782, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_batched_status_sending_enabled: Object.freeze({ code: 34366, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_batched_status_split_to_parts: Object.freeze({ code: 34539, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_bb_genai_composer_min_words: Object.freeze({ code: 32054, type: "int", defaultValue: 4, debugDefaultValue: 4 }),
     web_biz_profile_options: Object.freeze({ code: 14881, type: "int", defaultValue: 116, debugDefaultValue: 116 }),
     web_biz_quality_telemetry_enabled: Object.freeze({ code: 27855, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2115,6 +2122,7 @@ const WA_ABPROPS = Object.freeze({
     web_show_to_hide_enabled: Object.freeze({ code: 27958, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_signal_future_messages_max: Object.freeze({ code: 12509, type: "int", defaultValue: 20000, debugDefaultValue: 20000 }),
     web_socket_parallel_connection_enabled: Object.freeze({ code: 8019, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_status_batch_size: Object.freeze({ code: 34540, type: "int", defaultValue: 500, debugDefaultValue: 500 }),
     web_status_crossposting_enabled: Object.freeze({ code: 21501, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_status_likes_send_v2_enabled: Object.freeze({ code: 26470, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_status_ranking: Object.freeze({ code: 31683, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -3242,6 +3250,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     21139: "ai_rewrite_languages_and_tones_config",
     21156: "chatlist_prevent_autoread",
     21184: "enable_sharing_files_from_web_windows_hybrid",
+    21198: "pq_keys_upload",
     21235: "paa_support_for_disabled_epehemerality",
     21250: "web_navigation_bar_updates_tab",
     21261: "group_history_settings",
@@ -3407,6 +3416,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     24114: "biz_ai_agent_3p_store_links_enabled",
     24133: "lists_chat_list_row_pill_enabled",
     24147: "web_history_sync_worker_enabled",
+    24160: "pq_1on1_message_enabled",
     24161: "bug_reporting_using_graphql",
     24173: "wavoip_ml_transport_download_versions",
     24174: "wavoip_ml_nadl_model_download_versions",
@@ -3876,7 +3886,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     28552: "biz_ai_tools_settings",
     28557: "wds_web_dialog",
     28558: "mm_optimized_delivery_archive_signal_sharing_enabled",
-    28564: "wds_web_action_tile_refresh",
     28572: "mm_disclosure_handle_tos_failures_enabled",
     28573: "web_biz_simple_signal_enabled",
     28574: "web_biz_quality_telemetry_message_reads_enabled",
@@ -3949,6 +3958,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     29396: "web_read_self_watermark_receive_store_ts",
     29405: "web_anr_spinner_gpu_animation",
     29417: "enable_events_v2_add_to_calendar",
+    29428: "rich_format_logging_enabled",
     29457: "wa_web_chat_themes_logging",
     29458: "bug_reporting_not_shipped_yet_enabled",
     29460: "web_anr_async_sqlite_bridge_operations",
@@ -4399,7 +4409,13 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34410: "wmi_jm_to_ts_serviced",
     34414: "web_self_adv_daily_use_lid",
     34454: "br_consumer_transactions_date_filter_web_enabled",
-    34465: "unknown_user_persistence_logging_enabled"
+    34465: "unknown_user_persistence_logging_enabled",
+    34489: "status_viewer_action_psa_link_click_logging_enabled",
+    34539: "web_batched_status_split_to_parts",
+    34540: "web_status_batch_size",
+    34541: "ai_3p_bot_product_nux_notice_id",
+    34551: "unknown_user_wam_emit_cooldown_secs",
+    34555: "br_consumer_pix_contact_info_web_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

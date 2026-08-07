@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044610476
+// WhatsApp Version: 2.3000.1044699208
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -78,6 +78,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexPersistId
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
+    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
     readonly EBMinosFetchContactKeys: WaMexPersistId
     readonly EBMinosUploadMessages: WaMexPersistId
@@ -271,6 +272,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EBMinosFetchContactKeys: WaMexOperationSchema<'query', readonly ['input']>
     readonly EBMinosUploadMessages: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -748,6 +750,10 @@ export type WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables = {
 }
 
 export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
@@ -1630,6 +1636,7 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexE2EEMetadataMailboxLeaveGroupVariables
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
+    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysVariables
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesVariables
@@ -2822,6 +2829,12 @@ export type WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse = {
 
 export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse = {
     readonly xfb_e2ee_metadata_mailbox_remove_group_participants?: {
+        readonly success?: boolean
+    }
+}
+
+export type WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeResponse = {
+    readonly xfb_e2ee_metadata_mailbox_set_group_participant_update_mode?: {
         readonly success?: boolean
     }
 }
@@ -5664,6 +5677,7 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxLeaveGroup: WaMexE2EEMetadataMailboxLeaveGroupResponse
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
+    readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysResponse
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesResponse

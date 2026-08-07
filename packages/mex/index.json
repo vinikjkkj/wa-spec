@@ -1961,6 +1961,22 @@
         "input": {}
       }
     },
+    "E2EEMetadataMailboxSetGroupParticipantUpdateMode": {
+      "docId": "25003687469299390",
+      "operationKind": "mutation",
+      "originalName": "E2EEMetadataMailboxSetGroupParticipantUpdateModeMutation",
+      "response": {
+        "xfb_e2ee_metadata_mailbox_set_group_participant_update_mode": {
+          "success": "boolean"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
     "E2EEMetadataMailboxSetGroupSubject": {
       "docId": "25456033884014560",
       "operationKind": "mutation",
@@ -6763,5 +6779,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1044610476"
+  "waVersion": "2.3000.1044699208"
 }
