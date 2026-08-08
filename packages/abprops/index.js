@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044699208
+// WhatsApp Version: 2.3000.1044776264
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -187,6 +187,7 @@ const WA_ABPROPS = Object.freeze({
     ai_voice_entry_point_logging_enabled: Object.freeze({ code: 13247, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_voice_multimodal_composer_enabled: Object.freeze({ code: 12692, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_web_ask_meta_ai_enabled: Object.freeze({ code: 23725, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_web_ask_meta_ai_improvement_enabled: Object.freeze({ code: 34586, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_web_ask_meta_ai_media_forward_enabled: Object.freeze({ code: 34257, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_web_forward_flow_enabled: Object.freeze({ code: 19676, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_web_meta_ai_image_input_enabled: Object.freeze({ code: 20522, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -733,6 +734,7 @@ const WA_ABPROPS = Object.freeze({
     enable_init_bwe_for_group_call: Object.freeze({ code: 2601, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_join_group_context_non_auto_expose: Object.freeze({ code: 30282, type: "bool", defaultValue: false, debugDefaultValue: true }),
     enable_join_ongoing_call_refactor: Object.freeze({ code: 34093, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    enable_lanczos_upscaler_for_vod_bitmap: Object.freeze({ code: 34626, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     enable_lazy_loading_of_call_view_elements: Object.freeze({ code: 5053, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_lid_call_link: Object.freeze({ code: 8180, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_logging_qbm_incoming_message: Object.freeze({ code: 25149, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1045,6 +1047,7 @@ const WA_ABPROPS = Object.freeze({
     message_edit_to_message_secret_sender_enabled: Object.freeze({ code: 16057, type: "bool", defaultValue: false, debugDefaultValue: false }),
     message_edit_window_duration_seconds: Object.freeze({ code: 2983, type: "int", defaultValue: 1200, debugDefaultValue: 1200 }),
     message_keys_async_chunk_size: Object.freeze({ code: 22815, type: "int", defaultValue: 50, debugDefaultValue: 50 }),
+    message_partial_selection_in_bubble: Object.freeze({ code: 34585, type: "bool", defaultValue: false, debugDefaultValue: false }),
     message_partial_selection_m2: Object.freeze({ code: 32142, type: "bool", defaultValue: false, debugDefaultValue: false }),
     meta_ai_in_app_survey_enabled: Object.freeze({ code: 17956, type: "bool", defaultValue: false, debugDefaultValue: true }),
     meta_catalog_linking_m2_enabled: Object.freeze({ code: 11029, type: "bool", defaultValue: true, debugDefaultValue: true }),
@@ -1085,6 +1088,7 @@ const WA_ABPROPS = Object.freeze({
     mm_user_controls_entry_points_update_m1_menu: Object.freeze({ code: 20381, type: "bool", defaultValue: false, debugDefaultValue: true }),
     mm_user_controls_exception_number_prefixes: Object.freeze({ code: 13999, type: "string", defaultValue: "", debugDefaultValue: "" }),
     mm_user_controls_exposure: Object.freeze({ code: 13510, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    mm_user_controls_unified_stop_enabled: Object.freeze({ code: 34622, type: "bool", defaultValue: false, debugDefaultValue: false }),
     mms_vcache_aggregation_enabled: Object.freeze({ code: 2134, type: "bool", defaultValue: false, debugDefaultValue: false }),
     music_ohai_proxy_url: Object.freeze({ code: 10975, type: "string", defaultValue: "https://meta-ohttp-relay-prod.fastly-edge.com/", debugDefaultValue: "https://meta-ohttp-relay-prod.fastly-edge.com/" }),
     native_contact_companion_change_enabled: Object.freeze({ code: 7301, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1263,7 +1267,9 @@ const WA_ABPROPS = Object.freeze({
     poll_tc_receiving_enabled: Object.freeze({ code: 31592, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_tc_sending_enabled: Object.freeze({ code: 31593, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pq_1on1_message_enabled: Object.freeze({ code: 24160, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    pq_batch_upload_size: Object.freeze({ code: 21201, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     pq_keys_upload: Object.freeze({ code: 21198, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    pq_max_keys_on_server: Object.freeze({ code: 21200, type: "int", defaultValue: 200, debugDefaultValue: 200 }),
     premium_blue_enabled: Object.freeze({ code: 5318, type: "bool", defaultValue: false, debugDefaultValue: false }),
     premium_broadcast_smb_capping_enabled: Object.freeze({ code: 13808, type: "bool", defaultValue: false, debugDefaultValue: true }),
     premium_msg_bb_campaign_sync_enabled: Object.freeze({ code: 29650, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -3251,6 +3257,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     21156: "chatlist_prevent_autoread",
     21184: "enable_sharing_files_from_web_windows_hybrid",
     21198: "pq_keys_upload",
+    21200: "pq_max_keys_on_server",
+    21201: "pq_batch_upload_size",
     21235: "paa_support_for_disabled_epehemerality",
     21250: "web_navigation_bar_updates_tab",
     21261: "group_history_settings",
@@ -4415,7 +4423,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34540: "web_status_batch_size",
     34541: "ai_3p_bot_product_nux_notice_id",
     34551: "unknown_user_wam_emit_cooldown_secs",
-    34555: "br_consumer_pix_contact_info_web_enabled"
+    34555: "br_consumer_pix_contact_info_web_enabled",
+    34585: "message_partial_selection_in_bubble",
+    34586: "ai_web_ask_meta_ai_improvement_enabled",
+    34622: "mm_user_controls_unified_stop_enabled",
+    34626: "enable_lanczos_upscaler_for_vod_bitmap"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

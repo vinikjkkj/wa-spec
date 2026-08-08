@@ -2662,7 +2662,7 @@
       }
     },
     "FetchNewChatMessageCappingInfo": {
-      "docId": "24503548349331633",
+      "docId": "27910975521856601",
       "operationKind": "query",
       "originalName": "WAWebMexFetchNewChatMessageCappingInfoJobQuery",
       "response": {
@@ -2673,6 +2673,10 @@
           "mv_status": "string",
           "ote_status": "string",
           "server_sent_timestamp": "string",
+          "subscription_status": {
+            "name": "string",
+            "status": "string"
+          },
           "total_quota": "string",
           "used_quota": "string"
         }
@@ -4570,10 +4574,11 @@
       }
     },
     "MAIBAMessageCreatorCardsRenderer": {
-      "docId": "36432502426395085",
+      "docId": "26498781939820146",
       "operationKind": "query",
       "originalName": "MAIBAMessageCreatorCardsRendererQuery",
       "response": {
+        "cam_ai_search_brand_ig_asset_id": "string",
         "cam_ai_search_creators_by_ids": [
           {
             "creator_igid": "unknown",
@@ -6779,5 +6784,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1044699208"
+  "waVersion": "2.3000.1044776264"
 }

@@ -1405,6 +1405,7 @@
       "module": "WAWebWamEnumCa2dExtensionAddFailureReason",
       "values": {
         "ADD_EXTENSION_NACK": 3,
+        "CONNECTING_TIMEOUT": 7,
         "FIRST_FRAME_TIMEOUT": 6,
         "OHAI_REQ_HTTP_ERROR": 4,
         "OHAI_REQ_NACK": 2,
@@ -2256,6 +2257,7 @@
         "LINK": 3,
         "MEDIA_BROWSER": 12,
         "MUSIC_ATTRIBUTION_BOTTOM_SHEET_FROM_CHAT": 25,
+        "NEWSLETTER_CREATION_CHAT_LIST": 29,
         "NEWSLETTER_CREATION_DIRECTORY": 22,
         "NEWSLETTER_CREATION_DIRECTORY_CATEGORIES": 23,
         "NEWSLETTER_CREATION_UPDATES_TAB": 21,
@@ -7431,6 +7433,7 @@
         "LWI_ACTION_WINBACK_AD_CREATION_UNDERSTANDING_RESULTS_IMPRESSION": 520,
         "LWI_ACTION_WINBACK_AUTO_OPEN_SUPPRESSED": 536,
         "LWI_ACTION_WINBACK_RECREATE_AD_CLICK": 534,
+        "LWI_ACTION_WINBACK_RECREATE_FLOW_STARTED": 541,
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_DISMISS": 533,
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_IMPRESSION": 531,
         "LWI_ACTION_WINBACK_THRESHOLD_BOTTOMSHEET_LOADING_ERROR": 538,
@@ -8237,6 +8240,7 @@
         "MIXED_COLLECTION": 76,
         "MOTION_PHOTO": 68,
         "MOTION_VIDEO": 69,
+        "MUSIC": 80,
         "MUSIC_ARTWORK": 66,
         "NONE": 1,
         "ORDER": 24,
@@ -9338,6 +9342,7 @@
       "values": {
         "IN_APP": 3,
         "MAIN_APP": 2,
+        "MAIN_APP_FOREGROUND": 5,
         "PUSH_TRIGGERED": 1,
         "VOIP_PUSH_TRIGGERED": 4
       }
@@ -9939,6 +9944,7 @@
         "GET_PLANS": 47,
         "GET_PURPOSE_LIMITING_KEY": 60,
         "GET_RECENT_BILLS": 44,
+        "GET_SMS_CONTENT_AND_VMN": 68,
         "GET_TOKEN": 2,
         "GET_TRANSACTIONS": 11,
         "GET_UPI_LITE_DETAILS": 67,
@@ -10145,6 +10151,7 @@
         "LINK_PARTNER_ACCOUNT": 142,
         "LINK_THIS_ACCOUNT": 101,
         "LOGIN_BUTTON": 73,
+        "MANAGE_PIX_KEYS": 374,
         "MANAGE_RECENT_OPERATOR": 269,
         "MARK_AS_PAID_BUTTON": 346,
         "MARK_SPLIT_PAID": 325,
@@ -10189,7 +10196,6 @@
         "PASSKEY_TOGGLE_ON": 309,
         "PASSKEY_UPSELL_DISMISS": 314,
         "PAUSE_BUTTON": 117,
-        "PAYMENTS_HOME_MANAGE_PIX_KEYS": 374,
         "PAYMENTS_HOME_PIX_AREA": 353,
         "PAYMENTS_HOME_PIX_KEY": 256,
         "PAYMENTS_HOME_REQUEST_PAYMENT": 255,
@@ -14479,6 +14485,7 @@
       "export": "TOP_BAR_ATTRIBUTION_TYPE",
       "module": "WAWebWamEnumTopBarAttributionType",
       "values": {
+        "AI_CONTENT": 20,
         "AI_CREATED": 14,
         "CHANNEL": 5,
         "CHANNEL_STATUS": 17,
@@ -19514,6 +19521,51 @@
           "id": 2876,
           "type": "integer"
         },
+        "auxVideoNackRtpRetransmitRecvdCount": {
+          "falcoName": "aux_video_nack_rtp_retransmit_recvd_count",
+          "id": 3094,
+          "type": "integer"
+        },
+        "auxVideoNackRtpRetransmitReqCount": {
+          "falcoName": "aux_video_nack_rtp_retransmit_req_count",
+          "id": 3095,
+          "type": "integer"
+        },
+        "auxVideoNackRtpRetransmitRetryCount": {
+          "falcoName": "aux_video_nack_rtp_retransmit_retry_count",
+          "id": 3096,
+          "type": "integer"
+        },
+        "auxVideoRenderFreeze2xT": {
+          "falcoName": "aux_video_render_freeze2x_t",
+          "id": 3097,
+          "type": "timer"
+        },
+        "auxVideoRenderFreeze4xT": {
+          "falcoName": "aux_video_render_freeze4x_t",
+          "id": 3098,
+          "type": "timer"
+        },
+        "auxVideoRenderFreeze8xT": {
+          "falcoName": "aux_video_render_freeze8x_t",
+          "id": 3099,
+          "type": "timer"
+        },
+        "auxVideoRenderFreezeT": {
+          "falcoName": "aux_video_render_freeze_t",
+          "id": 3100,
+          "type": "timer"
+        },
+        "auxVideoRxFecBitrate": {
+          "falcoName": "aux_video_rx_fec_bitrate",
+          "id": 3101,
+          "type": "number"
+        },
+        "auxVideoRxRtcpPli": {
+          "falcoName": "aux_video_rx_rtcp_pli",
+          "id": 3102,
+          "type": "integer"
+        },
         "avAvgDelta": {
           "falcoName": "av_avg_delta",
           "id": 192,
@@ -20004,6 +20056,11 @@
           "falcoName": "c50_linked",
           "id": 3001,
           "type": "boolean"
+        },
+        "ca2dAttemptCount": {
+          "falcoName": "ca2d_attempt_count",
+          "id": 3093,
+          "type": "integer"
         },
         "ca2dE2eNetworkDelayMs": {
           "falcoName": "ca2d_e2e_network_delay_ms",
@@ -22067,6 +22124,11 @@
           "id": 1882,
           "type": "boolean"
         },
+        "dualStreamCameraAutoOffReason": {
+          "falcoName": "dual_stream_camera_auto_off_reason",
+          "id": 3103,
+          "type": "integer"
+        },
         "durationInMcp": {
           "falcoName": "duration_in_mcp",
           "id": 2190,
@@ -23467,6 +23529,16 @@
           "id": 2643,
           "type": "boolean"
         },
+        "isDualStreamBackwardRendering": {
+          "falcoName": "is_dual_stream_backward_rendering",
+          "id": 3104,
+          "type": "boolean"
+        },
+        "isDualStreamSs": {
+          "falcoName": "is_dual_stream_ss",
+          "id": 3105,
+          "type": "boolean"
+        },
         "isEventsLink": {
           "falcoName": "is_events_link",
           "id": 1928,
@@ -23931,6 +24003,26 @@
           "falcoName": "last_mic_mode",
           "id": 2665,
           "type": "integer"
+        },
+        "lastMinAuxVideoRenderFreeze2xT": {
+          "falcoName": "last_min_aux_video_render_freeze2x_t",
+          "id": 3106,
+          "type": "timer"
+        },
+        "lastMinAuxVideoRenderFreeze4xT": {
+          "falcoName": "last_min_aux_video_render_freeze4x_t",
+          "id": 3107,
+          "type": "timer"
+        },
+        "lastMinAuxVideoRenderFreeze8xT": {
+          "falcoName": "last_min_aux_video_render_freeze8x_t",
+          "id": 3108,
+          "type": "timer"
+        },
+        "lastMinAuxVideoRenderFreezeT": {
+          "falcoName": "last_min_aux_video_render_freeze_t",
+          "id": 3109,
+          "type": "timer"
         },
         "lastMinJbAvgDelay": {
           "falcoName": "last_min_jb_avg_delay",
@@ -30748,6 +30840,11 @@
           "id": 169,
           "type": "number"
         },
+        "videoRxBitrateCombined": {
+          "falcoName": "video_rx_bitrate_combined",
+          "id": 3110,
+          "type": "number"
+        },
         "videoRxBitrateDominantSpeaker": {
           "falcoName": "video_rx_bitrate_dominant_speaker",
           "id": 2187,
@@ -30871,6 +30968,11 @@
         "videoRxTotalBytes": {
           "falcoName": "video_rx_total_bytes",
           "id": 168,
+          "type": "number"
+        },
+        "videoRxTotalBytesSs": {
+          "falcoName": "video_rx_total_bytes_ss",
+          "id": 3111,
           "type": "number"
         },
         "videoScalPsnrP5": {
@@ -42280,6 +42382,21 @@
         "numberOfPnOnlyGroupsNotMember": {
           "falcoName": "number_of_pn_only_groups_not_member",
           "id": 20,
+          "type": "integer"
+        },
+        "numberOfPnOnlyGroupsNotMemberAllMapped": {
+          "falcoName": "number_of_pn_only_groups_not_member_all_mapped",
+          "id": 21,
+          "type": "integer"
+        },
+        "numberOfPnOnlyGroupsNotMemberUnmappedContacts": {
+          "falcoName": "number_of_pn_only_groups_not_member_unmapped_contacts",
+          "id": 22,
+          "type": "integer"
+        },
+        "numberOfPnOnlyGroupsNotMemberUnmappedOutContacts": {
+          "falcoName": "number_of_pn_only_groups_not_member_unmapped_out_contacts",
+          "id": 23,
           "type": "integer"
         },
         "numberOfPnhCtwaThreadsKnownMapping": {
@@ -66206,7 +66323,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044699208",
+  "waVersion": "2.3000.1044776264",
   "wireFormat": {
     "markers": {
       "event": 1,

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1044699208
+/// WhatsApp Version: 2.3000.1044776264
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2742,6 +2742,7 @@ message DeviceCapabilities {
     optional MemberNameTagPrimarySupport memberNameTagPrimarySupport = 5;
     optional AiThread aiThread = 6;
     optional AiFbidMigration aiFbidMigration = 7;
+    optional BizAiSettingsSync bizAiSettingsSync = 8;
     enum MemberNameTagPrimarySupport {
         DISABLED = 0;
         RECEIVER_ENABLED = 1;
@@ -2751,6 +2752,9 @@ message DeviceCapabilities {
         NONE = 0;
         MINIMAL = 1;
         FULL = 2;
+    }
+    message BizAiSettingsSync {
+        optional bool handoffRemovalTimingEnabled = 1;
     }
     message AiFbidMigration {
         optional uint64 chatDbMigrationTimestamp = 1;
@@ -5155,6 +5159,7 @@ message Message {
         optional ContextInfo contextInfo = 5;
         enum MusicMessageStyle {
             UNKNOWN = 0;
+            VINYL = 1;
         }
     }
     message AudioMessage {
@@ -7607,6 +7612,7 @@ message SyncActionValue {
             INVITES = 14;
             THIRD_PARTY = 15;
             LEAD = 16;
+            MENTIONS_AND_REPLIES = 17;
         }
     }
     message LabelSublistAction {

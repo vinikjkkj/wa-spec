@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044699208
+// WhatsApp Version: 2.3000.1044776264
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -3299,6 +3299,10 @@ export type WaMexFetchNewChatMessageCappingInfoResponse = {
         readonly mv_status?: string
         readonly ote_status?: string
         readonly server_sent_timestamp?: string
+        readonly subscription_status?: {
+            readonly name?: string
+            readonly status?: string
+        }
         readonly total_quota?: string
         readonly used_quota?: string
     }
@@ -4399,6 +4403,7 @@ export type WaMexMAIBAInlineAssetSelectorWidgetAssetsResponse = {
 }
 
 export type WaMexMAIBAMessageCreatorCardsRendererResponse = {
+    readonly cam_ai_search_brand_ig_asset_id?: string
     readonly cam_ai_search_creators_by_ids?: ReadonlyArray<{
         readonly creator_igid?: unknown
         readonly creator_profile_materialized?: {

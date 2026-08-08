@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044699208
+// WhatsApp Version: 2.3000.1044776264
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -84,7 +84,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchGroupInviteCode: Object.freeze({ docId: '29247029834912157', clientDocId: '29247029834912157' }),
     FetchGroupIsInternal: Object.freeze({ docId: '34119218944390847', clientDocId: '34119218944390847' }),
     FetchIntegritySignals: Object.freeze({ docId: '26438847999065394', clientDocId: '26438847999065394' }),
-    FetchNewChatMessageCappingInfo: Object.freeze({ docId: '24503548349331633', clientDocId: '24503548349331633' }),
+    FetchNewChatMessageCappingInfo: Object.freeze({ docId: '27910975521856601', clientDocId: '27910975521856601' }),
     FetchNewsletter: Object.freeze({ docId: '27456920720571478', clientDocId: '27456920720571478' }),
     FetchNewsletterAdminCapabilities: Object.freeze({ docId: '9801384413216421', clientDocId: '9801384413216421' }),
     FetchNewsletterAdminInfo: Object.freeze({ docId: '26278439461859188', clientDocId: '26278439461859188' }),
@@ -132,7 +132,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     LogNewsletterExposures: Object.freeze({ docId: '25260800823586918', clientDocId: '25260800823586918' }),
     MAIBAInlineAssetSelectorWidgetAssetIDs: Object.freeze({ docId: '35972847782361891', clientDocId: '35972847782361891' }),
     MAIBAInlineAssetSelectorWidgetAssets: Object.freeze({ docId: '35544094851905356', clientDocId: '35544094851905356' }),
-    MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '36432502426395085', clientDocId: '36432502426395085' }),
+    MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '26498781939820146', clientDocId: '26498781939820146' }),
     MAIBAMessageLiveBrowserRendererScreenshot: Object.freeze({ docId: '26819206974436266', clientDocId: '26819206974436266' }),
     MAIBAMessagePLEDisclaimerContentPFR: Object.freeze({ docId: '26833985386252659', clientDocId: '26833985386252659' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),

@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2193,
+  "propCount": 2199,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -1165,6 +1165,12 @@
     "ai_web_ask_meta_ai_enabled": {
       "code": 23725,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_web_ask_meta_ai_improvement_enabled": {
+      "code": 34586,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -4444,6 +4450,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "enable_lanczos_upscaler_for_vod_bitmap": {
+      "code": 34626,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "enable_lazy_loading_of_call_view_elements": {
       "code": 5053,
       "debugDefaultValue": false,
@@ -6316,6 +6328,12 @@
       "defaultValue": 50,
       "type": "int"
     },
+    "message_partial_selection_in_bubble": {
+      "code": 34585,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "message_partial_selection_m2": {
       "code": 32142,
       "debugDefaultValue": false,
@@ -6552,6 +6570,12 @@
     },
     "mm_user_controls_exposure": {
       "code": 13510,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "mm_user_controls_unified_stop_enabled": {
+      "code": 34622,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -7624,11 +7648,23 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "pq_batch_upload_size": {
+      "code": 21201,
+      "debugDefaultValue": 10,
+      "defaultValue": 10,
+      "type": "int"
+    },
     "pq_keys_upload": {
       "code": 21198,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "pq_max_keys_on_server": {
+      "code": 21200,
+      "debugDefaultValue": 200,
+      "defaultValue": 200,
+      "type": "int"
     },
     "premium_blue_enabled": {
       "code": 5318,
@@ -13278,5 +13314,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044699208"
+  "waVersion": "2.3000.1044776264"
 }
