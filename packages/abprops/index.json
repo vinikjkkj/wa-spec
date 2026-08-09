@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2199,
+  "propCount": 2200,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -354,7 +354,7 @@
     },
     "ai_chat_threads_web_enabled": {
       "code": 23169,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -4832,6 +4832,12 @@
       "code": 33539,
       "debugDefaultValue": true,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "enable_web_voip_webtransport_group_calls": {
+      "code": 34645,
+      "debugDefaultValue": true,
+      "defaultValue": false,
       "type": "bool"
     },
     "enable_web_voip_worker_pool_reclaim_on_rejoin": {
@@ -13314,5 +13320,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044776264"
+  "waVersion": "2.3000.1044805427"
 }

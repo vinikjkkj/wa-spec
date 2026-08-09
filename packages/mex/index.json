@@ -1993,6 +1993,35 @@
         "input": {}
       }
     },
+    "EBMessageMetadataQuery": {
+      "docId": "28525853583670706",
+      "operationKind": "query",
+      "originalName": "EBMessageMetadataQueryQuery",
+      "response": {
+        "viewer": {
+          "encrypted_backup": {
+            "id": "string",
+            "mailbox": {
+              "deanon_messages_metadata": [
+                {
+                  "admin_message": "string",
+                  "is_admin_message": "boolean",
+                  "offline_threading_id": "string",
+                  "sender_id": "string",
+                  "sort_order_ms": "number"
+                }
+              ]
+            }
+          }
+        }
+      },
+      "variables": [
+        "data"
+      ],
+      "variablesShape": {
+        "data": "string"
+      }
+    },
     "EBMinosFetchContactKeys": {
       "docId": "26531892553066563",
       "operationKind": "query",
@@ -4803,6 +4832,23 @@
         "page_id": "string"
       }
     },
+    "MAWVerifyThreadCutover_ContactCapabilities2": {
+      "docId": "9948369021930229",
+      "operationKind": "query",
+      "originalName": "MAWVerifyThreadCutover_ContactCapabilities2Query",
+      "response": {
+        "user": {
+          "id": "string",
+          "message_capabilities2_str": "unknown"
+        }
+      },
+      "variables": [
+        "id"
+      ],
+      "variablesShape": {
+        "id": "string"
+      }
+    },
     "MessengerAdPreviewConversation": {
       "docId": "29273127528968869",
       "operationKind": "query",
@@ -6784,5 +6830,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1044776264"
+  "waVersion": "2.3000.1044805427"
 }

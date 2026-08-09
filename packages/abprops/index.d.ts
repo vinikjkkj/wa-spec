@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044776264
+// WhatsApp Version: 2.3000.1044805427
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -70,7 +70,7 @@ export declare const WA_ABPROPS: {
     readonly ai_chat_threads_infra_web_enabled: { readonly code: 26776; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_chat_threads_pin_enabled: { readonly code: 25517; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_chat_threads_pin_max_count: { readonly code: 25520; readonly type: "int"; readonly defaultValue: 3; readonly debugDefaultValue: 3 }
-    readonly ai_chat_threads_web_enabled: { readonly code: 23169; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly ai_chat_threads_web_enabled: { readonly code: 23169; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_chat_threads_web_killswitch_enabled: { readonly code: 26806; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_chat_threads_web_msgs_load_limit: { readonly code: 23694; readonly type: "int"; readonly defaultValue: 50; readonly debugDefaultValue: 50 }
     readonly ai_contextual_writing_help_enabled: { readonly code: 22488; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -817,6 +817,7 @@ export declare const WA_ABPROPS: {
     readonly enable_web_voip_virtual_video_capture_driver: { readonly code: 26817; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly enable_web_voip_webtransport: { readonly code: 29764; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly enable_web_voip_webtransport_fallback: { readonly code: 33539; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
+    readonly enable_web_voip_webtransport_group_calls: { readonly code: 34645; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly enable_web_voip_worker_pool_reclaim_on_rejoin: { readonly code: 33597; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly enable_webcodec_require_keyframe: { readonly code: 29510; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly enable_webcodec_video_encode: { readonly code: 26079; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -4444,6 +4445,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 34586: "ai_web_ask_meta_ai_improvement_enabled"
     readonly 34622: "mm_user_controls_unified_stop_enabled"
     readonly 34626: "enable_lanczos_upscaler_for_vod_bitmap"
+    readonly 34645: "enable_web_voip_webtransport_group_calls"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

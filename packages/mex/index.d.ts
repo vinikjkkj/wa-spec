@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044776264
+// WhatsApp Version: 2.3000.1044805427
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -80,6 +80,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
+    readonly EBMessageMetadataQuery: WaMexPersistId
     readonly EBMinosFetchContactKeys: WaMexPersistId
     readonly EBMinosUploadMessages: WaMexPersistId
     readonly EBRegisterMinosMessageEncryptionKey: WaMexPersistId
@@ -149,6 +150,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly MAIBAMessagePLEDisclaimerContentPFR: WaMexPersistId
     readonly MAIBAMessageSignalsCTARenderer: WaMexPersistId
     readonly MAIBARecordAsyncAuthConsent: WaMexPersistId
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexPersistId
     readonly MessengerAdPreviewConversation: WaMexPersistId
     readonly MpsReceiverFetchGraphQLSticker: WaMexPersistId
     readonly MpsReceiverFetchGraphQLXMA: WaMexPersistId
@@ -274,6 +276,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly EBMessageMetadataQuery: WaMexOperationSchema<'query', readonly ['data']>
     readonly EBMinosFetchContactKeys: WaMexOperationSchema<'query', readonly ['input']>
     readonly EBMinosUploadMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EBRegisterMinosMessageEncryptionKey: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -343,6 +346,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly MAIBAMessagePLEDisclaimerContentPFR: WaMexOperationSchema<'query', readonly ['channel', 'clientId', 'options', 'requestId', 'scope', 'scoreSettingIds']>
     readonly MAIBAMessageSignalsCTARenderer: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MAIBARecordAsyncAuthConsent: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'page_id']>
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexOperationSchema<'query', readonly ['id']>
     readonly MessengerAdPreviewConversation: WaMexOperationSchema<'query', readonly ['page_id', 'selected_product_ids']>
     readonly MpsReceiverFetchGraphQLSticker: WaMexOperationSchema<'query', readonly ['receiverFetchId']>
     readonly MpsReceiverFetchGraphQLXMA: WaMexOperationSchema<'query', readonly ['input']>
@@ -759,6 +763,10 @@ export type WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeVariables = {
 
 export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
     readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexEBMessageMetadataQueryVariables = {
+    readonly data?: string
 }
 
 export type WaMexEBMinosFetchContactKeysVariables = {
@@ -1191,6 +1199,10 @@ export type WaMexMAIBAMessageSignalsCTARendererVariables = {
 export type WaMexMAIBARecordAsyncAuthConsentVariables = {
     readonly ad_account_id?: string
     readonly page_id?: string
+}
+
+export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables = {
+    readonly id?: string
 }
 
 export type WaMexMessengerAdPreviewConversationVariables = {
@@ -1638,6 +1650,7 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
     readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
+    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryVariables
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysVariables
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesVariables
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyVariables
@@ -1707,6 +1720,7 @@ export interface WaMexOperationVariables {
     readonly MAIBAMessagePLEDisclaimerContentPFR: WaMexMAIBAMessagePLEDisclaimerContentPFRVariables
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererVariables
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentVariables
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables
     readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationVariables
     readonly MpsReceiverFetchGraphQLSticker: WaMexMpsReceiverFetchGraphQLStickerVariables
     readonly MpsReceiverFetchGraphQLXMA: WaMexMpsReceiverFetchGraphQLXMAVariables
@@ -2842,6 +2856,23 @@ export type WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeResponse = {
 export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
     readonly xfb_e2ee_metadata_mailbox_set_group_subject?: {
         readonly success?: boolean
+    }
+}
+
+export type WaMexEBMessageMetadataQueryResponse = {
+    readonly viewer?: {
+        readonly encrypted_backup?: {
+            readonly id?: string
+            readonly mailbox?: {
+                readonly deanon_messages_metadata?: ReadonlyArray<{
+                    readonly admin_message?: string
+                    readonly is_admin_message?: boolean
+                    readonly offline_threading_id?: string
+                    readonly sender_id?: string
+                    readonly sort_order_ms?: number
+                }>
+            }
+        }
     }
 }
 
@@ -4544,6 +4575,13 @@ export type WaMexMAIBARecordAsyncAuthConsentResponse = {
     }
 }
 
+export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Response = {
+    readonly user?: {
+        readonly id?: string
+        readonly message_capabilities2_str?: unknown
+    }
+}
+
 export type WaMexMessengerAdPreviewConversationResponse = {
     readonly page?: {
         readonly id?: string
@@ -5684,6 +5722,7 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
     readonly E2EEMetadataMailboxSetGroupParticipantUpdateMode: WaMexE2EEMetadataMailboxSetGroupParticipantUpdateModeResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
+    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryResponse
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysResponse
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesResponse
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyResponse
@@ -5753,6 +5792,7 @@ export interface WaMexOperationResponses {
     readonly MAIBAMessagePLEDisclaimerContentPFR: WaMexMAIBAMessagePLEDisclaimerContentPFRResponse
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererResponse
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentResponse
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Response
     readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationResponse
     readonly MpsReceiverFetchGraphQLSticker: WaMexMpsReceiverFetchGraphQLStickerResponse
     readonly MpsReceiverFetchGraphQLXMA: WaMexMpsReceiverFetchGraphQLXMAResponse

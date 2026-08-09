@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044776264
+// WhatsApp Version: 2.3000.1044805427
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -51,7 +51,7 @@ const WA_ABPROPS = Object.freeze({
     ai_chat_threads_infra_web_enabled: Object.freeze({ code: 26776, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_chat_threads_pin_enabled: Object.freeze({ code: 25517, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_chat_threads_pin_max_count: Object.freeze({ code: 25520, type: "int", defaultValue: 3, debugDefaultValue: 3 }),
-    ai_chat_threads_web_enabled: Object.freeze({ code: 23169, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    ai_chat_threads_web_enabled: Object.freeze({ code: 23169, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_chat_threads_web_killswitch_enabled: Object.freeze({ code: 26806, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_chat_threads_web_msgs_load_limit: Object.freeze({ code: 23694, type: "int", defaultValue: 50, debugDefaultValue: 50 }),
     ai_contextual_writing_help_enabled: Object.freeze({ code: 22488, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -798,6 +798,7 @@ const WA_ABPROPS = Object.freeze({
     enable_web_voip_virtual_video_capture_driver: Object.freeze({ code: 26817, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_web_voip_webtransport: Object.freeze({ code: 29764, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_web_voip_webtransport_fallback: Object.freeze({ code: 33539, type: "bool", defaultValue: true, debugDefaultValue: true }),
+    enable_web_voip_webtransport_group_calls: Object.freeze({ code: 34645, type: "bool", defaultValue: false, debugDefaultValue: true }),
     enable_web_voip_worker_pool_reclaim_on_rejoin: Object.freeze({ code: 33597, type: "bool", defaultValue: true, debugDefaultValue: true }),
     enable_webcodec_require_keyframe: Object.freeze({ code: 29510, type: "bool", defaultValue: true, debugDefaultValue: true }),
     enable_webcodec_video_encode: Object.freeze({ code: 26079, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4427,7 +4428,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34585: "message_partial_selection_in_bubble",
     34586: "ai_web_ask_meta_ai_improvement_enabled",
     34622: "mm_user_controls_unified_stop_enabled",
-    34626: "enable_lanczos_upscaler_for_vod_bitmap"
+    34626: "enable_lanczos_upscaler_for_vod_bitmap",
+    34645: "enable_web_voip_webtransport_group_calls"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

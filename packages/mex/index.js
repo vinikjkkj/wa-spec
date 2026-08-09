@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044776264
+// WhatsApp Version: 2.3000.1044805427
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -68,6 +68,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ docId: '25043279768674646', clientDocId: '25043279768674646' }),
     E2EEMetadataMailboxSetGroupParticipantUpdateMode: Object.freeze({ docId: '25003687469299390', clientDocId: '25003687469299390' }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ docId: '25456033884014560', clientDocId: '25456033884014560' }),
+    EBMessageMetadataQuery: Object.freeze({ docId: '28525853583670706', clientDocId: '28525853583670706' }),
     EBMinosFetchContactKeys: Object.freeze({ docId: '26531892553066563', clientDocId: '26531892553066563' }),
     EBMinosUploadMessages: Object.freeze({ docId: '27566072369743752', clientDocId: '27566072369743752' }),
     EBRegisterMinosMessageEncryptionKey: Object.freeze({ docId: '25185089431099815', clientDocId: '25185089431099815' }),
@@ -137,6 +138,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAMessagePLEDisclaimerContentPFR: Object.freeze({ docId: '26833985386252659', clientDocId: '26833985386252659' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ docId: '27087116144243008', clientDocId: '27087116144243008' }),
+    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ docId: '9948369021930229', clientDocId: '9948369021930229' }),
     MessengerAdPreviewConversation: Object.freeze({ docId: '29273127528968869', clientDocId: '29273127528968869' }),
     MpsReceiverFetchGraphQLSticker: Object.freeze({ docId: '27636200009321630', clientDocId: '27636200009321630' }),
     MpsReceiverFetchGraphQLXMA: Object.freeze({ docId: '28101543082782219', clientDocId: '28101543082782219' }),
@@ -262,6 +264,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxSetGroupParticipantUpdateMode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    EBMessageMetadataQuery: Object.freeze({ operationKind: 'query', variables: Object.freeze(['data']) }),
     EBMinosFetchContactKeys: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     EBMinosUploadMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     EBRegisterMinosMessageEncryptionKey: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
@@ -331,6 +334,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     MAIBAMessagePLEDisclaimerContentPFR: Object.freeze({ operationKind: 'query', variables: Object.freeze(['channel', 'clientId', 'options', 'requestId', 'scope', 'scoreSettingIds']) }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['ad_account_id', 'page_id']) }),
+    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     MessengerAdPreviewConversation: Object.freeze({ operationKind: 'query', variables: Object.freeze(['page_id', 'selected_product_ids']) }),
     MpsReceiverFetchGraphQLSticker: Object.freeze({ operationKind: 'query', variables: Object.freeze(['receiverFetchId']) }),
     MpsReceiverFetchGraphQLXMA: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
