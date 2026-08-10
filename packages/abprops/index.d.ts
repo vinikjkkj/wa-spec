@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044805427
+// WhatsApp Version: 2.3000.1044824727
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -73,6 +73,7 @@ export declare const WA_ABPROPS: {
     readonly ai_chat_threads_web_enabled: { readonly code: 23169; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_chat_threads_web_killswitch_enabled: { readonly code: 26806; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_chat_threads_web_msgs_load_limit: { readonly code: 23694; readonly type: "int"; readonly defaultValue: 50; readonly debugDefaultValue: 50 }
+    readonly ai_commentary_standalone_messages_enabled: { readonly code: 34670; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_contextual_writing_help_enabled: { readonly code: 22488; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_contextual_writing_help_languages_and_tones_config: { readonly code: 22797; readonly type: "string"; readonly defaultValue: "{}"; readonly debugDefaultValue: "{\"en\": \"auto,professional,funny,supportive\"}" }
     readonly ai_contextual_writing_help_num_suggestions: { readonly code: 22759; readonly type: "int"; readonly defaultValue: 4; readonly debugDefaultValue: 4 }
@@ -614,6 +615,8 @@ export declare const WA_ABPROPS: {
     readonly ctwa_ad_creation_entry_point_catalog_web: { readonly code: 9596; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_ae_model_meta_data_enabled: { readonly code: 27515; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ctwa_ae_model_meta_data_signal_enabled: { readonly code: 27516; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ctwa_ae_signal_3pd_enabled: { readonly code: 34663; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ctwa_ae_signal_3pd_field_policy: { readonly code: 34665; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly ctwa_block_ib_ar_for_wabai: { readonly code: 26302; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_conversion_creation_from_delay_enabled: { readonly code: 32777; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_custom_label_algorithm: { readonly code: 14887; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
@@ -2177,6 +2180,7 @@ export declare const WA_ABPROPS: {
     readonly web_voip_load_wasm_variant: { readonly code: 23045; readonly type: "string"; readonly defaultValue: "prod-nonlab"; readonly debugDefaultValue: "prod-nonlab" }
     readonly web_voip_low_resource_device: { readonly code: 28203; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_outgoing_call_setup_latency_mode: { readonly code: 33122; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
+    readonly web_voip_pre_init_worker_bootstrap: { readonly code: 34685; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_runtime_stack_selection_enabled: { readonly code: 33151; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_sctp_worker_safari_exp: { readonly code: 27695; readonly type: "int"; readonly defaultValue: 1; readonly debugDefaultValue: 1 }
     readonly web_voip_skip_offline_wait_on_call_intent: { readonly code: 33310; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -4446,6 +4450,10 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 34622: "mm_user_controls_unified_stop_enabled"
     readonly 34626: "enable_lanczos_upscaler_for_vod_bitmap"
     readonly 34645: "enable_web_voip_webtransport_group_calls"
+    readonly 34663: "ctwa_ae_signal_3pd_enabled"
+    readonly 34665: "ctwa_ae_signal_3pd_field_policy"
+    readonly 34670: "ai_commentary_standalone_messages_enabled"
+    readonly 34685: "web_voip_pre_init_worker_bootstrap"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044805427
+// WhatsApp Version: 2.3000.1044824727
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -54,6 +54,7 @@ const WA_ABPROPS = Object.freeze({
     ai_chat_threads_web_enabled: Object.freeze({ code: 23169, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_chat_threads_web_killswitch_enabled: Object.freeze({ code: 26806, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_chat_threads_web_msgs_load_limit: Object.freeze({ code: 23694, type: "int", defaultValue: 50, debugDefaultValue: 50 }),
+    ai_commentary_standalone_messages_enabled: Object.freeze({ code: 34670, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_contextual_writing_help_enabled: Object.freeze({ code: 22488, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_contextual_writing_help_languages_and_tones_config: Object.freeze({ code: 22797, type: "string", defaultValue: "{}", debugDefaultValue: "{\"en\": \"auto,professional,funny,supportive\"}" }),
     ai_contextual_writing_help_num_suggestions: Object.freeze({ code: 22759, type: "int", defaultValue: 4, debugDefaultValue: 4 }),
@@ -595,6 +596,8 @@ const WA_ABPROPS = Object.freeze({
     ctwa_ad_creation_entry_point_catalog_web: Object.freeze({ code: 9596, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ctwa_ae_model_meta_data_enabled: Object.freeze({ code: 27515, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ctwa_ae_model_meta_data_signal_enabled: Object.freeze({ code: 27516, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ctwa_ae_signal_3pd_enabled: Object.freeze({ code: 34663, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ctwa_ae_signal_3pd_field_policy: Object.freeze({ code: 34665, type: "string", defaultValue: "", debugDefaultValue: "" }),
     ctwa_block_ib_ar_for_wabai: Object.freeze({ code: 26302, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ctwa_conversion_creation_from_delay_enabled: Object.freeze({ code: 32777, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ctwa_custom_label_algorithm: Object.freeze({ code: 14887, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
@@ -2158,6 +2161,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_load_wasm_variant: Object.freeze({ code: 23045, type: "string", defaultValue: "prod-nonlab", debugDefaultValue: "prod-nonlab" }),
     web_voip_low_resource_device: Object.freeze({ code: 28203, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_outgoing_call_setup_latency_mode: Object.freeze({ code: 33122, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    web_voip_pre_init_worker_bootstrap: Object.freeze({ code: 34685, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_runtime_stack_selection_enabled: Object.freeze({ code: 33151, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_sctp_worker_safari_exp: Object.freeze({ code: 27695, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
     web_voip_skip_offline_wait_on_call_intent: Object.freeze({ code: 33310, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4429,7 +4433,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34586: "ai_web_ask_meta_ai_improvement_enabled",
     34622: "mm_user_controls_unified_stop_enabled",
     34626: "enable_lanczos_upscaler_for_vod_bitmap",
-    34645: "enable_web_voip_webtransport_group_calls"
+    34645: "enable_web_voip_webtransport_group_calls",
+    34663: "ctwa_ae_signal_3pd_enabled",
+    34665: "ctwa_ae_signal_3pd_field_policy",
+    34670: "ai_commentary_standalone_messages_enabled",
+    34685: "web_voip_pre_init_worker_bootstrap"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

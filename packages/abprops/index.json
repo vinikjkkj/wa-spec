@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2200,
+  "propCount": 2204,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -369,6 +369,12 @@
       "debugDefaultValue": 50,
       "defaultValue": 50,
       "type": "int"
+    },
+    "ai_commentary_standalone_messages_enabled": {
+      "code": 34670,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_contextual_writing_help_enabled": {
       "code": 22488,
@@ -3615,6 +3621,18 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ctwa_ae_signal_3pd_enabled": {
+      "code": 34663,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_ae_signal_3pd_field_policy": {
+      "code": 34665,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
     },
     "ctwa_block_ib_ar_for_wabai": {
       "code": 26302,
@@ -12994,6 +13012,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "web_voip_pre_init_worker_bootstrap": {
+      "code": 34685,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_runtime_stack_selection_enabled": {
       "code": 33151,
       "debugDefaultValue": false,
@@ -13320,5 +13344,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1044805427"
+  "waVersion": "2.3000.1044824727"
 }

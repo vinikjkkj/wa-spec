@@ -7405,7 +7405,7 @@
                 "arg": "y",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "userJid"
               },
               "peer_recipient_lid": {
                 "arg": "Q",
@@ -7426,9 +7426,8 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "O",
+                "arg": "c",
                 "direction": "both",
-                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -7449,7 +7448,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ae",
+                "arg": "oe",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -7540,7 +7539,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -46903,21 +46902,20 @@
             "type": "enum"
           },
           "error": {
-            "arg": "t.error",
+            "arg": "t",
             "direction": "out",
-            "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "r.stanzaId",
+            "arg": "e.stanzaId",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(t.participant)",
+            "arg": "f",
             "direction": "out",
             "optional": true,
-            "type": "deviceJid"
+            "type": "userJid"
           },
           "recipient": {
             "arg": "r",
@@ -46926,8 +46924,8 @@
             "type": "userJid"
           },
           "to": {
-            "arg": "r.from",
             "direction": "out",
+            "raw": "e.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(e.from):o(\"WAWap\").CUSTOM_STRING(e.from)",
             "type": "jid"
           },
           "type": {
@@ -46960,20 +46958,6 @@
         "children": [
           {
             "attrs": {
-              "failure_reason": {
-                "arg": "l",
-                "direction": "out",
-                "type": "int"
-              }
-            },
-            "children": [],
-            "content": null,
-            "max": 1,
-            "min": 1,
-            "tag": "meta"
-          },
-          {
-            "attrs": {
               "side_list": {
                 "direction": "out",
                 "type": "literal",
@@ -46985,6 +46969,20 @@
             "max": 1,
             "min": 1,
             "tag": "user"
+          },
+          {
+            "attrs": {
+              "failure_reason": {
+                "arg": "l",
+                "direction": "out",
+                "type": "int"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "meta"
           }
         ],
         "content": null,
@@ -48379,7 +48377,7 @@
                 "arg": "y",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "userJid"
               },
               "peer_recipient_lid": {
                 "arg": "Q",
@@ -48400,9 +48398,8 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "O",
+                "arg": "c",
                 "direction": "both",
-                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -48423,7 +48420,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ae",
+                "arg": "oe",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -48514,7 +48511,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -49466,7 +49463,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "S.id",
+                "arg": "t.id.id",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -49539,9 +49536,8 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "O",
+                "arg": "c",
                 "direction": "both",
-                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -49560,7 +49556,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ae",
+                "arg": "oe",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -49642,7 +49638,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -49826,7 +49822,7 @@
                     "type": "string"
                   },
                   "persona_type": {
-                    "arg": "I",
+                    "arg": "T",
                     "direction": "both",
                     "enumValues": [
                       "1p",
@@ -53618,6 +53614,303 @@
           "parserName": "incomingPrivacyTokensParser"
         },
         "psa": {
+          "entryName": "default",
+          "handler": {
+            "method": "default",
+            "module": "WAWebHandlePsa"
+          },
+          "node": {
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "participant": {
+                "type": "userJid"
+              },
+              "t": {
+                "type": "time"
+              },
+              "type": {
+                "type": "literal",
+                "value": "psa"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "duration": {
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "children": [
+                  {
+                    "attrs": {
+                      "id": {
+                        "type": "stanzaId"
+                      }
+                    },
+                    "children": [
+                      {
+                        "attrs": {
+                          "mediatype": {
+                            "enumRef": "n(\"$InternalEnum\")({Image:\"image\",Video:\"video\",Text:\"text\"}).members()",
+                            "enumValues": [
+                              "image",
+                              "video",
+                              "text"
+                            ],
+                            "type": "enum"
+                          }
+                        },
+                        "children": [],
+                        "content": {
+                          "type": "bytes"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "media"
+                      }
+                    ],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "message"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "max": 1,
+                    "min": 0,
+                    "presence": true,
+                    "tag": "revoke"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "campaign"
+              }
+            ],
+            "content": null,
+            "tag": "notification"
+          },
+          "parserName": "incomingCampaignParser"
+        },
+        "psa/*": {
+          "entryName": "default",
+          "handler": {
+            "method": "default",
+            "module": "WAWebHandleWaChat"
+          },
+          "node": {
+            "attrs": {
+              "id": {
+                "type": "stanzaId"
+              },
+              "t": {
+                "type": "time"
+              },
+              "type": {
+                "type": "literal",
+                "value": "psa"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "campaign_id": {
+                    "type": "string"
+                  }
+                },
+                "children": [
+                  {
+                    "attrs": {
+                      "id": {
+                        "type": "stanzaId"
+                      },
+                      "type": {
+                        "enumValues": [
+                          "event",
+                          "media",
+                          "medianotify",
+                          "pay",
+                          "poll",
+                          "reaction",
+                          "text"
+                        ],
+                        "optional": true,
+                        "type": "enum"
+                      }
+                    },
+                    "children": [
+                      {
+                        "attrs": {
+                          "name": {
+                            "optional": true,
+                            "type": "string"
+                          }
+                        },
+                        "children": [
+                          {
+                            "attrs": {
+                              "name": {
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "children": [],
+                            "content": null,
+                            "max": 1,
+                            "min": 0,
+                            "tag": "interactive"
+                          },
+                          {
+                            "attrs": {
+                              "name": {
+                                "optional": true,
+                                "type": "string"
+                              }
+                            },
+                            "children": [],
+                            "content": null,
+                            "max": 1,
+                            "min": 0,
+                            "tag": "native_flow"
+                          }
+                        ],
+                        "content": null,
+                        "max": 1,
+                        "min": 0,
+                        "tag": "biz"
+                      },
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": null,
+                        "max": 1,
+                        "min": 1,
+                        "presence": true,
+                        "tag": "media"
+                      }
+                    ],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "message"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "messages"
+              },
+              {
+                "attrs": {
+                  "campaign_id": {
+                    "type": "string"
+                  }
+                },
+                "children": [
+                  {
+                    "attrs": {
+                      "id": {
+                        "type": "stanzaId"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "message"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "revoke"
+              }
+            ],
+            "content": null,
+            "tag": "notification"
+          },
+          "parserName": "incomingWAChatNotificationParser"
+        },
+        "psa/reset_smb_last_qp_prefetch_timestamp": {
+          "delegatesToRPC": {
+            "method": "receiveResetSmbLastQpPrefetchTimestampRPC",
+            "module": "WASmaxPsaResetSmbLastQpPrefetchTimestampRPC"
+          },
+          "entryName": "handleQPPrefetchTimestampNotification",
+          "handler": {
+            "method": "handleQPPrefetchTimestampNotification",
+            "module": "WAWebHandleQPPrefetchTimestampNotification"
+          },
+          "inlinedFrom": {
+            "method": "receiveResetSmbLastQpPrefetchTimestampRPC",
+            "module": "WASmaxPsaResetSmbLastQpPrefetchTimestampRPC"
+          },
+          "inlinedOutgoingResponses": [
+            {
+              "module": "WASmaxOutPsaResetSmbLastQpPrefetchTimestampResponseAck",
+              "node": {
+                "appliedMixin": "WASmaxOutPsaNotificationClientAckMixin",
+                "attrs": {
+                  "class": {
+                    "type": "literal",
+                    "value": "notification"
+                  },
+                  "id": {
+                    "arg": "t.value",
+                    "type": "stanzaId"
+                  },
+                  "to": {
+                    "arg": "n.value",
+                    "type": "jid"
+                  },
+                  "type": {
+                    "arg": "r.value",
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "tag": "ack"
+              },
+              "variant": "Ack"
+            }
+          ],
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "userJid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "offline": {
+                "optional": true,
+                "type": "int"
+              },
+              "t": {
+                "max": null,
+                "min": 0,
+                "type": "int"
+              },
+              "type": {
+                "type": "literal",
+                "value": "psa"
+              }
+            },
+            "children": [],
+            "content": null,
+            "tag": "notification"
+          }
+        },
+        "psa/surfaces": {
           "delegatesToParser": {
             "module": "WAWebParseQPSurfacesNotification",
             "parser": "parseQPSurfacesNotification"
@@ -54072,76 +54365,6 @@
                 "tag": "surfaces"
               }
             ],
-            "content": null,
-            "tag": "notification"
-          }
-        },
-        "psa/reset_smb_last_qp_prefetch_timestamp": {
-          "delegatesToRPC": {
-            "method": "receiveResetSmbLastQpPrefetchTimestampRPC",
-            "module": "WASmaxPsaResetSmbLastQpPrefetchTimestampRPC"
-          },
-          "entryName": "handleQPPrefetchTimestampNotification",
-          "handler": {
-            "method": "handleQPPrefetchTimestampNotification",
-            "module": "WAWebHandleQPPrefetchTimestampNotification"
-          },
-          "inlinedFrom": {
-            "method": "receiveResetSmbLastQpPrefetchTimestampRPC",
-            "module": "WASmaxPsaResetSmbLastQpPrefetchTimestampRPC"
-          },
-          "inlinedOutgoingResponses": [
-            {
-              "module": "WASmaxOutPsaResetSmbLastQpPrefetchTimestampResponseAck",
-              "node": {
-                "appliedMixin": "WASmaxOutPsaNotificationClientAckMixin",
-                "attrs": {
-                  "class": {
-                    "type": "literal",
-                    "value": "notification"
-                  },
-                  "id": {
-                    "arg": "t.value",
-                    "type": "stanzaId"
-                  },
-                  "to": {
-                    "arg": "n.value",
-                    "type": "jid"
-                  },
-                  "type": {
-                    "arg": "r.value",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "tag": "ack"
-              },
-              "variant": "Ack"
-            }
-          ],
-          "node": {
-            "attrs": {
-              "from": {
-                "type": "userJid"
-              },
-              "id": {
-                "type": "stanzaId"
-              },
-              "offline": {
-                "optional": true,
-                "type": "int"
-              },
-              "t": {
-                "max": null,
-                "min": 0,
-                "type": "int"
-              },
-              "type": {
-                "type": "literal",
-                "value": "psa"
-              }
-            },
-            "children": [],
             "content": null,
             "tag": "notification"
           }
@@ -54680,10 +54903,10 @@
       "tag": "presence"
     },
     "receipt": {
-      "discriminator": "condition",
+      "discriminator": "type",
       "tag": "receipt",
       "variants": {
-        "WAWebHandleMessageRetryRequest": {
+        "enc_rekey_retry": {
           "delegatesToParser": {
             "module": "WAWebRetryRequestParser",
             "parser": "retryRequestParser"
@@ -54696,12 +54919,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -54744,7 +54967,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -54765,7 +54988,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -54775,25 +54998,13 @@
                 "type": "time"
               },
               "to": {
-                "arg": "h",
+                "arg": "t.peer_jid",
                 "direction": "both",
-                "type": "userJid"
+                "type": "deviceJid"
               },
               "type": {
-                "direction": "both",
-                "enumValues": [
-                  "delivery",
-                  "inactive",
-                  "peer_msg",
-                  "played",
-                  "played-self",
-                  "read",
-                  "read-self",
-                  "sender",
-                  "server-error",
-                  "view"
-                ],
-                "type": "enum"
+                "type": "literal",
+                "value": "enc_rekey_retry"
               }
             },
             "children": [
@@ -54805,7 +55016,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "h",
+                    "arg": "y",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -54815,7 +55026,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "m",
+                    "arg": "p",
                     "direction": "out",
                     "type": "int"
                   },
@@ -55000,8 +55211,185 @@
             "tag": "receipt"
           }
         },
+        "is-call-receipt": {
+          "entryName": "handleCallReceipt",
+          "handler": {
+            "method": "handleCallReceipt",
+            "module": "WAWebHandleVoipCallReceipt"
+          },
+          "node": {
+            "attrs": {
+              "category": {
+                "arg": "T",
+                "direction": "both",
+                "type": "string"
+              },
+              "class": {
+                "arg": "v",
+                "direction": "both",
+                "enumValues": [
+                  "call",
+                  "message",
+                  "notification",
+                  "receipt",
+                  "status"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "client_thread_id": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "conversation_thread_id": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "direction": "both",
+                "type": "stanzaId"
+              },
+              "participant": {
+                "arg": "a",
+                "direction": "both",
+                "optional": true,
+                "type": "deviceJid"
+              },
+              "peer_participant_pn": {
+                "arg": "s",
+                "direction": "both",
+                "optional": true,
+                "type": "userJid"
+              },
+              "privacy_token": {
+                "direction": "out",
+                "type": "literal",
+                "value": "false"
+              },
+              "recipient": {
+                "arg": "I",
+                "direction": "both",
+                "optional": true,
+                "type": "userJid"
+              },
+              "server_id": {
+                "arg": "t",
+                "direction": "out",
+                "type": "int"
+              },
+              "sts": {
+                "arg": "String(b)",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
+              },
+              "t": {
+                "arg": "Date.now().toString()",
+                "direction": "both",
+                "type": "int"
+              },
+              "to": {
+                "arg": "t.peer_jid",
+                "direction": "both",
+                "type": "deviceJid"
+              },
+              "type": {
+                "direction": "both",
+                "enumValues": [
+                  "delivery",
+                  "inactive",
+                  "peer_msg",
+                  "played",
+                  "played-self",
+                  "read",
+                  "read-self",
+                  "sender",
+                  "server-error",
+                  "view"
+                ],
+                "optional": true,
+                "type": "enum"
+              }
+            },
+            "children": [
+              {
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 0,
+                "presence": true,
+                "tag": "offer"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 0,
+                "presence": true,
+                "tag": "accept"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 0,
+                "presence": true,
+                "tag": "reject"
+              },
+              {
+                "__helper": "OPTIONAL_CHILD",
+                "appliedMixin": "WASmaxOutReceiptBizOriginalEnvelopeMixin",
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "presence": true,
+                    "tag": "original_envelope"
+                  }
+                ],
+                "max": 1,
+                "min": 0,
+                "tag": "biz"
+              },
+              {
+                "appliedMixin": [
+                  "WASmaxOutReceiptBotClientMultiThreadIDMixin",
+                  "WASmaxMixins",
+                  "WASmaxOutReceiptBotConversationThreadIDMixin?"
+                ],
+                "attrs": {
+                  "client_thread_id": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "conversation_thread_id": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "max": 1,
+                "min": 1,
+                "tag": "bot"
+              }
+            ],
+            "content": null,
+            "tag": "receipt"
+          },
+          "parserName": "callReceiptParser"
+        },
         "is-not-call-receipt": {
-          "condition": "is-not-call-receipt",
           "delegatesToParser": {
             "module": "WAWebHandleMsgReceiptParser",
             "parser": "incomingMsgReceiptParser"
@@ -55014,12 +55402,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55070,7 +55458,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55091,7 +55479,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55101,9 +55489,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "h",
+                "arg": "t.peer_jid",
                 "direction": "both",
-                "type": "userJid"
+                "type": "deviceJid"
               },
               "type": {
                 "direction": "both",
@@ -55239,6 +55627,311 @@
                 "max": 1,
                 "min": 0,
                 "tag": "participants"
+              },
+              {
+                "appliedMixin": [
+                  "WASmaxOutReceiptBotClientMultiThreadIDMixin",
+                  "WASmaxMixins",
+                  "WASmaxOutReceiptBotConversationThreadIDMixin?"
+                ],
+                "attrs": {
+                  "client_thread_id": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "conversation_thread_id": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "max": 1,
+                "min": 1,
+                "tag": "bot"
+              }
+            ],
+            "content": null,
+            "tag": "receipt"
+          }
+        },
+        "retry": {
+          "delegatesToParser": {
+            "module": "WAWebRetryRequestParser",
+            "parser": "retryRequestParser"
+          },
+          "entryName": "handleMessageRetryRequest",
+          "handler": {
+            "method": "handleMessageRetryRequest",
+            "module": "WAWebHandleMessageRetryRequest"
+          },
+          "node": {
+            "attrs": {
+              "category": {
+                "arg": "T",
+                "direction": "both",
+                "type": "string"
+              },
+              "class": {
+                "arg": "v",
+                "direction": "both",
+                "enumValues": [
+                  "call",
+                  "message",
+                  "notification",
+                  "receipt",
+                  "status"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "client_thread_id": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "conversation_thread_id": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "direction": "both",
+                "type": "stanzaId"
+              },
+              "is_lid": {
+                "optional": true,
+                "type": "bool"
+              },
+              "offline": {
+                "optional": true,
+                "type": "int"
+              },
+              "participant": {
+                "direction": "both",
+                "optional": true,
+                "type": "userJid"
+              },
+              "peer_participant_pn": {
+                "arg": "s",
+                "direction": "both",
+                "optional": true,
+                "type": "userJid"
+              },
+              "privacy_token": {
+                "direction": "out",
+                "type": "literal",
+                "value": "false"
+              },
+              "recipient": {
+                "direction": "both",
+                "optional": true,
+                "type": "userJid"
+              },
+              "server_id": {
+                "arg": "t",
+                "direction": "out",
+                "type": "int"
+              },
+              "sts": {
+                "arg": "String(b)",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
+              },
+              "t": {
+                "direction": "both",
+                "type": "time"
+              },
+              "to": {
+                "arg": "t.peer_jid",
+                "direction": "both",
+                "type": "deviceJid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "retry"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "count": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "error": {
+                    "arg": "y",
+                    "direction": "out",
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "id": {
+                    "direction": "both",
+                    "type": "string"
+                  },
+                  "t": {
+                    "arg": "p",
+                    "direction": "out",
+                    "type": "int"
+                  },
+                  "v": {
+                    "direction": "out",
+                    "type": "literal",
+                    "value": "1"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "retry"
+              },
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {},
+                    "children": [
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": {
+                          "type": "int"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "id"
+                      },
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": {
+                          "type": "bytes"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "value"
+                      },
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": {
+                          "type": "bytes"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "signature"
+                      }
+                    ],
+                    "content": null,
+                    "max": 1,
+                    "min": 1,
+                    "tag": "skey"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "content": {
+                      "type": "bytes"
+                    },
+                    "max": 1,
+                    "min": 0,
+                    "tag": "device-identity"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": {
+                          "type": "int"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "id"
+                      },
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": {
+                          "type": "bytes"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "value"
+                      }
+                    ],
+                    "content": null,
+                    "max": 1,
+                    "min": 0,
+                    "tag": "key"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "max": 1,
+                    "min": 0,
+                    "presence": true,
+                    "tag": "pqkey"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "content": null,
+                    "max": 1,
+                    "min": 0,
+                    "presence": true,
+                    "tag": "pq"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "content": {
+                      "type": "bytes"
+                    },
+                    "max": 1,
+                    "min": 1,
+                    "tag": "identity"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 0,
+                "tag": "keys"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": {
+                  "type": "int"
+                },
+                "max": 1,
+                "min": 1,
+                "tag": "registration"
+              },
+              {
+                "__helper": "OPTIONAL_CHILD",
+                "appliedMixin": "WASmaxOutReceiptBizOriginalEnvelopeMixin",
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "presence": true,
+                    "tag": "original_envelope"
+                  }
+                ],
+                "max": 1,
+                "min": 0,
+                "tag": "biz"
               },
               {
                 "appliedMixin": [
@@ -55543,5 +56236,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1044805427"
+  "waVersion": "2.3000.1044824727"
 }
