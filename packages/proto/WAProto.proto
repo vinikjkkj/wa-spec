@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1044824727
+/// WhatsApp Version: 2.3000.1044917563
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -492,6 +492,7 @@ enum MutationProps {
     BUBBLE_LOCK_MESSAGE_ACTION = 90;
     LABEL_SUBLIST_ACTION = 91;
     DEVICE_CAPABILITIES_V2 = 92;
+    CTWA_MESSAGE_RECEIVED_ACTION = 93;
     SHARE_OWN_PN = 10001;
     BUSINESS_BROADCAST_ACTION = 10002;
     AI_THREAD_DELETE_ACTION = 10003;
@@ -2954,8 +2955,12 @@ message DeviceConsistencyCodeMessage {
 message DeviceListMetadata {
     optional bytes senderKeyHash = 1;
     optional uint64 senderTimestamp = 2;
+    repeated uint32 senderKeyIndexes = 3 [packed=true];
+    optional ADVEncryptionType senderAccountType = 4;
+    optional ADVEncryptionType receiverAccountType = 5;
     optional bytes recipientKeyHash = 8;
     optional uint64 recipientTimestamp = 9;
+    repeated uint32 recipientKeyIndexes = 10 [packed=true];
 }
 
 message DeviceOutput {
@@ -7631,12 +7636,16 @@ message SyncActionValue {
     optional BubbleLockMessageAction bubbleLockMessageAction = 90;
     optional LabelSublistAction labelSublistAction = 91;
     optional DeviceCapabilities deviceCapabilitiesV2 = 92;
+    optional CtwaMessageReceivedAction ctwaMessageReceivedAction = 93;
     enum BusinessBroadcastCampaignStatus {
         DRAFT = 1;
         SCHEDULED = 2;
         PROCESSING = 3;
         FAILED = 4;
         SENT = 5;
+    }
+    message CtwaMessageReceivedAction {
+        optional bool isCtwaMessageReceived = 1;
     }
     message WASARootSecretAction {
         repeated RootSecretEntry secrets = 1;

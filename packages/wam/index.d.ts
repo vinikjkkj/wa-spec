@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044824727
+// WhatsApp Version: 2.3000.1044917563
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -946,6 +946,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'INTEGRITY_SCAM_ALERT_UPSELL': 115;
             readonly 'MANAGE_GOOGLE_STORAGE_BUTTON': 62;
             readonly 'META_AI_APP_PROMO': 110;
+            readonly 'META_AI_THREADING_WIND_DOWN': 124;
             readonly 'MV_BIZ_TOOLS_PENDING_BIZ_VERIFICATION': 61;
             readonly 'MV_BIZ_TOOLS_SUBSCRIPTION_ACTIVATED': 58;
             readonly 'MV_BIZ_TOOLS_SUBSCRIPTION_CANCELED': 60;
@@ -1311,6 +1312,7 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'BOT_TYPE'
         readonly values: {
             readonly 'BOT_1P_BIZ': 2;
+            readonly 'BOT_3P_AGENT': 9;
             readonly 'BOT_3P_BIZ': 3;
             readonly 'HATCH': 7;
             readonly 'MANUS': 8;
@@ -2691,6 +2693,11 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumChatFilterActionTypes'
         readonly export: 'CHAT_FILTER_ACTION_TYPES'
         readonly values: {
+            readonly 'AGENT_CREATE_COMPLETE': 281;
+            readonly 'AGENT_CREATE_FAIL': 282;
+            readonly 'AGENT_CREATE_START': 280;
+            readonly 'AGENT_PROFILE_VIEW': 283;
+            readonly 'AGENT_REMOVE': 284;
             readonly 'AI_AVATAR_SELECTION_CLICK': 40;
             readonly 'AI_CATEGORIES_CHANGE': 220;
             readonly 'AI_CHARACTER_AUDIO_MUTED': 107;
@@ -9424,6 +9431,7 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumNativeContactsNuxEventType'
         readonly export: 'NATIVE_CONTACTS_NUX_EVENT_TYPE'
         readonly values: {
+            readonly 'SKIP_NATIVE_CONTACTS_NUX_AUTO_ACCEPTED': 4;
             readonly 'VIEW_MANAGE_CONTACTS_FROM_COMPANION': 2;
             readonly 'VIEW_MANAGE_CONTACTS_FROM_COMPANION_NATIVE_CONTACTS_SETTING_OFF': 3;
             readonly 'VIEW_NATIVE_CONTACTS_NUX': 1
@@ -10480,6 +10488,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SHARE_PROMPT_DISMISS': 335;
             readonly 'SHARE_QR_BUTTON': 240;
             readonly 'SHARE_UPI_QR_CODE': 342;
+            readonly 'SHARE_YOUR_PIX': 375;
             readonly 'SHOW_PSP_BANK_ERROR_WITHOUT_FALLBACK': 221;
             readonly 'SHOW_PSP_BANK_ERROR_WITH_FALLBACK': 220;
             readonly 'SIGN_UP_P2P': 98;
@@ -17683,6 +17692,8 @@ export declare const WA_WAM_EVENTS: {
             readonly audioInbandFecEncoded: { readonly id: 678; readonly type: 'integer'; readonly falcoName: 'audio_inband_fec_encoded' }
             readonly audioJbResets: { readonly id: 1318; readonly type: 'integer'; readonly falcoName: 'audio_jb_resets' }
             readonly audioJbResetsPartial: { readonly id: 1334; readonly type: 'integer'; readonly falcoName: 'audio_jb_resets_partial' }
+            readonly audioLazyCacheDropCount: { readonly id: 3112; readonly type: 'integer'; readonly falcoName: 'audio_lazy_cache_drop_count' }
+            readonly audioLazyCacheDroppedMs: { readonly id: 3113; readonly type: 'integer'; readonly falcoName: 'audio_lazy_cache_dropped_ms' }
             readonly audioLossPeriodCount: { readonly id: 722; readonly type: 'integer'; readonly falcoName: 'audio_loss_period_count' }
             readonly audioNackHbhEnabled: { readonly id: 1184; readonly type: 'boolean'; readonly falcoName: 'audio_nack_hbh_enabled' }
             readonly audioNackReqPktsProcessed: { readonly id: 1271; readonly type: 'integer'; readonly falcoName: 'audio_nack_req_pkts_processed' }
@@ -25498,6 +25509,7 @@ export declare const WA_WAM_EVENTS: {
             readonly overallMediaSize: { readonly id: 42; readonly type: 'number'; readonly falcoName: 'overall_media_size' }
             readonly pairedMediaType: { readonly id: 71; readonly type: 'enum'; readonly enum: 'PAIRED_MEDIA_TYPE'; readonly falcoName: 'paired_media_type' }
             readonly participantCount: { readonly id: 32; readonly type: 'integer'; readonly falcoName: 'participant_count' }
+            readonly peripheralDeviceOrigin: { readonly id: 96; readonly type: 'enum'; readonly enum: 'PERIPHERAL_DEVICE_TYPE'; readonly falcoName: 'peripheral_device_origin' }
             readonly privateAiFeatureName: { readonly id: 81; readonly type: 'enum'; readonly enum: 'PRIVATE_AI_FEATURE_NAME'; readonly falcoName: 'private_ai_feature_name' }
             readonly receiverDefaultDisappearingDuration: { readonly id: 28; readonly type: 'integer'; readonly falcoName: 'receiver_default_disappearing_duration' }
             readonly resendCount: { readonly id: 16; readonly type: 'integer'; readonly falcoName: 'resend_count' }
@@ -26515,6 +26527,7 @@ export declare const WA_WAM_EVENTS: {
         readonly fields: {
             readonly actionTarget: { readonly id: 4; readonly type: 'enum'; readonly enum: 'PAYMENT_ACTION_TARGETS'; readonly falcoName: 'action_target' }
             readonly customPaymentMethodsSyncStatus: { readonly id: 48; readonly type: 'enum'; readonly enum: 'CUSTOM_PAYMENT_METHODS_SYNC_STATUS'; readonly falcoName: 'custom_payment_methods_sync_status' }
+            readonly graphqlEndpointName: { readonly id: 49; readonly type: 'string'; readonly falcoName: 'graphql_endpoint_name' }
             readonly merchantType: { readonly id: 43; readonly type: 'enum'; readonly enum: 'MERCHANT_TYPE_TYPE'; readonly falcoName: 'merchant_type' }
             readonly p2mType: { readonly id: 44; readonly type: 'enum'; readonly enum: 'P2M_TYPE_TYPE'; readonly falcoName: 'p2m_type' }
             readonly paymentAccountRowSelected: { readonly id: 24; readonly type: 'integer'; readonly falcoName: 'payment_account_row_selected' }

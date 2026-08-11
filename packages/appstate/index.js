@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044824727
+// WhatsApp Version: 2.3000.1044917563
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -8,7 +8,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     AdsCtwaPerCustomerDataSharing: Object.freeze({
         name: 'ctwaPerCustomerDataSharing',
         collection: 'regular_high',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'ctwaPerCustomerDataSharingAction',
         valueProtoType: 'SyncActionValue.CtwaPerCustomerDataSharingAction',
@@ -34,7 +34,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     AiThreadDelete: Object.freeze({
         name: 'ai_thread_delete',
         collection: 'regular_high',
-        version: 7,
+        version: null,
         scope: 'chat',
         valueField: null,
         valueProtoType: null,
@@ -48,7 +48,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     AiThreadPin: Object.freeze({
         name: 'thread_pin',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'chat',
         valueField: 'threadPinAction',
         valueProtoType: 'SyncActionValue.ThreadPinAction',
@@ -76,7 +76,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     AndroidUnsupportedActions: Object.freeze({
         name: 'android_unsupported_actions',
         collection: 'regular_low',
-        version: 4,
+        version: null,
         scope: 'account',
         valueField: 'androidUnsupportedActions',
         valueProtoType: 'SyncActionValue.AndroidUnsupportedActions',
@@ -88,7 +88,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Archive: Object.freeze({
         name: 'archive',
         collection: 'regular_low',
-        version: 3,
+        version: null,
         scope: 'chatMessageRange',
         valueField: 'archiveChatAction',
         valueProtoType: 'SyncActionValue.ArchiveChatAction',
@@ -125,7 +125,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     BotWelcomeRequest: Object.freeze({
         name: 'bot_welcome_request',
         collection: 'regular_low',
-        version: 2,
+        version: null,
         scope: 'chat',
         valueField: 'botWelcomeRequestAction',
         valueProtoType: 'SyncActionValue.BotWelcomeRequestAction',
@@ -164,7 +164,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     BusinessBroadcastList: Object.freeze({
         name: 'business_broadcast_list',
         collection: 'regular',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'businessBroadcastListAction',
         valueProtoType: 'SyncActionValue.BusinessBroadcastListAction',
@@ -177,7 +177,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     CallLog: Object.freeze({
         name: 'call_log',
         collection: 'regular',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'callLogAction',
         valueProtoType: 'SyncActionValue.CallLogAction',
@@ -189,7 +189,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     ChatAssignment: Object.freeze({
         name: 'agentChatAssignment',
         collection: 'regular',
-        version: 7,
+        version: null,
         scope: 'chat',
         valueField: 'chatAssignment',
         valueProtoType: 'SyncActionValue.ChatAssignmentAction',
@@ -202,7 +202,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     ChatAssignmentOpenedStatus: Object.freeze({
         name: 'agentChatAssignmentOpenedStatus',
         collection: 'regular',
-        version: 7,
+        version: null,
         scope: 'chat',
         valueField: 'chatAssignmentOpenedStatus',
         valueProtoType: 'SyncActionValue.ChatAssignmentOpenedStatusAction',
@@ -228,7 +228,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     ClearChat: Object.freeze({
         name: 'clearChat',
         collection: 'regular_high',
-        version: 6,
+        version: null,
         scope: 'chatMessageRange',
         valueField: 'clearChatAction',
         valueProtoType: 'SyncActionValue.ClearChatAction',
@@ -243,7 +243,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Contact: Object.freeze({
         name: 'contact',
         collection: 'critical_unblock_low',
-        version: 2,
+        version: null,
         scope: 'account',
         valueField: 'contactAction',
         valueProtoType: 'SyncActionValue.ContactAction',
@@ -256,7 +256,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     CustomPaymentMethods: Object.freeze({
         name: 'custom_payment_methods',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'customPaymentMethodsAction',
         valueProtoType: 'SyncActionValue.CustomPaymentMethodsAction',
@@ -268,7 +268,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     CustomerData: Object.freeze({
         name: 'customer_data',
         collection: 'regular_low',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'customerDataAction',
         valueProtoType: 'SyncActionValue.CustomerDataAction',
@@ -281,7 +281,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     DeleteChat: Object.freeze({
         name: 'deleteChat',
         collection: 'regular_high',
-        version: 6,
+        version: null,
         scope: 'chatMessageRange',
         valueField: 'deleteChatAction',
         valueProtoType: 'SyncActionValue.DeleteChatAction',
@@ -295,7 +295,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     DeleteMessageForMe: Object.freeze({
         name: 'deleteMessageForMe',
         collection: 'regular_high',
-        version: 3,
+        version: null,
         scope: 'message',
         valueField: 'deleteMessageForMeAction',
         valueProtoType: 'SyncActionValue.DeleteMessageForMeAction',
@@ -323,7 +323,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     DisableLinkPreviews: Object.freeze({
         name: 'setting_disableLinkPreviews',
         collection: 'regular',
-        version: 8,
+        version: null,
         scope: 'account',
         valueField: 'privacySettingDisableLinkPreviewsAction',
         valueProtoType: 'SyncActionValue.PrivacySettingDisableLinkPreviewsAction',
@@ -335,7 +335,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     ExternalWebBeta: Object.freeze({
         name: 'external_web_beta',
         collection: 'regular',
-        version: 3,
+        version: null,
         scope: 'account',
         valueField: 'externalWebBetaAction',
         valueProtoType: 'SyncActionValue.ExternalWebBetaAction',
@@ -347,7 +347,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     FavoriteSticker: Object.freeze({
         name: 'favoriteSticker',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'stickerAction',
         valueProtoType: 'SyncActionValue.StickerAction',
@@ -360,7 +360,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Favorites: Object.freeze({
         name: 'favorites',
         collection: 'regular_high',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'favoritesAction',
         valueProtoType: 'SyncActionValue.FavoritesAction',
@@ -389,7 +389,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     LabelEdit: Object.freeze({
         name: 'label_edit',
         collection: 'regular',
-        version: 3,
+        version: null,
         scope: 'account',
         valueField: 'labelEditAction',
         valueProtoType: 'SyncActionValue.LabelEditAction',
@@ -402,7 +402,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     LabelJid: Object.freeze({
         name: 'label_jid',
         collection: 'regular',
-        version: 3,
+        version: null,
         scope: 'chatOrContact',
         valueField: 'labelAssociationAction',
         valueProtoType: 'SyncActionValue.LabelAssociationAction',
@@ -416,7 +416,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     LabelReordering: Object.freeze({
         name: 'label_reordering',
         collection: 'regular',
-        version: 3,
+        version: null,
         scope: 'account',
         valueField: 'labelReorderingAction',
         valueProtoType: 'SyncActionValue.LabelReorderingAction',
@@ -428,7 +428,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     LabelSublist: Object.freeze({
         name: 'label_sublist',
         collection: 'regular',
-        version: 1,
+        version: null,
         scope: 'chatOrContact',
         valueField: 'labelSublistAction',
         valueProtoType: 'SyncActionValue.LabelSublistAction',
@@ -442,7 +442,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     LidContact: Object.freeze({
         name: 'lid_contact',
         collection: 'critical_unblock_low',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'lidContactAction',
         valueProtoType: 'SyncActionValue.LidContactAction',
@@ -467,7 +467,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     LockChat: Object.freeze({
         name: 'lock',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'chat',
         valueField: 'lockChatAction',
         valueProtoType: 'SyncActionValue.LockChatAction',
@@ -480,7 +480,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     MarkChatAsRead: Object.freeze({
         name: 'markChatAsRead',
         collection: 'regular_low',
-        version: 3,
+        version: null,
         scope: 'chatMessageRange',
         valueField: 'markChatAsReadAction',
         valueProtoType: 'SyncActionValue.MarkChatAsReadAction',
@@ -532,7 +532,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Mute: Object.freeze({
         name: 'mute',
         collection: 'regular_high',
-        version: 2,
+        version: null,
         scope: 'chat',
         valueField: 'muteAction',
         valueProtoType: 'SyncActionValue.MuteAction',
@@ -557,7 +557,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     NoteEdit: Object.freeze({
         name: 'note_edit',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'noteEditAction',
         valueProtoType: 'SyncActionValue.NoteEditAction',
@@ -570,7 +570,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Nux: Object.freeze({
         name: 'nux',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'nuxAction',
         valueProtoType: 'SyncActionValue.NuxAction',
@@ -608,7 +608,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     PaymentTos: Object.freeze({
         name: 'payment_tos',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'paymentTosAction',
         valueProtoType: 'SyncActionValue.PaymentTosAction',
@@ -620,7 +620,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Pin: Object.freeze({
         name: 'pin_v1',
         collection: 'regular_low',
-        version: 5,
+        version: null,
         scope: 'chat',
         valueField: 'pinAction',
         valueProtoType: 'SyncActionValue.PinAction',
@@ -684,7 +684,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     RemoveRecentSticker: Object.freeze({
         name: 'removeRecentSticker',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'removeRecentStickerAction',
         valueProtoType: 'SyncActionValue.RemoveRecentStickerAction',
@@ -697,7 +697,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Sentinel: Object.freeze({
         name: 'sentinel',
         collection: 'regular_low',
-        version: 3,
+        version: null,
         scope: 'account',
         valueField: 'keyExpiration',
         valueProtoType: 'SyncActionValue.KeyExpiration',
@@ -709,7 +709,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     SettingPushName: Object.freeze({
         name: 'setting_pushName',
         collection: 'critical_block',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'pushNameSetting',
         valueProtoType: 'SyncActionValue.PushNameSetting',
@@ -721,7 +721,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     SettingsSync: Object.freeze({
         name: 'settings_sync',
         collection: 'regular_low',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'settingsSyncAction',
         valueProtoType: 'SyncActionValue.SettingsSyncAction',
@@ -749,7 +749,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Star: Object.freeze({
         name: 'star',
         collection: 'regular_high',
-        version: 2,
+        version: null,
         scope: 'message',
         valueField: 'starAction',
         valueProtoType: 'SyncActionValue.StarAction',
@@ -765,7 +765,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     StatusPrivacy: Object.freeze({
         name: 'status_privacy',
         collection: 'regular_high',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'statusPrivacy',
         valueProtoType: 'SyncActionValue.StatusPrivacyAction',
@@ -813,7 +813,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     UserStatusMute: Object.freeze({
         name: 'userStatusMute',
         collection: 'regular_high',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'userStatusMuteAction',
         valueProtoType: 'SyncActionValue.UserStatusMuteAction',
@@ -826,7 +826,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     VoipRelayAllCalls: Object.freeze({
         name: 'setting_relayAllCalls',
         collection: 'regular',
-        version: 1,
+        version: null,
         scope: 'account',
         valueField: 'privacySettingRelayAllCalls',
         valueProtoType: 'SyncActionValue.PrivacySettingRelayAllCalls',

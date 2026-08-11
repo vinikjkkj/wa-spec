@@ -783,6 +783,7 @@
         "INTEGRITY_SCAM_ALERT_UPSELL": 115,
         "MANAGE_GOOGLE_STORAGE_BUTTON": 62,
         "META_AI_APP_PROMO": 110,
+        "META_AI_THREADING_WIND_DOWN": 124,
         "MV_BIZ_TOOLS_PENDING_BIZ_VERIFICATION": 61,
         "MV_BIZ_TOOLS_SUBSCRIPTION_ACTIVATED": 58,
         "MV_BIZ_TOOLS_SUBSCRIPTION_CANCELED": 60,
@@ -1148,6 +1149,7 @@
       "module": "WAWebWamEnumBotType",
       "values": {
         "BOT_1P_BIZ": 2,
+        "BOT_3P_AGENT": 9,
         "BOT_3P_BIZ": 3,
         "HATCH": 7,
         "MANUS": 8,
@@ -2528,6 +2530,11 @@
       "export": "CHAT_FILTER_ACTION_TYPES",
       "module": "WAWebWamEnumChatFilterActionTypes",
       "values": {
+        "AGENT_CREATE_COMPLETE": 281,
+        "AGENT_CREATE_FAIL": 282,
+        "AGENT_CREATE_START": 280,
+        "AGENT_PROFILE_VIEW": 283,
+        "AGENT_REMOVE": 284,
         "AI_AVATAR_SELECTION_CLICK": 40,
         "AI_CATEGORIES_CHANGE": 220,
         "AI_CHARACTER_AUDIO_MUTED": 107,
@@ -9261,6 +9268,7 @@
       "export": "NATIVE_CONTACTS_NUX_EVENT_TYPE",
       "module": "WAWebWamEnumNativeContactsNuxEventType",
       "values": {
+        "SKIP_NATIVE_CONTACTS_NUX_AUTO_ACCEPTED": 4,
         "VIEW_MANAGE_CONTACTS_FROM_COMPANION": 2,
         "VIEW_MANAGE_CONTACTS_FROM_COMPANION_NATIVE_CONTACTS_SETTING_OFF": 3,
         "VIEW_NATIVE_CONTACTS_NUX": 1
@@ -10317,6 +10325,7 @@
         "SHARE_PROMPT_DISMISS": 335,
         "SHARE_QR_BUTTON": 240,
         "SHARE_UPI_QR_CODE": 342,
+        "SHARE_YOUR_PIX": 375,
         "SHOW_PSP_BANK_ERROR_WITHOUT_FALLBACK": 221,
         "SHOW_PSP_BANK_ERROR_WITH_FALLBACK": 220,
         "SIGN_UP_P2P": 98,
@@ -19154,6 +19163,16 @@
         "audioJbResetsPartial": {
           "falcoName": "audio_jb_resets_partial",
           "id": 1334,
+          "type": "integer"
+        },
+        "audioLazyCacheDropCount": {
+          "falcoName": "audio_lazy_cache_drop_count",
+          "id": 3112,
+          "type": "integer"
+        },
+        "audioLazyCacheDroppedMs": {
+          "falcoName": "audio_lazy_cache_dropped_ms",
+          "id": 3113,
           "type": "integer"
         },
         "audioLossPeriodCount": {
@@ -47918,6 +47937,12 @@
           "id": 32,
           "type": "integer"
         },
+        "peripheralDeviceOrigin": {
+          "enum": "PERIPHERAL_DEVICE_TYPE",
+          "falcoName": "peripheral_device_origin",
+          "id": 96,
+          "type": "enum"
+        },
         "privateAiFeatureName": {
           "enum": "PRIVATE_AI_FEATURE_NAME",
           "falcoName": "private_ai_feature_name",
@@ -51058,6 +51083,11 @@
           "falcoName": "custom_payment_methods_sync_status",
           "id": 48,
           "type": "enum"
+        },
+        "graphqlEndpointName": {
+          "falcoName": "graphql_endpoint_name",
+          "id": 49,
+          "type": "string"
         },
         "merchantType": {
           "enum": "MERCHANT_TYPE_TYPE",
@@ -66323,7 +66353,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044824727",
+  "waVersion": "2.3000.1044917563",
   "wireFormat": {
     "markers": {
       "event": 1,

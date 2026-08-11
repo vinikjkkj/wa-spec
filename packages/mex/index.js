@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044824727
+// WhatsApp Version: 2.3000.1044917563
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -18,8 +18,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ docId: '26554466787581138', clientDocId: '26554466787581138' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '37233827832899810', clientDocId: '37233827832899810' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28315138954759521', clientDocId: '28315138954759521' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '37707765268839224', clientDocId: '37707765268839224' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28324618323811635', clientDocId: '28324618323811635' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
@@ -112,6 +112,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchSubscriptionEntryPoints: Object.freeze({ docId: '9569660009784796', clientDocId: '9569660009784796' }),
     FetchSubscriptions: Object.freeze({ docId: '35324254123840149', clientDocId: '35324254123840149' }),
     FetchTextStatusList: Object.freeze({ docId: '24072923595647473', clientDocId: '24072923595647473' }),
+    FetchWassBotListProfilesGQL: Object.freeze({ docId: '27585340164479668', clientDocId: '27585340164479668' }),
+    FetchWassBotProfileGQL: Object.freeze({ docId: '27749531731398799', clientDocId: '27749531731398799' }),
     GetAccessTokenFromOIDCCode: Object.freeze({ docId: '25278212845117908', clientDocId: '25278212845117908' }),
     GetAccountNonce: Object.freeze({ docId: '25091178200467555', clientDocId: '25091178200467555' }),
     GetDsbInfo: Object.freeze({ docId: '9982897848413251', clientDocId: '9982897848413251' }),
@@ -308,6 +310,8 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     FetchSubscriptionEntryPoints: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchSubscriptions: Object.freeze({ operationKind: 'query', variables: Object.freeze(['data']) }),
     FetchTextStatusList: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
+    FetchWassBotListProfilesGQL: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
+    FetchWassBotProfileGQL: Object.freeze({ operationKind: 'query', variables: Object.freeze(['botFbid']) }),
     GetAccessTokenFromOIDCCode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['code', 'state']) }),
     GetAccountNonce: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     GetDsbInfo: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

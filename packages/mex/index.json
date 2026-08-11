@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "37233827832899810",
+      "docId": "37707765268839224",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "28315138954759521",
+      "docId": "28324618323811635",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -4104,6 +4104,39 @@
         "input": {}
       }
     },
+    "FetchWassBotListProfilesGQL": {
+      "docId": "27585340164479668",
+      "operationKind": "query",
+      "originalName": "WAWebFetchWassBotListProfilesGQLQuery",
+      "response": {
+        "wass_account_list_profiles": [
+          {
+            "bot_fbid": "string",
+            "is_deprecated": "boolean",
+            "product": "unknown"
+          }
+        ]
+      },
+      "variables": [],
+      "variablesShape": {}
+    },
+    "FetchWassBotProfileGQL": {
+      "docId": "27749531731398799",
+      "operationKind": "query",
+      "originalName": "WAWebFetchWassBotProfileGQLQuery",
+      "response": {
+        "get_wass_account_profile": {
+          "is_deprecated": "boolean",
+          "product": "unknown"
+        }
+      },
+      "variables": [
+        "botFbid"
+      ],
+      "variablesShape": {
+        "botFbid": "string"
+      }
+    },
     "GetAccessTokenFromOIDCCode": {
       "docId": "25278212845117908",
       "operationKind": "mutation",
@@ -6830,5 +6863,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1044824727"
+  "waVersion": "2.3000.1044917563"
 }

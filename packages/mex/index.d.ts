@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044824727
+// WhatsApp Version: 2.3000.1044917563
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -124,6 +124,8 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchSubscriptionEntryPoints: WaMexPersistId
     readonly FetchSubscriptions: WaMexPersistId
     readonly FetchTextStatusList: WaMexPersistId
+    readonly FetchWassBotListProfilesGQL: WaMexPersistId
+    readonly FetchWassBotProfileGQL: WaMexPersistId
     readonly GetAccessTokenFromOIDCCode: WaMexPersistId
     readonly GetAccountNonce: WaMexPersistId
     readonly GetDsbInfo: WaMexPersistId
@@ -320,6 +322,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchSubscriptionEntryPoints: WaMexOperationSchema<'query', readonly []>
     readonly FetchSubscriptions: WaMexOperationSchema<'query', readonly ['data']>
     readonly FetchTextStatusList: WaMexOperationSchema<'query', readonly ['input']>
+    readonly FetchWassBotListProfilesGQL: WaMexOperationSchema<'query', readonly []>
+    readonly FetchWassBotProfileGQL: WaMexOperationSchema<'query', readonly ['botFbid']>
     readonly GetAccessTokenFromOIDCCode: WaMexOperationSchema<'mutation', readonly ['code', 'state']>
     readonly GetAccountNonce: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly GetDsbInfo: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -1037,6 +1041,12 @@ export type WaMexFetchTextStatusListVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexFetchWassBotListProfilesGQLVariables = Readonly<Record<string, never>>
+
+export type WaMexFetchWassBotProfileGQLVariables = {
+    readonly botFbid?: string
+}
+
 export type WaMexGetAccessTokenFromOIDCCodeVariables = {
     readonly code?: string
     readonly state?: string
@@ -1694,6 +1704,8 @@ export interface WaMexOperationVariables {
     readonly FetchSubscriptionEntryPoints: WaMexFetchSubscriptionEntryPointsVariables
     readonly FetchSubscriptions: WaMexFetchSubscriptionsVariables
     readonly FetchTextStatusList: WaMexFetchTextStatusListVariables
+    readonly FetchWassBotListProfilesGQL: WaMexFetchWassBotListProfilesGQLVariables
+    readonly FetchWassBotProfileGQL: WaMexFetchWassBotProfileGQLVariables
     readonly GetAccessTokenFromOIDCCode: WaMexGetAccessTokenFromOIDCCodeVariables
     readonly GetAccountNonce: WaMexGetAccountNonceVariables
     readonly GetDsbInfo: WaMexGetDsbInfoVariables
@@ -4234,6 +4246,21 @@ export type WaMexFetchTextStatusListResponse = {
     }>
 }
 
+export type WaMexFetchWassBotListProfilesGQLResponse = {
+    readonly wass_account_list_profiles?: ReadonlyArray<{
+        readonly bot_fbid?: string
+        readonly is_deprecated?: boolean
+        readonly product?: unknown
+    }>
+}
+
+export type WaMexFetchWassBotProfileGQLResponse = {
+    readonly get_wass_account_profile?: {
+        readonly is_deprecated?: boolean
+        readonly product?: unknown
+    }
+}
+
 export type WaMexGetAccessTokenFromOIDCCodeResponse = {
     readonly xfb_wa_biz_get_token_from_oidc_code?: {
         readonly access_token?: string
@@ -5766,6 +5793,8 @@ export interface WaMexOperationResponses {
     readonly FetchSubscriptionEntryPoints: WaMexFetchSubscriptionEntryPointsResponse
     readonly FetchSubscriptions: WaMexFetchSubscriptionsResponse
     readonly FetchTextStatusList: WaMexFetchTextStatusListResponse
+    readonly FetchWassBotListProfilesGQL: WaMexFetchWassBotListProfilesGQLResponse
+    readonly FetchWassBotProfileGQL: WaMexFetchWassBotProfileGQLResponse
     readonly GetAccessTokenFromOIDCCode: WaMexGetAccessTokenFromOIDCCodeResponse
     readonly GetAccountNonce: WaMexGetAccountNonceResponse
     readonly GetDsbInfo: WaMexGetDsbInfoResponse

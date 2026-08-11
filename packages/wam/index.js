@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044824727
+// WhatsApp Version: 2.3000.1044917563
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -837,6 +837,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'INTEGRITY_SCAM_ALERT_UPSELL': 115,
         'MANAGE_GOOGLE_STORAGE_BUTTON': 62,
         'META_AI_APP_PROMO': 110,
+        'META_AI_THREADING_WIND_DOWN': 124,
         'MV_BIZ_TOOLS_PENDING_BIZ_VERIFICATION': 61,
         'MV_BIZ_TOOLS_SUBSCRIPTION_ACTIVATED': 58,
         'MV_BIZ_TOOLS_SUBSCRIPTION_CANCELED': 60,
@@ -1202,6 +1203,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'BOT_TYPE',
         values: Object.freeze({
         'BOT_1P_BIZ': 2,
+        'BOT_3P_AGENT': 9,
         'BOT_3P_BIZ': 3,
         'HATCH': 7,
         'MANUS': 8,
@@ -2582,6 +2584,11 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumChatFilterActionTypes',
         export: 'CHAT_FILTER_ACTION_TYPES',
         values: Object.freeze({
+        'AGENT_CREATE_COMPLETE': 281,
+        'AGENT_CREATE_FAIL': 282,
+        'AGENT_CREATE_START': 280,
+        'AGENT_PROFILE_VIEW': 283,
+        'AGENT_REMOVE': 284,
         'AI_AVATAR_SELECTION_CLICK': 40,
         'AI_CATEGORIES_CHANGE': 220,
         'AI_CHARACTER_AUDIO_MUTED': 107,
@@ -9315,6 +9322,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumNativeContactsNuxEventType',
         export: 'NATIVE_CONTACTS_NUX_EVENT_TYPE',
         values: Object.freeze({
+        'SKIP_NATIVE_CONTACTS_NUX_AUTO_ACCEPTED': 4,
         'VIEW_MANAGE_CONTACTS_FROM_COMPANION': 2,
         'VIEW_MANAGE_CONTACTS_FROM_COMPANION_NATIVE_CONTACTS_SETTING_OFF': 3,
         'VIEW_NATIVE_CONTACTS_NUX': 1
@@ -10371,6 +10379,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'SHARE_PROMPT_DISMISS': 335,
         'SHARE_QR_BUTTON': 240,
         'SHARE_UPI_QR_CODE': 342,
+        'SHARE_YOUR_PIX': 375,
         'SHOW_PSP_BANK_ERROR_WITHOUT_FALLBACK': 221,
         'SHOW_PSP_BANK_ERROR_WITH_FALLBACK': 220,
         'SIGN_UP_P2P': 98,
@@ -17446,6 +17455,8 @@ const WA_WAM_EVENTS = Object.freeze({
             audioInbandFecEncoded: Object.freeze({ id: 678, type: 'integer', falcoName: 'audio_inband_fec_encoded' }),
             audioJbResets: Object.freeze({ id: 1318, type: 'integer', falcoName: 'audio_jb_resets' }),
             audioJbResetsPartial: Object.freeze({ id: 1334, type: 'integer', falcoName: 'audio_jb_resets_partial' }),
+            audioLazyCacheDropCount: Object.freeze({ id: 3112, type: 'integer', falcoName: 'audio_lazy_cache_drop_count' }),
+            audioLazyCacheDroppedMs: Object.freeze({ id: 3113, type: 'integer', falcoName: 'audio_lazy_cache_dropped_ms' }),
             audioLossPeriodCount: Object.freeze({ id: 722, type: 'integer', falcoName: 'audio_loss_period_count' }),
             audioNackHbhEnabled: Object.freeze({ id: 1184, type: 'boolean', falcoName: 'audio_nack_hbh_enabled' }),
             audioNackReqPktsProcessed: Object.freeze({ id: 1271, type: 'integer', falcoName: 'audio_nack_req_pkts_processed' }),
@@ -24561,6 +24572,7 @@ const WA_WAM_EVENTS = Object.freeze({
             overallMediaSize: Object.freeze({ id: 42, type: 'number', falcoName: 'overall_media_size' }),
             pairedMediaType: Object.freeze({ id: 71, type: 'enum', enum: 'PAIRED_MEDIA_TYPE', falcoName: 'paired_media_type' }),
             participantCount: Object.freeze({ id: 32, type: 'integer', falcoName: 'participant_count' }),
+            peripheralDeviceOrigin: Object.freeze({ id: 96, type: 'enum', enum: 'PERIPHERAL_DEVICE_TYPE', falcoName: 'peripheral_device_origin' }),
             privateAiFeatureName: Object.freeze({ id: 81, type: 'enum', enum: 'PRIVATE_AI_FEATURE_NAME', falcoName: 'private_ai_feature_name' }),
             receiverDefaultDisappearingDuration: Object.freeze({ id: 28, type: 'integer', falcoName: 'receiver_default_disappearing_duration' }),
             resendCount: Object.freeze({ id: 16, type: 'integer', falcoName: 'resend_count' }),
@@ -25446,6 +25458,7 @@ const WA_WAM_EVENTS = Object.freeze({
         fields: Object.freeze({
             actionTarget: Object.freeze({ id: 4, type: 'enum', enum: 'PAYMENT_ACTION_TARGETS', falcoName: 'action_target' }),
             customPaymentMethodsSyncStatus: Object.freeze({ id: 48, type: 'enum', enum: 'CUSTOM_PAYMENT_METHODS_SYNC_STATUS', falcoName: 'custom_payment_methods_sync_status' }),
+            graphqlEndpointName: Object.freeze({ id: 49, type: 'string', falcoName: 'graphql_endpoint_name' }),
             merchantType: Object.freeze({ id: 43, type: 'enum', enum: 'MERCHANT_TYPE_TYPE', falcoName: 'merchant_type' }),
             p2mType: Object.freeze({ id: 44, type: 'enum', enum: 'P2M_TYPE_TYPE', falcoName: 'p2m_type' }),
             paymentAccountRowSelected: Object.freeze({ id: 24, type: 'integer', falcoName: 'payment_account_row_selected' }),
