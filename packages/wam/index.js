@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044917563
+// WhatsApp Version: 2.3000.1045008355
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -15146,6 +15146,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'INTERACTABLE': 4,
         'NON_TRUNCATED': 3,
         'NO_PREVIEW': 1,
+        'PSA_CTA': 7,
         'TOP_BAR_ATTRIBUTION': 5,
         'TRUNCATED': 2
         })
@@ -17429,6 +17430,8 @@ const WA_WAM_EVENTS = Object.freeze({
             audioCodecDecodedNormalBytes: Object.freeze({ id: 1783, type: 'number', falcoName: 'audio_codec_decoded_normal_bytes' }),
             audioCodecDecodedNormalSpeechBitrate: Object.freeze({ id: 2629, type: 'number', falcoName: 'audio_codec_decoded_normal_speech_bitrate' }),
             audioCodecDecodedPlcFrames: Object.freeze({ id: 756, type: 'integer', falcoName: 'audio_codec_decoded_plc_frames' }),
+            audioCodecDecodedRedBitrate: Object.freeze({ id: 3114, type: 'number', falcoName: 'audio_codec_decoded_red_bitrate' }),
+            audioCodecDecodedRedBitrateDominantSpeaker: Object.freeze({ id: 3115, type: 'number', falcoName: 'audio_codec_decoded_red_bitrate_dominant_speaker' }),
             audioCodecEncodedFecFrames: Object.freeze({ id: 751, type: 'integer', falcoName: 'audio_codec_encoded_fec_frames' }),
             audioCodecEncodedNonVoiceFrames: Object.freeze({ id: 753, type: 'integer', falcoName: 'audio_codec_encoded_non_voice_frames' }),
             audioCodecEncodedThrottledVoiceFrames: Object.freeze({ id: 1177, type: 'integer', falcoName: 'audio_codec_encoded_throttled_voice_frames' }),
@@ -21193,6 +21196,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             contactSearchEntrypoint: Object.freeze({ id: 5, type: 'enum', enum: 'CONTACT_SEARCH_ENTRYPOINT', falcoName: 'contact_search_entrypoint' }),
+            isSearchTargetBusiness: Object.freeze({ id: 6, type: 'boolean', falcoName: 'is_search_target_business' }),
             isUsernameSearch: Object.freeze({ id: 1, type: 'boolean', falcoName: 'is_username_search' }),
             searchActionName: Object.freeze({ id: 2, type: 'enum', enum: 'SEARCH_ACTION_NAME', falcoName: 'search_action_name' }),
             searchStartsWithAt: Object.freeze({ id: 4, type: 'boolean', falcoName: 'search_starts_with_at' })
@@ -27691,12 +27695,9 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
-            actionIndex: Object.freeze({ id: 8, type: 'integer', falcoName: 'action_index' }),
             attributionType: Object.freeze({ id: 1, type: 'enum', enum: 'TOP_BAR_ATTRIBUTION_TYPE', falcoName: 'attribution_type' }),
             attributionTypes: Object.freeze({ id: 3, type: 'string', falcoName: 'attribution_types' }),
             externalSourceDomainType: Object.freeze({ id: 5, type: 'enum', enum: 'INLINE_VIDEO_TYPE', falcoName: 'external_source_domain_type' }),
-            linkLoadTime: Object.freeze({ id: 9, type: 'integer', falcoName: 'link_load_time' }),
-            linkOpenResult: Object.freeze({ id: 10, type: 'string', falcoName: 'link_open_result' }),
             psaCampaignId: Object.freeze({ id: 11, type: 'string', falcoName: 'psa_campaign_id' }),
             statusCategory: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_CATEGORY', falcoName: 'status_category' }),
             statusId: Object.freeze({ id: 12, type: 'string', falcoName: 'status_id' }),

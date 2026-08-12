@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044917563
+// WhatsApp Version: 2.3000.1045008355
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -15255,6 +15255,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'INTERACTABLE': 4;
             readonly 'NON_TRUNCATED': 3;
             readonly 'NO_PREVIEW': 1;
+            readonly 'PSA_CTA': 7;
             readonly 'TOP_BAR_ATTRIBUTION': 5;
             readonly 'TRUNCATED': 2
         }
@@ -17666,6 +17667,8 @@ export declare const WA_WAM_EVENTS: {
             readonly audioCodecDecodedNormalBytes: { readonly id: 1783; readonly type: 'number'; readonly falcoName: 'audio_codec_decoded_normal_bytes' }
             readonly audioCodecDecodedNormalSpeechBitrate: { readonly id: 2629; readonly type: 'number'; readonly falcoName: 'audio_codec_decoded_normal_speech_bitrate' }
             readonly audioCodecDecodedPlcFrames: { readonly id: 756; readonly type: 'integer'; readonly falcoName: 'audio_codec_decoded_plc_frames' }
+            readonly audioCodecDecodedRedBitrate: { readonly id: 3114; readonly type: 'number'; readonly falcoName: 'audio_codec_decoded_red_bitrate' }
+            readonly audioCodecDecodedRedBitrateDominantSpeaker: { readonly id: 3115; readonly type: 'number'; readonly falcoName: 'audio_codec_decoded_red_bitrate_dominant_speaker' }
             readonly audioCodecEncodedFecFrames: { readonly id: 751; readonly type: 'integer'; readonly falcoName: 'audio_codec_encoded_fec_frames' }
             readonly audioCodecEncodedNonVoiceFrames: { readonly id: 753; readonly type: 'integer'; readonly falcoName: 'audio_codec_encoded_non_voice_frames' }
             readonly audioCodecEncodedThrottledVoiceFrames: { readonly id: 1177; readonly type: 'integer'; readonly falcoName: 'audio_codec_encoded_throttled_voice_frames' }
@@ -21610,6 +21613,7 @@ export declare const WA_WAM_EVENTS: {
         readonly conditions: readonly []
         readonly fields: {
             readonly contactSearchEntrypoint: { readonly id: 5; readonly type: 'enum'; readonly enum: 'CONTACT_SEARCH_ENTRYPOINT'; readonly falcoName: 'contact_search_entrypoint' }
+            readonly isSearchTargetBusiness: { readonly id: 6; readonly type: 'boolean'; readonly falcoName: 'is_search_target_business' }
             readonly isUsernameSearch: { readonly id: 1; readonly type: 'boolean'; readonly falcoName: 'is_username_search' }
             readonly searchActionName: { readonly id: 2; readonly type: 'enum'; readonly enum: 'SEARCH_ACTION_NAME'; readonly falcoName: 'search_action_name' }
             readonly searchStartsWithAt: { readonly id: 4; readonly type: 'boolean'; readonly falcoName: 'search_starts_with_at' }
@@ -29108,12 +29112,9 @@ export declare const WA_WAM_EVENTS: {
         readonly requiredFields: readonly []
         readonly conditions: readonly []
         readonly fields: {
-            readonly actionIndex: { readonly id: 8; readonly type: 'integer'; readonly falcoName: 'action_index' }
             readonly attributionType: { readonly id: 1; readonly type: 'enum'; readonly enum: 'TOP_BAR_ATTRIBUTION_TYPE'; readonly falcoName: 'attribution_type' }
             readonly attributionTypes: { readonly id: 3; readonly type: 'string'; readonly falcoName: 'attribution_types' }
             readonly externalSourceDomainType: { readonly id: 5; readonly type: 'enum'; readonly enum: 'INLINE_VIDEO_TYPE'; readonly falcoName: 'external_source_domain_type' }
-            readonly linkLoadTime: { readonly id: 9; readonly type: 'integer'; readonly falcoName: 'link_load_time' }
-            readonly linkOpenResult: { readonly id: 10; readonly type: 'string'; readonly falcoName: 'link_open_result' }
             readonly psaCampaignId: { readonly id: 11; readonly type: 'string'; readonly falcoName: 'psa_campaign_id' }
             readonly statusCategory: { readonly id: 4; readonly type: 'enum'; readonly enum: 'STATUS_CATEGORY'; readonly falcoName: 'status_category' }
             readonly statusId: { readonly id: 12; readonly type: 'string'; readonly falcoName: 'status_id' }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044917563
+// WhatsApp Version: 2.3000.1045008355
 'use strict'
 
 const { waWeb } = require('./version.json')

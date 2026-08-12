@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "37707765268839224",
+      "docId": "27324823230525109",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "28324618323811635",
+      "docId": "28946319158301300",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -406,6 +406,122 @@
       },
       "variables": [],
       "variablesShape": {}
+    },
+    "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_": {
+      "docId": "35215272154754577",
+      "operationKind": "query",
+      "originalName": "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_Query",
+      "response": {
+        "ad_account": {
+          "id": "string",
+          "marketing_message_business_tier": "unknown",
+          "marketing_messages_account_settings": {
+            "dfca_automatic_upload_consent_status": "string",
+            "has_created_whatsapp_liquidity_campaign": "boolean",
+            "id": "string",
+            "messenger_activation_status": "string",
+            "messenger_subscriber_pool": {
+              "dfca_automatic_upload_consent_status": "string",
+              "id": "string",
+              "is_custom_audience_populating": "boolean",
+              "name": "string",
+              "subscriber_pool_audience_size": {
+                "upper_bound": "number"
+              }
+            },
+            "whatsapp_activation_status": "string",
+            "whatsapp_phone_number_current_status": {
+              "id": "string"
+            },
+            "whatsapp_subscriber_pool": {
+              "id": "string",
+              "name": "string"
+            }
+          },
+          "mm_advertiser_profile_editable_attributes": [
+            {
+              "__typename": "string",
+              "id": "string",
+              "value": {
+                "__typename": "string",
+                "as_boolean": "unknown",
+                "as_string": "unknown"
+              }
+            }
+          ]
+        },
+        "business": {
+          "id": "string",
+          "marketing_messages_enabled_whatsapp_accounts": {
+            "nodes": [
+              {
+                "has_permissions_to_create_message_marketing_campaign_on_ads_manager": "boolean",
+                "id": "string",
+                "is_reused_on_ads_manager": "boolean",
+                "marketing_messages_restriction_status": "string",
+                "owner_business": {
+                  "id": "string"
+                },
+                "phone_numbers": {
+                  "nodes": [
+                    {
+                      "display_name_verification_request_status": "string",
+                      "display_phone_number": "string",
+                      "id": "string",
+                      "is_virtual_phone_number": "boolean",
+                      "platform_type": "string",
+                      "status": "string"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "marketing_messages_enabled_whatsapp_business_accounts": {
+            "nodes": [
+              {
+                "has_permissions_to_create_message_marketing_campaign_on_ads_manager": "boolean",
+                "id": "string",
+                "is_reused_on_ads_manager": "boolean",
+                "marketing_messages_restriction_status": "string",
+                "owner_business": {
+                  "id": "string"
+                },
+                "phone_numbers": {
+                  "nodes": [
+                    {
+                      "display_name_verification_request_status": "string",
+                      "display_phone_number": "string",
+                      "id": "string",
+                      "is_virtual_phone_number": "boolean",
+                      "platform_type": "string",
+                      "status": "string"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "variables": [
+        "accountID",
+        "adgroupRelayIDs",
+        "businessID",
+        "campaignGroupRelayIDs",
+        "campaignRelayIDs",
+        "skip_business_query",
+        "use_waac"
+      ],
+      "variablesShape": {
+        "accountID": "string",
+        "adgroupRelayIDs": "unknown",
+        "businessID": "string",
+        "campaignGroupRelayIDs": "unknown",
+        "campaignRelayIDs": "unknown",
+        "skip_business_query": "boolean",
+        "use_waac": "boolean"
+      }
     },
     "AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba": {
       "docId": "27132375929736175",
@@ -1366,6 +1482,34 @@
         "input": "string"
       }
     },
+    "ContactManagerCustomerProfile": {
+      "docId": "37925750573706165",
+      "operationKind": "query",
+      "originalName": "WAWebContactManagerCustomerProfileQuery",
+      "response": {
+        "xfb_wa_customer_profile": {
+          "acquisition_date": "string",
+          "acquisition_source": "string",
+          "address": "string",
+          "dob": "unknown",
+          "email": "string",
+          "last_order_date": "string",
+          "last_updates": [
+            {
+              "ts": "unknown"
+            }
+          ],
+          "lead_stage": "unknown",
+          "name": "string"
+        }
+      },
+      "variables": [
+        "lid"
+      ],
+      "variablesShape": {
+        "lid": "string"
+      }
+    },
     "ContactManagerCustomerProfileUpsert": {
       "docId": "27789071790751197",
       "operationKind": "mutation",
@@ -1470,7 +1614,7 @@
       }
     },
     "CreateLabyrinthBackup": {
-      "docId": "28017003717917462",
+      "docId": "27515507191403198",
       "operationKind": "mutation",
       "originalName": "WAWebCreateLabyrinthBackupJobMutation",
       "response": {
@@ -1481,7 +1625,8 @@
           "epoch_id": "string",
           "mailbox_id": "string",
           "message": "string",
-          "status": "string"
+          "status": "string",
+          "vd_device_id": "string"
         }
       },
       "variables": [
@@ -2816,7 +2961,7 @@
       "response": {
         "xwa2_newsletter_admin": {
           "capabilities": [
-            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
+            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
           ],
           "id": "string"
         }
@@ -4105,7 +4250,7 @@
       }
     },
     "FetchWassBotListProfilesGQL": {
-      "docId": "27585340164479668",
+      "docId": "28479090065021614",
       "operationKind": "query",
       "originalName": "WAWebFetchWassBotListProfilesGQLQuery",
       "response": {
@@ -4113,7 +4258,10 @@
           {
             "bot_fbid": "string",
             "is_deprecated": "boolean",
-            "product": "unknown"
+            "name": "string",
+            "product": "unknown",
+            "profile_pic_full_url": "string",
+            "profile_pic_thumb_url": "string"
           }
         ]
       },
@@ -4587,7 +4735,7 @@
         "input": {
           "exposures": [
             {
-              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU",
+              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU",
               "newsletter_id": "string"
             }
           ]
@@ -4698,134 +4846,6 @@
         "initial_url": "string"
       }
     },
-    "MAIBAMessagePLEDisclaimerContentPFR": {
-      "docId": "26833985386252659",
-      "operationKind": "query",
-      "originalName": "MAIBAMessagePLEDisclaimerContentPFRQuery",
-      "response": {
-        "xfb_ugp_gen_pfrs": {
-          "contents": [
-            {
-              "recommendation_contents": [
-                {
-                  "outcome": {
-                    "explanation": {
-                      "body": [
-                        {
-                          "image_ranges": [
-                            {
-                              "entity_with_image": {
-                                "__typename": "string",
-                                "id": "string",
-                                "image": {
-                                  "downloadable_uri": "string"
-                                }
-                              },
-                              "length": "number",
-                              "offset": "number"
-                            }
-                          ],
-                          "inline_style_ranges": [
-                            {
-                              "inline_style": "unknown",
-                              "length": "number",
-                              "offset": "number"
-                            }
-                          ],
-                          "ranges": [
-                            {
-                              "entity": {
-                                "__typename": "string",
-                                "id": "string",
-                                "url": "string"
-                              },
-                              "length": "number",
-                              "offset": "number"
-                            }
-                          ],
-                          "text": "string"
-                        }
-                      ],
-                      "footer": {
-                        "image_ranges": [
-                          {
-                            "entity_with_image": {
-                              "__typename": "string",
-                              "id": "string",
-                              "image": {
-                                "downloadable_uri": "string"
-                              }
-                            },
-                            "length": "number",
-                            "offset": "number"
-                          }
-                        ],
-                        "inline_style_ranges": [
-                          {
-                            "inline_style": "unknown",
-                            "length": "number",
-                            "offset": "number"
-                          }
-                        ],
-                        "ranges": [
-                          {
-                            "entity": {
-                              "__typename": "string",
-                              "id": "string",
-                              "url": "string"
-                            },
-                            "length": "number",
-                            "offset": "number"
-                          }
-                        ],
-                        "text": "string"
-                      },
-                      "title": {
-                        "text": "string"
-                      }
-                    },
-                    "footer": {
-                      "text": "string"
-                    },
-                    "lift": {
-                      "text": "string"
-                    },
-                    "title": {
-                      "inline_style_ranges": [
-                        {
-                          "inline_style": "unknown",
-                          "length": "number",
-                          "offset": "number"
-                        }
-                      ],
-                      "text": "string"
-                    }
-                  },
-                  "recommendation_id": "string"
-                }
-              ],
-              "recommendation_type": "string"
-            }
-          ]
-        }
-      },
-      "variables": [
-        "channel",
-        "clientId",
-        "options",
-        "requestId",
-        "scope",
-        "scoreSettingIds"
-      ],
-      "variablesShape": {
-        "channel": "enum:PREFLIGHT_RECOMMENDATION_HUB",
-        "clientId": "enum:ADS_MANAGER_PFR_HUB_EDITING",
-        "options": {},
-        "requestId": "string",
-        "scope": "unknown",
-        "scoreSettingIds": "unknown"
-      }
-    },
     "MAIBAMessageSignalsCTARenderer": {
       "docId": "24996386686710720",
       "operationKind": "mutation",
@@ -4916,6 +4936,23 @@
         "selected_product_ids": [
           "string"
         ]
+      }
+    },
+    "MetaPayVaultInitialize": {
+      "docId": "27977299271866413",
+      "operationKind": "mutation",
+      "originalName": "MetaPayVaultInitializeMutation",
+      "response": {
+        "meta_pay_vault_initialize": {
+          "error_reason": "string",
+          "status": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
       }
     },
     "MpsReceiverFetchGraphQLSticker": {
@@ -6031,6 +6068,25 @@
         "user_id": "string"
       }
     },
+    "RotateLabyrinthEpoch": {
+      "docId": "27545094465170765",
+      "operationKind": "mutation",
+      "originalName": "WAWebRotateLabyrinthEpochJobMutation",
+      "response": {
+        "wa_labyrinth_rotate_epoch": {
+          "__typename": "string",
+          "message": "string",
+          "new_epoch_id": "string",
+          "status": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
     "SetUsername": {
       "docId": "25757341163897635",
       "operationKind": "mutation",
@@ -6861,7 +6917,23 @@
         "postID": "string",
         "targetingSpecAudience": {}
       }
+    },
+    "useWAWebSmartComposerReportUsed": {
+      "docId": "27016039438072594",
+      "operationKind": "mutation",
+      "originalName": "useWAWebSmartComposerReportUsedMutation",
+      "response": {
+        "meta_ai_biz_agent_wa_suggested_reply_used": {
+          "success": "boolean"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
     }
   },
-  "waVersion": "2.3000.1044917563"
+  "waVersion": "2.3000.1045008355"
 }

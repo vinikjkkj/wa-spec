@@ -15092,6 +15092,7 @@
         "INTERACTABLE": 4,
         "NON_TRUNCATED": 3,
         "NO_PREVIEW": 1,
+        "PSA_CTA": 7,
         "TOP_BAR_ATTRIBUTION": 5,
         "TRUNCATED": 2
       }
@@ -19034,6 +19035,16 @@
           "falcoName": "audio_codec_decoded_plc_frames",
           "id": 756,
           "type": "integer"
+        },
+        "audioCodecDecodedRedBitrate": {
+          "falcoName": "audio_codec_decoded_red_bitrate",
+          "id": 3114,
+          "type": "number"
+        },
+        "audioCodecDecodedRedBitrateDominantSpeaker": {
+          "falcoName": "audio_codec_decoded_red_bitrate_dominant_speaker",
+          "id": 3115,
+          "type": "number"
         },
         "audioCodecEncodedFecFrames": {
           "falcoName": "audio_codec_encoded_fec_frames",
@@ -36123,6 +36134,11 @@
           "falcoName": "contact_search_entrypoint",
           "id": 5,
           "type": "enum"
+        },
+        "isSearchTargetBusiness": {
+          "falcoName": "is_search_target_business",
+          "id": 6,
+          "type": "boolean"
         },
         "isUsernameSearch": {
           "falcoName": "is_username_search",
@@ -58855,11 +58871,6 @@
       "emittedByWorker": false,
       "falcoName": "wam_status_viewer_action",
       "fields": {
-        "actionIndex": {
-          "falcoName": "action_index",
-          "id": 8,
-          "type": "integer"
-        },
         "attributionType": {
           "enum": "TOP_BAR_ATTRIBUTION_TYPE",
           "falcoName": "attribution_type",
@@ -58876,16 +58887,6 @@
           "falcoName": "external_source_domain_type",
           "id": 5,
           "type": "enum"
-        },
-        "linkLoadTime": {
-          "falcoName": "link_load_time",
-          "id": 9,
-          "type": "integer"
-        },
-        "linkOpenResult": {
-          "falcoName": "link_open_result",
-          "id": 10,
-          "type": "string"
         },
         "psaCampaignId": {
           "falcoName": "psa_campaign_id",
@@ -66353,7 +66354,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1044917563",
+  "waVersion": "2.3000.1045008355",
   "wireFormat": {
     "markers": {
       "event": 1,

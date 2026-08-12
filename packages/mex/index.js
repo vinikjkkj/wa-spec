@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1044917563
+// WhatsApp Version: 2.3000.1045008355
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -18,8 +18,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ docId: '26554466787581138', clientDocId: '26554466787581138' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '37707765268839224', clientDocId: '37707765268839224' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28324618323811635', clientDocId: '28324618323811635' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '27324823230525109', clientDocId: '27324823230525109' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28946319158301300', clientDocId: '28946319158301300' }),
+    AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '35215272154754577', clientDocId: '35215272154754577' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
@@ -44,11 +45,12 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ChangeNewsletterOwner: Object.freeze({ docId: '9546742745432473', clientDocId: '9546742745432473' }),
     ConsumerFetchQuickPromotions: Object.freeze({ docId: '35462584533386409', clientDocId: '35462584533386409' }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
+    ContactManagerCustomerProfile: Object.freeze({ docId: '37925750573706165', clientDocId: '37925750573706165' }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '27789071790751197', clientDocId: '27789071790751197' }),
     ContactManagerCustomerProfiles: Object.freeze({ docId: '27747880408206174', clientDocId: '27747880408206174' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
     CreateInviteCode: Object.freeze({ docId: '26155584267463745', clientDocId: '26155584267463745' }),
-    CreateLabyrinthBackup: Object.freeze({ docId: '28017003717917462', clientDocId: '28017003717917462' }),
+    CreateLabyrinthBackup: Object.freeze({ docId: '27515507191403198', clientDocId: '27515507191403198' }),
     CreateMarketingCampaignAction: Object.freeze({ docId: '26304826652483067', clientDocId: '26304826652483067' }),
     CreateNewsletter: Object.freeze({ docId: '25149874324715067', clientDocId: '25149874324715067' }),
     CreateNewsletterAdminInvite: Object.freeze({ docId: '9387141988078609', clientDocId: '9387141988078609' }),
@@ -112,7 +114,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchSubscriptionEntryPoints: Object.freeze({ docId: '9569660009784796', clientDocId: '9569660009784796' }),
     FetchSubscriptions: Object.freeze({ docId: '35324254123840149', clientDocId: '35324254123840149' }),
     FetchTextStatusList: Object.freeze({ docId: '24072923595647473', clientDocId: '24072923595647473' }),
-    FetchWassBotListProfilesGQL: Object.freeze({ docId: '27585340164479668', clientDocId: '27585340164479668' }),
+    FetchWassBotListProfilesGQL: Object.freeze({ docId: '28479090065021614', clientDocId: '28479090065021614' }),
     FetchWassBotProfileGQL: Object.freeze({ docId: '27749531731398799', clientDocId: '27749531731398799' }),
     GetAccessTokenFromOIDCCode: Object.freeze({ docId: '25278212845117908', clientDocId: '25278212845117908' }),
     GetAccountNonce: Object.freeze({ docId: '25091178200467555', clientDocId: '25091178200467555' }),
@@ -137,11 +139,11 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAInlineAssetSelectorWidgetAssets: Object.freeze({ docId: '35544094851905356', clientDocId: '35544094851905356' }),
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '26498781939820146', clientDocId: '26498781939820146' }),
     MAIBAMessageLiveBrowserRendererScreenshot: Object.freeze({ docId: '26819206974436266', clientDocId: '26819206974436266' }),
-    MAIBAMessagePLEDisclaimerContentPFR: Object.freeze({ docId: '26833985386252659', clientDocId: '26833985386252659' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ docId: '27087116144243008', clientDocId: '27087116144243008' }),
     MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ docId: '9948369021930229', clientDocId: '9948369021930229' }),
     MessengerAdPreviewConversation: Object.freeze({ docId: '29273127528968869', clientDocId: '29273127528968869' }),
+    MetaPayVaultInitialize: Object.freeze({ docId: '27977299271866413', clientDocId: '27977299271866413' }),
     MpsReceiverFetchGraphQLSticker: Object.freeze({ docId: '27636200009321630', clientDocId: '27636200009321630' }),
     MpsReceiverFetchGraphQLXMA: Object.freeze({ docId: '28101543082782219', clientDocId: '28101543082782219' }),
     NativeMLModel: Object.freeze({ docId: '32743078615336512', clientDocId: '32743078615336512' }),
@@ -166,6 +168,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ResolveAccountTypeAndAdPage: Object.freeze({ docId: '24732033759799062', clientDocId: '24732033759799062' }),
     ResolveAccountTypeAndAdPageQuery: Object.freeze({ docId: '24856134350695832', clientDocId: '24856134350695832' }),
     RevokeNewsletterAdminInvite: Object.freeze({ docId: '9656078347839416', clientDocId: '9656078347839416' }),
+    RotateLabyrinthEpoch: Object.freeze({ docId: '27545094465170765', clientDocId: '27545094465170765' }),
     SetUsername: Object.freeze({ docId: '25757341163897635', clientDocId: '25757341163897635' }),
     SetUsernameKey: Object.freeze({ docId: '9749436995157074', clientDocId: '9749436995157074' }),
     SignupMetadata: Object.freeze({ docId: '26378108788468347', clientDocId: '26378108788468347' }),
@@ -197,7 +200,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' })
+    useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' }),
+    useWAWebSmartComposerReportUsed: Object.freeze({ docId: '27016039438072594', clientDocId: '27016039438072594' })
 })
 
 const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
@@ -218,6 +222,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'campaignRelayIDs', 'skipAccountQuery']) }),
     AdsManagerLiveDataCampaign: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ids', 'skip_data_transform']) }),
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
+    AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']) }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'skipRequest']) }),
     AiAgentAutoReplyControl: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['consumer_lid', 'phone_number', 'thread_status']) }),
     AuthAgentFeaturePolicy: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
@@ -242,6 +247,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ChangeNewsletterOwner: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
     ConsumerFetchQuickPromotions: Object.freeze({ operationKind: 'query', variables: Object.freeze(['nux_ids', 'trigger_context']) }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    ContactManagerCustomerProfile: Object.freeze({ operationKind: 'query', variables: Object.freeze(['lid']) }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     ContactManagerCustomerProfiles: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     CreateEnforcementAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
@@ -335,11 +341,11 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     MAIBAInlineAssetSelectorWidgetAssets: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ operationKind: 'query', variables: Object.freeze(['brandIgUserID', 'creatorIDs']) }),
     MAIBAMessageLiveBrowserRendererScreenshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['click_selector', 'initial_url']) }),
-    MAIBAMessagePLEDisclaimerContentPFR: Object.freeze({ operationKind: 'query', variables: Object.freeze(['channel', 'clientId', 'options', 'requestId', 'scope', 'scoreSettingIds']) }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['ad_account_id', 'page_id']) }),
     MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     MessengerAdPreviewConversation: Object.freeze({ operationKind: 'query', variables: Object.freeze(['page_id', 'selected_product_ids']) }),
+    MetaPayVaultInitialize: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MpsReceiverFetchGraphQLSticker: Object.freeze({ operationKind: 'query', variables: Object.freeze(['receiverFetchId']) }),
     MpsReceiverFetchGraphQLXMA: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     NativeMLModel: Object.freeze({ operationKind: 'query', variables: Object.freeze(['client_capability_metadata', 'model_request_metadatas']) }),
@@ -364,6 +370,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ResolveAccountTypeAndAdPage: Object.freeze({ operationKind: 'mutation', variables: Object.freeze([]) }),
     ResolveAccountTypeAndAdPageQuery: Object.freeze({ operationKind: 'query', variables: Object.freeze(['pageId']) }),
     RevokeNewsletterAdminInvite: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
+    RotateLabyrinthEpoch: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     SetUsername: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'reserved', 'session_id', 'source']) }),
     SetUsernameKey: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['pin']) }),
     SignupMetadata: Object.freeze({ operationKind: 'query', variables: Object.freeze(['phone_number', 'signup_id']) }),
@@ -395,7 +402,8 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['page_id']) }),
     useMAIBADraftStatus: Object.freeze({ operationKind: 'query', variables: Object.freeze(['campaignGroupId', 'id']) }),
     useMAIBAMedia: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjectIDs', 'thumbnailSize']) }),
-    useWAWebEstimatedDailyReach: Object.freeze({ operationKind: 'query', variables: Object.freeze(['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']) })
+    useWAWebEstimatedDailyReach: Object.freeze({ operationKind: 'query', variables: Object.freeze(['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']) }),
+    useWAWebSmartComposerReportUsed: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) })
 })
 
 module.exports = { WA_MEX_PERSIST_IDS, WA_MEX_OPERATION_SCHEMAS }

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1044917563
+/// WhatsApp Version: 2.3000.1045008355
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -1058,6 +1058,12 @@ message BackupMessage {
         Subprotocol encryptedTransportLocallyTransformedMessage = 6;
         Subprotocol miTransportAdminMessage = 7;
     }
+}
+
+message BackwardEdge {
+    optional bytes encryptedPrevEpochAnonId = 1;
+    optional bytes encryptedPrevEpochRootKey = 2;
+    optional bytes prevEpochRootKeyFingerprint = 3;
 }
 
 message BizAccountLinkInfo {
@@ -2973,6 +2979,7 @@ message DeviceOutput {
     optional bytes encryptionVersionSignature = 7;
     optional int32 clientVersion = 8;
     optional bytes ocmfClientState = 9;
+    optional bytes epochStoragePrivateKey = 10;
 }
 
 message DeviceProps {
@@ -7230,11 +7237,10 @@ message RetryCountPerDeviceProto {
 
 message RotateEpochInput {
     optional bytes currentEpochRootKey = 1;
-    optional uint64 currentEpochAnonId = 2;
+    optional bytes currentEpochAnonId = 2;
     optional uint64 currentEpochFbid = 3;
-    optional uint64 newEpochFbid = 4;
-    optional bytes epochStoragePrivateKey = 5;
-    repeated RotateEpochMemberInput members = 6;
+    optional bytes epochStoragePrivateKey = 4;
+    repeated RotateEpochMemberInput members = 5;
 }
 
 message RotateEpochMemberEdge {
@@ -7253,10 +7259,11 @@ message RotateEpochOutput {
     optional bytes newEpochRootKey = 1;
     optional uint64 newEpochAnonId = 2;
     optional bytes epochAnonId = 3;
-    optional bytes epochData = 4;
+    optional BackwardEdge backwardEdge = 4;
     repeated RotateEpochMemberEdge memberEdges = 5;
     optional bytes epochRootKeyFingerprint = 6;
     optional string error = 7;
+    optional uint64 newEpochFbid = 8;
 }
 
 message RoutingInfo {
