@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045008355
+// WhatsApp Version: 2.3000.1045096796
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -2016,6 +2016,7 @@ export declare const WA_ABPROPS: {
     readonly web_calling_offline_resume_ordering: { readonly code: 29564; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_calling_pause_bg_during_call_mode: { readonly code: 34144; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_calling_perf_optimizations_bitmask: { readonly code: 22186; readonly type: "int"; readonly defaultValue: 1; readonly debugDefaultValue: 1 }
+    readonly web_calling_self_preview_enlarge: { readonly code: 34817; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_calling_smooth_call_link_lobby: { readonly code: 33131; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly web_calling_speaker_strip_resize_enabled: { readonly code: 30928; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_calls_tab_empty_state_buttons: { readonly code: 17724; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -4488,6 +4489,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 34784: "ai_subscription_media_editor_enabled"
     readonly 34791: "username_key_alphanumeric_charset"
     readonly 34795: "wa_nct_capping_kill_switch_enabled"
+    readonly 34817: "web_calling_self_preview_enlarge"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

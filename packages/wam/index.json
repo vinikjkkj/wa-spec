@@ -6928,6 +6928,7 @@
         "SMB_CREATED_AD": 56,
         "SMB_DRAFT_AD_CHATLIST_QP": 103,
         "SMB_EDIT_AD_FROM_AD_DETAILS_BUDGET_OR_AUDIENCE_EDIT_BUTTON": 92,
+        "SMB_FAB": 115,
         "SMB_HOME_BANNER": 20,
         "SMB_HOME_SCREEN_ICON": 19,
         "SMB_HOME_SCREEN_OVERFLOW_MANAGE_ITEM": 54,
@@ -10236,6 +10237,9 @@
         "PAY_TAB": 48,
         "PAY_UPI_ID_BUTTON": 266,
         "PAY_WITH_UPI_BUTTON": 236,
+        "PIX_INVITE_ASK_TO_SHARE_PIX_KEY": 376,
+        "PIX_INVITE_GO_TO_PAYMENTS": 378,
+        "PIX_INVITE_REQUEST_PAYMENT": 377,
         "PIX_KEY": 191,
         "PIX_NAME": 192,
         "PIX_PAYMENT_REQUEST_AMOUNT_INPUT": 253,
@@ -12150,6 +12154,7 @@
         "INITIATION_SUCCESS": 7,
         "PIN_VERFICATION_ERROR_SHOWN": 6,
         "SEARCH_START": 1,
+        "VIEW_NON_CONTACT": 11,
         "VIEW_PIN_VERIFICATION": 5
       }
     },
@@ -13334,6 +13339,8 @@
         "FORWARD_FROM_MESSAGES": 3,
         "FORWARD_FROM_STATUS": 34,
         "GROUP_CHAT_ATTACHMENT_TRAY": 61,
+        "GROUP_INFO_BOTTOM_SHEET_CALLS_TAB": 63,
+        "GROUP_INFO_BOTTOM_SHEET_CHATS_TAB": 62,
         "GROUP_INFO_PAGE": 35,
         "GROUP_STATUS_CHAT_HEADER": 49,
         "GROUP_STATUS_CHAT_HEADER_PROFILE_RING": 52,
@@ -14860,15 +14867,28 @@
       "module": "WAWebWamEnumUiActionType",
       "values": {
         "APP_OPEN": 2,
+        "ARCHIVED_OPENED_CHAT_LIST_CHIP": 64,
+        "ARCHIVED_OPENED_MENU_ROW": 63,
         "AVG_TYPING_PROCESSING_LATENCY": 38,
         "CALL_LIST_OPEN": 16,
         "CHANNEL_INFO_OPEN": 17,
+        "CHAT_ACTIONS_MENU_OPENED": 55,
+        "CHAT_ARCHIVE": 58,
         "CHAT_LIST_OPEN": 15,
+        "CHAT_MUTE": 60,
         "CHAT_OPEN": 3,
+        "CHAT_PIN": 56,
+        "CHAT_SWIPE_MARK_READ": 53,
+        "CHAT_SWIPE_MARK_UNREAD": 54,
+        "CHAT_UNARCHIVE": 59,
+        "CHAT_UNMUTE": 61,
+        "CHAT_UNPIN": 57,
         "COMMUNITY_CREATE": 11,
         "COMMUNITY_INFO_OPEN": 9,
         "COMMUNITY_LINK": 12,
         "CONTACTS_OPEN": 6,
+        "CONTACT_SELECTED_BROWSE": 52,
+        "CONTACT_SELECTED_SEARCH": 51,
         "CONTEXT_MENU_SHOWN_LATENCY": 35,
         "DEFAULT_SUBGROUP_INFO_OPEN": 10,
         "DELETE_QUOTED_ITEM_LATENCY": 44,
@@ -14877,6 +14897,7 @@
         "EMOJI_PICKER_START": 32,
         "EMOJI_PNG_DECOMPRESSION": 14,
         "EVOLVE_ABOUT_CHAT_RENDER_LATENCY": 39,
+        "EXTENDED_EMOJI_OPENED": 65,
         "FIRST_CHAR_TYPING_PROCESSING_LATENCY": 37,
         "FIRST_FTS_RESULT": 5,
         "GALLERY_OPEN": 22,
@@ -14884,9 +14905,14 @@
         "GROUP_INFO_OPEN": 7,
         "IMAGE_OPEN": 4,
         "KEYBOARD_SHOWN_LATENCY": 36,
+        "MENU_LOGOUT": 49,
+        "MENU_OPENED": 46,
+        "MENU_OPEN_ON_PHONE": 48,
+        "MENU_PROFILE": 47,
         "MESSAGE_FORWARD": 33,
         "MSG_INFO_OPEN": 8,
         "NAVIGATE_TO_QUOTED_ITEM_LATENCY": 45,
+        "NEW_CHAT_TAPPED": 50,
         "OTHER": 1,
         "PTT_LOCKED_VIEW_OPEN": 25,
         "PTT_PLAYBACK_START": 26,
@@ -14898,6 +14924,7 @@
         "PTV_RECORDING_START": 28,
         "PTV_RECORDING_STOP": 29,
         "REACTION_TRAY_START_LATENCY": 23,
+        "SCROLL_TO_TOP_TAPPED": 62,
         "SHOW_QUOTED_ITEM_LATENCY": 43,
         "TTRC": 18,
         "VIDEO_OPEN": 20,
@@ -15132,6 +15159,7 @@
         "CLICK_LINK_ERROR_UPSELL_USE_FOA": 66,
         "CLICK_LINK_ERROR_UPSELL_USE_IG": 65,
         "CLICK_LINK_ERROR_UPSELL_USE_SMB": 67,
+        "CLICK_NOT_YOU": 93,
         "CLICK_OK": 59,
         "CLICK_SAVE_PIN": 19,
         "CLICK_SAVE_USERNAME": 9,
@@ -15203,6 +15231,7 @@
         "BACKGROUND_NO_UI": 12,
         "FB_ACCOUNT_ALREADY_LINKED_DIALOG": 17,
         "FOA_USERNAME_NOT_AVAILABLE_BOTTOMSHEET": 15,
+        "IG_LINK_AND_RESERVE_USERNAME": 21,
         "SMB_LINKING_BOTTOMSHEET": 18,
         "USERNAME_COMPLETE": 6,
         "USERNAME_DELETE_DIALOG": 5,
@@ -20159,6 +20188,51 @@
           "id": 3092,
           "type": "integer"
         },
+        "caCathodeEmitToWireAvg": {
+          "falcoName": "ca_cathode_emit_to_wire_avg",
+          "id": 3118,
+          "type": "number"
+        },
+        "caCathodeEmitToWireMax": {
+          "falcoName": "ca_cathode_emit_to_wire_max",
+          "id": 3119,
+          "type": "number"
+        },
+        "caCathodeEmitToWireMin": {
+          "falcoName": "ca_cathode_emit_to_wire_min",
+          "id": 3120,
+          "type": "number"
+        },
+        "caCathodeGenToWireE2eAvg": {
+          "falcoName": "ca_cathode_gen_to_wire_e2e_avg",
+          "id": 3121,
+          "type": "number"
+        },
+        "caCathodeGenToWireE2eMax": {
+          "falcoName": "ca_cathode_gen_to_wire_e2e_max",
+          "id": 3122,
+          "type": "number"
+        },
+        "caCathodeGenToWireE2eMin": {
+          "falcoName": "ca_cathode_gen_to_wire_e2e_min",
+          "id": 3123,
+          "type": "number"
+        },
+        "caCathodePlayoutDeficitAvg": {
+          "falcoName": "ca_cathode_playout_deficit_avg",
+          "id": 3124,
+          "type": "number"
+        },
+        "caCathodePlayoutDeficitMax": {
+          "falcoName": "ca_cathode_playout_deficit_max",
+          "id": 3125,
+          "type": "number"
+        },
+        "caCathodePlayoutDeficitMin": {
+          "falcoName": "ca_cathode_playout_deficit_min",
+          "id": 3126,
+          "type": "number"
+        },
         "callAcceptFuncT": {
           "falcoName": "call_accept_func_t",
           "id": 132,
@@ -24405,6 +24479,11 @@
           "id": 2744,
           "type": "integer"
         },
+        "meteredWifiDetected": {
+          "falcoName": "metered_wifi_detected",
+          "id": 3116,
+          "type": "boolean"
+        },
         "micAvgPower": {
           "falcoName": "mic_avg_power",
           "id": 253,
@@ -26119,6 +26198,11 @@
         "rbeCapUpdateMin": {
           "falcoName": "rbe_cap_update_min",
           "id": 2931,
+          "type": "integer"
+        },
+        "rbeFallbackRequestCount": {
+          "falcoName": "rbe_fallback_request_count",
+          "id": 3117,
           "type": "integer"
         },
         "rbeGetIndexFromPlatformAndNetworkCount": {
@@ -53131,6 +53215,11 @@
           "id": 43,
           "type": "number"
         },
+        "pttOpenslPerformanceModeRequestStatus": {
+          "falcoName": "ptt_opensl_performance_mode_request_status",
+          "id": 58,
+          "type": "integer"
+        },
         "pttOpusEncodeBucketGte10msPct": {
           "falcoName": "ptt_opus_encode_bucket_gte10ms_pct",
           "id": 44,
@@ -60956,6 +61045,21 @@
           "falcoName": "view_once_messages_sent",
           "id": 106,
           "type": "integer"
+        },
+        "viewOnceTextMessagesOpened": {
+          "falcoName": "view_once_text_messages_opened",
+          "id": 147,
+          "type": "integer"
+        },
+        "viewOnceTextMessagesReceived": {
+          "falcoName": "view_once_text_messages_received",
+          "id": 148,
+          "type": "integer"
+        },
+        "viewOnceTextMessagesSent": {
+          "falcoName": "view_once_text_messages_sent",
+          "id": 149,
+          "type": "integer"
         }
       },
       "id": 6466,
@@ -66354,7 +66458,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1045008355",
+  "waVersion": "2.3000.1045096796",
   "wireFormat": {
     "markers": {
       "event": 1,

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045008355
+// WhatsApp Version: 2.3000.1045096796
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -4390,7 +4390,10 @@ export type WaMexFetchWassBotListProfilesGQLResponse = {
 export type WaMexFetchWassBotProfileGQLResponse = {
     readonly get_wass_account_profile?: {
         readonly is_deprecated?: boolean
+        readonly name?: string
         readonly product?: unknown
+        readonly profile_pic_full_url?: string
+        readonly profile_pic_thumb_url?: string
     }
 }
 

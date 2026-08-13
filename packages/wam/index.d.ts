@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045008355
+// WhatsApp Version: 2.3000.1045096796
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -7091,6 +7091,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SMB_CREATED_AD': 56;
             readonly 'SMB_DRAFT_AD_CHATLIST_QP': 103;
             readonly 'SMB_EDIT_AD_FROM_AD_DETAILS_BUDGET_OR_AUDIENCE_EDIT_BUTTON': 92;
+            readonly 'SMB_FAB': 115;
             readonly 'SMB_HOME_BANNER': 20;
             readonly 'SMB_HOME_SCREEN_ICON': 19;
             readonly 'SMB_HOME_SCREEN_OVERFLOW_MANAGE_ITEM': 54;
@@ -10399,6 +10400,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PAY_TAB': 48;
             readonly 'PAY_UPI_ID_BUTTON': 266;
             readonly 'PAY_WITH_UPI_BUTTON': 236;
+            readonly 'PIX_INVITE_ASK_TO_SHARE_PIX_KEY': 376;
+            readonly 'PIX_INVITE_GO_TO_PAYMENTS': 378;
+            readonly 'PIX_INVITE_REQUEST_PAYMENT': 377;
             readonly 'PIX_KEY': 191;
             readonly 'PIX_NAME': 192;
             readonly 'PIX_PAYMENT_REQUEST_AMOUNT_INPUT': 253;
@@ -12313,6 +12317,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'INITIATION_SUCCESS': 7;
             readonly 'PIN_VERFICATION_ERROR_SHOWN': 6;
             readonly 'SEARCH_START': 1;
+            readonly 'VIEW_NON_CONTACT': 11;
             readonly 'VIEW_PIN_VERIFICATION': 5
         }
     }
@@ -13497,6 +13502,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'FORWARD_FROM_MESSAGES': 3;
             readonly 'FORWARD_FROM_STATUS': 34;
             readonly 'GROUP_CHAT_ATTACHMENT_TRAY': 61;
+            readonly 'GROUP_INFO_BOTTOM_SHEET_CALLS_TAB': 63;
+            readonly 'GROUP_INFO_BOTTOM_SHEET_CHATS_TAB': 62;
             readonly 'GROUP_INFO_PAGE': 35;
             readonly 'GROUP_STATUS_CHAT_HEADER': 49;
             readonly 'GROUP_STATUS_CHAT_HEADER_PROFILE_RING': 52;
@@ -15023,15 +15030,28 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'UI_ACTION_TYPE'
         readonly values: {
             readonly 'APP_OPEN': 2;
+            readonly 'ARCHIVED_OPENED_CHAT_LIST_CHIP': 64;
+            readonly 'ARCHIVED_OPENED_MENU_ROW': 63;
             readonly 'AVG_TYPING_PROCESSING_LATENCY': 38;
             readonly 'CALL_LIST_OPEN': 16;
             readonly 'CHANNEL_INFO_OPEN': 17;
+            readonly 'CHAT_ACTIONS_MENU_OPENED': 55;
+            readonly 'CHAT_ARCHIVE': 58;
             readonly 'CHAT_LIST_OPEN': 15;
+            readonly 'CHAT_MUTE': 60;
             readonly 'CHAT_OPEN': 3;
+            readonly 'CHAT_PIN': 56;
+            readonly 'CHAT_SWIPE_MARK_READ': 53;
+            readonly 'CHAT_SWIPE_MARK_UNREAD': 54;
+            readonly 'CHAT_UNARCHIVE': 59;
+            readonly 'CHAT_UNMUTE': 61;
+            readonly 'CHAT_UNPIN': 57;
             readonly 'COMMUNITY_CREATE': 11;
             readonly 'COMMUNITY_INFO_OPEN': 9;
             readonly 'COMMUNITY_LINK': 12;
             readonly 'CONTACTS_OPEN': 6;
+            readonly 'CONTACT_SELECTED_BROWSE': 52;
+            readonly 'CONTACT_SELECTED_SEARCH': 51;
             readonly 'CONTEXT_MENU_SHOWN_LATENCY': 35;
             readonly 'DEFAULT_SUBGROUP_INFO_OPEN': 10;
             readonly 'DELETE_QUOTED_ITEM_LATENCY': 44;
@@ -15040,6 +15060,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'EMOJI_PICKER_START': 32;
             readonly 'EMOJI_PNG_DECOMPRESSION': 14;
             readonly 'EVOLVE_ABOUT_CHAT_RENDER_LATENCY': 39;
+            readonly 'EXTENDED_EMOJI_OPENED': 65;
             readonly 'FIRST_CHAR_TYPING_PROCESSING_LATENCY': 37;
             readonly 'FIRST_FTS_RESULT': 5;
             readonly 'GALLERY_OPEN': 22;
@@ -15047,9 +15068,14 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GROUP_INFO_OPEN': 7;
             readonly 'IMAGE_OPEN': 4;
             readonly 'KEYBOARD_SHOWN_LATENCY': 36;
+            readonly 'MENU_LOGOUT': 49;
+            readonly 'MENU_OPENED': 46;
+            readonly 'MENU_OPEN_ON_PHONE': 48;
+            readonly 'MENU_PROFILE': 47;
             readonly 'MESSAGE_FORWARD': 33;
             readonly 'MSG_INFO_OPEN': 8;
             readonly 'NAVIGATE_TO_QUOTED_ITEM_LATENCY': 45;
+            readonly 'NEW_CHAT_TAPPED': 50;
             readonly 'OTHER': 1;
             readonly 'PTT_LOCKED_VIEW_OPEN': 25;
             readonly 'PTT_PLAYBACK_START': 26;
@@ -15061,6 +15087,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PTV_RECORDING_START': 28;
             readonly 'PTV_RECORDING_STOP': 29;
             readonly 'REACTION_TRAY_START_LATENCY': 23;
+            readonly 'SCROLL_TO_TOP_TAPPED': 62;
             readonly 'SHOW_QUOTED_ITEM_LATENCY': 43;
             readonly 'TTRC': 18;
             readonly 'VIDEO_OPEN': 20;
@@ -15295,6 +15322,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLICK_LINK_ERROR_UPSELL_USE_FOA': 66;
             readonly 'CLICK_LINK_ERROR_UPSELL_USE_IG': 65;
             readonly 'CLICK_LINK_ERROR_UPSELL_USE_SMB': 67;
+            readonly 'CLICK_NOT_YOU': 93;
             readonly 'CLICK_OK': 59;
             readonly 'CLICK_SAVE_PIN': 19;
             readonly 'CLICK_SAVE_USERNAME': 9;
@@ -15366,6 +15394,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'BACKGROUND_NO_UI': 12;
             readonly 'FB_ACCOUNT_ALREADY_LINKED_DIALOG': 17;
             readonly 'FOA_USERNAME_NOT_AVAILABLE_BOTTOMSHEET': 15;
+            readonly 'IG_LINK_AND_RESERVE_USERNAME': 21;
             readonly 'SMB_LINKING_BOTTOMSHEET': 18;
             readonly 'USERNAME_COMPLETE': 6;
             readonly 'USERNAME_DELETE_DIALOG': 5;
@@ -17891,6 +17920,15 @@ export declare const WA_WAM_EVENTS: {
             readonly ca2dReceiverExtConnectT: { readonly id: 3074; readonly type: 'timer'; readonly falcoName: 'ca2d_receiver_ext_connect_t' }
             readonly ca2dReceiverFirstFrameT: { readonly id: 3075; readonly type: 'timer'; readonly falcoName: 'ca2d_receiver_first_frame_t' }
             readonly ca2dSuccCount: { readonly id: 3092; readonly type: 'integer'; readonly falcoName: 'ca2d_succ_count' }
+            readonly caCathodeEmitToWireAvg: { readonly id: 3118; readonly type: 'number'; readonly falcoName: 'ca_cathode_emit_to_wire_avg' }
+            readonly caCathodeEmitToWireMax: { readonly id: 3119; readonly type: 'number'; readonly falcoName: 'ca_cathode_emit_to_wire_max' }
+            readonly caCathodeEmitToWireMin: { readonly id: 3120; readonly type: 'number'; readonly falcoName: 'ca_cathode_emit_to_wire_min' }
+            readonly caCathodeGenToWireE2eAvg: { readonly id: 3121; readonly type: 'number'; readonly falcoName: 'ca_cathode_gen_to_wire_e2e_avg' }
+            readonly caCathodeGenToWireE2eMax: { readonly id: 3122; readonly type: 'number'; readonly falcoName: 'ca_cathode_gen_to_wire_e2e_max' }
+            readonly caCathodeGenToWireE2eMin: { readonly id: 3123; readonly type: 'number'; readonly falcoName: 'ca_cathode_gen_to_wire_e2e_min' }
+            readonly caCathodePlayoutDeficitAvg: { readonly id: 3124; readonly type: 'number'; readonly falcoName: 'ca_cathode_playout_deficit_avg' }
+            readonly caCathodePlayoutDeficitMax: { readonly id: 3125; readonly type: 'number'; readonly falcoName: 'ca_cathode_playout_deficit_max' }
+            readonly caCathodePlayoutDeficitMin: { readonly id: 3126; readonly type: 'number'; readonly falcoName: 'ca_cathode_playout_deficit_min' }
             readonly callAcceptFuncT: { readonly id: 132; readonly type: 'timer'; readonly falcoName: 'call_accept_func_t' }
             readonly callAcceptRcvd: { readonly id: 2854; readonly type: 'boolean'; readonly falcoName: 'call_accept_rcvd' }
             readonly callAcceptSent: { readonly id: 2855; readonly type: 'boolean'; readonly falcoName: 'call_accept_sent' }
@@ -18732,6 +18770,7 @@ export declare const WA_WAM_EVENTS: {
             readonly memUtilizationAvg: { readonly id: 1824; readonly type: 'number'; readonly falcoName: 'mem_utilization_avg' }
             readonly memUtilizationPeak: { readonly id: 1825; readonly type: 'number'; readonly falcoName: 'mem_utilization_peak' }
             readonly memoryAvailableMb: { readonly id: 2744; readonly type: 'integer'; readonly falcoName: 'memory_available_mb' }
+            readonly meteredWifiDetected: { readonly id: 3116; readonly type: 'boolean'; readonly falcoName: 'metered_wifi_detected' }
             readonly micAvgPower: { readonly id: 253; readonly type: 'integer'; readonly falcoName: 'mic_avg_power' }
             readonly micMaxPower: { readonly id: 252; readonly type: 'integer'; readonly falcoName: 'mic_max_power' }
             readonly micMinPower: { readonly id: 251; readonly type: 'integer'; readonly falcoName: 'mic_min_power' }
@@ -19072,6 +19111,7 @@ export declare const WA_WAM_EVENTS: {
             readonly rbeCapUpdateCount: { readonly id: 2929; readonly type: 'integer'; readonly falcoName: 'rbe_cap_update_count' }
             readonly rbeCapUpdateMax: { readonly id: 2930; readonly type: 'integer'; readonly falcoName: 'rbe_cap_update_max' }
             readonly rbeCapUpdateMin: { readonly id: 2931; readonly type: 'integer'; readonly falcoName: 'rbe_cap_update_min' }
+            readonly rbeFallbackRequestCount: { readonly id: 3117; readonly type: 'integer'; readonly falcoName: 'rbe_fallback_request_count' }
             readonly rbeGetIndexFromPlatformAndNetworkCount: { readonly id: 2932; readonly type: 'integer'; readonly falcoName: 'rbe_get_index_from_platform_and_network_count' }
             readonly rbeGetIndexFromPlatformAndNetworkSuccess: { readonly id: 2933; readonly type: 'integer'; readonly falcoName: 'rbe_get_index_from_platform_and_network_success' }
             readonly rbeGetMaxTargetBitrateCount: { readonly id: 2934; readonly type: 'integer'; readonly falcoName: 'rbe_get_max_target_bitrate_count' }
@@ -27322,6 +27362,7 @@ export declare const WA_WAM_EVENTS: {
             readonly pttOggPageWriteBucketLt4msPct: { readonly id: 41; readonly type: 'number'; readonly falcoName: 'ptt_ogg_page_write_bucket_lt4ms_pct' }
             readonly pttOggPageWriteBucketLt6msPct: { readonly id: 42; readonly type: 'number'; readonly falcoName: 'ptt_ogg_page_write_bucket_lt6ms_pct' }
             readonly pttOggPageWriteBucketLt8msPct: { readonly id: 43; readonly type: 'number'; readonly falcoName: 'ptt_ogg_page_write_bucket_lt8ms_pct' }
+            readonly pttOpenslPerformanceModeRequestStatus: { readonly id: 58; readonly type: 'integer'; readonly falcoName: 'ptt_opensl_performance_mode_request_status' }
             readonly pttOpusEncodeBucketGte10msPct: { readonly id: 44; readonly type: 'number'; readonly falcoName: 'ptt_opus_encode_bucket_gte10ms_pct' }
             readonly pttOpusEncodeBucketLt10msPct: { readonly id: 45; readonly type: 'number'; readonly falcoName: 'ptt_opus_encode_bucket_lt10ms_pct' }
             readonly pttOpusEncodeBucketLt2msPct: { readonly id: 46; readonly type: 'number'; readonly falcoName: 'ptt_opus_encode_bucket_lt2ms_pct' }
@@ -29823,6 +29864,9 @@ export declare const WA_WAM_EVENTS: {
             readonly viewOnceMessagesOpened: { readonly id: 104; readonly type: 'integer'; readonly falcoName: 'view_once_messages_opened' }
             readonly viewOnceMessagesReceived: { readonly id: 105; readonly type: 'integer'; readonly falcoName: 'view_once_messages_received' }
             readonly viewOnceMessagesSent: { readonly id: 106; readonly type: 'integer'; readonly falcoName: 'view_once_messages_sent' }
+            readonly viewOnceTextMessagesOpened: { readonly id: 147; readonly type: 'integer'; readonly falcoName: 'view_once_text_messages_opened' }
+            readonly viewOnceTextMessagesReceived: { readonly id: 148; readonly type: 'integer'; readonly falcoName: 'view_once_text_messages_received' }
+            readonly viewOnceTextMessagesSent: { readonly id: 149; readonly type: 'integer'; readonly falcoName: 'view_once_text_messages_sent' }
         }
     }
     readonly ThreadInteractionDataIntegrity: {

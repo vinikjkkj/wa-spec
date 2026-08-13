@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-proto",
-    "version": "2.3000.1045008355-7b52d2b",
+    "version": "2.3000.1045096796-c8c1527",
     "description": "WhatsApp Web protobuf message bindings — pbjs/pbts compiled from daily-extracted SDL.",
     "keywords": [
         "whatsapp",

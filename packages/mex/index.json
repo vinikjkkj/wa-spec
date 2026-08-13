@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "27324823230525109",
+      "docId": "28535119386085933",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "28946319158301300",
+      "docId": "28448164021443400",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -4269,13 +4269,16 @@
       "variablesShape": {}
     },
     "FetchWassBotProfileGQL": {
-      "docId": "27749531731398799",
+      "docId": "27911751148486446",
       "operationKind": "query",
       "originalName": "WAWebFetchWassBotProfileGQLQuery",
       "response": {
         "get_wass_account_profile": {
           "is_deprecated": "boolean",
-          "product": "unknown"
+          "name": "string",
+          "product": "unknown",
+          "profile_pic_full_url": "string",
+          "profile_pic_thumb_url": "string"
         }
       },
       "variables": [
@@ -6935,5 +6938,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045008355"
+  "waVersion": "2.3000.1045096796"
 }

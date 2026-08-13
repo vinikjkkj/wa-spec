@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2221,
+  "propCount": 2222,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -12028,6 +12028,12 @@
       "defaultValue": 1,
       "type": "int"
     },
+    "web_calling_self_preview_enlarge": {
+      "code": 34817,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_calling_smooth_call_link_lobby": {
       "code": 33131,
       "debugDefaultValue": true,
@@ -13446,5 +13452,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045008355"
+  "waVersion": "2.3000.1045096796"
 }

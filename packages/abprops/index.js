@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045008355
+// WhatsApp Version: 2.3000.1045096796
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -1997,6 +1997,7 @@ const WA_ABPROPS = Object.freeze({
     web_calling_offline_resume_ordering: Object.freeze({ code: 29564, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_calling_pause_bg_during_call_mode: Object.freeze({ code: 34144, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_calling_perf_optimizations_bitmask: Object.freeze({ code: 22186, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
+    web_calling_self_preview_enlarge: Object.freeze({ code: 34817, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_calling_smooth_call_link_lobby: Object.freeze({ code: 33131, type: "bool", defaultValue: true, debugDefaultValue: true }),
     web_calling_speaker_strip_resize_enabled: Object.freeze({ code: 30928, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_calls_tab_empty_state_buttons: Object.freeze({ code: 17724, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -4471,7 +4472,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34768: "channels_admin_profiles_id_only_resolution_enabled",
     34784: "ai_subscription_media_editor_enabled",
     34791: "username_key_alphanumeric_charset",
-    34795: "wa_nct_capping_kill_switch_enabled"
+    34795: "wa_nct_capping_kill_switch_enabled",
+    34817: "web_calling_self_preview_enlarge"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

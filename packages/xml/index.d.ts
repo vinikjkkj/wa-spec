@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045008355
+// WhatsApp Version: 2.3000.1045096796
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -1680,6 +1680,43 @@ export interface WaXmlOperations {
                         readonly t?: number
                     }
                 }
+                readonly item: {
+                    readonly tag: 'item'
+                    readonly attrs: {
+                        readonly from: string
+                        readonly t: number
+                    }
+                }
+                readonly thread_metadata: {
+                    readonly tag: 'thread_metadata'
+                }
+                readonly offline_preview: {
+                    readonly tag: 'offline_preview'
+                    readonly attrs: {
+                        readonly count: number
+                        readonly message: number
+                        readonly notification: number
+                        readonly receipt: number
+                    }
+                }
+                readonly offline: {
+                    readonly tag: 'offline'
+                    readonly attrs: {
+                        readonly count: number
+                    }
+                }
+                readonly offline_batch: {
+                    readonly tag: 'offline_batch'
+                    readonly attrs: {
+                        readonly count: number
+                    }
+                }
+                readonly unified_session: {
+                    readonly tag: 'unified_session'
+                    readonly attrs: {
+                        readonly id: string
+                    }
+                }
             }
         } }
     }
@@ -2788,7 +2825,7 @@ export interface WaXmlOperations {
                 readonly native_flow_name?: string
                 readonly notify?: string
                 readonly offline: number
-                readonly participant?: string
+                readonly participant: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -17104,16 +17141,16 @@ export interface WaXmlStanzas {
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
             }
             readonly children: {
-                readonly user: {
-                    readonly tag: 'user'
-                    readonly attrs: {
-                        readonly side_list: 'out'
-                    }
-                }
                 readonly meta: {
                     readonly tag: 'meta'
                     readonly attrs: {
                         readonly failure_reason: number
+                    }
+                }
+                readonly user: {
+                    readonly tag: 'user'
+                    readonly attrs: {
+                        readonly side_list: 'out'
                     }
                 }
             }
@@ -17292,100 +17329,35 @@ export interface WaXmlStanzas {
                 readonly from: 's.whatsapp.net'
             }
             readonly children: {
-                readonly dirty: ReadonlyArray<{
-                    readonly tag: 'dirty'
+                readonly client_expiration: {
+                    readonly tag: 'client_expiration'
                     readonly attrs: {
-                        readonly timestamp: number
-                        readonly type: 'groups' | 'account_sync' | 'syncd_app_state' | 'newsletter_metadata'
+                        readonly t?: number
                     }
-                    readonly children: {
-                        readonly '*': ReadonlyArray<{
-                            readonly tag: 'devices' | 'picture' | 'privacy' | 'blocklist' | 'notice'
-                        }>
+                }
+                readonly item: {
+                    readonly tag: 'item'
+                    readonly attrs: {
+                        readonly from: string
+                        readonly t: number
                     }
-                }>
-                readonly '*': ReadonlyArray<{
-                    readonly tag: '*'
-                }>
+                }
                 readonly thread_metadata: {
                     readonly tag: 'thread_metadata'
-                    readonly children: {
-                        readonly item: ReadonlyArray<{
-                            readonly tag: 'item'
-                            readonly attrs: {
-                                readonly from: string
-                                readonly t: number
-                            }
-                        }>
-                        readonly watermark: {
-                            readonly tag: 'watermark'
-                            readonly children: {
-                                readonly item: ReadonlyArray<{
-                                    readonly tag: 'item'
-                                    readonly attrs: {
-                                        readonly from: string
-                                        readonly sts?: number
-                                        readonly t: number
-                                    }
-                                }>
-                            }
-                        } | undefined
-                    }
                 }
-                readonly tos: {
-                    readonly tag: 'tos'
-                    readonly children: {
-                        readonly notice: ReadonlyArray<{
-                            readonly tag: 'notice'
-                            readonly attrs: {
-                                readonly id: string
-                            }
-                        }>
-                    }
-                }
-                readonly edge_routing: {
-                    readonly tag: 'edge_routing'
-                    readonly children: {
-                        readonly routing_info: {
-                            readonly tag: 'routing_info'
-                            readonly content: Uint8Array
-                        }
-                        readonly dns_domain: {
-                            readonly tag: 'dns_domain'
-                            readonly content: 'fb' | 'sl'
-                        } | undefined
-                    }
-                }
-                readonly recovery_nonce: {
-                    readonly tag: 'recovery_nonce'
+                readonly offline_preview: {
+                    readonly tag: 'offline_preview'
                     readonly attrs: {
-                        readonly code: string
-                        readonly use_case: number
+                        readonly count: number
+                        readonly message: number
+                        readonly notification: number
+                        readonly receipt: number
                     }
                 }
                 readonly offline: {
                     readonly tag: 'offline'
                     readonly attrs: {
                         readonly count: number
-                    }
-                } | undefined
-                readonly priority_offline_complete: {
-                    readonly tag: 'priority_offline_complete'
-                } | undefined
-                readonly offline_preview: {
-                    readonly tag: 'offline_preview'
-                    readonly attrs: {
-                        readonly call: number
-                        readonly count: number
-                        readonly message: number
-                        readonly notification: number
-                        readonly receipt: number
-                    }
-                } | undefined
-                readonly client_expiration: {
-                    readonly tag: 'client_expiration'
-                    readonly attrs: {
-                        readonly t?: number
                     }
                 }
                 readonly offline_batch: {
@@ -17534,7 +17506,7 @@ export interface WaXmlStanzas {
                     readonly native_flow_name?: string
                     readonly notify?: string
                     readonly offline: number
-                    readonly participant?: string
+                    readonly participant: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
@@ -19642,7 +19614,7 @@ export interface WaXmlStanzas {
                 readonly tag: 'receipt'
                 readonly attrs: {
                     readonly category: string
-                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly client_thread_id: string
                     readonly conversation_thread_id: string
                     readonly from: string
@@ -19747,7 +19719,7 @@ export interface WaXmlStanzas {
                 readonly tag: 'receipt'
                 readonly attrs: {
                     readonly category: string
-                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly client_thread_id: string
                     readonly conversation_thread_id: string
                     readonly from: string
@@ -19903,12 +19875,9 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'success'
             readonly attrs: {
-                readonly abprops?: number
-                readonly companion_enc_static?: string
+                readonly abprops: string
                 readonly creation: string
-                readonly display_name?: string
-                readonly group_abprops?: number
-                readonly lid?: string
+                readonly display_name: string
                 readonly props: string
                 readonly t: number
             }
