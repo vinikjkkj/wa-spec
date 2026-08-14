@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045096796
+// WhatsApp Version: 2.3000.1045182781
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -18,8 +18,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ docId: '26554466787581138', clientDocId: '26554466787581138' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '28535119386085933', clientDocId: '28535119386085933' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28448164021443400', clientDocId: '28448164021443400' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '27776062572078587', clientDocId: '27776062572078587' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '38094730396784471', clientDocId: '38094730396784471' }),
     AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '35215272154754577', clientDocId: '35215272154754577' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),

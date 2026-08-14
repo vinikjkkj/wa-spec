@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "28535119386085933",
+      "docId": "27776062572078587",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "28448164021443400",
+      "docId": "38094730396784471",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -6938,5 +6938,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045096796"
+  "waVersion": "2.3000.1045182781"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045096796
+// WhatsApp Version: 2.3000.1045182781
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -94,7 +94,7 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly FavoriteSticker: WaAppstateSchema<'favoriteSticker', 'regular_low', 'account', 'stickerAction', 'SyncActionValue.StickerAction', null, readonly [{ readonly type: 'literal'; readonly value: 'favoriteSticker' }, { readonly type: 'string'; readonly name: 'filehash' }]>
     readonly Favorites: WaAppstateSchema<'favorites', 'regular_high', 'account', 'favoritesAction', 'SyncActionValue.FavoritesAction', null, readonly [{ readonly type: 'literal'; readonly value: 'favorites' }]>
     readonly InteractiveMessageAction: WaAppstateSchema<'interactive_message_action', 'regular_low', 'message', 'interactiveMessageAction', 'SyncActionValue.InteractiveMessageAction', { readonly 'type': 'InteractiveMessageAction.InteractiveMessageActionMode' }, readonly [{ readonly type: 'literal'; readonly value: 'interactive_message_action' }, { readonly type: 'jid'; readonly name: 'remote' }, { readonly type: 'string'; readonly name: 'id' }, { readonly type: 'boolString'; readonly name: 'fromMe' }, { readonly type: 'jidOrZero'; readonly name: 'participant' }, { readonly type: 'string'; readonly name: 'arg5' }]>
-    readonly LabelEdit: WaAppstateSchema<'label_edit', 'regular', 'account', 'labelEditAction', 'SyncActionValue.LabelEditAction', { readonly 'type': 'LabelEditAction.ListType' }, readonly [{ readonly type: 'literal'; readonly value: 'label_edit' }, { readonly type: 'string'; readonly name: 'id' }]>
+    readonly LabelEdit: WaAppstateSchema<'label_edit', 'regular', 'account', 'labelEditAction', 'SyncActionValue.LabelEditAction', { readonly 'type': 'LabelEditAction.ListType' }, readonly [{ readonly type: 'literal'; readonly value: 'label_edit' }, { readonly type: 'string'; readonly name: 'labelId' }]>
     readonly LabelJid: WaAppstateSchema<'label_jid', 'regular', 'chatOrContact', 'labelAssociationAction', 'SyncActionValue.LabelAssociationAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_jid' }, { readonly type: 'string'; readonly name: 'labelId' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
     readonly LabelReordering: WaAppstateSchema<'label_reordering', 'regular', 'account', 'labelReorderingAction', 'SyncActionValue.LabelReorderingAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_reordering' }]>
     readonly LabelSublist: WaAppstateSchema<'label_sublist', 'regular', 'chatOrContact', 'labelSublistAction', 'SyncActionValue.LabelSublistAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_sublist' }, { readonly type: 'string'; readonly name: 'predefinedId' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>

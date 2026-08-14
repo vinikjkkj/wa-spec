@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2222,
+  "propCount": 2231,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -639,6 +639,12 @@
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_hatch_manage_subscription_url": {
+      "code": 34840,
+      "debugDefaultValue": "https://www.whatsapp.com/",
+      "defaultValue": "https://www.whatsapp.com/",
+      "type": "string"
     },
     "ai_hatch_media_upload_count_limit": {
       "code": 27897,
@@ -2302,6 +2308,12 @@
       "defaultValue": 5800,
       "type": "int"
     },
+    "calling_enable_dual_stream_receiver": {
+      "code": 34740,
+      "debugDefaultValue": true,
+      "defaultValue": true,
+      "type": "bool"
+    },
     "calling_lid_version": {
       "code": 3358,
       "debugDefaultValue": 0,
@@ -2844,7 +2856,7 @@
     },
     "channels_follower_invite_creation_modal_enabled": {
       "code": 26120,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -3174,7 +3186,7 @@
     },
     "channels_questions_responses_drawer_loading_shimmer_enabled": {
       "code": 29209,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -3324,7 +3336,7 @@
     },
     "channels_sticker_pack_rendering": {
       "code": 20182,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -6400,6 +6412,12 @@
       "defaultValue": 50,
       "type": "int"
     },
+    "message_partial_selection_discoverability": {
+      "code": 34826,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "message_partial_selection_in_bubble": {
       "code": 34585,
       "debugDefaultValue": false,
@@ -7698,7 +7716,7 @@
     },
     "poll_result_snapshot_polltype_envelope_enabled": {
       "code": 12258,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -8848,6 +8866,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "smb_web_ai_tos_master_notice_id": {
+      "code": 34831,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
+    },
     "smb_web_bb_home_qp_surface_enabled": {
       "code": 32613,
       "debugDefaultValue": false,
@@ -8901,6 +8925,18 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "smb_web_meta_ai_assistant_enabled": {
+      "code": 34828,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_web_meta_ai_image_input_languages": {
+      "code": 34829,
+      "debugDefaultValue": "en",
+      "defaultValue": " ",
+      "type": "string"
     },
     "smb_web_show_quick_reply_option_in_composer": {
       "code": 31700,
@@ -8984,12 +9020,6 @@
       "code": 17942,
       "debugDefaultValue": true,
       "defaultValue": true,
-      "type": "bool"
-    },
-    "smoothie_performance_resize_followup": {
-      "code": 18992,
-      "debugDefaultValue": false,
-      "defaultValue": false,
       "type": "bool"
     },
     "snapl_newsletter_logging_encrypted_rid_enabled": {
@@ -9528,12 +9558,6 @@
     },
     "use_custom_soccer_ball_for_reaction_enabled": {
       "code": 27807,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "use_per_chat_wallpaper": {
-      "code": 9756,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -11404,6 +11428,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wavoip_large_vsr_model_download_versions_v2": {
+      "code": 34857,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
+    },
     "wavoip_legacy_ml_qpl_exp_tag": {
       "code": 30561,
       "debugDefaultValue": "none",
@@ -12984,7 +13014,7 @@
     },
     "web_status_send_via_smax": {
       "code": 34259,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -13066,6 +13096,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_validate_media_url_allowlist_enabled": {
+      "code": 34890,
+      "debugDefaultValue": true,
+      "defaultValue": true,
+      "type": "bool"
+    },
     "web_voip_adaptive_sctp_prewarm": {
       "code": 32804,
       "debugDefaultValue": false,
@@ -13096,8 +13132,26 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "web_voip_deferred_boot_init": {
+      "code": 34923,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_voip_deferred_boot_init_max_delay_ms": {
+      "code": 34924,
+      "debugDefaultValue": 120000,
+      "defaultValue": 120000,
+      "type": "int"
+    },
     "web_voip_dynamic_thread_preallocate_count": {
       "code": 23789,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "web_voip_incoming_offer_init_freshness_ms": {
+      "code": 34925,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
@@ -13452,5 +13506,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045096796"
+  "waVersion": "2.3000.1045182781"
 }

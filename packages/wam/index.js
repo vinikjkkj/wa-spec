@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045096796
+// WhatsApp Version: 2.3000.1045182781
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -2343,6 +2343,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumChannelEntryPointMetadata',
         export: 'CHANNEL_ENTRY_POINT_METADATA',
         values: Object.freeze({
+        'CHANNEL_INFO_SHEET': 5,
         'LINK_BUTTON': 3,
         'LINK_TOOLTIP': 2,
         'POST_TOOLTIP': 4,
@@ -2357,6 +2358,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_DIRECTORY_CATEGORIES': 7,
         'CHANNEL_DIRECTORY_CATEGORIES_SEARCH': 8,
         'CHANNEL_DIRECTORY_SEARCH': 4,
+        'CHANNEL_INFO_SHEET': 9,
         'CHANNEL_PROFILE': 5,
         'CHANNEL_THREAD': 2,
         'CHANNEL_UPDATES_HOME': 1,
@@ -2419,6 +2421,7 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'CHANNEL_ADMIN_ONBOARDING': 6,
         'CHANNEL_INFO_PAGE': 1,
+        'CHANNEL_INFO_SHEET': 7,
         'CHANNEL_THREAD': 2,
         'PRODUCER_CONTEXT_CARD': 3,
         'SHARE_LINK_SCREEN': 5,
@@ -2430,6 +2433,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'CHANNEL_LINK_SHARE_SCREEN',
         values: Object.freeze({
         'CHANNEL_INFO': 2,
+        'CHANNEL_INFO_SHEET': 7,
         'CHANNEL_THREAD': 3,
         'CONTEXT_CARD': 1,
         'QR_CODE_SCREEN': 6,
@@ -6983,10 +6987,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_DRAFT_AD_CHATLIST_QP': 103,
         'SMB_EDIT_AD_FROM_AD_DETAILS_BUDGET_OR_AUDIENCE_EDIT_BUTTON': 92,
         'SMB_FAB': 115,
+        'SMB_FB_LINKING_UPSELL': 116,
         'SMB_HOME_BANNER': 20,
         'SMB_HOME_SCREEN_ICON': 19,
         'SMB_HOME_SCREEN_OVERFLOW_MANAGE_ITEM': 54,
         'SMB_HOME_SCREEN_OVERFLOW_MENU_ITEM': 9,
+        'SMB_IG_LINKING_UPSELL': 117,
         'SMB_MEDIA_SHARE_VIA_BROADCAST': 27,
         'SMB_MEDIA_SHARE_VIA_GROUP': 26,
         'SMB_MESSAGING_GUIDE_AD_CREATION': 38,
@@ -8494,6 +8500,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'COPY': 8,
         'COPY_LINK_URL': 17,
         'COPY_NEWSLETTER_LINK': 31,
+        'COPY_SELECTION': 40,
         'COPY_STICKER': 22,
         'DELETE': 4,
         'DELETE_SELECT_MESSAGES': 14,
@@ -8517,6 +8524,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'REPORT_TO_ADMIN': 30,
         'SAVE_AS': 25,
         'SELECT': 15,
+        'SELECT_TEXT': 39,
         'SHARE': 26,
         'SPEAK': 36,
         'STAR_OR_UNSTAR': 7,
@@ -11252,6 +11260,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'EDUCATION': 41,
         'EMOJI': 45,
         'EVENTS': 6,
+        'EVENT_V2': 64,
         'FAVORITE': 36,
         'FLOW': 18,
         'FORWARD_PICKER': 13,
@@ -13332,16 +13341,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'SD': 0
         })
     }),
-    STATUS_PLACEHOLDER_TYPE: Object.freeze({
-        module: 'WAWebWamEnumStatusPlaceholderType',
-        export: 'STATUS_PLACEHOLDER_TYPE',
-        values: Object.freeze({
-        'FUTUREPROOF': 4,
-        'NONE': 1,
-        'NOT_VIEWABLE': 3,
-        'PLACEHOLDER': 2
-        })
-    }),
     STATUS_POSTER_CONTACT_TYPE: Object.freeze({
         module: 'WAWebWamEnumStatusPosterContactType',
         export: 'STATUS_POSTER_CONTACT_TYPE',
@@ -13647,6 +13646,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_DIRECTORY_LIST': 31,
         'CHANNEL_INFO_PAGE': 27,
         'CHANNEL_INFO_SCREEN': 36,
+        'CHANNEL_INFO_SHEET': 41,
         'CHANNEL_RECOMMENDED_LIST': 30,
         'CHANNEL_STATUS_MY_LIST': 34,
         'CHANNEL_SUBSCRIBER_LIST': 29,
@@ -14683,6 +14683,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNEL_EDIT': 32,
         'CHANNEL_FOLLOWER_SEARCH': 214,
         'CHANNEL_FORWARD': 29,
+        'CHANNEL_INFO_SHEET': 262,
         'CHANNEL_INVITE_ADMINS': 194,
         'CHANNEL_INVITE_CONTACTS_TO_FOLLOW': 200,
         'CHANNEL_LINK': 113,
@@ -14729,6 +14730,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'DELETE_MESSAGE': 224,
         'EVENTS_IN_GROUP': 57,
         'EVENT_PAGE': 56,
+        'EVENT_V2_CONTACT_PICKER': 266,
+        'EVENT_V2_CREATION_UPDATE': 264,
+        'EVENT_V2_DETAILS': 265,
+        'EVENT_V2_GUEST_LIST': 267,
+        'EVENT_V2_HOME': 263,
         'EXTERNAL_BROWSER': 205,
         'EXTERNAL_SHARE': 108,
         'FLOWS_EXPERIENCE': 63,
@@ -27542,7 +27548,6 @@ const WA_WAM_EVENTS = Object.freeze({
             statusItemViewResult: Object.freeze({ id: 31, type: 'enum', enum: 'STATUS_ITEM_VIEW_RESULT', falcoName: 'status_item_view_result' }),
             statusLoadTime: Object.freeze({ id: 12, type: 'timer', falcoName: 'status_load_time' }),
             statusMediaType: Object.freeze({ id: 13, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'status_media_type' }),
-            statusPlaceholderType: Object.freeze({ id: 56, type: 'enum', enum: 'STATUS_PLACEHOLDER_TYPE', falcoName: 'status_placeholder_type' }),
             statusPogIndex: Object.freeze({ id: 15, type: 'integer', falcoName: 'status_pog_index' }),
             statusPostIndex: Object.freeze({ id: 16, type: 'integer', falcoName: 'status_post_index' }),
             statusPostPlaybackDuration: Object.freeze({ id: 17, type: 'timer', falcoName: 'status_post_playback_duration' }),
