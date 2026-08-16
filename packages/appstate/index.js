@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045253825
+// WhatsApp Version: 2.3000.1045297628
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -570,7 +570,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
     Nux: Object.freeze({
         name: 'nux',
         collection: 'regular_low',
-        version: 7,
+        version: null,
         scope: 'account',
         valueField: 'nuxAction',
         valueProtoType: 'SyncActionValue.NuxAction',

@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2281,
+  "propCount": 2285,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -356,6 +356,12 @@
       "code": 25520,
       "debugDefaultValue": 3,
       "defaultValue": 3,
+      "type": "int"
+    },
+    "ai_chat_threads_v1_deprecation_banner_max_impressions": {
+      "code": 35038,
+      "debugDefaultValue": 1,
+      "defaultValue": 1,
       "type": "int"
     },
     "ai_chat_threads_web_enabled": {
@@ -7396,6 +7402,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_algeria_enabled": {
+      "code": 35026,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_argentina_enabled": {
       "code": 33887,
       "debugDefaultValue": true,
@@ -8268,6 +8280,12 @@
     },
     "scheduled_companion_contact_refresh_days": {
       "code": 34960,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "scheduled_companion_contact_refresh_hours": {
+      "code": 35018,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
@@ -9771,6 +9789,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "username_key_regex": {
+      "code": 34350,
+      "debugDefaultValue": "^([0-9]{4}|[A-Z0-9]{6})$",
+      "defaultValue": "^([0-9]{4}|[A-Z0-9]{6})$",
+      "type": "string"
     },
     "username_key_upsell_max_characters": {
       "code": 25790,
@@ -13806,5 +13830,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045253825"
+  "waVersion": "2.3000.1045297628"
 }

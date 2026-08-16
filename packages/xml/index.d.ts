@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045253825
+// WhatsApp Version: 2.3000.1045297628
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -17270,7 +17270,7 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly error: number
+                readonly error?: number
                 readonly id: string
                 readonly participant?: string
                 readonly recipient?: string
@@ -19816,7 +19816,7 @@ export interface WaXmlStanzas {
                 readonly tag: 'receipt'
                 readonly attrs: {
                     readonly category: string
-                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly client_thread_id: string
                     readonly conversation_thread_id: string
                     readonly from: string
@@ -19921,7 +19921,7 @@ export interface WaXmlStanzas {
                 readonly tag: 'receipt'
                 readonly attrs: {
                     readonly category: string
-                    readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
+                    readonly class?: 'call' | 'message' | 'notification' | 'receipt' | 'status'
                     readonly client_thread_id: string
                     readonly conversation_thread_id: string
                     readonly from: string

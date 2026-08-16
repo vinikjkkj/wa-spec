@@ -47460,17 +47460,18 @@
             "type": "enum"
           },
           "error": {
-            "arg": "i",
+            "arg": "t.error",
             "direction": "out",
+            "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "r.stanzaId",
+            "arg": "t.ackId",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "r",
+            "arg": "o(\"WAWebWidFactory\").createWid(t.participant)",
             "direction": "out",
             "optional": true,
             "type": "deviceJid"
@@ -47482,8 +47483,8 @@
             "type": "userJid"
           },
           "to": {
-            "arg": "r.from",
             "direction": "out",
+            "raw": "m(t.to)",
             "type": "jid"
           },
           "type": {
@@ -55256,7 +55257,7 @@
                 "type": "string"
               },
               "class": {
-                "arg": "m",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55265,6 +55266,7 @@
                   "receipt",
                   "status"
                 ],
+                "optional": true,
                 "type": "enum"
               },
               "client_thread_id": {
@@ -55573,7 +55575,7 @@
                 "type": "string"
               },
               "class": {
-                "arg": "m",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55582,6 +55584,7 @@
                   "receipt",
                   "status"
                 ],
+                "optional": true,
                 "type": "enum"
               },
               "client_thread_id": {
@@ -56292,5 +56295,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1045253825"
+  "waVersion": "2.3000.1045297628"
 }

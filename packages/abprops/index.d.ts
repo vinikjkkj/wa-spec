@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045253825
+// WhatsApp Version: 2.3000.1045297628
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -71,6 +71,7 @@ export declare const WA_ABPROPS: {
     readonly ai_chat_threads_infra_web_enabled: { readonly code: 26776; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_chat_threads_pin_enabled: { readonly code: 25517; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_chat_threads_pin_max_count: { readonly code: 25520; readonly type: "int"; readonly defaultValue: 3; readonly debugDefaultValue: 3 }
+    readonly ai_chat_threads_v1_deprecation_banner_max_impressions: { readonly code: 35038; readonly type: "int"; readonly defaultValue: 1; readonly debugDefaultValue: 1 }
     readonly ai_chat_threads_web_enabled: { readonly code: 23169; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_chat_threads_web_killswitch_enabled: { readonly code: 26806; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_chat_threads_web_msgs_load_limit: { readonly code: 23694; readonly type: "int"; readonly defaultValue: 50; readonly debugDefaultValue: 50 }
@@ -1244,6 +1245,7 @@ export declare const WA_ABPROPS: {
     readonly payments_br_pix_web_attachment_tray: { readonly code: 19276; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_link_to_lite_consumer_enabled: { readonly code: 3051; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_merchant_global_orders_value_props_banner_enabled: { readonly code: 3744; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly payments_upr_algeria_enabled: { readonly code: 35026; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_upr_argentina_enabled: { readonly code: 33887; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_upr_bubble_countries: { readonly code: 29342; readonly type: "string"; readonly defaultValue: "MX, ID, HK, TW, AE, EG, TR"; readonly debugDefaultValue: "MX, ID, HK, TW, AE, EG, TR" }
     readonly payments_upr_cameroon_enabled: { readonly code: 34981; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1390,6 +1392,7 @@ export declare const WA_ABPROPS: {
     readonly schedule_call_show_join_button_time_interval_mins: { readonly code: 16253; readonly type: "int"; readonly defaultValue: 5; readonly debugDefaultValue: 5 }
     readonly schedule_call_show_upcoming_banner_time_interval_mins: { readonly code: 16254; readonly type: "int"; readonly defaultValue: 1440; readonly debugDefaultValue: 1440 }
     readonly scheduled_companion_contact_refresh_days: { readonly code: 34960; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
+    readonly scheduled_companion_contact_refresh_hours: { readonly code: 35018; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly scheduled_messages_photo_video_sender_enabled: { readonly code: 32553; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly scheduled_messages_receiver_enabled: { readonly code: 24610; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly scheduled_messages_sender_enabled: { readonly code: 23845; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1640,6 +1643,7 @@ export declare const WA_ABPROPS: {
     readonly username_key_max_length: { readonly code: 34348; readonly type: "int"; readonly defaultValue: 6; readonly debugDefaultValue: 6 }
     readonly username_key_min_length: { readonly code: 34347; readonly type: "int"; readonly defaultValue: 4; readonly debugDefaultValue: 4 }
     readonly username_key_redesign_enabled: { readonly code: 29026; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly username_key_regex: { readonly code: 34350; readonly type: "string"; readonly defaultValue: "^([0-9]{4}|[A-Z0-9]{6})$"; readonly debugDefaultValue: "^([0-9]{4}|[A-Z0-9]{6})$" }
     readonly username_key_upsell_max_characters: { readonly code: 25790; readonly type: "int"; readonly defaultValue: 8; readonly debugDefaultValue: 8 }
     readonly username_key_upsell_max_numbers: { readonly code: 25789; readonly type: "int"; readonly defaultValue: 1; readonly debugDefaultValue: 1 }
     readonly username_key_upsell_mode: { readonly code: 26220; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
@@ -4525,6 +4529,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 34347: "username_key_min_length"
     readonly 34348: "username_key_max_length"
     readonly 34349: "wa_web_chat_themes_stock_wallpaper_sync_encode"
+    readonly 34350: "username_key_regex"
     readonly 34366: "web_batched_status_sending_enabled"
     readonly 34369: "pinned_message_banner_notch_animation_enabled"
     readonly 34393: "ai_3p_agent_media_support_mode"
@@ -4608,6 +4613,9 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 34981: "payments_upr_cameroon_enabled"
     readonly 34982: "payments_upr_jordan_enabled"
     readonly 34993: "hybrid_save_as_shared_buffer_enabled"
+    readonly 35018: "scheduled_companion_contact_refresh_hours"
+    readonly 35026: "payments_upr_algeria_enabled"
+    readonly 35038: "ai_chat_threads_v1_deprecation_banner_max_impressions"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {
