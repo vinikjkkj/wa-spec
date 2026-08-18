@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "27776062572078587",
+      "docId": "37784452667868077",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "38094730396784471",
+      "docId": "27844749121860898",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -539,6 +539,35 @@
       "variablesShape": {
         "adAccountID": "string",
         "skipRequest": "boolean"
+      }
+    },
+    "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_": {
+      "docId": "28312488775011145",
+      "operationKind": "query",
+      "originalName": "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Query",
+      "response": {
+        "primary_page": {
+          "__typename": "string",
+          "id": "string",
+          "is_verified": "boolean"
+        },
+        "secondary_page": {
+          "__typename": "string",
+          "id": "string",
+          "is_verified": "boolean"
+        }
+      },
+      "variables": [
+        "hasPrimaryPage",
+        "hasSecondaryPage",
+        "primaryPageID",
+        "secondaryPageID"
+      ],
+      "variablesShape": {
+        "hasPrimaryPage": "boolean",
+        "hasSecondaryPage": "boolean",
+        "primaryPageID": "string",
+        "secondaryPageID": "string"
       }
     },
     "AiAgentAutoReplyControl": {
@@ -4958,6 +4987,64 @@
         "input": {}
       }
     },
+    "MetaPayVaultLabyrinthDelete": {
+      "docId": "27984854301168611",
+      "operationKind": "mutation",
+      "originalName": "MetaPayVaultLabyrinthDeleteMutation",
+      "response": {
+        "meta_pay_vault_delete": {
+          "error_reason": "string",
+          "status": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
+    "MetaPayVaultLabyrinthFetchAll": {
+      "docId": "27594971176872211",
+      "operationKind": "query",
+      "originalName": "MetaPayVaultLabyrinthFetchAllQuery",
+      "response": {
+        "meta_pay_vault_entries": {
+          "vault_entry_to_entry_key": [
+            {
+              "entry": {
+                "entry_data": "unknown",
+                "entry_fbid": "string"
+              }
+            }
+          ]
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
+    "MetaPayVaultLabyrinthSave": {
+      "docId": "37570099595972000",
+      "operationKind": "mutation",
+      "originalName": "MetaPayVaultLabyrinthSaveMutation",
+      "response": {
+        "meta_pay_vault_entry_save": {
+          "error_reason": "string",
+          "status": "string",
+          "vault_entry_fbid": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
     "MpsReceiverFetchGraphQLSticker": {
       "docId": "27636200009321630",
       "operationKind": "query",
@@ -6938,5 +7025,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045323241"
+  "waVersion": "2.3000.1045418364"
 }

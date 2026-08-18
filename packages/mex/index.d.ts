@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045323241
+// WhatsApp Version: 2.3000.1045418364
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -34,6 +34,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexPersistId
     readonly AiAgentAutoReplyControl: WaMexPersistId
     readonly AuthAgentFeaturePolicy: WaMexPersistId
     readonly BPAccessTokenAndSessionCookies: WaMexPersistId
@@ -156,6 +157,9 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexPersistId
     readonly MessengerAdPreviewConversation: WaMexPersistId
     readonly MetaPayVaultInitialize: WaMexPersistId
+    readonly MetaPayVaultLabyrinthDelete: WaMexPersistId
+    readonly MetaPayVaultLabyrinthFetchAll: WaMexPersistId
+    readonly MetaPayVaultLabyrinthSave: WaMexPersistId
     readonly MpsReceiverFetchGraphQLSticker: WaMexPersistId
     readonly MpsReceiverFetchGraphQLXMA: WaMexPersistId
     readonly NativeMLModel: WaMexPersistId
@@ -236,6 +240,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexOperationSchema<'query', readonly ['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexOperationSchema<'query', readonly ['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']>
     readonly AiAgentAutoReplyControl: WaMexOperationSchema<'mutation', readonly ['consumer_lid', 'phone_number', 'thread_status']>
     readonly AuthAgentFeaturePolicy: WaMexOperationSchema<'query', readonly []>
     readonly BPAccessTokenAndSessionCookies: WaMexOperationSchema<'mutation', readonly ['application_id', 'code']>
@@ -358,6 +363,9 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexOperationSchema<'query', readonly ['id']>
     readonly MessengerAdPreviewConversation: WaMexOperationSchema<'query', readonly ['page_id', 'selected_product_ids']>
     readonly MetaPayVaultInitialize: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly MetaPayVaultLabyrinthDelete: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly MetaPayVaultLabyrinthFetchAll: WaMexOperationSchema<'query', readonly ['input']>
+    readonly MetaPayVaultLabyrinthSave: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MpsReceiverFetchGraphQLSticker: WaMexOperationSchema<'query', readonly ['receiverFetchId']>
     readonly MpsReceiverFetchGraphQLXMA: WaMexOperationSchema<'query', readonly ['input']>
     readonly NativeMLModel: WaMexOperationSchema<'query', readonly ['client_capability_metadata', 'model_request_metadatas']>
@@ -510,6 +518,13 @@ export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables = {
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables = {
     readonly adAccountID?: string
     readonly skipRequest?: boolean
+}
+
+export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables = {
+    readonly hasPrimaryPage?: boolean
+    readonly hasSecondaryPage?: boolean
+    readonly primaryPageID?: string
+    readonly secondaryPageID?: string
 }
 
 export type WaMexAiAgentAutoReplyControlVariables = {
@@ -1237,6 +1252,18 @@ export type WaMexMetaPayVaultInitializeVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexMetaPayVaultLabyrinthDeleteVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexMetaPayVaultLabyrinthFetchAllVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexMetaPayVaultLabyrinthSaveVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexMpsReceiverFetchGraphQLStickerVariables = {
     readonly receiverFetchId?: string
 }
@@ -1639,6 +1666,7 @@ export interface WaMexOperationVariables {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlVariables
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyVariables
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesVariables
@@ -1761,6 +1789,9 @@ export interface WaMexOperationVariables {
     readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables
     readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationVariables
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeVariables
+    readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteVariables
+    readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllVariables
+    readonly MetaPayVaultLabyrinthSave: WaMexMetaPayVaultLabyrinthSaveVariables
     readonly MpsReceiverFetchGraphQLSticker: WaMexMpsReceiverFetchGraphQLStickerVariables
     readonly MpsReceiverFetchGraphQLXMA: WaMexMpsReceiverFetchGraphQLXMAVariables
     readonly NativeMLModel: WaMexNativeMLModelVariables
@@ -2106,6 +2137,19 @@ export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response = {
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse = {
     readonly xfb_ctwa_flows_waba_for_ad_account?: {
         readonly waba_id?: string
+    }
+}
+
+export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response = {
+    readonly primary_page?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly is_verified?: boolean
+    }
+    readonly secondary_page?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly is_verified?: boolean
     }
 }
 
@@ -4682,6 +4726,32 @@ export type WaMexMetaPayVaultInitializeResponse = {
     }
 }
 
+export type WaMexMetaPayVaultLabyrinthDeleteResponse = {
+    readonly meta_pay_vault_delete?: {
+        readonly error_reason?: string
+        readonly status?: string
+    }
+}
+
+export type WaMexMetaPayVaultLabyrinthFetchAllResponse = {
+    readonly meta_pay_vault_entries?: {
+        readonly vault_entry_to_entry_key?: ReadonlyArray<{
+            readonly entry?: {
+                readonly entry_data?: unknown
+                readonly entry_fbid?: string
+            }
+        }>
+    }
+}
+
+export type WaMexMetaPayVaultLabyrinthSaveResponse = {
+    readonly meta_pay_vault_entry_save?: {
+        readonly error_reason?: string
+        readonly status?: string
+        readonly vault_entry_fbid?: string
+    }
+}
+
 export type WaMexMpsReceiverFetchGraphQLStickerResponse = {
     readonly media_receiver_fetch_deidentified?: {
         readonly cdn_url?: string
@@ -5773,6 +5843,7 @@ export interface WaMexOperationResponses {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlResponse
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyResponse
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesResponse
@@ -5895,6 +5966,9 @@ export interface WaMexOperationResponses {
     readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Response
     readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationResponse
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeResponse
+    readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteResponse
+    readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllResponse
+    readonly MetaPayVaultLabyrinthSave: WaMexMetaPayVaultLabyrinthSaveResponse
     readonly MpsReceiverFetchGraphQLSticker: WaMexMpsReceiverFetchGraphQLStickerResponse
     readonly MpsReceiverFetchGraphQLXMA: WaMexMpsReceiverFetchGraphQLXMAResponse
     readonly NativeMLModel: WaMexNativeMLModelResponse

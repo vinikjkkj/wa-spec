@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045323241
+// WhatsApp Version: 2.3000.1045418364
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -148,6 +148,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLEAR_EXISTING': 3,
         'CREATE_NEW': 1,
         'UPDATE_EXISTING': 2
+        })
+    }),
+    ABOUT_SAVE_OUTCOME: Object.freeze({
+        module: 'WAWebWamEnumAboutSaveOutcome',
+        export: 'ABOUT_SAVE_OUTCOME',
+        values: Object.freeze({
+        'SERVER_REJECTED': 2,
+        'SUCCESS': 1,
+        'TRANSPORT_ERROR': 3,
+        'UNKNOWN_RESPONSE': 4
         })
     }),
     ACTION_CODE: Object.freeze({
@@ -5752,11 +5762,15 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumHatchActionType',
         export: 'HATCH_ACTION_TYPE',
         values: Object.freeze({
-        'HITL_ALLOW_ONCE_TAP': 9,
-        'HITL_ALWAYS_ALLOW_TAP': 10,
         'HITL_BOTTOM_SHEET_IMPRESSION': 7,
-        'HITL_DENY_TAP': 11,
+        'HITL_CART_DETAILS_IMPRESSION': 13,
+        'HITL_DECISION_TAP': 12,
         'HITL_DETAIL_IMPRESSION': 8,
+        'HITL_LEGAL_LINK_TAP': 18,
+        'HITL_ORDER_SUMMARY_IMPRESSION': 15,
+        'HITL_PAYMENT_DETAILS_IMPRESSION': 14,
+        'HITL_WALLET_CARD_SELECTED': 17,
+        'HITL_WALLET_PICKER_IMPRESSION': 16,
         'REQUEST_WELCOME_MSG_SENT': 1,
         'TAP_UNLINK_BUTTON': 2,
         'TAP_WA_READ_WRITE_ACCESS': 5,
@@ -5787,6 +5801,17 @@ const WA_WAM_ENUMS = Object.freeze({
         'PARTICIPANTS': 5,
         'SAVED_CONTACTS': 4,
         'SINGLE': 1,
+        'UNKNOWN': 0
+        })
+    }),
+    HITL_LEGAL_LINK_TYPE: Object.freeze({
+        module: 'WAWebWamEnumHitlLegalLinkType',
+        export: 'HITL_LEGAL_LINK_TYPE',
+        values: Object.freeze({
+        'LINK': 2,
+        'MERCHANT_PROVIDED': 4,
+        'META_PAY': 1,
+        'STRIPE': 3,
         'UNKNOWN': 0
         })
     }),
@@ -6207,6 +6232,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIX_ENTER_AMOUNT': 55,
         'PIX_ERROR_COPY_CLICKED': 79,
         'PIX_INVALID_ERROR_SHOWN': 78,
+        'PIX_INVITE_SHARE_KEY': 105,
         'PIX_NATIVE_BANK_CONNECTED': 92,
         'PIX_NATIVE_BANK_CONNECTING': 91,
         'PIX_NATIVE_BIOMETRIC_AUTH': 94,
@@ -7254,6 +7280,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_ITEM_DESELECTED': 213,
         'LWI_ACTION_ITEM_SELECTED': 179,
         'LWI_ACTION_LEARN_MORE_TAPPED': 5,
+        'LWI_ACTION_LINKING_UPSELL_CHOOSE_OTHER_MEDIA_TAPPED': 542,
         'LWI_ACTION_LINKS_METRICS_INFO_TAPPED': 314,
         'LWI_ACTION_LIST_LOAD_ERROR': 306,
         'LWI_ACTION_LOADED': 100,
@@ -7643,12 +7670,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_SCREEN_ESTIMATED_RESULTS': 100,
         'LWI_SCREEN_FB_CONSENT_CONFIRM': 11,
         'LWI_SCREEN_FB_CUSTOM_TAB_WEB_LOGIN': 68,
+        'LWI_SCREEN_FB_LINKING_UPSELL': 116,
         'LWI_SCREEN_FB_LOGIN_APP_REDIRECT_CONSENT': 65,
         'LWI_SCREEN_FB_LOGIN_APP_REDIRECT_CONSENT_MANAGE_ADS': 67,
         'LWI_SCREEN_FB_WEB_LOGIN': 22,
         'LWI_SCREEN_FB_WEB_LOGIN_CONSENT_CONFIRM': 21,
         'LWI_SCREEN_GOOGLE_AUTH_SYSTEM_DIALOG': 69,
         'LWI_SCREEN_HELP': 5,
+        'LWI_SCREEN_IG_LINKING_UPSELL': 117,
         'LWI_SCREEN_IMAGE_CROPPING': 20,
         'LWI_SCREEN_IMAGE_EDITING': 33,
         'LWI_SCREEN_INSTAGRAM_AD_PREVIEW': 13,
@@ -8148,6 +8177,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_STATUS_CHAT_HEADER_PROFILE_RING': 125,
         'GROUP_STATUS_CHAT_HEADER_PROFILE_RING_DROPDOWN': 126,
         'GROUP_STATUS_INFO': 100,
+        'GROUP_STATUS_REPLY_WITH_STATUS': 133,
         'GROUP_STATUS_TAB_SELF_POG': 112,
         'HOME_TOOLBAR_CALLS_CAMERA_CAPTURE': 66,
         'HOME_TOOLBAR_CALLS_CAMERA_MEDIA_STRIP': 67,
@@ -9176,6 +9206,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'LEARN_MORE': 13,
         'MANAGE_MESSAGES': 14,
         'NOT_INTERESTED': 2,
+        'REPORT': 15,
         'RESUME': 6,
         'RESUME_CONFIRMATION': 11,
         'STOP': 3,
@@ -9475,6 +9506,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'REACTION_MESSAGE': 9,
         'REQUEST_MEDIA_REUPLOAD': 11,
         'SCHEDULED_CALL_LOCAL_REMINDER': 28,
+        'STATUS_GROUP_STATUS_REPLY': 72,
         'STATUS_MENTION': 30,
         'STATUS_POST_RESHARE': 39,
         'STATUS_PROMPT_RESPONSE': 35,
@@ -15577,9 +15609,11 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'VIEW_BUSINESS_PROFILE_ACTION',
         values: Object.freeze({
         'ACTION_APP_IMPRESSION': 16,
+        'ACTION_CLICK_ABOUT': 23,
         'ACTION_CLICK_ADDTOCONTACT': 7,
         'ACTION_CLICK_APP_LINK': 15,
         'ACTION_CLICK_CATALOG_ICON': 13,
+        'ACTION_CLICK_COVER_PHOTO': 26,
         'ACTION_CLICK_DESCRIPTION': 5,
         'ACTION_CLICK_EMAIL': 6,
         'ACTION_CLICK_FORWARD': 12,
@@ -15587,8 +15621,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'ACTION_CLICK_LOCATION': 3,
         'ACTION_CLICK_MESSAGE': 9,
         'ACTION_CLICK_MORE_BIZ_PROFILE': 8,
+        'ACTION_CLICK_OFFERINGS': 27,
+        'ACTION_CLICK_PROFILE_PHOTO': 22,
+        'ACTION_CLICK_REPORT': 25,
         'ACTION_CLICK_SHOPS_ICON': 14,
         'ACTION_CLICK_STATUS': 17,
+        'ACTION_CLICK_USER_CONTROLS': 24,
         'ACTION_CLICK_VERIFIED_BADGE': 20,
         'ACTION_CLICK_VIDEO_CALL': 11,
         'ACTION_CLICK_VOICE_CALL': 10,
@@ -16766,6 +16804,8 @@ const WA_WAM_EVENTS = Object.freeze({
             aboutPresetSelected: Object.freeze({ id: 6, type: 'boolean', falcoName: 'about_preset_selected' }),
             aboutPrompt: Object.freeze({ id: 9, type: 'enum', enum: 'ABOUT_PROMPT_TYPE', falcoName: 'about_prompt' }),
             aboutRequestType: Object.freeze({ id: 7, type: 'enum', enum: 'ABOUT_REQUEST_TYPE', falcoName: 'about_request_type' }),
+            aboutSaveErrorCode: Object.freeze({ id: 10, type: 'integer', falcoName: 'about_save_error_code' }),
+            aboutSaveOutcome: Object.freeze({ id: 11, type: 'enum', enum: 'ABOUT_SAVE_OUTCOME', falcoName: 'about_save_outcome' }),
             preset: Object.freeze({ id: 8, type: 'enum', enum: 'PRESET_TYPE', falcoName: 'preset' })
         })
     }),
@@ -17676,6 +17716,10 @@ const WA_WAM_EVENTS = Object.freeze({
             bweSlrOutputBps: Object.freeze({ id: 2461, type: 'integer', falcoName: 'bwe_slr_output_bps' }),
             c50Linked: Object.freeze({ id: 3001, type: 'boolean', falcoName: 'c50_linked' }),
             ca2dAttemptCount: Object.freeze({ id: 3093, type: 'integer', falcoName: 'ca2d_attempt_count' }),
+            ca2dAvsyncAbsDeltaMsAvg: Object.freeze({ id: 3141, type: 'number', falcoName: 'ca2d_avsync_abs_delta_ms_avg' }),
+            ca2dAvsyncAbsDeltaMsP50: Object.freeze({ id: 3142, type: 'number', falcoName: 'ca2d_avsync_abs_delta_ms_p50' }),
+            ca2dAvsyncAbsDeltaMsP95: Object.freeze({ id: 3143, type: 'number', falcoName: 'ca2d_avsync_abs_delta_ms_p95' }),
+            ca2dAvsyncIn100msWindowPct: Object.freeze({ id: 3144, type: 'number', falcoName: 'ca2d_avsync_in100ms_window_pct' }),
             ca2dE2eNetworkDelayMs: Object.freeze({ id: 3080, type: 'number', falcoName: 'ca2d_e2e_network_delay_ms' }),
             ca2dEverConnected: Object.freeze({ id: 3077, type: 'boolean', falcoName: 'ca2d_ever_connected' }),
             ca2dExtensionAddFailureReason: Object.freeze({ id: 3067, type: 'enum', enum: 'CA2D_EXTENSION_ADD_FAILURE_REASON', falcoName: 'ca2d_extension_add_failure_reason' }),
@@ -17689,6 +17733,9 @@ const WA_WAM_EVENTS = Object.freeze({
             ca2dReceiverExtConnectT: Object.freeze({ id: 3074, type: 'timer', falcoName: 'ca2d_receiver_ext_connect_t' }),
             ca2dReceiverFirstFrameT: Object.freeze({ id: 3075, type: 'timer', falcoName: 'ca2d_receiver_first_frame_t' }),
             ca2dSuccCount: Object.freeze({ id: 3092, type: 'integer', falcoName: 'ca2d_succ_count' }),
+            ca2dVideoLagMsAvg: Object.freeze({ id: 3145, type: 'number', falcoName: 'ca2d_video_lag_ms_avg' }),
+            ca2dVideoLagMsP50: Object.freeze({ id: 3146, type: 'number', falcoName: 'ca2d_video_lag_ms_p50' }),
+            ca2dVideoLagMsP95: Object.freeze({ id: 3147, type: 'number', falcoName: 'ca2d_video_lag_ms_p95' }),
             caCathodeEmitToWireAvg: Object.freeze({ id: 3118, type: 'number', falcoName: 'ca_cathode_emit_to_wire_avg' }),
             caCathodeEmitToWireMax: Object.freeze({ id: 3119, type: 'number', falcoName: 'ca_cathode_emit_to_wire_max' }),
             caCathodeEmitToWireMin: Object.freeze({ id: 3120, type: 'number', falcoName: 'ca_cathode_emit_to_wire_min' }),
@@ -18372,6 +18419,8 @@ const WA_WAM_EVENTS = Object.freeze({
             isDeviceSwitch: Object.freeze({ id: 2643, type: 'boolean', falcoName: 'is_device_switch' }),
             isDualStreamBackwardRendering: Object.freeze({ id: 3104, type: 'boolean', falcoName: 'is_dual_stream_backward_rendering' }),
             isDualStreamSs: Object.freeze({ id: 3105, type: 'boolean', falcoName: 'is_dual_stream_ss' }),
+            isDualStreamSsReceiver: Object.freeze({ id: 3127, type: 'boolean', falcoName: 'is_dual_stream_ss_receiver' }),
+            isDualStreamSsSharer: Object.freeze({ id: 3128, type: 'boolean', falcoName: 'is_dual_stream_ss_sharer' }),
             isEventsLink: Object.freeze({ id: 1928, type: 'boolean', falcoName: 'is_events_link' }),
             isExtensionCreator: Object.freeze({ id: 3066, type: 'boolean', falcoName: 'is_extension_creator' }),
             isFromCallLink: Object.freeze({ id: 1316, type: 'boolean', falcoName: 'is_from_call_link' }),
@@ -19049,6 +19098,8 @@ const WA_WAM_EVENTS = Object.freeze({
             selectedMicMode: Object.freeze({ id: 2648, type: 'integer', falcoName: 'selected_mic_mode' }),
             selfBusyHours: Object.freeze({ id: 2368, type: 'integer', falcoName: 'self_busy_hours' }),
             selfMuteSuccessCount: Object.freeze({ id: 1175, type: 'integer', falcoName: 'self_mute_success_count' }),
+            selfPreviewResized: Object.freeze({ id: 3139, type: 'boolean', falcoName: 'self_preview_resized' }),
+            selfPreviewSize: Object.freeze({ id: 3140, type: 'string', falcoName: 'self_preview_size' }),
             selfUnmuteAfterMuteReqCount: Object.freeze({ id: 1176, type: 'integer', falcoName: 'self_unmute_after_mute_req_count' }),
             sendSelfStateVideoEnabledVideoCaptureStreamNotRunning: Object.freeze({ id: 2386, type: 'integer', falcoName: 'send_self_state_video_enabled_video_capture_stream_not_running' }),
             sendSelfStateVideoEnabledVideoCaptureStreamNull: Object.freeze({ id: 2387, type: 'integer', falcoName: 'send_self_state_video_enabled_video_capture_stream_null' }),
@@ -20080,6 +20131,16 @@ const WA_WAM_EVENTS = Object.freeze({
             wifiInfoAtEnd: Object.freeze({ id: 2416, type: 'string', falcoName: 'wifi_info_at_end' }),
             wifiInfoAtStart: Object.freeze({ id: 2417, type: 'string', falcoName: 'wifi_info_at_start' }),
             wifiRssiAtCallStart: Object.freeze({ id: 263, type: 'integer', falcoName: 'wifi_rssi_at_call_start' }),
+            winNpuName: Object.freeze({ id: 3129, type: 'string', falcoName: 'win_npu_name' }),
+            winNpuPresent: Object.freeze({ id: 3130, type: 'boolean', falcoName: 'win_npu_present' }),
+            winVsrButtonClicks: Object.freeze({ id: 3131, type: 'integer', falcoName: 'win_vsr_button_clicks' }),
+            winVsrEnabled: Object.freeze({ id: 3132, type: 'boolean', falcoName: 'win_vsr_enabled' }),
+            winVsrEpInitMs: Object.freeze({ id: 3133, type: 'integer', falcoName: 'win_vsr_ep_init_ms' }),
+            winVsrFramesWith: Object.freeze({ id: 3134, type: 'integer', falcoName: 'win_vsr_frames_with' }),
+            winVsrFramesWithout: Object.freeze({ id: 3135, type: 'integer', falcoName: 'win_vsr_frames_without' }),
+            winVsrOnTimeSec: Object.freeze({ id: 3136, type: 'integer', falcoName: 'win_vsr_on_time_sec' }),
+            winVsrSupported: Object.freeze({ id: 3137, type: 'boolean', falcoName: 'win_vsr_supported' }),
+            winVsrVideoScalerInitMs: Object.freeze({ id: 3138, type: 'integer', falcoName: 'win_vsr_video_scaler_init_ms' }),
             windowDragged: Object.freeze({ id: 2688, type: 'boolean', falcoName: 'window_dragged' }),
             windowResized: Object.freeze({ id: 2689, type: 'boolean', falcoName: 'window_resized' }),
             wzav1Version: Object.freeze({ id: 2696, type: 'string', falcoName: 'wzav1_version' }),
@@ -22774,7 +22835,11 @@ const WA_WAM_EVENTS = Object.freeze({
             aiSessionId: Object.freeze({ id: 1, type: 'string', falcoName: 'ai_session_id' }),
             hatchActionType: Object.freeze({ id: 3, type: 'enum', enum: 'HATCH_ACTION_TYPE', falcoName: 'hatch_action_type' }),
             hitlIsMulti: Object.freeze({ id: 6, type: 'boolean', falcoName: 'hitl_is_multi' }),
+            hitlLegalLink: Object.freeze({ id: 7, type: 'enum', enum: 'HITL_LEGAL_LINK_TYPE', falcoName: 'hitl_legal_link' }),
+            hitlTypes: Object.freeze({ id: 8, type: 'string', falcoName: 'hitl_types' }),
             rawBotEntryPoint: Object.freeze({ id: 5, type: 'string', falcoName: 'raw_bot_entry_point' }),
+            rawHitlAlwaysScope: Object.freeze({ id: 9, type: 'string', falcoName: 'raw_hitl_always_scope' }),
+            rawHitlDecisionKind: Object.freeze({ id: 10, type: 'string', falcoName: 'raw_hitl_decision_kind' }),
             unifiedSessionId: Object.freeze({ id: 4, type: 'string', falcoName: 'unified_session_id' })
         })
     }),
@@ -28353,12 +28418,21 @@ const WA_WAM_EVENTS = Object.freeze({
             urlMessagesSent: Object.freeze({ id: 100, type: 'integer', falcoName: 'url_messages_sent' }),
             videoMessagesReceived: Object.freeze({ id: 102, type: 'integer', falcoName: 'video_messages_received' }),
             videoMessagesSent: Object.freeze({ id: 103, type: 'integer', falcoName: 'video_messages_sent' }),
+            viewOnceAudioMessagesOpened: Object.freeze({ id: 150, type: 'integer', falcoName: 'view_once_audio_messages_opened' }),
+            viewOnceAudioMessagesReceived: Object.freeze({ id: 151, type: 'integer', falcoName: 'view_once_audio_messages_received' }),
+            viewOnceAudioMessagesSent: Object.freeze({ id: 152, type: 'integer', falcoName: 'view_once_audio_messages_sent' }),
+            viewOnceImageMessagesOpened: Object.freeze({ id: 153, type: 'integer', falcoName: 'view_once_image_messages_opened' }),
+            viewOnceImageMessagesReceived: Object.freeze({ id: 154, type: 'integer', falcoName: 'view_once_image_messages_received' }),
+            viewOnceImageMessagesSent: Object.freeze({ id: 155, type: 'integer', falcoName: 'view_once_image_messages_sent' }),
             viewOnceMessagesOpened: Object.freeze({ id: 104, type: 'integer', falcoName: 'view_once_messages_opened' }),
             viewOnceMessagesReceived: Object.freeze({ id: 105, type: 'integer', falcoName: 'view_once_messages_received' }),
             viewOnceMessagesSent: Object.freeze({ id: 106, type: 'integer', falcoName: 'view_once_messages_sent' }),
             viewOnceTextMessagesOpened: Object.freeze({ id: 147, type: 'integer', falcoName: 'view_once_text_messages_opened' }),
             viewOnceTextMessagesReceived: Object.freeze({ id: 148, type: 'integer', falcoName: 'view_once_text_messages_received' }),
-            viewOnceTextMessagesSent: Object.freeze({ id: 149, type: 'integer', falcoName: 'view_once_text_messages_sent' })
+            viewOnceTextMessagesSent: Object.freeze({ id: 149, type: 'integer', falcoName: 'view_once_text_messages_sent' }),
+            viewOnceVideoMessagesOpened: Object.freeze({ id: 156, type: 'integer', falcoName: 'view_once_video_messages_opened' }),
+            viewOnceVideoMessagesReceived: Object.freeze({ id: 157, type: 'integer', falcoName: 'view_once_video_messages_received' }),
+            viewOnceVideoMessagesSent: Object.freeze({ id: 158, type: 'integer', falcoName: 'view_once_video_messages_sent' })
         })
     }),
     ThreadInteractionDataIntegrity: Object.freeze({

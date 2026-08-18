@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045323241
+// WhatsApp Version: 2.3000.1045418364
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -1050,6 +1050,7 @@ const WA_ABPROPS = Object.freeze({
     md_syncd_bundle_logging: Object.freeze({ code: 27126, type: "string", defaultValue: "{\"allowlist\": []}", debugDefaultValue: "{\"allowlist\": []}" }),
     md_syncd_mutation_logging: Object.freeze({ code: 27124, type: "string", defaultValue: "{\"allowlist\": []}", debugDefaultValue: "{\"allowlist\": []}" }),
     md_syncd_mutation_summary_logging: Object.freeze({ code: 27125, type: "string", defaultValue: "{\"allowlist\": []}", debugDefaultValue: "{\"allowlist\": []}" }),
+    media_cross_reference_upload_enabled: Object.freeze({ code: 35109, type: "bool", defaultValue: false, debugDefaultValue: false }),
     media_force_transcode_on_elst: Object.freeze({ code: 30235, type: "bool", defaultValue: false, debugDefaultValue: true }),
     media_hub_history_max_days: Object.freeze({ code: 22518, type: "int", defaultValue: 14, debugDefaultValue: 14 }),
     media_large_file_awareness_popup_file_size_in_MB: Object.freeze({ code: 3115, type: "int", defaultValue: 2048, debugDefaultValue: 2048 }),
@@ -1227,19 +1228,28 @@ const WA_ABPROPS = Object.freeze({
     payments_link_to_lite_consumer_enabled: Object.freeze({ code: 3051, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_merchant_global_orders_value_props_banner_enabled: Object.freeze({ code: 3744, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_algeria_enabled: Object.freeze({ code: 35026, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_angola_enabled: Object.freeze({ code: 35054, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_argentina_enabled: Object.freeze({ code: 33887, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_bahrain_enabled: Object.freeze({ code: 35055, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_benin_enabled: Object.freeze({ code: 35056, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_bubble_countries: Object.freeze({ code: 29342, type: "string", defaultValue: "MX, ID, HK, TW, AE, EG, TR", debugDefaultValue: "MX, ID, HK, TW, AE, EG, TR" }),
+    payments_upr_burkina_faso_enabled: Object.freeze({ code: 35057, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_cameroon_enabled: Object.freeze({ code: 34981, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_canada_enabled: Object.freeze({ code: 33888, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_colombia_enabled: Object.freeze({ code: 33889, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_costa_rica_enabled: Object.freeze({ code: 35058, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_cote_divoire_enabled: Object.freeze({ code: 33894, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_custom_payment_methods_sync_countries: Object.freeze({ code: 30647, type: "string", defaultValue: "", debugDefaultValue: " MX, ID, HK, TW, AE, EG, TR" }),
+    payments_upr_djibouti_enabled: Object.freeze({ code: 35060, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_dr_congo_enabled: Object.freeze({ code: 35059, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_egypt_enabled: Object.freeze({ code: 31870, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_el_salvador_enabled: Object.freeze({ code: 35061, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_ethiopia_enabled: Object.freeze({ code: 33892, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_ghana_enabled: Object.freeze({ code: 33891, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_hongkong_enabled: Object.freeze({ code: 31868, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_id_enabled: Object.freeze({ code: 32170, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_jordan_enabled: Object.freeze({ code: 34982, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_upr_kuwait_enabled: Object.freeze({ code: 35062, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_mexico_wallet_enabled: Object.freeze({ code: 32043, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_multiple_key_copy_enabled: Object.freeze({ code: 32124, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_mx_enabled: Object.freeze({ code: 32169, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2169,6 +2179,7 @@ const WA_ABPROPS = Object.freeze({
     web_optimized_event_handlers: Object.freeze({ code: 31129, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_optimized_message_tails: Object.freeze({ code: 31258, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_optimized_pills: Object.freeze({ code: 31130, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    web_org_admin_ui_enabled: Object.freeze({ code: 35107, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_original_photo_quality_upload_enabled: Object.freeze({ code: 3136, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_otp_copy_code_disabled: Object.freeze({ code: 4330, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_pathfinder_logging: Object.freeze({ code: 27628, type: "int", defaultValue: 0, debugDefaultValue: 3 }),
@@ -2235,6 +2246,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_audio_playback_impl: Object.freeze({ code: 21689, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_av_sync_debug_overlay: Object.freeze({ code: 31481, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_capture_video_rotation_type: Object.freeze({ code: 27973, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    web_voip_deferred_boot_early_module_prefetch: Object.freeze({ code: 35091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_deferred_boot_init: Object.freeze({ code: 34923, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_deferred_boot_init_max_delay_ms: Object.freeze({ code: 34924, type: "int", defaultValue: 120000, debugDefaultValue: 120000 }),
     web_voip_dynamic_thread_preallocate_count: Object.freeze({ code: 23789, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
@@ -2286,10 +2298,13 @@ const WA_ABPROPS = Object.freeze({
     windows_ss_capture_driver_type: Object.freeze({ code: 10434, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     winrt_renderer: Object.freeze({ code: 10966, type: "bool", defaultValue: true, debugDefaultValue: true }),
     wmi_async_await_prep: Object.freeze({ code: 29197, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wmi_async_await_prep_decrypt: Object.freeze({ code: 35094, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_jm_to_ts_m1: Object.freeze({ code: 32880, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_jm_to_ts_serviced: Object.freeze({ code: 34410, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_task_scheduler_second_step: Object.freeze({ code: 30276, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_worker_scheduler_web: Object.freeze({ code: 27237, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    xb_payments_send_again_fetch_enabled: Object.freeze({ code: 35074, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    xb_payments_send_money_v2_enabled: Object.freeze({ code: 35073, type: "bool", defaultValue: false, debugDefaultValue: false }),
     xplat_attachment_format_check_v2: Object.freeze({ code: 8082, type: "bool", defaultValue: false, debugDefaultValue: false }),
     youtube_inline_playback_killswitch: Object.freeze({ code: 3522, type: "bool", defaultValue: false, debugDefaultValue: false })
 })
@@ -4599,7 +4614,22 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34993: "hybrid_save_as_shared_buffer_enabled",
     35018: "scheduled_companion_contact_refresh_hours",
     35026: "payments_upr_algeria_enabled",
-    35038: "ai_chat_threads_v1_deprecation_banner_max_impressions"
+    35038: "ai_chat_threads_v1_deprecation_banner_max_impressions",
+    35054: "payments_upr_angola_enabled",
+    35055: "payments_upr_bahrain_enabled",
+    35056: "payments_upr_benin_enabled",
+    35057: "payments_upr_burkina_faso_enabled",
+    35058: "payments_upr_costa_rica_enabled",
+    35059: "payments_upr_dr_congo_enabled",
+    35060: "payments_upr_djibouti_enabled",
+    35061: "payments_upr_el_salvador_enabled",
+    35062: "payments_upr_kuwait_enabled",
+    35073: "xb_payments_send_money_v2_enabled",
+    35074: "xb_payments_send_again_fetch_enabled",
+    35091: "web_voip_deferred_boot_early_module_prefetch",
+    35094: "wmi_async_await_prep_decrypt",
+    35107: "web_org_admin_ui_enabled",
+    35109: "media_cross_reference_upload_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

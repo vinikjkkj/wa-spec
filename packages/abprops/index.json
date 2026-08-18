@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2285,
+  "propCount": 2300,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -6346,6 +6346,12 @@
       "defaultValue": "{\"allowlist\": []}",
       "type": "string"
     },
+    "media_cross_reference_upload_enabled": {
+      "code": 35109,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "media_force_transcode_on_elst": {
       "code": 30235,
       "debugDefaultValue": true,
@@ -7408,8 +7414,26 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_angola_enabled": {
+      "code": 35054,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_argentina_enabled": {
       "code": 33887,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_bahrain_enabled": {
+      "code": 35055,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_benin_enabled": {
+      "code": 35056,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -7419,6 +7443,12 @@
       "debugDefaultValue": "MX, ID, HK, TW, AE, EG, TR",
       "defaultValue": "MX, ID, HK, TW, AE, EG, TR",
       "type": "string"
+    },
+    "payments_upr_burkina_faso_enabled": {
+      "code": 35057,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "payments_upr_cameroon_enabled": {
       "code": 34981,
@@ -7438,6 +7468,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_costa_rica_enabled": {
+      "code": 35058,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_cote_divoire_enabled": {
       "code": 33894,
       "debugDefaultValue": true,
@@ -7450,8 +7486,26 @@
       "defaultValue": "",
       "type": "string"
     },
+    "payments_upr_djibouti_enabled": {
+      "code": 35060,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_dr_congo_enabled": {
+      "code": 35059,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_egypt_enabled": {
       "code": 31870,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_el_salvador_enabled": {
+      "code": 35061,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -7482,6 +7536,12 @@
     },
     "payments_upr_jordan_enabled": {
       "code": 34982,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_kuwait_enabled": {
+      "code": 35062,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -13060,6 +13120,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_org_admin_ui_enabled": {
+      "code": 35107,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_original_photo_quality_upload_enabled": {
       "code": 3136,
       "debugDefaultValue": false,
@@ -13456,6 +13522,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "web_voip_deferred_boot_early_module_prefetch": {
+      "code": 35091,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_deferred_boot_init": {
       "code": 34923,
       "debugDefaultValue": false,
@@ -13762,6 +13834,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wmi_async_await_prep_decrypt": {
+      "code": 35094,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wmi_jm_to_ts_m1": {
       "code": 32880,
       "debugDefaultValue": false,
@@ -13782,6 +13860,18 @@
     },
     "wmi_worker_scheduler_web": {
       "code": 27237,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "xb_payments_send_again_fetch_enabled": {
+      "code": 35074,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "xb_payments_send_money_v2_enabled": {
+      "code": 35073,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -13830,5 +13920,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045323241"
+  "waVersion": "2.3000.1045418364"
 }

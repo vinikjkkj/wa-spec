@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045323241
+// WhatsApp Version: 2.3000.1045418364
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -18,10 +18,11 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ docId: '26554466787581138', clientDocId: '26554466787581138' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '27776062572078587', clientDocId: '27776062572078587' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '38094730396784471', clientDocId: '38094730396784471' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '37784452667868077', clientDocId: '37784452667868077' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '27844749121860898', clientDocId: '27844749121860898' }),
     AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '35215272154754577', clientDocId: '35215272154754577' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
+    AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ docId: '28312488775011145', clientDocId: '28312488775011145' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
     BPAccessTokenAndSessionCookies: Object.freeze({ docId: '26756198580685447', clientDocId: '26756198580685447' }),
@@ -144,6 +145,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ docId: '9948369021930229', clientDocId: '9948369021930229' }),
     MessengerAdPreviewConversation: Object.freeze({ docId: '29273127528968869', clientDocId: '29273127528968869' }),
     MetaPayVaultInitialize: Object.freeze({ docId: '27977299271866413', clientDocId: '27977299271866413' }),
+    MetaPayVaultLabyrinthDelete: Object.freeze({ docId: '27984854301168611', clientDocId: '27984854301168611' }),
+    MetaPayVaultLabyrinthFetchAll: Object.freeze({ docId: '27594971176872211', clientDocId: '27594971176872211' }),
+    MetaPayVaultLabyrinthSave: Object.freeze({ docId: '37570099595972000', clientDocId: '37570099595972000' }),
     MpsReceiverFetchGraphQLSticker: Object.freeze({ docId: '27636200009321630', clientDocId: '27636200009321630' }),
     MpsReceiverFetchGraphQLXMA: Object.freeze({ docId: '28101543082782219', clientDocId: '28101543082782219' }),
     NativeMLModel: Object.freeze({ docId: '32743078615336512', clientDocId: '32743078615336512' }),
@@ -224,6 +228,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']) }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'skipRequest']) }),
+    AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']) }),
     AiAgentAutoReplyControl: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['consumer_lid', 'phone_number', 'thread_status']) }),
     AuthAgentFeaturePolicy: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     BPAccessTokenAndSessionCookies: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['application_id', 'code']) }),
@@ -346,6 +351,9 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     MessengerAdPreviewConversation: Object.freeze({ operationKind: 'query', variables: Object.freeze(['page_id', 'selected_product_ids']) }),
     MetaPayVaultInitialize: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    MetaPayVaultLabyrinthDelete: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    MetaPayVaultLabyrinthFetchAll: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
+    MetaPayVaultLabyrinthSave: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MpsReceiverFetchGraphQLSticker: Object.freeze({ operationKind: 'query', variables: Object.freeze(['receiverFetchId']) }),
     MpsReceiverFetchGraphQLXMA: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     NativeMLModel: Object.freeze({ operationKind: 'query', variables: Object.freeze(['client_capability_metadata', 'model_request_metadatas']) }),
