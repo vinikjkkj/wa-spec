@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045418364
+// WhatsApp Version: 2.3000.1045513958
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -18,11 +18,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ docId: '26554466787581138', clientDocId: '26554466787581138' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '37784452667868077', clientDocId: '37784452667868077' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '27844749121860898', clientDocId: '27844749121860898' }),
-    AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '35215272154754577', clientDocId: '35215272154754577' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '27886287230981804', clientDocId: '27886287230981804' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '27765815199706830', clientDocId: '27765815199706830' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
-    AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ docId: '28312488775011145', clientDocId: '28312488775011145' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
     BPAccessTokenAndSessionCookies: Object.freeze({ docId: '26756198580685447', clientDocId: '26756198580685447' }),
@@ -157,6 +155,12 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     NewsletterPinMessages: Object.freeze({ docId: '27165709459706559', clientDocId: '27165709459706559' }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ docId: '24636260219323456', clientDocId: '24636260219323456' }),
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
+    OrgAdminGraphQLAddGroup: Object.freeze({ docId: '27409847525383193', clientDocId: '27409847525383193' }),
+    OrgAdminGraphQLAddParticipants: Object.freeze({ docId: '28037193722607495', clientDocId: '28037193722607495' }),
+    OrgAdminGraphQLGroup: Object.freeze({ docId: '28486573690950714', clientDocId: '28486573690950714' }),
+    OrgAdminGraphQLHome: Object.freeze({ docId: '27903819169272493', clientDocId: '27903819169272493' }),
+    OrgAdminGraphQLOrgs: Object.freeze({ docId: '28242921515342347', clientDocId: '28242921515342347' }),
+    OrgAdminGraphQLRemoveParticipants: Object.freeze({ docId: '37624727843838622', clientDocId: '37624727843838622' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
     QueryCatalog: Object.freeze({ docId: '30445081048424116', clientDocId: '30445081048424116' }),
     QueryCatalogHasCategories: Object.freeze({ docId: '9746549555457302', clientDocId: '9746549555457302' }),
@@ -226,9 +230,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'campaignRelayIDs', 'skipAccountQuery']) }),
     AdsManagerLiveDataCampaign: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ids', 'skip_data_transform']) }),
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
-    AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']) }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'skipRequest']) }),
-    AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']) }),
     AiAgentAutoReplyControl: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['consumer_lid', 'phone_number', 'thread_status']) }),
     AuthAgentFeaturePolicy: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     BPAccessTokenAndSessionCookies: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['application_id', 'code']) }),
@@ -363,6 +365,12 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     NewsletterPinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'response_server_id', 'server_id', 'state']) }),
     NewsletterUnpinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
+    OrgAdminGraphQLAddGroup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID']) }),
+    OrgAdminGraphQLAddParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID', 'participants', 'requestID']) }),
+    OrgAdminGraphQLGroup: Object.freeze({ operationKind: 'query', variables: Object.freeze(['gid', 'orgID']) }),
+    OrgAdminGraphQLHome: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
+    OrgAdminGraphQLOrgs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
+    OrgAdminGraphQLRemoveParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID', 'participants', 'requestID']) }),
     PaymentsPasskeyHasCredential: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     QueryCatalog: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),
     QueryCatalogHasCategories: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),

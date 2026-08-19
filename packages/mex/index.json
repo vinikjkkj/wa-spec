@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "37784452667868077",
+      "docId": "27886287230981804",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "27844749121860898",
+      "docId": "27765815199706830",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -407,122 +407,6 @@
       "variables": [],
       "variablesShape": {}
     },
-    "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_": {
-      "docId": "35215272154754577",
-      "operationKind": "query",
-      "originalName": "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_Query",
-      "response": {
-        "ad_account": {
-          "id": "string",
-          "marketing_message_business_tier": "unknown",
-          "marketing_messages_account_settings": {
-            "dfca_automatic_upload_consent_status": "string",
-            "has_created_whatsapp_liquidity_campaign": "boolean",
-            "id": "string",
-            "messenger_activation_status": "string",
-            "messenger_subscriber_pool": {
-              "dfca_automatic_upload_consent_status": "string",
-              "id": "string",
-              "is_custom_audience_populating": "boolean",
-              "name": "string",
-              "subscriber_pool_audience_size": {
-                "upper_bound": "number"
-              }
-            },
-            "whatsapp_activation_status": "string",
-            "whatsapp_phone_number_current_status": {
-              "id": "string"
-            },
-            "whatsapp_subscriber_pool": {
-              "id": "string",
-              "name": "string"
-            }
-          },
-          "mm_advertiser_profile_editable_attributes": [
-            {
-              "__typename": "string",
-              "id": "string",
-              "value": {
-                "__typename": "string",
-                "as_boolean": "unknown",
-                "as_string": "unknown"
-              }
-            }
-          ]
-        },
-        "business": {
-          "id": "string",
-          "marketing_messages_enabled_whatsapp_accounts": {
-            "nodes": [
-              {
-                "has_permissions_to_create_message_marketing_campaign_on_ads_manager": "boolean",
-                "id": "string",
-                "is_reused_on_ads_manager": "boolean",
-                "marketing_messages_restriction_status": "string",
-                "owner_business": {
-                  "id": "string"
-                },
-                "phone_numbers": {
-                  "nodes": [
-                    {
-                      "display_name_verification_request_status": "string",
-                      "display_phone_number": "string",
-                      "id": "string",
-                      "is_virtual_phone_number": "boolean",
-                      "platform_type": "string",
-                      "status": "string"
-                    }
-                  ]
-                }
-              }
-            ]
-          },
-          "marketing_messages_enabled_whatsapp_business_accounts": {
-            "nodes": [
-              {
-                "has_permissions_to_create_message_marketing_campaign_on_ads_manager": "boolean",
-                "id": "string",
-                "is_reused_on_ads_manager": "boolean",
-                "marketing_messages_restriction_status": "string",
-                "owner_business": {
-                  "id": "string"
-                },
-                "phone_numbers": {
-                  "nodes": [
-                    {
-                      "display_name_verification_request_status": "string",
-                      "display_phone_number": "string",
-                      "id": "string",
-                      "is_virtual_phone_number": "boolean",
-                      "platform_type": "string",
-                      "status": "string"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      },
-      "variables": [
-        "accountID",
-        "adgroupRelayIDs",
-        "businessID",
-        "campaignGroupRelayIDs",
-        "campaignRelayIDs",
-        "skip_business_query",
-        "use_waac"
-      ],
-      "variablesShape": {
-        "accountID": "string",
-        "adgroupRelayIDs": "unknown",
-        "businessID": "string",
-        "campaignGroupRelayIDs": "unknown",
-        "campaignRelayIDs": "unknown",
-        "skip_business_query": "boolean",
-        "use_waac": "boolean"
-      }
-    },
     "AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba": {
       "docId": "27132375929736175",
       "operationKind": "query",
@@ -539,35 +423,6 @@
       "variablesShape": {
         "adAccountID": "string",
         "skipRequest": "boolean"
-      }
-    },
-    "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_": {
-      "docId": "28312488775011145",
-      "operationKind": "query",
-      "originalName": "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Query",
-      "response": {
-        "primary_page": {
-          "__typename": "string",
-          "id": "string",
-          "is_verified": "boolean"
-        },
-        "secondary_page": {
-          "__typename": "string",
-          "id": "string",
-          "is_verified": "boolean"
-        }
-      },
-      "variables": [
-        "hasPrimaryPage",
-        "hasSecondaryPage",
-        "primaryPageID",
-        "secondaryPageID"
-      ],
-      "variablesShape": {
-        "hasPrimaryPage": "boolean",
-        "hasSecondaryPage": "boolean",
-        "primaryPageID": "string",
-        "secondaryPageID": "string"
       }
     },
     "AiAgentAutoReplyControl": {
@@ -5273,6 +5128,188 @@
         "newsletter_id": "string"
       }
     },
+    "OrgAdminGraphQLAddGroup": {
+      "docId": "27409847525383193",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLAddGroupMutation",
+      "response": {
+        "xwa_org_managed_group_add": {
+          "error_reason": "string",
+          "group": {
+            "creation_timestamp_s": "unknown",
+            "gid": "unknown",
+            "participant_count": "number",
+            "subject": "string"
+          },
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "gid",
+        "orgID"
+      ],
+      "variablesShape": {
+        "gid": "unknown",
+        "orgID": "string"
+      }
+    },
+    "OrgAdminGraphQLAddParticipants": {
+      "docId": "28037193722607495",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLAddParticipantsMutation",
+      "response": {
+        "xwa_org_managed_group_add_participants": {
+          "error_reason": "string",
+          "results": [
+            {
+              "lid": "string",
+              "phone_number": "string",
+              "status": "enum:SUCCESS"
+            }
+          ],
+          "status": "string"
+        }
+      },
+      "variables": [
+        "gid",
+        "orgID",
+        "participants",
+        "requestID"
+      ],
+      "variablesShape": {
+        "gid": "unknown",
+        "orgID": "string",
+        "participants": [
+          {}
+        ],
+        "requestID": "string"
+      }
+    },
+    "OrgAdminGraphQLGroup": {
+      "docId": "28486573690950714",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLGroupQuery",
+      "response": {
+        "xwa_org_managed_group": {
+          "error_reason": "string",
+          "group": {
+            "creation_timestamp_s": "unknown",
+            "gid": "unknown",
+            "participant_count": "number",
+            "participants": [
+              {
+                "lid": "string",
+                "role": "string"
+              }
+            ],
+            "roster_partial": "unknown",
+            "subject": "string"
+          },
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "gid",
+        "orgID"
+      ],
+      "variablesShape": {
+        "gid": "unknown",
+        "orgID": "string"
+      }
+    },
+    "OrgAdminGraphQLHome": {
+      "docId": "27903819169272493",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLHomeQuery",
+      "response": {
+        "xwa_org_admin_directory": {
+          "error_reason": "string",
+          "members": [
+            {
+              "display_name": "string",
+              "lid": "string",
+              "role": "string"
+            }
+          ],
+          "status": "enum:SUCCESS",
+          "truncated": "unknown"
+        },
+        "xwa_org_managed_groups": {
+          "error_reason": "string",
+          "groups": [
+            {
+              "creation_timestamp_s": "unknown",
+              "gid": "unknown",
+              "participant_count": "number",
+              "subject": "string"
+            }
+          ],
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "orgID"
+      ],
+      "variablesShape": {
+        "orgID": "string"
+      }
+    },
+    "OrgAdminGraphQLOrgs": {
+      "docId": "28242921515342347",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLOrgsQuery",
+      "response": {
+        "xwa_org_list": {
+          "orgs": [
+            {
+              "id": "string",
+              "name": "string"
+            }
+          ]
+        }
+      },
+      "variables": [],
+      "variablesShape": {
+        "gid": "unknown",
+        "orgID": "unknown",
+        "participants": [
+          {}
+        ],
+        "requestID": "unknown"
+      }
+    },
+    "OrgAdminGraphQLRemoveParticipants": {
+      "docId": "37624727843838622",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLRemoveParticipantsMutation",
+      "response": {
+        "xwa_org_managed_group_remove_participants": {
+          "error_reason": "string",
+          "results": [
+            {
+              "lid": "string",
+              "phone_number": "string",
+              "status": "enum:SUCCESS"
+            }
+          ],
+          "status": "string"
+        }
+      },
+      "variables": [
+        "gid",
+        "orgID",
+        "participants",
+        "requestID"
+      ],
+      "variablesShape": {
+        "gid": "unknown",
+        "orgID": "string",
+        "participants": [
+          {}
+        ],
+        "requestID": "string"
+      }
+    },
     "PaymentsPasskeyHasCredential": {
       "docId": "36878915648418618",
       "operationKind": "query",
@@ -7025,5 +7062,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045418364"
+  "waVersion": "2.3000.1045513958"
 }

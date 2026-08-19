@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045418364
+// WhatsApp Version: 2.3000.1045513958
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -671,7 +671,7 @@ const WA_ABPROPS = Object.freeze({
     dev_prop_float: Object.freeze({ code: 1067, type: "float", defaultValue: 0, debugDefaultValue: 0 }),
     dev_prop_int: Object.freeze({ code: 1066, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     dev_prop_string: Object.freeze({ code: 1064, type: "string", defaultValue: "", debugDefaultValue: "" }),
-    device_capabilities_v2_sync_enabled: Object.freeze({ code: 33380, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    device_capabilities_v2_sync_enabled: Object.freeze({ code: 33380, type: "bool", defaultValue: false, debugDefaultValue: true }),
     device_switching_enabled: Object.freeze({ code: 3205, type: "bool", defaultValue: false, debugDefaultValue: false }),
     dialer_pad_for_new_chats: Object.freeze({ code: 18688, type: "bool", defaultValue: false, debugDefaultValue: false }),
     direct_connection_business_numbers: Object.freeze({ code: 1846, type: "string", defaultValue: "16005554444,918591749310,917977079770", debugDefaultValue: "16005554444,918591749310,917977079770" }),
@@ -1029,7 +1029,6 @@ const WA_ABPROPS = Object.freeze({
     link_preview_wait_time: Object.freeze({ code: 2566, type: "int", defaultValue: 7, debugDefaultValue: 7 }),
     lists_chat_list_row_pill_enabled: Object.freeze({ code: 24133, type: "bool", defaultValue: false, debugDefaultValue: false }),
     lists_smb_enabled: Object.freeze({ code: 18229, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    lists_smb_web_enabled: Object.freeze({ code: 24732, type: "bool", defaultValue: false, debugDefaultValue: false }),
     lists_smb_web_m2_enabled: Object.freeze({ code: 31380, type: "bool", defaultValue: false, debugDefaultValue: true }),
     lobby_timeout_min: Object.freeze({ code: 1565, type: "int", defaultValue: 0, debugDefaultValue: 1 }),
     log_clock_skew: Object.freeze({ code: 1190, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1050,6 +1049,7 @@ const WA_ABPROPS = Object.freeze({
     md_syncd_bundle_logging: Object.freeze({ code: 27126, type: "string", defaultValue: "{\"allowlist\": []}", debugDefaultValue: "{\"allowlist\": []}" }),
     md_syncd_mutation_logging: Object.freeze({ code: 27124, type: "string", defaultValue: "{\"allowlist\": []}", debugDefaultValue: "{\"allowlist\": []}" }),
     md_syncd_mutation_summary_logging: Object.freeze({ code: 27125, type: "string", defaultValue: "{\"allowlist\": []}", debugDefaultValue: "{\"allowlist\": []}" }),
+    media_cross_reference_download_enabled: Object.freeze({ code: 35111, type: "bool", defaultValue: false, debugDefaultValue: false }),
     media_cross_reference_upload_enabled: Object.freeze({ code: 35109, type: "bool", defaultValue: false, debugDefaultValue: false }),
     media_force_transcode_on_elst: Object.freeze({ code: 30235, type: "bool", defaultValue: false, debugDefaultValue: true }),
     media_hub_history_max_days: Object.freeze({ code: 22518, type: "int", defaultValue: 14, debugDefaultValue: 14 }),
@@ -1303,6 +1303,7 @@ const WA_ABPROPS = Object.freeze({
     poll_tc_receiving_enabled: Object.freeze({ code: 31592, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_tc_sending_enabled: Object.freeze({ code: 31593, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pq_1on1_message_enabled: Object.freeze({ code: 24160, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    pq_1on1_messaging_killswitch: Object.freeze({ code: 35210, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pq_batch_upload_size: Object.freeze({ code: 21201, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     pq_keys_upload: Object.freeze({ code: 21198, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pq_max_keys_on_server: Object.freeze({ code: 21200, type: "int", defaultValue: 200, debugDefaultValue: 200 }),
@@ -1342,6 +1343,7 @@ const WA_ABPROPS = Object.freeze({
     reactions_receiver_enabled: Object.freeze({ code: 13542, type: "bool", defaultValue: false, debugDefaultValue: false }),
     receipt_mode_bitmask_enabled: Object.freeze({ code: 30084, type: "bool", defaultValue: false, debugDefaultValue: true }),
     recommended_channels_background_refresh: Object.freeze({ code: 4309, type: "int", defaultValue: 14400000, debugDefaultValue: 14400000 }),
+    refresh_group_info_on_mismatch: Object.freeze({ code: 35119, type: "bool", defaultValue: false, debugDefaultValue: false }),
     relax_integrity_constraints_for_bb_wa_tenured_accounts: Object.freeze({ code: 28516, type: "bool", defaultValue: false, debugDefaultValue: true }),
     remove_device_pn_dependencies: Object.freeze({ code: 27791, type: "bool", defaultValue: false, debugDefaultValue: true }),
     remove_pn_dependencies: Object.freeze({ code: 26888, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1384,6 +1386,8 @@ const WA_ABPROPS = Object.freeze({
     schedule_call_show_upcoming_banner_time_interval_mins: Object.freeze({ code: 16254, type: "int", defaultValue: 1440, debugDefaultValue: 1440 }),
     scheduled_companion_contact_refresh_days: Object.freeze({ code: 34960, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     scheduled_companion_contact_refresh_hours: Object.freeze({ code: 35018, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    scheduled_companion_contact_refresh_threshold_count: Object.freeze({ code: 35199, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
+    scheduled_companion_contact_refresh_threshold_percent: Object.freeze({ code: 35198, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     scheduled_messages_photo_video_sender_enabled: Object.freeze({ code: 32553, type: "bool", defaultValue: false, debugDefaultValue: false }),
     scheduled_messages_receiver_enabled: Object.freeze({ code: 24610, type: "bool", defaultValue: false, debugDefaultValue: false }),
     scheduled_messages_sender_enabled: Object.freeze({ code: 23845, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1445,6 +1449,7 @@ const WA_ABPROPS = Object.freeze({
     smb_catalog_graphql_verify_postcode: Object.freeze({ code: 11624, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_catkit_query_version: Object.freeze({ code: 1229, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
     smb_collections_enabled: Object.freeze({ code: 451, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    smb_contact_manager_hidden_contacts_enabled: Object.freeze({ code: 35186, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_contact_manager_sublist_enabled: Object.freeze({ code: 33708, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_core_biz_profile_preview: Object.freeze({ code: 26441, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_core_biz_profile_ux_refreshed: Object.freeze({ code: 19929, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1572,6 +1577,7 @@ const WA_ABPROPS = Object.freeze({
     tctoken_duration_sender: Object.freeze({ code: 996, type: "int", defaultValue: 604800, debugDefaultValue: 604800 }),
     tctoken_num_buckets: Object.freeze({ code: 909, type: "int", defaultValue: 4, debugDefaultValue: 4 }),
     tctoken_num_buckets_sender: Object.freeze({ code: 997, type: "int", defaultValue: 4, debugDefaultValue: 4 }),
+    teamlink_consumer_experience_enabled: Object.freeze({ code: 35138, type: "bool", defaultValue: false, debugDefaultValue: true }),
     teamlink_enabled: Object.freeze({ code: 33978, type: "bool", defaultValue: false, debugDefaultValue: false }),
     text_status_ttl_seconds_allowlist: Object.freeze({ code: 6153, type: "string", defaultValue: "1800,3600,7200,14400,28800,86400", debugDefaultValue: "1800,3600,7200,14400,28800,86400" }),
     text_user_journey_logging_wam_enabled: Object.freeze({ code: 8627, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2062,6 +2068,8 @@ const WA_ABPROPS = Object.freeze({
     web_calling_auto_popout_video: Object.freeze({ code: 28046, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_calling_enable_on_windows: Object.freeze({ code: 26259, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_calling_full_screen_toggle_enabled: Object.freeze({ code: 28830, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_calling_incoming_accept_pulse_enabled: Object.freeze({ code: 35144, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    web_calling_join_button_pulse_enabled: Object.freeze({ code: 35143, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_calling_offline_resume_ordering: Object.freeze({ code: 29564, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_calling_pause_bg_during_call_mode: Object.freeze({ code: 34144, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_calling_perf_optimizations_bitmask: Object.freeze({ code: 22186, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
@@ -2288,7 +2296,8 @@ const WA_ABPROPS = Object.freeze({
     win_hybrid_force_persistent_storage_permission: Object.freeze({ code: 20260, type: "bool", defaultValue: true, debugDefaultValue: true }),
     win_hybrid_voip_anr_optimizations: Object.freeze({ code: 22616, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     win_hybrid_vsr_button_enabled: Object.freeze({ code: 34272, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    win_hybrid_vsr_button_enabled_2: Object.freeze({ code: 34279, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    win_hybrid_vsr_button_enabled_2: Object.freeze({ code: 34279, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    win_hybrid_vsr_device_setting_enabled_2: Object.freeze({ code: 35194, type: "bool", defaultValue: false, debugDefaultValue: true }),
     win_hybrid_vsr_enabled: Object.freeze({ code: 34271, type: "bool", defaultValue: false, debugDefaultValue: true }),
     win_hybrid_vsr_enabled_2: Object.freeze({ code: 34280, type: "bool", defaultValue: false, debugDefaultValue: true }),
     win_network_state_watchdog_interval: Object.freeze({ code: 7737, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
@@ -3577,7 +3586,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     24662: "payment_links_trust_signals_other_metatag_kill_switch_enabled",
     24668: "ctwa_web_native_ads_mvp_qe1_enabled",
     24669: "ctwa_web_native_ads_mvp_qe2_enabled",
-    24732: "lists_smb_web_enabled",
     24741: "rt_ghs_sender_enabled",
     24742: "rt_ghs_receiver_enabled",
     24754: "biz_ai_consumer_tos_notice_iq_web",
@@ -4629,7 +4637,17 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     35091: "web_voip_deferred_boot_early_module_prefetch",
     35094: "wmi_async_await_prep_decrypt",
     35107: "web_org_admin_ui_enabled",
-    35109: "media_cross_reference_upload_enabled"
+    35109: "media_cross_reference_upload_enabled",
+    35111: "media_cross_reference_download_enabled",
+    35119: "refresh_group_info_on_mismatch",
+    35138: "teamlink_consumer_experience_enabled",
+    35143: "web_calling_join_button_pulse_enabled",
+    35144: "web_calling_incoming_accept_pulse_enabled",
+    35186: "smb_contact_manager_hidden_contacts_enabled",
+    35194: "win_hybrid_vsr_device_setting_enabled_2",
+    35198: "scheduled_companion_contact_refresh_threshold_percent",
+    35199: "scheduled_companion_contact_refresh_threshold_count",
+    35210: "pq_1on1_messaging_killswitch"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

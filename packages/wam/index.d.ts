@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045418364
+// WhatsApp Version: 2.3000.1045513958
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -3965,6 +3965,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DEEP_LINK_GROUPS_PRIVACY': 105;
             readonly 'DEEP_LINK_GROUP_INVITE': 8;
             readonly 'DEEP_LINK_HATCH': 229;
+            readonly 'DEEP_LINK_HATCH_INSTALL': 257;
             readonly 'DEEP_LINK_HELP': 62;
             readonly 'DEEP_LINK_HELP_BOTTOMSHEET': 147;
             readonly 'DEEP_LINK_HELP_CENTER_TO_SETTINGS_CHATS': 36;
@@ -10248,6 +10249,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ADD_PIX_KEY_ROW': 367;
             readonly 'ADD_UPI_NUMBER_BUTTON': 127;
             readonly 'ALLOW_BUTTON': 66;
+            readonly 'ALL_CHIP': 384;
             readonly 'AMOUNT': 50;
             readonly 'AMOUNT_BACK_BUTTON': 332;
             readonly 'AMOUNT_DETECT_ADD_PIX_KEY': 360;
@@ -10269,6 +10271,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'BANNER_CONTINUE_BUTTON': 196;
             readonly 'BBVA_TC_PRIVACY_LINK': 2;
             readonly 'BUYER_INITIATED_BUTTON': 193;
+            readonly 'BUY_ON_WHATSAPP': 379;
+            readonly 'BUY_ON_WHATSAPP_TILE': 380;
             readonly 'CALL_BANK': 79;
             readonly 'CALL_BUTTON': 26;
             readonly 'CANCEL_BUTTON': 3;
@@ -10388,6 +10392,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'OFFER_SIGN_UP_TEMPLATE': 246;
             readonly 'OK_BUTTON': 115;
             readonly 'ORDER_DETAIL': 87;
+            readonly 'OTHERS_REQUESTED_CHIP': 383;
             readonly 'OTHER_BANK': 63;
             readonly 'OTHER_CONTACT_METHODS_BUTTON': 147;
             readonly 'OTP_BANK_APP': 82;
@@ -10440,6 +10445,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PAY_TAB': 48;
             readonly 'PAY_UPI_ID_BUTTON': 266;
             readonly 'PAY_WITH_UPI_BUTTON': 236;
+            readonly 'PIX_ICON_ATTACHMENT_TRAY': 381;
             readonly 'PIX_INVITE_ASK_TO_SHARE_PIX_KEY': 376;
             readonly 'PIX_INVITE_GO_TO_PAYMENTS': 378;
             readonly 'PIX_INVITE_REQUEST_PAYMENT': 377;
@@ -10605,7 +10611,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'WA_TC_LINK': 154;
             readonly 'WA_TC_PRIVACY_LINK': 20;
             readonly 'WHY_NEEDED_LINK': 74;
-            readonly 'WITHDRAW_BUTTON': 90
+            readonly 'WITHDRAW_BUTTON': 90;
+            readonly 'YOU_REQUESTED_CHIP': 382
         }
     }
     readonly PAYMENT_ACTION_TYPES: {
@@ -14400,6 +14407,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_BESTSELLERS': 111;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_AVAILABILITY': 240;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_CALENDAR': 238;
+            readonly 'GEN_AI_BOOK_APPOINTMENTS_CONNECTOR_CONNECT': 325;
+            readonly 'GEN_AI_BOOK_APPOINTMENTS_CONNECTOR_LIST': 324;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_CUSTOMER_INFO': 242;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_DETAIL': 243;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_DURATION': 239;
@@ -14408,6 +14417,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_BOOK_APPOINTMENTS_LOCATION': 241;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_NUX': 322;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_OUTLOOK_CONNECT': 323;
+            readonly 'GEN_AI_BOOK_APPOINTMENTS_SETUP_NUX': 326;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_TRIGGER': 236;
             readonly 'GEN_AI_BOOK_APPOINTMENTS_TRIGGER_CONFLICT_BS': 237;
             readonly 'GEN_AI_COACHING': 87;
@@ -14836,6 +14846,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CHANNEL_PROFILE': 28;
             readonly 'CHANNEL_PROFILE_PICTURE': 216;
             readonly 'CHANNEL_QR_CODE': 114;
+            readonly 'CHANNEL_SCHEDULED_UPDATES': 268;
             readonly 'CHANNEL_SETTINGS': 195;
             readonly 'CHANNEL_STARRED_POSTS': 134;
             readonly 'CHANNEL_THREAD': 26;
@@ -16660,6 +16671,7 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumWsuaReferral'
         readonly export: 'WSUA_REFERRAL'
         readonly values: {
+            readonly 'AI_MEDIA_EDITOR': 36;
             readonly 'APPEARANCE_SETTINGS': 2;
             readonly 'APP_ICON_SETTINGS': 3;
             readonly 'APP_THEME_SETTINGS': 4;
@@ -16679,6 +16691,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CONVERSATION_THREAD': 13;
             readonly 'CUSTOM_URL': 16;
             readonly 'DEFAULT_RINGTONE': 5;
+            readonly 'IMAGINE_INTENTS': 35;
             readonly 'LINKED_DEVICES': 17;
             readonly 'LIST_ALERT_TONE': 19;
             readonly 'LIST_RINGTONE': 20;
@@ -16731,9 +16744,22 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DEFAULT_RINGTONE': 10;
             readonly 'EDIT_PROFILE': 24;
             readonly 'EDUCATION': 30;
+            readonly 'IMAGINE_INTENTS_ANIMATE': 60;
+            readonly 'IMAGINE_INTENTS_BOTTOM_SHEET': 55;
+            readonly 'IMAGINE_INTENTS_CREATE_IMAGE': 56;
+            readonly 'IMAGINE_INTENTS_EDIT_IMAGE': 57;
+            readonly 'IMAGINE_INTENTS_PRESETS': 58;
+            readonly 'IMAGINE_INTENTS_REGENERATE': 66;
+            readonly 'IMAGINE_INTENTS_RESTYLE': 59;
             readonly 'JOIN_WAITLIST_BOTTOMSHEET': 3;
             readonly 'LINKED_DEVICES': 17;
             readonly 'LIST_SETTINGS': 16;
+            readonly 'MEDIA_EDITOR_ANIMATE': 64;
+            readonly 'MEDIA_EDITOR_BOTTOM_SHEET': 61;
+            readonly 'MEDIA_EDITOR_EDIT_OPTION': 63;
+            readonly 'MEDIA_EDITOR_REGENERATE': 67;
+            readonly 'MEDIA_EDITOR_RESTYLE': 62;
+            readonly 'MEDIA_EDITOR_VIDEO_RESTYLE': 65;
             readonly 'MESSAGE_CAPPING': 21;
             readonly 'META_AI_SETTINGS': 34;
             readonly 'META_ONE_ELIGIBLE_BOTTOMSHEET': 42;
@@ -29475,6 +29501,7 @@ export declare const WA_WAM_EVENTS: {
             readonly wsuaActiveSubscriptions: { readonly id: 10; readonly type: 'string'; readonly falcoName: 'wsua_active_subscriptions' }
             readonly wsuaBenefitGroup: { readonly id: 11; readonly type: 'string'; readonly falcoName: 'wsua_benefit_group' }
             readonly wsuaBenefitsShown: { readonly id: 9; readonly type: 'string'; readonly falcoName: 'wsua_benefits_shown' }
+            readonly wsuaEligibleSubscriptions: { readonly id: 13; readonly type: 'string'; readonly falcoName: 'wsua_eligible_subscriptions' }
             readonly wsuaProductType: { readonly id: 3; readonly type: 'enum'; readonly enum: 'WSUA_PRODUCT_TYPE'; readonly falcoName: 'wsua_product_type' }
             readonly wsuaQuickPromotionId: { readonly id: 4; readonly type: 'string'; readonly falcoName: 'wsua_quick_promotion_id' }
             readonly wsuaReferral: { readonly id: 5; readonly type: 'enum'; readonly enum: 'WSUA_REFERRAL'; readonly falcoName: 'wsua_referral' }

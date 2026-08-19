@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2300,
+  "propCount": 2309,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -4074,7 +4074,7 @@
     },
     "device_capabilities_v2_sync_enabled": {
       "code": 33380,
-      "debugDefaultValue": false,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -6220,12 +6220,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "lists_smb_web_enabled": {
-      "code": 24732,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "lists_smb_web_m2_enabled": {
       "code": 31380,
       "debugDefaultValue": true,
@@ -6345,6 +6339,12 @@
       "debugDefaultValue": "{\"allowlist\": []}",
       "defaultValue": "{\"allowlist\": []}",
       "type": "string"
+    },
+    "media_cross_reference_download_enabled": {
+      "code": 35111,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "media_cross_reference_upload_enabled": {
       "code": 35109,
@@ -7864,6 +7864,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "pq_1on1_messaging_killswitch": {
+      "code": 35210,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "pq_batch_upload_size": {
       "code": 21201,
       "debugDefaultValue": 10,
@@ -8097,6 +8103,12 @@
       "debugDefaultValue": 14400000,
       "defaultValue": 14400000,
       "type": "int"
+    },
+    "refresh_group_info_on_mismatch": {
+      "code": 35119,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "relax_integrity_constraints_for_bb_wa_tenured_accounts": {
       "code": 28516,
@@ -8348,6 +8360,18 @@
       "code": 35018,
       "debugDefaultValue": 0,
       "defaultValue": 0,
+      "type": "int"
+    },
+    "scheduled_companion_contact_refresh_threshold_count": {
+      "code": 35199,
+      "debugDefaultValue": 10,
+      "defaultValue": 10,
+      "type": "int"
+    },
+    "scheduled_companion_contact_refresh_threshold_percent": {
+      "code": 35198,
+      "debugDefaultValue": 10,
+      "defaultValue": 10,
       "type": "int"
     },
     "scheduled_messages_photo_video_sender_enabled": {
@@ -8713,6 +8737,12 @@
     "smb_collections_enabled": {
       "code": 451,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_contact_manager_hidden_contacts_enabled": {
+      "code": 35186,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -9477,6 +9507,12 @@
       "debugDefaultValue": 4,
       "defaultValue": 4,
       "type": "int"
+    },
+    "teamlink_consumer_experience_enabled": {
+      "code": 35138,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "teamlink_enabled": {
       "code": 33978,
@@ -12418,6 +12454,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_calling_incoming_accept_pulse_enabled": {
+      "code": 35144,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_calling_join_button_pulse_enabled": {
+      "code": 35143,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_calling_offline_resume_ordering": {
       "code": 29564,
       "debugDefaultValue": false,
@@ -13776,6 +13824,12 @@
     },
     "win_hybrid_vsr_button_enabled_2": {
       "code": 34279,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "win_hybrid_vsr_device_setting_enabled_2": {
+      "code": 35194,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -13920,5 +13974,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045418364"
+  "waVersion": "2.3000.1045513958"
 }
