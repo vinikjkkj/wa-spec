@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045513958
+// WhatsApp Version: 2.3000.1045601094
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1348,9 +1348,12 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'BUG_REPORT_ENTRY_POINT_NAME'
         readonly values: {
             readonly 'BUG_REPORT_ENTRY_POINT_BLOKS': 7;
+            readonly 'BUG_REPORT_ENTRY_POINT_CHAT_TRANSFER': 11;
             readonly 'BUG_REPORT_ENTRY_POINT_HELP': 2;
             readonly 'BUG_REPORT_ENTRY_POINT_RAGE_SHAKE': 3;
             readonly 'BUG_REPORT_ENTRY_POINT_REPORT_MESSAGE': 4;
+            readonly 'BUG_REPORT_ENTRY_POINT_RESTORE_FROM_BACKUP': 10;
+            readonly 'BUG_REPORT_ENTRY_POINT_RESTORE_TRANSFER_SELECTOR': 9;
             readonly 'BUG_REPORT_ENTRY_POINT_SETTINGS': 1;
             readonly 'BUG_REPORT_ENTRY_POINT_SIDEBAR_BUGNUB': 8;
             readonly 'BUG_REPORT_ENTRY_POINT_VOIP_BUGNUB': 5;
@@ -6867,6 +6870,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLIENT_PING_TIMEOUT': 8;
             readonly 'CONNECTION_RESET': 20;
             readonly 'DELETE_ACCOUNT': 13;
+            readonly 'FULL_PROXY_AVAILABLE': 21;
             readonly 'MBS_MIGRATION': 15;
             readonly 'NETWORK_BLOCKED': 1;
             readonly 'NETWORK_CHANGED': 11;
@@ -20396,11 +20400,14 @@ export declare const WA_WAM_EVENTS: {
             readonly wifiRssiAtCallStart: { readonly id: 263; readonly type: 'integer'; readonly falcoName: 'wifi_rssi_at_call_start' }
             readonly winNpuName: { readonly id: 3129; readonly type: 'string'; readonly falcoName: 'win_npu_name' }
             readonly winNpuPresent: { readonly id: 3130; readonly type: 'boolean'; readonly falcoName: 'win_npu_present' }
+            readonly winVsrAvgFrameTimeMs: { readonly id: 3148; readonly type: 'number'; readonly falcoName: 'win_vsr_avg_frame_time_ms' }
             readonly winVsrButtonClicks: { readonly id: 3131; readonly type: 'integer'; readonly falcoName: 'win_vsr_button_clicks' }
             readonly winVsrEnabled: { readonly id: 3132; readonly type: 'boolean'; readonly falcoName: 'win_vsr_enabled' }
             readonly winVsrEpInitMs: { readonly id: 3133; readonly type: 'integer'; readonly falcoName: 'win_vsr_ep_init_ms' }
             readonly winVsrFramesWith: { readonly id: 3134; readonly type: 'integer'; readonly falcoName: 'win_vsr_frames_with' }
             readonly winVsrFramesWithout: { readonly id: 3135; readonly type: 'integer'; readonly falcoName: 'win_vsr_frames_without' }
+            readonly winVsrMaxFrameTimeMs: { readonly id: 3149; readonly type: 'number'; readonly falcoName: 'win_vsr_max_frame_time_ms' }
+            readonly winVsrMinFrameTimeMs: { readonly id: 3150; readonly type: 'number'; readonly falcoName: 'win_vsr_min_frame_time_ms' }
             readonly winVsrOnTimeSec: { readonly id: 3136; readonly type: 'integer'; readonly falcoName: 'win_vsr_on_time_sec' }
             readonly winVsrSupported: { readonly id: 3137; readonly type: 'boolean'; readonly falcoName: 'win_vsr_supported' }
             readonly winVsrVideoScalerInitMs: { readonly id: 3138; readonly type: 'integer'; readonly falcoName: 'win_vsr_video_scaler_init_ms' }

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1045513958
+/// WhatsApp Version: 2.3000.1045601094
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -493,6 +493,8 @@ enum MutationProps {
     LABEL_SUBLIST_ACTION = 91;
     DEVICE_CAPABILITIES_V2 = 92;
     CTWA_MESSAGE_RECEIVED_ACTION = 93;
+    SHARED_DEVICE_ALLOWLIST_ACTION = 94;
+    CONTACT_MANAGER_METADATA_ACTION = 95;
     SHARE_OWN_PN = 10001;
     BUSINESS_BROADCAST_ACTION = 10002;
     AI_THREAD_DELETE_ACTION = 10003;
@@ -7647,6 +7649,8 @@ message SyncActionValue {
     optional LabelSublistAction labelSublistAction = 91;
     optional DeviceCapabilities deviceCapabilitiesV2 = 92;
     optional CtwaMessageReceivedAction ctwaMessageReceivedAction = 93;
+    optional SharedDeviceAllowlistAction sharedDeviceAllowlistAction = 94;
+    optional ContactManagerMetadataAction contactManagerMetadataAction = 95;
     enum BusinessBroadcastCampaignStatus {
         DRAFT = 1;
         SCHEDULED = 2;
@@ -7692,6 +7696,9 @@ message SyncActionValue {
             optional string source = 7;
             optional int64 creationTime = 8;
         }
+    }
+    message ContactManagerMetadataAction {
+        optional bool isHidden = 1;
     }
     message CustomerDataAction {
         optional string chatJid = 1;
@@ -8218,6 +8225,9 @@ message SyncActionValue {
         optional int64 muteEndTimestamp = 2;
         optional bool autoMuted = 3;
         optional int64 muteEveryoneMentionEndTimestamp = 4;
+    }
+    message SharedDeviceAllowlistAction {
+        optional bool allowed = 1;
     }
     message ContactAction {
         optional string fullName = 1;

@@ -1185,9 +1185,12 @@
       "module": "WAWebWamEnumBugReportEntryPointName",
       "values": {
         "BUG_REPORT_ENTRY_POINT_BLOKS": 7,
+        "BUG_REPORT_ENTRY_POINT_CHAT_TRANSFER": 11,
         "BUG_REPORT_ENTRY_POINT_HELP": 2,
         "BUG_REPORT_ENTRY_POINT_RAGE_SHAKE": 3,
         "BUG_REPORT_ENTRY_POINT_REPORT_MESSAGE": 4,
+        "BUG_REPORT_ENTRY_POINT_RESTORE_FROM_BACKUP": 10,
+        "BUG_REPORT_ENTRY_POINT_RESTORE_TRANSFER_SELECTOR": 9,
         "BUG_REPORT_ENTRY_POINT_SETTINGS": 1,
         "BUG_REPORT_ENTRY_POINT_SIDEBAR_BUGNUB": 8,
         "BUG_REPORT_ENTRY_POINT_VOIP_BUGNUB": 5,
@@ -6704,6 +6707,7 @@
         "CLIENT_PING_TIMEOUT": 8,
         "CONNECTION_RESET": 20,
         "DELETE_ACCOUNT": 13,
+        "FULL_PROXY_AVAILABLE": 21,
         "MBS_MIGRATION": 15,
         "NETWORK_BLOCKED": 1,
         "NETWORK_CHANGED": 11,
@@ -32355,6 +32359,11 @@
           "id": 3130,
           "type": "boolean"
         },
+        "winVsrAvgFrameTimeMs": {
+          "falcoName": "win_vsr_avg_frame_time_ms",
+          "id": 3148,
+          "type": "number"
+        },
         "winVsrButtonClicks": {
           "falcoName": "win_vsr_button_clicks",
           "id": 3131,
@@ -32379,6 +32388,16 @@
           "falcoName": "win_vsr_frames_without",
           "id": 3135,
           "type": "integer"
+        },
+        "winVsrMaxFrameTimeMs": {
+          "falcoName": "win_vsr_max_frame_time_ms",
+          "id": 3149,
+          "type": "number"
+        },
+        "winVsrMinFrameTimeMs": {
+          "falcoName": "win_vsr_min_frame_time_ms",
+          "id": 3150,
+          "type": "number"
         },
         "winVsrOnTimeSec": {
           "falcoName": "win_vsr_on_time_sec",
@@ -66709,7 +66728,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1045513958",
+  "waVersion": "2.3000.1045601094",
   "wireFormat": {
     "markers": {
       "event": 1,

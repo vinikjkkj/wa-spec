@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045513958
+// WhatsApp Version: 2.3000.1045601094
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1239,9 +1239,12 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'BUG_REPORT_ENTRY_POINT_NAME',
         values: Object.freeze({
         'BUG_REPORT_ENTRY_POINT_BLOKS': 7,
+        'BUG_REPORT_ENTRY_POINT_CHAT_TRANSFER': 11,
         'BUG_REPORT_ENTRY_POINT_HELP': 2,
         'BUG_REPORT_ENTRY_POINT_RAGE_SHAKE': 3,
         'BUG_REPORT_ENTRY_POINT_REPORT_MESSAGE': 4,
+        'BUG_REPORT_ENTRY_POINT_RESTORE_FROM_BACKUP': 10,
+        'BUG_REPORT_ENTRY_POINT_RESTORE_TRANSFER_SELECTOR': 9,
         'BUG_REPORT_ENTRY_POINT_SETTINGS': 1,
         'BUG_REPORT_ENTRY_POINT_SIDEBAR_BUGNUB': 8,
         'BUG_REPORT_ENTRY_POINT_VOIP_BUGNUB': 5,
@@ -6758,6 +6761,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLIENT_PING_TIMEOUT': 8,
         'CONNECTION_RESET': 20,
         'DELETE_ACCOUNT': 13,
+        'FULL_PROXY_AVAILABLE': 21,
         'MBS_MIGRATION': 15,
         'NETWORK_BLOCKED': 1,
         'NETWORK_CHANGED': 11,
@@ -20159,11 +20163,14 @@ const WA_WAM_EVENTS = Object.freeze({
             wifiRssiAtCallStart: Object.freeze({ id: 263, type: 'integer', falcoName: 'wifi_rssi_at_call_start' }),
             winNpuName: Object.freeze({ id: 3129, type: 'string', falcoName: 'win_npu_name' }),
             winNpuPresent: Object.freeze({ id: 3130, type: 'boolean', falcoName: 'win_npu_present' }),
+            winVsrAvgFrameTimeMs: Object.freeze({ id: 3148, type: 'number', falcoName: 'win_vsr_avg_frame_time_ms' }),
             winVsrButtonClicks: Object.freeze({ id: 3131, type: 'integer', falcoName: 'win_vsr_button_clicks' }),
             winVsrEnabled: Object.freeze({ id: 3132, type: 'boolean', falcoName: 'win_vsr_enabled' }),
             winVsrEpInitMs: Object.freeze({ id: 3133, type: 'integer', falcoName: 'win_vsr_ep_init_ms' }),
             winVsrFramesWith: Object.freeze({ id: 3134, type: 'integer', falcoName: 'win_vsr_frames_with' }),
             winVsrFramesWithout: Object.freeze({ id: 3135, type: 'integer', falcoName: 'win_vsr_frames_without' }),
+            winVsrMaxFrameTimeMs: Object.freeze({ id: 3149, type: 'number', falcoName: 'win_vsr_max_frame_time_ms' }),
+            winVsrMinFrameTimeMs: Object.freeze({ id: 3150, type: 'number', falcoName: 'win_vsr_min_frame_time_ms' }),
             winVsrOnTimeSec: Object.freeze({ id: 3136, type: 'integer', falcoName: 'win_vsr_on_time_sec' }),
             winVsrSupported: Object.freeze({ id: 3137, type: 'boolean', falcoName: 'win_vsr_supported' }),
             winVsrVideoScalerInitMs: Object.freeze({ id: 3138, type: 'integer', falcoName: 'win_vsr_video_scaler_init_ms' }),

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045513958
+// WhatsApp Version: 2.3000.1045601094
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -69,7 +69,7 @@ const WA_ABPROPS = Object.freeze({
     ai_file_upload_count_limit: Object.freeze({ code: 25093, type: "int", defaultValue: 0, debugDefaultValue: 1 }),
     ai_file_upload_size_limit_mb: Object.freeze({ code: 25524, type: "int", defaultValue: 40, debugDefaultValue: 40 }),
     ai_file_upload_supported_file_types: Object.freeze({ code: 25090, type: "string", defaultValue: "", debugDefaultValue: "" }),
-    ai_forward_attribution_enabled: Object.freeze({ code: 18286, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    ai_forward_attribution_enabled: Object.freeze({ code: 18286, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_forward_flow_surface_meta_ai_as_contact_enabled: Object.freeze({ code: 13879, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_genai_straw_hat: Object.freeze({ code: 28268, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_gizmo_integration_enabled: Object.freeze({ code: 28584, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -292,6 +292,7 @@ const WA_ABPROPS = Object.freeze({
     biz_ai_priority_list_enabled: Object.freeze({ code: 16420, type: "bool", defaultValue: false, debugDefaultValue: true }),
     biz_ai_priority_list_item_expire_days: Object.freeze({ code: 16472, type: "int", defaultValue: 14, debugDefaultValue: 1 }),
     biz_ai_responding_list_enabled: Object.freeze({ code: 26670, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    biz_ai_response_settings_ui_experiment: Object.freeze({ code: 29706, type: "string", defaultValue: "NONE", debugDefaultValue: "NONE" }),
     biz_ai_smb_agents_automatic_reply_enabled: Object.freeze({ code: 8505, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_tools_settings: Object.freeze({ code: 28552, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_tools_sync: Object.freeze({ code: 29383, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -304,6 +305,7 @@ const WA_ABPROPS = Object.freeze({
     biz_ai_web_integration_hub_enabled: Object.freeze({ code: 33956, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_web_onboarding_handoff: Object.freeze({ code: 29298, type: "bool", defaultValue: false, debugDefaultValue: true }),
     biz_ai_web_onboarding_handoff_killswitch: Object.freeze({ code: 32263, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    biz_ai_web_onboarding_notification_dispatch_enabled: Object.freeze({ code: 35223, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_web_smart_composer_enabled: Object.freeze({ code: 34003, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_vpv_dimensions_logging_enabled: Object.freeze({ code: 30266, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_vpv_impression_logging_enabled: Object.freeze({ code: 25465, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -576,6 +578,7 @@ const WA_ABPROPS = Object.freeze({
     community_announcement_group_size_limit: Object.freeze({ code: 2774, type: "int", defaultValue: 5000, debugDefaultValue: 5000 }),
     community_general_chat_UI_enabled: Object.freeze({ code: 5021, type: "bool", defaultValue: false, debugDefaultValue: false }),
     community_general_chat_create_enabled: Object.freeze({ code: 5453, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    companion_contact_local_auto_heal: Object.freeze({ code: 35240, type: "bool", defaultValue: false, debugDefaultValue: false }),
     companion_contact_refresh: Object.freeze({ code: 33093, type: "bool", defaultValue: false, debugDefaultValue: true }),
     companion_contact_refresh_debounce_ms: Object.freeze({ code: 33497, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     companion_contact_refresh_receiver: Object.freeze({ code: 33635, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2080,6 +2083,7 @@ const WA_ABPROPS = Object.freeze({
     web_catalog_recovery_flow_enabled: Object.freeze({ code: 14294, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_catalog_viewing_variants_enabled: Object.freeze({ code: 15534, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_channel_status_likes_sending_enabled: Object.freeze({ code: 32428, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    web_channel_status_likes_sending_enabled_no_exposure: Object.freeze({ code: 35221, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_channel_video_server_transcode_upload: Object.freeze({ code: 19920, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_chat_info_action_buttons_refresh: Object.freeze({ code: 14664, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_chat_theme_drawer_title: Object.freeze({ code: 28157, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4110,6 +4114,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     29622: "web_whats_new_auto_modal_short_cooldown",
     29650: "premium_msg_bb_campaign_sync_enabled",
     29673: "group_enc_key_enabled",
+    29706: "biz_ai_response_settings_ui_experiment",
     29708: "p2p_pills_allowlist_entries",
     29709: "web_whats_new_banner_short_cooldown_v2",
     29715: "p2p_pills_enabled_for_ineligible_contacts",
@@ -4647,7 +4652,10 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     35194: "win_hybrid_vsr_device_setting_enabled_2",
     35198: "scheduled_companion_contact_refresh_threshold_percent",
     35199: "scheduled_companion_contact_refresh_threshold_count",
-    35210: "pq_1on1_messaging_killswitch"
+    35210: "pq_1on1_messaging_killswitch",
+    35221: "web_channel_status_likes_sending_enabled_no_exposure",
+    35223: "biz_ai_web_onboarding_notification_dispatch_enabled",
+    35240: "companion_contact_local_auto_heal"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

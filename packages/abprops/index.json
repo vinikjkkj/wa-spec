@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2309,
+  "propCount": 2313,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -462,7 +462,7 @@
     },
     "ai_forward_attribution_enabled": {
       "code": 18286,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -1798,6 +1798,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "biz_ai_response_settings_ui_experiment": {
+      "code": 29706,
+      "debugDefaultValue": "NONE",
+      "defaultValue": "NONE",
+      "type": "string"
+    },
     "biz_ai_smb_agents_automatic_reply_enabled": {
       "code": 8505,
       "debugDefaultValue": false,
@@ -1866,6 +1872,12 @@
     },
     "biz_ai_web_onboarding_handoff_killswitch": {
       "code": 32263,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "biz_ai_web_onboarding_notification_dispatch_enabled": {
+      "code": 35223,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -3498,6 +3510,12 @@
     },
     "community_general_chat_create_enabled": {
       "code": 5453,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "companion_contact_local_auto_heal": {
+      "code": 35240,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -12526,6 +12544,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_channel_status_likes_sending_enabled_no_exposure": {
+      "code": 35221,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_channel_video_server_transcode_upload": {
       "code": 19920,
       "debugDefaultValue": false,
@@ -13974,5 +13998,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045513958"
+  "waVersion": "2.3000.1045601094"
 }
