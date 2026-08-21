@@ -7471,6 +7471,7 @@
         "LWI_ACTION_WINBACK_AD_COMPLETION_QP_CARD_VIEW_DETAILS_CLICK": 529,
         "LWI_ACTION_WINBACK_AD_CREATION_PAC_BOTTOMSHEET_DISMISS": 524,
         "LWI_ACTION_WINBACK_AD_CREATION_PAC_BOTTOMSHEET_IMPRESSION": 522,
+        "LWI_ACTION_WINBACK_AD_CREATION_PAC_CREATE_NEW_AD_CLICK": 543,
         "LWI_ACTION_WINBACK_AD_CREATION_PAC_MANAGE_ADS_CLICK": 523,
         "LWI_ACTION_WINBACK_AD_CREATION_START_LEARNING_CARD_IMPRESSION": 518,
         "LWI_ACTION_WINBACK_AD_CREATION_START_LEARNING_CTA_CLICK": 519,
@@ -10929,6 +10930,7 @@
         "GET_VNAME_CERTIFICATE": 2,
         "IDENTITY_CHANGE_NOTIFICATION": 8,
         "MULTI_DEVICE_CALL": 6,
+        "PQ_SESSION_UPGRADE": 18,
         "RESEND_MESSAGE": 11,
         "RETRY_MESSAGE": 12,
         "SEND_LIVE_LOCATION_KEY": 4,
@@ -15575,6 +15577,7 @@
         "ACTION_CLICK_APP_LINK": 15,
         "ACTION_CLICK_CATALOG_ICON": 13,
         "ACTION_CLICK_COVER_PHOTO": 26,
+        "ACTION_CLICK_CTA": 28,
         "ACTION_CLICK_DESCRIPTION": 5,
         "ACTION_CLICK_EMAIL": 6,
         "ACTION_CLICK_FORWARD": 12,
@@ -19535,10 +19538,25 @@
           "id": 2979,
           "type": "number"
         },
+        "audioTxHardClippedFrameCount": {
+          "falcoName": "audio_tx_hard_clipped_frame_count",
+          "id": 3151,
+          "type": "integer"
+        },
+        "audioTxHardClippingRate": {
+          "falcoName": "audio_tx_hard_clipping_rate",
+          "id": 3152,
+          "type": "number"
+        },
         "audioTxInbandFecBitrate": {
           "falcoName": "audio_tx_inband_fec_bitrate",
           "id": 1749,
           "type": "number"
+        },
+        "audioTxLongestHardClippedRun": {
+          "falcoName": "audio_tx_longest_hard_clipped_run",
+          "id": 3153,
+          "type": "integer"
         },
         "audioTxNonactiveBitrate": {
           "falcoName": "audio_tx_nonactive_bitrate",
@@ -19548,6 +19566,11 @@
         "audioTxPktCount": {
           "falcoName": "audio_tx_pkt_count",
           "id": 1751,
+          "type": "number"
+        },
+        "audioTxSii": {
+          "falcoName": "audio_tx_sii",
+          "id": 3154,
           "type": "number"
         },
         "audioTxSiiSnrAvg": {
@@ -19629,6 +19652,11 @@
           "falcoName": "audio_tx_spectral_rolloff_p95",
           "id": 2995,
           "type": "number"
+        },
+        "audioTxTotalFrameCount": {
+          "falcoName": "audio_tx_total_frame_count",
+          "id": 3155,
+          "type": "integer"
         },
         "audioTxUlpFecPkts": {
           "falcoName": "audio_tx_ulp_fec_pkts",
@@ -38280,6 +38308,11 @@
           "id": 8,
           "type": "boolean"
         },
+        "receivedExperienceIds": {
+          "falcoName": "received_experience_ids",
+          "id": 262,
+          "type": "string"
+        },
         "secretCodeActive": {
           "falcoName": "secret_code_active",
           "id": 172,
@@ -46017,6 +46050,11 @@
           "id": 59,
           "type": "number"
         },
+        "experienceIds": {
+          "falcoName": "experience_ids",
+          "id": 71,
+          "type": "string"
+        },
         "expressPathBytesSaved": {
           "falcoName": "express_path_bytes_saved",
           "id": 42,
@@ -46600,6 +46638,11 @@
           "falcoName": "did_play",
           "id": 15,
           "type": "boolean"
+        },
+        "experienceIds": {
+          "falcoName": "experience_ids",
+          "id": 19,
+          "type": "string"
         },
         "forcedPlayCount": {
           "falcoName": "forced_play_count",
@@ -47587,6 +47630,11 @@
           "falcoName": "ephemerality_trigger_action",
           "id": 27,
           "type": "enum"
+        },
+        "experienceIds": {
+          "falcoName": "experience_ids",
+          "id": 67,
+          "type": "string"
         },
         "hasUsername": {
           "falcoName": "has_username",
@@ -51192,6 +51240,11 @@
           "id": 26,
           "type": "integer"
         },
+        "mmThreadSessionId": {
+          "falcoName": "mm_thread_session_id",
+          "id": 29,
+          "type": "string"
+        },
         "qbmFlag": {
           "enum": "QBM_FLAG",
           "falcoName": "qbm_flag",
@@ -53548,6 +53601,41 @@
           "falcoName": "ptt_waveform_result",
           "id": 51,
           "type": "enum"
+        },
+        "pttWorkerClearedPartialTailSamples": {
+          "falcoName": "ptt_worker_cleared_partial_tail_samples",
+          "id": 59,
+          "type": "integer"
+        },
+        "pttWorkerClockTickDrainedFrameCount": {
+          "falcoName": "ptt_worker_clock_tick_drained_frame_count",
+          "id": 60,
+          "type": "integer"
+        },
+        "pttWorkerEnqueueFailureSamples": {
+          "falcoName": "ptt_worker_enqueue_failure_samples",
+          "id": 61,
+          "type": "integer"
+        },
+        "pttWorkerEnqueuedSamples": {
+          "falcoName": "ptt_worker_enqueued_samples",
+          "id": 62,
+          "type": "integer"
+        },
+        "pttWorkerModeStatus": {
+          "falcoName": "ptt_worker_mode_status",
+          "id": 63,
+          "type": "integer"
+        },
+        "pttWorkerPostClockStopDrainedFrameCount": {
+          "falcoName": "ptt_worker_post_clock_stop_drained_frame_count",
+          "id": 64,
+          "type": "integer"
+        },
+        "pttWorkerQueueHighWaterSamples": {
+          "falcoName": "ptt_worker_queue_high_water_samples",
+          "id": 65,
+          "type": "integer"
         }
       },
       "id": 458,
@@ -54299,6 +54387,11 @@
           "id": 7,
           "type": "string"
         },
+        "mmThreadSessionId": {
+          "falcoName": "mm_thread_session_id",
+          "id": 65,
+          "type": "string"
+        },
         "muted": {
           "falcoName": "muted",
           "id": 4,
@@ -54543,6 +54636,11 @@
           "id": 7,
           "type": "string"
         },
+        "mmThreadSessionId": {
+          "falcoName": "mm_thread_session_id",
+          "id": 38,
+          "type": "string"
+        },
         "pillEntryPoint": {
           "enum": "PILL_ENTRY_POINT",
           "falcoName": "pill_entry_point",
@@ -54721,6 +54819,11 @@
           "falcoName": "message_level_action",
           "id": 8,
           "type": "enum"
+        },
+        "mmThreadSessionId": {
+          "falcoName": "mm_thread_session_id",
+          "id": 34,
+          "type": "string"
         },
         "pillEntryPoint": {
           "enum": "PILL_ENTRY_POINT",
@@ -54961,6 +55064,11 @@
         "messageTypeStr": {
           "falcoName": "message_type_str",
           "id": 6,
+          "type": "string"
+        },
+        "mmThreadSessionId": {
+          "falcoName": "mm_thread_session_id",
+          "id": 62,
           "type": "string"
         },
         "pillEntryPoint": {
@@ -66728,7 +66836,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1045601094",
+  "waVersion": "2.3000.1045711070",
   "wireFormat": {
     "markers": {
       "event": 1,

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045601094
+// WhatsApp Version: 2.3000.1045711070
 
 export interface WaMexPersistId {
     readonly docId: string
