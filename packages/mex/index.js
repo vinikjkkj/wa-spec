@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045711070
+// WhatsApp Version: 2.3000.1045798079
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -46,7 +46,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
     ContactManagerCustomerProfile: Object.freeze({ docId: '37925750573706165', clientDocId: '37925750573706165' }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '27789071790751197', clientDocId: '27789071790751197' }),
-    ContactManagerCustomerProfiles: Object.freeze({ docId: '27747880408206174', clientDocId: '27747880408206174' }),
+    ContactManagerCustomerProfiles: Object.freeze({ docId: '27796221486653417', clientDocId: '27796221486653417' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
     CreateInviteCode: Object.freeze({ docId: '26155584267463745', clientDocId: '26155584267463745' }),
     CreateLabyrinthBackup: Object.freeze({ docId: '27515507191403198', clientDocId: '27515507191403198' }),
@@ -157,8 +157,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
     OrgAdminGraphQLAddGroup: Object.freeze({ docId: '27409847525383193', clientDocId: '27409847525383193' }),
     OrgAdminGraphQLAddParticipants: Object.freeze({ docId: '28037193722607495', clientDocId: '28037193722607495' }),
+    OrgAdminGraphQLDirectory: Object.freeze({ docId: '29036033719317454', clientDocId: '29036033719317454' }),
     OrgAdminGraphQLGroup: Object.freeze({ docId: '28486573690950714', clientDocId: '28486573690950714' }),
-    OrgAdminGraphQLHome: Object.freeze({ docId: '27903819169272493', clientDocId: '27903819169272493' }),
+    OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28194704720124285', clientDocId: '28194704720124285' }),
     OrgAdminGraphQLOrgs: Object.freeze({ docId: '28242921515342347', clientDocId: '28242921515342347' }),
     OrgAdminGraphQLRemoveParticipants: Object.freeze({ docId: '37624727843838622', clientDocId: '37624727843838622' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
@@ -367,8 +368,9 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     NewsletterUnpinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
     OrgAdminGraphQLAddGroup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID']) }),
     OrgAdminGraphQLAddParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID', 'participants', 'requestID']) }),
+    OrgAdminGraphQLDirectory: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLGroup: Object.freeze({ operationKind: 'query', variables: Object.freeze(['gid', 'orgID']) }),
-    OrgAdminGraphQLHome: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
+    OrgAdminGraphQLManagedGroups: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLOrgs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     OrgAdminGraphQLRemoveParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID', 'participants', 'requestID']) }),
     PaymentsPasskeyHasCredential: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),

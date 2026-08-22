@@ -321,6 +321,7 @@
       "export": "ADD_MEMBERS_ENTRYPOINT_TYPE",
       "module": "WAWebWamEnumAddMembersEntrypointType",
       "values": {
+        "ADD_CONTACT_TO_GROUPS_PICKER": 17,
         "COMMUNITY_CONTEXT_CARD": 14,
         "COMMUNITY_EMPTY_SUBGROUP": 15,
         "GROUP_ADDED_CONTEXT_CARD": 4,
@@ -337,7 +338,8 @@
         "GROUP_MEMBERS_LIST_ADD_BUTTON": 16,
         "GROUP_MENTION_PICKER": 13,
         "GROUP_SAVE_CONTACT_FROM_SHARED_NON_CONTACT": 11,
-        "GROUP_USER_JOINED_BY_LINK_CONTEXT_CARD": 5
+        "GROUP_USER_JOINED_BY_LINK_CONTEXT_CARD": 5,
+        "MEMBERSHIP_APPROVAL_REQUESTS": 18
       }
     },
     "ADMIN_FLOW_TYPE": {
@@ -4524,6 +4526,7 @@
         "ERROR_INVALID_KEY_MATEIRAL_DATA_LEN": 95,
         "ERROR_INVALID_MAC_LEN": 87,
         "ERROR_INVALID_SIGNATURE_LEN": 88,
+        "ERROR_LEASE_FETCH": 117,
         "ERROR_MAC_LEN_MISMATCH": 86,
         "ERROR_MEDIA_HASH_VERIFICATION_FAILURE": 99,
         "ERROR_MINIMUM_VALUE": 33,
@@ -4542,6 +4545,7 @@
         "ERROR_SESSION_STATE_SET_SENDER_CHAIN_KEY": 81,
         "ERROR_SESSION_STATE_UNACKED_PKMSG_GET_BASE_KEY": 77,
         "ERROR_SIGNAL_MESSAGE_GET_SENDER_RATCHET_KEY": 78,
+        "ERROR_TEE_IDENTITY_TOKEN": 118,
         "ERROR_THUMBNAIL_HASH_VERIFICATION_FAILURE": 101,
         "ERROR_UNKNOWN": 34,
         "ERROR_UNKNOWN_LOAD_KEY": 91,
@@ -5386,12 +5390,18 @@
         "GROUP_HISTORY_COUNT_CHANGE_ENTRY_POINT_CLICKED": 6,
         "GROUP_HISTORY_DROPDOWN_MENU_ITEM_CLICKED": 16,
         "GROUP_HISTORY_DROPDOWN_MENU_ITEM_DISPLAYED": 15,
+        "GROUP_HISTORY_FOOTER_DISPLAYED": 23,
         "GROUP_HISTORY_NOTICE_MESSAGE_ACKED": 11,
         "GROUP_HISTORY_NOTICE_MESSAGE_SENT": 9,
         "GROUP_HISTORY_SELECTABLE_MESSAGES_LOADED": 3,
         "GROUP_HISTORY_SEND_INELIGIBLE_AT_BOTTOM_SHEET_OPEN": 13,
         "GROUP_HISTORY_SEND_INELIGIBLE_AT_CTA_CLICK": 12,
         "GROUP_HISTORY_SEND_INELIGIBLE_AT_SEND_CLICK": 14,
+        "GROUP_HISTORY_SPEED_BUMP_DIALOG_CANCELED": 28,
+        "GROUP_HISTORY_SPEED_BUMP_DIALOG_CONTINUED": 27,
+        "GROUP_HISTORY_SPEED_BUMP_DIALOG_DISPLAYED": 26,
+        "GROUP_HISTORY_TOGGLE_OFF": 25,
+        "GROUP_HISTORY_TOGGLE_ON": 24,
         "SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_DISPLAY": 17,
         "SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED": 18,
         "SEND_MESSAGE_HISTORY_SYSTEM_MESSAGE_CLICKED": 1,
@@ -8296,6 +8306,7 @@
         "ORDER": 24,
         "PHOTO": 2,
         "PIN_IN_CHAT": 54,
+        "POLL_ADD_OPTION": 81,
         "POLL_CREATE": 37,
         "POLL_RESULT_SNAPSHOT": 65,
         "POLL_VOTE": 38,
@@ -8620,6 +8631,7 @@
         "ERROR_LOCATION": 10,
         "ERROR_NETWORK": 4,
         "ERROR_PAYLOAD_TOO_BIG": 9,
+        "ERROR_SEND_PRECONDITION_FAILED": 22,
         "ERROR_UNKNOWN": 3,
         "ERROR_UPLOAD": 7,
         "ERROR_UPLOAD_CANCELLED_AUTOMATIC": 19,
@@ -10867,6 +10879,8 @@
       "export": "POLL_ACTION_TYPE",
       "module": "WAWebWamEnumPollActionType",
       "values": {
+        "ADD_OPTION_COMPLETED": 11,
+        "ADD_OPTION_INITIATED": 10,
         "CHANGE_VOTE": 7,
         "CREATE_POLL": 2,
         "EDIT_POLL_COMPLETED": 9,
@@ -14209,6 +14223,10 @@
         "GENAI_AGENT_CHAT_HISTORY_EXPORT": 144,
         "GENAI_AGENT_CHAT_HISTORY_EXPORT_NUX": 145,
         "GENAI_AGENT_COACHING_INDICATOR_BOTTOMSHEET": 109,
+        "GEN_AI_1P_CALENDAR_DELETE_CONFIRM_DIALOG": 329,
+        "GEN_AI_1P_CALENDAR_DETAIL": 328,
+        "GEN_AI_1P_CALENDAR_ERROR_DIALOG": 330,
+        "GEN_AI_1P_CALENDAR_LIST": 327,
         "GEN_AI_AGENT_CONTROL_LEARNING_BOTTOM_SHEET": 138,
         "GEN_AI_AGENT_EDIT_FIELD_BOTTOM_SHEET": 103,
         "GEN_AI_AGENT_ENABLE_BIZ_AI_SHEET": 220,
@@ -14266,6 +14284,7 @@
         "GEN_AI_COACHING": 87,
         "GEN_AI_COMMON_QUESTIONS_SCREEN": 24,
         "GEN_AI_CTWA_ENTRY_POINT": 225,
+        "GEN_AI_DAILY_ACTION_DASHBOARD": 331,
         "GEN_AI_GDRIVE_AFTER_SETUP": 293,
         "GEN_AI_GDRIVE_FILE_PICKER": 292,
         "GEN_AI_GDRIVE_KNOWLEDGE_REPO": 290,
@@ -14618,6 +14637,7 @@
       "module": "WAWebWamEnumTsSurface",
       "values": {
         "ABOUT_WHATSAPP_BUSINESS": 231,
+        "ADD_CONTACT_TO_GROUPS_PICKER": 270,
         "ADVANCED_NOTIFICATION_SETTINGS_PAGE": 95,
         "AI_HOME": 36,
         "AI_TAB": 136,
@@ -14759,6 +14779,7 @@
         "MEDIA_PICKER_SEND_BAR": 189,
         "MEDIA_PICKER_SINGLE": 191,
         "MEDIA_VIEWER": 12,
+        "MEMBERSHIP_APPROVAL_REQUESTS": 269,
         "MERCHANT_APP_DEEPLINK": 259,
         "MERCHANT_APP_STORE": 261,
         "MERCHANT_APP_UNIVERSAL_LINK": 258,
@@ -20697,6 +20718,11 @@
           "id": 2,
           "type": "enum"
         },
+        "callHasGuest": {
+          "falcoName": "call_has_guest",
+          "id": 3156,
+          "type": "boolean"
+        },
         "callHasNoAudio": {
           "falcoName": "call_has_no_audio",
           "id": 2124,
@@ -23821,6 +23847,11 @@
           "id": 2075,
           "type": "boolean"
         },
+        "isGuestParticipant": {
+          "falcoName": "is_guest_participant",
+          "id": 3157,
+          "type": "boolean"
+        },
         "isInSymNat": {
           "falcoName": "is_in_sym_nat",
           "id": 1921,
@@ -25457,6 +25488,11 @@
         "numConnectedExtensions": {
           "falcoName": "num_connected_extensions",
           "id": 3045,
+          "type": "integer"
+        },
+        "numConnectedGuestParticipants": {
+          "falcoName": "num_connected_guest_participants",
+          "id": 3158,
           "type": "integer"
         },
         "numConnectedParticipants": {
@@ -41005,6 +41041,12 @@
           "id": 1,
           "type": "enum"
         },
+        "groupAddMemberEntryPoint": {
+          "enum": "ADD_MEMBERS_ENTRYPOINT_TYPE",
+          "falcoName": "group_add_member_entry_point",
+          "id": 17,
+          "type": "enum"
+        },
         "groupHistoryMessagesCount": {
           "falcoName": "group_history_messages_count",
           "id": 2,
@@ -41048,6 +41090,11 @@
           "id": 9,
           "type": "enum"
         },
+        "isAdmin": {
+          "falcoName": "is_admin",
+          "id": 18,
+          "type": "boolean"
+        },
         "isGroupHistoryToggledOn": {
           "falcoName": "is_group_history_toggled_on",
           "id": 15,
@@ -41072,6 +41119,11 @@
         "unifiedSessionId": {
           "falcoName": "unified_session_id",
           "id": 12,
+          "type": "string"
+        },
+        "userJourneyFunnelId": {
+          "falcoName": "user_journey_funnel_id",
+          "id": 19,
           "type": "string"
         },
         "userJourneyTs": {
@@ -52176,6 +52228,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_polls_actions",
       "fields": {
+        "allowAddOption": {
+          "falcoName": "allow_add_option",
+          "id": 11,
+          "type": "boolean"
+        },
         "chatType": {
           "enum": "MESSAGE_CHAT_TYPE",
           "falcoName": "chat_type",
@@ -52201,6 +52258,11 @@
         "isAdmin": {
           "falcoName": "is_admin",
           "id": 2,
+          "type": "boolean"
+        },
+        "isPollCreator": {
+          "falcoName": "is_poll_creator",
+          "id": 12,
           "type": "boolean"
         },
         "pollAction": {
@@ -66836,7 +66898,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1045711070",
+  "waVersion": "2.3000.1045798079",
   "wireFormat": {
     "markers": {
       "event": 1,

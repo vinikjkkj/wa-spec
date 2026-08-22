@@ -86,7 +86,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2331,
+  "propCount": 2336,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -3298,6 +3298,12 @@
       "defaultValue": "1",
       "type": "string"
     },
+    "channels_scheduling_updates_receiver_enabled": {
+      "code": 35422,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channels_send_album_enabled": {
       "code": 5643,
       "debugDefaultValue": false,
@@ -4168,6 +4174,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "disable_message_secret_for_edit_to_bot": {
+      "code": 35238,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "disable_raise_hand_1on1": {
       "code": 27177,
       "debugDefaultValue": false,
@@ -5010,6 +5022,12 @@
     },
     "enable_webcodec_video_encode": {
       "code": 26079,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_webcodec_video_encoder_output_watchdog": {
+      "code": 35420,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -6794,6 +6812,12 @@
       "code": 13510,
       "debugDefaultValue": false,
       "defaultValue": false,
+      "type": "bool"
+    },
+    "mm_user_controls_unified_logging_symmetry_enabled": {
+      "code": 35432,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "mm_user_controls_unified_stop_enabled": {
@@ -10486,6 +10510,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_experience_id_receive_enabled": {
+      "code": 35167,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_media_image_upload_cache": {
       "code": 22784,
       "debugDefaultValue": false,
@@ -14106,5 +14136,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1045711070"
+  "waVersion": "2.3000.1045798079"
 }

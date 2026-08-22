@@ -1417,7 +1417,7 @@
       }
     },
     "ContactManagerCustomerProfiles": {
-      "docId": "27747880408206174",
+      "docId": "27796221486653417",
       "operationKind": "query",
       "originalName": "WAWebContactManagerCustomerProfilesQuery",
       "response": {
@@ -1427,6 +1427,7 @@
             {
               "acquisition_source": "string",
               "email": "string",
+              "last_order_date": "string",
               "last_updates": [
                 {
                   "ts": "unknown"
@@ -1448,8 +1449,14 @@
             "string"
           ],
           "cursor": "string",
+          "filters": [
+            {
+              "field_name": "string",
+              "filter_text": "string"
+            }
+          ],
           "page_size": "number",
-          "sort_column": "string",
+          "sort_column": "unknown",
           "sort_descending": "boolean"
         }
       }
@@ -5347,7 +5354,7 @@
               "status": "enum:SUCCESS"
             }
           ],
-          "status": "string"
+          "status": "enum:SUCCESS"
         }
       },
       "variables": [
@@ -5365,6 +5372,31 @@
         "requestID": "string"
       }
     },
+    "OrgAdminGraphQLDirectory": {
+      "docId": "29036033719317454",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
+      "response": {
+        "xwa_org_admin_directory": {
+          "error_reason": "string",
+          "members": [
+            {
+              "display_name": "string",
+              "lid": "string",
+              "role": "enum:ADMIN|CREATOR"
+            }
+          ],
+          "status": "enum:SUCCESS",
+          "truncated": "unknown"
+        }
+      },
+      "variables": [
+        "orgID"
+      ],
+      "variablesShape": {
+        "orgID": "string"
+      }
+    },
     "OrgAdminGraphQLGroup": {
       "docId": "28486573690950714",
       "operationKind": "query",
@@ -5379,7 +5411,7 @@
             "participants": [
               {
                 "lid": "string",
-                "role": "string"
+                "role": "enum:ADMIN|CREATOR"
               }
             ],
             "roster_partial": "unknown",
@@ -5397,23 +5429,11 @@
         "orgID": "string"
       }
     },
-    "OrgAdminGraphQLHome": {
-      "docId": "27903819169272493",
+    "OrgAdminGraphQLManagedGroups": {
+      "docId": "28194704720124285",
       "operationKind": "query",
-      "originalName": "WAWebOrgAdminGraphQLHomeQuery",
+      "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
-        "xwa_org_admin_directory": {
-          "error_reason": "string",
-          "members": [
-            {
-              "display_name": "string",
-              "lid": "string",
-              "role": "string"
-            }
-          ],
-          "status": "enum:SUCCESS",
-          "truncated": "unknown"
-        },
         "xwa_org_managed_groups": {
           "error_reason": "string",
           "groups": [
@@ -7242,5 +7262,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045711070"
+  "waVersion": "2.3000.1045798079"
 }

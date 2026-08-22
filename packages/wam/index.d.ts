@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045711070
+// WhatsApp Version: 2.3000.1045798079
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -484,6 +484,7 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumAddMembersEntrypointType'
         readonly export: 'ADD_MEMBERS_ENTRYPOINT_TYPE'
         readonly values: {
+            readonly 'ADD_CONTACT_TO_GROUPS_PICKER': 17;
             readonly 'COMMUNITY_CONTEXT_CARD': 14;
             readonly 'COMMUNITY_EMPTY_SUBGROUP': 15;
             readonly 'GROUP_ADDED_CONTEXT_CARD': 4;
@@ -500,7 +501,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GROUP_MEMBERS_LIST_ADD_BUTTON': 16;
             readonly 'GROUP_MENTION_PICKER': 13;
             readonly 'GROUP_SAVE_CONTACT_FROM_SHARED_NON_CONTACT': 11;
-            readonly 'GROUP_USER_JOINED_BY_LINK_CONTEXT_CARD': 5
+            readonly 'GROUP_USER_JOINED_BY_LINK_CONTEXT_CARD': 5;
+            readonly 'MEMBERSHIP_APPROVAL_REQUESTS': 18
         }
     }
     readonly ADMIN_FLOW_TYPE: {
@@ -4687,6 +4689,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ERROR_INVALID_KEY_MATEIRAL_DATA_LEN': 95;
             readonly 'ERROR_INVALID_MAC_LEN': 87;
             readonly 'ERROR_INVALID_SIGNATURE_LEN': 88;
+            readonly 'ERROR_LEASE_FETCH': 117;
             readonly 'ERROR_MAC_LEN_MISMATCH': 86;
             readonly 'ERROR_MEDIA_HASH_VERIFICATION_FAILURE': 99;
             readonly 'ERROR_MINIMUM_VALUE': 33;
@@ -4705,6 +4708,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ERROR_SESSION_STATE_SET_SENDER_CHAIN_KEY': 81;
             readonly 'ERROR_SESSION_STATE_UNACKED_PKMSG_GET_BASE_KEY': 77;
             readonly 'ERROR_SIGNAL_MESSAGE_GET_SENDER_RATCHET_KEY': 78;
+            readonly 'ERROR_TEE_IDENTITY_TOKEN': 118;
             readonly 'ERROR_THUMBNAIL_HASH_VERIFICATION_FAILURE': 101;
             readonly 'ERROR_UNKNOWN': 34;
             readonly 'ERROR_UNKNOWN_LOAD_KEY': 91;
@@ -5549,12 +5553,18 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GROUP_HISTORY_COUNT_CHANGE_ENTRY_POINT_CLICKED': 6;
             readonly 'GROUP_HISTORY_DROPDOWN_MENU_ITEM_CLICKED': 16;
             readonly 'GROUP_HISTORY_DROPDOWN_MENU_ITEM_DISPLAYED': 15;
+            readonly 'GROUP_HISTORY_FOOTER_DISPLAYED': 23;
             readonly 'GROUP_HISTORY_NOTICE_MESSAGE_ACKED': 11;
             readonly 'GROUP_HISTORY_NOTICE_MESSAGE_SENT': 9;
             readonly 'GROUP_HISTORY_SELECTABLE_MESSAGES_LOADED': 3;
             readonly 'GROUP_HISTORY_SEND_INELIGIBLE_AT_BOTTOM_SHEET_OPEN': 13;
             readonly 'GROUP_HISTORY_SEND_INELIGIBLE_AT_CTA_CLICK': 12;
             readonly 'GROUP_HISTORY_SEND_INELIGIBLE_AT_SEND_CLICK': 14;
+            readonly 'GROUP_HISTORY_SPEED_BUMP_DIALOG_CANCELED': 28;
+            readonly 'GROUP_HISTORY_SPEED_BUMP_DIALOG_CONTINUED': 27;
+            readonly 'GROUP_HISTORY_SPEED_BUMP_DIALOG_DISPLAYED': 26;
+            readonly 'GROUP_HISTORY_TOGGLE_OFF': 25;
+            readonly 'GROUP_HISTORY_TOGGLE_ON': 24;
             readonly 'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_DISPLAY': 17;
             readonly 'SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_NOT_DISPLAYED': 18;
             readonly 'SEND_MESSAGE_HISTORY_SYSTEM_MESSAGE_CLICKED': 1;
@@ -8459,6 +8469,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ORDER': 24;
             readonly 'PHOTO': 2;
             readonly 'PIN_IN_CHAT': 54;
+            readonly 'POLL_ADD_OPTION': 81;
             readonly 'POLL_CREATE': 37;
             readonly 'POLL_RESULT_SNAPSHOT': 65;
             readonly 'POLL_VOTE': 38;
@@ -8783,6 +8794,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ERROR_LOCATION': 10;
             readonly 'ERROR_NETWORK': 4;
             readonly 'ERROR_PAYLOAD_TOO_BIG': 9;
+            readonly 'ERROR_SEND_PRECONDITION_FAILED': 22;
             readonly 'ERROR_UNKNOWN': 3;
             readonly 'ERROR_UPLOAD': 7;
             readonly 'ERROR_UPLOAD_CANCELLED_AUTOMATIC': 19;
@@ -11030,6 +11042,8 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumPollActionType'
         readonly export: 'POLL_ACTION_TYPE'
         readonly values: {
+            readonly 'ADD_OPTION_COMPLETED': 11;
+            readonly 'ADD_OPTION_INITIATED': 10;
             readonly 'CHANGE_VOTE': 7;
             readonly 'CREATE_POLL': 2;
             readonly 'EDIT_POLL_COMPLETED': 9;
@@ -14372,6 +14386,10 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GENAI_AGENT_CHAT_HISTORY_EXPORT': 144;
             readonly 'GENAI_AGENT_CHAT_HISTORY_EXPORT_NUX': 145;
             readonly 'GENAI_AGENT_COACHING_INDICATOR_BOTTOMSHEET': 109;
+            readonly 'GEN_AI_1P_CALENDAR_DELETE_CONFIRM_DIALOG': 329;
+            readonly 'GEN_AI_1P_CALENDAR_DETAIL': 328;
+            readonly 'GEN_AI_1P_CALENDAR_ERROR_DIALOG': 330;
+            readonly 'GEN_AI_1P_CALENDAR_LIST': 327;
             readonly 'GEN_AI_AGENT_CONTROL_LEARNING_BOTTOM_SHEET': 138;
             readonly 'GEN_AI_AGENT_EDIT_FIELD_BOTTOM_SHEET': 103;
             readonly 'GEN_AI_AGENT_ENABLE_BIZ_AI_SHEET': 220;
@@ -14429,6 +14447,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_COACHING': 87;
             readonly 'GEN_AI_COMMON_QUESTIONS_SCREEN': 24;
             readonly 'GEN_AI_CTWA_ENTRY_POINT': 225;
+            readonly 'GEN_AI_DAILY_ACTION_DASHBOARD': 331;
             readonly 'GEN_AI_GDRIVE_AFTER_SETUP': 293;
             readonly 'GEN_AI_GDRIVE_FILE_PICKER': 292;
             readonly 'GEN_AI_GDRIVE_KNOWLEDGE_REPO': 290;
@@ -14781,6 +14800,7 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'TS_SURFACE'
         readonly values: {
             readonly 'ABOUT_WHATSAPP_BUSINESS': 231;
+            readonly 'ADD_CONTACT_TO_GROUPS_PICKER': 270;
             readonly 'ADVANCED_NOTIFICATION_SETTINGS_PAGE': 95;
             readonly 'AI_HOME': 36;
             readonly 'AI_TAB': 136;
@@ -14922,6 +14942,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'MEDIA_PICKER_SEND_BAR': 189;
             readonly 'MEDIA_PICKER_SINGLE': 191;
             readonly 'MEDIA_VIEWER': 12;
+            readonly 'MEMBERSHIP_APPROVAL_REQUESTS': 269;
             readonly 'MERCHANT_APP_DEEPLINK': 259;
             readonly 'MERCHANT_APP_STORE': 261;
             readonly 'MERCHANT_APP_UNIVERSAL_LINK': 258;
@@ -18082,6 +18103,7 @@ export declare const WA_WAM_EVENTS: {
             readonly callEnterPipModeCount: { readonly id: 626; readonly type: 'integer'; readonly falcoName: 'call_enter_pip_mode_count' }
             readonly callFromReminder: { readonly id: 2458; readonly type: 'boolean'; readonly falcoName: 'call_from_reminder' }
             readonly callFromUi: { readonly id: 2; readonly type: 'enum'; readonly enum: 'CALL_FROM_UI'; readonly falcoName: 'call_from_ui' }
+            readonly callHasGuest: { readonly id: 3156; readonly type: 'boolean'; readonly falcoName: 'call_has_guest' }
             readonly callHasNoAudio: { readonly id: 2124; readonly type: 'boolean'; readonly falcoName: 'call_has_no_audio' }
             readonly callHeld: { readonly id: 2428; readonly type: 'boolean'; readonly falcoName: 'call_held' }
             readonly callHistEchoLikelihood: { readonly id: 45; readonly type: 'number'; readonly falcoName: 'call_hist_echo_likelihood' }
@@ -18700,6 +18722,7 @@ export declare const WA_WAM_EVENTS: {
             readonly isExtensionCreator: { readonly id: 3066; readonly type: 'boolean'; readonly falcoName: 'is_extension_creator' }
             readonly isFromCallLink: { readonly id: 1316; readonly type: 'boolean'; readonly falcoName: 'is_from_call_link' }
             readonly isGcRekeyMaster: { readonly id: 2075; readonly type: 'boolean'; readonly falcoName: 'is_gc_rekey_master' }
+            readonly isGuestParticipant: { readonly id: 3157; readonly type: 'boolean'; readonly falcoName: 'is_guest_participant' }
             readonly isInSymNat: { readonly id: 1921; readonly type: 'boolean'; readonly falcoName: 'is_in_sym_nat' }
             readonly isIpv6BehindNat: { readonly id: 2072; readonly type: 'boolean'; readonly falcoName: 'is_ipv6_behind_nat' }
             readonly isIpv6Capable: { readonly id: 91; readonly type: 'boolean'; readonly falcoName: 'is_ipv6_capable' }
@@ -19027,6 +19050,7 @@ export declare const WA_WAM_EVENTS: {
             readonly numAsserts: { readonly id: 933; readonly type: 'integer'; readonly falcoName: 'num_asserts' }
             readonly numAudRcDynCondTrue: { readonly id: 1800; readonly type: 'integer'; readonly falcoName: 'num_aud_rc_dyn_cond_true' }
             readonly numConnectedExtensions: { readonly id: 3045; readonly type: 'integer'; readonly falcoName: 'num_connected_extensions' }
+            readonly numConnectedGuestParticipants: { readonly id: 3158; readonly type: 'integer'; readonly falcoName: 'num_connected_guest_participants' }
             readonly numConnectedParticipants: { readonly id: 330; readonly type: 'integer'; readonly falcoName: 'num_connected_participants' }
             readonly numConnectedPeers: { readonly id: 1052; readonly type: 'integer'; readonly falcoName: 'num_connected_peers' }
             readonly numCpuCores: { readonly id: 2010; readonly type: 'integer'; readonly falcoName: 'num_cpu_cores' }
@@ -23324,6 +23348,7 @@ export declare const WA_WAM_EVENTS: {
         readonly conditions: readonly []
         readonly fields: {
             readonly bundleSendSource: { readonly id: 1; readonly type: 'enum'; readonly enum: 'BUNDLE_SEND_SOURCE'; readonly falcoName: 'bundle_send_source' }
+            readonly groupAddMemberEntryPoint: { readonly id: 17; readonly type: 'enum'; readonly enum: 'ADD_MEMBERS_ENTRYPOINT_TYPE'; readonly falcoName: 'group_add_member_entry_point' }
             readonly groupHistoryMessagesCount: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'group_history_messages_count' }
             readonly groupHistoryOutWindowPinsCount: { readonly id: 3; readonly type: 'integer'; readonly falcoName: 'group_history_out_window_pins_count' }
             readonly groupHistoryPinsCount: { readonly id: 4; readonly type: 'integer'; readonly falcoName: 'group_history_pins_count' }
@@ -23332,11 +23357,13 @@ export declare const WA_WAM_EVENTS: {
             readonly groupHistoryUncountedMessagesCount: { readonly id: 7; readonly type: 'integer'; readonly falcoName: 'group_history_uncounted_messages_count' }
             readonly groupSize: { readonly id: 8; readonly type: 'integer'; readonly falcoName: 'group_size' }
             readonly ineligibleReason: { readonly id: 9; readonly type: 'enum'; readonly enum: 'GROUP_HISTORY_INELIGIBILITY_REASON'; readonly falcoName: 'ineligible_reason' }
+            readonly isAdmin: { readonly id: 18; readonly type: 'boolean'; readonly falcoName: 'is_admin' }
             readonly isGroupHistoryToggledOn: { readonly id: 15; readonly type: 'boolean'; readonly falcoName: 'is_group_history_toggled_on' }
             readonly isTeeBotNoticeOnly: { readonly id: 14; readonly type: 'boolean'; readonly falcoName: 'is_tee_bot_notice_only' }
             readonly recipientCount: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'recipient_count' }
             readonly uiSurface: { readonly id: 11; readonly type: 'enum'; readonly enum: 'TS_SURFACE'; readonly falcoName: 'ui_surface' }
             readonly unifiedSessionId: { readonly id: 12; readonly type: 'string'; readonly falcoName: 'unified_session_id' }
+            readonly userJourneyFunnelId: { readonly id: 19; readonly type: 'string'; readonly falcoName: 'user_journey_funnel_id' }
             readonly userJourneyTs: { readonly id: 13; readonly type: 'integer'; readonly falcoName: 'user_journey_ts' }
             readonly xIneligibleReasons: { readonly id: 16; readonly type: 'string'; readonly falcoName: 'x_ineligible_reasons' }
         }
@@ -26923,11 +26950,13 @@ export declare const WA_WAM_EVENTS: {
         readonly requiredFields: readonly []
         readonly conditions: readonly []
         readonly fields: {
+            readonly allowAddOption: { readonly id: 11; readonly type: 'boolean'; readonly falcoName: 'allow_add_option' }
             readonly chatType: { readonly id: 8; readonly type: 'enum'; readonly enum: 'MESSAGE_CHAT_TYPE'; readonly falcoName: 'chat_type' }
             readonly groupSizeBucket: { readonly id: 1; readonly type: 'enum'; readonly enum: 'CLIENT_GROUP_SIZE_BUCKET'; readonly falcoName: 'group_size_bucket' }
             readonly hideVoterName: { readonly id: 9; readonly type: 'boolean'; readonly falcoName: 'hide_voter_name' }
             readonly isAGroup: { readonly id: 6; readonly type: 'boolean'; readonly falcoName: 'is_a_group' }
             readonly isAdmin: { readonly id: 2; readonly type: 'boolean'; readonly falcoName: 'is_admin' }
+            readonly isPollCreator: { readonly id: 12; readonly type: 'boolean'; readonly falcoName: 'is_poll_creator' }
             readonly pollAction: { readonly id: 3; readonly type: 'enum'; readonly enum: 'POLL_ACTION_TYPE'; readonly falcoName: 'poll_action' }
             readonly pollCreationDs: { readonly id: 4; readonly type: 'integer'; readonly falcoName: 'poll_creation_ds' }
             readonly pollDurationMs: { readonly id: 10; readonly type: 'integer'; readonly falcoName: 'poll_duration_ms' }
