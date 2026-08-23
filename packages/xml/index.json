@@ -7423,7 +7423,7 @@
                 "arg": "y",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "userJid"
               },
               "peer_recipient_lid": {
                 "arg": "Q",
@@ -7558,7 +7558,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -49046,7 +49046,7 @@
                 "arg": "y",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "userJid"
               },
               "peer_recipient_lid": {
                 "arg": "Q",
@@ -49181,7 +49181,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50309,7 +50309,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -57141,5 +57141,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1045798079"
+  "waVersion": "2.3000.1045824267"
 }

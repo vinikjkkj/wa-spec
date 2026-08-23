@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045798079
+// WhatsApp Version: 2.3000.1045824267
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -152,7 +152,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexPersistId
     readonly MAIBAMessageSignalsCTARenderer: WaMexPersistId
     readonly MAIBARecordAsyncAuthConsent: WaMexPersistId
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexPersistId
     readonly MessengerAdPreviewConversation: WaMexPersistId
     readonly MetaPayVaultInitialize: WaMexPersistId
     readonly MetaPayVaultLabyrinthDelete: WaMexPersistId
@@ -363,7 +362,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexOperationSchema<'query', readonly ['click_selector', 'initial_url']>
     readonly MAIBAMessageSignalsCTARenderer: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MAIBARecordAsyncAuthConsent: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'page_id']>
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexOperationSchema<'query', readonly ['id']>
     readonly MessengerAdPreviewConversation: WaMexOperationSchema<'query', readonly ['page_id', 'selected_product_ids']>
     readonly MetaPayVaultInitialize: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthDelete: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -1235,10 +1233,6 @@ export type WaMexMAIBARecordAsyncAuthConsentVariables = {
     readonly page_id?: string
 }
 
-export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables = {
-    readonly id?: string
-}
-
 export type WaMexMessengerAdPreviewConversationVariables = {
     readonly page_id?: string
     readonly selected_product_ids?: ReadonlyArray<string>
@@ -1819,7 +1813,6 @@ export interface WaMexOperationVariables {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexMAIBAMessageLiveBrowserRendererScreenshotVariables
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererVariables
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentVariables
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables
     readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationVariables
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeVariables
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteVariables
@@ -4799,13 +4792,6 @@ export type WaMexMAIBARecordAsyncAuthConsentResponse = {
     }
 }
 
-export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Response = {
-    readonly user?: {
-        readonly id?: string
-        readonly message_capabilities2_str?: unknown
-    }
-}
-
 export type WaMexMessengerAdPreviewConversationResponse = {
     readonly page?: {
         readonly id?: string
@@ -6156,7 +6142,6 @@ export interface WaMexOperationResponses {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexMAIBAMessageLiveBrowserRendererScreenshotResponse
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererResponse
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentResponse
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Response
     readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationResponse
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeResponse
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteResponse

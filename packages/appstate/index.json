@@ -68,7 +68,7 @@
       "valueEnumFields": null,
       "valueField": null,
       "valueProtoType": null,
-      "version": null
+      "version": 7
     },
     "AiThreadPin": {
       "baseClass": "ChatSyncdActionBase",
@@ -94,7 +94,7 @@
       "valueEnumFields": null,
       "valueField": "threadPinAction",
       "valueProtoType": "SyncActionValue.ThreadPinAction",
-      "version": null
+      "version": 7
     },
     "AiThreadRename": {
       "baseClass": "ChatSyncdActionBase",
@@ -288,7 +288,7 @@
       "valueEnumFields": null,
       "valueField": "businessBroadcastListAction",
       "valueProtoType": "SyncActionValue.BusinessBroadcastListAction",
-      "version": null
+      "version": 1
     },
     "CallLog": {
       "baseClass": "AccountSyncdActionBase",
@@ -311,7 +311,7 @@
       },
       "valueField": "callLogAction",
       "valueProtoType": "SyncActionValue.CallLogAction",
-      "version": null
+      "version": 1
     },
     "ChatAssignment": {
       "baseClass": "ChatSyncdActionBase",
@@ -333,7 +333,7 @@
       "valueEnumFields": null,
       "valueField": "chatAssignment",
       "valueProtoType": "SyncActionValue.ChatAssignmentAction",
-      "version": null
+      "version": 7
     },
     "ChatAssignmentOpenedStatus": {
       "baseClass": "ChatSyncdActionBase",
@@ -359,7 +359,7 @@
       "valueEnumFields": null,
       "valueField": "chatAssignmentOpenedStatus",
       "valueProtoType": "SyncActionValue.ChatAssignmentOpenedStatusAction",
-      "version": null
+      "version": 7
     },
     "ChatLockSettings": {
       "baseClass": "AccountSyncdActionBase",
@@ -407,7 +407,7 @@
       "valueEnumFields": null,
       "valueField": "clearChatAction",
       "valueProtoType": "SyncActionValue.ClearChatAction",
-      "version": null
+      "version": 6
     },
     "Contact": {
       "baseClass": "AccountSyncdActionBase",
@@ -429,7 +429,7 @@
       "valueEnumFields": null,
       "valueField": "contactAction",
       "valueProtoType": "SyncActionValue.ContactAction",
-      "version": null
+      "version": 2
     },
     "CustomPaymentMethods": {
       "baseClass": "AccountSyncdActionBase",
@@ -469,7 +469,7 @@
       "valueEnumFields": null,
       "valueField": "customerDataAction",
       "valueProtoType": "SyncActionValue.CustomerDataAction",
-      "version": null
+      "version": 1
     },
     "DeleteChat": {
       "baseClass": "ChatMessageRangeSyncdActionBase",
@@ -529,7 +529,7 @@
       "valueEnumFields": null,
       "valueField": "deleteMessageForMeAction",
       "valueProtoType": "SyncActionValue.DeleteMessageForMeAction",
-      "version": null
+      "version": 3
     },
     "DetectedOutcomeStatus": {
       "baseClass": "AccountSyncdActionBase",
@@ -583,7 +583,7 @@
       "valueEnumFields": null,
       "valueField": "externalWebBetaAction",
       "valueProtoType": "SyncActionValue.ExternalWebBetaAction",
-      "version": null
+      "version": 3
     },
     "FavoriteSticker": {
       "baseClass": "AccountSyncdActionBase",
@@ -687,7 +687,7 @@
       },
       "valueField": "labelEditAction",
       "valueProtoType": "SyncActionValue.LabelEditAction",
-      "version": null
+      "version": 3
     },
     "LabelJid": {
       "baseClass": "ChatOrContactSyncdActionBase",
@@ -731,7 +731,7 @@
       "valueEnumFields": null,
       "valueField": "labelReorderingAction",
       "valueProtoType": "SyncActionValue.LabelReorderingAction",
-      "version": null
+      "version": 3
     },
     "LabelSublist": {
       "baseClass": "ChatOrContactSyncdActionBase",
@@ -779,7 +779,7 @@
       "valueEnumFields": null,
       "valueField": "lidContactAction",
       "valueProtoType": "SyncActionValue.LidContactAction",
-      "version": null
+      "version": 1
     },
     "LocaleSetting": {
       "baseClass": "AccountSyncdActionBase",
@@ -819,7 +819,7 @@
       "valueEnumFields": null,
       "valueField": "lockChatAction",
       "valueProtoType": "SyncActionValue.LockChatAction",
-      "version": null
+      "version": 7
     },
     "MarkChatAsRead": {
       "baseClass": "ChatMessageRangeSyncdActionBase",
@@ -973,7 +973,7 @@
       },
       "valueField": "noteEditAction",
       "valueProtoType": "SyncActionValue.NoteEditAction",
-      "version": null
+      "version": 7
     },
     "Nux": {
       "baseClass": "AccountSyncdActionBase",
@@ -995,7 +995,7 @@
       "valueEnumFields": null,
       "valueField": "nuxAction",
       "valueProtoType": "SyncActionValue.NuxAction",
-      "version": null
+      "version": 7
     },
     "OutContact": {
       "baseClass": "AccountSyncdActionBase",
@@ -1255,7 +1255,7 @@
       },
       "valueField": "settingsSyncAction",
       "valueProtoType": "SyncActionValue.SettingsSyncAction",
-      "version": null
+      "version": 1
     },
     "ShareOwnPn": {
       "baseClass": "AccountSyncdActionBase",
@@ -1311,7 +1311,7 @@
       "valueEnumFields": null,
       "valueField": "starAction",
       "valueProtoType": "SyncActionValue.StarAction",
-      "version": null
+      "version": 2
     },
     "StatusPrivacy": {
       "baseClass": "AccountSyncdActionBase",
@@ -1480,5 +1480,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1045798079"
+  "waVersion": "2.3000.1045824267"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045798079
+// WhatsApp Version: 2.3000.1045824267
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -140,7 +140,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAMessageLiveBrowserRendererScreenshot: Object.freeze({ docId: '26819206974436266', clientDocId: '26819206974436266' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ docId: '27087116144243008', clientDocId: '27087116144243008' }),
-    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ docId: '9948369021930229', clientDocId: '9948369021930229' }),
     MessengerAdPreviewConversation: Object.freeze({ docId: '29273127528968869', clientDocId: '29273127528968869' }),
     MetaPayVaultInitialize: Object.freeze({ docId: '27977299271866413', clientDocId: '27977299271866413' }),
     MetaPayVaultLabyrinthDelete: Object.freeze({ docId: '27984854301168611', clientDocId: '27984854301168611' }),
@@ -351,7 +350,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     MAIBAMessageLiveBrowserRendererScreenshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['click_selector', 'initial_url']) }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['ad_account_id', 'page_id']) }),
-    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     MessengerAdPreviewConversation: Object.freeze({ operationKind: 'query', variables: Object.freeze(['page_id', 'selected_product_ids']) }),
     MetaPayVaultInitialize: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MetaPayVaultLabyrinthDelete: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

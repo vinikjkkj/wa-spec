@@ -4959,23 +4959,6 @@
         "page_id": "string"
       }
     },
-    "MAWVerifyThreadCutover_ContactCapabilities2": {
-      "docId": "9948369021930229",
-      "operationKind": "query",
-      "originalName": "MAWVerifyThreadCutover_ContactCapabilities2Query",
-      "response": {
-        "user": {
-          "id": "string",
-          "message_capabilities2_str": "unknown"
-        }
-      },
-      "variables": [
-        "id"
-      ],
-      "variablesShape": {
-        "id": "string"
-      }
-    },
     "MessengerAdPreviewConversation": {
       "docId": "29273127528968869",
       "operationKind": "query",
@@ -7262,5 +7245,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045798079"
+  "waVersion": "2.3000.1045824267"
 }
