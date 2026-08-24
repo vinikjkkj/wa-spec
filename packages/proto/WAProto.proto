@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1045824267
+/// WhatsApp Version: 2.3000.1045848037
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2374,6 +2374,7 @@ message ContextInfo {
     optional string posterStatusId = 79;
     optional InstagramThreadLink instagramThreadLink = 80;
     optional AIProvenance aiProvenance = 81;
+    repeated uint32 experienceIds = 82 [packed=true];
     enum CrossAppSource {
         CROSS_APP_SOURCE_UNKNOWN = 0;
         CROSS_APP_SOURCE_INSTAGRAM = 1;
@@ -4205,6 +4206,7 @@ message Message {
     optional MusicMessage musicMessage = 129;
     optional StatusLinkPreviewMetadata statusLinkPreviewMetadata = 130;
     optional FutureProofMessage botPlatformRegistrationSuccessMessage = 131;
+    optional FutureProofMessage newsletterScheduledMessage = 132;
     enum PollType {
         POLL = 0;
         QUIZ = 1;

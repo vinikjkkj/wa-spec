@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-wam",
-    "version": "2.3000.1045824267-12e42c0",
+    "version": "2.3000.1045848037-3401c4f",
     "description": "WhatsApp Web WAM (analytics/metrics) event schemas — event IDs, field IDs, types, enums, globals (daily-extracted).",
     "keywords": [
         "whatsapp",
