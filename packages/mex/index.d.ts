@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045848037
+// WhatsApp Version: 2.3000.1045944110
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -80,7 +80,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
-    readonly EBMessageMetadataQuery: WaMexPersistId
     readonly EBMessageRangeQueryForThreads: WaMexPersistId
     readonly EBMinosFetchContactKeys: WaMexPersistId
     readonly EBMinosUploadMessages: WaMexPersistId
@@ -171,6 +170,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLDirectory: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
     readonly OrgAdminGraphQLManagedGroups: WaMexPersistId
+    readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
     readonly OrgAdminGraphQLRemoveParticipants: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
@@ -290,7 +290,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly EBMessageMetadataQuery: WaMexOperationSchema<'query', readonly ['data']>
     readonly EBMessageRangeQueryForThreads: WaMexOperationSchema<'query', readonly ['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']>
     readonly EBMinosFetchContactKeys: WaMexOperationSchema<'query', readonly ['input']>
     readonly EBMinosUploadMessages: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -381,6 +380,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLDirectory: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLManagedGroups: WaMexOperationSchema<'query', readonly ['orgID']>
+    readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
     readonly OrgAdminGraphQLRemoveParticipants: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID', 'participants', 'requestID']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
@@ -791,10 +791,6 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables = {
 
 export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
     readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexEBMessageMetadataQueryVariables = {
-    readonly data?: string
 }
 
 export type WaMexEBMessageRangeQueryForThreadsVariables = {
@@ -1331,10 +1327,22 @@ export type WaMexOrgAdminGraphQLManagedGroupsVariables = {
     readonly orgID?: string
 }
 
+export type WaMexOrgAdminGraphQLMemberSearchVariables = {
+    readonly after?: string
+    readonly first?: number
+    readonly memberTag?: string
+    readonly orgID?: string
+    readonly query?: string
+}
+
 export type WaMexOrgAdminGraphQLOrgsVariables = {
+    readonly after?: string
+    readonly first?: number
     readonly gid?: unknown
+    readonly memberTag?: unknown
     readonly orgID?: unknown
     readonly participants?: ReadonlyArray<Readonly<Record<string, unknown>>>
+    readonly query?: string
     readonly requestID?: unknown
 }
 
@@ -1741,7 +1749,6 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
-    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryVariables
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsVariables
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysVariables
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesVariables
@@ -1832,6 +1839,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsVariables
+    readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
     readonly OrgAdminGraphQLRemoveParticipants: WaMexOrgAdminGraphQLRemoveParticipantsVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
@@ -2978,23 +2986,6 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse = {
 export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
     readonly xfb_e2ee_metadata_mailbox_set_group_subject?: {
         readonly success?: boolean
-    }
-}
-
-export type WaMexEBMessageMetadataQueryResponse = {
-    readonly viewer?: {
-        readonly encrypted_backup?: {
-            readonly id?: string
-            readonly mailbox?: {
-                readonly deanon_messages_metadata?: ReadonlyArray<{
-                    readonly admin_message?: string
-                    readonly is_admin_message?: boolean
-                    readonly offline_threading_id?: string
-                    readonly sender_id?: string
-                    readonly sort_order_ms?: number
-                }>
-            }
-        }
     }
 }
 
@@ -4967,10 +4958,13 @@ export type WaMexOrgAdminGraphQLAddParticipantsResponse = {
 export type WaMexOrgAdminGraphQLDirectoryResponse = {
     readonly xwa_org_admin_directory?: {
         readonly error_reason?: string
+        readonly member_tags?: ReadonlyArray<string>
         readonly members?: ReadonlyArray<{
             readonly display_name?: string
             readonly lid?: string
-            readonly role?: 'ADMIN' | 'CREATOR'
+            readonly member_tag?: string
+            readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+            readonly username?: string
         }>
         readonly status?: 'SUCCESS'
         readonly truncated?: unknown
@@ -4986,7 +4980,7 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
             readonly participant_count?: number
             readonly participants?: ReadonlyArray<{
                 readonly lid?: string
-                readonly role?: 'ADMIN' | 'CREATOR'
+                readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
             }>
             readonly roster_partial?: unknown
             readonly subject?: string
@@ -5008,10 +5002,30 @@ export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
     }
 }
 
+export type WaMexOrgAdminGraphQLMemberSearchResponse = {
+    readonly xwa_org_member_search?: {
+        readonly count?: unknown
+        readonly nodes?: ReadonlyArray<{
+            readonly member?: {
+                readonly display_name?: string
+                readonly lid?: string
+                readonly member_tag?: string
+                readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+                readonly username?: string
+            }
+        }>
+        readonly page_info?: {
+            readonly end_cursor?: string
+            readonly has_next_page?: boolean
+        }
+    }
+}
+
 export type WaMexOrgAdminGraphQLOrgsResponse = {
     readonly xwa_org_list?: {
         readonly orgs?: ReadonlyArray<{
             readonly id?: string
+            readonly member_count?: number
             readonly name?: string
         }>
     }
@@ -6070,7 +6084,6 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
-    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryResponse
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsResponse
     readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysResponse
     readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesResponse
@@ -6161,6 +6174,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsResponse
+    readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse
     readonly OrgAdminGraphQLRemoveParticipants: WaMexOrgAdminGraphQLRemoveParticipantsResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse

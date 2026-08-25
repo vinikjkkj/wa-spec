@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045848037
+// WhatsApp Version: 2.3000.1045944110
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -92,6 +92,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumAboutEntrypointType',
         export: 'ABOUT_ENTRYPOINT_TYPE',
         values: Object.freeze({
+        'CONTACTS_TAB': 6,
         'DEEP_LINK': 4,
         'ME_TAB': 3,
         'ONE_ON_ONE_CHAT': 5,
@@ -470,6 +471,61 @@ const WA_WAM_ENUMS = Object.freeze({
         'IMAGE_SINGLE': 1,
         'INLINE_HIGH_RES': 4,
         'INLINE_LOW_RES': 5
+        })
+    }),
+    AI_SUB_COMPONENT: Object.freeze({
+        module: 'WAWebWamEnumAiSubComponent',
+        export: 'AI_SUB_COMPONENT',
+        values: Object.freeze({
+        'CONTACT_INFO_ROW': 4,
+        'CREDITS_EXHAUSTED_SNACKBAR': 2,
+        'UNIFIED_RESPONSE_UPSELL': 1,
+        'UPSELL_BANNER': 3
+        })
+    }),
+    AI_SUB_ENTRYPOINT: Object.freeze({
+        module: 'WAWebWamEnumAiSubEntrypoint',
+        export: 'AI_SUB_ENTRYPOINT',
+        values: Object.freeze({
+        'IMAGINE': 2,
+        'IMAGINE_INTENTS_ANIMATE': 10,
+        'IMAGINE_INTENTS_BOTTOM_SHEET': 5,
+        'IMAGINE_INTENTS_CREATE_IMAGE': 6,
+        'IMAGINE_INTENTS_EDIT_IMAGE': 7,
+        'IMAGINE_INTENTS_PRESETS': 8,
+        'IMAGINE_INTENTS_REGENERATE': 11,
+        'IMAGINE_INTENTS_RESTYLE': 9,
+        'MEDIA_EDITOR_ANIMATE': 15,
+        'MEDIA_EDITOR_BOTTOM_SHEET': 12,
+        'MEDIA_EDITOR_EDIT_OPTION': 14,
+        'MEDIA_EDITOR_REGENERATE': 17,
+        'MEDIA_EDITOR_RESTYLE': 13,
+        'MEDIA_EDITOR_VIDEO_RESTYLE': 16,
+        'META_AI_SETTINGS': 4,
+        'THINKING': 1,
+        'VIDEO': 3
+        })
+    }),
+    AI_SUB_SCREEN: Object.freeze({
+        module: 'WAWebWamEnumAiSubScreen',
+        export: 'AI_SUB_SCREEN',
+        values: Object.freeze({
+        'AI_TAB_THINKING': 5,
+        'CHAT_THREAD_IMAGINE': 2,
+        'CHAT_THREAD_THINKING': 1,
+        'CHAT_THREAD_VIDEO': 3,
+        'IMAGINE_INTENTS': 6,
+        'MEDIA_EDITOR': 7,
+        'META_AI_SETTINGS': 4
+        })
+    }),
+    AI_SUB_USER_ACTION: Object.freeze({
+        module: 'WAWebWamEnumAiSubUserAction',
+        export: 'AI_SUB_USER_ACTION',
+        values: Object.freeze({
+        'CLICK': 2,
+        'DISMISS': 3,
+        'VIEW': 1
         })
     }),
     ANDROID_CAMERA2_SUPPORT_LEVEL: Object.freeze({
@@ -1580,6 +1636,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CONFIRMATION_SHEET_OS_CALL_LOG': 60,
         'CONTACTLESS_USERNAME_SEARCH_CALLS_TAB': 66,
         'CONTACTLESS_USERNAME_SEARCH_CALLS_TAB_NEW_CALL': 67,
+        'CONTACTS_TAB': 90,
         'CONTACT_INFO': 6,
         'CONTACT_VCARD': 15,
         'CONVERSATION': 8,
@@ -13715,6 +13772,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHAT_LIST': 5,
         'CHAT_LIST_SEARCH': 9,
         'CHAT_TOP_BAR': 11,
+        'CONTACTS_TAB': 42,
         'CONTACT_CARD': 7,
         'GROUP_CHAT_THREAD': 19,
         'GROUP_INFO_GROUP_STATUS_ROW': 22,
@@ -16465,6 +16523,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'APP_ICONS': 2,
         'APP_THEMES': 1,
         'CLOUD_STORAGE': 8,
+        'CUSTOM_REACTIONS': 9,
         'LISTS': 6,
         'NOT_APPLICABLE': 7,
         'PINNED_CHATS': 4,
@@ -16509,9 +16568,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'BACKUP_NEW_USER_SETUP': 16,
         'BACKUP_PROVIDER_SELECTION': 15,
         'CHAT_THEME': 5,
+        'CUSTOM_REACTIONS_SETTINGS': 17,
         'LIST': 4,
         'NOTIFICATION_SETTINGS': 12,
         'PINNED_CHAT': 7,
+        'REACTION_KEYBOARD': 19,
+        'REACTION_TRAY': 18,
         'RINGTONE': 3,
         'STICKER_GENERIC': 14,
         'STICKER_RECEIVED': 9,
@@ -16936,6 +16998,24 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             advExpireTimeInHours: Object.freeze({ id: 1, type: 'integer', falcoName: 'adv_expire_time_in_hours' })
+        })
+    }),
+    AiSubsBenefitUj: Object.freeze({
+        id: 8220,
+        falcoName: 'wam_ai_subs_benefit_uj',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            aiSubComponent: Object.freeze({ id: 1, type: 'enum', enum: 'AI_SUB_COMPONENT', falcoName: 'ai_sub_component' }),
+            aiSubEntrypoint: Object.freeze({ id: 2, type: 'enum', enum: 'AI_SUB_ENTRYPOINT', falcoName: 'ai_sub_entrypoint' }),
+            aiSubScreen: Object.freeze({ id: 3, type: 'enum', enum: 'AI_SUB_SCREEN', falcoName: 'ai_sub_screen' }),
+            aiSubSessionId: Object.freeze({ id: 6, type: 'string', falcoName: 'ai_sub_session_id' }),
+            aiSubUserAction: Object.freeze({ id: 4, type: 'enum', enum: 'AI_SUB_USER_ACTION', falcoName: 'ai_sub_user_action' }),
+            aiSubscriptionTier: Object.freeze({ id: 5, type: 'string', falcoName: 'ai_subscription_tier' })
         })
     }),
     AiThreadsUserJourney: Object.freeze({

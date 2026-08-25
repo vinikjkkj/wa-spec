@@ -7443,7 +7443,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "F",
+                "arg": "O",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -7466,7 +7466,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "oe",
+                "arg": "ie",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -7711,7 +7711,7 @@
                   },
                   "status_setting": {
                     "direction": "out",
-                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(F.setting)",
+                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(M.setting)",
                     "type": "string"
                   },
                   "tag_reason": {
@@ -47545,18 +47545,18 @@
             "type": "enum"
           },
           "error": {
-            "arg": "e.error",
+            "arg": "t.error",
             "direction": "out",
             "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "n.stanzaId",
+            "arg": "t.ackId",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
+            "arg": "o(\"WAWebWidFactory\").createWid(t.participant)",
             "direction": "out",
             "optional": true,
             "type": "deviceJid"
@@ -47568,8 +47568,8 @@
             "type": "userJid"
           },
           "to": {
-            "arg": "n.from",
             "direction": "out",
+            "raw": "m(t.to)",
             "type": "jid"
           },
           "type": {
@@ -49065,7 +49065,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "F",
+                "arg": "O",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -49088,7 +49088,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "oe",
+                "arg": "ie",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -49333,7 +49333,7 @@
                   },
                   "status_setting": {
                     "direction": "out",
-                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(F.setting)",
+                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(M.setting)",
                     "type": "string"
                   },
                   "tag_reason": {
@@ -50131,7 +50131,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "_.id",
+                "arg": "e.stanzaId",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -50204,7 +50204,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "F",
+                "arg": "O",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -50225,7 +50225,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "oe",
+                "arg": "ie",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -50491,7 +50491,7 @@
                     "type": "string"
                   },
                   "persona_type": {
-                    "arg": "T",
+                    "arg": "I",
                     "direction": "both",
                     "enumValues": [
                       "1p",
@@ -50817,7 +50817,7 @@
                   },
                   "status_setting": {
                     "direction": "out",
-                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(F.setting)",
+                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(M.setting)",
                     "type": "string"
                   },
                   "tag_reason": {
@@ -55398,12 +55398,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55446,7 +55446,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55467,7 +55467,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55477,9 +55477,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "I",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -55507,7 +55507,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "y",
+                    "arg": "h",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -55517,7 +55517,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "p",
+                    "arg": "m",
                     "direction": "out",
                     "type": "int"
                   },
@@ -55716,12 +55716,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55772,7 +55772,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55793,7 +55793,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55803,9 +55803,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "I",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -56441,5 +56441,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1045848037"
+  "waVersion": "2.3000.1045944110"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045848037
+// WhatsApp Version: 2.3000.1045944110
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -68,7 +68,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ docId: '25059194933691009', clientDocId: '25059194933691009' }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ docId: '25043279768674646', clientDocId: '25043279768674646' }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ docId: '25456033884014560', clientDocId: '25456033884014560' }),
-    EBMessageMetadataQuery: Object.freeze({ docId: '28525853583670706', clientDocId: '28525853583670706' }),
     EBMessageRangeQueryForThreads: Object.freeze({ docId: '28066954479559383', clientDocId: '28066954479559383' }),
     EBMinosFetchContactKeys: Object.freeze({ docId: '26531892553066563', clientDocId: '26531892553066563' }),
     EBMinosUploadMessages: Object.freeze({ docId: '27566072369743752', clientDocId: '27566072369743752' }),
@@ -156,10 +155,11 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
     OrgAdminGraphQLAddGroup: Object.freeze({ docId: '27409847525383193', clientDocId: '27409847525383193' }),
     OrgAdminGraphQLAddParticipants: Object.freeze({ docId: '28037193722607495', clientDocId: '28037193722607495' }),
-    OrgAdminGraphQLDirectory: Object.freeze({ docId: '29036033719317454', clientDocId: '29036033719317454' }),
+    OrgAdminGraphQLDirectory: Object.freeze({ docId: '29229928699940907', clientDocId: '29229928699940907' }),
     OrgAdminGraphQLGroup: Object.freeze({ docId: '28486573690950714', clientDocId: '28486573690950714' }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28194704720124285', clientDocId: '28194704720124285' }),
-    OrgAdminGraphQLOrgs: Object.freeze({ docId: '28242921515342347', clientDocId: '28242921515342347' }),
+    OrgAdminGraphQLMemberSearch: Object.freeze({ docId: '28398762773092863', clientDocId: '28398762773092863' }),
+    OrgAdminGraphQLOrgs: Object.freeze({ docId: '29241904595398144', clientDocId: '29241904595398144' }),
     OrgAdminGraphQLRemoveParticipants: Object.freeze({ docId: '37624727843838622', clientDocId: '37624727843838622' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
     QueryCatalog: Object.freeze({ docId: '30445081048424116', clientDocId: '30445081048424116' }),
@@ -278,7 +278,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    EBMessageMetadataQuery: Object.freeze({ operationKind: 'query', variables: Object.freeze(['data']) }),
     EBMessageRangeQueryForThreads: Object.freeze({ operationKind: 'query', variables: Object.freeze(['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']) }),
     EBMinosFetchContactKeys: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     EBMinosUploadMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
@@ -369,6 +368,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     OrgAdminGraphQLDirectory: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLGroup: Object.freeze({ operationKind: 'query', variables: Object.freeze(['gid', 'orgID']) }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
+    OrgAdminGraphQLMemberSearch: Object.freeze({ operationKind: 'query', variables: Object.freeze(['after', 'first', 'memberTag', 'orgID', 'query']) }),
     OrgAdminGraphQLOrgs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     OrgAdminGraphQLRemoveParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID', 'participants', 'requestID']) }),
     PaymentsPasskeyHasCredential: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),

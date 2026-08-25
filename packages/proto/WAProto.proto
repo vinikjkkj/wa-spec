@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1045848037
+/// WhatsApp Version: 2.3000.1045944110
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2714,56 +2714,6 @@ message DbUserStatusTsProto {
     optional int64 readTs = 2;
 }
 
-message DecryptMekForDistributionFromTransportSenderInput {
-    optional TransportSenderMEKDistributionSingleRecipient mekDistribution = 1;
-    optional bytes mekId = 2;
-    optional bytes rosterHash = 3;
-    optional bytes recipientEncSk = 4;
-    optional uint64 version = 5;
-    optional MinosClientConfig conf = 6;
-    message TransportSenderMEKDistributionSingleRecipient {
-        optional bytes encryptedMek = 1;
-        optional bytes ephemeralEncryptionPk = 2;
-        optional bytes signingPk = 3;
-        optional bytes signature = 4;
-        optional bytes recipientEpochHead = 5;
-    }
-}
-
-message DecryptMekForDistributionFromTransportSenderResult {
-    oneof result {
-        DecryptMekForDistributionFromTransportSenderSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message DecryptMekForDistributionFromTransportSenderSuccess {
-    optional bytes mek = 1;
-}
-
-message DecryptMekForDistributionInput {
-    optional bytes toMailboxSk = 1;
-    optional bytes fromPk = 2;
-    optional bytes mekId = 3;
-    optional bytes senderEpochHead = 4;
-    optional bytes rosterHash = 5;
-    optional bytes ciphertext = 6;
-    optional bytes toEpochHead = 7;
-    optional int32 mekEncryptionVersion = 8;
-    optional MinosClientConfig conf = 9;
-}
-
-message DecryptMekForDistributionResult {
-    oneof result {
-        DecryptMekForDistributionSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message DecryptMekForDistributionSuccess {
-    optional bytes mek = 1;
-}
-
 message DecryptMessageInput {
     optional bytes epochRootKey = 1;
     optional bytes epochAnonId = 2;
@@ -2777,81 +2727,11 @@ message DecryptMessageOutput {
     optional string error = 2;
 }
 
-message DecryptSelfMmkDistributionInput {
-    optional bytes encryptedMmk = 1;
-    optional bytes exportRootKey = 2;
-    optional bytes mailboxHeadHash = 3;
-}
-
-message DecryptSelfMmkDistributionResult {
-    oneof result {
-        DecryptSelfMmkDistributionSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message DecryptSelfMmkDistributionSuccess {
-    optional bytes mmkSeed = 1;
-}
-
 message DeletedMessagesTableSchemaProto {
     optional string author = 1;
     optional string chat = 2;
     optional string externalId = 3;
     optional string reason = 4;
-}
-
-message DeriveAttachmentAccessTokenSecretInput {
-    optional bytes mediaKey = 1;
-}
-
-message DeriveAttachmentAccessTokenSecretResult {
-    optional bytes attachmentAccessTokenSecret = 1;
-}
-
-message DeriveAttachmentPrimaryKeySecretInput {
-    optional bytes mediaKey = 1;
-}
-
-message DeriveAttachmentPrimaryKeySecretResult {
-    optional bytes attachmentPrimaryKeySecret = 1;
-}
-
-message DeriveMailboxAuthKeypairInput {
-    optional bytes exportRootKey = 1;
-    optional uint64 epochNumber = 2;
-}
-
-message DeriveMailboxAuthKeypairResult {
-    optional bytes mailboxAuthPublicKey = 1;
-    optional bytes mailboxAuthPrivateKey = 2;
-}
-
-message DeriveMailboxEncryptionKeypairInput {
-    optional bytes exportRootKey = 1;
-    optional uint64 epochNumber = 2;
-}
-
-message DeriveMailboxEncryptionKeypairResult {
-    optional bytes mailboxEncryptionPublicKey = 1;
-    optional bytes mailboxEncryptionPrivateKey = 2;
-}
-
-message DeriveMailboxSigningKeypairInput {
-    optional bytes exportRootKey = 1;
-    optional uint64 epochNumber = 2;
-}
-
-message DeriveMailboxSigningKeypairResult {
-    oneof result {
-        DeriveMailboxSigningKeypairSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message DeriveMailboxSigningKeypairSuccess {
-    optional bytes mailboxSigningPublicKey = 1;
-    optional bytes mailboxSigningPrivateKey = 2;
 }
 
 message DeriveMessageKeyInput {
@@ -2863,33 +2743,6 @@ message DeriveMessageKeyInput {
 message DeriveMessageKeyOutput {
     optional bytes messageKey = 1;
     optional string error = 2;
-}
-
-message DeriveMessagingMailboxKeypairsInput {
-    optional bytes mmkSeed = 1;
-}
-
-message DeriveMessagingMailboxKeypairsResult {
-    oneof result {
-        DeriveMessagingMailboxKeypairsSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message DeriveMessagingMailboxKeypairsSuccess {
-    optional bytes encSk = 1;
-    optional bytes encPk = 2;
-    optional bytes authSk = 3;
-    optional bytes authPk = 4;
-}
-
-message DetachedDevicePublicData {
-    optional uint64 deviceId = 1;
-    optional bytes name = 2;
-    optional bytes sigPk = 3;
-    optional bytes authPk = 4;
-    optional bytes encPk = 5;
-    optional bytes signature = 6;
 }
 
 message DeviceCapabilities {
@@ -3166,44 +3019,6 @@ message EmbeddedMusic {
     optional int64 overlapDurationInMs = 14;
 }
 
-message EncryptMekForDistributionInput {
-    optional bytes senderEpochHead = 1;
-    optional bytes toMailboxPk = 2;
-    optional MailboxAuthKP fromKeypair = 3;
-    optional MekBundle mek = 4;
-    optional bytes toEpochHead = 5;
-    optional MinosClientConfig conf = 6;
-    message MailboxAuthKP {
-        optional bytes sk = 1;
-        optional bytes pk = 2;
-    }
-}
-
-message EncryptMekForDistributionResult {
-    optional bytes ciphertext = 1;
-    optional uint64 version = 2;
-}
-
-message EncryptMeksForDistributionFromTransportSenderInput {
-    optional MekBundle mek = 1;
-    optional TransportSigningKP transportSigningKp = 2;
-    repeated bytes recipientMailboxEncryptionPks = 3;
-    repeated bytes recipientEpochHeads = 4;
-    optional MinosClientConfig conf = 5;
-    message TransportSigningKP {
-        optional bytes sk = 1;
-        optional bytes pk = 2;
-    }
-}
-
-message EncryptMeksForDistributionFromTransportSenderResult {
-    repeated bytes encryptedMeks = 1;
-    optional bytes ephemeralEncryptionPk = 2;
-    optional bytes signingPk = 3;
-    optional bytes signature = 4;
-    optional uint64 version = 5;
-}
-
 message EncryptMessageInput {
     optional bytes epochRootKey = 1;
     optional bytes mailboxRootKey = 2;
@@ -3282,20 +3097,6 @@ message Epoch0Output {
     optional bytes epochSignature = 5;
     optional bytes epochRootKeyFingerprint = 6;
     optional bytes epochRootKey = 7;
-}
-
-message EpochPublicData {
-    optional uint64 epochNumber = 1;
-    optional string userFbid = 2;
-    optional bytes mailboxSigningPk = 3;
-    optional bytes mailboxEncryptionPk = 4;
-    optional bytes mailboxAuthPk = 5;
-    optional bytes previousEpochHead = 6;
-}
-
-message EpochSignatures {
-    optional bytes selfSignature = 1;
-    optional bytes prevSignature = 2;
 }
 
 message EventAdditionalMetadata {
@@ -3395,22 +3196,6 @@ message ForwardedAIBotMessageInfo {
 message FrankingMetadata {
     optional bytes frankingTag = 3;
     optional bytes reportingTag = 4;
-}
-
-message GenerateMekInput {
-    repeated bytes epochHeads = 1;
-}
-
-message GenerateMekResult {
-    optional MekBundle mek = 1;
-}
-
-message GenerateMekRosterHashInput {
-    repeated bytes epochHeads = 1;
-}
-
-message GenerateMekRosterHashResult {
-    optional bytes rosterHash = 1;
 }
 
 message GlobalSettings {
@@ -3833,150 +3618,6 @@ message Location {
     optional string name = 3;
 }
 
-message MandrakeDecryptMekInput {
-    optional bytes encryptedMek = 1;
-    optional bytes recipientsHash = 4;
-    optional bytes recipientEncSk = 5;
-    optional uint64 mekEncryptionVersion = 6;
-    optional MinosClientConfig conf = 7;
-    optional MessagingMailboxPublicData recipientMmk = 8;
-    optional bytes mekId = 9;
-    optional MerkleMembershipProof recipientMembershipProof = 10;
-    oneof senderPublicData {
-        MmkSenderPublicData mmkSender = 2;
-        EpochSenderPublicData epochSender = 3;
-        PrecomputedEpochSenderPublicData precomputedEpochSender = 11;
-    }
-    message PrecomputedEpochSenderPublicData {
-        optional bytes authPk = 1;
-        optional bytes epochHead = 2;
-    }
-    message EpochSenderPublicData {
-        optional EpochPublicData epochPublicData = 1;
-    }
-    message MmkSenderPublicData {
-        optional MessagingMailboxPublicData mmkPublicData = 1;
-    }
-}
-
-message MandrakeDecryptMekResult {
-    oneof result {
-        MandrakeDecryptMekSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message MandrakeDecryptMekSuccess {
-    optional bytes mek = 1;
-}
-
-message MandrakeEncryptMekInput {
-    optional MandrakeMekBundle mek = 1;
-    repeated MessagingMailboxPublicData recipients = 2;
-    optional MinosClientConfig conf = 5;
-    oneof sender {
-        MmkSender mmkSender = 3;
-        EpochSender epochSender = 4;
-        DetachedDeviceSender detachedDeviceSender = 6;
-    }
-    message DetachedDeviceSender {
-        optional DetachedDevicePublicData detachedDevicePublicData = 1;
-        optional bytes authSk = 2;
-        optional bytes authPk = 3;
-    }
-    message EpochSender {
-        optional EpochPublicData epochPublicData = 1;
-        optional bytes authSk = 2;
-        optional bytes authPk = 3;
-    }
-    message MmkSender {
-        optional MessagingMailboxPublicData mmkPublicData = 1;
-        optional bytes authSk = 2;
-        optional bytes authPk = 3;
-    }
-}
-
-message MandrakeEncryptMekResult {
-    oneof result {
-        MandrakeEncryptMekSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message MandrakeEncryptMekSuccess {
-    repeated MekDistributionSingleRecipient distributions = 1;
-    optional bytes recipientsHash = 2;
-    optional uint64 version = 3;
-    message MekDistributionSingleRecipient {
-        optional bytes encryptedMek = 1;
-        optional MessagingMailboxPublicData toMmk = 2;
-        optional MerkleMembershipProof recipientMembershipProof = 3;
-    }
-}
-
-message MandrakeMekBundle {
-    optional bytes key = 1;
-    optional bytes mekId = 2;
-    optional bytes mailboxHeadHash = 3;
-}
-
-message MandrakeOpenEpochInput {
-    optional string userFbid = 1;
-    optional uint64 epochNumber = 2;
-    optional bytes exportRootKey = 3;
-    optional bytes previousExportRootKey = 4;
-    optional uint64 previousEpochNumber = 5;
-    optional bytes previousEpochHead = 6;
-    optional MessagingMailboxPublicData previousMmk = 7;
-    repeated DetachedDevicePublicData detachedDevices = 8;
-}
-
-message MandrakeOpenEpochResult {
-    oneof result {
-        MandrakeOpenEpochSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message MandrakeOpenEpochSuccess {
-    optional MinosSignedEpoch minosSignedEpoch = 1;
-    optional SignedMmkDistributionFromMailbox signedMmkDistribution = 2;
-}
-
-message MandrakeOpenInitialEpochInput {
-    optional string userFbid = 1;
-    optional uint64 epochNumber = 2;
-    optional bytes exportRootKey = 3;
-    repeated DetachedDevicePublicData detachedDevices = 4;
-}
-
-message MandrakeOpenInitialEpochResult {
-    oneof result {
-        MandrakeOpenEpochSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message MandrakeValidateNewMmkFromDetachedDeviceInput {
-    optional MmkFromDetachedDevice mmkFromDevice = 1;
-    optional bytes signature = 2;
-    optional MessagingMailboxPublicData prevMmk = 3;
-}
-
-message MandrakeValidateNewMmkFromMailboxInput {
-    optional MessagingMailboxPublicData newMmk = 1;
-    optional bytes signature = 2;
-    optional MessagingMailboxPublicData prevMmk = 3;
-    optional EpochPublicData epochPublicData = 4;
-}
-
-message MandrakeValidateNewMmkResult {
-    oneof result {
-        bool valid = 1;
-        string errorMessage = 2;
-    }
-}
-
 message MediaBackupSchemaProto {
     optional int32 mediaBackupId = 1;
     optional int32 mediaId = 2;
@@ -4070,12 +3711,6 @@ message MediaTableSchemaProto {
     optional bool isVideoGif = 17;
 }
 
-message MekBundle {
-    optional bytes key = 1;
-    optional bytes mekId = 2;
-    optional bytes rosterHash = 3;
-}
-
 message MemberLabel {
     optional string label = 1;
     optional int64 labelTimestamp = 2;
@@ -4086,13 +3721,6 @@ message Mention {
     optional string mentionedJid = 2;
     optional uint32 offset = 3;
     optional uint32 length = 4;
-}
-
-message MerkleMembershipProof {
-    optional bytes proof = 1;
-    optional bytes root = 2;
-    optional uint64 leafIndex = 3;
-    optional uint64 totalLeaves = 4;
 }
 
 message Message {
@@ -6064,15 +5692,6 @@ message MessagesTableSchemaProto {
     optional bool isCollapsed = 46;
 }
 
-message MessagingMailboxPublicData {
-    optional bytes epochHead = 1;
-    optional bytes deviceRosterHash = 2;
-    optional uint64 sequenceNumber = 3;
-    optional bytes sigPk = 4;
-    optional bytes encPk = 5;
-    optional bytes authPk = 6;
-}
-
 message MetaSyncActionProto {
     oneof action {
         MetaSyncChatActionProto chatAction = 1;
@@ -6404,183 +6023,11 @@ message MiTransportAdminMessage {
     }
 }
 
-message MinosClientConfig {
-    optional int32 preferredMessageEncryptionVersion = 1;
-    optional int32 preferredMekEncryptionVersion = 2;
-}
-
-message MinosCommand {
-    oneof commandInput {
-        MinosEncryptAndSignMessageInput encryptAndSignMessage = 1;
-        MinosDecryptAndVerifyMessageInput decryptAndVerifyMessage = 2;
-        GenerateMekInput generateMek = 3;
-        GenerateMekRosterHashInput generateMekRosterHash = 4;
-        EncryptMekForDistributionInput encryptMekForDistribution = 5;
-        DecryptMekForDistributionInput decryptMekForDistribution = 6;
-        EncryptMeksForDistributionFromTransportSenderInput encryptMeksForDistributionFromTransportSender = 7;
-        DecryptMekForDistributionFromTransportSenderInput decryptMekForDistributionFromTransportSender = 8;
-        WrapTransportSigningPublicKeyInput wrapTransportSigningPublicKey = 9;
-        WrapTransportSigningSecretKeyInput wrapTransportSigningSecretKey = 10;
-        DeriveMailboxSigningKeypairInput deriveMailboxSigningKeypair = 11;
-        DeriveMailboxEncryptionKeypairInput deriveMailboxEncryptionKeypair = 12;
-        DeriveMailboxAuthKeypairInput deriveMailboxAuthKeypair = 13;
-        DeriveAttachmentAccessTokenSecretInput deriveAttachmentAccessTokenSecret = 14;
-        DeriveAttachmentPrimaryKeySecretInput deriveAttachmentPrimaryKeySecret = 15;
-        MinosOpenInitialEpochInput minosOpenInitialEpoch = 16;
-        MinosOpenEpochInput minosOpenEpoch = 17;
-        MinosValidateEpochInput minosValidateEpoch = 18;
-        MinosVerifySingleEpochInput minosVerifySingleEpoch = 19;
-        MinosThreadIdFromOneToOneThreadInput minosThreadIdFromOneToOneThread = 20;
-        MinosThreadIdFromActThreadIdInput minosThreadIdFromActThreadId = 21;
-        MandrakeOpenEpochInput mandrakeOpenEpoch = 22;
-        MandrakeEncryptMekInput mandrakeEncryptMek = 23;
-        MandrakeDecryptMekInput mandrakeDecryptMek = 24;
-        MandrakeOpenInitialEpochInput mandrakeOpenInitialEpoch = 25;
-        MandrakeValidateNewMmkFromMailboxInput mandrakeValidateNewMmkFromMailbox = 27;
-        MandrakeValidateNewMmkFromDetachedDeviceInput mandrakeValidateNewMmkFromDetachedDevice = 28;
-        DeriveMessagingMailboxKeypairsInput deriveMessagingMailboxKeypairs = 29;
-        DecryptSelfMmkDistributionInput decryptSelfMmkDistribution = 30;
-    }
-}
-
-message MinosDecryptAndVerifyMessageInput {
-    optional bytes transportSigningPk = 1;
-    optional bytes mek = 2;
-    optional bytes encryptedMessageCiphertext = 3;
-    optional bytes encryptedMessageSignature = 4;
-    optional MinosMessageMetadata metadata = 5;
-    optional int32 messageEncryptionVersion = 6;
-    optional MinosClientConfig conf = 7;
-}
-
-message MinosDecryptAndVerifyMessageResult {
-    oneof result {
-        MinosDecryptAndVerifyMessageSuccess success = 1;
-        string errorMessage = 2;
-    }
-}
-
-message MinosDecryptAndVerifyMessageSuccess {
-    optional bytes plaintext = 1;
-}
-
-message MinosEncryptAndSignMessageInput {
-    optional bytes transportSigningSk = 1;
-    optional bytes mek = 2;
-    optional bytes plaintext = 3;
-    optional MinosMessageMetadata metadata = 4;
-    optional bytes transportSigningPk = 5;
-    optional MinosClientConfig conf = 6;
-}
-
-message MinosEncryptAndSignMessageResult {
-    optional bytes ciphertext = 1;
-    optional bytes signature = 2;
-    optional int32 version = 3;
-}
-
-message MinosMessageMetadata {
-    optional bytes mekId = 1;
-    optional uint64 timestamp = 2;
-    optional string messageId = 3;
-    optional bytes threadId = 4;
-}
-
-message MinosOpenEpochInput {
-    optional string userFbid = 1;
-    optional uint64 epochNumber = 2;
-    optional bytes exportRootKey = 3;
-    optional bytes previousExportRootKey = 4;
-    optional uint64 previousEpochNumber = 5;
-    optional bytes previousEpochHead = 6;
-}
-
-message MinosOpenEpochResult {
-    optional MinosSignedEpoch minosSignedEpoch = 1;
-}
-
-message MinosOpenInitialEpochInput {
-    optional string userFbid = 1;
-    optional uint64 epochNumber = 2;
-    optional bytes exportRootKey = 3;
-}
-
-message MinosOpenInitialEpochResult {
-    optional MinosSignedEpoch minosSignedEpoch = 1;
-}
-
-message MinosSignedEpoch {
-    optional EpochPublicData epochPublicData = 1;
-    optional EpochSignatures signatures = 2;
-    optional bytes epochHead = 3;
-}
-
-message MinosThreadIdFromActThreadIdInput {
-    optional string actThreadId = 1;
-}
-
-message MinosThreadIdFromActThreadIdResult {
-    optional bytes threadId = 1;
-}
-
-message MinosThreadIdFromOneToOneThreadInput {
-    optional string actThreadId = 1;
-    optional string selfFbid = 2;
-}
-
-message MinosThreadIdFromOneToOneThreadResult {
-    optional bytes threadId = 1;
-}
-
-message MinosValidateEpochInput {
-    optional EpochPublicData epochPublicData = 1;
-    optional EpochPublicData previousEpochPublicData = 2;
-    optional EpochSignatures signatures = 3;
-}
-
-message MinosValidateEpochResult {
-    oneof result {
-        bool valid = 1;
-        string errorMessage = 2;
-    }
-}
-
-message MinosVerifySingleEpochInput {
-    optional EpochPublicData epochPublicData = 1;
-    optional bytes signature = 2;
-}
-
-message MinosVerifySingleEpochResult {
-    optional bool valid = 1;
-}
-
 message MissingKeysTableSchemaProto {
     optional string keyHex = 1;
     optional bytes keyId = 2;
     optional int64 timestamp = 3;
     repeated DeviceResponse deviceResponses = 4;
-}
-
-message MmkDistribution {
-    repeated MmkDistributionToDetachedDevice toDetachedDevices = 1;
-    optional MmkDistributionToMailbox toMailbox = 2;
-    optional uint64 version = 3;
-}
-
-message MmkDistributionToDetachedDevice {
-    optional bytes encryptedMmk = 1;
-    optional bytes recipDeviceHash = 2;
-}
-
-message MmkDistributionToMailbox {
-    optional bytes encryptedMmk = 1;
-    optional bytes recipMailboxHeadHash = 2;
-}
-
-message MmkFromDetachedDevice {
-    optional MessagingMailboxPublicData mmk = 1;
-    optional DetachedDevicePublicData fromDetachedDevice = 2;
-    optional MerkleMembershipProof membershipProof = 3;
 }
 
 message Money {
@@ -7388,12 +6835,6 @@ message SignalMessage {
     optional uint32 counter = 2;
     optional uint32 previousCounter = 3;
     optional bytes ciphertext = 4;
-}
-
-message SignedMmkDistributionFromMailbox {
-    optional MmkDistribution mmkDistribution = 1;
-    optional bytes signature = 2;
-    optional MessagingMailboxPublicData fromMailbox = 3;
 }
 
 message SignedPreKeyRecordStructure {
@@ -9083,22 +8524,6 @@ message WebNotificationsInfo {
     optional uint32 unreadChats = 3;
     optional uint32 notifyMessageCount = 4;
     repeated WebMessageInfo notifyMessages = 5;
-}
-
-message WrapTransportSigningPublicKeyInput {
-    optional bytes keyBytes = 1;
-}
-
-message WrapTransportSigningPublicKeyResult {
-    optional bytes prefixedKey = 1;
-}
-
-message WrapTransportSigningSecretKeyInput {
-    optional bytes keyBytes = 1;
-}
-
-message WrapTransportSigningSecretKeyResult {
-    optional bytes prefixedKey = 1;
 }
 
 message XMATableSchemaProto {

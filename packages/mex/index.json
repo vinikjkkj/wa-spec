@@ -2015,35 +2015,6 @@
         "input": {}
       }
     },
-    "EBMessageMetadataQuery": {
-      "docId": "28525853583670706",
-      "operationKind": "query",
-      "originalName": "EBMessageMetadataQueryQuery",
-      "response": {
-        "viewer": {
-          "encrypted_backup": {
-            "id": "string",
-            "mailbox": {
-              "deanon_messages_metadata": [
-                {
-                  "admin_message": "string",
-                  "is_admin_message": "boolean",
-                  "offline_threading_id": "string",
-                  "sender_id": "string",
-                  "sort_order_ms": "number"
-                }
-              ]
-            }
-          }
-        }
-      },
-      "variables": [
-        "data"
-      ],
-      "variablesShape": {
-        "data": "string"
-      }
-    },
     "EBMessageRangeQueryForThreads": {
       "docId": "28066954479559383",
       "operationKind": "query",
@@ -5356,17 +5327,22 @@
       }
     },
     "OrgAdminGraphQLDirectory": {
-      "docId": "29036033719317454",
+      "docId": "29229928699940907",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
       "response": {
         "xwa_org_admin_directory": {
           "error_reason": "string",
+          "member_tags": [
+            "string"
+          ],
           "members": [
             {
               "display_name": "string",
               "lid": "string",
-              "role": "enum:ADMIN|CREATOR"
+              "member_tag": "string",
+              "role": "enum:ADMIN|CREATOR|SUPERADMIN",
+              "username": "string"
             }
           ],
           "status": "enum:SUCCESS",
@@ -5394,7 +5370,7 @@
             "participants": [
               {
                 "lid": "string",
-                "role": "enum:ADMIN|CREATOR"
+                "role": "enum:ADMIN|CREATOR|SUPERADMIN"
               }
             ],
             "roster_partial": "unknown",
@@ -5437,8 +5413,47 @@
         "orgID": "string"
       }
     },
+    "OrgAdminGraphQLMemberSearch": {
+      "docId": "28398762773092863",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLMemberSearchQuery",
+      "response": {
+        "xwa_org_member_search": {
+          "count": "unknown",
+          "nodes": [
+            {
+              "member": {
+                "display_name": "string",
+                "lid": "string",
+                "member_tag": "string",
+                "role": "enum:ADMIN|CREATOR|SUPERADMIN",
+                "username": "string"
+              }
+            }
+          ],
+          "page_info": {
+            "end_cursor": "string",
+            "has_next_page": "boolean"
+          }
+        }
+      },
+      "variables": [
+        "after",
+        "first",
+        "memberTag",
+        "orgID",
+        "query"
+      ],
+      "variablesShape": {
+        "after": "string",
+        "first": "number",
+        "memberTag": "string",
+        "orgID": "string",
+        "query": "string"
+      }
+    },
     "OrgAdminGraphQLOrgs": {
-      "docId": "28242921515342347",
+      "docId": "29241904595398144",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLOrgsQuery",
       "response": {
@@ -5446,6 +5461,7 @@
           "orgs": [
             {
               "id": "string",
+              "member_count": "number",
               "name": "string"
             }
           ]
@@ -5453,11 +5469,15 @@
       },
       "variables": [],
       "variablesShape": {
+        "after": "string",
+        "first": "number",
         "gid": "unknown",
+        "memberTag": "unknown",
         "orgID": "unknown",
         "participants": [
           {}
         ],
+        "query": "string",
         "requestID": "unknown"
       }
     },
@@ -7245,5 +7265,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1045848037"
+  "waVersion": "2.3000.1045944110"
 }
