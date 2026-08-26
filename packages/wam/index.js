@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045944110
+// WhatsApp Version: 2.3000.1046041993
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -691,6 +691,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'ALL_CONTACTS': 5,
         'CHATTED_RECENTLY': 2,
         'EXPLICIT': 1,
+        'GROUP': 7,
         'LABEL': 6,
         'LARGEST_LIST': 4,
         'NOT_MESSAGED_RECENTLY': 3,
@@ -6027,8 +6028,10 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'AI_CREATION_EDIT': 7,
         'AI_CREATION_NEW_CREATE': 8,
+        'AI_FAB_QP': 26,
         'AI_SEASONAL_UPSELL': 25,
         'AI_TAB': 24,
+        'AI_TAB_QP': 27,
         'AR_EFFECTS_IN_CALLING': 9,
         'AR_EFFECTS_IN_PRECAPTURE': 10,
         'ATTACHMEMT_TRAY': 1,
@@ -7103,6 +7106,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_RECREATE_AD_CHATLIST_QP': 104,
         'SMB_RECREATE_PERFORMING_AD_BIZHOME_QP': 107,
         'SMB_RECREATE_PERFORMING_AD_CHATLIST_QP': 108,
+        'SMB_SELF_STATUS_BOOST_END_CARD': 118,
         'SMB_SETTINGS_ADVERTISE_LIST_ITEM': 11,
         'SMB_SETTINGS_MANAGE_AD': 58,
         'SMB_STATUS_3DTOUCH_ADVERTISE_MENU_ITEM': 8,
@@ -10410,6 +10414,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PAY_TAB': 48,
         'PAY_UPI_ID_BUTTON': 266,
         'PAY_WITH_UPI_BUTTON': 236,
+        'PILL_BUTTON': 385,
         'PIX_ICON_ATTACHMENT_TRAY': 381,
         'PIX_INVITE_ASK_TO_SHARE_PIX_KEY': 376,
         'PIX_INVITE_GO_TO_PAYMENTS': 378,
@@ -13683,6 +13688,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_PRIVACY_SETTINGS': 1,
         'STATUS_VIEWER_CLOSE_SHARING_MIMICRY': 6,
         'TEXT_COMPOSER': 2,
+        'UPDATES_TAB': 7,
         'VOICE_COMPOSER': 5
         })
     }),
@@ -14220,6 +14226,10 @@ const WA_WAM_ENUMS = Object.freeze({
         'BB_CATALOG_INFO': 156,
         'BB_CREDIT_INFO': 149,
         'BB_CUSTOM_REPLY_INFO': 154,
+        'BB_GENAI_DESCRIBE': 333,
+        'BB_GENAI_EDIT': 335,
+        'BB_GENAI_NUX': 332,
+        'BB_GENAI_SUGGESTIONS': 334,
         'BB_HOME': 146,
         'BB_MESSAGE_CREDITS_STORE': 245,
         'BB_MESSAGE_PACKS': 226,
@@ -14360,14 +14370,18 @@ const WA_WAM_ENUMS = Object.freeze({
         'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318,
         'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311,
         'GEN_AI_AI_HUB_ADD_BUSINESS_INFO': 100,
+        'GEN_AI_AI_HUB_ADD_CLABE_ACCOUNT': 336,
         'GEN_AI_AI_HUB_ADD_PRODUCT_INFO': 101,
         'GEN_AI_AI_HUB_ADD_PURCHASING_INFO': 102,
         'GEN_AI_AI_HUB_CHAT': 98,
         'GEN_AI_AI_HUB_CHECKLIST': 97,
+        'GEN_AI_AI_HUB_CLABE_SUCCESS': 337,
         'GEN_AI_AI_HUB_HOME': 99,
         'GEN_AI_AI_HUB_KNOWLEDGE_EXAMPLE_RESPONSE': 190,
         'GEN_AI_AI_HUB_KNOWLEDGE_REPO': 104,
         'GEN_AI_AI_HUB_KNOWLEDGE_RESOURCE': 112,
+        'GEN_AI_AI_HUB_LIST_CLABE_ACCOUNTS': 339,
+        'GEN_AI_AI_HUB_MANAGE_CLABE_ACCOUNT': 338,
         'GEN_AI_AI_HUB_ONLINE_STORE_LINKS': 297,
         'GEN_AI_AI_HUB_PRODUCT_INFO_LIST': 201,
         'GEN_AI_AI_HUB_PRODUCT_INFO_UPDATE': 202,
@@ -24330,6 +24344,7 @@ const WA_WAM_EVENTS = Object.freeze({
             statusId: Object.freeze({ id: 67, type: 'string', falcoName: 'status_id' }),
             streamingUsedNonStreamingFallback: Object.freeze({ id: 70, type: 'boolean', falcoName: 'streaming_used_non_streaming_fallback' }),
             timeDelayed: Object.freeze({ id: 54, type: 'timer', falcoName: 'time_delayed' }),
+            traceIdInt: Object.freeze({ id: 72, type: 'integer', falcoName: 'trace_id_int' }),
             usedFallbackHint: Object.freeze({ id: 40, type: 'string', falcoName: 'used_fallback_hint' })
         })
     }),
@@ -26520,6 +26535,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             audioStreamType: Object.freeze({ id: 19, type: 'enum', enum: 'AUDIO_STREAM_TYPE', falcoName: 'audio_stream_type' }),
+            messageKeyHash: Object.freeze({ id: 28, type: 'string', falcoName: 'message_key_hash' }),
             pttAudioRouteBluetoothTime: Object.freeze({ id: 23, type: 'timer', falcoName: 'ptt_audio_route_bluetooth_time' }),
             pttAudioRouteChangeCount: Object.freeze({ id: 20, type: 'integer', falcoName: 'ptt_audio_route_change_count' }),
             pttAudioRouteEarpieceTime: Object.freeze({ id: 24, type: 'timer', falcoName: 'ptt_audio_route_earpiece_time' }),

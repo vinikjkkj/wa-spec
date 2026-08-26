@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1045944110
+// WhatsApp Version: 2.3000.1046041993
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -800,6 +800,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ALL_CONTACTS': 5;
             readonly 'CHATTED_RECENTLY': 2;
             readonly 'EXPLICIT': 1;
+            readonly 'GROUP': 7;
             readonly 'LABEL': 6;
             readonly 'LARGEST_LIST': 4;
             readonly 'NOT_MESSAGED_RECENTLY': 3;
@@ -6136,8 +6137,10 @@ export declare const WA_WAM_ENUMS: {
         readonly values: {
             readonly 'AI_CREATION_EDIT': 7;
             readonly 'AI_CREATION_NEW_CREATE': 8;
+            readonly 'AI_FAB_QP': 26;
             readonly 'AI_SEASONAL_UPSELL': 25;
             readonly 'AI_TAB': 24;
+            readonly 'AI_TAB_QP': 27;
             readonly 'AR_EFFECTS_IN_CALLING': 9;
             readonly 'AR_EFFECTS_IN_PRECAPTURE': 10;
             readonly 'ATTACHMEMT_TRAY': 1;
@@ -7212,6 +7215,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SMB_RECREATE_AD_CHATLIST_QP': 104;
             readonly 'SMB_RECREATE_PERFORMING_AD_BIZHOME_QP': 107;
             readonly 'SMB_RECREATE_PERFORMING_AD_CHATLIST_QP': 108;
+            readonly 'SMB_SELF_STATUS_BOOST_END_CARD': 118;
             readonly 'SMB_SETTINGS_ADVERTISE_LIST_ITEM': 11;
             readonly 'SMB_SETTINGS_MANAGE_AD': 58;
             readonly 'SMB_STATUS_3DTOUCH_ADVERTISE_MENU_ITEM': 8;
@@ -10519,6 +10523,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PAY_TAB': 48;
             readonly 'PAY_UPI_ID_BUTTON': 266;
             readonly 'PAY_WITH_UPI_BUTTON': 236;
+            readonly 'PILL_BUTTON': 385;
             readonly 'PIX_ICON_ATTACHMENT_TRAY': 381;
             readonly 'PIX_INVITE_ASK_TO_SHARE_PIX_KEY': 376;
             readonly 'PIX_INVITE_GO_TO_PAYMENTS': 378;
@@ -13792,6 +13797,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'STATUS_PRIVACY_SETTINGS': 1;
             readonly 'STATUS_VIEWER_CLOSE_SHARING_MIMICRY': 6;
             readonly 'TEXT_COMPOSER': 2;
+            readonly 'UPDATES_TAB': 7;
             readonly 'VOICE_COMPOSER': 5
         }
     }
@@ -14329,6 +14335,10 @@ export declare const WA_WAM_ENUMS: {
             readonly 'BB_CATALOG_INFO': 156;
             readonly 'BB_CREDIT_INFO': 149;
             readonly 'BB_CUSTOM_REPLY_INFO': 154;
+            readonly 'BB_GENAI_DESCRIBE': 333;
+            readonly 'BB_GENAI_EDIT': 335;
+            readonly 'BB_GENAI_NUX': 332;
+            readonly 'BB_GENAI_SUGGESTIONS': 334;
             readonly 'BB_HOME': 146;
             readonly 'BB_MESSAGE_CREDITS_STORE': 245;
             readonly 'BB_MESSAGE_PACKS': 226;
@@ -14469,14 +14479,18 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318;
             readonly 'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311;
             readonly 'GEN_AI_AI_HUB_ADD_BUSINESS_INFO': 100;
+            readonly 'GEN_AI_AI_HUB_ADD_CLABE_ACCOUNT': 336;
             readonly 'GEN_AI_AI_HUB_ADD_PRODUCT_INFO': 101;
             readonly 'GEN_AI_AI_HUB_ADD_PURCHASING_INFO': 102;
             readonly 'GEN_AI_AI_HUB_CHAT': 98;
             readonly 'GEN_AI_AI_HUB_CHECKLIST': 97;
+            readonly 'GEN_AI_AI_HUB_CLABE_SUCCESS': 337;
             readonly 'GEN_AI_AI_HUB_HOME': 99;
             readonly 'GEN_AI_AI_HUB_KNOWLEDGE_EXAMPLE_RESPONSE': 190;
             readonly 'GEN_AI_AI_HUB_KNOWLEDGE_REPO': 104;
             readonly 'GEN_AI_AI_HUB_KNOWLEDGE_RESOURCE': 112;
+            readonly 'GEN_AI_AI_HUB_LIST_CLABE_ACCOUNTS': 339;
+            readonly 'GEN_AI_AI_HUB_MANAGE_CLABE_ACCOUNT': 338;
             readonly 'GEN_AI_AI_HUB_ONLINE_STORE_LINKS': 297;
             readonly 'GEN_AI_AI_HUB_PRODUCT_INFO_LIST': 201;
             readonly 'GEN_AI_AI_HUB_PRODUCT_INFO_UPDATE': 202;
@@ -25215,6 +25229,7 @@ export declare const WA_WAM_EVENTS: {
             readonly statusId: { readonly id: 67; readonly type: 'string'; readonly falcoName: 'status_id' }
             readonly streamingUsedNonStreamingFallback: { readonly id: 70; readonly type: 'boolean'; readonly falcoName: 'streaming_used_non_streaming_fallback' }
             readonly timeDelayed: { readonly id: 54; readonly type: 'timer'; readonly falcoName: 'time_delayed' }
+            readonly traceIdInt: { readonly id: 72; readonly type: 'integer'; readonly falcoName: 'trace_id_int' }
             readonly usedFallbackHint: { readonly id: 40; readonly type: 'string'; readonly falcoName: 'used_fallback_hint' }
         }
     }
@@ -27733,6 +27748,7 @@ export declare const WA_WAM_EVENTS: {
         readonly conditions: readonly []
         readonly fields: {
             readonly audioStreamType: { readonly id: 19; readonly type: 'enum'; readonly enum: 'AUDIO_STREAM_TYPE'; readonly falcoName: 'audio_stream_type' }
+            readonly messageKeyHash: { readonly id: 28; readonly type: 'string'; readonly falcoName: 'message_key_hash' }
             readonly pttAudioRouteBluetoothTime: { readonly id: 23; readonly type: 'timer'; readonly falcoName: 'ptt_audio_route_bluetooth_time' }
             readonly pttAudioRouteChangeCount: { readonly id: 20; readonly type: 'integer'; readonly falcoName: 'ptt_audio_route_change_count' }
             readonly pttAudioRouteEarpieceTime: { readonly id: 24; readonly type: 'timer'; readonly falcoName: 'ptt_audio_route_earpiece_time' }
