@@ -1,5 +1,5 @@
 {
-  "groupPropCount": 14,
+  "groupPropCount": 16,
   "groupProps": {
     "ai_group_tee_history_share_group_level_enabled": {
       "code": 32501,
@@ -39,6 +39,18 @@
     },
     "group_history_settings_toggle_ui_group_level": {
       "code": 23246,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "group_settings_ia_group_level": {
+      "code": 35639,
+      "debugDefaultValue": -1,
+      "defaultValue": -1,
+      "type": "int"
+    },
+    "poll_add_option_creator_enabled_group_level": {
+      "code": 35772,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -86,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2369,
+  "propCount": 2387,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -430,6 +442,12 @@
       "defaultValue": " ",
       "type": "string"
     },
+    "ai_fbid_db_migration_version_pre_chatd": {
+      "code": 35760,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "ai_fbid_migration_invoke_receive_enabled": {
       "code": 12795,
       "debugDefaultValue": false,
@@ -564,6 +582,12 @@
     },
     "ai_group_send_mentioned_pushname_enabled": {
       "code": 24361,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_group_tasks_enabled": {
+      "code": 35658,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -819,6 +843,12 @@
       "debugDefaultValue": "en",
       "defaultValue": " ",
       "type": "string"
+    },
+    "ai_reminders_m1_enabled": {
+      "code": 35746,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_reply_message_context_max_count": {
       "code": 22024,
@@ -1840,6 +1870,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "biz_ai_suggested_reply_auto_fetch_limit_enabled": {
+      "code": 35651,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "biz_ai_suggested_reply_prefetch_enabled": {
       "code": 35538,
       "debugDefaultValue": false,
@@ -2134,11 +2170,29 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "br_payments_add_pix_key_deeplink_allowlist": {
+      "code": 35683,
+      "debugDefaultValue": "{}",
+      "defaultValue": "{}",
+      "type": "string"
+    },
+    "br_payments_add_pix_key_deeplink_enabled": {
+      "code": 35682,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "br_payments_home_duration_rule_for_pux_banner": {
       "code": 22249,
       "debugDefaultValue": 604800,
       "defaultValue": 604800,
       "type": "int"
+    },
+    "br_payments_options_to_pay_sheet_enabled": {
+      "code": 35784,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "br_payments_payment_detection_enhancement": {
       "code": 27309,
@@ -3268,6 +3322,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "channels_quiz_option_reshuffle_enabled": {
+      "code": 35752,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channels_quiz_receiving_enabled": {
       "code": 19778,
       "debugDefaultValue": false,
@@ -3646,8 +3706,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ctwa_1pd_conversion_excluded_message_type_ids": {
+      "code": 35456,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
+    },
     "ctwa_1pd_longest_call_enabled": {
       "code": 32108,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_1pd_message_type_exclusions_enabled": {
+      "code": 35609,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8050,8 +8122,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "poll_add_option_creator_enabled": {
+      "code": 35771,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "poll_add_option_enabled": {
       "code": 24517,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "poll_add_option_participant_enabled": {
+      "code": 35677,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8956,6 +9040,12 @@
       "defaultValue": "None",
       "type": "string"
     },
+    "smb_biz_ai_suggested_reply_no_action_threshold": {
+      "code": 35652,
+      "debugDefaultValue": 5,
+      "defaultValue": 5,
+      "type": "int"
+    },
     "smb_biz_ai_suggested_reply_prefetch": {
       "code": 35509,
       "debugDefaultValue": "NONE",
@@ -8966,6 +9056,12 @@
       "code": 35512,
       "debugDefaultValue": 0,
       "defaultValue": 30,
+      "type": "int"
+    },
+    "smb_biz_ai_suggested_reply_prefetch_count": {
+      "code": 35531,
+      "debugDefaultValue": 5,
+      "defaultValue": 5,
       "type": "int"
     },
     "smb_biz_profile_custom_url": {
@@ -10942,6 +11038,12 @@
       "defaultValue": 3,
       "type": "int"
     },
+    "wa_vpv_logging_phases_enabled": {
+      "code": 35650,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_adaptive_layout_enabled": {
       "code": 30140,
       "debugDefaultValue": false,
@@ -11905,6 +12007,12 @@
     "wa_web_win_hybrid_plus_incoming_popout": {
       "code": 35379,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_wrap_associated_child_message_enabled": {
+      "code": 35738,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -13108,6 +13216,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_getters_lazy_slot_allocation": {
+      "code": 35688,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_getters_lru_cache_size_limit": {
       "code": 30796,
       "debugDefaultValue": 0,
@@ -14032,6 +14146,12 @@
       "defaultValue": 640,
       "type": "int"
     },
+    "web_voip_video_presentation_orientation_fix": {
+      "code": 35716,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_video_renderer": {
       "code": 20573,
       "debugDefaultValue": 0,
@@ -14334,5 +14454,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046041993"
+  "waVersion": "2.3000.1046183720"
 }

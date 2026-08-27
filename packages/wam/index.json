@@ -419,6 +419,14 @@
         "INLINE_LOW_RES": 5
       }
     },
+    "AI_QP_SURFACE_TYPE": {
+      "export": "AI_QP_SURFACE_TYPE",
+      "module": "WAWebWamEnumAiQpSurfaceType",
+      "values": {
+        "HERO_CARD": 2,
+        "SUGGESTED_PROMPT": 1
+      }
+    },
     "AI_SUB_COMPONENT": {
       "export": "AI_SUB_COMPONENT",
       "module": "WAWebWamEnumAiSubComponent",
@@ -930,6 +938,7 @@
         "SMB_UPDATE_CATEGORY_BANNER": 34,
         "SMB_WELCOME": 2,
         "SQUID": 69,
+        "WEB_CALLING_ACTIVATION_BANNER": 125,
         "WEB_META_AI_GLASSES_CTA_BANNER": 97
       }
     },
@@ -2733,6 +2742,8 @@
         "AI_PROACTIVE_MESSAGE_UPDATED_FAILURE": 212,
         "AI_PROACTIVE_MESSAGE_UPDATED_SUCCESS": 211,
         "AI_PROACTIVE_MESSAGE_VIEW": 214,
+        "AI_QP_IMPRESSION": 285,
+        "AI_QP_TAP": 286,
         "AI_SCROLL_DEPTH_CHANGE": 221,
         "AI_TAB_CHARACTER_PREVIEWED": 109,
         "AI_TAB_CLICK": 103,
@@ -3972,6 +3983,7 @@
         "DEEP_LINK_SETTINGS_MEDIA_UPLOAD_QUALITY": 231,
         "DEEP_LINK_SETTINGS_RECOMMENDED_CHANNELS_NOTIFICATIONS": 186,
         "DEEP_LINK_SETTINGS_RINGTONES": 217,
+        "DEEP_LINK_SETTINGS_SCAM_ALERT": 258,
         "DEEP_LINK_SETTINGS_STORAGE_MANAGEMENT": 88,
         "DEEP_LINK_SET_ABOUT": 197,
         "DEEP_LINK_SG_CONNECT_BOTTOMSHEET": 172,
@@ -5995,6 +6007,7 @@
         "MESSAGE_QUICK_ACTION": 13,
         "MIMICRY": 18,
         "MIMICRY_ATTRIBUTION": 19,
+        "NONE": 28,
         "RETAKE_INLINE": 4,
         "SEARCH": 3,
         "SETTINGS": 2,
@@ -6205,6 +6218,7 @@
       "values": {
         "ACCEPT_EVENT_SHARING_TOS": 31,
         "CAMERA_PERMISSION_REQUEST_DIALOG_POP_UP": 45,
+        "CLICK_BUY_ON_WHATSAPP_TILE": 106,
         "CLICK_CONFIRM_PENDING_PAYMENT": 35,
         "CLICK_COPY_PAYMENT_KEY": 70,
         "CLICK_EVENT_SHARING_TOS": 30,
@@ -8259,6 +8273,7 @@
         "STATUS_MENTION_RESHARE": 55,
         "STATUS_NEWSLETTER_CARD": 46,
         "STATUS_POST_RESHARE": 86,
+        "STATUS_PRIVACY_SETTINGS": 134,
         "STATUS_PROMPT_RESPONSE": 90,
         "STATUS_QUESTION_ANSWER_POST_RESHARE": 102,
         "STATUS_REPLY_CAMERA_CAPTURE": 18,
@@ -9580,11 +9595,16 @@
       "export": "OFFLINE_PROCESS_STAGES",
       "module": "WAWebWamEnumOfflineProcessStages",
       "values": {
+        "BACKEND_START": 7,
+        "DB_INIT_FAILED": 8,
         "OFFLINE_PREVIEW": 3,
+        "OFFLINE_PUSH_DISABLED": 11,
+        "OFFLINE_PUSH_LIMIT_EXCEEDED": 10,
         "PAGE_LOAD": 1,
         "PROCESSING": 4,
         "PROCESS_COMPLETE": 5,
         "PROCESS_INTERRUPTED": 6,
+        "SERVICE_WORKER_VERSION_INVALID": 9,
         "SOCKET_CONNECT": 2
       }
     },
@@ -13113,6 +13133,7 @@
         "STATUS_CREATION_ENTRY_POINT": 22,
         "STATUS_DEEPLINK": 5,
         "STATUS_POST_RESHARE": 33,
+        "STATUS_PRIVACY_SETTINGS": 65,
         "STATUS_PROMPT_RESPONSE": 31,
         "STATUS_RESHARE": 16,
         "STATUS_TAB_CAMERA": 3,
@@ -13484,6 +13505,7 @@
         "STATUS_ADD_YOURS_AI_IMAGINE": 38,
         "STATUS_DEEPLINK": 14,
         "STATUS_POST_RESHARE": 32,
+        "STATUS_PRIVACY_SETTINGS": 64,
         "STATUS_PROMPT_RESPONSE": 22,
         "STATUS_RESHARE": 16,
         "STATUS_TAB": 2,
@@ -13568,6 +13590,7 @@
       "export": "STATUS_PRIVACY_SETTINGS_ACTION",
       "module": "WAWebWamEnumStatusPrivacySettingsAction",
       "values": {
+        "ADD_STATUS_CLICKED": 47,
         "ALLOW_FORWARDING_CLICKED": 9,
         "ALLOW_RESHARING_CLICKED": 8,
         "AUDIENCE_SELECTION_ENTRYPOINT_ADD_TO_CF_CLICKED": 41,
@@ -13691,6 +13714,15 @@
         "CLICK_REPORT": 0,
         "CLICK_SUBMIT_REPORT": 1,
         "CLICK_SUBMIT_REPORT_BLOCK": 3
+      }
+    },
+    "STATUS_REVOKE_DECRYPTION_FAILURE_ACTION": {
+      "export": "STATUS_REVOKE_DECRYPTION_FAILURE_ACTION",
+      "module": "WAWebWamEnumStatusRevokeDecryptionFailureAction",
+      "values": {
+        "DELAY_ACK": 1,
+        "DROP_ACK": 2,
+        "RETRY_RECEIPT": 3
       }
     },
     "STATUS_ROW_ENTRY_METHOD": {
@@ -18184,6 +18216,12 @@
           "id": 54,
           "type": "string"
         },
+        "aiQpSurface": {
+          "enum": "AI_QP_SURFACE_TYPE",
+          "falcoName": "ai_qp_surface",
+          "id": 55,
+          "type": "enum"
+        },
         "aiSessionId": {
           "falcoName": "ai_session_id",
           "id": 18,
@@ -18333,6 +18371,11 @@
           "falcoName": "metric_count",
           "id": 17,
           "type": "integer"
+        },
+        "newBadgeVisible": {
+          "falcoName": "new_badge_visible",
+          "id": 56,
+          "type": "boolean"
         },
         "promptTriggerPoint": {
           "enum": "PROMPT_TRIGGER_POINT",
@@ -20400,6 +20443,16 @@
         "ca2dAvsyncIn100msWindowPct": {
           "falcoName": "ca2d_avsync_in100ms_window_pct",
           "id": 3144,
+          "type": "number"
+        },
+        "ca2dAvsyncIn300msWindowPct": {
+          "falcoName": "ca2d_avsync_in300ms_window_pct",
+          "id": 3159,
+          "type": "number"
+        },
+        "ca2dAvsyncIn600msWindowPct": {
+          "falcoName": "ca2d_avsync_in600ms_window_pct",
+          "id": 3160,
           "type": "number"
         },
         "ca2dE2eNetworkDelayMs": {
@@ -39412,6 +39465,12 @@
           "enum": "STANZA_TYPE",
           "falcoName": "stanza_type",
           "id": 14,
+          "type": "enum"
+        },
+        "statusRevokeDecryptionFailureAction": {
+          "enum": "STATUS_REVOKE_DECRYPTION_FAILURE_ACTION",
+          "falcoName": "status_revoke_decryption_failure_action",
+          "id": 32,
           "type": "enum"
         },
         "traceIdInt": {
@@ -67035,7 +67094,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1046041993",
+  "waVersion": "2.3000.1046183720",
   "wireFormat": {
     "markers": {
       "event": 1,

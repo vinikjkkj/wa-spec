@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1046041993
+/// WhatsApp Version: 2.3000.1046183720
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2791,6 +2791,7 @@ message DeviceCapabilities {
         optional bool campaignSyncEnabled = 3;
         optional bool insightsSyncEnabled = 4;
         optional int32 recipientLimit = 5;
+        optional bool proCompanionSupportEnabled = 6;
     }
     message LIDMigration {
         optional uint64 chatDbMigrationTimestamp = 1;

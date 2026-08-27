@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046041993
+// WhatsApp Version: 2.3000.1046183720
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -471,6 +471,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'IMAGE_SINGLE': 1,
         'INLINE_HIGH_RES': 4,
         'INLINE_LOW_RES': 5
+        })
+    }),
+    AI_QP_SURFACE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumAiQpSurfaceType',
+        export: 'AI_QP_SURFACE_TYPE',
+        values: Object.freeze({
+        'HERO_CARD': 2,
+        'SUGGESTED_PROMPT': 1
         })
     }),
     AI_SUB_COMPONENT: Object.freeze({
@@ -984,6 +992,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_UPDATE_CATEGORY_BANNER': 34,
         'SMB_WELCOME': 2,
         'SQUID': 69,
+        'WEB_CALLING_ACTIVATION_BANNER': 125,
         'WEB_META_AI_GLASSES_CTA_BANNER': 97
         })
     }),
@@ -2787,6 +2796,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'AI_PROACTIVE_MESSAGE_UPDATED_FAILURE': 212,
         'AI_PROACTIVE_MESSAGE_UPDATED_SUCCESS': 211,
         'AI_PROACTIVE_MESSAGE_VIEW': 214,
+        'AI_QP_IMPRESSION': 285,
+        'AI_QP_TAP': 286,
         'AI_SCROLL_DEPTH_CHANGE': 221,
         'AI_TAB_CHARACTER_PREVIEWED': 109,
         'AI_TAB_CLICK': 103,
@@ -4026,6 +4037,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_SETTINGS_MEDIA_UPLOAD_QUALITY': 231,
         'DEEP_LINK_SETTINGS_RECOMMENDED_CHANNELS_NOTIFICATIONS': 186,
         'DEEP_LINK_SETTINGS_RINGTONES': 217,
+        'DEEP_LINK_SETTINGS_SCAM_ALERT': 258,
         'DEEP_LINK_SETTINGS_STORAGE_MANAGEMENT': 88,
         'DEEP_LINK_SET_ABOUT': 197,
         'DEEP_LINK_SG_CONNECT_BOTTOMSHEET': 172,
@@ -6049,6 +6061,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE_QUICK_ACTION': 13,
         'MIMICRY': 18,
         'MIMICRY_ATTRIBUTION': 19,
+        'NONE': 28,
         'RETAKE_INLINE': 4,
         'SEARCH': 3,
         'SETTINGS': 2,
@@ -6259,6 +6272,7 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'ACCEPT_EVENT_SHARING_TOS': 31,
         'CAMERA_PERMISSION_REQUEST_DIALOG_POP_UP': 45,
+        'CLICK_BUY_ON_WHATSAPP_TILE': 106,
         'CLICK_CONFIRM_PENDING_PAYMENT': 35,
         'CLICK_COPY_PAYMENT_KEY': 70,
         'CLICK_EVENT_SHARING_TOS': 30,
@@ -8313,6 +8327,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_MENTION_RESHARE': 55,
         'STATUS_NEWSLETTER_CARD': 46,
         'STATUS_POST_RESHARE': 86,
+        'STATUS_PRIVACY_SETTINGS': 134,
         'STATUS_PROMPT_RESPONSE': 90,
         'STATUS_QUESTION_ANSWER_POST_RESHARE': 102,
         'STATUS_REPLY_CAMERA_CAPTURE': 18,
@@ -9634,11 +9649,16 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumOfflineProcessStages',
         export: 'OFFLINE_PROCESS_STAGES',
         values: Object.freeze({
+        'BACKEND_START': 7,
+        'DB_INIT_FAILED': 8,
         'OFFLINE_PREVIEW': 3,
+        'OFFLINE_PUSH_DISABLED': 11,
+        'OFFLINE_PUSH_LIMIT_EXCEEDED': 10,
         'PAGE_LOAD': 1,
         'PROCESSING': 4,
         'PROCESS_COMPLETE': 5,
         'PROCESS_INTERRUPTED': 6,
+        'SERVICE_WORKER_VERSION_INVALID': 9,
         'SOCKET_CONNECT': 2
         })
     }),
@@ -13167,6 +13187,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_CREATION_ENTRY_POINT': 22,
         'STATUS_DEEPLINK': 5,
         'STATUS_POST_RESHARE': 33,
+        'STATUS_PRIVACY_SETTINGS': 65,
         'STATUS_PROMPT_RESPONSE': 31,
         'STATUS_RESHARE': 16,
         'STATUS_TAB_CAMERA': 3,
@@ -13538,6 +13559,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_ADD_YOURS_AI_IMAGINE': 38,
         'STATUS_DEEPLINK': 14,
         'STATUS_POST_RESHARE': 32,
+        'STATUS_PRIVACY_SETTINGS': 64,
         'STATUS_PROMPT_RESPONSE': 22,
         'STATUS_RESHARE': 16,
         'STATUS_TAB': 2,
@@ -13622,6 +13644,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumStatusPrivacySettingsAction',
         export: 'STATUS_PRIVACY_SETTINGS_ACTION',
         values: Object.freeze({
+        'ADD_STATUS_CLICKED': 47,
         'ALLOW_FORWARDING_CLICKED': 9,
         'ALLOW_RESHARING_CLICKED': 8,
         'AUDIENCE_SELECTION_ENTRYPOINT_ADD_TO_CF_CLICKED': 41,
@@ -13745,6 +13768,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLICK_REPORT': 0,
         'CLICK_SUBMIT_REPORT': 1,
         'CLICK_SUBMIT_REPORT_BLOCK': 3
+        })
+    }),
+    STATUS_REVOKE_DECRYPTION_FAILURE_ACTION: Object.freeze({
+        module: 'WAWebWamEnumStatusRevokeDecryptionFailureAction',
+        export: 'STATUS_REVOKE_DECRYPTION_FAILURE_ACTION',
+        values: Object.freeze({
+        'DELAY_ACK': 1,
+        'DROP_ACK': 2,
+        'RETRY_RECEIPT': 3
         })
     }),
     STATUS_ROW_ENTRY_METHOD: Object.freeze({
@@ -17341,6 +17373,7 @@ const WA_WAM_EVENTS = Object.freeze({
             aiDiscoveryTab: Object.freeze({ id: 4, type: 'string', falcoName: 'ai_discovery_tab' }),
             aiHomeQpPromotionId: Object.freeze({ id: 53, type: 'integer', falcoName: 'ai_home_qp_promotion_id' }),
             aiQpPromotionId: Object.freeze({ id: 54, type: 'string', falcoName: 'ai_qp_promotion_id' }),
+            aiQpSurface: Object.freeze({ id: 55, type: 'enum', enum: 'AI_QP_SURFACE_TYPE', falcoName: 'ai_qp_surface' }),
             aiSessionId: Object.freeze({ id: 18, type: 'string', falcoName: 'ai_session_id' }),
             aiVoiceOnSelectionDefault: Object.freeze({ id: 24, type: 'boolean', falcoName: 'ai_voice_on_selection_default' }),
             aiVoiceSelectionEnum: Object.freeze({ id: 25, type: 'string', falcoName: 'ai_voice_selection_enum' }),
@@ -17370,6 +17403,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isMetaAiCharacterBotChat: Object.freeze({ id: 9, type: 'boolean', falcoName: 'is_meta_ai_character_bot_chat' }),
             isUserCreatedAgent: Object.freeze({ id: 10, type: 'boolean', falcoName: 'is_user_created_agent' }),
             metricCount: Object.freeze({ id: 17, type: 'integer', falcoName: 'metric_count' }),
+            newBadgeVisible: Object.freeze({ id: 56, type: 'boolean', falcoName: 'new_badge_visible' }),
             promptTriggerPoint: Object.freeze({ id: 50, type: 'enum', enum: 'PROMPT_TRIGGER_POINT', falcoName: 'prompt_trigger_point' }),
             rawBotEntryPoint: Object.freeze({ id: 48, type: 'string', falcoName: 'raw_bot_entry_point' }),
             scrollDepth: Object.freeze({ id: 44, type: 'integer', falcoName: 'scroll_depth' }),
@@ -17873,6 +17907,8 @@ const WA_WAM_EVENTS = Object.freeze({
             ca2dAvsyncAbsDeltaMsP50: Object.freeze({ id: 3142, type: 'number', falcoName: 'ca2d_avsync_abs_delta_ms_p50' }),
             ca2dAvsyncAbsDeltaMsP95: Object.freeze({ id: 3143, type: 'number', falcoName: 'ca2d_avsync_abs_delta_ms_p95' }),
             ca2dAvsyncIn100msWindowPct: Object.freeze({ id: 3144, type: 'number', falcoName: 'ca2d_avsync_in100ms_window_pct' }),
+            ca2dAvsyncIn300msWindowPct: Object.freeze({ id: 3159, type: 'number', falcoName: 'ca2d_avsync_in300ms_window_pct' }),
+            ca2dAvsyncIn600msWindowPct: Object.freeze({ id: 3160, type: 'number', falcoName: 'ca2d_avsync_in600ms_window_pct' }),
             ca2dE2eNetworkDelayMs: Object.freeze({ id: 3080, type: 'number', falcoName: 'ca2d_e2e_network_delay_ms' }),
             ca2dEverConnected: Object.freeze({ id: 3077, type: 'boolean', falcoName: 'ca2d_ever_connected' }),
             ca2dExtensionAddFailureReason: Object.freeze({ id: 3067, type: 'enum', enum: 'CA2D_EXTENSION_ADD_FAILURE_REASON', falcoName: 'ca2d_extension_add_failure_reason' }),
@@ -22241,6 +22277,7 @@ const WA_WAM_EVENTS = Object.freeze({
             serverAddressingMode: Object.freeze({ id: 18, type: 'enum', enum: 'ADDRESSING_MODE', falcoName: 'server_addressing_mode' }),
             sessionScope: Object.freeze({ id: 28, type: 'enum', enum: 'SESSION_SCOPE_TYPE', falcoName: 'session_scope' }),
             stanzaType: Object.freeze({ id: 14, type: 'enum', enum: 'STANZA_TYPE', falcoName: 'stanza_type' }),
+            statusRevokeDecryptionFailureAction: Object.freeze({ id: 32, type: 'enum', enum: 'STATUS_REVOKE_DECRYPTION_FAILURE_ACTION', falcoName: 'status_revoke_decryption_failure_action' }),
             traceIdInt: Object.freeze({ id: 31, type: 'integer', falcoName: 'trace_id_int' }),
             typeOfGroup: Object.freeze({ id: 12, type: 'enum', enum: 'TYPE_OF_GROUP_ENUM', falcoName: 'type_of_group' })
         })

@@ -362,7 +362,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "28130302186627955",
+      "docId": "38493987773525432",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -385,7 +385,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "27842738475349462",
+      "docId": "38494231696826744",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -5294,38 +5294,6 @@
         "orgID": "string"
       }
     },
-    "OrgAdminGraphQLAddParticipants": {
-      "docId": "28037193722607495",
-      "operationKind": "mutation",
-      "originalName": "WAWebOrgAdminGraphQLAddParticipantsMutation",
-      "response": {
-        "xwa_org_managed_group_add_participants": {
-          "error_reason": "string",
-          "results": [
-            {
-              "lid": "string",
-              "phone_number": "string",
-              "status": "enum:SUCCESS"
-            }
-          ],
-          "status": "enum:SUCCESS"
-        }
-      },
-      "variables": [
-        "gid",
-        "orgID",
-        "participants",
-        "requestID"
-      ],
-      "variablesShape": {
-        "gid": "unknown",
-        "orgID": "string",
-        "participants": [
-          {}
-        ],
-        "requestID": "string"
-      }
-    },
     "OrgAdminGraphQLDirectory": {
       "docId": "29229928699940907",
       "operationKind": "query",
@@ -5474,43 +5442,7 @@
         "gid": "unknown",
         "memberTag": "unknown",
         "orgID": "unknown",
-        "participants": [
-          {}
-        ],
-        "query": "string",
-        "requestID": "unknown"
-      }
-    },
-    "OrgAdminGraphQLRemoveParticipants": {
-      "docId": "37624727843838622",
-      "operationKind": "mutation",
-      "originalName": "WAWebOrgAdminGraphQLRemoveParticipantsMutation",
-      "response": {
-        "xwa_org_managed_group_remove_participants": {
-          "error_reason": "string",
-          "results": [
-            {
-              "lid": "string",
-              "phone_number": "string",
-              "status": "enum:SUCCESS"
-            }
-          ],
-          "status": "string"
-        }
-      },
-      "variables": [
-        "gid",
-        "orgID",
-        "participants",
-        "requestID"
-      ],
-      "variablesShape": {
-        "gid": "unknown",
-        "orgID": "string",
-        "participants": [
-          {}
-        ],
-        "requestID": "string"
+        "query": "string"
       }
     },
     "PaymentsPasskeyHasCredential": {
@@ -6932,7 +6864,7 @@
       }
     },
     "WAMFlowsCTWAEditorModal": {
-      "docId": "35384424467839373",
+      "docId": "8362083050583453",
       "operationKind": "query",
       "originalName": "WAMFlowsCTWAEditorModalQuery",
       "response": {
@@ -6947,19 +6879,17 @@
         "adObjective",
         "businessName",
         "flowId",
-        "pageId",
         "skipRequest"
       ],
       "variablesShape": {
         "adObjective": "unknown",
         "businessName": "string",
         "flowId": "string",
-        "pageId": "string",
         "skipRequest": "boolean"
       }
     },
     "WAMFlowsCTWAFlowPreview": {
-      "docId": "27213838681613312",
+      "docId": "27840918535579934",
       "operationKind": "query",
       "originalName": "WAMFlowsCTWAFlowPreviewQuery",
       "response": {
@@ -6974,7 +6904,6 @@
         "businessName",
         "defaultCtaToGetStarted",
         "flowId",
-        "pageId",
         "skipRequest"
       ],
       "variablesShape": {
@@ -6982,7 +6911,6 @@
         "businessName": "string",
         "defaultCtaToGetStarted": "boolean",
         "flowId": "string",
-        "pageId": "string",
         "skipRequest": "boolean"
       }
     },
@@ -7265,5 +7193,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1046041993"
+  "waVersion": "2.3000.1046183720"
 }

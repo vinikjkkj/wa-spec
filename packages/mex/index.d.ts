@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046041993
+// WhatsApp Version: 2.3000.1046183720
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -166,13 +166,11 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly NewsletterQuestionResponseStateUpdate: WaMexPersistId
     readonly NewsletterUnpinMessages: WaMexPersistId
     readonly OrgAdminGraphQLAddGroup: WaMexPersistId
-    readonly OrgAdminGraphQLAddParticipants: WaMexPersistId
     readonly OrgAdminGraphQLDirectory: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
     readonly OrgAdminGraphQLManagedGroups: WaMexPersistId
     readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
-    readonly OrgAdminGraphQLRemoveParticipants: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
@@ -376,13 +374,11 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly NewsletterQuestionResponseStateUpdate: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'response_server_id', 'server_id', 'state']>
     readonly NewsletterUnpinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
     readonly OrgAdminGraphQLAddGroup: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID']>
-    readonly OrgAdminGraphQLAddParticipants: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID', 'participants', 'requestID']>
     readonly OrgAdminGraphQLDirectory: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLManagedGroups: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
-    readonly OrgAdminGraphQLRemoveParticipants: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID', 'participants', 'requestID']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
@@ -421,8 +417,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
     readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_username', 'input']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly WAMFlowsCTWAEditorModal: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'flowId', 'pageId', 'skipRequest']>
-    readonly WAMFlowsCTWAFlowPreview: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'pageId', 'skipRequest']>
+    readonly WAMFlowsCTWAEditorModal: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'flowId', 'skipRequest']>
+    readonly WAMFlowsCTWAFlowPreview: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']>
     readonly WaffleFXServiceDataQueryV2: WaMexOperationSchema<'mutation', readonly []>
     readonly WaffleFXWAMOUpdateUOOM: WaMexOperationSchema<'mutation', readonly []>
     readonly WaffleXE: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -1307,13 +1303,6 @@ export type WaMexOrgAdminGraphQLAddGroupVariables = {
     readonly orgID?: string
 }
 
-export type WaMexOrgAdminGraphQLAddParticipantsVariables = {
-    readonly gid?: unknown
-    readonly orgID?: string
-    readonly participants?: ReadonlyArray<Readonly<Record<string, unknown>>>
-    readonly requestID?: string
-}
-
 export type WaMexOrgAdminGraphQLDirectoryVariables = {
     readonly orgID?: string
 }
@@ -1341,16 +1330,7 @@ export type WaMexOrgAdminGraphQLOrgsVariables = {
     readonly gid?: unknown
     readonly memberTag?: unknown
     readonly orgID?: unknown
-    readonly participants?: ReadonlyArray<Readonly<Record<string, unknown>>>
     readonly query?: string
-    readonly requestID?: unknown
-}
-
-export type WaMexOrgAdminGraphQLRemoveParticipantsVariables = {
-    readonly gid?: unknown
-    readonly orgID?: string
-    readonly participants?: ReadonlyArray<Readonly<Record<string, unknown>>>
-    readonly requestID?: string
 }
 
 export type WaMexPaymentsPasskeyHasCredentialVariables = Readonly<Record<string, never>>
@@ -1626,7 +1606,6 @@ export type WaMexWAMFlowsCTWAEditorModalVariables = {
     readonly adObjective?: unknown
     readonly businessName?: string
     readonly flowId?: string
-    readonly pageId?: string
     readonly skipRequest?: boolean
 }
 
@@ -1635,7 +1614,6 @@ export type WaMexWAMFlowsCTWAFlowPreviewVariables = {
     readonly businessName?: string
     readonly defaultCtaToGetStarted?: boolean
     readonly flowId?: string
-    readonly pageId?: string
     readonly skipRequest?: boolean
 }
 
@@ -1835,13 +1813,11 @@ export interface WaMexOperationVariables {
     readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateVariables
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesVariables
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupVariables
-    readonly OrgAdminGraphQLAddParticipants: WaMexOrgAdminGraphQLAddParticipantsVariables
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsVariables
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
-    readonly OrgAdminGraphQLRemoveParticipants: WaMexOrgAdminGraphQLRemoveParticipantsVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
@@ -4943,18 +4919,6 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
     }
 }
 
-export type WaMexOrgAdminGraphQLAddParticipantsResponse = {
-    readonly xwa_org_managed_group_add_participants?: {
-        readonly error_reason?: string
-        readonly results?: ReadonlyArray<{
-            readonly lid?: string
-            readonly phone_number?: string
-            readonly status?: 'SUCCESS'
-        }>
-        readonly status?: 'SUCCESS'
-    }
-}
-
 export type WaMexOrgAdminGraphQLDirectoryResponse = {
     readonly xwa_org_admin_directory?: {
         readonly error_reason?: string
@@ -5028,18 +4992,6 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
             readonly member_count?: number
             readonly name?: string
         }>
-    }
-}
-
-export type WaMexOrgAdminGraphQLRemoveParticipantsResponse = {
-    readonly xwa_org_managed_group_remove_participants?: {
-        readonly error_reason?: string
-        readonly results?: ReadonlyArray<{
-            readonly lid?: string
-            readonly phone_number?: string
-            readonly status?: 'SUCCESS'
-        }>
-        readonly status?: string
     }
 }
 
@@ -6170,13 +6122,11 @@ export interface WaMexOperationResponses {
     readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateResponse
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesResponse
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupResponse
-    readonly OrgAdminGraphQLAddParticipants: WaMexOrgAdminGraphQLAddParticipantsResponse
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsResponse
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse
-    readonly OrgAdminGraphQLRemoveParticipants: WaMexOrgAdminGraphQLRemoveParticipantsResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
