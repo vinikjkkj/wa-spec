@@ -72,17 +72,21 @@ function printHelp() {
     )
 }
 
-// Reorder object keys alphabetically, in place, leaving array order alone.
+// Reorder object keys alphabetically, in place. Also sort `children` arrays by
+// tag.
 //
-// The IR is emitted in discovery order — the order attributes turn up in the
-// module body — so any code motion upstream reshuffles keys and rewrites
+// The IR is emitted in discovery order — the order attributes/children turn up
+// in the module body — so any code motion upstream reshuffles them and rewrites
 // whole blocks of the artifact. Between two consecutive daily builds that was
 // 1038 added / 341 removed lines where the real change was 682 added paths,
 // 341 removed and 32 altered; sorting cuts the removals to 121. Reviewing a
 // daily diff is what catches a bad extraction, so the noise has a cost.
 //
-// Array order is left untouched on purpose: the order of `children` in a
-// stanza is part of the schema, while attribute order never is.
+// `children` order is sorted too: WA matches children by tag, not by position,
+// so a stanza's child sequence carries no schema meaning — leaving it in
+// discovery order only produced churn (e.g. the `ack` user/meta pair swapping
+// places between builds). Ties (same tag repeated) fall back to a stable
+// stringified compare.
 //
 // In-place because the IR shares its nested objects with the structures the
 // .js and .d.ts emitters read, so reordering here reaches all three outputs.
@@ -92,6 +96,14 @@ function canonicaliseKeyOrder(node) {
         return node
     }
     if (!node || typeof node !== 'object') return node
+    if (Array.isArray(node.children)) {
+        node.children.sort((a, b) => {
+            const ta = (a && a.tag) || '', tb = (b && b.tag) || ''
+            if (ta !== tb) return ta < tb ? -1 : 1
+            const sa = JSON.stringify(a), sb = JSON.stringify(b)
+            return sa < sb ? -1 : sa > sb ? 1 : 0
+        })
+    }
     for (const k of Object.keys(node).sort()) {
         const v = node[k]
         delete node[k]
