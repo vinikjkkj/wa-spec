@@ -1222,6 +1222,14 @@
         "VOICE_CONVERSATION_STARTER": 4
       }
     },
+    "BOT_SESSION_TYPE": {
+      "export": "BOT_SESSION_TYPE",
+      "module": "WAWebWamEnumBotSessionType",
+      "values": {
+        "TEXT": 1,
+        "VOICE": 2
+      }
+    },
     "BOT_TYPE": {
       "export": "BOT_TYPE",
       "module": "WAWebWamEnumBotType",
@@ -15145,6 +15153,15 @@
         "TRASH_CAN_SELECTED": 1
       }
     },
+    "UNKNOWN_USER_RECOVERY_PATH": {
+      "export": "UNKNOWN_USER_RECOVERY_PATH",
+      "module": "WAWebWamEnumUnknownUserRecoveryPath",
+      "values": {
+        "LOCAL_HEAL": 2,
+        "NONE": 1,
+        "USYNC": 3
+      }
+    },
     "UNLOCK_ENTRY_POINT": {
       "export": "UNLOCK_ENTRY_POINT",
       "module": "WAWebWamEnumUnlockEntryPoint",
@@ -15440,6 +15457,7 @@
         "IG_WA_DEEPLINK": 11,
         "PIN_UPSELL_INTEGRITY_BANNER": 3,
         "PROFILE_SETTING": 2,
+        "SMB_ACCOUNT_LINKING": 15,
         "SMB_FB_USERNAME_RESERVATION": 7,
         "USERNAME_ACTIVATION_BANNER": 4,
         "USERNAME_KEY_UPSELL_PREACTIVATION_BANNER_WA": 13,
@@ -48216,6 +48234,12 @@
           "id": 73,
           "type": "integer"
         },
+        "botSessionType": {
+          "enum": "BOT_SESSION_TYPE",
+          "falcoName": "bot_session_type",
+          "id": 97,
+          "type": "enum"
+        },
         "botType": {
           "enum": "BOT_TYPE",
           "falcoName": "bot_type",
@@ -62982,6 +63006,12 @@
           "falcoName": "unknown_user_display_lid",
           "id": 9,
           "type": "string"
+        },
+        "unknownUserRecoveryPath": {
+          "enum": "UNKNOWN_USER_RECOVERY_PATH",
+          "falcoName": "unknown_user_recovery_path",
+          "id": 11,
+          "type": "enum"
         }
       },
       "id": 8524,
@@ -67094,7 +67124,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1046183720",
+  "waVersion": "2.3000.1046279073",
   "wireFormat": {
     "markers": {
       "event": 1,

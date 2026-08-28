@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046183720
+// WhatsApp Version: 2.3000.1046279073
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1274,6 +1274,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'VOICE': 2,
         'VOICE_BACKGROUND': 3,
         'VOICE_CONVERSATION_STARTER': 4
+        })
+    }),
+    BOT_SESSION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumBotSessionType',
+        export: 'BOT_SESSION_TYPE',
+        values: Object.freeze({
+        'TEXT': 1,
+        'VOICE': 2
         })
     }),
     BOT_TYPE: Object.freeze({
@@ -15199,6 +15207,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'TRASH_CAN_SELECTED': 1
         })
     }),
+    UNKNOWN_USER_RECOVERY_PATH: Object.freeze({
+        module: 'WAWebWamEnumUnknownUserRecoveryPath',
+        export: 'UNKNOWN_USER_RECOVERY_PATH',
+        values: Object.freeze({
+        'LOCAL_HEAL': 2,
+        'NONE': 1,
+        'USYNC': 3
+        })
+    }),
     UNLOCK_ENTRY_POINT: Object.freeze({
         module: 'WAWebWamEnumUnlockEntryPoint',
         export: 'UNLOCK_ENTRY_POINT',
@@ -15494,6 +15511,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'IG_WA_DEEPLINK': 11,
         'PIN_UPSELL_INTEGRITY_BANNER': 3,
         'PROFILE_SETTING': 2,
+        'SMB_ACCOUNT_LINKING': 15,
         'SMB_FB_USERNAME_RESERVATION': 7,
         'USERNAME_ACTIVATION_BANNER': 4,
         'USERNAME_KEY_UPSELL_PREACTIVATION_BANNER_WA': 13,
@@ -24828,6 +24846,7 @@ const WA_WAM_EVENTS = Object.freeze({
             agentEngagementType: Object.freeze({ id: 49, type: 'enum', enum: 'AGENT_ENGAGEMENT_ENUM_TYPE', falcoName: 'agent_engagement_type' }),
             appContext: Object.freeze({ id: 72, type: 'string', falcoName: 'app_context' }),
             appContextBitfield: Object.freeze({ id: 73, type: 'integer', falcoName: 'app_context_bitfield' }),
+            botSessionType: Object.freeze({ id: 97, type: 'enum', enum: 'BOT_SESSION_TYPE', falcoName: 'bot_session_type' }),
             botType: Object.freeze({ id: 55, type: 'enum', enum: 'BOT_TYPE', falcoName: 'bot_type' }),
             chatOrigins: Object.freeze({ id: 58, type: 'enum', enum: 'CHAT_ORIGINS_TYPE', falcoName: 'chat_origins' }),
             chatSessionId: Object.freeze({ id: 67, type: 'string', falcoName: 'chat_session_id' }),
@@ -29048,7 +29067,8 @@ const WA_WAM_EVENTS = Object.freeze({
             isFirstDisplay: Object.freeze({ id: 7, type: 'boolean', falcoName: 'is_first_display' }),
             jidType: Object.freeze({ id: 8, type: 'string', falcoName: 'jid_type' }),
             unknownUserDisplayContext: Object.freeze({ id: 1, type: 'string', falcoName: 'unknown_user_display_context' }),
-            unknownUserDisplayLid: Object.freeze({ id: 9, type: 'string', falcoName: 'unknown_user_display_lid' })
+            unknownUserDisplayLid: Object.freeze({ id: 9, type: 'string', falcoName: 'unknown_user_display_lid' }),
+            unknownUserRecoveryPath: Object.freeze({ id: 11, type: 'enum', enum: 'UNKNOWN_USER_RECOVERY_PATH', falcoName: 'unknown_user_recovery_path' })
         })
     }),
     VideoTranscoder: Object.freeze({

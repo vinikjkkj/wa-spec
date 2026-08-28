@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046183720
+// WhatsApp Version: 2.3000.1046279073
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -156,7 +156,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     OrgAdminGraphQLAddGroup: Object.freeze({ docId: '27409847525383193', clientDocId: '27409847525383193' }),
     OrgAdminGraphQLDirectory: Object.freeze({ docId: '29229928699940907', clientDocId: '29229928699940907' }),
     OrgAdminGraphQLGroup: Object.freeze({ docId: '28486573690950714', clientDocId: '28486573690950714' }),
-    OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28194704720124285', clientDocId: '28194704720124285' }),
+    OrgAdminGraphQLInviteMembers: Object.freeze({ docId: '27941953275465289', clientDocId: '27941953275465289' }),
+    OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28617119817893147', clientDocId: '28617119817893147' }),
     OrgAdminGraphQLMemberSearch: Object.freeze({ docId: '28398762773092863', clientDocId: '28398762773092863' }),
     OrgAdminGraphQLOrgs: Object.freeze({ docId: '29241904595398144', clientDocId: '29241904595398144' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
@@ -202,7 +203,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     WaffleFXServiceDataQueryV2: Object.freeze({ docId: '9475021792620702', clientDocId: '9475021792620702' }),
     WaffleFXWAMOUpdateUOOM: Object.freeze({ docId: '10031635203620145', clientDocId: '10031635203620145' }),
     WaffleXE: Object.freeze({ docId: '32172601809054525', clientDocId: '32172601809054525' }),
-    useFlowJSONValidationLibrary: Object.freeze({ docId: '32852437947703087', clientDocId: '32852437947703087' }),
+    useFlowJSONValidationLibrary: Object.freeze({ docId: '28029148793435928', clientDocId: '28029148793435928' }),
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
@@ -364,6 +365,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     OrgAdminGraphQLAddGroup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID']) }),
     OrgAdminGraphQLDirectory: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLGroup: Object.freeze({ operationKind: 'query', variables: Object.freeze(['gid', 'orgID']) }),
+    OrgAdminGraphQLInviteMembers: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['emails', 'orgID']) }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLMemberSearch: Object.freeze({ operationKind: 'query', variables: Object.freeze(['after', 'first', 'memberTag', 'orgID', 'query']) }),
     OrgAdminGraphQLOrgs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),

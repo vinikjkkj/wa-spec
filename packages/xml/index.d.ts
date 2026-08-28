@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046183720
+// WhatsApp Version: 2.3000.1046279073
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2829,7 +2829,7 @@ export interface WaXmlOperations {
                 readonly native_flow_name?: string
                 readonly notify?: string
                 readonly offline: number
-                readonly participant?: string
+                readonly participant: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -17724,7 +17724,7 @@ export interface WaXmlStanzas {
                     readonly native_flow_name?: string
                     readonly notify?: string
                     readonly offline: number
-                    readonly participant?: string
+                    readonly participant: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string

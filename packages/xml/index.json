@@ -7516,9 +7516,8 @@
                 "type": "int"
               },
               "participant": {
-                "arg": "y",
+                "arg": "i",
                 "direction": "both",
-                "optional": true,
                 "type": "deviceJid"
               },
               "peer_recipient_lid": {
@@ -7654,7 +7653,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -47649,7 +47648,7 @@
             "type": "int"
           },
           "id": {
-            "arg": "n.stanzaId",
+            "arg": "t.ackId",
             "direction": "out",
             "type": "stanzaId"
           },
@@ -47666,8 +47665,8 @@
             "type": "userJid"
           },
           "to": {
-            "arg": "n.from",
             "direction": "out",
+            "raw": "m(t.to)",
             "type": "jid"
           },
           "type": {
@@ -48988,9 +48987,8 @@
                 "type": "int"
               },
               "participant": {
-                "arg": "y",
+                "arg": "i",
                 "direction": "both",
-                "optional": true,
                 "type": "deviceJid"
               },
               "peer_recipient_lid": {
@@ -49126,7 +49124,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50079,7 +50077,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "S.id",
+                "arg": "_.id",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -50255,7 +50253,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -57075,5 +57073,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1046183720"
+  "waVersion": "2.3000.1046279073"
 }

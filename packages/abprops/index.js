@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046183720
+// WhatsApp Version: 2.3000.1046279073
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -232,6 +232,7 @@ const WA_ABPROPS = Object.freeze({
     aura_focus_lists_enabled: Object.freeze({ code: 32723, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_exclusion_enabled: Object.freeze({ code: 33928, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_schedule_enabled: Object.freeze({ code: 33413, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    aura_focus_lists_setup_enabled: Object.freeze({ code: 35805, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_group_reactions_blocking_enabled: Object.freeze({ code: 33522, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_kill_switch: Object.freeze({ code: 28345, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_media_offload_benefit_active: Object.freeze({ code: 29308, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -461,6 +462,7 @@ const WA_ABPROPS = Object.freeze({
     channels_admin_profiles_update_enabled: Object.freeze({ code: 23168, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_admin_reply_enabled: Object.freeze({ code: 7211, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_admin_reply_receiver_enabled: Object.freeze({ code: 7237, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_ai_at_enabled: Object.freeze({ code: 35799, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_album_receiver_enabled: Object.freeze({ code: 23809, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_album_sender_enabled: Object.freeze({ code: 23859, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_audio_files_display_waveform_enabled: Object.freeze({ code: 6996, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -763,6 +765,14 @@ const WA_ABPROPS = Object.freeze({
     enable_events_v2_invite_message_with_datetime: Object.freeze({ code: 32612, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_events_v2_on_companion: Object.freeze({ code: 30964, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_fmx_logging: Object.freeze({ code: 19893, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    enable_fmx_redesigned_bcc_for_metaverified_biz: Object.freeze({ code: 35819, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    enable_fmx_redesigned_bcc_for_suspicious_biz: Object.freeze({ code: 35818, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    enable_fmx_redesigned_bcc_for_tier0_biz: Object.freeze({ code: 35814, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    enable_fmx_redesigned_bcc_for_tier1_biz: Object.freeze({ code: 35813, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    enable_fmx_redesigned_bcc_for_tier2_biz: Object.freeze({ code: 35817, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    enable_fmx_redesigned_bcc_for_tier3_biz: Object.freeze({ code: 35816, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    enable_fmx_redesigned_bcc_for_unknown_tiered_biz: Object.freeze({ code: 35821, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    enable_fmx_redesigned_bcc_for_untiered_biz: Object.freeze({ code: 35820, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_force_voip_logging: Object.freeze({ code: 7300, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_fsa_save_as: Object.freeze({ code: 33783, type: "bool", defaultValue: false, debugDefaultValue: true }),
     enable_futureproof_galaxy_flow_message_for_business_numbers: Object.freeze({ code: 22311, type: "string", defaultValue: "", debugDefaultValue: "" }),
@@ -994,6 +1004,7 @@ const WA_ABPROPS = Object.freeze({
     hybrid_save_as_shared_buffer_enabled: Object.freeze({ code: 34993, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ignore_joinable_terminate_on_expired_offer: Object.freeze({ code: 11519, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ignore_one_to_one_terminate_in_group_call: Object.freeze({ code: 10273, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    im_a2ui_reply_quote_enabled: Object.freeze({ code: 35806, type: "bool", defaultValue: false, debugDefaultValue: true }),
     im_a2ui_require_bot_attribution: Object.freeze({ code: 34324, type: "bool", defaultValue: false, debugDefaultValue: true }),
     im_bloks_widget_enable: Object.freeze({ code: 25071, type: "bool", defaultValue: false, debugDefaultValue: true }),
     im_nfm_multi_step_form_killswitch: Object.freeze({ code: 28891, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1810,6 +1821,8 @@ const WA_ABPROPS = Object.freeze({
     wa_meta_one_launch_free_trial_enabled: Object.freeze({ code: 29290, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_meta_one_rollout_enabled: Object.freeze({ code: 28612, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_meta_one_subscription_notifications_enabled: Object.freeze({ code: 29866, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    wa_native_ads_web_add_media_dummy: Object.freeze({ code: 35872, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_native_ads_web_add_media_rollout: Object.freeze({ code: 35871, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_creation_dummy: Object.freeze({ code: 33640, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_creation_rollout: Object.freeze({ code: 33639, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_creation_rollout_no_exposure: Object.freeze({ code: 33752, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2387,6 +2400,8 @@ const WA_ABPROPS = Object.freeze({
     wmi_async_await_prep: Object.freeze({ code: 29197, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_async_await_prep_decrypt: Object.freeze({ code: 35094, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_jm_to_ts_m1: Object.freeze({ code: 32880, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wmi_jm_to_ts_queues: Object.freeze({ code: 35797, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wmi_jm_to_ts_rest: Object.freeze({ code: 35798, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_jm_to_ts_serviced: Object.freeze({ code: 34410, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_task_scheduler_second_step: Object.freeze({ code: 30276, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wmi_worker_scheduler_web: Object.freeze({ code: 27237, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4805,7 +4820,22 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     35752: "channels_quiz_option_reshuffle_enabled",
     35760: "ai_fbid_db_migration_version_pre_chatd",
     35771: "poll_add_option_creator_enabled",
-    35784: "br_payments_options_to_pay_sheet_enabled"
+    35784: "br_payments_options_to_pay_sheet_enabled",
+    35797: "wmi_jm_to_ts_queues",
+    35798: "wmi_jm_to_ts_rest",
+    35799: "channels_ai_at_enabled",
+    35805: "aura_focus_lists_setup_enabled",
+    35806: "im_a2ui_reply_quote_enabled",
+    35813: "enable_fmx_redesigned_bcc_for_tier1_biz",
+    35814: "enable_fmx_redesigned_bcc_for_tier0_biz",
+    35816: "enable_fmx_redesigned_bcc_for_tier3_biz",
+    35817: "enable_fmx_redesigned_bcc_for_tier2_biz",
+    35818: "enable_fmx_redesigned_bcc_for_suspicious_biz",
+    35819: "enable_fmx_redesigned_bcc_for_metaverified_biz",
+    35820: "enable_fmx_redesigned_bcc_for_untiered_biz",
+    35821: "enable_fmx_redesigned_bcc_for_unknown_tiered_biz",
+    35871: "wa_native_ads_web_add_media_rollout",
+    35872: "wa_native_ads_web_add_media_dummy"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

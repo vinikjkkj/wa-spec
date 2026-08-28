@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046183720
+// WhatsApp Version: 2.3000.1046279073
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -168,6 +168,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLAddGroup: WaMexPersistId
     readonly OrgAdminGraphQLDirectory: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
+    readonly OrgAdminGraphQLInviteMembers: WaMexPersistId
     readonly OrgAdminGraphQLManagedGroups: WaMexPersistId
     readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
@@ -376,6 +377,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLAddGroup: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLDirectory: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
+    readonly OrgAdminGraphQLInviteMembers: WaMexOperationSchema<'mutation', readonly ['emails', 'orgID']>
     readonly OrgAdminGraphQLManagedGroups: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
@@ -1312,6 +1314,11 @@ export type WaMexOrgAdminGraphQLGroupVariables = {
     readonly orgID?: string
 }
 
+export type WaMexOrgAdminGraphQLInviteMembersVariables = {
+    readonly emails?: ReadonlyArray<string>
+    readonly orgID?: string
+}
+
 export type WaMexOrgAdminGraphQLManagedGroupsVariables = {
     readonly orgID?: string
 }
@@ -1326,6 +1333,7 @@ export type WaMexOrgAdminGraphQLMemberSearchVariables = {
 
 export type WaMexOrgAdminGraphQLOrgsVariables = {
     readonly after?: string
+    readonly emails?: ReadonlyArray<string>
     readonly first?: number
     readonly gid?: unknown
     readonly memberTag?: unknown
@@ -1815,6 +1823,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupVariables
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
+    readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersVariables
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsVariables
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
@@ -4921,7 +4930,7 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
 
 export type WaMexOrgAdminGraphQLDirectoryResponse = {
     readonly xwa_org_admin_directory?: {
-        readonly error_reason?: string
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
         readonly member_tags?: ReadonlyArray<string>
         readonly members?: ReadonlyArray<{
             readonly display_name?: string
@@ -4953,13 +4962,25 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
     }
 }
 
+export type WaMexOrgAdminGraphQLInviteMembersResponse = {
+    readonly xwa_org_invite_members?: {
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly status?: 'SUCCESS'
+    }
+}
+
 export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
     readonly xwa_org_managed_groups?: {
-        readonly error_reason?: string
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
         readonly groups?: ReadonlyArray<{
             readonly creation_timestamp_s?: unknown
             readonly gid?: unknown
             readonly participant_count?: number
+            readonly participants?: ReadonlyArray<{
+                readonly lid?: string
+                readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+            }>
+            readonly roster_partial?: unknown
             readonly subject?: string
         }>
         readonly status?: 'SUCCESS'
@@ -6124,6 +6145,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupResponse
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
+    readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersResponse
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsResponse
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse

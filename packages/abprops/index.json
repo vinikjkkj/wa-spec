@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2387,
+  "propCount": 2402,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -1447,6 +1447,12 @@
     "aura_focus_lists_schedule_enabled": {
       "code": 33413,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "aura_focus_lists_setup_enabled": {
+      "code": 35805,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -2821,6 +2827,12 @@
     "channels_admin_reply_receiver_enabled": {
       "code": 7237,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channels_ai_at_enabled": {
+      "code": 35799,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -4636,6 +4648,54 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "enable_fmx_redesigned_bcc_for_metaverified_biz": {
+      "code": 35819,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_suspicious_biz": {
+      "code": 35818,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_tier0_biz": {
+      "code": 35814,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_tier1_biz": {
+      "code": 35813,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_tier2_biz": {
+      "code": 35817,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_tier3_biz": {
+      "code": 35816,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_unknown_tiered_biz": {
+      "code": 35821,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_fmx_redesigned_bcc_for_untiered_biz": {
+      "code": 35820,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "enable_force_voip_logging": {
       "code": 7300,
       "debugDefaultValue": false,
@@ -6019,6 +6079,12 @@
     "ignore_one_to_one_terminate_in_group_call": {
       "code": 10273,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "im_a2ui_reply_quote_enabled": {
+      "code": 35806,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -10918,6 +10984,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_native_ads_web_add_media_dummy": {
+      "code": 35872,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_native_ads_web_add_media_rollout": {
+      "code": 35871,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_native_ads_web_creation_dummy": {
       "code": 33640,
       "debugDefaultValue": false,
@@ -14380,6 +14458,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wmi_jm_to_ts_queues": {
+      "code": 35797,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wmi_jm_to_ts_rest": {
+      "code": 35798,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wmi_jm_to_ts_serviced": {
       "code": 34410,
       "debugDefaultValue": false,
@@ -14454,5 +14544,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046183720"
+  "waVersion": "2.3000.1046279073"
 }

@@ -5300,7 +5300,7 @@
       "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
       "response": {
         "xwa_org_admin_directory": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "member_tags": [
             "string"
           ],
@@ -5356,18 +5356,46 @@
         "orgID": "string"
       }
     },
+    "OrgAdminGraphQLInviteMembers": {
+      "docId": "27941953275465289",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLInviteMembersMutation",
+      "response": {
+        "xwa_org_invite_members": {
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "emails",
+        "orgID"
+      ],
+      "variablesShape": {
+        "emails": [
+          "string"
+        ],
+        "orgID": "string"
+      }
+    },
     "OrgAdminGraphQLManagedGroups": {
-      "docId": "28194704720124285",
+      "docId": "28617119817893147",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
         "xwa_org_managed_groups": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "groups": [
             {
               "creation_timestamp_s": "unknown",
               "gid": "unknown",
               "participant_count": "number",
+              "participants": [
+                {
+                  "lid": "string",
+                  "role": "enum:ADMIN|CREATOR|SUPERADMIN"
+                }
+              ],
+              "roster_partial": "unknown",
               "subject": "string"
             }
           ],
@@ -5438,6 +5466,9 @@
       "variables": [],
       "variablesShape": {
         "after": "string",
+        "emails": [
+          "string"
+        ],
         "first": "number",
         "gid": "unknown",
         "memberTag": "unknown",
@@ -7003,7 +7034,7 @@
       }
     },
     "useFlowJSONValidationLibrary": {
-      "docId": "32852437947703087",
+      "docId": "28029148793435928",
       "operationKind": "query",
       "originalName": "useFlowJSONValidationLibraryQuery",
       "response": {
@@ -7193,5 +7224,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1046183720"
+  "waVersion": "2.3000.1046279073"
 }
