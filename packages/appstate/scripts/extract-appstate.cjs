@@ -467,7 +467,16 @@ function extractHandler(moduleName, bundles, syncdConst, valueTypes, messageEnum
 
     // Prototype methods: `i.getAction = function(){ return X("WASyncdConst").Actions.<KEY> }`
     const actionKey = extractActionKey(fb)
-    const versionRaw = extractVersion(fb)
+    // getVersion is a prototype method that sits AFTER getAction in the class.
+    // The IIFE funcBody isolation (findHandlerClassBody) occasionally ends a
+    // touch short on some minifier builds — keeping the earlier methods
+    // (constructor collectionName, getAction) but clipping getVersion, which
+    // surfaced as the `version` field flickering null↔N across daily builds
+    // while every other field stayed intact. There is exactly one handler per
+    // module and `getVersion=function(){return …}` is a unique definition, so
+    // falling back to the full module body is safe and removes the dependency
+    // on precise funcBody boundaries.
+    const versionRaw = extractVersion(fb) ?? extractVersion(body)
     const version = resolveVersion(versionRaw, syncdConst.constants)
 
     const valueField = extractValueField(fb)
