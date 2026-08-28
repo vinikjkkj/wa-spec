@@ -2240,6 +2240,21 @@ function extractRpc(moduleName, moduleIndex, mixinMemo, parseFnTraced, diagnosti
 // Public entry point.
 // ---------------------------------------------------------------------------
 
+// Operation key from the WA module name — the unique, inlining-invariant
+// identity WA registers each RPC / request builder under. Strips the framework
+// affixes: `WASmaxMessageDeliverPeerRPC` → `MessageDeliverPeer`,
+// `WASmaxOutPingsClientRequest` → `PingsClient`. Preferred over the
+// `errorMessageRpcParsing("…")` label for the map key because that label is a
+// coarse tag shared across sibling RPCs (and only present when inlined), which
+// conflated distinct operations and churned daily.
+function moduleKey(moduleName) {
+    return moduleName
+        .replace(/^WASmaxOut/, '')
+        .replace(/^WASmax/, '')
+        .replace(/RPC$/, '')
+        .replace(/Request$/, '')
+}
+
 function extractXml(bundles) {
     const moduleIndex = buildModuleIndex(bundles)
     const mixinMemo = new Map()
@@ -2269,27 +2284,18 @@ function extractXml(bundles) {
                 continue
             }
             if (op.request?.module) consumedRequestModules.add(op.request.module)
-            // Disambiguate opName collisions. The `errorMessageRpcParsing(...)`
-            // string the bundle uses is occasionally the same across two RPCs
-            // (e.g. `WASmaxMessagePublishNewsletterRPC` and
-            // `WASmaxMessageDeliverNewsletterRPC` both throw `"Newsletter"`).
-            // When that happens we synthesise a unique key by prepending the
-            // distinguishing module suffix (`Publish` / `Deliver`).
-            let key = op.opName
+            // Key by the module name (unique + inlining-stable + faithful to
+            // the distinct RPC WA ships). `op.opName` keeps the
+            // errorMessageRpcParsing label as metadata — but that label is a
+            // coarse tag shared across sibling RPCs (several *Peer* RPCs all
+            // label themselves "Peer"), and only present when inlined, so keying
+            // by it conflated distinct operations and reshuffled the whole op
+            // map daily. Module names never collide; the guard is defensive.
+            let key = moduleKey(op.module)
             if (operations[key]) {
-                const prior = operations[key]
-                const priorPrefix = uniquePrefix(prior.module, op.module)
-                const newPrefix = uniquePrefix(op.module, prior.module)
-                if (priorPrefix && newPrefix && priorPrefix !== newPrefix) {
-                    // Re-key the prior op under its prefix-disambiguated name,
-                    // then place the new one under its own.
-                    operations[`${priorPrefix}${op.opName}`] = prior
-                    delete operations[key]
-                    key = `${newPrefix}${op.opName}`
-                } else {
-                    // Last-resort: append the module name suffix.
-                    key = `${op.opName}_${op.module.replace(/RPC$/, '')}`
-                }
+                let n = 2
+                while (operations[`${key}_${n}`]) n++
+                key = `${key}_${n}`
             }
             operations[key] = op
             diagnostics.rpcExtracted++
@@ -2332,14 +2338,14 @@ function extractXml(bundles) {
                 const sendExport = opMod.factoryBody.match(/\bl\.make([A-Z]\w*?)Request\s*=/)
                 if (sendExport) opName = sendExport[1]
             }
-            // Disambiguate opName against existing operations using the
-            // same prefix-discovery logic the RPC pass uses for collisions.
-            let key = opName
+            // Key by the module name (stable + unique); `opName` stays as the
+            // WA-derived label metadata. Guard against the rare case an orphan
+            // request builder resolves to the same key as an RPC.
+            let key = moduleKey(name)
             if (operations[key]) {
-                const prior = operations[key]
-                const newPrefix = uniquePrefix(name, prior.module)
-                if (newPrefix && newPrefix !== opName) key = `${newPrefix}${opName}`
-                else key = `${opName}_${name.replace(/Request$/, '').replace(/^WASmaxOut/, '')}`
+                let n = 2
+                while (operations[`${key}_${n}`]) n++
+                key = `${key}_${n}`
             }
             let xmlns = null, type_ = null
             if (reqResult.node?.attrs) {
@@ -2366,22 +2372,6 @@ function extractXml(bundles) {
     }
 
     return { operations, diagnostics }
-}
-
-// Given two RPC module names that collide on opName, return a short PascalCase
-// token that uniquely identifies `a` relative to `b` by walking back from the
-// `RPC` suffix and stopping at the first PascalCase segment that differs.
-// E.g. `WASmaxMessagePublishNewsletterRPC` vs `WASmaxMessageDeliverNewsletterRPC`
-//   → `Publish` (the diverging segment)
-function uniquePrefix(a, b) {
-    const stripA = a.replace(/^WASmax/, '').replace(/RPC$/, '')
-    const stripB = b.replace(/^WASmax/, '').replace(/RPC$/, '')
-    const partsA = stripA.split(/(?=[A-Z])/)
-    const partsB = stripB.split(/(?=[A-Z])/)
-    for (let i = 0; i < partsA.length; i++) {
-        if (partsA[i] !== partsB[i]) return partsA[i]
-    }
-    return null
 }
 
 module.exports = {
