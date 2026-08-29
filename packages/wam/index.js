@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046279073
+// WhatsApp Version: 2.3000.1046353041
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -992,6 +992,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'SMB_UPDATE_CATEGORY_BANNER': 34,
         'SMB_WELCOME': 2,
         'SQUID': 69,
+        'STATUS_OPT_IN_UPSELL_BANNER': 126,
         'WEB_CALLING_ACTIVATION_BANNER': 125,
         'WEB_META_AI_GLASSES_CTA_BANNER': 97
         })
@@ -2066,6 +2067,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'EXCHANGE_NONCE': 5,
         'FETCH_COMPANION_NONCE': 2,
         'FORWARD_NONCE_PRIMARY_TO_COMPANION': 3,
+        'LID_VALIDATION': 13,
         'RECEIVED_COMPANION_NONCE_FROM_PRIMARY': 4,
         'REQUEST_NONCE_FROM_PRIMARY': 1,
         'VALIDATE_ACCESS_TOKEN': 7
@@ -5379,6 +5381,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'GET_CATALOG': 1,
         'GET_CATEGORIES': 6,
         'GET_COLLECTIONS': 4,
+        'GET_ORDER_INFO': 12,
         'GET_PRODUCT': 2,
         'GET_PRODUCT_LIST': 3,
         'GET_PROMOTIONS': 8,
@@ -6728,6 +6731,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'LOBBY_ENTRY_POINT_TYPE',
         values: Object.freeze({
         'APP_TILE_CONTEXT_MENU': 23,
+        'CALLS_TAB_EMPTY_STATE': 45,
         'CALL_LINK_CALL_LOG': 12,
         'CALL_LINK_CREATE': 16,
         'CALL_LINK_CREATOR_PUSH_NOTIFICATION': 29,
@@ -10231,6 +10235,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'ACCOUNT_ROW': 308,
         'ADD_ACCOUNT_BUTTON': 234,
         'ADD_ACCOUNT_ROW': 307,
+        'ADD_AMOUNT_BUTTON': 386,
         'ADD_BUTTON': 212,
         'ADD_COUPON': 205,
         'ADD_CUSTOM_FIELD': 284,
@@ -15459,6 +15464,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'VIEW_INLINE_ERROR_USERNAME_TOO_LONG': 79,
         'VIEW_INLINE_ERROR_USERNAME_TOO_SHORT': 77,
         'VIEW_LEARN_MORE': 45,
+        'VIEW_LINK_ERROR_UPSELL_USE_CONSUMER': 94,
         'VIEW_LINK_ERROR_UPSELL_USE_FB': 51,
         'VIEW_LINK_ERROR_UPSELL_USE_FOA': 53,
         'VIEW_LINK_ERROR_UPSELL_USE_IG': 52,
@@ -16249,7 +16255,10 @@ const WA_WAM_ENUMS = Object.freeze({
         'CREATE_CHANNEL': 3,
         'FIND_CHANNELS': 4,
         'GO_TO_CALLS': 14,
+        'NEW_CALL_LINK': 15,
+        'OPEN_DIALER': 16,
         'PHOTO_VIDEO': 2,
+        'SCHEDULE_CALL': 17,
         'SEND_DOCUMENT': 10,
         'START_CALL': 13,
         'TEXT_STATUS': 1
@@ -16259,6 +16268,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumWebcQuickActionSurface',
         export: 'WEBC_QUICK_ACTION_SURFACE',
         values: Object.freeze({
+        'CALLS': 6,
         'CHANNELS': 2,
         'CHATS': 4,
         'COMMUNITY_NAVIGATION': 3,
@@ -16665,7 +16675,10 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALL_RINGTONE_LIST_ITEM': 13,
         'CHAT_PIN': 15,
         'CONTINUE_BUTTON': 21,
+        'CUSTOM_REACTIONS_LIST_ITEM': 40,
+        'DEFAULT_REACTION_SLOT': 42,
         'DISMISS_BUTTON': 19,
+        'EDIT_DEFAULT_REACTIONS': 41,
         'EXPLORE_BENEFITS': 10,
         'EXPLORE_BENEFITS_BUTTON': 12,
         'GET_META_ONE_BUSINESS': 39,
@@ -16688,6 +16701,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PREMIUM_STICKER': 30,
         'PREMIUM_STICKER_PACK': 29,
         'QUICK_PROMOTION_DEEPLINK': 27,
+        'RESET_DEFAULT_REACTIONS': 43,
         'SUBSCRIPTIONS_ENTRY_POINT': 20,
         'SUBSCRIPTIONS_ENTRY_POINT_LIST_ITEM': 7,
         'UNDO_BUTTON': 6,
@@ -16734,6 +16748,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHAT_PIN': 9,
         'CHAT_RINGTONE': 6,
         'CONVERSATION_THREAD': 13,
+        'CUSTOM_REACTIONS_SETTINGS': 37,
         'CUSTOM_URL': 16,
         'DEFAULT_RINGTONE': 5,
         'IMAGINE_INTENTS': 35,
@@ -16779,11 +16794,13 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHAT_LIST': 48,
         'CHAT_NOTIFICATION_SETTINGS': 11,
         'CHAT_RINGTONE': 12,
+        'CHAT_SETTINGS': 68,
         'CHAT_THREAD': 33,
         'CHAT_THREAD_IMAGINE': 37,
         'CHAT_THREAD_THINKING': 36,
         'CHAT_THREAD_VIDEO': 38,
         'CUSTOMER_LEAD_GEN': 51,
+        'CUSTOM_REACTIONS_SETTINGS': 69,
         'CUSTOM_URL': 18,
         'DEFAULT_NOTIFICATION_SETTINGS': 9,
         'DEFAULT_RINGTONE': 10,
@@ -16816,6 +16833,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PROMO_ELIGIBILITY_CHECK': 39,
         'PROTECTED_ACCOUNTS': 23,
         'QUICK_PROMOTION': 4,
+        'REACTION_KEYBOARD': 70,
         'SETTINGS': 1,
         'SMART_COMPOSER': 50,
         'STICKER_RECEIVED': 14,
@@ -16844,6 +16862,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'BIZ_AI_NEARING_LIMIT': 31,
         'CALL_RINGTONE_LIST_ITEM': 9,
         'CHAT_PIN': 10,
+        'CUSTOM_REACTIONS_LIST_ITEM': 34,
+        'EDIT_DEFAULT_REACTIONS': 35,
         'EDUCATION_CARD': 12,
         'EXPLORE_BENEFITS': 7,
         'GET_MORE_FOR_LESS': 23,
@@ -22859,8 +22879,10 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            appSessionId: Object.freeze({ id: 21, type: 'string', falcoName: 'app_session_id' }),
             bundleSendSource: Object.freeze({ id: 1, type: 'enum', enum: 'BUNDLE_SEND_SOURCE', falcoName: 'bundle_send_source' }),
             groupAddMemberEntryPoint: Object.freeze({ id: 17, type: 'enum', enum: 'ADD_MEMBERS_ENTRYPOINT_TYPE', falcoName: 'group_add_member_entry_point' }),
+            groupCreateEntryPoint: Object.freeze({ id: 20, type: 'enum', enum: 'GROUP_CREATE_ENTRY_POINT', falcoName: 'group_create_entry_point' }),
             groupHistoryMessagesCount: Object.freeze({ id: 2, type: 'integer', falcoName: 'group_history_messages_count' }),
             groupHistoryOutWindowPinsCount: Object.freeze({ id: 3, type: 'integer', falcoName: 'group_history_out_window_pins_count' }),
             groupHistoryPinsCount: Object.freeze({ id: 4, type: 'integer', falcoName: 'group_history_pins_count' }),

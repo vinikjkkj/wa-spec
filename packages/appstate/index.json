@@ -138,7 +138,7 @@
       "valueEnumFields": null,
       "valueField": "androidUnsupportedActions",
       "valueProtoType": "SyncActionValue.AndroidUnsupportedActions",
-      "version": null
+      "version": 4
     },
     "Archive": {
       "baseClass": "ChatMessageRangeSyncdActionBase",
@@ -160,7 +160,7 @@
       "valueEnumFields": null,
       "valueField": "archiveChatAction",
       "valueProtoType": "SyncActionValue.ArchiveChatAction",
-      "version": null
+      "version": 3
     },
     "AvatarUpdated": {
       "baseClass": "AccountSyncdActionBase",
@@ -220,7 +220,7 @@
       "valueEnumFields": null,
       "valueField": "botWelcomeRequestAction",
       "valueProtoType": "SyncActionValue.BotWelcomeRequestAction",
-      "version": null
+      "version": 2
     },
     "BusinessBroadcastCampaign": {
       "baseClass": "AccountSyncdActionBase",
@@ -495,7 +495,7 @@
       "valueEnumFields": null,
       "valueField": "deleteChatAction",
       "valueProtoType": "SyncActionValue.DeleteChatAction",
-      "version": null
+      "version": 6
     },
     "DeleteMessageForMe": {
       "baseClass": "MessageSyncdActionBase",
@@ -623,7 +623,7 @@
       "valueEnumFields": null,
       "valueField": "favoritesAction",
       "valueProtoType": "SyncActionValue.FavoritesAction",
-      "version": null
+      "version": 1
     },
     "InteractiveMessageAction": {
       "baseClass": "MessageSyncdActionBase",
@@ -713,7 +713,7 @@
       "valueEnumFields": null,
       "valueField": "labelAssociationAction",
       "valueProtoType": "SyncActionValue.LabelAssociationAction",
-      "version": null
+      "version": 3
     },
     "LabelReordering": {
       "baseClass": "AccountSyncdActionBase",
@@ -757,7 +757,7 @@
       "valueEnumFields": null,
       "valueField": "labelSublistAction",
       "valueProtoType": "SyncActionValue.LabelSublistAction",
-      "version": null
+      "version": 1
     },
     "LidContact": {
       "baseClass": "AccountSyncdActionBase",
@@ -841,7 +841,7 @@
       "valueEnumFields": null,
       "valueField": "markChatAsReadAction",
       "valueProtoType": "SyncActionValue.MarkChatAsReadAction",
-      "version": null
+      "version": 3
     },
     "MarketingMessage": {
       "baseClass": "AccountSyncdActionBase",
@@ -931,7 +931,7 @@
       "valueEnumFields": null,
       "valueField": "muteAction",
       "valueProtoType": "SyncActionValue.MuteAction",
-      "version": null
+      "version": 2
     },
     "NctSaltSync": {
       "baseClass": "AccountSyncdActionBase",
@@ -995,7 +995,7 @@
       "valueEnumFields": null,
       "valueField": "nuxAction",
       "valueProtoType": "SyncActionValue.NuxAction",
-      "version": null
+      "version": 7
     },
     "OutContact": {
       "baseClass": "AccountSyncdActionBase",
@@ -1077,7 +1077,7 @@
       "valueEnumFields": null,
       "valueField": "pinAction",
       "valueProtoType": "SyncActionValue.PinAction",
-      "version": null
+      "version": 5
     },
     "PnForLidChat": {
       "baseClass": "AccountSyncdActionBase",
@@ -1201,7 +1201,7 @@
       "valueEnumFields": null,
       "valueField": "keyExpiration",
       "valueProtoType": "SyncActionValue.KeyExpiration",
-      "version": null
+      "version": 3
     },
     "SettingPushName": {
       "baseClass": "AccountSyncdActionBase",
@@ -1480,5 +1480,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1046279073"
+  "waVersion": "2.3000.1046353041"
 }

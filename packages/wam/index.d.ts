@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046279073
+// WhatsApp Version: 2.3000.1046353041
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1101,6 +1101,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SMB_UPDATE_CATEGORY_BANNER': 34;
             readonly 'SMB_WELCOME': 2;
             readonly 'SQUID': 69;
+            readonly 'STATUS_OPT_IN_UPSELL_BANNER': 126;
             readonly 'WEB_CALLING_ACTIVATION_BANNER': 125;
             readonly 'WEB_META_AI_GLASSES_CTA_BANNER': 97
         }
@@ -2175,6 +2176,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'EXCHANGE_NONCE': 5;
             readonly 'FETCH_COMPANION_NONCE': 2;
             readonly 'FORWARD_NONCE_PRIMARY_TO_COMPANION': 3;
+            readonly 'LID_VALIDATION': 13;
             readonly 'RECEIVED_COMPANION_NONCE_FROM_PRIMARY': 4;
             readonly 'REQUEST_NONCE_FROM_PRIMARY': 1;
             readonly 'VALIDATE_ACCESS_TOKEN': 7
@@ -5488,6 +5490,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GET_CATALOG': 1;
             readonly 'GET_CATEGORIES': 6;
             readonly 'GET_COLLECTIONS': 4;
+            readonly 'GET_ORDER_INFO': 12;
             readonly 'GET_PRODUCT': 2;
             readonly 'GET_PRODUCT_LIST': 3;
             readonly 'GET_PROMOTIONS': 8;
@@ -6837,6 +6840,7 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'LOBBY_ENTRY_POINT_TYPE'
         readonly values: {
             readonly 'APP_TILE_CONTEXT_MENU': 23;
+            readonly 'CALLS_TAB_EMPTY_STATE': 45;
             readonly 'CALL_LINK_CALL_LOG': 12;
             readonly 'CALL_LINK_CREATE': 16;
             readonly 'CALL_LINK_CREATOR_PUSH_NOTIFICATION': 29;
@@ -10340,6 +10344,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ACCOUNT_ROW': 308;
             readonly 'ADD_ACCOUNT_BUTTON': 234;
             readonly 'ADD_ACCOUNT_ROW': 307;
+            readonly 'ADD_AMOUNT_BUTTON': 386;
             readonly 'ADD_BUTTON': 212;
             readonly 'ADD_COUPON': 205;
             readonly 'ADD_CUSTOM_FIELD': 284;
@@ -15568,6 +15573,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'VIEW_INLINE_ERROR_USERNAME_TOO_LONG': 79;
             readonly 'VIEW_INLINE_ERROR_USERNAME_TOO_SHORT': 77;
             readonly 'VIEW_LEARN_MORE': 45;
+            readonly 'VIEW_LINK_ERROR_UPSELL_USE_CONSUMER': 94;
             readonly 'VIEW_LINK_ERROR_UPSELL_USE_FB': 51;
             readonly 'VIEW_LINK_ERROR_UPSELL_USE_FOA': 53;
             readonly 'VIEW_LINK_ERROR_UPSELL_USE_IG': 52;
@@ -16358,7 +16364,10 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CREATE_CHANNEL': 3;
             readonly 'FIND_CHANNELS': 4;
             readonly 'GO_TO_CALLS': 14;
+            readonly 'NEW_CALL_LINK': 15;
+            readonly 'OPEN_DIALER': 16;
             readonly 'PHOTO_VIDEO': 2;
+            readonly 'SCHEDULE_CALL': 17;
             readonly 'SEND_DOCUMENT': 10;
             readonly 'START_CALL': 13;
             readonly 'TEXT_STATUS': 1
@@ -16368,6 +16377,7 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumWebcQuickActionSurface'
         readonly export: 'WEBC_QUICK_ACTION_SURFACE'
         readonly values: {
+            readonly 'CALLS': 6;
             readonly 'CHANNELS': 2;
             readonly 'CHATS': 4;
             readonly 'COMMUNITY_NAVIGATION': 3;
@@ -16774,7 +16784,10 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CALL_RINGTONE_LIST_ITEM': 13;
             readonly 'CHAT_PIN': 15;
             readonly 'CONTINUE_BUTTON': 21;
+            readonly 'CUSTOM_REACTIONS_LIST_ITEM': 40;
+            readonly 'DEFAULT_REACTION_SLOT': 42;
             readonly 'DISMISS_BUTTON': 19;
+            readonly 'EDIT_DEFAULT_REACTIONS': 41;
             readonly 'EXPLORE_BENEFITS': 10;
             readonly 'EXPLORE_BENEFITS_BUTTON': 12;
             readonly 'GET_META_ONE_BUSINESS': 39;
@@ -16797,6 +16810,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PREMIUM_STICKER': 30;
             readonly 'PREMIUM_STICKER_PACK': 29;
             readonly 'QUICK_PROMOTION_DEEPLINK': 27;
+            readonly 'RESET_DEFAULT_REACTIONS': 43;
             readonly 'SUBSCRIPTIONS_ENTRY_POINT': 20;
             readonly 'SUBSCRIPTIONS_ENTRY_POINT_LIST_ITEM': 7;
             readonly 'UNDO_BUTTON': 6;
@@ -16843,6 +16857,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CHAT_PIN': 9;
             readonly 'CHAT_RINGTONE': 6;
             readonly 'CONVERSATION_THREAD': 13;
+            readonly 'CUSTOM_REACTIONS_SETTINGS': 37;
             readonly 'CUSTOM_URL': 16;
             readonly 'DEFAULT_RINGTONE': 5;
             readonly 'IMAGINE_INTENTS': 35;
@@ -16888,11 +16903,13 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CHAT_LIST': 48;
             readonly 'CHAT_NOTIFICATION_SETTINGS': 11;
             readonly 'CHAT_RINGTONE': 12;
+            readonly 'CHAT_SETTINGS': 68;
             readonly 'CHAT_THREAD': 33;
             readonly 'CHAT_THREAD_IMAGINE': 37;
             readonly 'CHAT_THREAD_THINKING': 36;
             readonly 'CHAT_THREAD_VIDEO': 38;
             readonly 'CUSTOMER_LEAD_GEN': 51;
+            readonly 'CUSTOM_REACTIONS_SETTINGS': 69;
             readonly 'CUSTOM_URL': 18;
             readonly 'DEFAULT_NOTIFICATION_SETTINGS': 9;
             readonly 'DEFAULT_RINGTONE': 10;
@@ -16925,6 +16942,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PROMO_ELIGIBILITY_CHECK': 39;
             readonly 'PROTECTED_ACCOUNTS': 23;
             readonly 'QUICK_PROMOTION': 4;
+            readonly 'REACTION_KEYBOARD': 70;
             readonly 'SETTINGS': 1;
             readonly 'SMART_COMPOSER': 50;
             readonly 'STICKER_RECEIVED': 14;
@@ -16953,6 +16971,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'BIZ_AI_NEARING_LIMIT': 31;
             readonly 'CALL_RINGTONE_LIST_ITEM': 9;
             readonly 'CHAT_PIN': 10;
+            readonly 'CUSTOM_REACTIONS_LIST_ITEM': 34;
+            readonly 'EDIT_DEFAULT_REACTIONS': 35;
             readonly 'EDUCATION_CARD': 12;
             readonly 'EXPLORE_BENEFITS': 7;
             readonly 'GET_MORE_FOR_LESS': 23;
@@ -23500,8 +23520,10 @@ export declare const WA_WAM_EVENTS: {
         readonly requiredFields: readonly []
         readonly conditions: readonly []
         readonly fields: {
+            readonly appSessionId: { readonly id: 21; readonly type: 'string'; readonly falcoName: 'app_session_id' }
             readonly bundleSendSource: { readonly id: 1; readonly type: 'enum'; readonly enum: 'BUNDLE_SEND_SOURCE'; readonly falcoName: 'bundle_send_source' }
             readonly groupAddMemberEntryPoint: { readonly id: 17; readonly type: 'enum'; readonly enum: 'ADD_MEMBERS_ENTRYPOINT_TYPE'; readonly falcoName: 'group_add_member_entry_point' }
+            readonly groupCreateEntryPoint: { readonly id: 20; readonly type: 'enum'; readonly enum: 'GROUP_CREATE_ENTRY_POINT'; readonly falcoName: 'group_create_entry_point' }
             readonly groupHistoryMessagesCount: { readonly id: 2; readonly type: 'integer'; readonly falcoName: 'group_history_messages_count' }
             readonly groupHistoryOutWindowPinsCount: { readonly id: 3; readonly type: 'integer'; readonly falcoName: 'group_history_out_window_pins_count' }
             readonly groupHistoryPinsCount: { readonly id: 4; readonly type: 'integer'; readonly falcoName: 'group_history_pins_count' }
