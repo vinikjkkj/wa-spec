@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046353041
+// WhatsApp Version: 2.3000.1046375990
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -566,6 +566,7 @@ export declare const WA_ABPROPS: {
     readonly channels_questions_search_enabled: { readonly code: 24004; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly channels_quick_forwarding_button_mode: { readonly code: 7234; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly channels_quiz_option_reshuffle_enabled: { readonly code: 35752; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly channels_quiz_option_reshuffle_notice_enabled: { readonly code: 35906; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_quiz_receiving_enabled: { readonly code: 19778; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_quiz_sending_enabled: { readonly code: 19777; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_reactions_bottomsheet_tap_to_react_enabled: { readonly code: 7682; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1442,6 +1443,7 @@ export declare const WA_ABPROPS: {
     readonly report_call_replayer_id: { readonly code: 1834; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly report_to_admin_enabled: { readonly code: 3696; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly report_to_admin_kill_switch: { readonly code: 3695; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly retry_receipt_new_session_enabled: { readonly code: 35926; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly reuse_cached_certs_for_data_channel: { readonly code: 12913; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly reveal_username_non_linking_rejection_reason_enabled: { readonly code: 32910; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly rich_format_logging_enabled: { readonly code: 29428; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1885,6 +1887,7 @@ export declare const WA_ABPROPS: {
     readonly wa_web_bot_tos_check_refiniement: { readonly code: 28897; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_web_broadcast_disappearing_messages_fix: { readonly code: 31499; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_buttons_response_prop_removal_killswitch: { readonly code: 33817; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly wa_web_calling_call_user_journey_logging_enabled: { readonly code: 35896; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_calling_calls_tab_empty_state_update_enabled: { readonly code: 33154; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_calling_chat_empty_state_update_enabled: { readonly code: 33153; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_calling_chatlist_activation_banner_enabled: { readonly code: 34762; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2360,6 +2363,7 @@ export declare const WA_ABPROPS: {
     readonly web_voip_adaptive_sctp_prewarm: { readonly code: 32804; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_audio_capture_impl: { readonly code: 21688; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_audio_playback_impl: { readonly code: 21689; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
+    readonly web_voip_audio_playback_use_media_element_output: { readonly code: 35949; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_av_sync_debug_overlay: { readonly code: 31481; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_capture_video_rotation_type: { readonly code: 27973; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_deferred_boot_early_module_prefetch: { readonly code: 35091; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -4852,6 +4856,10 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 35821: "enable_fmx_redesigned_bcc_for_unknown_tiered_biz"
     readonly 35871: "wa_native_ads_web_add_media_rollout"
     readonly 35872: "wa_native_ads_web_add_media_dummy"
+    readonly 35896: "wa_web_calling_call_user_journey_logging_enabled"
+    readonly 35906: "channels_quiz_option_reshuffle_notice_enabled"
+    readonly 35926: "retry_receipt_new_session_enabled"
+    readonly 35949: "web_voip_audio_playback_use_media_element_output"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

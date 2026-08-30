@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046353041
+// WhatsApp Version: 2.3000.1046375990
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -547,6 +547,7 @@ const WA_ABPROPS = Object.freeze({
     channels_questions_search_enabled: Object.freeze({ code: 24004, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_quick_forwarding_button_mode: Object.freeze({ code: 7234, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     channels_quiz_option_reshuffle_enabled: Object.freeze({ code: 35752, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_quiz_option_reshuffle_notice_enabled: Object.freeze({ code: 35906, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_quiz_receiving_enabled: Object.freeze({ code: 19778, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_quiz_sending_enabled: Object.freeze({ code: 19777, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_reactions_bottomsheet_tap_to_react_enabled: Object.freeze({ code: 7682, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1423,6 +1424,7 @@ const WA_ABPROPS = Object.freeze({
     report_call_replayer_id: Object.freeze({ code: 1834, type: "bool", defaultValue: false, debugDefaultValue: false }),
     report_to_admin_enabled: Object.freeze({ code: 3696, type: "bool", defaultValue: false, debugDefaultValue: true }),
     report_to_admin_kill_switch: Object.freeze({ code: 3695, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    retry_receipt_new_session_enabled: Object.freeze({ code: 35926, type: "bool", defaultValue: false, debugDefaultValue: true }),
     reuse_cached_certs_for_data_channel: Object.freeze({ code: 12913, type: "bool", defaultValue: false, debugDefaultValue: true }),
     reveal_username_non_linking_rejection_reason_enabled: Object.freeze({ code: 32910, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rich_format_logging_enabled: Object.freeze({ code: 29428, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1866,6 +1868,7 @@ const WA_ABPROPS = Object.freeze({
     wa_web_bot_tos_check_refiniement: Object.freeze({ code: 28897, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wa_web_broadcast_disappearing_messages_fix: Object.freeze({ code: 31499, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_buttons_response_prop_removal_killswitch: Object.freeze({ code: 33817, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_web_calling_call_user_journey_logging_enabled: Object.freeze({ code: 35896, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_calling_calls_tab_empty_state_update_enabled: Object.freeze({ code: 33154, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_calling_chat_empty_state_update_enabled: Object.freeze({ code: 33153, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_calling_chatlist_activation_banner_enabled: Object.freeze({ code: 34762, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2341,6 +2344,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_adaptive_sctp_prewarm: Object.freeze({ code: 32804, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_audio_capture_impl: Object.freeze({ code: 21688, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_audio_playback_impl: Object.freeze({ code: 21689, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    web_voip_audio_playback_use_media_element_output: Object.freeze({ code: 35949, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_av_sync_debug_overlay: Object.freeze({ code: 31481, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_capture_video_rotation_type: Object.freeze({ code: 27973, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_deferred_boot_early_module_prefetch: Object.freeze({ code: 35091, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4835,7 +4839,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     35820: "enable_fmx_redesigned_bcc_for_untiered_biz",
     35821: "enable_fmx_redesigned_bcc_for_unknown_tiered_biz",
     35871: "wa_native_ads_web_add_media_rollout",
-    35872: "wa_native_ads_web_add_media_dummy"
+    35872: "wa_native_ads_web_add_media_dummy",
+    35896: "wa_web_calling_call_user_journey_logging_enabled",
+    35906: "channels_quiz_option_reshuffle_notice_enabled",
+    35926: "retry_receipt_new_session_enabled",
+    35949: "web_voip_audio_playback_use_media_element_output"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2402,
+  "propCount": 2406,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -3336,6 +3336,12 @@
     },
     "channels_quiz_option_reshuffle_enabled": {
       "code": 35752,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channels_quiz_option_reshuffle_notice_enabled": {
+      "code": 35906,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8596,6 +8602,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "retry_receipt_new_session_enabled": {
+      "code": 35926,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "reuse_cached_certs_for_data_channel": {
       "code": 12913,
       "debugDefaultValue": true,
@@ -11250,6 +11262,12 @@
     },
     "wa_web_buttons_response_prop_removal_killswitch": {
       "code": 33817,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_calling_call_user_journey_logging_enabled": {
+      "code": 35896,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -14104,6 +14122,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "web_voip_audio_playback_use_media_element_output": {
+      "code": 35949,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_av_sync_debug_overlay": {
       "code": 31481,
       "debugDefaultValue": false,
@@ -14544,5 +14568,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046353041"
+  "waVersion": "2.3000.1046375990"
 }

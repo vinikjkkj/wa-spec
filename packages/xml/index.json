@@ -50077,7 +50077,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "t.id.id",
+                "arg": "e.stanzaId",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -55650,7 +55650,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "l",
+                "arg": "I",
                 "direction": "both",
                 "type": "jid"
               },
@@ -55910,7 +55910,7 @@
                 "arg": "a",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "userJid"
               },
               "peer_participant_pn": {
                 "arg": "l",
@@ -55941,12 +55941,13 @@
                 "type": "string"
               },
               "t": {
-                "arg": "Date.now().toString()",
+                "arg": "u",
                 "direction": "both",
+                "optional": true,
                 "type": "int"
               },
               "to": {
-                "arg": "l",
+                "arg": "I",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56141,7 +56142,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "l",
+                "arg": "I",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56400,7 +56401,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "l",
+                "arg": "I",
                 "direction": "both",
                 "type": "jid"
               },
@@ -57072,5 +57073,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1046353041"
+  "waVersion": "2.3000.1046375990"
 }
