@@ -56,20 +56,44 @@ const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
 const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
 
 // Find the parenthesised body of `__d("<name>", ...)` in any of the bundles.
+// Skips string/template literals when balancing parens: a stray `(`/`)` inside
+// a string otherwise unbalances the count, which either truncates the body
+// early (cutting off later prototype methods like getVersion → its schema
+// `version` silently became null while earlier fields survived) or over-runs
+// into unrelated modules. Both were observed in real bundles.
 function findModuleBody(bundles, modName) {
     const needle = `__d("${modName}"`
     for (const b of bundles) {
         const idx = b.text.indexOf(needle)
         if (idx === -1) continue
+        const t = b.text
         let depth = 0
-        for (let i = idx; i < b.text.length; i++) {
-            if (b.text[i] === '(') depth++
-            else if (b.text[i] === ')') {
-                if (--depth === 0) return { text: b.text.slice(idx, i + 1), bundle: b.url }
+        for (let i = idx; i < t.length; i++) {
+            const c = t[i]
+            if (c === '"' || c === "'" || c === '`') {
+                i = skipStringLiteral(t, i)
+                continue
+            }
+            if (c === '(') depth++
+            else if (c === ')') {
+                if (--depth === 0) return { text: t.slice(idx, i + 1), bundle: b.url }
             }
         }
     }
     return null
+}
+
+// Given `text[start]` is an opening quote, return the index of the matching
+// closing quote, honoring backslash escapes. Template literals are skipped to
+// their next unescaped backtick (no `${}` recursion — sufficient here).
+function skipStringLiteral(text, start) {
+    const q = text[start]
+    for (let i = start + 1; i < text.length; i++) {
+        const c = text[i]
+        if (c === '\\') { i++; continue }
+        if (c === q) return i
+    }
+    return text.length
 }
 
 // --- WASyncdConst: action key → wire name, collection key → wire name, constants ---
