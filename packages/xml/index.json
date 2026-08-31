@@ -47642,18 +47642,18 @@
             "type": "enum"
           },
           "error": {
-            "arg": "t.error",
+            "arg": "e.error",
             "direction": "out",
             "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "t.ackId",
+            "arg": "e.ackId",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(t.participant)",
+            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
             "direction": "out",
             "optional": true,
             "type": "deviceJid"
@@ -47666,7 +47666,7 @@
           },
           "to": {
             "direction": "out",
-            "raw": "m(t.to)",
+            "raw": "p(e.to)",
             "type": "jid"
           },
           "type": {
@@ -55571,12 +55571,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55619,7 +55619,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55640,7 +55640,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55650,7 +55650,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "I",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -55832,7 +55832,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "h",
+                    "arg": "y",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -55842,7 +55842,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "m",
+                    "arg": "p",
                     "direction": "out",
                     "type": "int"
                   },
@@ -55872,12 +55872,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55910,10 +55910,10 @@
                 "arg": "a",
                 "direction": "both",
                 "optional": true,
-                "type": "userJid"
+                "type": "deviceJid"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55924,7 +55924,7 @@
                 "value": "false"
               },
               "recipient": {
-                "arg": "E",
+                "arg": "I",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55935,19 +55935,18 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
               },
               "t": {
-                "arg": "u",
+                "arg": "Date.now().toString()",
                 "direction": "both",
-                "optional": true,
                 "type": "int"
               },
               "to": {
-                "arg": "I",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56055,12 +56054,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56111,7 +56110,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -56132,7 +56131,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56142,7 +56141,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "I",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56322,12 +56321,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56370,7 +56369,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -56391,7 +56390,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56401,7 +56400,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "I",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56583,7 +56582,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "h",
+                    "arg": "y",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -56593,7 +56592,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "m",
+                    "arg": "p",
                     "direction": "out",
                     "type": "int"
                   },
@@ -57073,5 +57072,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1046375990"
+  "waVersion": "2.3000.1046399105"
 }

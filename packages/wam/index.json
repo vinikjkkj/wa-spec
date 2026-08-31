@@ -15997,6 +15997,24 @@
         "SHOWED_PREVIEW_TO_USER": 1
       }
     },
+    "WEBC_EMAIL_INVITE_ACTION_TYPE": {
+      "export": "WEBC_EMAIL_INVITE_ACTION_TYPE",
+      "module": "WAWebWamEnumWebcEmailInviteActionType",
+      "values": {
+        "EMAIL_TYPING_START": 2,
+        "ENTRY_POINT_CLICK": 1,
+        "GMAIL_CLICK": 3,
+        "MAILTO_CLICK": 4
+      }
+    },
+    "WEBC_EMAIL_INVITE_ENTRY_POINT_TYPE": {
+      "export": "WEBC_EMAIL_INVITE_ENTRY_POINT_TYPE",
+      "module": "WAWebWamEnumWebcEmailInviteEntryPointType",
+      "values": {
+        "GROUP_INFO_EMAIL": 1,
+        "INTRO_PANEL_EMAIL": 2
+      }
+    },
     "WEBC_ENV_CODE": {
       "export": "WEBC_ENV_CODE",
       "module": "WAWebWamEnumWebcEnvCode",
@@ -36413,6 +36431,40 @@
       },
       "id": 3496,
       "module": "WAWebCommunityTabActionWamEvent",
+      "privateStatsIdInt": null,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
+    "CompanionEmailInviteAction": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_companion_email_invite_action",
+      "fields": {
+        "webcEmailInviteAction": {
+          "enum": "WEBC_EMAIL_INVITE_ACTION_TYPE",
+          "falcoName": "webc_email_invite_action",
+          "id": 1,
+          "type": "enum"
+        },
+        "webcEmailInviteCount": {
+          "falcoName": "webc_email_invite_count",
+          "id": 2,
+          "type": "integer"
+        },
+        "webcEmailInviteEntryPoint": {
+          "enum": "WEBC_EMAIL_INVITE_ENTRY_POINT_TYPE",
+          "falcoName": "webc_email_invite_entry_point",
+          "id": 3,
+          "type": "enum"
+        }
+      },
+      "id": 8576,
+      "module": "WAWebCompanionEmailInviteActionWamEvent",
       "privateStatsIdInt": null,
       "requiredFields": [],
       "weight": {
@@ -67155,7 +67207,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1046375990",
+  "waVersion": "2.3000.1046399105",
   "wireFormat": {
     "markers": {
       "event": 1,

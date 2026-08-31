@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046375990
+// WhatsApp Version: 2.3000.1046399105
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -16051,6 +16051,24 @@ const WA_WAM_ENUMS = Object.freeze({
         'SHOWED_PREVIEW_TO_USER': 1
         })
     }),
+    WEBC_EMAIL_INVITE_ACTION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumWebcEmailInviteActionType',
+        export: 'WEBC_EMAIL_INVITE_ACTION_TYPE',
+        values: Object.freeze({
+        'EMAIL_TYPING_START': 2,
+        'ENTRY_POINT_CLICK': 1,
+        'GMAIL_CLICK': 3,
+        'MAILTO_CLICK': 4
+        })
+    }),
+    WEBC_EMAIL_INVITE_ENTRY_POINT_TYPE: Object.freeze({
+        module: 'WAWebWamEnumWebcEmailInviteEntryPointType',
+        export: 'WEBC_EMAIL_INVITE_ENTRY_POINT_TYPE',
+        values: Object.freeze({
+        'GROUP_INFO_EMAIL': 1,
+        'INTRO_PANEL_EMAIL': 2
+        })
+    }),
     WEBC_ENV_CODE: Object.freeze({
         module: 'WAWebWamEnumWebcEnvCode',
         export: 'WEBC_ENV_CODE',
@@ -21437,6 +21455,21 @@ const WA_WAM_EVENTS = Object.freeze({
             communityTabToHomeViews: Object.freeze({ id: 2, type: 'integer', falcoName: 'community_tab_to_home_views' }),
             communityTabViews: Object.freeze({ id: 3, type: 'integer', falcoName: 'community_tab_views' }),
             communityTabViewsViaContextMenu: Object.freeze({ id: 5, type: 'integer', falcoName: 'community_tab_views_via_context_menu' })
+        })
+    }),
+    CompanionEmailInviteAction: Object.freeze({
+        id: 8576,
+        falcoName: 'wam_companion_email_invite_action',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            webcEmailInviteAction: Object.freeze({ id: 1, type: 'enum', enum: 'WEBC_EMAIL_INVITE_ACTION_TYPE', falcoName: 'webc_email_invite_action' }),
+            webcEmailInviteCount: Object.freeze({ id: 2, type: 'integer', falcoName: 'webc_email_invite_count' }),
+            webcEmailInviteEntryPoint: Object.freeze({ id: 3, type: 'enum', enum: 'WEBC_EMAIL_INVITE_ENTRY_POINT_TYPE', falcoName: 'webc_email_invite_entry_point' })
         })
     }),
     CompanionInviteContact: Object.freeze({
