@@ -587,15 +587,19 @@ function extractActionKey(fb) {
     // `i.getAction = function(){return <dep>("WASyncdConst").Actions.<KEY>}`
     const m = fb.match(
         new RegExp(
-            `\\bgetAction\\s*=\\s*function\\s*\\([^)]*\\)\\s*\\{\\s*return\\s+[A-Za-z_$][\\w$]*\\("(?:${SYNCD_CONST_ALT})"\\)\\.Actions\\.([A-Za-z_$][\\w$]*)`
+            `\\bgetAction\\s*=\\s*\\(?\\s*function\\s*\\([^)]*\\)\\s*\\{\\s*return\\s+[A-Za-z_$][\\w$]*\\("(?:${SYNCD_CONST_ALT})"\\)\\.Actions\\.([A-Za-z_$][\\w$]*)`
         )
     )
     return m ? m[1] : null
 }
 
 function extractVersion(fb) {
-    // `i.getVersion = function(){return <expr>}`
-    const m = fb.match(/\bgetVersion\s*=\s*function\s*\([^)]*\)\s*\{\s*return\s+([^;}]+)/)
+    // `i.getVersion = function(){return <expr>}` — the function expression is
+    // sometimes wrapped in parens (`=(function(){…})`), and the minifier applies
+    // that wrap inconsistently (often to getVersion but not the sibling
+    // getAction in the same class), which silently nulled `version` while every
+    // other field survived. Allow the optional wrapping `(`.
+    const m = fb.match(/\bgetVersion\s*=\s*\(?\s*function\s*\([^)]*\)\s*\{\s*return\s+([^;}]+)/)
     return m ? m[1].trim() : null
 }
 
