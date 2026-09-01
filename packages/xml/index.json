@@ -23263,8 +23263,9 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "c",
+                "arg": "O",
                 "direction": "both",
+                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -23376,7 +23377,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "d",
+                "arg": "V",
                 "direction": "both",
                 "type": "jid"
               },
@@ -47642,21 +47643,20 @@
             "type": "enum"
           },
           "error": {
-            "arg": "e.error",
+            "arg": "i",
             "direction": "out",
-            "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "e.ackId",
+            "arg": "r",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
+            "arg": "n",
             "direction": "out",
             "optional": true,
-            "type": "deviceJid"
+            "type": "userJid"
           },
           "recipient": {
             "arg": "r",
@@ -47665,8 +47665,8 @@
             "type": "userJid"
           },
           "to": {
+            "arg": "e",
             "direction": "out",
-            "raw": "p(e.to)",
             "type": "jid"
           },
           "type": {
@@ -49011,8 +49011,9 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "c",
+                "arg": "O",
                 "direction": "both",
+                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -49124,7 +49125,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "d",
+                "arg": "V",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50077,7 +50078,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "e.stanzaId",
+                "arg": "t.id.id",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -50150,8 +50151,9 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "c",
+                "arg": "O",
                 "direction": "both",
+                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -50252,7 +50254,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "d",
+                "arg": "V",
                 "direction": "both",
                 "type": "jid"
               },
@@ -55571,7 +55573,7 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
@@ -55650,7 +55652,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "l",
+                "arg": "D",
                 "direction": "both",
                 "type": "jid"
               },
@@ -55832,7 +55834,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "y",
+                    "arg": "h",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -55842,7 +55844,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "p",
+                    "arg": "m",
                     "direction": "out",
                     "type": "int"
                   },
@@ -55872,7 +55874,7 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
@@ -55907,10 +55909,10 @@
                 "type": "stanzaId"
               },
               "participant": {
-                "arg": "a",
+                "arg": "i",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "userJid"
               },
               "peer_participant_pn": {
                 "arg": "s",
@@ -55941,12 +55943,13 @@
                 "type": "string"
               },
               "t": {
-                "arg": "Date.now().toString()",
+                "arg": "d",
                 "direction": "both",
+                "optional": true,
                 "type": "int"
               },
               "to": {
-                "arg": "l",
+                "arg": "D",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56054,7 +56057,7 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
@@ -56141,7 +56144,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "l",
+                "arg": "D",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56321,7 +56324,7 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
@@ -56400,7 +56403,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "l",
+                "arg": "D",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56582,7 +56585,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "y",
+                    "arg": "h",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -56592,7 +56595,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "p",
+                    "arg": "m",
                     "direction": "out",
                     "type": "int"
                   },
@@ -57072,5 +57075,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1046399105"
+  "waVersion": "2.3000.1046509823"
 }

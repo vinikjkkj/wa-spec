@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046399105
+// WhatsApp Version: 2.3000.1046509823
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -8465,7 +8465,7 @@ export interface WaXmlOperations {
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
-                readonly phash: string
+                readonly phash?: string
                 readonly privacy_sensitive?: boolean
                 readonly push_priority: string
                 readonly recipient?: string
@@ -17340,7 +17340,7 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly error?: number
+                readonly error: number
                 readonly id: string
                 readonly participant?: string
                 readonly recipient?: string
@@ -17728,7 +17728,7 @@ export interface WaXmlStanzas {
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly phash: string
+                    readonly phash?: string
                     readonly privacy_sensitive?: boolean
                     readonly push_priority: string
                     readonly recipient?: string
@@ -18061,7 +18061,7 @@ export interface WaXmlStanzas {
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly phash: string
+                    readonly phash?: string
                     readonly privacy_sensitive?: boolean
                     readonly push_priority: string
                     readonly recipient: string
@@ -20056,7 +20056,7 @@ export interface WaXmlStanzas {
                     readonly recipient?: string
                     readonly server_id: number
                     readonly sts?: string
-                    readonly t: number
+                    readonly t?: number
                     readonly to: string
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
                 }

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1046399105
+/// WhatsApp Version: 2.3000.1046509823
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -606,6 +606,7 @@ message AIMediaCollectionMetadata {
 
 message AIMetadataOperation {
     optional HatchMetadataSync hatchMetadataSync = 1;
+    optional BizAIMetadataSync bizAiMetadataSync = 2;
 }
 
 message AIProvenance {
@@ -1069,6 +1070,25 @@ message BackwardEdge {
     optional bytes encryptedPrevEpochAnonId = 1;
     optional bytes encryptedPrevEpochRootKey = 2;
     optional bytes prevEpochRootKeyFingerprint = 3;
+}
+
+message BizAIMetadataSync {
+    oneof operation {
+        ServerEvent serverEvent = 1;
+    }
+    message ServerEvent {
+        oneof event {
+            ProtocolEvent protocolEvent = 1;
+            AgentOnboardingStarted agentOnboardingStarted = 2;
+        }
+        enum ProtocolEvent {
+            UNSPECIFIED = 0;
+            AGENT_CHAT_READY = 1;
+        }
+        message AgentOnboardingStarted {
+            optional int64 composerBlockDurationSecs = 1;
+        }
+    }
 }
 
 message BizAccountLinkInfo {
@@ -1866,30 +1886,9 @@ message ClientPayload {
     optional bytes paddingBytes = 34;
     optional int32 yearClass = 36;
     optional int32 memClass = 37;
-    optional InteropData interopData = 38;
-    optional TrafficAnonymization trafficAnonymization = 40;
-    optional bool lidDbMigrated = 41;
-    optional AccountType accountType = 42;
-    optional sfixed32 connectionSequenceInfo = 43;
-    optional bool paaLink = 44;
-    optional int32 preacksCount = 45;
-    optional int32 processingQueueSize = 46;
-    repeated string pairedPeripherals = 47;
-    optional bytes testIsolationId = 48;
-    enum TrafficAnonymization {
-        OFF = 0;
-        STANDARD = 1;
-    }
-    enum AccountType {
-        DEFAULT = 0;
-        GUEST = 1;
-    }
     enum Product {
         WHATSAPP = 0;
         MESSENGER = 1;
-        INTEROP = 2;
-        INTEROP_MSGR = 3;
-        WHATSAPP_LID = 4;
     }
     enum ConnectType {
         CELLULAR_UNKNOWN = 0;
@@ -1922,10 +1921,13 @@ message ClientPayload {
         SERVICE_EXTENSION = 1;
         INTENTS_EXTENSION = 2;
     }
-    message InteropData {
-        optional uint64 accountId = 1;
-        optional bytes token = 2;
-        optional bool enableReadReceipts = 3;
+    enum TrafficAnonymization {
+        OFF = 0;
+        STANDARD = 1;
+    }
+    enum AccountType {
+        DEFAULT = 0;
+        GUEST = 1;
     }
     message DevicePairingRegistrationData {
         optional bytes eRegid = 1;
@@ -1946,9 +1948,6 @@ message ClientPayload {
             HARDCODED = 2;
             OVERRIDE = 3;
             FALLBACK = 4;
-            MNS = 5;
-            MNS_SECONDARY = 6;
-            SOCKS_PROXY = 7;
         }
     }
     message WebInfo {
@@ -1956,15 +1955,12 @@ message ClientPayload {
         optional string version = 2;
         optional WebdPayload webdPayload = 3;
         optional WebSubPlatform webSubPlatform = 4;
-        optional string browser = 5;
-        optional string browserVersion = 6;
         enum WebSubPlatform {
             WEB_BROWSER = 0;
             APP_STORE = 1;
             WIN_STORE = 2;
             DARWIN = 3;
             WIN32 = 4;
-            WIN_HYBRID = 5;
         }
         message WebdPayload {
             optional bool usesParticipantInKey = 1;
@@ -1996,20 +1992,12 @@ message ClientPayload {
         optional string deviceBoard = 13;
         optional string deviceExpId = 14;
         optional DeviceType deviceType = 15;
-        optional string deviceModelType = 16;
-        optional DistributionChannel distributionChannel = 17;
         enum DeviceType {
             PHONE = 0;
             TABLET = 1;
             DESKTOP = 2;
             WEARABLE = 3;
             VR = 4;
-        }
-        enum DistributionChannel {
-            APPSTORE = 0;
-            WEBSITE = 1;
-            TESTFLIGHT = 2;
-            INTERNAL = 3;
         }
         enum ReleaseChannel {
             RELEASE = 0;
@@ -2054,9 +2042,12 @@ message ClientPayload {
             IPAD = 33;
             TEST = 34;
             SMART_GLASSES = 35;
-            BLUE_VR = 36;
-            AR_WRIST = 37;
-            WAIL = 38;
+        }
+        enum DistributionChannel {
+            APPSTORE = 0;
+            WEBSITE = 1;
+            TESTFLIGHT = 2;
+            INTERNAL = 3;
         }
         message AppVersion {
             optional uint32 primary = 1;
@@ -2065,6 +2056,11 @@ message ClientPayload {
             optional uint32 quaternary = 4;
             optional uint32 quinary = 5;
         }
+    }
+    message InteropData {
+        optional uint64 accountId = 1;
+        optional bytes token = 2;
+        optional bool enableReadReceipts = 3;
     }
 }
 
@@ -3328,29 +3324,16 @@ message HandshakeMessage {
     message ClientFinish {
         optional bytes static = 1;
         optional bytes payload = 2;
-        optional bytes extendedCiphertext = 3;
-        optional bytes paddedBytes = 4;
-        optional bool simulateXxkemFs = 5;
     }
     message ServerHello {
         optional bytes ephemeral = 1;
         optional bytes static = 2;
         optional bytes payload = 3;
-        optional bytes extendedStatic = 4;
-        optional bytes paddingBytes = 5;
-        optional bytes extendedCiphertext = 6;
     }
     message ClientHello {
         optional bytes ephemeral = 1;
         optional bytes static = 2;
         optional bytes payload = 3;
-        optional bool useExtended = 4;
-        optional bytes extendedCiphertext = 5;
-        optional bytes paddedBytes = 6;
-        optional bool sendServerHelloPaddedBytes = 7;
-        optional bool simulateXxkemFs = 8;
-        optional HandshakeMessage.HandshakePqMode pqMode = 9;
-        optional bytes extendedEphemeral = 10;
     }
 }
 
@@ -5579,6 +5562,7 @@ message MessageContextInfo {
     optional bytes teeBotMetadata = 17;
     optional NonE2EEAttestation accountEncryptionAttestation = 18;
     optional bytes associatedPrimaryIdentityKey = 19;
+    optional string teeContextAnchorMessageId = 20;
     enum MessageAddonExpiryType {
         STATIC = 1;
         DEPENDENT_ON_PARENT = 2;

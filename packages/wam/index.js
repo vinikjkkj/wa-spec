@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046399105
+// WhatsApp Version: 2.3000.1046509823
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -3983,6 +3983,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_PAYMENTS_PUSH_PROVISIONING': 65,
         'DEEP_LINK_PAYMENT_BRAZIL_BUYER': 90,
         'DEEP_LINK_PAYMENT_BRAZIL_MERCHANT': 89,
+        'DEEP_LINK_PAYMENT_BR_ADD_PIX_KEY': 261,
         'DEEP_LINK_PAYMENT_METRO_BOOKING_LIST': 227,
         'DEEP_LINK_PAYMENT_PIX_DEEP_INTEGRATION': 170,
         'DEEP_LINK_PAYMENT_REMITTANCE': 246,
@@ -5818,6 +5819,17 @@ const WA_WAM_ENUMS = Object.freeze({
         'NEW_INVITE': 5,
         'SESSION_REOPEN': 7,
         'VIDEO_CALL': 3
+        })
+    }),
+    HANDOFF_NOTIF_ACTION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumHandoffNotifActionType',
+        export: 'HANDOFF_NOTIF_ACTION_TYPE',
+        values: Object.freeze({
+        'NOTIF_CLICKED_BODY': 3,
+        'NOTIF_CLICKED_BUTTON_1': 4,
+        'NOTIF_CLICKED_BUTTON_2': 5,
+        'NOTIF_DELIVERED': 1,
+        'NOTIF_SHOWN': 2
         })
     }),
     HARMFUL_FILE_WARNING_CLICKTHROUGH_ACTION: Object.freeze({
@@ -9618,6 +9630,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_PROMPT_RESPONSE': 35,
         'STATUS_QUESTION_ANSWER_POST_RESHARE': 40,
         'STATUS_REACTION': 31,
+        'STICKER_ANNOTATION': 73,
         'STICKER_MESSAGE': 8,
         'STICKER_PACK_MESSAGE': 32,
         'TEXT_MESSAGE': 1,
@@ -14911,6 +14924,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CONTACT_SELECTION_SCREEN': 107,
         'CONTACT_VIEWER': 222,
         'CREATE_EVENT': 55,
+        'CTWA_MIDSTAGE_COMPOSER': 271,
         'CUSTOMIZE_NOTIFICATION_SETTING_PAGE': 94,
         'DELETE_CHAT': 227,
         'DELETE_MESSAGE': 224,
@@ -17335,6 +17349,23 @@ const WA_WAM_EVENTS = Object.freeze({
             bizAiErrorDetail: Object.freeze({ id: 3, type: 'string', falcoName: 'biz_ai_error_detail' }),
             bizAiMessageUuid: Object.freeze({ id: 8, type: 'string', falcoName: 'biz_ai_message_uuid' }),
             bizAiRenderOutcome: Object.freeze({ id: 4, type: 'enum', enum: 'BIZ_AI_RENDER_OUTCOME_TYPE', falcoName: 'biz_ai_render_outcome' })
+        })
+    }),
+    BizAiHandoffNotification: Object.freeze({
+        id: 6528,
+        falcoName: 'wam_biz_ai_handoff_notification',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            handoffNotifAction: Object.freeze({ id: 1, type: 'enum', enum: 'HANDOFF_NOTIF_ACTION_TYPE', falcoName: 'handoff_notif_action' }),
+            handoffNotifVersion: Object.freeze({ id: 2, type: 'integer', falcoName: 'handoff_notif_version' }),
+            handoffReason: Object.freeze({ id: 3, type: 'integer', falcoName: 'handoff_reason' }),
+            notificationId: Object.freeze({ id: 4, type: 'string', falcoName: 'notification_id' }),
+            threadId: Object.freeze({ id: 5, type: 'string', falcoName: 'thread_id' })
         })
     }),
     BizCatalogView: Object.freeze({
@@ -25851,7 +25882,9 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             actionTarget: Object.freeze({ id: 4, type: 'enum', enum: 'PAYMENT_ACTION_TARGETS', falcoName: 'action_target' }),
+            appSessionId: Object.freeze({ id: 50, type: 'string', falcoName: 'app_session_id' }),
             customPaymentMethodsSyncStatus: Object.freeze({ id: 48, type: 'enum', enum: 'CUSTOM_PAYMENT_METHODS_SYNC_STATUS', falcoName: 'custom_payment_methods_sync_status' }),
+            eventTsMs: Object.freeze({ id: 51, type: 'integer', falcoName: 'event_ts_ms' }),
             graphqlEndpointName: Object.freeze({ id: 49, type: 'string', falcoName: 'graphql_endpoint_name' }),
             merchantType: Object.freeze({ id: 43, type: 'enum', enum: 'MERCHANT_TYPE_TYPE', falcoName: 'merchant_type' }),
             p2mType: Object.freeze({ id: 44, type: 'enum', enum: 'P2M_TYPE_TYPE', falcoName: 'p2m_type' }),
@@ -25898,6 +25931,7 @@ const WA_WAM_EVENTS = Object.freeze({
             referral: Object.freeze({ id: 6, type: 'string', falcoName: 'referral' }),
             referralContext: Object.freeze({ id: 37, type: 'string', falcoName: 'referral_context' }),
             screen: Object.freeze({ id: 5, type: 'string', falcoName: 'screen' }),
+            unifiedSessionId: Object.freeze({ id: 52, type: 'string', falcoName: 'unified_session_id' }),
             upiPaymentsPspId: Object.freeze({ id: 8, type: 'enum', enum: 'UPI_PAYMENTS_PSP_ID_TYPE', falcoName: 'upi_payments_psp_id' })
         })
     }),

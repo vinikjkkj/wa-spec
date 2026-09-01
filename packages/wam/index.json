@@ -3929,6 +3929,7 @@
         "DEEP_LINK_PAYMENTS_PUSH_PROVISIONING": 65,
         "DEEP_LINK_PAYMENT_BRAZIL_BUYER": 90,
         "DEEP_LINK_PAYMENT_BRAZIL_MERCHANT": 89,
+        "DEEP_LINK_PAYMENT_BR_ADD_PIX_KEY": 261,
         "DEEP_LINK_PAYMENT_METRO_BOOKING_LIST": 227,
         "DEEP_LINK_PAYMENT_PIX_DEEP_INTEGRATION": 170,
         "DEEP_LINK_PAYMENT_REMITTANCE": 246,
@@ -5764,6 +5765,17 @@
         "NEW_INVITE": 5,
         "SESSION_REOPEN": 7,
         "VIDEO_CALL": 3
+      }
+    },
+    "HANDOFF_NOTIF_ACTION_TYPE": {
+      "export": "HANDOFF_NOTIF_ACTION_TYPE",
+      "module": "WAWebWamEnumHandoffNotifActionType",
+      "values": {
+        "NOTIF_CLICKED_BODY": 3,
+        "NOTIF_CLICKED_BUTTON_1": 4,
+        "NOTIF_CLICKED_BUTTON_2": 5,
+        "NOTIF_DELIVERED": 1,
+        "NOTIF_SHOWN": 2
       }
     },
     "HARMFUL_FILE_WARNING_CLICKTHROUGH_ACTION": {
@@ -9564,6 +9576,7 @@
         "STATUS_PROMPT_RESPONSE": 35,
         "STATUS_QUESTION_ANSWER_POST_RESHARE": 40,
         "STATUS_REACTION": 31,
+        "STICKER_ANNOTATION": 73,
         "STICKER_MESSAGE": 8,
         "STICKER_PACK_MESSAGE": 32,
         "TEXT_MESSAGE": 1,
@@ -14857,6 +14870,7 @@
         "CONTACT_SELECTION_SCREEN": 107,
         "CONTACT_VIEWER": 222,
         "CREATE_EVENT": 55,
+        "CTWA_MIDSTAGE_COMPOSER": 271,
         "CUSTOMIZE_NOTIFICATION_SETTING_PAGE": 94,
         "DELETE_CHAT": 227,
         "DELETE_MESSAGE": 224,
@@ -17962,6 +17976,49 @@
       },
       "id": 8490,
       "module": "WAWebBizAiComponentInteractionWamEvent",
+      "privateStatsIdInt": null,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
+    "BizAiHandoffNotification": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_biz_ai_handoff_notification",
+      "fields": {
+        "handoffNotifAction": {
+          "enum": "HANDOFF_NOTIF_ACTION_TYPE",
+          "falcoName": "handoff_notif_action",
+          "id": 1,
+          "type": "enum"
+        },
+        "handoffNotifVersion": {
+          "falcoName": "handoff_notif_version",
+          "id": 2,
+          "type": "integer"
+        },
+        "handoffReason": {
+          "falcoName": "handoff_reason",
+          "id": 3,
+          "type": "integer"
+        },
+        "notificationId": {
+          "falcoName": "notification_id",
+          "id": 4,
+          "type": "string"
+        },
+        "threadId": {
+          "falcoName": "thread_id",
+          "id": 5,
+          "type": "string"
+        }
+      },
+      "id": 6528,
+      "module": "WAWebBizAiHandoffNotificationWamEvent",
       "privateStatsIdInt": null,
       "requiredFields": [],
       "weight": {
@@ -51807,11 +51864,21 @@
           "id": 4,
           "type": "enum"
         },
+        "appSessionId": {
+          "falcoName": "app_session_id",
+          "id": 50,
+          "type": "string"
+        },
         "customPaymentMethodsSyncStatus": {
           "enum": "CUSTOM_PAYMENT_METHODS_SYNC_STATUS",
           "falcoName": "custom_payment_methods_sync_status",
           "id": 48,
           "type": "enum"
+        },
+        "eventTsMs": {
+          "falcoName": "event_ts_ms",
+          "id": 51,
+          "type": "integer"
         },
         "graphqlEndpointName": {
           "falcoName": "graphql_endpoint_name",
@@ -52052,6 +52119,11 @@
         "screen": {
           "falcoName": "screen",
           "id": 5,
+          "type": "string"
+        },
+        "unifiedSessionId": {
+          "falcoName": "unified_session_id",
+          "id": 52,
           "type": "string"
         },
         "upiPaymentsPspId": {
@@ -67207,7 +67279,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1046399105",
+  "waVersion": "2.3000.1046509823",
   "wireFormat": {
     "markers": {
       "event": 1,
