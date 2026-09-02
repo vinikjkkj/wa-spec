@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046509823
+// WhatsApp Version: 2.3000.1046607480
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -165,10 +165,12 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly NewsletterPinMessages: WaMexPersistId
     readonly NewsletterQuestionResponseStateUpdate: WaMexPersistId
     readonly NewsletterUnpinMessages: WaMexPersistId
+    readonly OrgAdminGraphQLAddChannel: WaMexPersistId
     readonly OrgAdminGraphQLAddGroup: WaMexPersistId
     readonly OrgAdminGraphQLDirectory: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
     readonly OrgAdminGraphQLInviteMembers: WaMexPersistId
+    readonly OrgAdminGraphQLManagedChannels: WaMexPersistId
     readonly OrgAdminGraphQLManagedGroups: WaMexPersistId
     readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
@@ -204,6 +206,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly TransferCommunityOwnership: WaMexPersistId
     readonly UpdateGroupProperty: WaMexPersistId
     readonly UpdateNewsletter: WaMexPersistId
+    readonly UpdateNewsletterAdminProfileSetting: WaMexPersistId
     readonly UpdateNewsletterUserSetting: WaMexPersistId
     readonly UpdateTextStatus: WaMexPersistId
     readonly UploadLabyrinthMessages: WaMexPersistId
@@ -374,10 +377,12 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly NewsletterPinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
     readonly NewsletterQuestionResponseStateUpdate: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'response_server_id', 'server_id', 'state']>
     readonly NewsletterUnpinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
+    readonly OrgAdminGraphQLAddChannel: WaMexOperationSchema<'mutation', readonly ['channelID', 'orgID']>
     readonly OrgAdminGraphQLAddGroup: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLDirectory: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLInviteMembers: WaMexOperationSchema<'mutation', readonly ['emails', 'orgID']>
+    readonly OrgAdminGraphQLManagedChannels: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLManagedGroups: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
@@ -413,6 +418,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly TransferCommunityOwnership: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateGroupProperty: WaMexOperationSchema<'mutation', readonly ['group_id', 'update']>
     readonly UpdateNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
+    readonly UpdateNewsletterAdminProfileSetting: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
     readonly UpdateNewsletterUserSetting: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateTextStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -1300,6 +1306,11 @@ export type WaMexNewsletterUnpinMessagesVariables = {
     readonly newsletter_id?: string
 }
 
+export type WaMexOrgAdminGraphQLAddChannelVariables = {
+    readonly channelID?: string
+    readonly orgID?: string
+}
+
 export type WaMexOrgAdminGraphQLAddGroupVariables = {
     readonly gid?: unknown
     readonly orgID?: string
@@ -1319,6 +1330,10 @@ export type WaMexOrgAdminGraphQLInviteMembersVariables = {
     readonly orgID?: string
 }
 
+export type WaMexOrgAdminGraphQLManagedChannelsVariables = {
+    readonly orgID?: string
+}
+
 export type WaMexOrgAdminGraphQLManagedGroupsVariables = {
     readonly orgID?: string
 }
@@ -1333,6 +1348,7 @@ export type WaMexOrgAdminGraphQLMemberSearchVariables = {
 
 export type WaMexOrgAdminGraphQLOrgsVariables = {
     readonly after?: string
+    readonly channelID?: unknown
     readonly emails?: ReadonlyArray<string>
     readonly first?: number
     readonly gid?: unknown
@@ -1572,6 +1588,15 @@ export type WaMexUpdateNewsletterVariables = {
         readonly name?: string
         readonly picture?: string
         readonly settings?: Readonly<Record<string, unknown>>
+    }
+}
+
+export type WaMexUpdateNewsletterAdminProfileSettingVariables = {
+    readonly newsletter_id?: string
+    readonly updates?: {
+        readonly settings?: {
+            readonly admin_profiles_enabled?: boolean
+        }
     }
 }
 
@@ -1820,10 +1845,12 @@ export interface WaMexOperationVariables {
     readonly NewsletterPinMessages: WaMexNewsletterPinMessagesVariables
     readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateVariables
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesVariables
+    readonly OrgAdminGraphQLAddChannel: WaMexOrgAdminGraphQLAddChannelVariables
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupVariables
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersVariables
+    readonly OrgAdminGraphQLManagedChannels: WaMexOrgAdminGraphQLManagedChannelsVariables
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsVariables
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
@@ -1859,6 +1886,7 @@ export interface WaMexOperationVariables {
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipVariables
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyVariables
     readonly UpdateNewsletter: WaMexUpdateNewsletterVariables
+    readonly UpdateNewsletterAdminProfileSetting: WaMexUpdateNewsletterAdminProfileSettingVariables
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingVariables
     readonly UpdateTextStatus: WaMexUpdateTextStatusVariables
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesVariables
@@ -4915,6 +4943,21 @@ export type WaMexNewsletterUnpinMessagesResponse = {
     }
 }
 
+export type WaMexOrgAdminGraphQLAddChannelResponse = {
+    readonly xwa_org_managed_channel_add?: {
+        readonly channel?: {
+            readonly description?: string
+            readonly id?: string
+            readonly name?: string
+            readonly picture?: {
+                readonly uri?: string
+            }
+        }
+        readonly error_reason?: string
+        readonly status?: 'SUCCESS'
+    }
+}
+
 export type WaMexOrgAdminGraphQLAddGroupResponse = {
     readonly xwa_org_managed_group_add?: {
         readonly error_reason?: string
@@ -4965,6 +5008,21 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
 export type WaMexOrgAdminGraphQLInviteMembersResponse = {
     readonly xwa_org_invite_members?: {
         readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
+    readonly xwa_org_managed_channels?: {
+        readonly channels?: ReadonlyArray<{
+            readonly description?: string
+            readonly id?: string
+            readonly name?: string
+            readonly picture?: {
+                readonly uri?: string
+            }
+        }>
+        readonly error_reason?: string
         readonly status?: 'SUCCESS'
     }
 }
@@ -5757,6 +5815,15 @@ export type WaMexUpdateNewsletterResponse = {
     }
 }
 
+export type WaMexUpdateNewsletterAdminProfileSettingResponse = {
+    readonly xwa2_newsletter_update?: {
+        readonly id?: string
+        readonly state?: {
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
+        }
+    }
+}
+
 export type WaMexUpdateNewsletterUserSettingResponse = {
     readonly xwa2_newsletter_update_user_setting?: {
         readonly id?: string
@@ -6142,10 +6209,12 @@ export interface WaMexOperationResponses {
     readonly NewsletterPinMessages: WaMexNewsletterPinMessagesResponse
     readonly NewsletterQuestionResponseStateUpdate: WaMexNewsletterQuestionResponseStateUpdateResponse
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesResponse
+    readonly OrgAdminGraphQLAddChannel: WaMexOrgAdminGraphQLAddChannelResponse
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupResponse
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersResponse
+    readonly OrgAdminGraphQLManagedChannels: WaMexOrgAdminGraphQLManagedChannelsResponse
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsResponse
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse
@@ -6181,6 +6250,7 @@ export interface WaMexOperationResponses {
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipResponse
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyResponse
     readonly UpdateNewsletter: WaMexUpdateNewsletterResponse
+    readonly UpdateNewsletterAdminProfileSetting: WaMexUpdateNewsletterAdminProfileSettingResponse
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingResponse
     readonly UpdateTextStatus: WaMexUpdateTextStatusResponse
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesResponse

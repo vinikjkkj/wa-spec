@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2406,
+  "propCount": 2417,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -681,6 +681,12 @@
       "debugDefaultValue": 10,
       "defaultValue": 10,
       "type": "int"
+    },
+    "ai_hatch_revoke_enabled": {
+      "code": 36027,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_hatch_secret_encrypted_message_enabled": {
       "code": 31040,
@@ -2188,6 +2194,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "br_payments_enhanced_text_message_cta_logging_fix": {
+      "code": 36049,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "br_payments_home_duration_rule_for_pux_banner": {
       "code": 22249,
       "debugDefaultValue": 604800,
@@ -3216,6 +3228,12 @@
     },
     "channels_question_admin_m2_enabled": {
       "code": 26910,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channels_question_admin_starring_enabled": {
+      "code": 36006,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -5656,6 +5674,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "group_history_after_join_sender_prerequisites": {
+      "code": 35987,
+      "debugDefaultValue": true,
+      "defaultValue": true,
+      "type": "bool"
+    },
     "group_history_bump_message_id": {
       "code": 16346,
       "debugDefaultValue": 200,
@@ -6328,6 +6352,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "is_guest_calling_eligible": {
+      "code": 35115,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "is_individual_suspicious_fmx_enabled": {
       "code": 26191,
       "debugDefaultValue": true,
@@ -6691,6 +6721,12 @@
     "media_cross_reference_upload_enabled": {
       "code": 35109,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "media_elst_timing_refinement_enabled": {
+      "code": 36067,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -7768,6 +7804,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_row_upr_buyer_logging": {
+      "code": 35965,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_algeria_enabled": {
       "code": 35026,
       "debugDefaultValue": true,
@@ -7794,6 +7836,12 @@
     },
     "payments_upr_benin_enabled": {
       "code": 35056,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_bolivia_enabled": {
+      "code": 36028,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -11260,6 +11308,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_browser_notifications_popup_guide": {
+      "code": 36012,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_buttons_response_prop_removal_killswitch": {
       "code": 33817,
       "debugDefaultValue": false,
@@ -12256,6 +12310,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wamedia_large_vsr_model_download_versions": {
+      "code": 36056,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
+    },
     "wamo_agm_enabled": {
       "code": 15714,
       "debugDefaultValue": false,
@@ -12315,6 +12375,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "wavoip_large_uvq_model_download_versions": {
+      "code": 36054,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
     },
     "wavoip_large_vsr_model_download_versions_v2": {
       "code": 34857,
@@ -14568,5 +14634,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046509823"
+  "waVersion": "2.3000.1046607480"
 }

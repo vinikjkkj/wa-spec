@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046509823
+// WhatsApp Version: 2.3000.1046607480
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -10366,6 +10366,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'GET_HELP_BUTTON': 120,
         'GET_STARTED': 36,
         'GO_TO_BANK_WEBSITE_BUTTON': 8,
+        'GO_TO_PAYMENTS': 390,
         'HELP': 39,
         'HELP_BUTTON': 61,
         'HELP_CENTER_BUTTON': 113,
@@ -10499,6 +10500,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'REQUEST_AGAIN_BUTTON': 14,
         'REQUEST_DEPOSITS_BUTTON': 15,
         'REQUEST_DETAILS': 43,
+        'REQUEST_PAYMENT': 387,
         'REQUEST_PMT_INFO': 107,
         'REQUEST_TAB': 49,
         'RESEND_OTP_CODE_BUTTON': 16,
@@ -10543,7 +10545,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'SEND_FIRST_PAYMENT_BUTTON': 195,
         'SEND_INVITE_BUTTON': 54,
         'SEND_IN_APP_SUPPORT_BUTTON': 162,
+        'SEND_PAYMENT': 388,
         'SEND_PAYMENT_BUTTON': 145,
+        'SEND_PIX_KEY': 389,
         'SEND_REQUEST_BUTTON': 301,
         'SEND_SPLIT_REQUEST': 324,
         'SETTINGS_BUTTON': 173,
@@ -10566,6 +10570,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'SPLIT_MESSAGE_BUBBLE': 345,
         'SPLIT_MESSAGE_BUBBLE_PAY_NOW_BUTTON': 302,
         'SPLIT_MESSAGE_BUBBLE_VIEW_DETAILS_BUTTON': 303,
+        'SPLIT_PAYMENT': 391,
         'SPLIT_REQUEST_SELECT_CONTACT': 369,
         'STATUS_BUTTON': 165,
         'SUBMIT_BUTTON': 114,

@@ -4829,7 +4829,7 @@
       }
     },
     "MAIBAMessageCreatorCardsRenderer": {
-      "docId": "26498781939820146",
+      "docId": "28486209884399157",
       "operationKind": "query",
       "originalName": "MAIBAMessageCreatorCardsRendererQuery",
       "response": {
@@ -5269,6 +5269,33 @@
         "newsletter_id": "string"
       }
     },
+    "OrgAdminGraphQLAddChannel": {
+      "docId": "27497940529885119",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLAddChannelMutation",
+      "response": {
+        "xwa_org_managed_channel_add": {
+          "channel": {
+            "description": "string",
+            "id": "string",
+            "name": "string",
+            "picture": {
+              "uri": "string"
+            }
+          },
+          "error_reason": "string",
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "channelID",
+        "orgID"
+      ],
+      "variablesShape": {
+        "channelID": "string",
+        "orgID": "string"
+      }
+    },
     "OrgAdminGraphQLAddGroup": {
       "docId": "27409847525383193",
       "operationKind": "mutation",
@@ -5377,6 +5404,33 @@
         "orgID": "string"
       }
     },
+    "OrgAdminGraphQLManagedChannels": {
+      "docId": "28002855556062605",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLManagedChannelsQuery",
+      "response": {
+        "xwa_org_managed_channels": {
+          "channels": [
+            {
+              "description": "string",
+              "id": "string",
+              "name": "string",
+              "picture": {
+                "uri": "string"
+              }
+            }
+          ],
+          "error_reason": "string",
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "orgID"
+      ],
+      "variablesShape": {
+        "orgID": "string"
+      }
+    },
     "OrgAdminGraphQLManagedGroups": {
       "docId": "28617119817893147",
       "operationKind": "query",
@@ -5466,6 +5520,7 @@
       "variables": [],
       "variablesShape": {
         "after": "string",
+        "channelID": "unknown",
         "emails": [
           "string"
         ],
@@ -6747,6 +6802,31 @@
         }
       }
     },
+    "UpdateNewsletterAdminProfileSetting": {
+      "docId": "28226671310350649",
+      "operationKind": "mutation",
+      "originalName": "WAWebMexUpdateNewsletterAdminProfileSettingJobMutation",
+      "response": {
+        "xwa2_newsletter_update": {
+          "id": "string",
+          "state": {
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
+          }
+        }
+      },
+      "variables": [
+        "newsletter_id",
+        "updates"
+      ],
+      "variablesShape": {
+        "newsletter_id": "string",
+        "updates": {
+          "settings": {
+            "admin_profiles_enabled": "boolean"
+          }
+        }
+      }
+    },
     "UpdateNewsletterUserSetting": {
       "docId": "31938993655691868",
       "operationKind": "mutation",
@@ -7224,5 +7304,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1046509823"
+  "waVersion": "2.3000.1046607480"
 }

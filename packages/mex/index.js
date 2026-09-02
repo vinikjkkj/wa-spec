@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046509823
+// WhatsApp Version: 2.3000.1046607480
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -135,7 +135,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     LogNewsletterExposures: Object.freeze({ docId: '25260800823586918', clientDocId: '25260800823586918' }),
     MAIBAInlineAssetSelectorWidgetAssetIDs: Object.freeze({ docId: '35972847782361891', clientDocId: '35972847782361891' }),
     MAIBAInlineAssetSelectorWidgetAssets: Object.freeze({ docId: '35544094851905356', clientDocId: '35544094851905356' }),
-    MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '26498781939820146', clientDocId: '26498781939820146' }),
+    MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '28486209884399157', clientDocId: '28486209884399157' }),
     MAIBAMessageLiveBrowserRendererScreenshot: Object.freeze({ docId: '26819206974436266', clientDocId: '26819206974436266' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ docId: '27087116144243008', clientDocId: '27087116144243008' }),
@@ -153,10 +153,12 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     NewsletterPinMessages: Object.freeze({ docId: '27165709459706559', clientDocId: '27165709459706559' }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ docId: '24636260219323456', clientDocId: '24636260219323456' }),
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
+    OrgAdminGraphQLAddChannel: Object.freeze({ docId: '27497940529885119', clientDocId: '27497940529885119' }),
     OrgAdminGraphQLAddGroup: Object.freeze({ docId: '27409847525383193', clientDocId: '27409847525383193' }),
     OrgAdminGraphQLDirectory: Object.freeze({ docId: '29229928699940907', clientDocId: '29229928699940907' }),
     OrgAdminGraphQLGroup: Object.freeze({ docId: '28486573690950714', clientDocId: '28486573690950714' }),
     OrgAdminGraphQLInviteMembers: Object.freeze({ docId: '27941953275465289', clientDocId: '27941953275465289' }),
+    OrgAdminGraphQLManagedChannels: Object.freeze({ docId: '28002855556062605', clientDocId: '28002855556062605' }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28617119817893147', clientDocId: '28617119817893147' }),
     OrgAdminGraphQLMemberSearch: Object.freeze({ docId: '28398762773092863', clientDocId: '28398762773092863' }),
     OrgAdminGraphQLOrgs: Object.freeze({ docId: '29241904595398144', clientDocId: '29241904595398144' }),
@@ -192,6 +194,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     TransferCommunityOwnership: Object.freeze({ docId: '29643783178598899', clientDocId: '29643783178598899' }),
     UpdateGroupProperty: Object.freeze({ docId: '9418211574894172', clientDocId: '9418211574894172' }),
     UpdateNewsletter: Object.freeze({ docId: '24250201037901610', clientDocId: '24250201037901610' }),
+    UpdateNewsletterAdminProfileSetting: Object.freeze({ docId: '28226671310350649', clientDocId: '28226671310350649' }),
     UpdateNewsletterUserSetting: Object.freeze({ docId: '31938993655691868', clientDocId: '31938993655691868' }),
     UpdateTextStatus: Object.freeze({ docId: '9152604461510864', clientDocId: '9152604461510864' }),
     UploadLabyrinthMessages: Object.freeze({ docId: '28023438937253549', clientDocId: '28023438937253549' }),
@@ -362,10 +365,12 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     NewsletterPinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'response_server_id', 'server_id', 'state']) }),
     NewsletterUnpinMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'newsletter_id']) }),
+    OrgAdminGraphQLAddChannel: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['channelID', 'orgID']) }),
     OrgAdminGraphQLAddGroup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['gid', 'orgID']) }),
     OrgAdminGraphQLDirectory: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLGroup: Object.freeze({ operationKind: 'query', variables: Object.freeze(['gid', 'orgID']) }),
     OrgAdminGraphQLInviteMembers: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['emails', 'orgID']) }),
+    OrgAdminGraphQLManagedChannels: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ operationKind: 'query', variables: Object.freeze(['orgID']) }),
     OrgAdminGraphQLMemberSearch: Object.freeze({ operationKind: 'query', variables: Object.freeze(['after', 'first', 'memberTag', 'orgID', 'query']) }),
     OrgAdminGraphQLOrgs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
@@ -401,6 +406,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     TransferCommunityOwnership: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateGroupProperty: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['group_id', 'update']) }),
     UpdateNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'updates']) }),
+    UpdateNewsletterAdminProfileSetting: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'updates']) }),
     UpdateNewsletterUserSetting: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateTextStatus: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UploadLabyrinthMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

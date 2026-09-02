@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046509823
+// WhatsApp Version: 2.3000.1046607480
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -10475,6 +10475,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GET_HELP_BUTTON': 120;
             readonly 'GET_STARTED': 36;
             readonly 'GO_TO_BANK_WEBSITE_BUTTON': 8;
+            readonly 'GO_TO_PAYMENTS': 390;
             readonly 'HELP': 39;
             readonly 'HELP_BUTTON': 61;
             readonly 'HELP_CENTER_BUTTON': 113;
@@ -10608,6 +10609,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'REQUEST_AGAIN_BUTTON': 14;
             readonly 'REQUEST_DEPOSITS_BUTTON': 15;
             readonly 'REQUEST_DETAILS': 43;
+            readonly 'REQUEST_PAYMENT': 387;
             readonly 'REQUEST_PMT_INFO': 107;
             readonly 'REQUEST_TAB': 49;
             readonly 'RESEND_OTP_CODE_BUTTON': 16;
@@ -10652,7 +10654,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SEND_FIRST_PAYMENT_BUTTON': 195;
             readonly 'SEND_INVITE_BUTTON': 54;
             readonly 'SEND_IN_APP_SUPPORT_BUTTON': 162;
+            readonly 'SEND_PAYMENT': 388;
             readonly 'SEND_PAYMENT_BUTTON': 145;
+            readonly 'SEND_PIX_KEY': 389;
             readonly 'SEND_REQUEST_BUTTON': 301;
             readonly 'SEND_SPLIT_REQUEST': 324;
             readonly 'SETTINGS_BUTTON': 173;
@@ -10675,6 +10679,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SPLIT_MESSAGE_BUBBLE': 345;
             readonly 'SPLIT_MESSAGE_BUBBLE_PAY_NOW_BUTTON': 302;
             readonly 'SPLIT_MESSAGE_BUBBLE_VIEW_DETAILS_BUTTON': 303;
+            readonly 'SPLIT_PAYMENT': 391;
             readonly 'SPLIT_REQUEST_SELECT_CONTACT': 369;
             readonly 'STATUS_BUTTON': 165;
             readonly 'SUBMIT_BUTTON': 114;
