@@ -98,13 +98,19 @@
       "type": "bool"
     }
   },
-  "propCount": 2417,
+  "propCount": 2422,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
       "debugDefaultValue": "info_card, list_card",
       "defaultValue": "info_card, list_card",
       "type": "string"
+    },
+    "acp2_enabled": {
+      "code": 36091,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "acp_removal": {
       "code": 25255,
@@ -192,12 +198,6 @@
     },
     "ai_3p_agent_chat_enabled": {
       "code": 31063,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "ai_3p_agent_link_enabled": {
-      "code": 31064,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -1888,6 +1888,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "biz_ai_suggested_reply_coaching_enabled": {
+      "code": 34282,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "biz_ai_suggested_reply_prefetch_enabled": {
       "code": 35538,
       "debugDefaultValue": false,
@@ -2444,6 +2450,12 @@
       "code": 34740,
       "debugDefaultValue": true,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "calling_exp_target_sample_ss": {
+      "code": 36094,
+      "debugDefaultValue": false,
+      "defaultValue": false,
       "type": "bool"
     },
     "calling_lid_version": {
@@ -3669,6 +3681,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "companion_contact_local_auto_heal_hours": {
+      "code": 36178,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
     },
     "companion_contact_refresh": {
       "code": 33093,
@@ -5934,6 +5952,12 @@
     },
     "group_username_updates_as_member_updates_enabled": {
       "code": 24477,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "guest_calling_call_log_mitigation_enabled": {
+      "code": 36069,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8848,28 +8872,10 @@
       "defaultValue": 1440,
       "type": "int"
     },
-    "scheduled_companion_contact_refresh_days": {
-      "code": 34960,
-      "debugDefaultValue": 0,
-      "defaultValue": 0,
-      "type": "int"
-    },
     "scheduled_companion_contact_refresh_hours": {
       "code": 35018,
       "debugDefaultValue": 0,
       "defaultValue": 0,
-      "type": "int"
-    },
-    "scheduled_companion_contact_refresh_threshold_count": {
-      "code": 35199,
-      "debugDefaultValue": 10,
-      "defaultValue": 10,
-      "type": "int"
-    },
-    "scheduled_companion_contact_refresh_threshold_percent": {
-      "code": 35198,
-      "debugDefaultValue": 10,
-      "defaultValue": 10,
       "type": "int"
     },
     "scheduled_contact_divergence_check_hours": {
@@ -10630,6 +10636,12 @@
       "defaultValue": 4000,
       "type": "int"
     },
+    "voip_aleg_v1_enabled": {
+      "code": 36083,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "voip_call_coordinator_version": {
       "code": 9502,
       "debugDefaultValue": 0,
@@ -11853,6 +11865,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "wa_web_notifications_modal_timer": {
+      "code": 36113,
+      "debugDefaultValue": 180,
+      "defaultValue": 180,
+      "type": "int"
     },
     "wa_web_notifications_modal_variants": {
       "code": 32277,
@@ -13612,6 +13630,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_memlab_fixes_backup": {
+      "code": 36105,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_memories_subdomain_enabled": {
       "code": 34935,
       "debugDefaultValue": true,
@@ -14254,6 +14278,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "web_voip_pin_worker_glue_to_wasm": {
+      "code": 36184,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_pre_init_worker_bootstrap": {
       "code": 34685,
       "debugDefaultValue": false,
@@ -14634,5 +14664,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046607480"
+  "waVersion": "2.3000.1046691727"
 }

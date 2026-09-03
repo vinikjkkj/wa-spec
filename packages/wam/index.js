@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046607480
+// WhatsApp Version: 2.3000.1046691727
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -6294,6 +6294,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'INTERACTION_TYPE',
         values: Object.freeze({
         'ACCEPT_EVENT_SHARING_TOS': 31,
+        'AUTOMATIC_START': 107,
         'CAMERA_PERMISSION_REQUEST_DIALOG_POP_UP': 45,
         'CLICK_BUY_ON_WHATSAPP_TILE': 106,
         'CLICK_CONFIRM_PENDING_PAYMENT': 35,
@@ -10958,6 +10959,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'WEB': 17,
         'WEBCLIENT': 8,
         'WINDOWS': 16,
+        'WORKA': 71,
+        'WORKI': 72,
         'WP': 6,
         'XR': 47
         })
@@ -14432,6 +14435,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'GEN_AI_AGENT_QP_BANNER_TOOLS': 295,
         'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318,
         'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311,
+        'GEN_AI_AGENT_SMART_COMPOSER_REPLY_CARD': 340,
         'GEN_AI_AI_HUB_ADD_BUSINESS_INFO': 100,
         'GEN_AI_AI_HUB_ADD_CLABE_ACCOUNT': 336,
         'GEN_AI_AI_HUB_ADD_PRODUCT_INFO': 101,
@@ -16862,6 +16866,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE_CAPPING': 21,
         'META_AI_SETTINGS': 34,
         'META_ONE_ELIGIBLE_BOTTOMSHEET': 42,
+        'META_SUBS_PRO_ACQ_WA_EMAIL': 73,
+        'META_SUBS_PRO_WABIZAI_EMAIL': 74,
+        'META_SUBS_PRO_WABIZAI_FBADS': 75,
         'NOTIFICATIONS': 29,
         'ON_WAITLIST_BOTTOMSHEET': 2,
         'PAYMENT_CHECKOUT': 53,
@@ -16879,7 +16886,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'SUB_HUB': 32,
         'TIER_SELECTION_SCREEN': 40,
         'VALID_NAME_BOTTOMSHEET': 35,
-        'VALUE_SCREEN': 31
+        'VALUE_SCREEN': 31,
+        'WAPLUS_CONSUMER_HOUSEAD': 72,
+        'WAPLUS_CONSUMER_WEB': 71
         })
     }),
     WSUA_SCREEN_ELEMENT: Object.freeze({
@@ -27688,6 +27697,7 @@ const WA_WAM_EVENTS = Object.freeze({
             statusInteractionMessageType: Object.freeze({ id: 4, type: 'enum', enum: 'STATUS_INTERACTION_MESSAGE_TYPE', falcoName: 'status_interaction_message_type' }),
             statusInteractionResultType: Object.freeze({ id: 5, type: 'enum', enum: 'STATUS_INTERACTION_RESULT_TYPE', falcoName: 'status_interaction_result_type' }),
             statusInteractionType: Object.freeze({ id: 2, type: 'enum', enum: 'STATUS_INTERACTION_TYPE', falcoName: 'status_interaction_type' }),
+            statusInteractorHashId: Object.freeze({ id: 9, type: 'string', falcoName: 'status_interactor_hash_id' }),
             unifiedSessionId: Object.freeze({ id: 3, type: 'string', falcoName: 'unified_session_id' })
         })
     }),

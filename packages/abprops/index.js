@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046607480
+// WhatsApp Version: 2.3000.1046691727
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -8,6 +8,7 @@
 // exist solely in the bundle.
 const WA_ABPROPS = Object.freeze({
     a2ui_supported_elements: Object.freeze({ code: 32276, type: "string", defaultValue: "info_card, list_card", debugDefaultValue: "info_card, list_card" }),
+    acp2_enabled: Object.freeze({ code: 36091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp_removal: Object.freeze({ code: 25255, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp_removal_epoch_time: Object.freeze({ code: 25993, type: "int", defaultValue: 1782518400, debugDefaultValue: 1782518400 }),
     acs_use_graphql_for_forward_counter: Object.freeze({ code: 29218, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -23,7 +24,6 @@ const WA_ABPROPS = Object.freeze({
     after_read_receiver_enabled: Object.freeze({ code: 25649, type: "bool", defaultValue: false, debugDefaultValue: false }),
     after_read_sending_enabled: Object.freeze({ code: 25648, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_chat_enabled: Object.freeze({ code: 31063, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    ai_3p_agent_link_enabled: Object.freeze({ code: 31064, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_3p_agent_media_support_mode: Object.freeze({ code: 34393, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     ai_3p_bot_product_chat_rendering_enabled: Object.freeze({ code: 34186, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_3p_bot_product_enabled: Object.freeze({ code: 33090, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -305,6 +305,7 @@ const WA_ABPROPS = Object.freeze({
     biz_ai_response_settings_ui_experiment: Object.freeze({ code: 29706, type: "string", defaultValue: "NONE", debugDefaultValue: "NONE" }),
     biz_ai_smb_agents_automatic_reply_enabled: Object.freeze({ code: 8505, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_suggested_reply_auto_fetch_limit_enabled: Object.freeze({ code: 35651, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    biz_ai_suggested_reply_coaching_enabled: Object.freeze({ code: 34282, type: "bool", defaultValue: false, debugDefaultValue: true }),
     biz_ai_suggested_reply_prefetch_enabled: Object.freeze({ code: 35538, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_tools_settings: Object.freeze({ code: 28552, type: "bool", defaultValue: false, debugDefaultValue: false }),
     biz_ai_tools_sync: Object.freeze({ code: 29383, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -398,6 +399,7 @@ const WA_ABPROPS = Object.freeze({
     calling_dual_stream_camera_auto_off_include_low_data_usage: Object.freeze({ code: 33235, type: "bool", defaultValue: true, debugDefaultValue: true }),
     calling_dual_stream_camera_auto_off_poor_network_time_ms: Object.freeze({ code: 33548, type: "int", defaultValue: 5800, debugDefaultValue: 5800 }),
     calling_enable_dual_stream_receiver: Object.freeze({ code: 34740, type: "bool", defaultValue: true, debugDefaultValue: true }),
+    calling_exp_target_sample_ss: Object.freeze({ code: 36094, type: "bool", defaultValue: false, debugDefaultValue: false }),
     calling_lid_version: Object.freeze({ code: 3358, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     calling_rust_migration_bitmap: Object.freeze({ code: 17954, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     calling_rust_migration_incoming_ack_stanza_bitmap: Object.freeze({ code: 28434, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
@@ -602,6 +604,7 @@ const WA_ABPROPS = Object.freeze({
     community_general_chat_UI_enabled: Object.freeze({ code: 5021, type: "bool", defaultValue: false, debugDefaultValue: false }),
     community_general_chat_create_enabled: Object.freeze({ code: 5453, type: "bool", defaultValue: false, debugDefaultValue: false }),
     companion_contact_local_auto_heal: Object.freeze({ code: 35240, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    companion_contact_local_auto_heal_hours: Object.freeze({ code: 36178, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     companion_contact_refresh: Object.freeze({ code: 33093, type: "bool", defaultValue: false, debugDefaultValue: true }),
     companion_contact_refresh_debounce_ms: Object.freeze({ code: 33497, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     companion_contact_refresh_receiver: Object.freeze({ code: 33635, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -980,6 +983,7 @@ const WA_ABPROPS = Object.freeze({
     group_suspension_appeals_redesign_enabled: Object.freeze({ code: 26276, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_suspension_appeals_redesign_variant_enable: Object.freeze({ code: 28376, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_username_updates_as_member_updates_enabled: Object.freeze({ code: 24477, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    guest_calling_call_log_mitigation_enabled: Object.freeze({ code: 36069, type: "bool", defaultValue: false, debugDefaultValue: false }),
     hand_raise_receiver_enabled: Object.freeze({ code: 13540, type: "bool", defaultValue: false, debugDefaultValue: false }),
     harmful_file_dialog_logging: Object.freeze({ code: 15020, type: "bool", defaultValue: false, debugDefaultValue: true }),
     hash_identity_keys_for_qr_code_device_verification: Object.freeze({ code: 9211, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1465,10 +1469,7 @@ const WA_ABPROPS = Object.freeze({
     saga_v1_reengagement_enabled: Object.freeze({ code: 9924, type: "bool", defaultValue: true, debugDefaultValue: true }),
     schedule_call_show_join_button_time_interval_mins: Object.freeze({ code: 16253, type: "int", defaultValue: 5, debugDefaultValue: 5 }),
     schedule_call_show_upcoming_banner_time_interval_mins: Object.freeze({ code: 16254, type: "int", defaultValue: 1440, debugDefaultValue: 1440 }),
-    scheduled_companion_contact_refresh_days: Object.freeze({ code: 34960, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     scheduled_companion_contact_refresh_hours: Object.freeze({ code: 35018, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
-    scheduled_companion_contact_refresh_threshold_count: Object.freeze({ code: 35199, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
-    scheduled_companion_contact_refresh_threshold_percent: Object.freeze({ code: 35198, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
     scheduled_contact_divergence_check_hours: Object.freeze({ code: 35341, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     scheduled_messages_photo_video_sender_enabled: Object.freeze({ code: 32553, type: "bool", defaultValue: false, debugDefaultValue: false }),
     scheduled_messages_receiver_enabled: Object.freeze({ code: 24610, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1762,6 +1763,7 @@ const WA_ABPROPS = Object.freeze({
     voice_call_string_test: Object.freeze({ code: 27841, type: "bool", defaultValue: false, debugDefaultValue: false }),
     voice_chat_companion_experience_version: Object.freeze({ code: 17052, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     voicemail_nudge_duration_ms: Object.freeze({ code: 18339, type: "int", defaultValue: 4000, debugDefaultValue: 4000 }),
+    voip_aleg_v1_enabled: Object.freeze({ code: 36083, type: "bool", defaultValue: false, debugDefaultValue: false }),
     voip_call_coordinator_version: Object.freeze({ code: 9502, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     voip_enable_webrtc_stats_polling: Object.freeze({ code: 26744, type: "bool", defaultValue: true, debugDefaultValue: true }),
     voip_stack_incoming_message_ownership_transfer: Object.freeze({ code: 16481, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1966,6 +1968,7 @@ const WA_ABPROPS = Object.freeze({
     wa_web_mention_search: Object.freeze({ code: 28455, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_multi_ppl_typing_indicator_for_chatlist_groups_variant: Object.freeze({ code: 24560, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_web_notifications_modal: Object.freeze({ code: 32228, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_web_notifications_modal_timer: Object.freeze({ code: 36113, type: "int", defaultValue: 180, debugDefaultValue: 180 }),
     wa_web_notifications_modal_variants: Object.freeze({ code: 32277, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_web_notify_for: Object.freeze({ code: 25544, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_pathfinder_unsampling_config: Object.freeze({ code: 32631, type: "string", defaultValue: "{\"schema_version\":1,\"session_flag_rules\":[]}", debugDefaultValue: "{\"schema_version\":1,\"session_flag_rules\":[{\"rule_id\":\"about_2_creation\",\"trigger_screen_keys\":[\"settings-drawer\",\"self-profile\"]}]}" }),
@@ -2259,6 +2262,7 @@ const WA_ABPROPS = Object.freeze({
     web_memlab_fixes: Object.freeze({ code: 33563, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_memlab_fixes_2: Object.freeze({ code: 34305, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_memlab_fixes_3: Object.freeze({ code: 35488, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    web_memlab_fixes_backup: Object.freeze({ code: 36105, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_memories_subdomain_enabled: Object.freeze({ code: 34935, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_memory_reduction: Object.freeze({ code: 30394, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_menu_share_group: Object.freeze({ code: 26850, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2366,6 +2370,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_load_wasm_variant: Object.freeze({ code: 23045, type: "string", defaultValue: "prod-nonlab", debugDefaultValue: "prod-nonlab" }),
     web_voip_low_resource_device: Object.freeze({ code: 28203, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_outgoing_call_setup_latency_mode: Object.freeze({ code: 33122, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    web_voip_pin_worker_glue_to_wasm: Object.freeze({ code: 36184, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_pre_init_worker_bootstrap: Object.freeze({ code: 34685, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_runtime_stack_selection_enabled: Object.freeze({ code: 33151, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_sctp_worker_safari_exp: Object.freeze({ code: 27695, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
@@ -4315,7 +4320,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     31047: "web_anr_disable_memory_logging",
     31061: "wa_smb_web_lists_quick_replies_enabled",
     31063: "ai_3p_agent_chat_enabled",
-    31064: "ai_3p_agent_link_enabled",
     31094: "call_info_optimizations_lgc",
     31095: "call_info_optimizations_1on1",
     31096: "call_info_optimizations_ahgc_call_link",
@@ -4641,6 +4645,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34276: "wa_coex_biz_ai_capping_eligible",
     34279: "win_hybrid_vsr_button_enabled_2",
     34280: "win_hybrid_vsr_enabled_2",
+    34282: "biz_ai_suggested_reply_coaching_enabled",
     34290: "wa_biz_gap_enforcement_rules_sync_to_meta_enabled_ac_linked_user",
     34296: "web_e2e_status_likes_sending_enabled",
     34304: "web_loom_stuck_trace_timeout_ms",
@@ -4732,7 +4737,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34955: "group_from_group_ban_risk_mitigation_enabled",
     34956: "group_from_group_admin_max_size",
     34957: "group_from_group_max_missing_privacy_tokens",
-    34960: "scheduled_companion_contact_refresh_days",
     34964: "ai_meta_ai_thread_creation_enabled",
     34981: "payments_upr_cameroon_enabled",
     34982: "payments_upr_jordan_enabled",
@@ -4764,8 +4768,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     35167: "wa_media_experience_id_receive_enabled",
     35186: "smb_contact_manager_hidden_contacts_enabled",
     35194: "win_hybrid_vsr_device_setting_enabled_2",
-    35198: "scheduled_companion_contact_refresh_threshold_percent",
-    35199: "scheduled_companion_contact_refresh_threshold_count",
     35210: "pq_1on1_messaging_killswitch",
     35221: "web_channel_status_likes_sending_enabled_no_exposure",
     35223: "biz_ai_web_onboarding_notification_dispatch_enabled",
@@ -4865,7 +4867,15 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36049: "br_payments_enhanced_text_message_cta_logging_fix",
     36054: "wavoip_large_uvq_model_download_versions",
     36056: "wamedia_large_vsr_model_download_versions",
-    36067: "media_elst_timing_refinement_enabled"
+    36067: "media_elst_timing_refinement_enabled",
+    36069: "guest_calling_call_log_mitigation_enabled",
+    36083: "voip_aleg_v1_enabled",
+    36091: "acp2_enabled",
+    36094: "calling_exp_target_sample_ss",
+    36105: "web_memlab_fixes_backup",
+    36113: "wa_web_notifications_modal_timer",
+    36178: "companion_contact_local_auto_heal_hours",
+    36184: "web_voip_pin_worker_glue_to_wasm"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046607480
+// WhatsApp Version: 2.3000.1046691727
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -6403,6 +6403,7 @@ export declare const WA_WAM_ENUMS: {
         readonly export: 'INTERACTION_TYPE'
         readonly values: {
             readonly 'ACCEPT_EVENT_SHARING_TOS': 31;
+            readonly 'AUTOMATIC_START': 107;
             readonly 'CAMERA_PERMISSION_REQUEST_DIALOG_POP_UP': 45;
             readonly 'CLICK_BUY_ON_WHATSAPP_TILE': 106;
             readonly 'CLICK_CONFIRM_PENDING_PAYMENT': 35;
@@ -11067,6 +11068,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'WEB': 17;
             readonly 'WEBCLIENT': 8;
             readonly 'WINDOWS': 16;
+            readonly 'WORKA': 71;
+            readonly 'WORKI': 72;
             readonly 'WP': 6;
             readonly 'XR': 47
         }
@@ -14541,6 +14544,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'GEN_AI_AGENT_QP_BANNER_TOOLS': 295;
             readonly 'GEN_AI_AGENT_SMART_COMPOSER_HANDOFF_CARD': 318;
             readonly 'GEN_AI_AGENT_SMART_COMPOSER_META_ONE_SHEET': 311;
+            readonly 'GEN_AI_AGENT_SMART_COMPOSER_REPLY_CARD': 340;
             readonly 'GEN_AI_AI_HUB_ADD_BUSINESS_INFO': 100;
             readonly 'GEN_AI_AI_HUB_ADD_CLABE_ACCOUNT': 336;
             readonly 'GEN_AI_AI_HUB_ADD_PRODUCT_INFO': 101;
@@ -16971,6 +16975,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'MESSAGE_CAPPING': 21;
             readonly 'META_AI_SETTINGS': 34;
             readonly 'META_ONE_ELIGIBLE_BOTTOMSHEET': 42;
+            readonly 'META_SUBS_PRO_ACQ_WA_EMAIL': 73;
+            readonly 'META_SUBS_PRO_WABIZAI_EMAIL': 74;
+            readonly 'META_SUBS_PRO_WABIZAI_FBADS': 75;
             readonly 'NOTIFICATIONS': 29;
             readonly 'ON_WAITLIST_BOTTOMSHEET': 2;
             readonly 'PAYMENT_CHECKOUT': 53;
@@ -16988,7 +16995,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'SUB_HUB': 32;
             readonly 'TIER_SELECTION_SCREEN': 40;
             readonly 'VALID_NAME_BOTTOMSHEET': 35;
-            readonly 'VALUE_SCREEN': 31
+            readonly 'VALUE_SCREEN': 31;
+            readonly 'WAPLUS_CONSUMER_HOUSEAD': 72;
+            readonly 'WAPLUS_CONSUMER_WEB': 71
         }
     }
     readonly WSUA_SCREEN_ELEMENT: {
@@ -29065,6 +29074,7 @@ export declare const WA_WAM_EVENTS: {
             readonly statusInteractionMessageType: { readonly id: 4; readonly type: 'enum'; readonly enum: 'STATUS_INTERACTION_MESSAGE_TYPE'; readonly falcoName: 'status_interaction_message_type' }
             readonly statusInteractionResultType: { readonly id: 5; readonly type: 'enum'; readonly enum: 'STATUS_INTERACTION_RESULT_TYPE'; readonly falcoName: 'status_interaction_result_type' }
             readonly statusInteractionType: { readonly id: 2; readonly type: 'enum'; readonly enum: 'STATUS_INTERACTION_TYPE'; readonly falcoName: 'status_interaction_type' }
+            readonly statusInteractorHashId: { readonly id: 9; readonly type: 'string'; readonly falcoName: 'status_interactor_hash_id' }
             readonly unifiedSessionId: { readonly id: 3; readonly type: 'string'; readonly falcoName: 'unified_session_id' }
         }
     }

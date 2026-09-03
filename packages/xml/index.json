@@ -7718,6 +7718,7 @@
           "node": {
             "attrs": {
               "from": {
+                "direction": "both",
                 "type": "literal",
                 "value": "s.whatsapp.net"
               }
@@ -7735,6 +7736,101 @@
                 "max": 1,
                 "min": 1,
                 "tag": "client_expiration"
+              },
+              {
+                "attrs": {
+                  "from": {
+                    "arg": "e",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "t": {
+                    "arg": "n[e]",
+                    "direction": "out",
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "item"
+              },
+              {
+                "attrs": {
+                  "count": {
+                    "arg": "e",
+                    "direction": "out",
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "offline"
+              },
+              {
+                "attrs": {
+                  "count": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "max": 1,
+                "min": 1,
+                "tag": "offline_batch"
+              },
+              {
+                "attrs": {
+                  "count": {
+                    "arg": "e+t+n",
+                    "direction": "out",
+                    "type": "int"
+                  },
+                  "message": {
+                    "arg": "e",
+                    "direction": "out",
+                    "type": "int"
+                  },
+                  "notification": {
+                    "arg": "n",
+                    "direction": "out",
+                    "type": "int"
+                  },
+                  "receipt": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "offline_preview"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true,
+                "tag": "thread_metadata"
+              },
+              {
+                "attrs": {
+                  "id": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "max": 1,
+                "min": 1,
+                "tag": "unified_session"
               }
             ],
             "content": null,
@@ -23166,8 +23262,9 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "c",
+                "arg": "O",
                 "direction": "both",
+                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -47551,15 +47648,15 @@
             "type": "int"
           },
           "id": {
-            "arg": "t.stanzaId",
+            "arg": "t.ackId",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "f",
+            "arg": "o(\"WAWebWidFactory\").createWid(t.participant)",
             "direction": "out",
             "optional": true,
-            "type": "userJid"
+            "type": "deviceJid"
           },
           "recipient": {
             "arg": "r",
@@ -47569,7 +47666,7 @@
           },
           "to": {
             "direction": "out",
-            "raw": "t.from instanceof r(\"WAWebWid\")?o(\"WAWebCommsWapMd\").JID(t.from):o(\"WAWap\").CUSTOM_STRING(t.from)",
+            "raw": "m(t.to)",
             "type": "jid"
           },
           "type": {
@@ -48130,28 +48227,28 @@
       "tag": "failure"
     },
     "ib": {
+      "delegatesToRPC": {
+        "method": "receiveClientExpirationRPC",
+        "module": "WASmaxClientExpirationClientExpirationRPC"
+      },
       "entryName": "default",
       "handler": {
         "method": "default",
         "module": "WAWebHandleInfoBulletin"
       },
+      "inlinedFrom": {
+        "method": "receiveClientExpirationRPC",
+        "module": "WASmaxClientExpirationClientExpirationRPC"
+      },
       "node": {
         "attrs": {
           "from": {
-            "direction": "out",
+            "direction": "both",
             "type": "literal",
             "value": "s.whatsapp.net"
           }
         },
         "children": [
-          {
-            "attrs": {},
-            "children": [],
-            "content": null,
-            "max": null,
-            "min": 0,
-            "tag": "*"
-          },
           {
             "attrs": {
               "t": {
@@ -48167,86 +48264,35 @@
           },
           {
             "attrs": {
-              "timestamp": {
-                "type": "int"
+              "from": {
+                "arg": "e",
+                "direction": "out",
+                "type": "string"
               },
-              "type": {
-                "enumValues": [
-                  "groups",
-                  "account_sync",
-                  "syncd_app_state",
-                  "newsletter_metadata"
-                ],
-                "type": "enum"
-              }
-            },
-            "children": [
-              {
-                "__variants": [
-                  "devices",
-                  "picture",
-                  "privacy",
-                  "blocklist",
-                  "notice"
-                ],
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "max": null,
-                "min": 0,
-                "tag": "*"
-              }
-            ],
-            "content": null,
-            "max": null,
-            "min": 0,
-            "tag": "dirty"
-          },
-          {
-            "attrs": {},
-            "children": [
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "enumRef": "o(\"WAWebHandleRoutingInfo\").DOMAINS",
-                  "enumValues": [
-                    "fb",
-                    "sl"
-                  ],
-                  "type": "enum"
-                },
-                "max": 1,
-                "min": 0,
-                "tag": "dns_domain"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 1,
-                "tag": "routing_info"
-              }
-            ],
-            "content": null,
-            "max": 1,
-            "min": 1,
-            "tag": "edge_routing"
-          },
-          {
-            "attrs": {
-              "count": {
-                "direction": "both",
+              "t": {
+                "arg": "n[e]",
+                "direction": "out",
                 "type": "int"
               }
             },
             "children": [],
             "content": null,
             "max": 1,
-            "min": 0,
+            "min": 1,
+            "tag": "item"
+          },
+          {
+            "attrs": {
+              "count": {
+                "arg": "e",
+                "direction": "out",
+                "type": "int"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
             "tag": "offline"
           },
           {
@@ -48264,133 +48310,39 @@
           },
           {
             "attrs": {
-              "call": {
-                "type": "int"
-              },
               "count": {
-                "direction": "both",
+                "arg": "e+t+n",
+                "direction": "out",
                 "type": "int"
               },
               "message": {
-                "direction": "both",
+                "arg": "e",
+                "direction": "out",
                 "type": "int"
               },
               "notification": {
-                "direction": "both",
+                "arg": "n",
+                "direction": "out",
                 "type": "int"
               },
               "receipt": {
-                "direction": "both",
+                "arg": "t",
+                "direction": "out",
                 "type": "int"
               }
             },
             "children": [],
             "content": null,
             "max": 1,
-            "min": 0,
+            "min": 1,
             "tag": "offline_preview"
           },
           {
             "attrs": {},
             "children": [],
             "content": null,
-            "max": 1,
-            "min": 0,
             "presence": true,
-            "tag": "priority_offline_complete"
-          },
-          {
-            "attrs": {
-              "code": {
-                "type": "string"
-              },
-              "use_case": {
-                "type": "int"
-              }
-            },
-            "children": [],
-            "content": null,
-            "max": 1,
-            "min": 1,
-            "tag": "recovery_nonce"
-          },
-          {
-            "attrs": {},
-            "children": [
-              {
-                "attrs": {
-                  "from": {
-                    "direction": "both",
-                    "type": "jid"
-                  },
-                  "t": {
-                    "direction": "both",
-                    "type": "time"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": null,
-                "min": 0,
-                "tag": "item"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {
-                      "from": {
-                        "direction": "both",
-                        "type": "jid"
-                      },
-                      "sts": {
-                        "optional": true,
-                        "type": "int"
-                      },
-                      "t": {
-                        "arg": "n[e]",
-                        "direction": "out",
-                        "type": "int"
-                      }
-                    },
-                    "children": [],
-                    "content": null,
-                    "max": null,
-                    "min": 0,
-                    "tag": "item"
-                  }
-                ],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "watermark"
-              }
-            ],
-            "content": null,
-            "max": 1,
-            "min": 1,
             "tag": "thread_metadata"
-          },
-          {
-            "attrs": {},
-            "children": [
-              {
-                "attrs": {
-                  "id": {
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": null,
-                "min": 0,
-                "tag": "notice"
-              }
-            ],
-            "content": null,
-            "max": 1,
-            "min": 1,
-            "tag": "tos"
           },
           {
             "attrs": {
@@ -48407,15 +48359,8 @@
           }
         ],
         "content": null,
-        "graftedFromRPCs": [
-          {
-            "child": "client_expiration",
-            "module": "WASmaxClientExpirationClientExpirationRPC"
-          }
-        ],
         "tag": "ib"
       },
-      "parserName": "infoBulletinParser",
       "tag": "ib"
     },
     "iq": {
@@ -49065,8 +49010,9 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "c",
+                "arg": "O",
                 "direction": "both",
+                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -50204,8 +50150,9 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "c",
+                "arg": "O",
                 "direction": "both",
+                "optional": true,
                 "type": "string"
               },
               "privacy_sensitive": {
@@ -51426,10 +51373,6 @@
                   },
                   "sender": {
                     "type": "jid"
-                  },
-                  "service": {
-                    "optional": true,
-                    "type": "string"
                   },
                   "status": {
                     "type": "string"
@@ -54107,38 +54050,12 @@
                 "tag": "invite"
               },
               {
-                "attrs": {
-                  "group": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "message-id": {
-                    "type": "string"
-                  },
-                  "receiver": {
-                    "type": "jid"
-                  },
-                  "sender": {
-                    "type": "jid"
-                  },
-                  "service": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "status": {
-                    "type": "string"
-                  },
-                  "transaction-type": {
-                    "type": "string"
-                  },
-                  "ts": {
-                    "type": "int"
-                  }
-                },
+                "attrs": {},
                 "children": [],
                 "content": null,
                 "max": 1,
                 "min": 0,
+                "presence": true,
                 "tag": "transaction"
               }
             ],
@@ -55477,9 +55394,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "t.peer_jid",
+                "arg": "I",
                 "direction": "both",
-                "type": "deviceJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -55803,9 +55720,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "t.peer_jid",
+                "arg": "I",
                 "direction": "both",
-                "type": "deviceJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -56393,12 +56310,8 @@
       "node": {
         "attrs": {
           "abprops": {
-            "direction": "both",
-            "optional": true,
-            "type": "int"
-          },
-          "companion_enc_static": {
-            "optional": true,
+            "arg": "e.toString()",
+            "direction": "out",
             "type": "string"
           },
           "creation": {
@@ -56407,17 +56320,9 @@
             "type": "string"
           },
           "display_name": {
-            "direction": "both",
-            "optional": true,
+            "arg": "t!=null?t:\"random_name\"",
+            "direction": "out",
             "type": "string"
-          },
-          "group_abprops": {
-            "optional": true,
-            "type": "int"
-          },
-          "lid": {
-            "optional": true,
-            "type": "lidUserJid"
           },
           "props": {
             "arg": "e.toString()",
@@ -56425,15 +56330,15 @@
             "type": "string"
           },
           "t": {
-            "direction": "both",
-            "type": "time"
+            "arg": "String(o(\"WATimeUtils\").unixTime())",
+            "direction": "out",
+            "type": "int"
           }
         },
         "children": [],
         "content": null,
         "tag": "success"
       },
-      "parserName": "successParser",
       "tag": "success"
     },
     "xmlstreamend": {
@@ -56441,5 +56346,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1046607480"
+  "waVersion": "2.3000.1046691727"
 }
