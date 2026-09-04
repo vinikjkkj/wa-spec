@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2422,
+  "propCount": 2429,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -108,6 +108,12 @@
     },
     "acp2_enabled": {
       "code": 36091,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "acp2_futureproof_enabled": {
+      "code": 36197,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -610,6 +616,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_activity_enabled": {
+      "code": 36263,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_commands_enabled": {
       "code": 27660,
       "debugDefaultValue": false,
@@ -1078,6 +1090,12 @@
       "defaultValue": true,
       "type": "bool"
     },
+    "ai_search_null_state_convo_starter_gql_enabled": {
+      "code": 36251,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_search_null_state_convo_starter_suggestions_update_interval": {
       "code": 17623,
       "debugDefaultValue": 86400,
@@ -1212,6 +1230,12 @@
     },
     "ai_unified_response_sender_web_enabled": {
       "code": 23347,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_unified_response_video_mutation_enabled": {
+      "code": 36250,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -1930,6 +1954,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "biz_ai_web_appointments_enabled": {
+      "code": 36222,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "biz_ai_web_bulk_thread_control_enabled": {
       "code": 32588,
       "debugDefaultValue": false,
@@ -1987,6 +2017,12 @@
     "biz_vpv_impression_logging_enabled": {
       "code": 25465,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "bizai_smb_mx_m2_upsell": {
+      "code": 36187,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -5860,6 +5896,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "group_join_validation_questions_setting_enabled": {
+      "code": 36245,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "group_max_subject": {
       "code": 14801,
       "debugDefaultValue": 100,
@@ -8870,12 +8912,6 @@
       "code": 16254,
       "debugDefaultValue": 1440,
       "defaultValue": 1440,
-      "type": "int"
-    },
-    "scheduled_companion_contact_refresh_hours": {
-      "code": 35018,
-      "debugDefaultValue": 0,
-      "defaultValue": 0,
       "type": "int"
     },
     "scheduled_contact_divergence_check_hours": {
@@ -14260,6 +14296,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "web_voip_live_caption_probe_enabled": {
+      "code": 36276,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_load_wasm_variant": {
       "code": 23045,
       "debugDefaultValue": "prod-nonlab",
@@ -14664,5 +14706,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046691727"
+  "waVersion": "2.3000.1046809387"
 }

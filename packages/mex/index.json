@@ -213,8 +213,33 @@
         "input": "string"
       }
     },
+    "AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus": {
+      "docId": "38096061813371664",
+      "operationKind": "mutation",
+      "originalName": "AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusMutation",
+      "response": {
+        "set_video_optimization_sticky_status_ads_ad_account_settings": {
+          "ads_ad_account_settings": {
+            "id": "string",
+            "video_optimization_sticky_entries": [
+              {
+                "optimization": "unknown",
+                "status": "string",
+                "timestamp": "string"
+              }
+            ]
+          }
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": "string"
+      }
+    },
     "AdsAdAccountSettingsStoreSourceServer": {
-      "docId": "27663051876685173",
+      "docId": "27633358993026573",
       "operationKind": "query",
       "originalName": "AdsAdAccountSettingsStoreSourceServerQuery",
       "response": {
@@ -226,7 +251,14 @@
               "timestamp": "string"
             }
           ],
-          "id": "string"
+          "id": "string",
+          "video_optimization_sticky_entries": [
+            {
+              "optimization": "unknown",
+              "status": "string",
+              "timestamp": "string"
+            }
+          ]
         }
       },
       "variables": [
@@ -2207,95 +2239,6 @@
         "includeAttachmentData": "boolean",
         "restore_payload_strings": "unknown",
         "restore_type": "enum:INITIAL_RESTORE|RANGE_QUERY_RESTORE"
-      }
-    },
-    "EBMinosFetchContactKeys": {
-      "docId": "26531892553066563",
-      "operationKind": "query",
-      "originalName": "EBMinosFetchContactKeysQuery",
-      "response": {
-        "xfb_minos_fetch_mailbox_public_keys": {
-          "__typename": "string",
-          "code": "string",
-          "contact_id_to_minos_params": [
-            {
-              "contact_id": "string",
-              "mailbox_public_keys": {
-                "auth_pk_b64": "unknown",
-                "enc_pk_b64": "unknown",
-                "epoch_anon_id_b64": "unknown",
-                "epoch_head_b64": "unknown",
-                "epoch_head_ctime": "unknown",
-                "fbid": "unknown",
-                "prev_epoch_head_b64": "unknown",
-                "self_signature_b64": "unknown",
-                "sign_pk_b64": "unknown"
-              }
-            }
-          ],
-          "message": "string"
-        }
-      },
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {}
-      }
-    },
-    "EBMinosUploadMessages": {
-      "docId": "27566072369743752",
-      "operationKind": "mutation",
-      "originalName": "EBMinosUploadMessagesMutation",
-      "response": {
-        "xfb_upload_encrypted_msg_to_backup": {
-          "backup_write_result_response": {
-            "delete_mailbox": "unknown",
-            "is_success": "boolean",
-            "protobuf_params": {
-              "delete_on_success": "unknown"
-            }
-          },
-          "exception_string": "unknown",
-          "labyrinth_1_1": {
-            "device_epoch_status": "string",
-            "is_success": "boolean",
-            "mek_registration_results": [
-              {
-                "is_success": "boolean",
-                "mek_fbid": "string",
-                "mek_id_base64": "unknown"
-              }
-            ],
-            "update_outdated_contact_minos_keys": {
-              "update_response_params": [
-                {
-                  "fbid": "unknown",
-                  "minos_params_for_update_contact": {
-                    "contact_id": "string",
-                    "minos_params": {
-                      "epoch_anon_id_base64": "unknown",
-                      "epoch_head_base64": "unknown",
-                      "epoch_head_creation_time": "string",
-                      "mailbox_encryption_public_key_base64": "unknown",
-                      "minos_epoch_signature_self_base64": "unknown",
-                      "minos_mailbox_auth_pubkey_base64": "unknown",
-                      "minos_mailbox_public_keys_fbid": "string",
-                      "minos_mailbox_signing_pubkey_base64": "unknown",
-                      "minos_previous_epoch_head_base64": "unknown"
-                    }
-                  }
-                }
-              ]
-            }
-          }
-        }
-      },
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": "string"
       }
     },
     "EBRegisterMinosMessageEncryptionKey": {
@@ -4930,42 +4873,6 @@
         "page_id": "string"
       }
     },
-    "MessengerAdPreviewConversation": {
-      "docId": "29273127528968869",
-      "operationKind": "query",
-      "originalName": "MessengerAdPreviewConversationQuery",
-      "response": {
-        "page": {
-          "id": "string",
-          "smc_product_catalog": {
-            "catalog_product_count": "number",
-            "is_eligible": "boolean",
-            "products": [
-              {
-                "da_display_preview_url": "string"
-              }
-            ],
-            "selected_products": [
-              {
-                "da_display_preview_url": "string",
-                "product_name": "string",
-                "sale_price": "string"
-              }
-            ]
-          }
-        }
-      },
-      "variables": [
-        "page_id",
-        "selected_product_ids"
-      ],
-      "variablesShape": {
-        "page_id": "string",
-        "selected_product_ids": [
-          "string"
-        ]
-      }
-    },
     "MetaPayVaultInitialize": {
       "docId": "27977299271866413",
       "operationKind": "mutation",
@@ -5032,43 +4939,6 @@
           "error_reason": "string",
           "status": "string",
           "vault_entry_fbid": "string"
-        }
-      },
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": {}
-      }
-    },
-    "MpsReceiverFetchGraphQLSticker": {
-      "docId": "27636200009321630",
-      "operationKind": "query",
-      "originalName": "MpsReceiverFetchGraphQLStickerQuery",
-      "response": {
-        "media_receiver_fetch_deidentified": {
-          "cdn_url": "string",
-          "expiration_timestamp_ms": "number",
-          "height": "number",
-          "mime_type": "string",
-          "receiver_fetch_id": "string",
-          "width": "number"
-        }
-      },
-      "variables": [
-        "receiverFetchId"
-      ],
-      "variablesShape": {
-        "receiverFetchId": "string"
-      }
-    },
-    "MpsReceiverFetchGraphQLXMA": {
-      "docId": "28101543082782219",
-      "operationKind": "query",
-      "originalName": "MpsReceiverFetchGraphQLXMAQuery",
-      "response": {
-        "msgr_xma_receiver_fetch_deidentified": {
-          "xma_dataclass": "unknown"
         }
       },
       "variables": [
@@ -7304,5 +7174,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1046691727"
+  "waVersion": "2.3000.1046809387"
 }

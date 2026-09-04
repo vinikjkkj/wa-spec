@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046691727
+// WhatsApp Version: 2.3000.1046809387
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -25,6 +25,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdPreferencesHideAdvertiser: WaMexPersistId
     readonly AdPreferencesInterestCategoryOptOut: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexPersistId
+    readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexPersistId
@@ -81,8 +82,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
     readonly EBMessageRangeQueryForThreads: WaMexPersistId
-    readonly EBMinosFetchContactKeys: WaMexPersistId
-    readonly EBMinosUploadMessages: WaMexPersistId
     readonly EBRegisterMinosMessageEncryptionKey: WaMexPersistId
     readonly EditBizProfile: WaMexPersistId
     readonly ExternalCtxAuthoriseWAChat: WaMexPersistId
@@ -151,13 +150,10 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexPersistId
     readonly MAIBAMessageSignalsCTARenderer: WaMexPersistId
     readonly MAIBARecordAsyncAuthConsent: WaMexPersistId
-    readonly MessengerAdPreviewConversation: WaMexPersistId
     readonly MetaPayVaultInitialize: WaMexPersistId
     readonly MetaPayVaultLabyrinthDelete: WaMexPersistId
     readonly MetaPayVaultLabyrinthFetchAll: WaMexPersistId
     readonly MetaPayVaultLabyrinthSave: WaMexPersistId
-    readonly MpsReceiverFetchGraphQLSticker: WaMexPersistId
-    readonly MpsReceiverFetchGraphQLXMA: WaMexPersistId
     readonly NativeMLModel: WaMexPersistId
     readonly NewsletterAddPaidPartnershipLabel: WaMexPersistId
     readonly NewsletterBlockUser: WaMexPersistId
@@ -237,6 +233,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdPreferencesHideAdvertiser: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdPreferencesInterestCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['interestID', 'isUndo']>
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id']>
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexOperationSchema<'query', readonly ['adAccountID']>
@@ -293,8 +290,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EBMessageRangeQueryForThreads: WaMexOperationSchema<'query', readonly ['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']>
-    readonly EBMinosFetchContactKeys: WaMexOperationSchema<'query', readonly ['input']>
-    readonly EBMinosUploadMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EBRegisterMinosMessageEncryptionKey: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
     readonly ExternalCtxAuthoriseWAChat: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -363,13 +358,10 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexOperationSchema<'query', readonly ['click_selector', 'initial_url']>
     readonly MAIBAMessageSignalsCTARenderer: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MAIBARecordAsyncAuthConsent: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'page_id']>
-    readonly MessengerAdPreviewConversation: WaMexOperationSchema<'query', readonly ['page_id', 'selected_product_ids']>
     readonly MetaPayVaultInitialize: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthDelete: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthFetchAll: WaMexOperationSchema<'query', readonly ['input']>
     readonly MetaPayVaultLabyrinthSave: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly MpsReceiverFetchGraphQLSticker: WaMexOperationSchema<'query', readonly ['receiverFetchId']>
-    readonly MpsReceiverFetchGraphQLXMA: WaMexOperationSchema<'query', readonly ['input']>
     readonly NativeMLModel: WaMexOperationSchema<'query', readonly ['client_capability_metadata', 'model_request_metadatas']>
     readonly NewsletterAddPaidPartnershipLabel: WaMexOperationSchema<'mutation', readonly ['message_type', 'newsletter_id', 'server_id']>
     readonly NewsletterBlockUser: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'response_server_id', 'server_id']>
@@ -482,6 +474,10 @@ export type WaMexAdPreferencesInterestCategoryOptOutVariables = {
 }
 
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables = {
+    readonly input?: string
+}
+
+export type WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusVariables = {
     readonly input?: string
 }
 
@@ -802,14 +798,6 @@ export type WaMexEBMessageRangeQueryForThreadsVariables = {
     readonly includeAttachmentData?: boolean
     readonly restore_payload_strings?: unknown
     readonly restore_type?: 'INITIAL_RESTORE' | 'RANGE_QUERY_RESTORE'
-}
-
-export type WaMexEBMinosFetchContactKeysVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexEBMinosUploadMessagesVariables = {
-    readonly input?: string
 }
 
 export type WaMexEBRegisterMinosMessageEncryptionKeyVariables = {
@@ -1233,11 +1221,6 @@ export type WaMexMAIBARecordAsyncAuthConsentVariables = {
     readonly page_id?: string
 }
 
-export type WaMexMessengerAdPreviewConversationVariables = {
-    readonly page_id?: string
-    readonly selected_product_ids?: ReadonlyArray<string>
-}
-
 export type WaMexMetaPayVaultInitializeVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -1251,14 +1234,6 @@ export type WaMexMetaPayVaultLabyrinthFetchAllVariables = {
 }
 
 export type WaMexMetaPayVaultLabyrinthSaveVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexMpsReceiverFetchGraphQLStickerVariables = {
-    readonly receiverFetchId?: string
-}
-
-export type WaMexMpsReceiverFetchGraphQLXMAVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
@@ -1705,6 +1680,7 @@ export interface WaMexOperationVariables {
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserVariables
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutVariables
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables
+    readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeVariables
@@ -1761,8 +1737,6 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsVariables
-    readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysVariables
-    readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesVariables
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyVariables
     readonly EditBizProfile: WaMexEditBizProfileVariables
     readonly ExternalCtxAuthoriseWAChat: WaMexExternalCtxAuthoriseWAChatVariables
@@ -1831,13 +1805,10 @@ export interface WaMexOperationVariables {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexMAIBAMessageLiveBrowserRendererScreenshotVariables
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererVariables
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentVariables
-    readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationVariables
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeVariables
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteVariables
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllVariables
     readonly MetaPayVaultLabyrinthSave: WaMexMetaPayVaultLabyrinthSaveVariables
-    readonly MpsReceiverFetchGraphQLSticker: WaMexMpsReceiverFetchGraphQLStickerVariables
-    readonly MpsReceiverFetchGraphQLXMA: WaMexMpsReceiverFetchGraphQLXMAVariables
     readonly NativeMLModel: WaMexNativeMLModelVariables
     readonly NewsletterAddPaidPartnershipLabel: WaMexNewsletterAddPaidPartnershipLabelVariables
     readonly NewsletterBlockUser: WaMexNewsletterBlockUserVariables
@@ -2004,6 +1975,19 @@ export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse =
     }
 }
 
+export type WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusResponse = {
+    readonly set_video_optimization_sticky_status_ads_ad_account_settings?: {
+        readonly ads_ad_account_settings?: {
+            readonly id?: string
+            readonly video_optimization_sticky_entries?: ReadonlyArray<{
+                readonly optimization?: unknown
+                readonly status?: string
+                readonly timestamp?: string
+            }>
+        }
+    }
+}
+
 export type WaMexAdsAdAccountSettingsStoreSourceServerResponse = {
     readonly ads_ad_account_settings_from_ad_account?: {
         readonly feature_sticky_entries?: ReadonlyArray<{
@@ -2012,6 +1996,11 @@ export type WaMexAdsAdAccountSettingsStoreSourceServerResponse = {
             readonly timestamp?: string
         }>
         readonly id?: string
+        readonly video_optimization_sticky_entries?: ReadonlyArray<{
+            readonly optimization?: unknown
+            readonly status?: string
+            readonly timestamp?: string
+        }>
     }
 }
 
@@ -3158,69 +3147,6 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                     }>
                     readonly should_delete_mailbox?: boolean
                     readonly thread_not_found?: unknown
-                }>
-            }
-        }
-    }
-}
-
-export type WaMexEBMinosFetchContactKeysResponse = {
-    readonly xfb_minos_fetch_mailbox_public_keys?: {
-        readonly __typename?: string
-        readonly code?: string
-        readonly contact_id_to_minos_params?: ReadonlyArray<{
-            readonly contact_id?: string
-            readonly mailbox_public_keys?: {
-                readonly auth_pk_b64?: unknown
-                readonly enc_pk_b64?: unknown
-                readonly epoch_anon_id_b64?: unknown
-                readonly epoch_head_b64?: unknown
-                readonly epoch_head_ctime?: unknown
-                readonly fbid?: unknown
-                readonly prev_epoch_head_b64?: unknown
-                readonly self_signature_b64?: unknown
-                readonly sign_pk_b64?: unknown
-            }
-        }>
-        readonly message?: string
-    }
-}
-
-export type WaMexEBMinosUploadMessagesResponse = {
-    readonly xfb_upload_encrypted_msg_to_backup?: {
-        readonly backup_write_result_response?: {
-            readonly delete_mailbox?: unknown
-            readonly is_success?: boolean
-            readonly protobuf_params?: {
-                readonly delete_on_success?: unknown
-            }
-        }
-        readonly exception_string?: unknown
-        readonly labyrinth_1_1?: {
-            readonly device_epoch_status?: string
-            readonly is_success?: boolean
-            readonly mek_registration_results?: ReadonlyArray<{
-                readonly is_success?: boolean
-                readonly mek_fbid?: string
-                readonly mek_id_base64?: unknown
-            }>
-            readonly update_outdated_contact_minos_keys?: {
-                readonly update_response_params?: ReadonlyArray<{
-                    readonly fbid?: unknown
-                    readonly minos_params_for_update_contact?: {
-                        readonly contact_id?: string
-                        readonly minos_params?: {
-                            readonly epoch_anon_id_base64?: unknown
-                            readonly epoch_head_base64?: unknown
-                            readonly epoch_head_creation_time?: string
-                            readonly mailbox_encryption_public_key_base64?: unknown
-                            readonly minos_epoch_signature_self_base64?: unknown
-                            readonly minos_mailbox_auth_pubkey_base64?: unknown
-                            readonly minos_mailbox_public_keys_fbid?: string
-                            readonly minos_mailbox_signing_pubkey_base64?: unknown
-                            readonly minos_previous_epoch_head_base64?: unknown
-                        }
-                    }
                 }>
             }
         }
@@ -4796,24 +4722,6 @@ export type WaMexMAIBARecordAsyncAuthConsentResponse = {
     }
 }
 
-export type WaMexMessengerAdPreviewConversationResponse = {
-    readonly page?: {
-        readonly id?: string
-        readonly smc_product_catalog?: {
-            readonly catalog_product_count?: number
-            readonly is_eligible?: boolean
-            readonly products?: ReadonlyArray<{
-                readonly da_display_preview_url?: string
-            }>
-            readonly selected_products?: ReadonlyArray<{
-                readonly da_display_preview_url?: string
-                readonly product_name?: string
-                readonly sale_price?: string
-            }>
-        }
-    }
-}
-
 export type WaMexMetaPayVaultInitializeResponse = {
     readonly meta_pay_vault_initialize?: {
         readonly error_reason?: string
@@ -4844,23 +4752,6 @@ export type WaMexMetaPayVaultLabyrinthSaveResponse = {
         readonly error_reason?: string
         readonly status?: string
         readonly vault_entry_fbid?: string
-    }
-}
-
-export type WaMexMpsReceiverFetchGraphQLStickerResponse = {
-    readonly media_receiver_fetch_deidentified?: {
-        readonly cdn_url?: string
-        readonly expiration_timestamp_ms?: number
-        readonly height?: number
-        readonly mime_type?: string
-        readonly receiver_fetch_id?: string
-        readonly width?: number
-    }
-}
-
-export type WaMexMpsReceiverFetchGraphQLXMAResponse = {
-    readonly msgr_xma_receiver_fetch_deidentified?: {
-        readonly xma_dataclass?: unknown
     }
 }
 
@@ -6069,6 +5960,7 @@ export interface WaMexOperationResponses {
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserResponse
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutResponse
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse
+    readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeResponse
@@ -6125,8 +6017,6 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsResponse
-    readonly EBMinosFetchContactKeys: WaMexEBMinosFetchContactKeysResponse
-    readonly EBMinosUploadMessages: WaMexEBMinosUploadMessagesResponse
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyResponse
     readonly EditBizProfile: WaMexEditBizProfileResponse
     readonly ExternalCtxAuthoriseWAChat: WaMexExternalCtxAuthoriseWAChatResponse
@@ -6195,13 +6085,10 @@ export interface WaMexOperationResponses {
     readonly MAIBAMessageLiveBrowserRendererScreenshot: WaMexMAIBAMessageLiveBrowserRendererScreenshotResponse
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererResponse
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentResponse
-    readonly MessengerAdPreviewConversation: WaMexMessengerAdPreviewConversationResponse
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeResponse
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteResponse
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllResponse
     readonly MetaPayVaultLabyrinthSave: WaMexMetaPayVaultLabyrinthSaveResponse
-    readonly MpsReceiverFetchGraphQLSticker: WaMexMpsReceiverFetchGraphQLStickerResponse
-    readonly MpsReceiverFetchGraphQLXMA: WaMexMpsReceiverFetchGraphQLXMAResponse
     readonly NativeMLModel: WaMexNativeMLModelResponse
     readonly NewsletterAddPaidPartnershipLabel: WaMexNewsletterAddPaidPartnershipLabelResponse
     readonly NewsletterBlockUser: WaMexNewsletterBlockUserResponse
