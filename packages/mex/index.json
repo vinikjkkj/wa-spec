@@ -338,61 +338,6 @@
         "contextKey": "unknown"
       }
     },
-    "AdsBulkEditVARNCAConflictWrapper_": {
-      "docId": "26554466787581138",
-      "operationKind": "query",
-      "originalName": "AdsBulkEditVARNCAConflictWrapper_Query",
-      "response": {
-        "ad_account": {
-          "id": "string",
-          "value_adjustment_rule_collection": {
-            "nodes": [
-              {
-                "campaigns": {
-                  "count": "unknown"
-                },
-                "id": "string",
-                "name": "string",
-                "personas": {
-                  "nodes": [
-                    {
-                      "adjustment_sign": "unknown",
-                      "adjustment_weight": "unknown",
-                      "criterias": {
-                        "nodes": [
-                          {
-                            "criteria_type": "string",
-                            "id": "string",
-                            "operator": "unknown",
-                            "predicate_types": "unknown",
-                            "predicates": "unknown"
-                          }
-                        ]
-                      },
-                      "id": "string",
-                      "name": "string",
-                      "status": "string"
-                    }
-                  ]
-                },
-                "product_type": "string",
-                "status": "string"
-              }
-            ]
-          }
-        }
-      },
-      "variables": [
-        "adAccountID",
-        "campaignRelayIDs",
-        "skipAccountQuery"
-      ],
-      "variablesShape": {
-        "adAccountID": "string",
-        "campaignRelayIDs": "unknown",
-        "skipAccountQuery": "boolean"
-      }
-    },
     "AdsManagerLiveDataCampaign": {
       "docId": "38493987773525432",
       "operationKind": "query",
@@ -7174,5 +7119,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1046809387"
+  "waVersion": "2.3000.1046889734"
 }

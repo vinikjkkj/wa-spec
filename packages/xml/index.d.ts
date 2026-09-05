@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046809387
+// WhatsApp Version: 2.3000.1046889734
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -8072,6 +8072,10 @@ export interface WaXmlOperations {
                 readonly type: 'passkey_prologue_request'
             }
             readonly children: {
+                readonly dbsc_registration: {
+                    readonly tag: 'dbsc_registration'
+                    readonly content: Uint8Array
+                } | undefined
                 readonly passkey_request_options: {
                     readonly tag: 'passkey_request_options'
                     readonly content: Uint8Array
@@ -17303,7 +17307,7 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly error: number
+                readonly error?: number
                 readonly id: string
                 readonly participant?: string
                 readonly recipient?: string

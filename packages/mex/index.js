@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046809387
+// WhatsApp Version: 2.3000.1046889734
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -18,7 +18,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeBulkContainer: Object.freeze({ docId: '25592298897124600', clientDocId: '25592298897124600' }),
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
-    AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ docId: '26554466787581138', clientDocId: '26554466787581138' }),
     AdsManagerLiveDataCampaign: Object.freeze({ docId: '38493987773525432', clientDocId: '38493987773525432' }),
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '38494231696826744', clientDocId: '38494231696826744' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
@@ -226,7 +225,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeBulkContainer: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID']) }),
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID']) }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']) }),
-    AdsBulkEditVARNCAConflictWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'campaignRelayIDs', 'skipAccountQuery']) }),
     AdsManagerLiveDataCampaign: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ids', 'skip_data_transform']) }),
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'skipRequest']) }),

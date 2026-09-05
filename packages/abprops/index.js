@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046809387
+// WhatsApp Version: 2.3000.1046889734
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -2129,6 +2129,7 @@ const WA_ABPROPS = Object.freeze({
     web_add_contact: Object.freeze({ code: 26892, type: "string", defaultValue: "", debugDefaultValue: "" }),
     web_adv_logout_on_self_device_list_expired: Object.freeze({ code: 11011, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_ai_group_open_support: Object.freeze({ code: 23530, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_ai_sticker_emission_enabled: Object.freeze({ code: 36294, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_anr_async_contacts_restore_from_db_enabled: Object.freeze({ code: 27775, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_anr_async_media_decryption_enabled: Object.freeze({ code: 23200, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_anr_async_msg_send_handler: Object.freeze({ code: 27249, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4889,7 +4890,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36250: "ai_unified_response_video_mutation_enabled",
     36251: "ai_search_null_state_convo_starter_gql_enabled",
     36263: "ai_hatch_activity_enabled",
-    36276: "web_voip_live_caption_probe_enabled"
+    36276: "web_voip_live_caption_probe_enabled",
+    36294: "web_ai_sticker_emission_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

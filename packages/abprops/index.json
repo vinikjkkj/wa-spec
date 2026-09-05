@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2429,
+  "propCount": 2430,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -12832,6 +12832,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_ai_sticker_emission_enabled": {
+      "code": 36294,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_anr_async_contacts_restore_from_db_enabled": {
       "code": 27775,
       "debugDefaultValue": false,
@@ -14706,5 +14712,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046809387"
+  "waVersion": "2.3000.1046889734"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046809387
+// WhatsApp Version: 2.3000.1046889734
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -2148,6 +2148,7 @@ export declare const WA_ABPROPS: {
     readonly web_add_contact: { readonly code: 26892; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly web_adv_logout_on_self_device_list_expired: { readonly code: 11011; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_ai_group_open_support: { readonly code: 23530; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly web_ai_sticker_emission_enabled: { readonly code: 36294; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly web_anr_async_contacts_restore_from_db_enabled: { readonly code: 27775; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_anr_async_media_decryption_enabled: { readonly code: 23200; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_anr_async_msg_send_handler: { readonly code: 27249; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -4906,6 +4907,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 36251: "ai_search_null_state_convo_starter_gql_enabled"
     readonly 36263: "ai_hatch_activity_enabled"
     readonly 36276: "web_voip_live_caption_probe_enabled"
+    readonly 36294: "web_ai_sticker_emission_enabled"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

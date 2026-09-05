@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-appstate",
-    "version": "2.3000.1046809387-db2cf2b",
+    "version": "2.3000.1046889734-6c705bc",
     "description": "WhatsApp Web AppState (Syncd) action schemas — wire names, collections, versions, value fields, index shapes (daily-extracted).",
     "keywords": [
         "whatsapp",

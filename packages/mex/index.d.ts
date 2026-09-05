@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046809387
+// WhatsApp Version: 2.3000.1046889734
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -30,7 +30,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexPersistId
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexPersistId
-    readonly AdsBulkEditVARNCAConflictWrapper_: WaMexPersistId
     readonly AdsManagerLiveDataCampaign: WaMexPersistId
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
@@ -238,7 +237,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexOperationSchema<'query', readonly ['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']>
-    readonly AdsBulkEditVARNCAConflictWrapper_: WaMexOperationSchema<'query', readonly ['adAccountID', 'campaignRelayIDs', 'skipAccountQuery']>
     readonly AdsManagerLiveDataCampaign: WaMexOperationSchema<'query', readonly ['ids', 'skip_data_transform']>
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
@@ -498,12 +496,6 @@ export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables = {
     readonly ads_andromeda_bulk_edit_campaign_group_budget?: boolean
     readonly campaignGroupRelayIDs?: unknown
     readonly contextKey?: unknown
-}
-
-export type WaMexAdsBulkEditVARNCAConflictWrapper_Variables = {
-    readonly adAccountID?: string
-    readonly campaignRelayIDs?: unknown
-    readonly skipAccountQuery?: boolean
 }
 
 export type WaMexAdsManagerLiveDataCampaignVariables = {
@@ -1685,7 +1677,6 @@ export interface WaMexOperationVariables {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeVariables
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables
-    readonly AdsBulkEditVARNCAConflictWrapper_: WaMexAdsBulkEditVARNCAConflictWrapper_Variables
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignVariables
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
@@ -2035,41 +2026,6 @@ export type WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeRes
 export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response = {
     readonly ad_account?: {
         readonly id?: string
-    }
-}
-
-export type WaMexAdsBulkEditVARNCAConflictWrapper_Response = {
-    readonly ad_account?: {
-        readonly id?: string
-        readonly value_adjustment_rule_collection?: {
-            readonly nodes?: ReadonlyArray<{
-                readonly campaigns?: {
-                    readonly count?: unknown
-                }
-                readonly id?: string
-                readonly name?: string
-                readonly personas?: {
-                    readonly nodes?: ReadonlyArray<{
-                        readonly adjustment_sign?: unknown
-                        readonly adjustment_weight?: unknown
-                        readonly criterias?: {
-                            readonly nodes?: ReadonlyArray<{
-                                readonly criteria_type?: string
-                                readonly id?: string
-                                readonly operator?: unknown
-                                readonly predicate_types?: unknown
-                                readonly predicates?: unknown
-                            }>
-                        }
-                        readonly id?: string
-                        readonly name?: string
-                        readonly status?: string
-                    }>
-                }
-                readonly product_type?: string
-                readonly status?: string
-            }>
-        }
     }
 }
 
@@ -5965,7 +5921,6 @@ export interface WaMexOperationResponses {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeResponse
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response
-    readonly AdsBulkEditVARNCAConflictWrapper_: WaMexAdsBulkEditVARNCAConflictWrapper_Response
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignResponse
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
