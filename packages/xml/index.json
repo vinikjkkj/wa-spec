@@ -47570,10 +47570,10 @@
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(t.participant)",
+            "arg": "f",
             "direction": "out",
             "optional": true,
-            "type": "deviceJid"
+            "type": "userJid"
           },
           "recipient": {
             "arg": "r",
@@ -55390,7 +55390,7 @@
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55433,7 +55433,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55454,7 +55454,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55708,7 +55708,7 @@
                 "type": "string"
               },
               "class": {
-                "arg": "b",
+                "arg": "v",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55759,7 +55759,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "l",
+                "arg": "s",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55780,7 +55780,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56428,5 +56428,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1046889734"
+  "waVersion": "2.3000.1046914108"
 }
