@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2430,
+  "propCount": 2442,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -2178,6 +2178,12 @@
     },
     "br_consumer_payments_home_web_enabled": {
       "code": 32968,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "br_consumer_payments_web_enabled": {
+      "code": 36339,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -5944,6 +5950,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "group_membership_form_setting_enabled": {
+      "code": 36322,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "group_settings_ia_prototype": {
       "code": 34025,
       "debugDefaultValue": 0,
@@ -6276,6 +6288,12 @@
     },
     "inapp_signup_qpl_logging_enabled": {
       "code": 28806,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "inapp_signup_received_card_enabled": {
+      "code": 33503,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -7936,6 +7954,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_chile_enabled": {
+      "code": 36352,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_colombia_enabled": {
       "code": 33889,
       "debugDefaultValue": true,
@@ -7966,8 +7990,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_dominican_republic_enabled": {
+      "code": 36353,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_dr_congo_enabled": {
       "code": 35059,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_ecuador_enabled": {
+      "code": 36354,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -8002,6 +8038,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_honduras_enabled": {
+      "code": 36355,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_hongkong_enabled": {
       "code": 31868,
       "debugDefaultValue": true,
@@ -8028,6 +8070,24 @@
     },
     "payments_upr_kuwait_enabled": {
       "code": 35062,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_lebanon_enabled": {
+      "code": 36359,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_libya_enabled": {
+      "code": 36360,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_mali_enabled": {
+      "code": 36361,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -8068,6 +8128,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_upr_nicaragua_enabled": {
+      "code": 36356,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_upr_oman_enabled": {
       "code": 35576,
       "debugDefaultValue": true,
@@ -8076,6 +8142,12 @@
     },
     "payments_upr_panama_enabled": {
       "code": 35577,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_paraguay_enabled": {
+      "code": 36357,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -8154,6 +8226,12 @@
     },
     "payments_upr_uae_enabled": {
       "code": 31860,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_upr_uruguay_enabled": {
+      "code": 36358,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -8912,12 +8990,6 @@
       "code": 16254,
       "debugDefaultValue": 1440,
       "defaultValue": 1440,
-      "type": "int"
-    },
-    "scheduled_contact_divergence_check_hours": {
-      "code": 35341,
-      "debugDefaultValue": 0,
-      "defaultValue": 0,
       "type": "int"
     },
     "scheduled_messages_photo_video_sender_enabled": {
@@ -10728,7 +10800,7 @@
     },
     "wa_biz_gap_enforcement_rules_sync_to_meta_enabled_ac_linked_user": {
       "code": 34290,
-      "debugDefaultValue": false,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -14712,5 +14784,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046932777"
+  "waVersion": "2.3000.1046964124"
 }
