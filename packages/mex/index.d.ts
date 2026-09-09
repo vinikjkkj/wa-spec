@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046964124
+// WhatsApp Version: 2.3000.1047064765
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -4795,6 +4795,7 @@ export type WaMexOrgAdminGraphQLAddChannelResponse = {
         readonly channel?: {
             readonly description?: string
             readonly id?: string
+            readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
                 readonly uri?: string
@@ -4864,6 +4865,7 @@ export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
         readonly channels?: ReadonlyArray<{
             readonly description?: string
             readonly id?: string
+            readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
                 readonly uri?: string

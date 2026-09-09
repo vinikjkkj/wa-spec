@@ -98,7 +98,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2442,
+  "propCount": 2452,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -1512,6 +1512,18 @@
     },
     "aura_native_benefit_previews_enabled": {
       "code": 35532,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "aura_original_quality_media_benefit_active": {
+      "code": 36425,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "aura_original_quality_media_enabled": {
+      "code": 36424,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -3358,6 +3370,18 @@
       "defaultValue": "",
       "type": "string"
     },
+    "channels_question_response_like_admin_enabled": {
+      "code": 36380,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channels_question_response_like_follower_enabled": {
+      "code": 36381,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channels_question_response_rate_limit_max_count_in_client_ui": {
       "code": 19989,
       "debugDefaultValue": 5,
@@ -3375,6 +3399,12 @@
       "debugDefaultValue": "",
       "defaultValue": "",
       "type": "string"
+    },
+    "channels_question_view_your_responses_enabled": {
+      "code": 36379,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "channels_questions_integrity_m1_enabled": {
       "code": 17600,
@@ -5016,6 +5046,18 @@
     },
     "enable_ring_for_gc_on_offer_expire": {
       "code": 10103,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_rx_video_enhance_chat_fullscreen": {
+      "code": 36428,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_rx_video_enhance_status": {
+      "code": 36429,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8884,6 +8926,18 @@
       "defaultValue": true,
       "type": "bool"
     },
+    "rt_receiver_missing_reporting_token_detection": {
+      "code": 36374,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "rt_receiver_v3_validation_enabled": {
+      "code": 36371,
+      "debugDefaultValue": true,
+      "defaultValue": true,
+      "type": "bool"
+    },
     "rt_report_token_from_inclusion_list": {
       "code": 9818,
       "debugDefaultValue": false,
@@ -8901,6 +8955,12 @@
       "debugDefaultValue": 2,
       "defaultValue": 2,
       "type": "int"
+    },
+    "rt_sender_v3_hybrid_mode": {
+      "code": 36372,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "rt_swapped_fallback_validation": {
       "code": 21718,
@@ -14784,5 +14844,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1046964124"
+  "waVersion": "2.3000.1047064765"
 }

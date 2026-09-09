@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046964124
+// WhatsApp Version: 2.3000.1047064765
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2865,6 +2865,43 @@ export interface WaXmlOperations {
                     readonly tag: 'client_expiration'
                     readonly attrs: {
                         readonly t?: number
+                    }
+                }
+                readonly item: {
+                    readonly tag: 'item'
+                    readonly attrs: {
+                        readonly from: string
+                        readonly t: number
+                    }
+                }
+                readonly offline: {
+                    readonly tag: 'offline'
+                    readonly attrs: {
+                        readonly count: number
+                    }
+                }
+                readonly offline_batch: {
+                    readonly tag: 'offline_batch'
+                    readonly attrs: {
+                        readonly count: number
+                    }
+                }
+                readonly offline_preview: {
+                    readonly tag: 'offline_preview'
+                    readonly attrs: {
+                        readonly count: number
+                        readonly message: number
+                        readonly notification: number
+                        readonly receipt: number
+                    }
+                }
+                readonly thread_metadata: {
+                    readonly tag: 'thread_metadata'
+                }
+                readonly unified_session: {
+                    readonly tag: 'unified_session'
+                    readonly attrs: {
+                        readonly id: string
                     }
                 }
             }
@@ -8428,11 +8465,11 @@ export interface WaXmlOperations {
                 readonly native_flow_name?: string
                 readonly notify?: string
                 readonly offline: number
-                readonly participant?: string
+                readonly participant: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
-                readonly phash: string
+                readonly phash?: string
                 readonly privacy_sensitive?: boolean
                 readonly push_priority: string
                 readonly recipient?: string
@@ -17307,7 +17344,7 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly error: number
+                readonly error?: number
                 readonly id: string
                 readonly participant?: string
                 readonly recipient?: string
@@ -17503,38 +17540,17 @@ export interface WaXmlStanzas {
                 readonly from: 's.whatsapp.net'
             }
             readonly children: {
-                readonly '*': ReadonlyArray<{
-                    readonly tag: '*'
-                }>
                 readonly client_expiration: {
                     readonly tag: 'client_expiration'
                     readonly attrs: {
                         readonly t?: number
                     }
                 }
-                readonly dirty: ReadonlyArray<{
-                    readonly tag: 'dirty'
+                readonly item: {
+                    readonly tag: 'item'
                     readonly attrs: {
-                        readonly timestamp: number
-                        readonly type: 'groups' | 'account_sync' | 'syncd_app_state' | 'newsletter_metadata'
-                    }
-                    readonly children: {
-                        readonly '*': ReadonlyArray<{
-                            readonly tag: 'devices' | 'picture' | 'privacy' | 'blocklist' | 'notice'
-                        }>
-                    }
-                }>
-                readonly edge_routing: {
-                    readonly tag: 'edge_routing'
-                    readonly children: {
-                        readonly dns_domain: {
-                            readonly tag: 'dns_domain'
-                            readonly content: 'fb' | 'sl'
-                        } | undefined
-                        readonly routing_info: {
-                            readonly tag: 'routing_info'
-                            readonly content: Uint8Array
-                        }
+                        readonly from: string
+                        readonly t: number
                     }
                 }
                 readonly offline: {
@@ -17542,7 +17558,7 @@ export interface WaXmlStanzas {
                     readonly attrs: {
                         readonly count: number
                     }
-                } | undefined
+                }
                 readonly offline_batch: {
                     readonly tag: 'offline_batch'
                     readonly attrs: {
@@ -17552,58 +17568,14 @@ export interface WaXmlStanzas {
                 readonly offline_preview: {
                     readonly tag: 'offline_preview'
                     readonly attrs: {
-                        readonly call: number
                         readonly count: number
                         readonly message: number
                         readonly notification: number
                         readonly receipt: number
                     }
-                } | undefined
-                readonly priority_offline_complete: {
-                    readonly tag: 'priority_offline_complete'
-                } | undefined
-                readonly recovery_nonce: {
-                    readonly tag: 'recovery_nonce'
-                    readonly attrs: {
-                        readonly code: string
-                        readonly use_case: number
-                    }
                 }
                 readonly thread_metadata: {
                     readonly tag: 'thread_metadata'
-                    readonly children: {
-                        readonly item: ReadonlyArray<{
-                            readonly tag: 'item'
-                            readonly attrs: {
-                                readonly from: string
-                                readonly t: number
-                            }
-                        }>
-                        readonly watermark: {
-                            readonly tag: 'watermark'
-                            readonly children: {
-                                readonly item: ReadonlyArray<{
-                                    readonly tag: 'item'
-                                    readonly attrs: {
-                                        readonly from: string
-                                        readonly sts?: number
-                                        readonly t: number
-                                    }
-                                }>
-                            }
-                        } | undefined
-                    }
-                }
-                readonly tos: {
-                    readonly tag: 'tos'
-                    readonly children: {
-                        readonly notice: ReadonlyArray<{
-                            readonly tag: 'notice'
-                            readonly attrs: {
-                                readonly id: string
-                            }
-                        }>
-                    }
                 }
                 readonly unified_session: {
                     readonly tag: 'unified_session'
@@ -17756,11 +17728,11 @@ export interface WaXmlStanzas {
                     readonly native_flow_name?: string
                     readonly notify?: string
                     readonly offline: number
-                    readonly participant?: string
+                    readonly participant: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly phash: string
+                    readonly phash?: string
                     readonly privacy_sensitive?: boolean
                     readonly push_priority: string
                     readonly recipient?: string
@@ -18093,7 +18065,7 @@ export interface WaXmlStanzas {
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
-                    readonly phash: string
+                    readonly phash?: string
                     readonly privacy_sensitive?: boolean
                     readonly push_priority: string
                     readonly recipient: string
@@ -20433,12 +20405,9 @@ export interface WaXmlStanzas {
         readonly node: {
             readonly tag: 'success'
             readonly attrs: {
-                readonly abprops?: number
-                readonly companion_enc_static?: string
+                readonly abprops: string
                 readonly creation: string
-                readonly display_name?: string
-                readonly group_abprops?: number
-                readonly lid?: string
+                readonly display_name: string
                 readonly props: string
                 readonly t: number
             }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046964124
+// WhatsApp Version: 2.3000.1047064765
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -148,12 +148,12 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     NewsletterPinMessages: Object.freeze({ docId: '27165709459706559', clientDocId: '27165709459706559' }),
     NewsletterQuestionResponseStateUpdate: Object.freeze({ docId: '24636260219323456', clientDocId: '24636260219323456' }),
     NewsletterUnpinMessages: Object.freeze({ docId: '28007176042216937', clientDocId: '28007176042216937' }),
-    OrgAdminGraphQLAddChannel: Object.freeze({ docId: '27497940529885119', clientDocId: '27497940529885119' }),
+    OrgAdminGraphQLAddChannel: Object.freeze({ docId: '28297373133212292', clientDocId: '28297373133212292' }),
     OrgAdminGraphQLAddGroup: Object.freeze({ docId: '27409847525383193', clientDocId: '27409847525383193' }),
     OrgAdminGraphQLDirectory: Object.freeze({ docId: '29229928699940907', clientDocId: '29229928699940907' }),
     OrgAdminGraphQLGroup: Object.freeze({ docId: '28486573690950714', clientDocId: '28486573690950714' }),
     OrgAdminGraphQLInviteMembers: Object.freeze({ docId: '27941953275465289', clientDocId: '27941953275465289' }),
-    OrgAdminGraphQLManagedChannels: Object.freeze({ docId: '28002855556062605', clientDocId: '28002855556062605' }),
+    OrgAdminGraphQLManagedChannels: Object.freeze({ docId: '28517574477882450', clientDocId: '28517574477882450' }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28617119817893147', clientDocId: '28617119817893147' }),
     OrgAdminGraphQLMemberSearch: Object.freeze({ docId: '28398762773092863', clientDocId: '28398762773092863' }),
     OrgAdminGraphQLOrgs: Object.freeze({ docId: '29241904595398144', clientDocId: '29241904595398144' }),

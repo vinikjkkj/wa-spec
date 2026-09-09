@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1046964124
+/// WhatsApp Version: 2.3000.1047064765
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -534,6 +534,13 @@ enum WebLinkRenderConfig {
     SYSTEM = 1;
 }
 
+message ACP2Setting {
+    optional bool enabled = 1;
+    optional LimitSharing.Trigger trigger = 2;
+    optional int64 settingTimestamp = 3;
+    optional bool initiatedByMe = 4;
+}
+
 message ADVDeviceIdentity {
     optional uint32 rawId = 1;
     optional uint64 timestamp = 2;
@@ -806,6 +813,22 @@ message AccountLinkingOpaqueData {
 message ActionLink {
     optional string url = 1;
     optional string buttonTitle = 2;
+}
+
+message AddDeviceEpochOutput {
+    optional uint64 serverEpochId = 1;
+    optional bytes epochAnonId = 2;
+    optional bytes epochRootKey = 3;
+}
+
+message AddDeviceKeysOutput {
+    optional bytes devicePublicKey = 1;
+    optional bytes epochAuthPublicKey = 2;
+    optional bytes epochAuthPublicKeySig = 3;
+    optional bytes epochStoragePublicKey = 4;
+    optional bytes epochStoragePublicKeySig = 5;
+    optional bytes epochStoragePrivateKey = 6;
+    optional bytes orfClientState = 7;
 }
 
 message AppDataProto {
@@ -2773,6 +2796,16 @@ message DeriveMessageKeyOutput {
     optional string error = 2;
 }
 
+message DeriveVirtualDeviceIdInput {
+    optional string recoveryCode = 1;
+    optional uint64 userId = 2;
+}
+
+message DeriveVirtualDeviceIdOutput {
+    optional bytes virtualDeviceId = 1;
+    optional string error = 2;
+}
+
 message DeviceCapabilities {
     optional ChatLockSupportLevel chatLockSupportLevel = 1;
     optional LIDMigration lidMigration = 2;
@@ -3600,6 +3633,8 @@ message LabyrinthWaCommand {
         OrfThreadIdInput orfThreadIdInput = 4;
         DeriveMessageKeyInput deriveMessageKeyInput = 5;
         RotateEpochInput rotateEpochInput = 6;
+        DeriveVirtualDeviceIdInput deriveVirtualDeviceIdInput = 7;
+        PrepareAddDeviceInput prepareAddDeviceInput = 8;
     }
 }
 
@@ -3865,6 +3900,7 @@ message Message {
     optional StatusLinkPreviewMetadata statusLinkPreviewMetadata = 130;
     optional FutureProofMessage botPlatformRegistrationSuccessMessage = 131;
     optional FutureProofMessage newsletterScheduledMessage = 132;
+    optional FutureProofMessage acp2SettingMessage = 133;
     enum PollType {
         POLL = 0;
         QUIZ = 1;
@@ -5084,6 +5120,7 @@ message Message {
         optional AIMetadataOperation aiMetadataOperation = 31;
         optional Message.MarkAsVerifiedAction markAsVerifiedAction = 32;
         optional CoexStateSync coexStateSync = 33;
+        optional ACP2Setting acp2Setting = 35;
         enum Type {
             REVOKE = 0;
             EPHEMERAL_SETTING = 3;
@@ -5117,6 +5154,7 @@ message Message {
             AI_METADATA_OPERATION = 35;
             MARK_AS_VERIFIED_ACTION = 36;
             COEX_STATE_SYNC = 37;
+            ACP2_SETTING = 39;
         }
     }
     message CloudAPIThreadControlNotification {
@@ -5603,6 +5641,7 @@ message MessageContextInfo {
     optional NonE2EEAttestation accountEncryptionAttestation = 18;
     optional bytes associatedPrimaryIdentityKey = 19;
     optional string teeContextAnchorMessageId = 20;
+    optional ACP2Setting acp2Setting = 21;
     enum MessageAddonExpiryType {
         STATIC = 1;
         DEPENDENT_ON_PARENT = 2;
@@ -6551,6 +6590,27 @@ message PreKeySignalMessage {
 
 message PremiumMessageInfo {
     optional string serverCampaignId = 1;
+}
+
+message PrepareAddDeviceInput {
+    optional string recoveryCode = 1;
+    optional uint64 userId = 2;
+    optional string encryptedSecretValuesJson = 3;
+    optional uint64 virtualDeviceBaseEpochId = 4;
+    optional uint64 activeEpochId = 5;
+}
+
+message PrepareAddDeviceOutput {
+    optional AddDeviceKeysOutput deviceKeys = 1;
+    optional AddDeviceEpochOutput currentEpoch = 2;
+    optional bytes mailboxRootSalt = 3;
+    optional bytes orfRotationToken = 4;
+    optional bytes deviceEpochHmac = 5;
+    optional bytes epochRootKeyFingerprint = 6;
+    repeated int32 supportedEncryptionVersions = 7;
+    optional bytes encryptionVersionSignature = 8;
+    optional int32 clientVersion = 9;
+    optional string error = 10;
 }
 
 message PrimaryEphemeralIdentity {

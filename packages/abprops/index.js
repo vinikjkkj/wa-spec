@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046964124
+// WhatsApp Version: 2.3000.1047064765
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -243,6 +243,8 @@ const WA_ABPROPS = Object.freeze({
     aura_media_offload_benefit_active: Object.freeze({ code: 29308, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_media_offload_enabled: Object.freeze({ code: 29391, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_native_benefit_previews_enabled: Object.freeze({ code: 35532, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    aura_original_quality_media_benefit_active: Object.freeze({ code: 36425, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    aura_original_quality_media_enabled: Object.freeze({ code: 36424, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_pinned_chats_benefit_active: Object.freeze({ code: 23278, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_pinned_chats_enabled: Object.freeze({ code: 23277, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_pinned_chats_targeted_nux_force: Object.freeze({ code: 27135, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -550,9 +552,12 @@ const WA_ABPROPS = Object.freeze({
     channels_question_reply_receiver_message_types_m2_enabled: Object.freeze({ code: 26933, type: "string", defaultValue: "", debugDefaultValue: "" }),
     channels_question_reply_sender_message_types_m1_enabled: Object.freeze({ code: 18394, type: "string", defaultValue: "", debugDefaultValue: "22" }),
     channels_question_reply_sender_message_types_m2_enabled: Object.freeze({ code: 26931, type: "string", defaultValue: "", debugDefaultValue: "" }),
+    channels_question_response_like_admin_enabled: Object.freeze({ code: 36380, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_question_response_like_follower_enabled: Object.freeze({ code: 36381, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_question_response_rate_limit_max_count_in_client_ui: Object.freeze({ code: 19989, type: "int", defaultValue: 5, debugDefaultValue: 5 }),
     channels_question_sender_message_types_m1_enabled: Object.freeze({ code: 15418, type: "string", defaultValue: " ", debugDefaultValue: " " }),
     channels_question_sender_message_types_m2_enabled: Object.freeze({ code: 26930, type: "string", defaultValue: "", debugDefaultValue: "" }),
+    channels_question_view_your_responses_enabled: Object.freeze({ code: 36379, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_questions_integrity_m1_enabled: Object.freeze({ code: 17600, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_questions_responses_drawer_loading_shimmer_enabled: Object.freeze({ code: 29209, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_questions_search_backtest_enabled: Object.freeze({ code: 31046, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -827,6 +832,8 @@ const WA_ABPROPS = Object.freeze({
     enable_product_carousel_message: Object.freeze({ code: 7177, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_rate_app_prompt: Object.freeze({ code: 19894, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_ring_for_gc_on_offer_expire: Object.freeze({ code: 10103, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    enable_rx_video_enhance_chat_fullscreen: Object.freeze({ code: 36428, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    enable_rx_video_enhance_status: Object.freeze({ code: 36429, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_scheduled_calls_v2_entry_points_creation: Object.freeze({ code: 29793, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     enable_setup_error_result_check: Object.freeze({ code: 28689, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_sharing_files_from_web_windows_hybrid: Object.freeze({ code: 21184, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1471,9 +1478,12 @@ const WA_ABPROPS = Object.freeze({
     rt_ghs_sender_enabled: Object.freeze({ code: 24741, type: "bool", defaultValue: false, debugDefaultValue: true }),
     rt_receive_reporting_tag: Object.freeze({ code: 5718, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_receiver_dual_encrypted_msg_enabled: Object.freeze({ code: 15258, type: "bool", defaultValue: true, debugDefaultValue: true }),
+    rt_receiver_missing_reporting_token_detection: Object.freeze({ code: 36374, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    rt_receiver_v3_validation_enabled: Object.freeze({ code: 36371, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_report_token_from_inclusion_list: Object.freeze({ code: 9818, type: "bool", defaultValue: false, debugDefaultValue: false }),
     rt_sender_dual_encrypted_msg_enabled: Object.freeze({ code: 12623, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_sender_reporting_token_version: Object.freeze({ code: 8860, type: "int", defaultValue: 2, debugDefaultValue: 2 }),
+    rt_sender_v3_hybrid_mode: Object.freeze({ code: 36372, type: "bool", defaultValue: false, debugDefaultValue: true }),
     rt_swapped_fallback_validation: Object.freeze({ code: 21718, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_sync_reporting_tag: Object.freeze({ code: 6578, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_web_delay_processing: Object.freeze({ code: 15181, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -4915,7 +4925,17 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36358: "payments_upr_uruguay_enabled",
     36359: "payments_upr_lebanon_enabled",
     36360: "payments_upr_libya_enabled",
-    36361: "payments_upr_mali_enabled"
+    36361: "payments_upr_mali_enabled",
+    36371: "rt_receiver_v3_validation_enabled",
+    36372: "rt_sender_v3_hybrid_mode",
+    36374: "rt_receiver_missing_reporting_token_detection",
+    36379: "channels_question_view_your_responses_enabled",
+    36380: "channels_question_response_like_admin_enabled",
+    36381: "channels_question_response_like_follower_enabled",
+    36424: "aura_original_quality_media_enabled",
+    36425: "aura_original_quality_media_benefit_active",
+    36428: "enable_rx_video_enhance_chat_fullscreen",
+    36429: "enable_rx_video_enhance_status"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

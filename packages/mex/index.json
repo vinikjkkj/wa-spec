@@ -5085,7 +5085,7 @@
       }
     },
     "OrgAdminGraphQLAddChannel": {
-      "docId": "27497940529885119",
+      "docId": "28297373133212292",
       "operationKind": "mutation",
       "originalName": "WAWebOrgAdminGraphQLAddChannelMutation",
       "response": {
@@ -5093,6 +5093,7 @@
           "channel": {
             "description": "string",
             "id": "string",
+            "invite_code": "string",
             "name": "string",
             "picture": {
               "uri": "string"
@@ -5220,7 +5221,7 @@
       }
     },
     "OrgAdminGraphQLManagedChannels": {
-      "docId": "28002855556062605",
+      "docId": "28517574477882450",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLManagedChannelsQuery",
       "response": {
@@ -5229,6 +5230,7 @@
             {
               "description": "string",
               "id": "string",
+              "invite_code": "string",
               "name": "string",
               "picture": {
                 "uri": "string"
@@ -7119,5 +7121,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1046964124"
+  "waVersion": "2.3000.1047064765"
 }

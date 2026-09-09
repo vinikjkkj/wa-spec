@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1046964124
+// WhatsApp Version: 2.3000.1047064765
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -262,6 +262,8 @@ export declare const WA_ABPROPS: {
     readonly aura_media_offload_benefit_active: { readonly code: 29308; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly aura_media_offload_enabled: { readonly code: 29391; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly aura_native_benefit_previews_enabled: { readonly code: 35532; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly aura_original_quality_media_benefit_active: { readonly code: 36425; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly aura_original_quality_media_enabled: { readonly code: 36424; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly aura_pinned_chats_benefit_active: { readonly code: 23278; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly aura_pinned_chats_enabled: { readonly code: 23277; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly aura_pinned_chats_targeted_nux_force: { readonly code: 27135; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -569,9 +571,12 @@ export declare const WA_ABPROPS: {
     readonly channels_question_reply_receiver_message_types_m2_enabled: { readonly code: 26933; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly channels_question_reply_sender_message_types_m1_enabled: { readonly code: 18394; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "22" }
     readonly channels_question_reply_sender_message_types_m2_enabled: { readonly code: 26931; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
+    readonly channels_question_response_like_admin_enabled: { readonly code: 36380; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly channels_question_response_like_follower_enabled: { readonly code: 36381; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_question_response_rate_limit_max_count_in_client_ui: { readonly code: 19989; readonly type: "int"; readonly defaultValue: 5; readonly debugDefaultValue: 5 }
     readonly channels_question_sender_message_types_m1_enabled: { readonly code: 15418; readonly type: "string"; readonly defaultValue: " "; readonly debugDefaultValue: " " }
     readonly channels_question_sender_message_types_m2_enabled: { readonly code: 26930; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
+    readonly channels_question_view_your_responses_enabled: { readonly code: 36379; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_questions_integrity_m1_enabled: { readonly code: 17600; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly channels_questions_responses_drawer_loading_shimmer_enabled: { readonly code: 29209; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_questions_search_backtest_enabled: { readonly code: 31046; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -846,6 +851,8 @@ export declare const WA_ABPROPS: {
     readonly enable_product_carousel_message: { readonly code: 7177; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly enable_rate_app_prompt: { readonly code: 19894; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly enable_ring_for_gc_on_offer_expire: { readonly code: 10103; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly enable_rx_video_enhance_chat_fullscreen: { readonly code: 36428; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly enable_rx_video_enhance_status: { readonly code: 36429; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly enable_scheduled_calls_v2_entry_points_creation: { readonly code: 29793; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly enable_setup_error_result_check: { readonly code: 28689; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly enable_sharing_files_from_web_windows_hybrid: { readonly code: 21184; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1490,9 +1497,12 @@ export declare const WA_ABPROPS: {
     readonly rt_ghs_sender_enabled: { readonly code: 24741; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly rt_receive_reporting_tag: { readonly code: 5718; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly rt_receiver_dual_encrypted_msg_enabled: { readonly code: 15258; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
+    readonly rt_receiver_missing_reporting_token_detection: { readonly code: 36374; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly rt_receiver_v3_validation_enabled: { readonly code: 36371; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly rt_report_token_from_inclusion_list: { readonly code: 9818; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly rt_sender_dual_encrypted_msg_enabled: { readonly code: 12623; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly rt_sender_reporting_token_version: { readonly code: 8860; readonly type: "int"; readonly defaultValue: 2; readonly debugDefaultValue: 2 }
+    readonly rt_sender_v3_hybrid_mode: { readonly code: 36372; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly rt_swapped_fallback_validation: { readonly code: 21718; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly rt_sync_reporting_tag: { readonly code: 6578; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly rt_web_delay_processing: { readonly code: 15181; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -4932,6 +4942,16 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 36359: "payments_upr_lebanon_enabled"
     readonly 36360: "payments_upr_libya_enabled"
     readonly 36361: "payments_upr_mali_enabled"
+    readonly 36371: "rt_receiver_v3_validation_enabled"
+    readonly 36372: "rt_sender_v3_hybrid_mode"
+    readonly 36374: "rt_receiver_missing_reporting_token_detection"
+    readonly 36379: "channels_question_view_your_responses_enabled"
+    readonly 36380: "channels_question_response_like_admin_enabled"
+    readonly 36381: "channels_question_response_like_follower_enabled"
+    readonly 36424: "aura_original_quality_media_enabled"
+    readonly 36425: "aura_original_quality_media_benefit_active"
+    readonly 36428: "enable_rx_video_enhance_chat_fullscreen"
+    readonly 36429: "enable_rx_video_enhance_status"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {
