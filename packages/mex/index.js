@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047064765
+// WhatsApp Version: 2.3000.1047188352
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -56,8 +56,11 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateReportAppeal: Object.freeze({ docId: '27103316329328467', clientDocId: '27103316329328467' }),
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
+    DebugLabyrinthAddDevice: Object.freeze({ docId: '38487370967576807', clientDocId: '38487370967576807' }),
+    DebugLabyrinthFetchVirtualDeviceInfo: Object.freeze({ docId: '28155110140821441', clientDocId: '28155110140821441' }),
     DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27948440594820675', clientDocId: '27948440594820675' }),
     DebugLabyrinthRange: Object.freeze({ docId: '27219778391054922', clientDocId: '27219778391054922' }),
+    DebugLabyrinthRestorePage: Object.freeze({ docId: '28008863005437910', clientDocId: '28008863005437910' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
     DemoteNewsletterAdmin: Object.freeze({ docId: '9880997548630971', clientDocId: '9880997548630971' }),
     E2EEMetadataMailboxAddGroupParticipants: Object.freeze({ docId: '25006925522305489', clientDocId: '25006925522305489' }),
@@ -189,6 +192,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     TransferCommunityOwnership: Object.freeze({ docId: '29643783178598899', clientDocId: '29643783178598899' }),
     UpdateGroupProperty: Object.freeze({ docId: '9418211574894172', clientDocId: '9418211574894172' }),
     UpdateNewsletter: Object.freeze({ docId: '24250201037901610', clientDocId: '24250201037901610' }),
+    UpdateNewsletterAdminProfile: Object.freeze({ docId: '27871895895845117', clientDocId: '27871895895845117' }),
     UpdateNewsletterAdminProfileSetting: Object.freeze({ docId: '28226671310350649', clientDocId: '28226671310350649' }),
     UpdateNewsletterUserSetting: Object.freeze({ docId: '31938993655691868', clientDocId: '31938993655691868' }),
     UpdateTextStatus: Object.freeze({ docId: '9152604461510864', clientDocId: '9152604461510864' }),
@@ -263,8 +267,11 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     CreateReportAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['reason', 'report_id']) }),
     CreateWhatsAppAdsIdentity: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['code', 'phone_number']) }),
     CustomLabel3pdEvent: Object.freeze({ operationKind: 'query', variables: Object.freeze(['custom_labels', 'expt_group']) }),
+    DebugLabyrinthAddDevice: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    DebugLabyrinthFetchVirtualDeviceInfo: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['messageFirst', 'threadFirst']) }),
     DebugLabyrinthRange: Object.freeze({ operationKind: 'query', variables: Object.freeze(['device_id', 'message_count', 'partial_thread_id']) }),
+    DebugLabyrinthRestorePage: Object.freeze({ operationKind: 'query', variables: Object.freeze(['after', 'device_id', 'message_count', 'partial_thread_id']) }),
     DeleteNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id']) }),
     DemoteNewsletterAdmin: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'user_id']) }),
     E2EEMetadataMailboxAddGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
@@ -396,6 +403,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     TransferCommunityOwnership: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateGroupProperty: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['group_id', 'update']) }),
     UpdateNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'updates']) }),
+    UpdateNewsletterAdminProfile: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['admin_profile', 'newsletter_id']) }),
     UpdateNewsletterAdminProfileSetting: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id', 'updates']) }),
     UpdateNewsletterUserSetting: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UpdateTextStatus: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

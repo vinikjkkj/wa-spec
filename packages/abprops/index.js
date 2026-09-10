@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047064765
+// WhatsApp Version: 2.3000.1047188352
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -94,6 +94,7 @@ const WA_ABPROPS = Object.freeze({
     ai_group_tee_require_additional_member_enabled: Object.freeze({ code: 33050, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_groups_open_enabled: Object.freeze({ code: 22165, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_activity_enabled: Object.freeze({ code: 36263, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_hatch_approval_notification_enabled: Object.freeze({ code: 36472, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_commands_enabled: Object.freeze({ code: 27660, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_document_upload_size_limit_mb: Object.freeze({ code: 27873, type: "int", defaultValue: 20, debugDefaultValue: 20 }),
     ai_hatch_encrypted_media_enabled: Object.freeze({ code: 32496, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -231,6 +232,7 @@ const WA_ABPROPS = Object.freeze({
     audio_level_speaking_threshold: Object.freeze({ code: 1213, type: "int", defaultValue: 30, debugDefaultValue: 50 }),
     aura_app_themes_benefit_active: Object.freeze({ code: 23273, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_app_themes_enabled: Object.freeze({ code: 23274, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    aura_custom_reactions_kill_switch: Object.freeze({ code: 36449, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_enabled: Object.freeze({ code: 23270, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_benefit_active: Object.freeze({ code: 32724, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_default_list_enabled: Object.freeze({ code: 34252, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -264,6 +266,7 @@ const WA_ABPROPS = Object.freeze({
     auth_agent_soft_offboarding_enabled: Object.freeze({ code: 28802, type: "bool", defaultValue: false, debugDefaultValue: false }),
     auth_agents_consumer_exp_enabled: Object.freeze({ code: 26492, type: "bool", defaultValue: false, debugDefaultValue: true }),
     auth_agents_consumer_offboarding_exp_enabled: Object.freeze({ code: 30360, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    auth_reps_consumer_ai_group_block_enabled: Object.freeze({ code: 36453, type: "bool", defaultValue: false, debugDefaultValue: true }),
     backfill_check_primary_identity_key: Object.freeze({ code: 33448, type: "bool", defaultValue: false, debugDefaultValue: false }),
     backfill_supports_coex_companion: Object.freeze({ code: 27975, type: "bool", defaultValue: false, debugDefaultValue: false }),
     banned_shops_ux_enabled: Object.freeze({ code: 957, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -383,6 +386,7 @@ const WA_ABPROPS = Object.freeze({
     bug_reporting_attach_view_dump_pre_bug_creation: Object.freeze({ code: 26307, type: "bool", defaultValue: true, debugDefaultValue: false }),
     bug_reporting_not_shipped_yet_enabled: Object.freeze({ code: 29458, type: "bool", defaultValue: false, debugDefaultValue: false }),
     bug_reporting_pre_uploaded_attachments_on_bug_creation_enabled: Object.freeze({ code: 24422, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    bug_reporting_request_call_peer_log: Object.freeze({ code: 36539, type: "bool", defaultValue: false, debugDefaultValue: false }),
     bug_reporting_rid_in_flytrap: Object.freeze({ code: 24421, type: "bool", defaultValue: false, debugDefaultValue: false }),
     bug_reporting_using_graphql: Object.freeze({ code: 24161, type: "bool", defaultValue: false, debugDefaultValue: false }),
     business_broadcast_campaign_syncd_enabled: Object.freeze({ code: 26426, type: "bool", defaultValue: true, debugDefaultValue: true }),
@@ -879,6 +883,7 @@ const WA_ABPROPS = Object.freeze({
     enable_web_voip_virtual_video_capture_driver: Object.freeze({ code: 26817, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_web_voip_webtransport: Object.freeze({ code: 29764, type: "bool", defaultValue: false, debugDefaultValue: false }),
     enable_web_voip_webtransport_fallback: Object.freeze({ code: 33539, type: "bool", defaultValue: true, debugDefaultValue: true }),
+    enable_web_voip_webtransport_fast_setup: Object.freeze({ code: 36550, type: "bool", defaultValue: false, debugDefaultValue: true }),
     enable_web_voip_webtransport_group_calls: Object.freeze({ code: 34645, type: "bool", defaultValue: false, debugDefaultValue: true }),
     enable_web_voip_worker_pool_reclaim_on_rejoin: Object.freeze({ code: 33597, type: "bool", defaultValue: true, debugDefaultValue: true }),
     enable_webcodec_require_keyframe: Object.freeze({ code: 29510, type: "bool", defaultValue: true, debugDefaultValue: true }),
@@ -965,6 +970,7 @@ const WA_ABPROPS = Object.freeze({
     group_history_notice_receive: Object.freeze({ code: 15722, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_out_of_window_pin_sender: Object.freeze({ code: 26037, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_out_of_window_pins_receiver: Object.freeze({ code: 26039, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    group_history_per_group_toggle_md_sync: Object.freeze({ code: 36501, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_receive: Object.freeze({ code: 15311, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_receiver_dedup: Object.freeze({ code: 30462, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_receiver_floating_banner: Object.freeze({ code: 21568, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -974,7 +980,10 @@ const WA_ABPROPS = Object.freeze({
     group_history_send_adding_from_mention: Object.freeze({ code: 35554, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_send_adding_to_multiple_groups: Object.freeze({ code: 35553, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_send_admin_approval: Object.freeze({ code: 35556, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    group_history_send_admin_set_default_on: Object.freeze({ code: 36500, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_send_after_join: Object.freeze({ code: 26451, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    group_history_send_default_on: Object.freeze({ code: 36498, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    group_history_send_once_default_on: Object.freeze({ code: 36499, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_setting_decouple_enabled: Object.freeze({ code: 29973, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_settings: Object.freeze({ code: 21261, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_settings_query: Object.freeze({ code: 22230, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1488,6 +1497,8 @@ const WA_ABPROPS = Object.freeze({
     rt_sync_reporting_tag: Object.freeze({ code: 6578, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_web_delay_processing: Object.freeze({ code: 15181, type: "bool", defaultValue: false, debugDefaultValue: true }),
     rust_accel_wacall_foundation_enabled: Object.freeze({ code: 33446, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    rx_video_enhance_max_short_edge_px: Object.freeze({ code: 36517, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    rx_video_enhance_sharpen_strength_x1000: Object.freeze({ code: 36510, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     saga_copy: Object.freeze({ code: 7044, type: "bool", defaultValue: true, debugDefaultValue: true }),
     saga_enabled: Object.freeze({ code: 5626, type: "bool", defaultValue: true, debugDefaultValue: true }),
     saga_message_feedback_using_canonical_ent: Object.freeze({ code: 23328, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1617,6 +1628,7 @@ const WA_ABPROPS = Object.freeze({
     smb_web_bb_home_qp_surface_enabled: Object.freeze({ code: 32613, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_category_search_via_graph_enabled: Object.freeze({ code: 28519, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_management_enabled: Object.freeze({ code: 26165, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    smb_web_customer_management_import_export: Object.freeze({ code: 36497, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_manager_bulk_edit_enabled: Object.freeze({ code: 32550, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_web_customer_manager_date_range_filter_enabled: Object.freeze({ code: 32096, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_web_customer_manager_dob_filter_enabled: Object.freeze({ code: 32229, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1800,6 +1812,8 @@ const WA_ABPROPS = Object.freeze({
     wa_asteria_meta_ai_settings_tab_entrypoint_enabled: Object.freeze({ code: 27118, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_asteria_rollout_enabled: Object.freeze({ code: 26996, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_auth_agent_offboarding_enabled: Object.freeze({ code: 29923, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_biz_ai_1p_calendar_m1_enabled: Object.freeze({ code: 34231, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_biz_ai_appointment_connector_infra_enabled: Object.freeze({ code: 34202, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_biz_gap_enforcement_rules_sync_to_meta_enabled_ac_linked_user: Object.freeze({ code: 34290, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wa_biz_payment_template_click_signals: Object.freeze({ code: 33170, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_biz_url_cta_click_signals: Object.freeze({ code: 34726, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2467,6 +2481,7 @@ const WA_GROUP_ABPROPS = Object.freeze({
     ai_group_tee_history_share_group_level_enabled: Object.freeze({ code: 32501, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_messages_time_limit_secs_group_level: Object.freeze({ code: 26270, type: "int", defaultValue: 1209600, debugDefaultValue: 1209600 }),
     group_history_out_of_window_pin_sender_group_level: Object.freeze({ code: 26269, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    group_history_send_admin_set_default_on_group_level: Object.freeze({ code: 36505, type: "bool", defaultValue: false, debugDefaultValue: true }),
     group_history_send_after_join_group_level: Object.freeze({ code: 30905, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_send_group_level: Object.freeze({ code: 23245, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_history_setting_decouple_enabled_group_level: Object.freeze({ code: 30906, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4662,9 +4677,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34175: "enable_hybrid_open_with_shared_buffer",
     34186: "ai_3p_bot_product_chat_rendering_enabled",
     34199: "pix_payment_request_web_enabled",
+    34202: "wa_biz_ai_appointment_connector_infra_enabled",
     34203: "biz_ai_web_hub_chat_enabled",
     34204: "biz_ai_web_ai_hub_chat_nav_enabled",
     34226: "username_key_entry_ui_v2",
+    34231: "wa_biz_ai_1p_calendar_m1_enabled",
     34232: "unknown_user_target_rid_logging",
     34235: "br_consumer_pix_groups_web_enabled",
     34252: "aura_focus_lists_default_list_enabled",
@@ -4935,7 +4952,19 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36424: "aura_original_quality_media_enabled",
     36425: "aura_original_quality_media_benefit_active",
     36428: "enable_rx_video_enhance_chat_fullscreen",
-    36429: "enable_rx_video_enhance_status"
+    36429: "enable_rx_video_enhance_status",
+    36449: "aura_custom_reactions_kill_switch",
+    36453: "auth_reps_consumer_ai_group_block_enabled",
+    36472: "ai_hatch_approval_notification_enabled",
+    36497: "smb_web_customer_management_import_export",
+    36498: "group_history_send_default_on",
+    36499: "group_history_send_once_default_on",
+    36500: "group_history_send_admin_set_default_on",
+    36501: "group_history_per_group_toggle_md_sync",
+    36510: "rx_video_enhance_sharpen_strength_x1000",
+    36517: "rx_video_enhance_max_short_edge_px",
+    36539: "bug_reporting_request_call_peer_log",
+    36550: "enable_web_voip_webtransport_fast_setup"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({
@@ -4954,7 +4983,8 @@ const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({
     30906: "group_history_setting_decouple_enabled_group_level",
     32501: "ai_group_tee_history_share_group_level_enabled",
     35639: "group_settings_ia_group_level",
-    35772: "poll_add_option_creator_enabled_group_level"
+    35772: "poll_add_option_creator_enabled_group_level",
+    36505: "group_history_send_admin_set_default_on_group_level"
 })
 
 // Props the runtime permits reading before the config cache has resolved.

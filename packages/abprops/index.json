@@ -1,5 +1,5 @@
 {
-  "groupPropCount": 16,
+  "groupPropCount": 17,
   "groupProps": {
     "ai_group_tee_history_share_group_level_enabled": {
       "code": 32501,
@@ -16,6 +16,12 @@
     "group_history_out_of_window_pin_sender_group_level": {
       "code": 26269,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "group_history_send_admin_set_default_on_group_level": {
+      "code": 36505,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -98,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2452,
+  "propCount": 2466,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -619,6 +625,12 @@
     "ai_hatch_activity_enabled": {
       "code": 36263,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_approval_notification_enabled": {
+      "code": 36472,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -1444,6 +1456,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "aura_custom_reactions_kill_switch": {
+      "code": 36449,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "aura_enabled": {
       "code": 23270,
       "debugDefaultValue": false,
@@ -1638,6 +1656,12 @@
     },
     "auth_agents_consumer_offboarding_exp_enabled": {
       "code": 30360,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "auth_reps_consumer_ai_group_block_enabled": {
+      "code": 36453,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -2352,6 +2376,12 @@
     },
     "bug_reporting_pre_uploaded_attachments_on_bug_creation_enabled": {
       "code": 24422,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "bug_reporting_request_call_peer_log": {
+      "code": 36539,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -5332,6 +5362,12 @@
       "defaultValue": true,
       "type": "bool"
     },
+    "enable_web_voip_webtransport_fast_setup": {
+      "code": 36550,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "enable_web_voip_webtransport_group_calls": {
       "code": 34645,
       "debugDefaultValue": true,
@@ -5848,6 +5884,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "group_history_per_group_toggle_md_sync": {
+      "code": 36501,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "group_history_receive": {
       "code": 15311,
       "debugDefaultValue": true,
@@ -5902,9 +5944,27 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "group_history_send_admin_set_default_on": {
+      "code": 36500,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "group_history_send_after_join": {
       "code": 26451,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "group_history_send_default_on": {
+      "code": 36498,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "group_history_send_once_default_on": {
+      "code": 36499,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -8986,6 +9046,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "rx_video_enhance_max_short_edge_px": {
+      "code": 36517,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "rx_video_enhance_sharpen_strength_x1000": {
+      "code": 36510,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "saga_copy": {
       "code": 7044,
       "debugDefaultValue": true,
@@ -9756,6 +9828,12 @@
     },
     "smb_web_customer_management_enabled": {
       "code": 26165,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_web_customer_management_import_export": {
+      "code": 36497,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -10854,6 +10932,18 @@
     },
     "wa_auth_agent_offboarding_enabled": {
       "code": 29923,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_biz_ai_1p_calendar_m1_enabled": {
+      "code": 34231,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_biz_ai_appointment_connector_infra_enabled": {
+      "code": 34202,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -14844,5 +14934,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047064765"
+  "waVersion": "2.3000.1047188352"
 }

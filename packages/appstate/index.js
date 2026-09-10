@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047064765
+// WhatsApp Version: 2.3000.1047188352
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -142,7 +142,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         scope: 'account',
         valueField: 'businessBroadcastCampaignAction',
         valueProtoType: 'SyncActionValue.BusinessBroadcastCampaignAction',
-        valueEnumFields: Object.freeze({ 'status': 'BusinessBroadcastCampaignStatus' }),
+        valueEnumFields: Object.freeze({ 'bbProStatus': 'BusinessBroadcastCampaignBBProStatus', 'status': 'BusinessBroadcastCampaignStatus' }),
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'business_broadcast_campaign' }),
             Object.freeze({ type: 'string', name: 'campaign' })

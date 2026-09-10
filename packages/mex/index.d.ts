@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047064765
+// WhatsApp Version: 2.3000.1047188352
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -68,8 +68,11 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly CreateReportAppeal: WaMexPersistId
     readonly CreateWhatsAppAdsIdentity: WaMexPersistId
     readonly CustomLabel3pdEvent: WaMexPersistId
+    readonly DebugLabyrinthAddDevice: WaMexPersistId
+    readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexPersistId
     readonly DebugLabyrinthInboxSnapshot: WaMexPersistId
     readonly DebugLabyrinthRange: WaMexPersistId
+    readonly DebugLabyrinthRestorePage: WaMexPersistId
     readonly DeleteNewsletter: WaMexPersistId
     readonly DemoteNewsletterAdmin: WaMexPersistId
     readonly E2EEMetadataMailboxAddGroupParticipants: WaMexPersistId
@@ -201,6 +204,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly TransferCommunityOwnership: WaMexPersistId
     readonly UpdateGroupProperty: WaMexPersistId
     readonly UpdateNewsletter: WaMexPersistId
+    readonly UpdateNewsletterAdminProfile: WaMexPersistId
     readonly UpdateNewsletterAdminProfileSetting: WaMexPersistId
     readonly UpdateNewsletterUserSetting: WaMexPersistId
     readonly UpdateTextStatus: WaMexPersistId
@@ -275,8 +279,11 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CreateReportAppeal: WaMexOperationSchema<'mutation', readonly ['reason', 'report_id']>
     readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'phone_number']>
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
+    readonly DebugLabyrinthAddDevice: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['messageFirst', 'threadFirst']>
     readonly DebugLabyrinthRange: WaMexOperationSchema<'query', readonly ['device_id', 'message_count', 'partial_thread_id']>
+    readonly DebugLabyrinthRestorePage: WaMexOperationSchema<'query', readonly ['after', 'device_id', 'message_count', 'partial_thread_id']>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly DemoteNewsletterAdmin: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly E2EEMetadataMailboxAddGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -408,6 +415,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly TransferCommunityOwnership: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateGroupProperty: WaMexOperationSchema<'mutation', readonly ['group_id', 'update']>
     readonly UpdateNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
+    readonly UpdateNewsletterAdminProfile: WaMexOperationSchema<'mutation', readonly ['admin_profile', 'newsletter_id']>
     readonly UpdateNewsletterAdminProfileSetting: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
     readonly UpdateNewsletterUserSetting: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateTextStatus: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -733,12 +741,29 @@ export type WaMexCustomLabel3pdEventVariables = {
     readonly expt_group?: string
 }
 
+export type WaMexDebugLabyrinthAddDeviceVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexDebugLabyrinthFetchVirtualDeviceInfoVariables = {
+    readonly input?: {
+        readonly virtual_device_id?: string
+    }
+}
+
 export type WaMexDebugLabyrinthInboxSnapshotVariables = {
     readonly messageFirst?: number
     readonly threadFirst?: number
 }
 
 export type WaMexDebugLabyrinthRangeVariables = {
+    readonly device_id?: string
+    readonly message_count?: number
+    readonly partial_thread_id?: string
+}
+
+export type WaMexDebugLabyrinthRestorePageVariables = {
+    readonly after?: string
     readonly device_id?: string
     readonly message_count?: number
     readonly partial_thread_id?: string
@@ -1558,6 +1583,11 @@ export type WaMexUpdateNewsletterVariables = {
     }
 }
 
+export type WaMexUpdateNewsletterAdminProfileVariables = {
+    readonly admin_profile?: unknown
+    readonly newsletter_id?: string
+}
+
 export type WaMexUpdateNewsletterAdminProfileSettingVariables = {
     readonly newsletter_id?: string
     readonly updates?: {
@@ -1715,8 +1745,11 @@ export interface WaMexOperationVariables {
     readonly CreateReportAppeal: WaMexCreateReportAppealVariables
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityVariables
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventVariables
+    readonly DebugLabyrinthAddDevice: WaMexDebugLabyrinthAddDeviceVariables
+    readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexDebugLabyrinthFetchVirtualDeviceInfoVariables
     readonly DebugLabyrinthInboxSnapshot: WaMexDebugLabyrinthInboxSnapshotVariables
     readonly DebugLabyrinthRange: WaMexDebugLabyrinthRangeVariables
+    readonly DebugLabyrinthRestorePage: WaMexDebugLabyrinthRestorePageVariables
     readonly DeleteNewsletter: WaMexDeleteNewsletterVariables
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminVariables
     readonly E2EEMetadataMailboxAddGroupParticipants: WaMexE2EEMetadataMailboxAddGroupParticipantsVariables
@@ -1848,6 +1881,7 @@ export interface WaMexOperationVariables {
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipVariables
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyVariables
     readonly UpdateNewsletter: WaMexUpdateNewsletterVariables
+    readonly UpdateNewsletterAdminProfile: WaMexUpdateNewsletterAdminProfileVariables
     readonly UpdateNewsletterAdminProfileSetting: WaMexUpdateNewsletterAdminProfileSettingVariables
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingVariables
     readonly UpdateTextStatus: WaMexUpdateTextStatusVariables
@@ -2793,6 +2827,27 @@ export type WaMexCustomLabel3pdEventResponse = {
     }>
 }
 
+export type WaMexDebugLabyrinthAddDeviceResponse = {
+    readonly wa_labyrinth_add_device?: {
+        readonly __typename?: string
+        readonly backup_id?: string
+        readonly device_id?: string
+        readonly error_code?: string
+        readonly message?: string
+    }
+}
+
+export type WaMexDebugLabyrinthFetchVirtualDeviceInfoResponse = {
+    readonly wa_labyrinth_fetch_virtual_device_info?: {
+        readonly __typename?: string
+        readonly active_epoch_id?: string
+        readonly encrypted_secret_values?: ReadonlyArray<string>
+        readonly error_code?: string
+        readonly message?: string
+        readonly vd_base_epoch_id?: string
+    }
+}
+
 export type WaMexDebugLabyrinthInboxSnapshotResponse = {
     readonly get_wa_mailbox?: {
         readonly __typename?: string
@@ -2838,6 +2893,29 @@ export type WaMexDebugLabyrinthRangeResponse = {
             readonly page_info?: {
                 readonly has_next_page?: boolean
                 readonly has_previous_page?: boolean
+            }
+        }
+    }
+}
+
+export type WaMexDebugLabyrinthRestorePageResponse = {
+    readonly get_WAMessagingViewerThreadByORF?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly messages?: {
+            readonly __typename?: string
+            readonly edges?: ReadonlyArray<{
+                readonly __typename?: string
+                readonly node?: {
+                    readonly __typename?: string
+                    readonly encrypted_payload?: unknown
+                    readonly encryption_version?: number
+                    readonly id?: string
+                }
+            }>
+            readonly page_info?: {
+                readonly end_cursor?: string
+                readonly has_next_page?: boolean
             }
         }
     }
@@ -5664,6 +5742,23 @@ export type WaMexUpdateNewsletterResponse = {
     }
 }
 
+export type WaMexUpdateNewsletterAdminProfileResponse = {
+    readonly xwa2_newsletter_admin_profile_update?: {
+        readonly admin_profile?: {
+            readonly id?: string
+            readonly name?: string
+            readonly picture?: {
+                readonly direct_path?: string
+                readonly id?: string
+            }
+        }
+        readonly id?: string
+        readonly state?: {
+            readonly type?: 'ACTIVE' | 'DELETED' | 'GEOSUSPENDED' | 'NON_EXISTING' | 'SUSPENDED'
+        }
+    }
+}
+
 export type WaMexUpdateNewsletterAdminProfileSettingResponse = {
     readonly xwa2_newsletter_update?: {
         readonly id?: string
@@ -5961,8 +6056,11 @@ export interface WaMexOperationResponses {
     readonly CreateReportAppeal: WaMexCreateReportAppealResponse
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityResponse
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventResponse
+    readonly DebugLabyrinthAddDevice: WaMexDebugLabyrinthAddDeviceResponse
+    readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexDebugLabyrinthFetchVirtualDeviceInfoResponse
     readonly DebugLabyrinthInboxSnapshot: WaMexDebugLabyrinthInboxSnapshotResponse
     readonly DebugLabyrinthRange: WaMexDebugLabyrinthRangeResponse
+    readonly DebugLabyrinthRestorePage: WaMexDebugLabyrinthRestorePageResponse
     readonly DeleteNewsletter: WaMexDeleteNewsletterResponse
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminResponse
     readonly E2EEMetadataMailboxAddGroupParticipants: WaMexE2EEMetadataMailboxAddGroupParticipantsResponse
@@ -6094,6 +6192,7 @@ export interface WaMexOperationResponses {
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipResponse
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyResponse
     readonly UpdateNewsletter: WaMexUpdateNewsletterResponse
+    readonly UpdateNewsletterAdminProfile: WaMexUpdateNewsletterAdminProfileResponse
     readonly UpdateNewsletterAdminProfileSetting: WaMexUpdateNewsletterAdminProfileSettingResponse
     readonly UpdateNewsletterUserSetting: WaMexUpdateNewsletterUserSettingResponse
     readonly UpdateTextStatus: WaMexUpdateTextStatusResponse

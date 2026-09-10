@@ -1700,6 +1700,51 @@
         "expt_group": "string"
       }
     },
+    "DebugLabyrinthAddDevice": {
+      "docId": "38487370967576807",
+      "operationKind": "mutation",
+      "originalName": "WAWebDebugLabyrinthAddDeviceJobMutation",
+      "response": {
+        "wa_labyrinth_add_device": {
+          "__typename": "string",
+          "backup_id": "string",
+          "device_id": "string",
+          "error_code": "string",
+          "message": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
+    "DebugLabyrinthFetchVirtualDeviceInfo": {
+      "docId": "28155110140821441",
+      "operationKind": "query",
+      "originalName": "WAWebDebugLabyrinthFetchVirtualDeviceInfoJobQuery",
+      "response": {
+        "wa_labyrinth_fetch_virtual_device_info": {
+          "__typename": "string",
+          "active_epoch_id": "string",
+          "encrypted_secret_values": [
+            "string"
+          ],
+          "error_code": "string",
+          "message": "string",
+          "vd_base_epoch_id": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "virtual_device_id": "string"
+        }
+      }
+    },
     "DebugLabyrinthInboxSnapshot": {
       "docId": "27948440594820675",
       "operationKind": "query",
@@ -1777,6 +1822,47 @@
         "partial_thread_id"
       ],
       "variablesShape": {
+        "device_id": "string",
+        "message_count": "number",
+        "partial_thread_id": "string"
+      }
+    },
+    "DebugLabyrinthRestorePage": {
+      "docId": "28008863005437910",
+      "operationKind": "query",
+      "originalName": "WAWebDebugLabyrinthRestorePageJobQuery",
+      "response": {
+        "get_WAMessagingViewerThreadByORF": {
+          "__typename": "string",
+          "id": "string",
+          "messages": {
+            "__typename": "string",
+            "edges": [
+              {
+                "__typename": "string",
+                "node": {
+                  "__typename": "string",
+                  "encrypted_payload": "unknown",
+                  "encryption_version": "number",
+                  "id": "string"
+                }
+              }
+            ],
+            "page_info": {
+              "end_cursor": "string",
+              "has_next_page": "boolean"
+            }
+          }
+        }
+      },
+      "variables": [
+        "after",
+        "device_id",
+        "message_count",
+        "partial_thread_id"
+      ],
+      "variablesShape": {
+        "after": "string",
         "device_id": "string",
         "message_count": "number",
         "partial_thread_id": "string"
@@ -6619,6 +6705,35 @@
         }
       }
     },
+    "UpdateNewsletterAdminProfile": {
+      "docId": "27871895895845117",
+      "operationKind": "mutation",
+      "originalName": "WAWebMexUpdateNewsletterAdminProfileJobMutation",
+      "response": {
+        "xwa2_newsletter_admin_profile_update": {
+          "admin_profile": {
+            "id": "string",
+            "name": "string",
+            "picture": {
+              "direct_path": "string",
+              "id": "string"
+            }
+          },
+          "id": "string",
+          "state": {
+            "type": "enum:ACTIVE|DELETED|GEOSUSPENDED|NON_EXISTING|SUSPENDED"
+          }
+        }
+      },
+      "variables": [
+        "admin_profile",
+        "newsletter_id"
+      ],
+      "variablesShape": {
+        "admin_profile": "unknown",
+        "newsletter_id": "string"
+      }
+    },
     "UpdateNewsletterAdminProfileSetting": {
       "docId": "28226671310350649",
       "operationKind": "mutation",
@@ -7121,5 +7236,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047064765"
+  "waVersion": "2.3000.1047188352"
 }
