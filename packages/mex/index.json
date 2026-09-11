@@ -384,6 +384,127 @@
       "variables": [],
       "variablesShape": {}
     },
+    "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_": {
+      "docId": "28042135115454094",
+      "operationKind": "query",
+      "originalName": "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_Query",
+      "response": {
+        "ad_account": {
+          "id": "string",
+          "marketing_message_business_tier": "unknown",
+          "marketing_messages_account_settings": {
+            "dfca_automatic_upload_consent_status": "string",
+            "has_created_whatsapp_liquidity_campaign": "boolean",
+            "id": "string",
+            "messenger_activation_status": "string",
+            "messenger_subscriber_pool": {
+              "dfca_automatic_upload_consent_status": "string",
+              "id": "string",
+              "is_custom_audience_populating": "boolean",
+              "name": "string",
+              "subscriber_pool_audience_size": {
+                "upper_bound": "number"
+              }
+            },
+            "whatsapp_activation_status": "string",
+            "whatsapp_phone_number_current_status": {
+              "id": "string"
+            },
+            "whatsapp_subscriber_pool": {
+              "id": "string",
+              "is_agency_subscriber_upload_enabled": "boolean",
+              "name": "string",
+              "viewer_permissions": {
+                "can_update_automations": "boolean",
+                "can_upload_to_pool": "boolean"
+              }
+            }
+          },
+          "mm_advertiser_profile_editable_attributes": [
+            {
+              "__typename": "string",
+              "id": "string",
+              "value": {
+                "__typename": "string",
+                "as_boolean": "unknown",
+                "as_string": "unknown"
+              }
+            }
+          ]
+        },
+        "business": {
+          "id": "string",
+          "marketing_messages_enabled_whatsapp_accounts": {
+            "nodes": [
+              {
+                "has_permissions_to_create_message_marketing_campaign_on_ads_manager": "boolean",
+                "id": "string",
+                "is_reused_on_ads_manager": "boolean",
+                "marketing_messages_restriction_status": "string",
+                "owner_business": {
+                  "id": "string"
+                },
+                "phone_numbers": {
+                  "nodes": [
+                    {
+                      "display_name_verification_request_status": "string",
+                      "display_phone_number": "string",
+                      "id": "string",
+                      "is_virtual_phone_number": "boolean",
+                      "platform_type": "string",
+                      "status": "string"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "marketing_messages_enabled_whatsapp_business_accounts": {
+            "nodes": [
+              {
+                "has_permissions_to_create_message_marketing_campaign_on_ads_manager": "boolean",
+                "id": "string",
+                "is_reused_on_ads_manager": "boolean",
+                "marketing_messages_restriction_status": "string",
+                "owner_business": {
+                  "id": "string"
+                },
+                "phone_numbers": {
+                  "nodes": [
+                    {
+                      "display_name_verification_request_status": "string",
+                      "display_phone_number": "string",
+                      "id": "string",
+                      "is_virtual_phone_number": "boolean",
+                      "platform_type": "string",
+                      "status": "string"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "variables": [
+        "accountID",
+        "adgroupRelayIDs",
+        "businessID",
+        "campaignGroupRelayIDs",
+        "campaignRelayIDs",
+        "skip_business_query",
+        "use_waac"
+      ],
+      "variablesShape": {
+        "accountID": "string",
+        "adgroupRelayIDs": "unknown",
+        "businessID": "string",
+        "campaignGroupRelayIDs": "unknown",
+        "campaignRelayIDs": "unknown",
+        "skip_business_query": "boolean",
+        "use_waac": "boolean"
+      }
+    },
     "AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba": {
       "docId": "27132375929736175",
       "operationKind": "query",
@@ -400,6 +521,35 @@
       "variablesShape": {
         "adAccountID": "string",
         "skipRequest": "boolean"
+      }
+    },
+    "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_": {
+      "docId": "28312488775011145",
+      "operationKind": "query",
+      "originalName": "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Query",
+      "response": {
+        "primary_page": {
+          "__typename": "string",
+          "id": "string",
+          "is_verified": "boolean"
+        },
+        "secondary_page": {
+          "__typename": "string",
+          "id": "string",
+          "is_verified": "boolean"
+        }
+      },
+      "variables": [
+        "hasPrimaryPage",
+        "hasSecondaryPage",
+        "primaryPageID",
+        "secondaryPageID"
+      ],
+      "variablesShape": {
+        "hasPrimaryPage": "boolean",
+        "hasSecondaryPage": "boolean",
+        "primaryPageID": "string",
+        "secondaryPageID": "string"
       }
     },
     "AiAgentAutoReplyControl": {
@@ -2977,7 +3127,7 @@
       "response": {
         "xwa2_newsletter_admin": {
           "capabilities": [
-            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU"
+            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_API|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUESTIONS_STARRING|QUIZ|SCHEDULED_UPDATES|SHARE_STICKER_PACKS|THREAD_MENU"
           ],
           "id": "string"
         }
@@ -4754,7 +4904,7 @@
         "input": {
           "exposures": [
             {
-              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUIZ|SHARE_STICKER_PACKS|THREAD_MENU",
+              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_API|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUESTIONS_STARRING|QUIZ|SCHEDULED_UPDATES|SHARE_STICKER_PACKS|THREAD_MENU",
               "newsletter_id": "string"
             }
           ]
@@ -7236,5 +7386,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047188352"
+  "waVersion": "2.3000.1047292358"
 }

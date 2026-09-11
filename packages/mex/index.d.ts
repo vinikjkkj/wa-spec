@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047188352
+// WhatsApp Version: 2.3000.1047292358
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -32,7 +32,9 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexPersistId
     readonly AdsManagerLiveDataCampaign: WaMexPersistId
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
+    readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexPersistId
     readonly AiAgentAutoReplyControl: WaMexPersistId
     readonly AuthAgentFeaturePolicy: WaMexPersistId
     readonly BPAccessTokenAndSessionCookies: WaMexPersistId
@@ -243,7 +245,9 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexOperationSchema<'query', readonly ['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']>
     readonly AdsManagerLiveDataCampaign: WaMexOperationSchema<'query', readonly ['ids', 'skip_data_transform']>
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
+    readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexOperationSchema<'query', readonly ['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexOperationSchema<'query', readonly ['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']>
     readonly AiAgentAutoReplyControl: WaMexOperationSchema<'mutation', readonly ['consumer_lid', 'phone_number', 'thread_status']>
     readonly AuthAgentFeaturePolicy: WaMexOperationSchema<'query', readonly []>
     readonly BPAccessTokenAndSessionCookies: WaMexOperationSchema<'mutation', readonly ['application_id', 'code']>
@@ -513,9 +517,26 @@ export type WaMexAdsManagerLiveDataCampaignVariables = {
 
 export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables = Readonly<Record<string, never>>
 
+export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables = {
+    readonly accountID?: string
+    readonly adgroupRelayIDs?: unknown
+    readonly businessID?: string
+    readonly campaignGroupRelayIDs?: unknown
+    readonly campaignRelayIDs?: unknown
+    readonly skip_business_query?: boolean
+    readonly use_waac?: boolean
+}
+
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables = {
     readonly adAccountID?: string
     readonly skipRequest?: boolean
+}
+
+export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables = {
+    readonly hasPrimaryPage?: boolean
+    readonly hasSecondaryPage?: boolean
+    readonly primaryPageID?: string
+    readonly secondaryPageID?: string
 }
 
 export type WaMexAiAgentAutoReplyControlVariables = {
@@ -1205,7 +1226,7 @@ export type WaMexLidChangeNotificationVariables = Readonly<Record<string, never>
 export type WaMexLogNewsletterExposuresVariables = {
     readonly input?: {
         readonly exposures?: ReadonlyArray<{
-            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUIZ' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
+            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
             readonly newsletter_id?: string
         }>
     }
@@ -1709,7 +1730,9 @@ export interface WaMexOperationVariables {
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignVariables
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
+    readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlVariables
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyVariables
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesVariables
@@ -2083,9 +2106,111 @@ export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse 
     }
 }
 
+export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response = {
+    readonly ad_account?: {
+        readonly id?: string
+        readonly marketing_message_business_tier?: unknown
+        readonly marketing_messages_account_settings?: {
+            readonly dfca_automatic_upload_consent_status?: string
+            readonly has_created_whatsapp_liquidity_campaign?: boolean
+            readonly id?: string
+            readonly messenger_activation_status?: string
+            readonly messenger_subscriber_pool?: {
+                readonly dfca_automatic_upload_consent_status?: string
+                readonly id?: string
+                readonly is_custom_audience_populating?: boolean
+                readonly name?: string
+                readonly subscriber_pool_audience_size?: {
+                    readonly upper_bound?: number
+                }
+            }
+            readonly whatsapp_activation_status?: string
+            readonly whatsapp_phone_number_current_status?: {
+                readonly id?: string
+            }
+            readonly whatsapp_subscriber_pool?: {
+                readonly id?: string
+                readonly is_agency_subscriber_upload_enabled?: boolean
+                readonly name?: string
+                readonly viewer_permissions?: {
+                    readonly can_update_automations?: boolean
+                    readonly can_upload_to_pool?: boolean
+                }
+            }
+        }
+        readonly mm_advertiser_profile_editable_attributes?: ReadonlyArray<{
+            readonly __typename?: string
+            readonly id?: string
+            readonly value?: {
+                readonly __typename?: string
+                readonly as_boolean?: unknown
+                readonly as_string?: unknown
+            }
+        }>
+    }
+    readonly business?: {
+        readonly id?: string
+        readonly marketing_messages_enabled_whatsapp_accounts?: {
+            readonly nodes?: ReadonlyArray<{
+                readonly has_permissions_to_create_message_marketing_campaign_on_ads_manager?: boolean
+                readonly id?: string
+                readonly is_reused_on_ads_manager?: boolean
+                readonly marketing_messages_restriction_status?: string
+                readonly owner_business?: {
+                    readonly id?: string
+                }
+                readonly phone_numbers?: {
+                    readonly nodes?: ReadonlyArray<{
+                        readonly display_name_verification_request_status?: string
+                        readonly display_phone_number?: string
+                        readonly id?: string
+                        readonly is_virtual_phone_number?: boolean
+                        readonly platform_type?: string
+                        readonly status?: string
+                    }>
+                }
+            }>
+        }
+        readonly marketing_messages_enabled_whatsapp_business_accounts?: {
+            readonly nodes?: ReadonlyArray<{
+                readonly has_permissions_to_create_message_marketing_campaign_on_ads_manager?: boolean
+                readonly id?: string
+                readonly is_reused_on_ads_manager?: boolean
+                readonly marketing_messages_restriction_status?: string
+                readonly owner_business?: {
+                    readonly id?: string
+                }
+                readonly phone_numbers?: {
+                    readonly nodes?: ReadonlyArray<{
+                        readonly display_name_verification_request_status?: string
+                        readonly display_phone_number?: string
+                        readonly id?: string
+                        readonly is_virtual_phone_number?: boolean
+                        readonly platform_type?: string
+                        readonly status?: string
+                    }>
+                }
+            }>
+        }
+    }
+}
+
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse = {
     readonly xfb_ctwa_flows_waba_for_ad_account?: {
         readonly waba_id?: string
+    }
+}
+
+export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response = {
+    readonly primary_page?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly is_verified?: boolean
+    }
+    readonly secondary_page?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly is_verified?: boolean
     }
 }
 
@@ -3649,7 +3774,7 @@ export type WaMexFetchNewsletterResponse = {
 
 export type WaMexFetchNewsletterAdminCapabilitiesResponse = {
     readonly xwa2_newsletter_admin?: {
-        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUIZ' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
+        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
         readonly id?: string
     }
 }
@@ -6020,7 +6145,9 @@ export interface WaMexOperationResponses {
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignResponse
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
+    readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
+    readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlResponse
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyResponse
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesResponse

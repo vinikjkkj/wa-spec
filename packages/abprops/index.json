@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2466,
+  "propCount": 2470,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -2382,7 +2382,7 @@
     },
     "bug_reporting_request_call_peer_log": {
       "code": 36539,
-      "debugDefaultValue": false,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -3624,6 +3624,12 @@
     },
     "channels_sticker_pack_rendering": {
       "code": 20182,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channels_stickers_qp_enabled": {
+      "code": 36632,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -9142,6 +9148,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "scheduled_messages_smart_defaults": {
+      "code": 36583,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "scheduled_messages_window_duration_max_seconds": {
       "code": 26347,
       "debugDefaultValue": 1209600,
@@ -9826,6 +9838,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "smb_web_customer_management_custom_fields": {
+      "code": 36576,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "smb_web_customer_management_enabled": {
       "code": 26165,
       "debugDefaultValue": false,
@@ -10462,12 +10480,6 @@
       "defaultValue": 10,
       "type": "int"
     },
-    "updated_harmful_document_dialog": {
-      "code": 15022,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "updates_privacy_notice_rollout_date": {
       "code": 14387,
       "debugDefaultValue": 1742310000,
@@ -10606,6 +10618,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "username_contacts_ui_refresh": {
+      "code": 25059,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "username_creation_reservation_pp_disclosure_enabled": {
       "code": 32098,
       "debugDefaultValue": false,
@@ -10647,6 +10665,12 @@
       "debugDefaultValue": "0123456789ABCDEFGHJKLMNPQRSTVWXYZ",
       "defaultValue": "0123456789ABCDEFGHJKLMNPQRSTVWXYZ",
       "type": "string"
+    },
+    "username_key_display_ui": {
+      "code": 34343,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "username_key_entry_ui_v2": {
       "code": 34226,
@@ -14934,5 +14958,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047188352"
+  "waVersion": "2.3000.1047292358"
 }

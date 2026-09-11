@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047188352
+// WhatsApp Version: 2.3000.1047292358
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -20,7 +20,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
     AdsManagerLiveDataCampaign: Object.freeze({ docId: '38493987773525432', clientDocId: '38493987773525432' }),
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '38494231696826744', clientDocId: '38494231696826744' }),
+    AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '28042135115454094', clientDocId: '28042135115454094' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
+    AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ docId: '28312488775011145', clientDocId: '28312488775011145' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
     BPAccessTokenAndSessionCookies: Object.freeze({ docId: '26756198580685447', clientDocId: '26756198580685447' }),
@@ -231,7 +233,9 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']) }),
     AdsManagerLiveDataCampaign: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ids', 'skip_data_transform']) }),
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
+    AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']) }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'skipRequest']) }),
+    AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']) }),
     AiAgentAutoReplyControl: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['consumer_lid', 'phone_number', 'thread_status']) }),
     AuthAgentFeaturePolicy: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     BPAccessTokenAndSessionCookies: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['application_id', 'code']) }),

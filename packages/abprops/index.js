@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047188352
+// WhatsApp Version: 2.3000.1047292358
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -386,7 +386,7 @@ const WA_ABPROPS = Object.freeze({
     bug_reporting_attach_view_dump_pre_bug_creation: Object.freeze({ code: 26307, type: "bool", defaultValue: true, debugDefaultValue: false }),
     bug_reporting_not_shipped_yet_enabled: Object.freeze({ code: 29458, type: "bool", defaultValue: false, debugDefaultValue: false }),
     bug_reporting_pre_uploaded_attachments_on_bug_creation_enabled: Object.freeze({ code: 24422, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    bug_reporting_request_call_peer_log: Object.freeze({ code: 36539, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    bug_reporting_request_call_peer_log: Object.freeze({ code: 36539, type: "bool", defaultValue: false, debugDefaultValue: true }),
     bug_reporting_rid_in_flytrap: Object.freeze({ code: 24421, type: "bool", defaultValue: false, debugDefaultValue: false }),
     bug_reporting_using_graphql: Object.freeze({ code: 24161, type: "bool", defaultValue: false, debugDefaultValue: false }),
     business_broadcast_campaign_syncd_enabled: Object.freeze({ code: 26426, type: "bool", defaultValue: true, debugDefaultValue: true }),
@@ -594,6 +594,7 @@ const WA_ABPROPS = Object.freeze({
     channels_sticker_forwarded_attribution_ui_enabled: Object.freeze({ code: 16856, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_sticker_pack_forwarded_attribution_ui_enabled: Object.freeze({ code: 16858, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_sticker_pack_rendering: Object.freeze({ code: 20182, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_stickers_qp_enabled: Object.freeze({ code: 36632, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_t_enabled: Object.freeze({ code: 25078, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_uk_osa_enabled: Object.freeze({ code: 14249, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_updates_tab_swipe_actions_enabled: Object.freeze({ code: 8653, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1513,6 +1514,7 @@ const WA_ABPROPS = Object.freeze({
     scheduled_messages_photo_video_sender_enabled: Object.freeze({ code: 32553, type: "bool", defaultValue: false, debugDefaultValue: false }),
     scheduled_messages_receiver_enabled: Object.freeze({ code: 24610, type: "bool", defaultValue: false, debugDefaultValue: false }),
     scheduled_messages_sender_enabled: Object.freeze({ code: 23845, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    scheduled_messages_smart_defaults: Object.freeze({ code: 36583, type: "bool", defaultValue: false, debugDefaultValue: false }),
     scheduled_messages_window_duration_max_seconds: Object.freeze({ code: 26347, type: "int", defaultValue: 1209600, debugDefaultValue: 1209600 }),
     scheduled_messages_window_duration_min_seconds: Object.freeze({ code: 26348, type: "int", defaultValue: 600, debugDefaultValue: 600 }),
     search_the_web_design_experiment_v1: Object.freeze({ code: 15423, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1627,6 +1629,7 @@ const WA_ABPROPS = Object.freeze({
     smb_web_ai_tos_master_notice_id: Object.freeze({ code: 34831, type: "string", defaultValue: "", debugDefaultValue: "" }),
     smb_web_bb_home_qp_surface_enabled: Object.freeze({ code: 32613, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_category_search_via_graph_enabled: Object.freeze({ code: 28519, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    smb_web_customer_management_custom_fields: Object.freeze({ code: 36576, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_management_enabled: Object.freeze({ code: 26165, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_management_import_export: Object.freeze({ code: 36497, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_manager_bulk_edit_enabled: Object.freeze({ code: 32550, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1733,7 +1736,6 @@ const WA_ABPROPS = Object.freeze({
     unknown_user_usync_request_cool_down: Object.freeze({ code: 35318, type: "int", defaultValue: -1, debugDefaultValue: -1 }),
     unknown_user_wam_emit_cooldown_secs: Object.freeze({ code: 34551, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
     unknown_user_wam_max_events_per_window: Object.freeze({ code: 32946, type: "int", defaultValue: 10, debugDefaultValue: 10 }),
-    updated_harmful_document_dialog: Object.freeze({ code: 15022, type: "bool", defaultValue: false, debugDefaultValue: true }),
     updates_privacy_notice_rollout_date: Object.freeze({ code: 14387, type: "int", defaultValue: 1742310000, debugDefaultValue: 1742310000 }),
     updates_quick_promotion_banner_enabled: Object.freeze({ code: 13997, type: "bool", defaultValue: false, debugDefaultValue: false }),
     updates_tab_channels_header_explore_entry_point_visibility: Object.freeze({ code: 33934, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
@@ -1757,6 +1759,7 @@ const WA_ABPROPS = Object.freeze({
     username_contact_syncd_support_enable: Object.freeze({ code: 17614, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_contact_ui_vcard: Object.freeze({ code: 18204, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_contact_usync_lid_based: Object.freeze({ code: 14565, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    username_contacts_ui_refresh: Object.freeze({ code: 25059, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_creation_reservation_pp_disclosure_enabled: Object.freeze({ code: 32098, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_enabled_on_companion: Object.freeze({ code: 23817, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_engagement_network_impact_logging: Object.freeze({ code: 11794, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1764,6 +1767,7 @@ const WA_ABPROPS = Object.freeze({
     username_global_search_enabled: Object.freeze({ code: 18251, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_group_mutation_enabled: Object.freeze({ code: 16148, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_key_alphanumeric_charset: Object.freeze({ code: 34791, type: "string", defaultValue: "0123456789ABCDEFGHJKLMNPQRSTVWXYZ", debugDefaultValue: "0123456789ABCDEFGHJKLMNPQRSTVWXYZ" }),
+    username_key_display_ui: Object.freeze({ code: 34343, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_key_entry_ui_v2: Object.freeze({ code: 34226, type: "bool", defaultValue: false, debugDefaultValue: false }),
     username_key_max_length: Object.freeze({ code: 34348, type: "int", defaultValue: 6, debugDefaultValue: 6 }),
     username_key_min_length: Object.freeze({ code: 34347, type: "int", defaultValue: 4, debugDefaultValue: 4 }),
@@ -3256,7 +3260,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     14998: "smb_payment_links_cta_psp_list",
     15016: "rt_edit_receive",
     15020: "harmful_file_dialog_logging",
-    15022: "updated_harmful_document_dialog",
     15127: "limit_sharing_enabled_for_1on1_chat",
     15129: "limit_sharing_protocol_message_receiver_enabled",
     15181: "rt_web_delay_processing",
@@ -3784,6 +3787,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     25015: "wa_web_status_first_upload_fix_enabled",
     25021: "mm_disclosure_learn_more_article_id",
     25034: "status_infra_1_1_session_split",
+    25059: "username_contacts_ui_refresh",
     25065: "wa_web_comet_video_player_snapl",
     25071: "im_bloks_widget_enable",
     25078: "channels_t_enabled",
@@ -4701,6 +4705,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     34324: "im_a2ui_require_bot_attribution",
     34337: "context_menu_content_fix",
     34341: "smb_bb_pro_business_verification",
+    34343: "username_key_display_ui",
     34347: "username_key_min_length",
     34348: "username_key_max_length",
     34349: "wa_web_chat_themes_stock_wallpaper_sync_encode",
@@ -4964,7 +4969,10 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36510: "rx_video_enhance_sharpen_strength_x1000",
     36517: "rx_video_enhance_max_short_edge_px",
     36539: "bug_reporting_request_call_peer_log",
-    36550: "enable_web_voip_webtransport_fast_setup"
+    36550: "enable_web_voip_webtransport_fast_setup",
+    36576: "smb_web_customer_management_custom_fields",
+    36583: "scheduled_messages_smart_defaults",
+    36632: "channels_stickers_qp_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({
