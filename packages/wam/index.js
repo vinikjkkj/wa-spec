@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047292358
+// WhatsApp Version: 2.3000.1047376727
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -12366,6 +12366,26 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP': 2,
         'LIST': 3,
         'ONE_TO_ONE': 1
+        })
+    }),
+    SCHEDULED_MESSAGE_ACTION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumScheduledMessageActionType',
+        export: 'SCHEDULED_MESSAGE_ACTION_TYPE',
+        values: Object.freeze({
+        'OPEN_SCHEDULE_DATE_TIME_PICKER': 1,
+        'SELECT_DATE_TIME': 2,
+        'TAP_SCHEDULE_BUTTON': 3,
+        'TAP_UNSCHEDULE_BUTTON': 4,
+        'VIEW_SCHEDULED_MESSAGE_LIST': 5
+        })
+    }),
+    SCHEDULED_MESSAGE_ENTRYPOINT: Object.freeze({
+        module: 'WAWebWamEnumScheduledMessageEntrypoint',
+        export: 'SCHEDULED_MESSAGE_ENTRYPOINT',
+        values: Object.freeze({
+        'CHAT_DELETE_DIALOG': 3,
+        'CHAT_INFO': 2,
+        'SYSTEM_MESSAGE': 1
         })
     }),
     SEARCH_ACTION_ENTRY_POINT_TYPE: Object.freeze({
@@ -27224,6 +27244,28 @@ const WA_WAM_EVENTS = Object.freeze({
             ringtoneSelectionCancelled: Object.freeze({ id: 4, type: 'boolean', falcoName: 'ringtone_selection_cancelled' }),
             ringtoneSource: Object.freeze({ id: 5, type: 'enum', enum: 'RINGTONE_ENTRY_TYPE', falcoName: 'ringtone_source' }),
             ringtoneSubscribeSelected: Object.freeze({ id: 6, type: 'boolean', falcoName: 'ringtone_subscribe_selected' })
+        })
+    }),
+    ScheduledMessageAction: Object.freeze({
+        id: 8502,
+        falcoName: 'wam_scheduled_message_action',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            groupRole: Object.freeze({ id: 1, type: 'enum', enum: 'GROUP_ROLE_TYPE', falcoName: 'group_role' }),
+            groupTypeClient: Object.freeze({ id: 2, type: 'enum', enum: 'GROUP_TYPE_CLIENT', falcoName: 'group_type_client' }),
+            messageType: Object.freeze({ id: 3, type: 'enum', enum: 'MESSAGE_TYPE', falcoName: 'message_type' }),
+            scheduledMessageActionType: Object.freeze({ id: 4, type: 'enum', enum: 'SCHEDULED_MESSAGE_ACTION_TYPE', falcoName: 'scheduled_message_action_type' }),
+            scheduledMessageCount: Object.freeze({ id: 5, type: 'integer', falcoName: 'scheduled_message_count' }),
+            scheduledMessageEntrypoint: Object.freeze({ id: 6, type: 'enum', enum: 'SCHEDULED_MESSAGE_ENTRYPOINT', falcoName: 'scheduled_message_entrypoint' }),
+            scheduledMessageFutureDurationSecs: Object.freeze({ id: 7, type: 'integer', falcoName: 'scheduled_message_future_duration_secs' }),
+            scheduledMessageToScheduledCount: Object.freeze({ id: 9, type: 'integer', falcoName: 'scheduled_message_to_scheduled_count' }),
+            scheduledMessageToUnscheduleCount: Object.freeze({ id: 10, type: 'integer', falcoName: 'scheduled_message_to_unschedule_count' }),
+            unifiedSessionId: Object.freeze({ id: 8, type: 'string', falcoName: 'unified_session_id' })
         })
     }),
     ScreenLockSettingsData: Object.freeze({

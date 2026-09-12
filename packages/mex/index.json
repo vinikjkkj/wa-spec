@@ -188,6 +188,25 @@
         "isUndo": "unknown"
       }
     },
+    "AdsAccountHasCapabilityQueryPlugin_": {
+      "docId": "9943304682401366",
+      "operationKind": "query",
+      "originalName": "AdsAccountHasCapabilityQueryPlugin_Query",
+      "response": {
+        "ad_account": {
+          "has_capability": "boolean",
+          "id": "string"
+        }
+      },
+      "variables": [
+        "accountID",
+        "capability"
+      ],
+      "variablesShape": {
+        "accountID": "string",
+        "capability": "unknown"
+      }
+    },
     "AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus": {
       "docId": "28167160682886250",
       "operationKind": "mutation",
@@ -268,6 +287,26 @@
         "ad_account_id": "string"
       }
     },
+    "AdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProduct": {
+      "docId": "24448668791497112",
+      "operationKind": "query",
+      "originalName": "AdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProductQuery",
+      "response": {
+        "node": {
+          "__typename": "string",
+          "id": "string",
+          "recommended_budget_product": "unknown"
+        }
+      },
+      "variables": [
+        "campaignGroupID",
+        "shouldSkipQuery"
+      ],
+      "variablesShape": {
+        "campaignGroupID": "string",
+        "shouldSkipQuery": "boolean"
+      }
+    },
     "AdsBulkEditCampaignGroupAgencyFeeBulkContainer": {
       "docId": "25592298897124600",
       "operationKind": "query",
@@ -338,6 +377,69 @@
         "contextKey": "unknown"
       }
     },
+    "AdsCallAdsCampaignBudgetPluginCommon": {
+      "docId": "24595672743429552",
+      "operationKind": "query",
+      "originalName": "AdsCallAdsCampaignBudgetPluginCommonQuery",
+      "response": {
+        "ad_account": {
+          "call_ads_recommended_budget": {
+            "budget_limit_15s": "unknown"
+          },
+          "id": "string"
+        }
+      },
+      "variables": [
+        "accountID"
+      ],
+      "variablesShape": {
+        "accountID": "string"
+      }
+    },
+    "AdsInsightsAdInsightsShadowValidation": {
+      "docId": "27899630786320403",
+      "operationKind": "query",
+      "originalName": "AdsInsightsAdInsightsShadowValidationQuery",
+      "response": {
+        "nodes": [
+          {
+            "__typename": "string",
+            "ad_insights": {
+              "nodes": [
+                {
+                  "cost_per_result": "string",
+                  "impressions_as_string": "unknown",
+                  "metrics": [
+                    {
+                      "metric_id": "string",
+                      "metric_value_raw": "unknown"
+                    }
+                  ],
+                  "reach": "number",
+                  "results": "unknown",
+                  "spend": "number"
+                }
+              ]
+            },
+            "id": "string"
+          }
+        ]
+      },
+      "variables": [
+        "datePreset",
+        "from",
+        "ids",
+        "to"
+      ],
+      "variablesShape": {
+        "datePreset": "boolean",
+        "from": "unknown",
+        "ids": [
+          "string"
+        ],
+        "to": "unknown"
+      }
+    },
     "AdsManagerLiveDataCampaign": {
       "docId": "38493987773525432",
       "operationKind": "query",
@@ -384,8 +486,24 @@
       "variables": [],
       "variablesShape": {}
     },
+    "AdsReminderAdsAdAccountDataLoader": {
+      "docId": "23928358793520479",
+      "operationKind": "query",
+      "originalName": "AdsReminderAdsAdAccountDataLoaderQuery",
+      "response": {
+        "ad_account": {
+          "id": "string"
+        }
+      },
+      "variables": [
+        "adAccountID"
+      ],
+      "variablesShape": {
+        "adAccountID": "string"
+      }
+    },
     "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_": {
-      "docId": "28042135115454094",
+      "docId": "28581644508193043",
       "operationKind": "query",
       "originalName": "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_Query",
       "response": {
@@ -408,12 +526,16 @@
             },
             "whatsapp_activation_status": "string",
             "whatsapp_phone_number_current_status": {
-              "id": "string"
+              "id": "string",
+              "status": "string"
             },
             "whatsapp_subscriber_pool": {
               "id": "string",
               "is_agency_subscriber_upload_enabled": "boolean",
               "name": "string",
+              "owning_business": {
+                "id": "string"
+              },
               "viewer_permissions": {
                 "can_update_automations": "boolean",
                 "can_upload_to_pool": "boolean"
@@ -523,6 +645,25 @@
         "skipRequest": "boolean"
       }
     },
+    "AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_": {
+      "docId": "39157849030468989",
+      "operationKind": "query",
+      "originalName": "AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Query",
+      "response": {
+        "xfb_wamo_advertiser_profile_information_from_pwan": {
+          "business_name": "string",
+          "business_profile_image": "unknown"
+        }
+      },
+      "variables": [
+        "adAccountId",
+        "pageWhatsAppNumberId"
+      ],
+      "variablesShape": {
+        "adAccountId": "string",
+        "pageWhatsAppNumberId": "string"
+      }
+    },
     "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_": {
       "docId": "28312488775011145",
       "operationKind": "query",
@@ -550,6 +691,76 @@
         "hasSecondaryPage": "boolean",
         "primaryPageID": "string",
         "secondaryPageID": "string"
+      }
+    },
+    "AdsUnificationCampaignNUXEntrypointModalContainerInner": {
+      "docId": "24174526168878459",
+      "operationKind": "query",
+      "originalName": "AdsUnificationCampaignNUXEntrypointModalContainerInnerQuery",
+      "response": {},
+      "variables": [
+        "campaign_details",
+        "campaign_group_daily_budget",
+        "campaign_group_lifetime_budget",
+        "is_e2e_proxy_campaign_group"
+      ],
+      "variablesShape": {
+        "campaign_details": "unknown",
+        "campaign_group_daily_budget": "unknown",
+        "campaign_group_lifetime_budget": "unknown",
+        "is_e2e_proxy_campaign_group": "boolean"
+      }
+    },
+    "AdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttribute": {
+      "docId": "24230119316598825",
+      "operationKind": "mutation",
+      "originalName": "AdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttributeMutation",
+      "response": {
+        "xfb_advertiser_profile_mutate_manual_signals": [
+          {
+            "__typename": "string",
+            "id": "string",
+            "value": {
+              "__typename": "string",
+              "as_boolean": "unknown",
+              "as_integer": "unknown"
+            }
+          }
+        ]
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": "string"
+      }
+    },
+    "AdsUnificationCampaignNUXModalUtils_useImpressionData": {
+      "docId": "23900444656318652",
+      "operationKind": "query",
+      "originalName": "AdsUnificationCampaignNUXModalUtils_useImpressionDataQuery",
+      "response": {
+        "xfb_advertiser_profile_editable_attributes": [
+          {
+            "__typename": "string",
+            "id": "string",
+            "value": {
+              "__typename": "string",
+              "as_boolean": "unknown",
+              "as_integer": "unknown"
+            }
+          }
+        ]
+      },
+      "variables": [
+        "attribute_types",
+        "scope_ids"
+      ],
+      "variablesShape": {
+        "attribute_types": "unknown",
+        "scope_ids": [
+          "string"
+        ]
       }
     },
     "AiAgentAutoReplyControl": {
@@ -608,6 +819,87 @@
       "variablesShape": {
         "application_id": "number",
         "code": "string"
+      }
+    },
+    "BillingWizardNameUtils": {
+      "docId": "25871136809248124",
+      "operationKind": "query",
+      "originalName": "BillingWizardNameUtilsQuery",
+      "response": {
+        "billing_believe_eligibility": {
+          "is_eligible": "boolean"
+        },
+        "payment_account": {
+          "__typename": "string",
+          "billable_account": {
+            "__typename": "string",
+            "billing_info": {
+              "required_action": {
+                "action": {
+                  "wizard_name": "string",
+                  "wizard_props_json": "unknown"
+                }
+              }
+            },
+            "id": "string"
+          },
+          "id": "string"
+        }
+      },
+      "variables": [
+        "budget",
+        "deviceCountry",
+        "deviceCurrency",
+        "paymentAccountID",
+        "specificEntrypoint"
+      ],
+      "variablesShape": {
+        "budget": "unknown",
+        "deviceCountry": "unknown",
+        "deviceCurrency": "string",
+        "paymentAccountID": "string",
+        "specificEntrypoint": "unknown"
+      }
+    },
+    "BillingWizardNameUtilsRefetch": {
+      "docId": "31239804592334449",
+      "operationKind": "query",
+      "originalName": "BillingWizardNameUtilsRefetch",
+      "response": {
+        "payment_account": {
+          "__typename": "string",
+          "billable_account": {
+            "__typename": "string",
+            "billing_info": {
+              "required_action": {
+                "action": {
+                  "wizard_name": "string",
+                  "wizard_props_json": "unknown"
+                }
+              }
+            },
+            "id": "string"
+          },
+          "id": "string"
+        }
+      },
+      "variables": [
+        "boostDurationInDays",
+        "budget",
+        "dailyBudget",
+        "deviceCountry",
+        "deviceCurrency",
+        "paymentAccountID",
+        "specificEntrypoint"
+      ],
+      "variablesShape": {
+        "boostDurationInDays": "number",
+        "budget": "unknown",
+        "dailyBudget": "number",
+        "deviceCountry": "unknown",
+        "deviceCurrency": "string",
+        "paymentAccountID": "string",
+        "specificEntrypoint": "unknown"
       }
     },
     "BizCreateOrder": {
@@ -4856,6 +5148,30 @@
         "serfmt": "enum:BASE64"
       }
     },
+    "L1LiveTrueTieredReverseInteropStoreSourceTier2Server": {
+      "docId": "26889797440695980",
+      "operationKind": "query",
+      "originalName": "L1LiveTrueTieredReverseInteropStoreSourceTier2ServerQuery",
+      "response": {
+        "nodes": [
+          {
+            "__typename": "string",
+            "id": "string",
+            "node_id": "string"
+          }
+        ]
+      },
+      "variables": [
+        "fetch_instagram_field",
+        "ids"
+      ],
+      "variablesShape": {
+        "fetch_instagram_field": "boolean",
+        "ids": [
+          "string"
+        ]
+      }
+    },
     "LeaveNewsletter": {
       "docId": "9767147403369991",
       "operationKind": "mutation",
@@ -6488,6 +6804,1662 @@
         "input": {}
       }
     },
+    "SYDAccountInfoWidgetContainerV3": {
+      "docId": "26585771461039291",
+      "operationKind": "query",
+      "originalName": "SYDAccountInfoWidgetContainerV3Query",
+      "response": {
+        "ad_account": {
+          "currency": "string",
+          "id": "string",
+          "last_7_day_insights_spend": {
+            "amount": "number",
+            "currency": "string"
+          },
+          "name": "string",
+          "num_active_campaign_groups": "unknown",
+          "spend_info": {
+            "amount_spent": {
+              "offset_amount": "number"
+            },
+            "spend_limit": {
+              "offset_amount": "number"
+            }
+          },
+          "total_learning_phase_spend_ratio": "unknown"
+        }
+      },
+      "variables": [
+        "adAccountID"
+      ],
+      "variablesShape": {
+        "adAccountID": "string"
+      }
+    },
+    "SYDGuidanceHubV3RelayContainerLive": {
+      "docId": "38214492644861776",
+      "operationKind": "query",
+      "originalName": "SYDGuidanceHubV3RelayContainerLiveQuery",
+      "response": {
+        "ad_account": {
+          "business_constraints": {
+            "ads_business_constraints_status": "string"
+          },
+          "id": "string",
+          "ugp_recommendations": {
+            "__typename": "string",
+            "checked_gks": {
+              "top_level": [
+                {
+                  "aspect": "unknown",
+                  "gks": [
+                    {
+                      "gk_name": "string",
+                      "gk_type": "string",
+                      "result": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "checked_qes": {
+              "guidance_qe_mapping": [
+                {
+                  "qe": "unknown",
+                  "recommendation_stage": "unknown",
+                  "recommendation_type": "string"
+                }
+              ],
+              "top_level": [
+                {
+                  "aspect": "unknown",
+                  "qes": [
+                    {
+                      "bool_result": "unknown",
+                      "group": "unknown",
+                      "param": "unknown",
+                      "qe_unit_id": "string",
+                      "recommendations": [
+                        {
+                          "runtime_metadata": {
+                            "__typename": "string",
+                            "ad_object_tree": {
+                              "ad_group_ids": {
+                                "nodes": [
+                                  {
+                                    "id": "string"
+                                  }
+                                ]
+                              },
+                              "campaign_group_ids": {
+                                "nodes": [
+                                  {
+                                    "id": "string"
+                                  }
+                                ]
+                              },
+                              "campaigns_ids": {
+                                "nodes": [
+                                  {
+                                    "id": "string"
+                                  }
+                                ]
+                              }
+                            },
+                            "id": "string"
+                          }
+                        }
+                      ],
+                      "string_result": "unknown",
+                      "universe": "unknown"
+                    }
+                  ]
+                }
+              ]
+            },
+            "contents": [
+              {
+                "group_content": {
+                  "body": [
+                    {
+                      "image_ranges": [
+                        {
+                          "entity_with_image": {
+                            "__typename": "string",
+                            "id": "string",
+                            "image": {
+                              "downloadable_uri": "string"
+                            }
+                          },
+                          "length": "number",
+                          "offset": "number"
+                        }
+                      ],
+                      "inline_style_ranges": [
+                        {
+                          "inline_style": "unknown",
+                          "length": "number",
+                          "offset": "number"
+                        }
+                      ],
+                      "ranges": [
+                        {
+                          "entity": {
+                            "__typename": "string",
+                            "id": "string",
+                            "inner_text_by_locale": "unknown",
+                            "tag_names": [
+                              "string"
+                            ],
+                            "url": "string"
+                          },
+                          "length": "number",
+                          "offset": "number"
+                        }
+                      ],
+                      "text": "string"
+                    }
+                  ],
+                  "grouped_by": [
+                    {
+                      "type": "enum:COMMUNITY|DEFAULT|LINKED_ANNOUNCEMENT_GROUP|LINKED_GENERAL_GROUP|LINKED_SUBGROUP",
+                      "value": "string"
+                    }
+                  ],
+                  "header": {
+                    "title": {
+                      "checked_qes": [
+                        {
+                          "bool_result": "unknown",
+                          "group": "unknown",
+                          "param": "unknown",
+                          "qe_unit_id": "string",
+                          "string_result": "unknown",
+                          "universe": "unknown"
+                        }
+                      ],
+                      "inline_style_ranges": [
+                        {
+                          "inline_style": "unknown",
+                          "length": "number",
+                          "offset": "number"
+                        }
+                      ],
+                      "text": "string",
+                      "urc_qe_info": {
+                        "qe_universe_name": "string"
+                      },
+                      "urc_qe_infos": [
+                        {
+                          "qe_universe_name": "string"
+                        }
+                      ],
+                      "urc_variant_name": "string"
+                    }
+                  }
+                },
+                "recommendation_contents": [
+                  {
+                    "ad_object_label": [
+                      {
+                        "text": "string"
+                      }
+                    ],
+                    "body": [
+                      {
+                        "image_ranges": [
+                          {
+                            "entity_with_image": {
+                              "__typename": "string",
+                              "id": "string",
+                              "image": {
+                                "downloadable_uri": "string"
+                              }
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "inline_style_ranges": [
+                          {
+                            "inline_style": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "ranges": [
+                          {
+                            "entity": {
+                              "__typename": "string",
+                              "id": "string",
+                              "tag_names": [
+                                "string"
+                              ],
+                              "url": "string"
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string",
+                        "urc_variant_name": "string"
+                      }
+                    ],
+                    "delivery_info": {
+                      "extra_data": {
+                        "campaign_group_issues_info": [
+                          {
+                            "error_code": "number",
+                            "error_message": "string",
+                            "mid": "unknown"
+                          }
+                        ],
+                        "campaign_issues_info": [
+                          {
+                            "error_code": "number",
+                            "error_message": "string",
+                            "mid": "unknown"
+                          }
+                        ],
+                        "children_error_statuses_v2": [
+                          {
+                            "children": [
+                              {
+                                "object_id": "string",
+                                "substatuses": "unknown"
+                              }
+                            ],
+                            "object_id": "string",
+                            "substatuses": "unknown"
+                          }
+                        ]
+                      },
+                      "substatuses": [
+                        {
+                          "id": "string"
+                        }
+                      ]
+                    },
+                    "header": {
+                      "title": {
+                        "checked_qes": [
+                          {
+                            "bool_result": "unknown",
+                            "group": "unknown",
+                            "param": "unknown",
+                            "qe_unit_id": "string",
+                            "string_result": "unknown",
+                            "universe": "unknown"
+                          }
+                        ],
+                        "image_ranges": [
+                          {
+                            "entity_with_image": {
+                              "__typename": "string",
+                              "id": "string",
+                              "image": {
+                                "downloadable_uri": "string"
+                              }
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "inline_style_ranges": [
+                          {
+                            "inline_style": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "locale": "string",
+                        "ranges": [
+                          {
+                            "entity": {
+                              "__typename": "string",
+                              "id": "string",
+                              "url": "string"
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string",
+                        "urc_qe_info": {
+                          "qe_universe_name": "string"
+                        },
+                        "urc_qe_infos": [
+                          {
+                            "qe_universe_name": "string"
+                          }
+                        ],
+                        "urc_variant_name": "string"
+                      }
+                    },
+                    "learning_phase_disclosure": {
+                      "disclosure": {
+                        "inline_style_ranges": [
+                          {
+                            "inline_style": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string"
+                      },
+                      "threshold_info": [
+                        {
+                          "text": "string"
+                        }
+                      ],
+                      "tooltip": [
+                        {
+                          "ranges": [
+                            {
+                              "entity": {
+                                "__typename": "string",
+                                "id": "string",
+                                "tag_names": [
+                                  "string"
+                                ],
+                                "url": "string"
+                              },
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "text": "string"
+                        }
+                      ]
+                    },
+                    "outcome": {
+                      "explanation": {
+                        "body": [
+                          {
+                            "image_ranges": [
+                              {
+                                "entity_with_image": {
+                                  "__typename": "string",
+                                  "id": "string",
+                                  "image": {
+                                    "downloadable_uri": "string"
+                                  }
+                                },
+                                "length": "number",
+                                "offset": "number"
+                              }
+                            ],
+                            "inline_style_ranges": [
+                              {
+                                "inline_style": "unknown",
+                                "length": "number",
+                                "offset": "number"
+                              }
+                            ],
+                            "ranges": [
+                              {
+                                "entity": {
+                                  "__typename": "string",
+                                  "id": "string",
+                                  "tag_names": [
+                                    "string"
+                                  ],
+                                  "url": "string"
+                                },
+                                "length": "number",
+                                "offset": "number"
+                              }
+                            ],
+                            "text": "string",
+                            "urc_variant_name": "string"
+                          }
+                        ],
+                        "footer": {
+                          "image_ranges": [
+                            {
+                              "entity_with_image": {
+                                "__typename": "string",
+                                "id": "string",
+                                "image": {
+                                  "downloadable_uri": "string"
+                                }
+                              },
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "inline_style_ranges": [
+                            {
+                              "inline_style": "unknown",
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "ranges": [
+                            {
+                              "entity": {
+                                "__typename": "string",
+                                "id": "string",
+                                "tag_names": [
+                                  "string"
+                                ],
+                                "url": "string"
+                              },
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "text": "string",
+                          "urc_variant_name": "string"
+                        },
+                        "title": {
+                          "image_ranges": [
+                            {
+                              "entity_with_image": {
+                                "__typename": "string",
+                                "id": "string",
+                                "image": {
+                                  "downloadable_uri": "string"
+                                }
+                              },
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "inline_style_ranges": [
+                            {
+                              "inline_style": "unknown",
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "ranges": [
+                            {
+                              "entity": {
+                                "__typename": "string",
+                                "id": "string",
+                                "tag_names": [
+                                  "string"
+                                ],
+                                "url": "string"
+                              },
+                              "length": "number",
+                              "offset": "number"
+                            }
+                          ],
+                          "text": "string",
+                          "urc_qe_info": {
+                            "qe_universe_name": "string"
+                          },
+                          "urc_variant_name": "string"
+                        }
+                      },
+                      "footer": {
+                        "image_ranges": [
+                          {
+                            "entity_with_image": {
+                              "__typename": "string",
+                              "id": "string",
+                              "image": {
+                                "downloadable_uri": "string"
+                              }
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "inline_style_ranges": [
+                          {
+                            "inline_style": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "ranges": [
+                          {
+                            "entity": {
+                              "__typename": "string",
+                              "id": "string",
+                              "tag_names": [
+                                "string"
+                              ],
+                              "url": "string"
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string",
+                        "urc_variant_name": "string"
+                      },
+                      "lift": {
+                        "checked_qes": [
+                          {
+                            "bool_result": "unknown",
+                            "group": "unknown",
+                            "param": "unknown",
+                            "qe_unit_id": "string",
+                            "string_result": "unknown",
+                            "universe": "unknown"
+                          }
+                        ],
+                        "image_ranges": [
+                          {
+                            "entity_with_image": {
+                              "__typename": "string",
+                              "id": "string",
+                              "image": {
+                                "downloadable_uri": "string"
+                              }
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "inline_style_ranges": [
+                          {
+                            "inline_style": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "ranges": [
+                          {
+                            "entity": {
+                              "__typename": "string",
+                              "id": "string",
+                              "tag_names": [
+                                "string"
+                              ],
+                              "url": "string"
+                            },
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string",
+                        "urc_qe_info": {
+                          "qe_universe_name": "string"
+                        },
+                        "urc_qe_infos": [
+                          {
+                            "qe_universe_name": "string"
+                          }
+                        ],
+                        "urc_variant_name": "string"
+                      },
+                      "title": {
+                        "checked_qes": [
+                          {
+                            "bool_result": "unknown",
+                            "group": "unknown",
+                            "param": "unknown",
+                            "qe_unit_id": "string",
+                            "string_result": "unknown",
+                            "universe": "unknown"
+                          }
+                        ],
+                        "inline_style_ranges": [
+                          {
+                            "inline_style": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string",
+                        "urc_qe_info": {
+                          "qe_universe_name": "string"
+                        },
+                        "urc_qe_infos": [
+                          {
+                            "qe_universe_name": "string"
+                          }
+                        ],
+                        "urc_variant_name": "string"
+                      }
+                    },
+                    "precreate_thumbnail_urls": "unknown",
+                    "recommendation_id": "string",
+                    "thumbnail_images": [
+                      {
+                        "uri": "string"
+                      }
+                    ],
+                    "thumbnail_urls": "unknown",
+                    "value_rules_checkbox": {
+                      "recommended_rule_set": {
+                        "text": "string"
+                      },
+                      "rule_set": {
+                        "text": "string"
+                      },
+                      "title": {
+                        "text": "string"
+                      }
+                    }
+                  }
+                ],
+                "recommendation_stage": "unknown",
+                "recommendation_type": "string"
+              }
+            ],
+            "might_render_recommendations": {},
+            "performance_scores": [
+              {
+                "score_calculation_response_code": "unknown",
+                "score_items": [
+                  {
+                    "calculation_insight": {
+                      "__typename": "string",
+                      "campaigngroup_lifts": [
+                        {
+                          "ad_object_id": "string",
+                          "guidance_lifts": [
+                            {
+                              "guidance_status": "string",
+                              "opportunity_lift": "unknown",
+                              "recommendation_hash_id": "string",
+                              "recommendation_id": "string"
+                            }
+                          ],
+                          "lift": "unknown"
+                        }
+                      ],
+                      "guidance_lifts": [
+                        {
+                          "guidance_status": "string",
+                          "opportunity_lift": "unknown",
+                          "recommendation_hash_id": "string",
+                          "recommendation_id": "string"
+                        }
+                      ],
+                      "id": "string",
+                      "recommendation_type_guidance_lifts": [
+                        {
+                          "opportunity_lift": "unknown",
+                          "recommendation_type": "string"
+                        }
+                      ]
+                    },
+                    "score_item_name": "string",
+                    "score_value": "unknown"
+                  }
+                ],
+                "score_setting_id": "string"
+              }
+            ],
+            "qe_exposure_map": [
+              {
+                "exposure_result": "unknown",
+                "qe_name": "string"
+              }
+            ],
+            "recommendations": [
+              {
+                "__typename": "string",
+                "ads_rewards": {
+                  "optin_status": "string"
+                },
+                "draft_stage_id": "string",
+                "feedback_service_data": [
+                  {
+                    "backing_event": {
+                      "__typename": "string",
+                      "id": "string",
+                      "source": "string",
+                      "target": "unknown"
+                    },
+                    "event": "unknown"
+                  }
+                ],
+                "generated_time": "string",
+                "guidance_score": {
+                  "scores": [
+                    {
+                      "name": "string",
+                      "value": "string"
+                    }
+                  ]
+                },
+                "guidance_version": "number",
+                "is_precreate": "boolean",
+                "learning_phase_info": {
+                  "outcome": "unknown"
+                },
+                "lift_estimation": {
+                  "metric": "unknown",
+                  "value": "string",
+                  "version": "number"
+                },
+                "outcome_predictions": [
+                  {
+                    "fields": [
+                      {
+                        "metric": "unknown",
+                        "value": "string",
+                        "version": "number"
+                      }
+                    ]
+                  }
+                ],
+                "pcr_subtype": "unknown",
+                "recommendation_hash_id": "string",
+                "recommendation_hash_string": "unknown",
+                "recommendation_id": "string",
+                "recommendation_insights": {
+                  "close_the_loop": {
+                    "base_metric_reading": "unknown",
+                    "base_metric_readings_by_timestamps": {
+                      "readings": [
+                        {
+                          "timestamp": "string",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    "delta": "unknown",
+                    "metric_reading": "unknown",
+                    "metric_readings_by_timestamps": {
+                      "readings": [
+                        {
+                          "timestamp": "string",
+                          "value": "string"
+                        }
+                      ]
+                    },
+                    "spec": {
+                      "ad_object_spec": {
+                        "id": "string",
+                        "level": "unknown",
+                        "name": "string"
+                      },
+                      "ds": "unknown",
+                      "metric": "unknown"
+                    }
+                  },
+                  "mr_ple": {
+                    "base_metric_reading": "unknown",
+                    "delta": "unknown",
+                    "metric_reading": "unknown"
+                  },
+                  "um_ple": {
+                    "base_metric_reading": "unknown",
+                    "delta": "unknown",
+                    "metric_reading": "unknown"
+                  }
+                },
+                "recommendation_status": "string",
+                "recommendation_type": "string",
+                "runtime_metadata": {
+                  "__typename": "string",
+                  "ad_group_ids": {
+                    "count": "unknown",
+                    "nodes": [
+                      {
+                        "ad_campaign_group": {
+                          "id": "string",
+                          "name": "string"
+                        },
+                        "ad_campaign_group_id": "string",
+                        "ad_campaign_id": "string",
+                        "id": "string"
+                      }
+                    ]
+                  },
+                  "ad_object_tree": {
+                    "campaign_group_ids": {
+                      "nodes": [
+                        {
+                          "daily_budget_safe_value_str": "unknown",
+                          "id": "string",
+                          "lifetime_budget_safe_value_str": "unknown",
+                          "name": "string",
+                          "objective": "unknown"
+                        }
+                      ]
+                    },
+                    "campaigns_ids": {
+                      "nodes": [
+                        {
+                          "daily_budget_safe_value_str": "unknown",
+                          "id": "string",
+                          "lifetime_budget_safe_value_str": "unknown",
+                          "name": "string",
+                          "optimization_goal": "unknown",
+                          "promoted_object": {
+                            "custom_event_type_enum": "unknown",
+                            "id": "string"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "campaign_group_ids": {
+                    "count": "unknown",
+                    "nodes": [
+                      {
+                        "id": "string",
+                        "name": "string"
+                      }
+                    ]
+                  },
+                  "campaigns_ids": {
+                    "count": "unknown",
+                    "nodes": [
+                      {
+                        "ad_campaign_group": {
+                          "id": "string",
+                          "name": "string"
+                        },
+                        "ad_campaign_group_id": "string",
+                        "id": "string",
+                        "name": "string"
+                      }
+                    ]
+                  },
+                  "high_cost_industry_benchmark": {
+                    "root_cause_identifier_label_v2": "unknown"
+                  },
+                  "id": "string",
+                  "is_seen_by_user": "boolean",
+                  "metadata": {
+                    "ad_set_budget_sharing_guidance_mfr": {
+                      "campaign_group_ids": [
+                        "string"
+                      ]
+                    },
+                    "adopt_single_media_ad_format_bundle_mfr": {
+                      "adgroup_idto_child_recommendation_types": [
+                        {
+                          "adgroup_id": "string",
+                          "child_recommendation_types": "unknown"
+                        }
+                      ],
+                      "child_recommendation_types": "unknown"
+                    },
+                    "advantage_plus_audience": {
+                      "ad_object_ids": [
+                        "string"
+                      ],
+                      "is_narrow_audience": "boolean",
+                      "is_var_recommendation_eligible": "boolean"
+                    },
+                    "advantage_plus_catalog_ads": {
+                      "catalog_id": "string"
+                    },
+                    "aplusc_mfr": {
+                      "adgroup_idto_creative_feature_names": [
+                        {
+                          "adgroup_id": "string",
+                          "creative_feature_names": [
+                            "string"
+                          ]
+                        }
+                      ]
+                    },
+                    "auto_cat_selection_enhancement": {
+                      "__typename": "string",
+                      "catalog_id": "string",
+                      "catalog_name": "string",
+                      "external_catalog_url": "string"
+                    },
+                    "autobid_to_manual_bid_mfr": {
+                      "autobid_to_manual_bid_mapping": [
+                        {
+                          "additional_bid_percent": "unknown",
+                          "base_budget_value": "unknown",
+                          "base_budget_value_lower_bound": "number",
+                          "base_budget_value_upper_bound": "number",
+                          "bid_strategy": "unknown",
+                          "campaign_category": "string",
+                          "campaign_group_id": "string",
+                          "campaign_id": "string",
+                          "estimated_cpa_or_roas": "unknown",
+                          "estimated_volume_lift_percent": "unknown",
+                          "optimization_goal": "unknown",
+                          "suggested_budget_value": "unknown"
+                        }
+                      ]
+                    },
+                    "automatic_placements": {
+                      "placement_controls_data": {
+                        "excluded_audience_network_positions": "unknown",
+                        "excluded_facebook_positions": "unknown"
+                      }
+                    },
+                    "bid_limited_sensitive_mfr": {
+                      "bid_recommendation_objects": [
+                        {
+                          "bid_recommendation_options": [
+                            {
+                              "additional_bid_percent": "unknown",
+                              "base_bid_value": "unknown"
+                            }
+                          ],
+                          "bid_strategy": "unknown",
+                          "campaign_id": "string"
+                        }
+                      ]
+                    },
+                    "bid_limited_starving_mfr": {
+                      "bid_recommendation_objects": [
+                        {
+                          "bid_recommendation_options": [
+                            {
+                              "additional_bid_percent": "unknown",
+                              "base_bid_value": "unknown",
+                              "estimated_volume": "unknown",
+                              "estimated_volume_lift": "unknown",
+                              "target_lower_bid_bound": "number",
+                              "target_upper_bid_bound": "number"
+                            }
+                          ],
+                          "bid_strategy": "unknown",
+                          "campaign_category": "string",
+                          "campaign_group_id": "string",
+                          "campaign_id": "string"
+                        }
+                      ]
+                    },
+                    "budget_limited": {
+                      "budget_limited_mapping": [
+                        {
+                          "budget_recommendation_options": [
+                            {
+                              "estimated_conv": "unknown",
+                              "estimated_conv_lift": "unknown",
+                              "is_recommended": "boolean",
+                              "recommended_budget_amount": "number"
+                            }
+                          ],
+                          "campaign_group_id": "string",
+                          "campaign_id": "string",
+                          "daily_budget": "string",
+                          "is_acb": "boolean",
+                          "is_one_to_n_acb": "boolean",
+                          "lifetime_budget": "string",
+                          "optimization_goal": "unknown"
+                        }
+                      ]
+                    },
+                    "capi_crm_guidance": {
+                      "data_source_config_status": "string",
+                      "data_source_fbid": "string"
+                    },
+                    "capi_crm_setup_mfr": {
+                      "ad_credit_amount_cents": "unknown",
+                      "ad_credit_pixel_setup_state": "string",
+                      "business_id": "string",
+                      "data_source_id": "string",
+                      "is_ad_credit_eligible": "boolean",
+                      "retrieval_rec": "unknown"
+                    },
+                    "capi_event_coverage": {
+                      "__typename": "string",
+                      "business_id": "string",
+                      "event_coverage_percentage": "unknown",
+                      "event_name": "string",
+                      "is_capig_dual_setup_eligible": "boolean",
+                      "pixel_id": "string",
+                      "pixel_name": "string"
+                    },
+                    "capi_performance_match_key": {
+                      "campaign_group_to_pixel_info": [
+                        {
+                          "aly_acr_percentage": "unknown",
+                          "best_pixel_id": "string",
+                          "business_id": "string",
+                          "campaign_group_id": "string",
+                          "event_name": "string",
+                          "match_keys": [
+                            "string"
+                          ]
+                        }
+                      ],
+                      "owning_business_id": "string"
+                    },
+                    "capi_performance_match_key_v2": {
+                      "__typename": "string",
+                      "business_id": "string",
+                      "event_name": "string",
+                      "match_keys": [
+                        "string"
+                      ],
+                      "owning_business_id": "string",
+                      "pixel_id": "string",
+                      "pixel_name": "string"
+                    },
+                    "capi_performance_match_key_v3_mfr": {
+                      "business_id": "string",
+                      "event_name": "string",
+                      "match_keys": [
+                        "string"
+                      ],
+                      "pixel_id": "string"
+                    },
+                    "ctx_precreate": {
+                      "messaging_apps": "unknown",
+                      "optimization_goal": "unknown"
+                    },
+                    "custom_audience_relaxation": {
+                      "target_suggestions": [
+                        {
+                          "action_sequence": "unknown",
+                          "campaign_id": "string",
+                          "minimum_age": "unknown",
+                          "target_spec": "unknown"
+                        }
+                      ]
+                    },
+                    "defragmentation_using_value_rules_test_v2": {
+                      "var_persona_struct": "unknown"
+                    },
+                    "delivery_error": {
+                      "ad_object_id": "string",
+                      "delivery_substatuses": "unknown"
+                    },
+                    "fragmentation": {
+                      "auction_overlap_experience_eligible": "unknown",
+                      "cluster_features": [
+                        "string"
+                      ],
+                      "objective": "unknown"
+                    },
+                    "gen_multi_text": {
+                      "all_text_options": [
+                        {
+                          "adgroup_id": "string",
+                          "text_options": [
+                            {
+                              "creative_text_suggestions_source": "string",
+                              "text": "string",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "gen_uncrop": {
+                      "all_uncrop_options": [
+                        {
+                          "adgroup_id": "string"
+                        }
+                      ]
+                    },
+                    "in_app_ad_impression_roas_android_pcr": {
+                      "app_id": "string",
+                      "app_name": "string",
+                      "app_store": "unknown",
+                      "apps": [
+                        {
+                          "app_id": "string",
+                          "app_name": "string",
+                          "app_store": "unknown",
+                          "is_iaa_creation_eligible": "boolean",
+                          "logo_url": "string",
+                          "object_store_url": "string"
+                        }
+                      ],
+                      "is_iaa_creation_eligible": "boolean",
+                      "object_store_url": "string"
+                    },
+                    "incremental_attribution_mfr": {
+                      "event_name": "string",
+                      "is_eligible_for_incremental_attribution": "boolean",
+                      "is_incremental_attribution_enabled": "boolean"
+                    },
+                    "lead_ads_dfca_lookalike_adoption_mfr": {
+                      "has_qualified_dfcaexclusion": "boolean",
+                      "no_dfcalookalike_inclusion": "unknown",
+                      "qualified_dfca_ids": [
+                        "string"
+                      ]
+                    },
+                    "low_budget_utilization": {
+                      "should_recommend_automation": "boolean",
+                      "should_recommend_retargeting": "boolean",
+                      "target_suggestions": [
+                        {
+                          "action_sequence": "unknown",
+                          "campaign_id": "string",
+                          "minimum_age": "unknown",
+                          "target_spec": "unknown"
+                        }
+                      ]
+                    },
+                    "manual_bidding_budget_limited_mfr": {
+                      "additional_budget_percent": "unknown",
+                      "base_budget_value": "unknown",
+                      "base_budget_value_lower_bound": "number",
+                      "base_budget_value_upper_bound": "number",
+                      "bid_strategy": "unknown",
+                      "campaign_group_id": "string",
+                      "campaign_id": "string",
+                      "estimated_volume_lift_percent": "unknown",
+                      "optimization_goal": "unknown",
+                      "suggested_budget_value": "unknown"
+                    },
+                    "mixed_formats": {
+                      "is_using_image_only": "boolean",
+                      "is_using_video_only": "boolean"
+                    },
+                    "offsite_conversion": {
+                      "budgets_in_local_currency": "string",
+                      "is_pcrbundle_eligible": "boolean",
+                      "predicted_cpas": "unknown",
+                      "predicted_daily_conversions": "unknown",
+                      "recommended_budget": "unknown"
+                    },
+                    "offsite_conversion_leads_optimization_mfr": {
+                      "offsite_conversion_leads_adoption_status": "string"
+                    },
+                    "offsite_conversion_leads_optimization_pcr": {
+                      "offsite_conversion_leads_adoption_status": "string"
+                    },
+                    "omni_optimization_mfr": {
+                      "__typename": "string",
+                      "business_id": "string",
+                      "datasource_id": "string",
+                      "datasource_name": "string",
+                      "omni_optimization_integration_status": "string"
+                    },
+                    "omni_optimization_pcr": {
+                      "__typename": "string",
+                      "business_id": "string",
+                      "offline_ads_credit_eligible_status": "string",
+                      "offline_ads_credit_value": "unknown",
+                      "omni_optimization_integration_status": "string",
+                      "pixel_id": "string",
+                      "pixel_name": "string"
+                    },
+                    "partnership_ads_pcr": {
+                      "business_id_with_recommended_content": "string"
+                    },
+                    "pixel_optimization_hie_precreate": {
+                      "business_id": "string",
+                      "guidance_type": "string",
+                      "lift_estimation_data": {
+                        "cpa": "unknown"
+                      },
+                      "pixel_id": "string",
+                      "use_consolidated_container": "unknown"
+                    },
+                    "pixel_upsell": {
+                      "best_domain": "unknown",
+                      "best_partner": "unknown",
+                      "business_id": "string",
+                      "is_pcrbundle_eligible": "boolean",
+                      "partner_name": "string",
+                      "pixel_id": "string"
+                    },
+                    "post_adoption_budget_scaling_mfr": {
+                      "adoption_date": "string",
+                      "budget_recommendation": {
+                        "current_daily_budget": "unknown",
+                        "current_lifetime_budget": "unknown",
+                        "recommendation_options": [
+                          {
+                            "additional_budget_percent": "unknown",
+                            "estimated_conv": "unknown",
+                            "estimated_conv_lift": "unknown",
+                            "is_recommended": "boolean",
+                            "spend_future_2d_avg": "number"
+                          }
+                        ],
+                        "source": "string"
+                      },
+                      "campaign_group_id": "string",
+                      "campaign_id": "string",
+                      "guidance_type": "string",
+                      "historical_cpr": [
+                        {
+                          "cpr": "unknown",
+                          "date": "unknown"
+                        }
+                      ],
+                      "is_acb": "boolean",
+                      "lift_percent": "unknown",
+                      "post_adoption_cpr": "unknown",
+                      "pre_adoption_cpr": "unknown"
+                    },
+                    "scale_good_campaign": {
+                      "good_campaign_budget_mappings": [
+                        {
+                          "budget_recommendation_options": [
+                            {
+                              "additional_budget_percent": "unknown",
+                              "estimated_conv_lift": "unknown",
+                              "is_recommended": "boolean"
+                            }
+                          ],
+                          "campaign_group_id": "string",
+                          "campaign_id": "string",
+                          "daily_budget": "string",
+                          "good_campaign_duration": {
+                            "duration_recommendation_options": [
+                              {
+                                "additional_budget": "unknown",
+                                "additional_duration_in_days": "number",
+                                "estimated_conv_lift": "unknown",
+                                "recommended_end_date": "string"
+                              }
+                            ],
+                            "end_date": "string",
+                            "start_date": "string"
+                          },
+                          "is_acb": "boolean",
+                          "is_budget_rec_from_ll_of": "boolean",
+                          "is_one_to_n_acb": "boolean",
+                          "lifetime_budget": "string",
+                          "rank": "number",
+                          "version": "number"
+                        }
+                      ]
+                    },
+                    "scale_good_ctx_campaign": {
+                      "good_ctx_campaign_budget_mappings": [
+                        {
+                          "budget_recommendation_options": [
+                            {
+                              "additional_budget_percent": "unknown",
+                              "estimated_conv_lift": "unknown",
+                              "is_recommended": "boolean"
+                            }
+                          ],
+                          "campaign_group_id": "string",
+                          "campaign_id": "string",
+                          "daily_budget": "string",
+                          "has_cta": "boolean",
+                          "is_acb": "boolean",
+                          "is_one_to_n_acb": "boolean",
+                          "lifetime_budget": "string",
+                          "rank": "number",
+                          "version": "number"
+                        }
+                      ]
+                    },
+                    "scale_good_vo_campaign": {
+                      "good_vo_campaign_budget_mappings": [
+                        {
+                          "budget_recommendation_options": [
+                            {
+                              "additional_budget_percent": "unknown",
+                              "estimated_roas_change": "unknown",
+                              "estimated_value": "unknown",
+                              "is_recommended": "boolean"
+                            }
+                          ],
+                          "campaign_group_id": "string",
+                          "campaign_id": "string",
+                          "is_acb": "boolean",
+                          "is_one_to_n_acb": "boolean",
+                          "rank": "number",
+                          "version": "number"
+                        }
+                      ]
+                    },
+                    "shops_ads_saoff_mfr": {
+                      "ad_group_sddresponses_struct": [
+                        {
+                          "adgroup_id": "string",
+                          "sdd_responses": [
+                            {
+                              "key": "string",
+                              "value": "string"
+                            }
+                          ]
+                        }
+                      ],
+                      "adgroup_ids_to_enroll": "unknown",
+                      "campaign_id_to_adgroup_ids_struct": [
+                        {
+                          "adgroup_ids": [
+                            "string"
+                          ],
+                          "campaign_id": "string"
+                        }
+                      ],
+                      "campaign_id_to_cms_id_struct": [
+                        {
+                          "campaign_id": "string",
+                          "cms_id": "string"
+                        }
+                      ],
+                      "campaign_ids_to_enroll": "unknown"
+                    },
+                    "signals_down_funnel_event_optimization_precreate": {
+                      "event_name": "string",
+                      "pixel_id": "string"
+                    },
+                    "signals_growth_capi_v2": {
+                      "__typename": "string",
+                      "business_id": "string",
+                      "capi_adoption_recommendation": {
+                        "product": "unknown",
+                        "product_detail": "unknown"
+                      },
+                      "integration_recommendation": "unknown",
+                      "pixel_id": "string",
+                      "pixel_name": "string"
+                    },
+                    "signals_vo_using_co_model_mfr": {
+                      "business_id": "string",
+                      "data_source_id": "string",
+                      "data_source_name": "string",
+                      "data_source_type": "string",
+                      "event_name": "string"
+                    },
+                    "unified_inbox": {
+                      "page_to_pending_messages": [
+                        {
+                          "page_id": "string",
+                          "page_image": "unknown",
+                          "page_name": "string",
+                          "pending_messages_count": "number"
+                        }
+                      ],
+                      "user_to_pages_with_message_access": [
+                        {
+                          "page_ids": [
+                            "string"
+                          ]
+                        }
+                      ]
+                    },
+                    "unused_budget": {
+                      "campaign_unused_budget_mappings": [
+                        {
+                          "campaign_id": "string",
+                          "unused_budget": "unknown"
+                        }
+                      ],
+                      "total_unused_budget": "unknown"
+                    },
+                    "value_co_campaigns_low_purchase_dq_mfr": {
+                      "business_id": "string",
+                      "data_source_id": "string",
+                      "data_source_name": "string",
+                      "data_source_type": "string",
+                      "event_name": "string",
+                      "issue_type": "string"
+                    },
+                    "value_optimization_goal_mfr": {
+                      "budgets_in_local_currency": "string",
+                      "gtm_version": "number",
+                      "high_value_item_id": "string",
+                      "is_pcrbundle_eligible": "boolean",
+                      "low_value_item_id": "string",
+                      "predicted_cpas": "unknown",
+                      "predicted_daily_conversions": "unknown",
+                      "recommended_budget": "unknown"
+                    },
+                    "vo_in_app_purchase_pcr": {
+                      "app_id": "string",
+                      "app_name": "string",
+                      "apps": [
+                        {
+                          "app_id": "string",
+                          "app_name": "string",
+                          "app_store": "unknown",
+                          "is_iap_creation_eligible": "boolean",
+                          "logo_url": "string",
+                          "object_store_url": "string"
+                        }
+                      ],
+                      "is_iap_creation_eligible": "boolean",
+                      "object_store_url": "string"
+                    },
+                    "zero_outcome_budget_mfr": {
+                      "cas_segment": "unknown",
+                      "current_budget": "unknown",
+                      "has_spend_in_last_28_days": "boolean",
+                      "is_acb": "boolean",
+                      "is_lifetime_budget": "boolean",
+                      "recommended_budget": "unknown",
+                      "recommended_conversions": "unknown"
+                    }
+                  },
+                  "optimization_goal": "unknown",
+                  "promoted_object": {
+                    "custom_event_type_enum": "unknown",
+                    "id": "string"
+                  },
+                  "root_cause_identifier": {
+                    "label_to_ad_object_ids": [
+                      {
+                        "key": "string"
+                      }
+                    ],
+                    "root_cause_identifier_label": "string"
+                  },
+                  "worst_performing_ad_object_ids": [
+                    "string"
+                  ]
+                },
+                "stage": "unknown",
+                "target": {
+                  "__typename": "string",
+                  "ad_object_ids": [
+                    "string"
+                  ],
+                  "id": "string",
+                  "levels": "unknown"
+                },
+                "www_request_id": "string"
+              }
+            ],
+            "response_status": {
+              "response_code": "string"
+            },
+            "www_request_id": "string"
+          }
+        }
+      },
+      "variables": [
+        "adAccountID",
+        "contentRequest",
+        "recommendation3D",
+        "requestId",
+        "shouldPrefetchSYDUris"
+      ],
+      "variablesShape": {
+        "adAccountID": "string",
+        "contentRequest": "unknown",
+        "recommendation3D": "unknown",
+        "requestId": "string",
+        "shouldPrefetchSYDUris": "unknown"
+      }
+    },
+    "SYDMetricSnapshotWidgetContainer": {
+      "docId": "26766153766324315",
+      "operationKind": "query",
+      "originalName": "SYDMetricSnapshotWidgetContainerQuery",
+      "response": {
+        "ad_account": {
+          "currency_code_enum": "unknown",
+          "id": "string",
+          "metric_snapshot_widget_data": {
+            "campaigns": [
+              {
+                "__typename": "string",
+                "id": "string"
+              }
+            ],
+            "filter_options": [
+              {
+                "label": "string",
+                "type": "string"
+              }
+            ],
+            "metrics": [
+              {
+                "aggregate_value_by_metric_type": "string",
+                "highest_campaign": {
+                  "__typename": "string",
+                  "campaign": {
+                    "id": "string"
+                  },
+                  "metric_type": "string"
+                },
+                "lowest_campaign": {
+                  "__typename": "string",
+                  "campaign": {
+                    "id": "string"
+                  },
+                  "metric_type": "string"
+                },
+                "metric_type": "string"
+              }
+            ],
+            "selected_filter_option": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "variables": [
+        "accountID",
+        "shouldPrefetchSYDUris",
+        "useEntrypointForWidgetModal"
+      ],
+      "variablesShape": {
+        "accountID": "string",
+        "shouldPrefetchSYDUris": "unknown",
+        "useEntrypointForWidgetModal": "unknown"
+      }
+    },
+    "SYDNewFeaturesWidgetGraphQLContainer": {
+      "docId": "28419301924321046",
+      "operationKind": "query",
+      "originalName": "SYDNewFeaturesWidgetGraphQLContainerQuery",
+      "response": {
+        "ad_account": {
+          "id": "string",
+          "request_id": "string",
+          "syd_new_features_channel_tips": [
+            {
+              "cta": {
+                "__typename": "string"
+              },
+              "tip": {
+                "channel_id": "string",
+                "id": "string",
+                "specs": [
+                  {
+                    "action": {
+                      "link": "unknown",
+                      "text": {
+                        "text": "string"
+                      }
+                    },
+                    "body": {
+                      "text": {
+                        "ranges": [
+                          {
+                            "entity": {
+                              "__typename": "string",
+                              "id": "string",
+                              "url": "string"
+                            },
+                            "entity_is_weak_reference": "unknown",
+                            "length": "number",
+                            "offset": "number"
+                          }
+                        ],
+                        "text": "string"
+                      }
+                    },
+                    "image": {
+                      "regular_image": {
+                        "uri": "string"
+                      }
+                    },
+                    "title": {
+                      "text": {
+                        "text": "string"
+                      }
+                    }
+                  }
+                ],
+                "tip_id": "string",
+                "tip_name": "string"
+              }
+            }
+          ]
+        }
+      },
+      "variables": [
+        "adAccountID",
+        "shouldPrefetchSYDUris"
+      ],
+      "variablesShape": {
+        "adAccountID": "string",
+        "shouldPrefetchSYDUris": "unknown"
+      }
+    },
+    "SYDPageRELAY": {
+      "docId": "27728455723500408",
+      "operationKind": "query",
+      "originalName": "SYDPageRELAYQuery",
+      "response": {
+        "ad_account": {
+          "account_id": "string",
+          "id": "string",
+          "request_id": "string",
+          "syd_maiba_account_insights": {},
+          "syd_maiba_insights_dismiss_count": [
+            {
+              "__typename": "string",
+              "id": "string",
+              "value": {
+                "__typename": "string",
+                "as_integer": "unknown"
+              }
+            }
+          ]
+        },
+        "xfb_advertiser_profile_eligible_solutions": [
+          {
+            "__typename": "string",
+            "id": "string",
+            "status": "string",
+            "widget_column": "unknown",
+            "widget_id": "string",
+            "widget_renderer": {
+              "__typename": "string"
+            }
+          }
+        ]
+      },
+      "variables": [
+        "accountID",
+        "channel",
+        "failsGK",
+        "flexSolutionID",
+        "gk_perseus_syd_nuo_merge_3d",
+        "shouldDeferAdSliderOutcomeEstimates",
+        "shouldFetchSYDMAIBAAccountInsights",
+        "shouldPrefetchSYDUris",
+        "shouldPrefetchThumbnails",
+        "shouldSkipMessengerMM",
+        "shouldSkipWhatsAppMM",
+        "shouldUseRelay3D"
+      ],
+      "variablesShape": {
+        "accountID": "string",
+        "channel": "unknown",
+        "failsGK": "unknown",
+        "flexSolutionID": "unknown",
+        "gk_perseus_syd_nuo_merge_3d": "unknown",
+        "shouldDeferAdSliderOutcomeEstimates": "unknown",
+        "shouldFetchSYDMAIBAAccountInsights": "unknown",
+        "shouldPrefetchSYDUris": "unknown",
+        "shouldPrefetchThumbnails": "unknown",
+        "shouldSkipMessengerMM": "unknown",
+        "shouldSkipWhatsAppMM": "unknown",
+        "shouldUseRelay3D": "unknown"
+      }
+    },
     "SetUsername": {
       "docId": "25757341163897635",
       "operationKind": "mutation",
@@ -7195,6 +9167,56 @@
         "input": {}
       }
     },
+    "WamoAvailableIdentitiesStoreSourceServer": {
+      "docId": "28492911713634184",
+      "operationKind": "query",
+      "originalName": "WamoAvailableIdentitiesStoreSourceServerQuery",
+      "response": {
+        "wamo_available_identities": {
+          "available_identities": [
+            {
+              "invalid_reason": "string",
+              "is_valid": "boolean",
+              "should_be_defaulted": "boolean",
+              "should_hide": "boolean",
+              "wamo_whatsapp_identity_id": "string",
+              "wamo_whatsapp_identity_id_type": "string",
+              "wamo_whatsapp_identity_metadata": {
+                "formatted_wa_number": "unknown",
+                "page_token": "string",
+                "profile_name": "string",
+                "profile_picture_url": "string"
+              },
+              "wamo_whatsapp_identity_source": "string"
+            }
+          ]
+        }
+      },
+      "variables": [
+        "ad_account_id",
+        "page_id"
+      ],
+      "variablesShape": {
+        "ad_account_id": "string",
+        "page_id": "string"
+      }
+    },
+    "adsMessageMarketingDeliveryDataServer": {
+      "docId": "24990274343913367",
+      "operationKind": "query",
+      "originalName": "adsMessageMarketingDeliveryDataServerQuery",
+      "response": {
+        "xfb_message_marketing_delivery_data": {
+          "phone_number_id": "string"
+        }
+      },
+      "variables": [
+        "campaign_id"
+      ],
+      "variablesShape": {
+        "campaign_id": "string"
+      }
+    },
     "useFlowJSONValidationLibrary": {
       "docId": "28029148793435928",
       "operationKind": "query",
@@ -7211,6 +9233,44 @@
         "skipRequest": "boolean",
         "version": "number",
         "wabaID": "string"
+      }
+    },
+    "useGetDatasetSplitByAdAccount": {
+      "docId": "35195296343387921",
+      "operationKind": "query",
+      "originalName": "useGetDatasetSplitByAdAccountQuery",
+      "response": {
+        "ad_account": {
+          "dataset_splits": [
+            {
+              "dataset": {
+                "dataset_id": "string",
+                "dataset_type": "string",
+                "is_unavailable": "boolean",
+                "last_fired_time": "string",
+                "name": "string"
+              },
+              "dataset_splits": [
+                {
+                  "filter_key": "string",
+                  "filter_value": "string",
+                  "id": "string"
+                }
+              ]
+            }
+          ],
+          "id": "string"
+        }
+      },
+      "variables": [
+        "adAccountID",
+        "datasetTypes",
+        "shouldSkip"
+      ],
+      "variablesShape": {
+        "adAccountID": "string",
+        "datasetTypes": "unknown",
+        "shouldSkip": "boolean"
       }
     },
     "useIsMessengerPlatformBot": {
@@ -7386,5 +9446,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047292358"
+  "waVersion": "2.3000.1047376727"
 }

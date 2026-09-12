@@ -12314,6 +12314,26 @@
         "ONE_TO_ONE": 1
       }
     },
+    "SCHEDULED_MESSAGE_ACTION_TYPE": {
+      "export": "SCHEDULED_MESSAGE_ACTION_TYPE",
+      "module": "WAWebWamEnumScheduledMessageActionType",
+      "values": {
+        "OPEN_SCHEDULE_DATE_TIME_PICKER": 1,
+        "SELECT_DATE_TIME": 2,
+        "TAP_SCHEDULE_BUTTON": 3,
+        "TAP_UNSCHEDULE_BUTTON": 4,
+        "VIEW_SCHEDULED_MESSAGE_LIST": 5
+      }
+    },
+    "SCHEDULED_MESSAGE_ENTRYPOINT": {
+      "export": "SCHEDULED_MESSAGE_ENTRYPOINT",
+      "module": "WAWebWamEnumScheduledMessageEntrypoint",
+      "values": {
+        "CHAT_DELETE_DIALOG": 3,
+        "CHAT_INFO": 2,
+        "SYSTEM_MESSAGE": 1
+      }
+    },
     "SEARCH_ACTION_ENTRY_POINT_TYPE": {
       "export": "SEARCH_ACTION_ENTRY_POINT_TYPE",
       "module": "WAWebWamEnumSearchActionEntryPointType",
@@ -56524,6 +56544,78 @@
         "gkx26259": 1
       }
     },
+    "ScheduledMessageAction": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_scheduled_message_action",
+      "fields": {
+        "groupRole": {
+          "enum": "GROUP_ROLE_TYPE",
+          "falcoName": "group_role",
+          "id": 1,
+          "type": "enum"
+        },
+        "groupTypeClient": {
+          "enum": "GROUP_TYPE_CLIENT",
+          "falcoName": "group_type_client",
+          "id": 2,
+          "type": "enum"
+        },
+        "messageType": {
+          "enum": "MESSAGE_TYPE",
+          "falcoName": "message_type",
+          "id": 3,
+          "type": "enum"
+        },
+        "scheduledMessageActionType": {
+          "enum": "SCHEDULED_MESSAGE_ACTION_TYPE",
+          "falcoName": "scheduled_message_action_type",
+          "id": 4,
+          "type": "enum"
+        },
+        "scheduledMessageCount": {
+          "falcoName": "scheduled_message_count",
+          "id": 5,
+          "type": "integer"
+        },
+        "scheduledMessageEntrypoint": {
+          "enum": "SCHEDULED_MESSAGE_ENTRYPOINT",
+          "falcoName": "scheduled_message_entrypoint",
+          "id": 6,
+          "type": "enum"
+        },
+        "scheduledMessageFutureDurationSecs": {
+          "falcoName": "scheduled_message_future_duration_secs",
+          "id": 7,
+          "type": "integer"
+        },
+        "scheduledMessageToScheduledCount": {
+          "falcoName": "scheduled_message_to_scheduled_count",
+          "id": 9,
+          "type": "integer"
+        },
+        "scheduledMessageToUnscheduleCount": {
+          "falcoName": "scheduled_message_to_unschedule_count",
+          "id": 10,
+          "type": "integer"
+        },
+        "unifiedSessionId": {
+          "falcoName": "unified_session_id",
+          "id": 8,
+          "type": "string"
+        }
+      },
+      "id": 8502,
+      "module": "WAWebScheduledMessageActionWamEvent",
+      "privateStatsIdInt": null,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
     "ScreenLockSettingsData": {
       "channel": "regular",
       "conditions": [],
@@ -67298,7 +67390,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1047292358",
+  "waVersion": "2.3000.1047376727",
   "wireFormat": {
     "markers": {
       "event": 1,
