@@ -1,11 +1,12 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047376727
+// WhatsApp Version: 2.3000.1047414937
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
     ACSServerProviderConfig: Object.freeze({ docId: '25133761326299603', clientDocId: '25133761326299603' }),
     ACSServerProviderIssuance: Object.freeze({ docId: '26039599689054760', clientDocId: '26039599689054760' }),
     AcceptNewsletterAdminInvite: Object.freeze({ docId: '9580828702035549', clientDocId: '9580828702035549' }),
+    AccountLinkingAPIGetCerts: Object.freeze({ docId: '28704962082445420', clientDocId: '28704962082445420' }),
     AdAccountReviewBaseCard: Object.freeze({ docId: '27435010199439786', clientDocId: '27435010199439786' }),
     AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: Object.freeze({ docId: '27373577375583160', clientDocId: '27373577375583160' }),
     AdPreferencesDFCABusinessOptOut: Object.freeze({ docId: '23889955097262728', clientDocId: '23889955097262728' }),
@@ -13,6 +14,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdPreferencesHideAdvertiser: Object.freeze({ docId: '35628656606732718', clientDocId: '35628656606732718' }),
     AdPreferencesInterestCategoryOptOut: Object.freeze({ docId: '29670451465903019', clientDocId: '29670451465903019' }),
     AdsAccountHasCapabilityQueryPlugin_: Object.freeze({ docId: '9943304682401366', clientDocId: '9943304682401366' }),
+    AdsAccountStoreNewSourceServer: Object.freeze({ docId: '28726070393664476', clientDocId: '28726070393664476' }),
     AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: Object.freeze({ docId: '28167160682886250', clientDocId: '28167160682886250' }),
     AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: Object.freeze({ docId: '38096061813371664', clientDocId: '38096061813371664' }),
     AdsAdAccountSettingsStoreSourceServer: Object.freeze({ docId: '27633358993026573', clientDocId: '27633358993026573' }),
@@ -239,6 +241,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ACSServerProviderConfig: Object.freeze({ operationKind: 'query', variables: Object.freeze(['project_name']) }),
     ACSServerProviderIssuance: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     AcceptNewsletterAdminInvite: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id']) }),
+    AccountLinkingAPIGetCerts: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     AdAccountReviewBaseCard: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID']) }),
     AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountReviewTrackerId']) }),
     AdPreferencesDFCABusinessOptOut: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
@@ -246,6 +249,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdPreferencesHideAdvertiser: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     AdPreferencesInterestCategoryOptOut: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['interestID', 'isUndo']) }),
     AdsAccountHasCapabilityQueryPlugin_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'capability']) }),
+    AdsAccountStoreNewSourceServer: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'useAdAccountRef']) }),
     AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     AdsAdAccountSettingsStoreSourceServer: Object.freeze({ operationKind: 'query', variables: Object.freeze(['ad_account_id']) }),

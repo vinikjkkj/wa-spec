@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047376727
+// WhatsApp Version: 2.3000.1047414937
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -18,6 +18,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ACSServerProviderConfig: WaMexPersistId
     readonly ACSServerProviderIssuance: WaMexPersistId
     readonly AcceptNewsletterAdminInvite: WaMexPersistId
+    readonly AccountLinkingAPIGetCerts: WaMexPersistId
     readonly AdAccountReviewBaseCard: WaMexPersistId
     readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexPersistId
     readonly AdPreferencesDFCABusinessOptOut: WaMexPersistId
@@ -25,6 +26,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdPreferencesHideAdvertiser: WaMexPersistId
     readonly AdPreferencesInterestCategoryOptOut: WaMexPersistId
     readonly AdsAccountHasCapabilityQueryPlugin_: WaMexPersistId
+    readonly AdsAccountStoreNewSourceServer: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexPersistId
@@ -251,6 +253,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ACSServerProviderConfig: WaMexOperationSchema<'query', readonly ['project_name']>
     readonly ACSServerProviderIssuance: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AcceptNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
+    readonly AccountLinkingAPIGetCerts: WaMexOperationSchema<'query', readonly []>
     readonly AdAccountReviewBaseCard: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexOperationSchema<'query', readonly ['accountReviewTrackerId']>
     readonly AdPreferencesDFCABusinessOptOut: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -258,6 +261,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdPreferencesHideAdvertiser: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdPreferencesInterestCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['interestID', 'isUndo']>
     readonly AdsAccountHasCapabilityQueryPlugin_: WaMexOperationSchema<'query', readonly ['accountID', 'capability']>
+    readonly AdsAccountStoreNewSourceServer: WaMexOperationSchema<'query', readonly ['adAccountID', 'useAdAccountRef']>
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id']>
@@ -497,6 +501,8 @@ export type WaMexAcceptNewsletterAdminInviteVariables = {
     readonly newsletter_id?: string
 }
 
+export type WaMexAccountLinkingAPIGetCertsVariables = Readonly<Record<string, never>>
+
 export type WaMexAdAccountReviewBaseCardVariables = {
     readonly adAccountID?: string
 }
@@ -526,6 +532,11 @@ export type WaMexAdPreferencesInterestCategoryOptOutVariables = {
 export type WaMexAdsAccountHasCapabilityQueryPlugin_Variables = {
     readonly accountID?: string
     readonly capability?: unknown
+}
+
+export type WaMexAdsAccountStoreNewSourceServerVariables = {
+    readonly adAccountID?: string
+    readonly useAdAccountRef?: unknown
 }
 
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables = {
@@ -1878,6 +1889,7 @@ export interface WaMexOperationVariables {
     readonly ACSServerProviderConfig: WaMexACSServerProviderConfigVariables
     readonly ACSServerProviderIssuance: WaMexACSServerProviderIssuanceVariables
     readonly AcceptNewsletterAdminInvite: WaMexAcceptNewsletterAdminInviteVariables
+    readonly AccountLinkingAPIGetCerts: WaMexAccountLinkingAPIGetCertsVariables
     readonly AdAccountReviewBaseCard: WaMexAdAccountReviewBaseCardVariables
     readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusVariables
     readonly AdPreferencesDFCABusinessOptOut: WaMexAdPreferencesDFCABusinessOptOutVariables
@@ -1885,6 +1897,7 @@ export interface WaMexOperationVariables {
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserVariables
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutVariables
     readonly AdsAccountHasCapabilityQueryPlugin_: WaMexAdsAccountHasCapabilityQueryPlugin_Variables
+    readonly AdsAccountStoreNewSourceServer: WaMexAdsAccountStoreNewSourceServerVariables
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerVariables
@@ -2142,6 +2155,21 @@ export type WaMexAcceptNewsletterAdminInviteResponse = {
     }
 }
 
+export type WaMexAccountLinkingAPIGetCertsResponse = {
+    readonly waffle_get_certs?: {
+        readonly password_encryption?: {
+            readonly cert_chain_pem?: string
+            readonly key_id?: string
+            readonly ttl_seconds?: number
+        }
+        readonly payload_encryption?: {
+            readonly cert_chain_pem?: string
+            readonly key_id?: string
+            readonly ttl_seconds?: number
+        }
+    }
+}
+
 export type WaMexAdAccountReviewBaseCardResponse = {
     readonly maiba_ad_account?: {
         readonly account_dsl?: {
@@ -2195,6 +2223,18 @@ export type WaMexAdPreferencesInterestCategoryOptOutResponse = {
 export type WaMexAdsAccountHasCapabilityQueryPlugin_Response = {
     readonly ad_account?: {
         readonly has_capability?: boolean
+        readonly id?: string
+    }
+}
+
+export type WaMexAdsAccountStoreNewSourceServerResponse = {
+    readonly ad_account?: {
+        readonly id?: string
+    }
+    readonly ad_account_ref?: {
+        readonly ad_account?: {
+            readonly id?: string
+        }
         readonly id?: string
     }
 }
@@ -7783,6 +7823,7 @@ export interface WaMexOperationResponses {
     readonly ACSServerProviderConfig: WaMexACSServerProviderConfigResponse
     readonly ACSServerProviderIssuance: WaMexACSServerProviderIssuanceResponse
     readonly AcceptNewsletterAdminInvite: WaMexAcceptNewsletterAdminInviteResponse
+    readonly AccountLinkingAPIGetCerts: WaMexAccountLinkingAPIGetCertsResponse
     readonly AdAccountReviewBaseCard: WaMexAdAccountReviewBaseCardResponse
     readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusResponse
     readonly AdPreferencesDFCABusinessOptOut: WaMexAdPreferencesDFCABusinessOptOutResponse
@@ -7790,6 +7831,7 @@ export interface WaMexOperationResponses {
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserResponse
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutResponse
     readonly AdsAccountHasCapabilityQueryPlugin_: WaMexAdsAccountHasCapabilityQueryPlugin_Response
+    readonly AdsAccountStoreNewSourceServer: WaMexAdsAccountStoreNewSourceServerResponse
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerResponse

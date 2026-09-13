@@ -74,6 +74,27 @@
         "newsletter_id": "string"
       }
     },
+    "AccountLinkingAPIGetCerts": {
+      "docId": "28704962082445420",
+      "operationKind": "query",
+      "originalName": "WAWebAccountLinkingAPIGetCertsQuery",
+      "response": {
+        "waffle_get_certs": {
+          "password_encryption": {
+            "cert_chain_pem": "string",
+            "key_id": "string",
+            "ttl_seconds": "number"
+          },
+          "payload_encryption": {
+            "cert_chain_pem": "string",
+            "key_id": "string",
+            "ttl_seconds": "number"
+          }
+        }
+      },
+      "variables": [],
+      "variablesShape": {}
+    },
     "AdAccountReviewBaseCard": {
       "docId": "27435010199439786",
       "operationKind": "query",
@@ -205,6 +226,30 @@
       "variablesShape": {
         "accountID": "string",
         "capability": "unknown"
+      }
+    },
+    "AdsAccountStoreNewSourceServer": {
+      "docId": "28726070393664476",
+      "operationKind": "query",
+      "originalName": "AdsAccountStoreNewSourceServerQuery",
+      "response": {
+        "ad_account": {
+          "id": "string"
+        },
+        "ad_account_ref": {
+          "ad_account": {
+            "id": "string"
+          },
+          "id": "string"
+        }
+      },
+      "variables": [
+        "adAccountID",
+        "useAdAccountRef"
+      ],
+      "variablesShape": {
+        "adAccountID": "string",
+        "useAdAccountRef": "unknown"
       }
     },
     "AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus": {
@@ -9446,5 +9491,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047376727"
+  "waVersion": "2.3000.1047414937"
 }

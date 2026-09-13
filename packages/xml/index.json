@@ -23251,9 +23251,8 @@
                 "type": "int"
               },
               "participant": {
-                "arg": "y",
+                "arg": "i",
                 "direction": "both",
-                "optional": true,
                 "type": "deviceJid"
               },
               "peer_recipient_lid": {
@@ -23275,7 +23274,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "A",
+                "arg": "F",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -23298,7 +23297,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "le",
+                "arg": "ue",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -23389,7 +23388,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -49073,9 +49072,8 @@
                 "type": "int"
               },
               "participant": {
-                "arg": "y",
+                "arg": "i",
                 "direction": "both",
-                "optional": true,
                 "type": "deviceJid"
               },
               "peer_recipient_lid": {
@@ -49097,7 +49095,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "A",
+                "arg": "F",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -49120,7 +49118,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "le",
+                "arg": "ue",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -49211,7 +49209,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50164,7 +50162,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "e.stanzaId",
+                "arg": "_.id",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -50237,7 +50235,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "A",
+                "arg": "F",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -50258,7 +50256,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "le",
+                "arg": "ue",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -50340,7 +50338,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50580,7 +50578,7 @@
                     "type": "string"
                   },
                   "persona_type": {
-                    "arg": "T",
+                    "arg": "I",
                     "direction": "both",
                     "enumValues": [
                       "1p",
@@ -56441,5 +56439,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1047376727"
+  "waVersion": "2.3000.1047414937"
 }
