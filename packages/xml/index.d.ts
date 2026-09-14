@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047414937
+// WhatsApp Version: 2.3000.1047444420
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -8465,7 +8465,7 @@ export interface WaXmlOperations {
                 readonly native_flow_name?: string
                 readonly notify?: string
                 readonly offline: number
-                readonly participant: string
+                readonly participant?: string
                 readonly peer_recipient_lid?: string
                 readonly peer_recipient_pn?: string
                 readonly peer_recipient_username?: string
@@ -17372,11 +17372,11 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly error: number
+                readonly error?: number
                 readonly id: string
                 readonly participant?: string
                 readonly recipient?: string
-                readonly to?: string
+                readonly to: string
                 readonly type: 'account_sync' | 'business' | 'companion_reg_refresh' | 'contacts' | 'digital_commerce_subscription' | 'disappearing_mode' | 'mediaretry' | 'mex' | 'offer_notice' | 'pay' | 'picture' | 'privacy_token' | 'psa' | 'registration' | 'retry' | 'server' | 'server_sync' | 'status' | 'text' | 'w:gp2'
             }
             readonly children: {
@@ -17756,7 +17756,7 @@ export interface WaXmlStanzas {
                     readonly native_flow_name?: string
                     readonly notify?: string
                     readonly offline: number
-                    readonly participant: string
+                    readonly participant?: string
                     readonly peer_recipient_lid?: string
                     readonly peer_recipient_pn?: string
                     readonly peer_recipient_username?: string
