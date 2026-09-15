@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047444420
+// WhatsApp Version: 2.3000.1047552994
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -246,6 +246,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly useMAIBADraftStatus: WaMexPersistId
     readonly useMAIBAMedia: WaMexPersistId
     readonly useWAWebEstimatedDailyReach: WaMexPersistId
+    readonly useWAWebSmartComposerCoachSuggestedReply: WaMexPersistId
     readonly useWAWebSmartComposerReportUsed: WaMexPersistId
 }
 
@@ -481,6 +482,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly useMAIBADraftStatus: WaMexOperationSchema<'query', readonly ['campaignGroupId', 'id']>
     readonly useMAIBAMedia: WaMexOperationSchema<'query', readonly ['adObjectIDs', 'thumbnailSize']>
     readonly useWAWebEstimatedDailyReach: WaMexOperationSchema<'query', readonly ['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']>
+    readonly useWAWebSmartComposerCoachSuggestedReply: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useWAWebSmartComposerReportUsed: WaMexOperationSchema<'mutation', readonly ['input']>
 }
 
@@ -1881,6 +1883,10 @@ export type WaMexuseWAWebEstimatedDailyReachVariables = {
     readonly targetingSpecAudience?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexuseWAWebSmartComposerReportUsedVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -2117,6 +2123,7 @@ export interface WaMexOperationVariables {
     readonly useMAIBADraftStatus: WaMexuseMAIBADraftStatusVariables
     readonly useMAIBAMedia: WaMexuseMAIBAMediaVariables
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachVariables
+    readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables
     readonly useWAWebSmartComposerReportUsed: WaMexuseWAWebSmartComposerReportUsedVariables
 }
 
@@ -7813,6 +7820,12 @@ export type WaMexuseWAWebEstimatedDailyReachResponse = {
     }
 }
 
+export type WaMexuseWAWebSmartComposerCoachSuggestedReplyResponse = {
+    readonly xfb_meta_ai_biz_agent_wa_coach_suggested_reply?: {
+        readonly success?: boolean
+    }
+}
+
 export type WaMexuseWAWebSmartComposerReportUsedResponse = {
     readonly meta_ai_biz_agent_wa_suggested_reply_used?: {
         readonly success?: boolean
@@ -8051,5 +8064,6 @@ export interface WaMexOperationResponses {
     readonly useMAIBADraftStatus: WaMexuseMAIBADraftStatusResponse
     readonly useMAIBAMedia: WaMexuseMAIBAMediaResponse
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachResponse
+    readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyResponse
     readonly useWAWebSmartComposerReportUsed: WaMexuseWAWebSmartComposerReportUsedResponse
 }

@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2470,
+  "propCount": 2478,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -120,6 +120,12 @@
     },
     "acp2_futureproof_enabled": {
       "code": 36197,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "acp2_group_chats_enabled": {
+      "code": 36763,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -2730,6 +2736,12 @@
     },
     "channel_poll_forwarding_enabled": {
       "code": 10412,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channel_post_interaction_logging_enabled": {
+      "code": 31879,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -6952,6 +6964,12 @@
       "defaultValue": 30,
       "type": "int"
     },
+    "media_quality_auto_download_settings_enabled": {
+      "code": 21784,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "media_viewer_accelerated_playback_enabled": {
       "code": 12813,
       "debugDefaultValue": true,
@@ -8040,8 +8058,8 @@
     },
     "payments_upr_bubble_countries": {
       "code": 29342,
-      "debugDefaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI",
-      "defaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI",
+      "debugDefaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ",
+      "defaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ",
       "type": "string"
     },
     "payments_upr_burkina_faso_enabled": {
@@ -9024,7 +9042,7 @@
     },
     "rt_sender_v3_hybrid_mode": {
       "code": 36372,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -12502,6 +12520,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_webtp_print_pdf_enabled": {
+      "code": 36716,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_webtp_thumbnail_renderer_mode": {
       "code": 27535,
       "debugDefaultValue": 0,
@@ -14368,6 +14392,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_status_likes_poster_counter_enabled": {
+      "code": 36801,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_status_likes_send_v2_enabled": {
       "code": 26470,
       "debugDefaultValue": true,
@@ -14512,6 +14542,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_voip_call_end_teardown_yield": {
+      "code": 36805,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_capture_video_rotation_type": {
       "code": 27973,
       "debugDefaultValue": 0,
@@ -14560,6 +14596,12 @@
       "defaultValue": "prod-nonlab",
       "type": "string"
     },
+    "web_voip_low_core_ipv6_relay_delay_ms": {
+      "code": 36804,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "web_voip_low_resource_device": {
       "code": 28203,
       "debugDefaultValue": false,
@@ -14580,6 +14622,12 @@
     },
     "web_voip_pre_init_worker_bootstrap": {
       "code": 34685,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_voip_relay_setup_yield_ipv4_first": {
+      "code": 36803,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -14958,5 +15006,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047444420"
+  "waVersion": "2.3000.1047552994"
 }

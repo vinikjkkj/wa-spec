@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1047444420
+/// WhatsApp Version: 2.3000.1047552994
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2426,6 +2426,7 @@ message ContextInfo {
     optional InstagramThreadLink instagramThreadLink = 80;
     optional AIProvenance aiProvenance = 81;
     repeated uint32 experienceIds = 82 [packed=true];
+    optional string partnerDeepLinkToken = 83;
     enum CrossAppSource {
         CROSS_APP_SOURCE_UNKNOWN = 0;
         CROSS_APP_SOURCE_INSTAGRAM = 1;
@@ -7785,6 +7786,7 @@ message SyncActionValue {
             LEAD = 16;
             MENTIONS_AND_REPLIES = 17;
             REQUESTS = 18;
+            BUSINESS = 19;
         }
     }
     message LabelSublistAction {

@@ -9474,6 +9474,22 @@
         "targetingSpecAudience": {}
       }
     },
+    "useWAWebSmartComposerCoachSuggestedReply": {
+      "docId": "29123261517274723",
+      "operationKind": "mutation",
+      "originalName": "useWAWebSmartComposerCoachSuggestedReplyMutation",
+      "response": {
+        "xfb_meta_ai_biz_agent_wa_coach_suggested_reply": {
+          "success": "boolean"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
     "useWAWebSmartComposerReportUsed": {
       "docId": "27016039438072594",
       "operationKind": "mutation",
@@ -9491,5 +9507,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047444420"
+  "waVersion": "2.3000.1047552994"
 }

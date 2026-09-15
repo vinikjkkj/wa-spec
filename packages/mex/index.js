@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047444420
+// WhatsApp Version: 2.3000.1047552994
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -234,6 +234,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' }),
+    useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
     useWAWebSmartComposerReportUsed: Object.freeze({ docId: '27016039438072594', clientDocId: '27016039438072594' })
 })
 
@@ -469,6 +470,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     useMAIBADraftStatus: Object.freeze({ operationKind: 'query', variables: Object.freeze(['campaignGroupId', 'id']) }),
     useMAIBAMedia: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjectIDs', 'thumbnailSize']) }),
     useWAWebEstimatedDailyReach: Object.freeze({ operationKind: 'query', variables: Object.freeze(['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']) }),
+    useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     useWAWebSmartComposerReportUsed: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) })
 })
 

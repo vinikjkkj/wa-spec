@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047444420
+// WhatsApp Version: 2.3000.1047552994
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -10,6 +10,7 @@ const WA_ABPROPS = Object.freeze({
     a2ui_supported_elements: Object.freeze({ code: 32276, type: "string", defaultValue: "info_card, list_card", debugDefaultValue: "info_card, list_card" }),
     acp2_enabled: Object.freeze({ code: 36091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp2_futureproof_enabled: Object.freeze({ code: 36197, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    acp2_group_chats_enabled: Object.freeze({ code: 36763, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp_removal: Object.freeze({ code: 25255, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp_removal_epoch_time: Object.freeze({ code: 25993, type: "int", defaultValue: 1782518400, debugDefaultValue: 1782518400 }),
     acs_use_graphql_for_forward_counter: Object.freeze({ code: 29218, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -445,6 +446,7 @@ const WA_ABPROPS = Object.freeze({
     channel_photo_poll_sender_enabled: Object.freeze({ code: 11989, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channel_playable_message_views_duration_milliseconds: Object.freeze({ code: 4722, type: "int", defaultValue: 3000, debugDefaultValue: 3000 }),
     channel_poll_forwarding_enabled: Object.freeze({ code: 10412, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    channel_post_interaction_logging_enabled: Object.freeze({ code: 31879, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channel_pull_message_updates_threshold_seconds: Object.freeze({ code: 4326, type: "int", defaultValue: 120, debugDefaultValue: 120 }),
     channel_reactions_enabled: Object.freeze({ code: 4306, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channel_reactions_sender_list_enabled: Object.freeze({ code: 5185, type: "bool", defaultValue: true, debugDefaultValue: true }),
@@ -1148,6 +1150,7 @@ const WA_ABPROPS = Object.freeze({
     media_large_file_awareness_popup_file_size_in_MB: Object.freeze({ code: 3115, type: "int", defaultValue: 2048, debugDefaultValue: 2048 }),
     media_picker_select_limit: Object.freeze({ code: 2614, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
     media_picker_select_limit_new: Object.freeze({ code: 2693, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
+    media_quality_auto_download_settings_enabled: Object.freeze({ code: 21784, type: "bool", defaultValue: false, debugDefaultValue: false }),
     media_viewer_accelerated_playback_enabled: Object.freeze({ code: 12813, type: "bool", defaultValue: false, debugDefaultValue: true }),
     member_name_tag_db_enabled: Object.freeze({ code: 16551, type: "bool", defaultValue: true, debugDefaultValue: true }),
     member_name_tag_receiver_enabled: Object.freeze({ code: 13523, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1329,7 +1332,7 @@ const WA_ABPROPS = Object.freeze({
     payments_upr_bahrain_enabled: Object.freeze({ code: 35055, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_benin_enabled: Object.freeze({ code: 35056, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_bolivia_enabled: Object.freeze({ code: 36028, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    payments_upr_bubble_countries: Object.freeze({ code: 29342, type: "string", defaultValue: "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI", debugDefaultValue: "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI" }),
+    payments_upr_bubble_countries: Object.freeze({ code: 29342, type: "string", defaultValue: "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ", debugDefaultValue: "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ" }),
     payments_upr_burkina_faso_enabled: Object.freeze({ code: 35057, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_cameroon_enabled: Object.freeze({ code: 34981, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_canada_enabled: Object.freeze({ code: 33888, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1493,7 +1496,7 @@ const WA_ABPROPS = Object.freeze({
     rt_report_token_from_inclusion_list: Object.freeze({ code: 9818, type: "bool", defaultValue: false, debugDefaultValue: false }),
     rt_sender_dual_encrypted_msg_enabled: Object.freeze({ code: 12623, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_sender_reporting_token_version: Object.freeze({ code: 8860, type: "int", defaultValue: 2, debugDefaultValue: 2 }),
-    rt_sender_v3_hybrid_mode: Object.freeze({ code: 36372, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    rt_sender_v3_hybrid_mode: Object.freeze({ code: 36372, type: "bool", defaultValue: false, debugDefaultValue: false }),
     rt_swapped_fallback_validation: Object.freeze({ code: 21718, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_sync_reporting_tag: Object.freeze({ code: 6578, type: "bool", defaultValue: true, debugDefaultValue: true }),
     rt_web_delay_processing: Object.freeze({ code: 15181, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2073,6 +2076,7 @@ const WA_ABPROPS = Object.freeze({
     wa_webtp_pdf_renderer_mode_no_exposure: Object.freeze({ code: 27941, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_webtp_pdf_sharer_consent_copy_v2: Object.freeze({ code: 30771, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_webtp_preload_thumbnail_renderer_no_exposure: Object.freeze({ code: 27534, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_webtp_print_pdf_enabled: Object.freeze({ code: 36716, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wa_webtp_thumbnail_renderer_mode: Object.freeze({ code: 27535, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_webtp_thumbnail_renderer_timeout_ms: Object.freeze({ code: 27148, type: "int", defaultValue: 3000, debugDefaultValue: 3000 }),
     wa_webtp_use_async_pdf_send: Object.freeze({ code: 30214, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2384,6 +2388,7 @@ const WA_ABPROPS = Object.freeze({
     web_socket_parallel_connection_enabled: Object.freeze({ code: 8019, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_status_batch_size: Object.freeze({ code: 34540, type: "int", defaultValue: 500, debugDefaultValue: 500 }),
     web_status_crossposting_enabled: Object.freeze({ code: 21501, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_status_likes_poster_counter_enabled: Object.freeze({ code: 36801, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_status_likes_send_v2_enabled: Object.freeze({ code: 26470, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_status_ranking: Object.freeze({ code: 31683, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_status_ranking_enabled: Object.freeze({ code: 31684, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2408,6 +2413,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_audio_playback_impl: Object.freeze({ code: 21689, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_audio_playback_use_media_element_output: Object.freeze({ code: 35949, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_av_sync_debug_overlay: Object.freeze({ code: 31481, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_voip_call_end_teardown_yield: Object.freeze({ code: 36805, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_capture_video_rotation_type: Object.freeze({ code: 27973, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_deferred_boot_early_module_prefetch: Object.freeze({ code: 35091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_deferred_boot_init: Object.freeze({ code: 34923, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2416,10 +2422,12 @@ const WA_ABPROPS = Object.freeze({
     web_voip_incoming_offer_init_freshness_ms: Object.freeze({ code: 34925, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_live_caption_probe_enabled: Object.freeze({ code: 36276, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_load_wasm_variant: Object.freeze({ code: 23045, type: "string", defaultValue: "prod-nonlab", debugDefaultValue: "prod-nonlab" }),
+    web_voip_low_core_ipv6_relay_delay_ms: Object.freeze({ code: 36804, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_low_resource_device: Object.freeze({ code: 28203, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_outgoing_call_setup_latency_mode: Object.freeze({ code: 33122, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_pin_worker_glue_to_wasm: Object.freeze({ code: 36184, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_pre_init_worker_bootstrap: Object.freeze({ code: 34685, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_voip_relay_setup_yield_ipv4_first: Object.freeze({ code: 36803, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_runtime_stack_selection_enabled: Object.freeze({ code: 33151, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_sctp_worker_safari_exp: Object.freeze({ code: 27695, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
     web_voip_skip_offline_wait_on_call_intent: Object.freeze({ code: 33310, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -3564,6 +3572,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     21741: "br_payments_pix_groups_enabled",
     21742: "wa_web_wae_qpl_enabled",
     21782: "mm_optimized_delivery_replacing_shimmed_links_enabled",
+    21784: "media_quality_auto_download_settings_enabled",
     21793: "webview2_enable_offline_support",
     21799: "functional_chatlist_enabled",
     21815: "wavoip_ml_temp_model_download_versions",
@@ -4444,6 +4453,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     31868: "payments_upr_hongkong_enabled",
     31869: "payments_upr_taiwan_enabled",
     31870: "payments_upr_egypt_enabled",
+    31879: "channel_post_interaction_logging_enabled",
     31880: "biz_ai_large_screens_gate_fetch_enabled",
     31886: "pinned_messages_infinite_receiver_enabled",
     31887: "pinned_messages_infinite_sender_enabled",
@@ -4972,7 +4982,13 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36550: "enable_web_voip_webtransport_fast_setup",
     36576: "smb_web_customer_management_custom_fields",
     36583: "scheduled_messages_smart_defaults",
-    36632: "channels_stickers_qp_enabled"
+    36632: "channels_stickers_qp_enabled",
+    36716: "wa_webtp_print_pdf_enabled",
+    36763: "acp2_group_chats_enabled",
+    36801: "web_status_likes_poster_counter_enabled",
+    36803: "web_voip_relay_setup_yield_ipv4_first",
+    36804: "web_voip_low_core_ipv6_relay_delay_ms",
+    36805: "web_voip_call_end_teardown_yield"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

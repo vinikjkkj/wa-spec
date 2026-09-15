@@ -47728,21 +47728,20 @@
             "type": "enum"
           },
           "error": {
-            "arg": "e.error",
+            "arg": "t",
             "direction": "out",
-            "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "e.ackId",
             "direction": "out",
+            "raw": "n.id",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
             "direction": "out",
             "optional": true,
-            "type": "deviceJid"
+            "raw": "n.participant",
+            "type": "userJid"
           },
           "recipient": {
             "arg": "r",
@@ -47752,7 +47751,7 @@
           },
           "to": {
             "direction": "out",
-            "raw": "p(e.to)",
+            "raw": "n.from",
             "type": "jid"
           },
           "type": {
@@ -55410,12 +55409,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55458,7 +55457,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55479,7 +55478,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55489,7 +55488,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "D",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -55683,7 +55682,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "y",
+                    "arg": "h",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -55693,7 +55692,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "p",
+                    "arg": "m",
                     "direction": "out",
                     "type": "int"
                   },
@@ -55728,12 +55727,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "b",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55784,7 +55783,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55805,7 +55804,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55815,7 +55814,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "D",
+                "arg": "l",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56441,5 +56440,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1047444420"
+  "waVersion": "2.3000.1047552994"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047444420
+// WhatsApp Version: 2.3000.1047552994
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -17372,7 +17372,7 @@ export interface WaXmlStanzas {
             readonly tag: 'ack'
             readonly attrs: {
                 readonly class: 'call' | 'message' | 'notification' | 'receipt' | 'status'
-                readonly error?: number
+                readonly error: number
                 readonly id: string
                 readonly participant?: string
                 readonly recipient?: string
