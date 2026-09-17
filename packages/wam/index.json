@@ -3262,6 +3262,38 @@
         "CLIENT_WRITTEN_WIRE": 3
       }
     },
+    "CLOUD_API_SIGNAL_CTA_ACTION": {
+      "export": "CLOUD_API_SIGNAL_CTA_ACTION",
+      "module": "WAWebWamEnumCloudApiSignalCtaAction",
+      "values": {
+        "COPY_BOLETO_CODE": 2,
+        "COPY_PIX_CODE": 0,
+        "COPY_PIX_KEY": 1,
+        "MORE_OPTIONS": 9,
+        "OFFSITE_CARD": 8,
+        "OPEN_PAYMENT_LINK": 4,
+        "PAY_WITH_CARD": 7,
+        "PAY_WITH_PIX": 3,
+        "REVIEW_AND_PAY": 5,
+        "VIEW_DETAILS": 6
+      }
+    },
+    "CLOUD_API_SIGNAL_TEMPLATE_TYPE": {
+      "export": "CLOUD_API_SIGNAL_TEMPLATE_TYPE",
+      "module": "WAWebWamEnumCloudApiSignalTemplateType",
+      "values": {
+        "ORDER_DETAILS": 0,
+        "PAYMENT_REQUEST": 1
+      }
+    },
+    "CLOUD_API_SIGNAL_TYPE": {
+      "export": "CLOUD_API_SIGNAL_TYPE",
+      "module": "WAWebWamEnumCloudApiSignalType",
+      "values": {
+        "PAYMENT_TEMPLATE_CLICK": 0,
+        "URL_CTA_CLICK": 1
+      }
+    },
     "COEX_STATUS_REPLY_PRIVACY_DISCLAIMER_USER_ACTION": {
       "export": "COEX_STATUS_REPLY_PRIVACY_DISCLAIMER_USER_ACTION",
       "module": "WAWebWamEnumCoexStatusReplyPrivacyDisclaimerUserAction",
@@ -21383,6 +21415,11 @@
           "id": 2539,
           "type": "integer"
         },
+        "callPeerAbpropBucketIdList": {
+          "falcoName": "call_peer_abprop_bucket_id_list",
+          "id": 3162,
+          "type": "string"
+        },
         "callPeerAppVersion": {
           "falcoName": "call_peer_app_version",
           "id": 15,
@@ -21726,6 +21763,11 @@
           "falcoName": "call_sampling_rate",
           "id": 30,
           "type": "integer"
+        },
+        "callSelfAbpropBucketIdList": {
+          "falcoName": "call_self_abprop_bucket_id_list",
+          "id": 3163,
+          "type": "string"
         },
         "callSelfIpStr": {
           "falcoName": "call_self_ip_str",
@@ -22677,6 +22719,11 @@
           "falcoName": "dec_vid_stream_active_time",
           "id": 1858,
           "type": "timer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3161,
+          "type": "integer"
         },
         "defaultMicMode": {
           "falcoName": "default_mic_mode",
@@ -32851,6 +32898,36 @@
           "id": 2898,
           "type": "number"
         },
+        "webTransportConfigEnabled": {
+          "falcoName": "web_transport_config_enabled",
+          "id": 3164,
+          "type": "boolean"
+        },
+        "webTransportConnectAttempted": {
+          "falcoName": "web_transport_connect_attempted",
+          "id": 3165,
+          "type": "boolean"
+        },
+        "webTransportConnectOpened": {
+          "falcoName": "web_transport_connect_opened",
+          "id": 3166,
+          "type": "boolean"
+        },
+        "webTransportFallbackTriggered": {
+          "falcoName": "web_transport_fallback_triggered",
+          "id": 3167,
+          "type": "boolean"
+        },
+        "webTransportRelayTrafficSent": {
+          "falcoName": "web_transport_relay_traffic_sent",
+          "id": 3168,
+          "type": "boolean"
+        },
+        "webTransportRuntimeEligible": {
+          "falcoName": "web_transport_runtime_eligible",
+          "id": 3169,
+          "type": "boolean"
+        },
         "webTransportUsed": {
           "falcoName": "web_transport_used",
           "id": 2900,
@@ -36531,6 +36608,56 @@
         "default": 1,
         "gkx26258": 10000,
         "gkx26259": 1000
+      }
+    },
+    "CloudApiSignalEvent": {
+      "channel": "private",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_cloud_api_signal_event",
+      "fields": {
+        "cloudApiSignalCarouselCardIndex": {
+          "falcoName": "cloud_api_signal_carousel_card_index",
+          "id": 1,
+          "type": "integer"
+        },
+        "cloudApiSignalCtaAction": {
+          "enum": "CLOUD_API_SIGNAL_CTA_ACTION",
+          "falcoName": "cloud_api_signal_cta_action",
+          "id": 2,
+          "type": "enum"
+        },
+        "cloudApiSignalCtaButtonIndex": {
+          "falcoName": "cloud_api_signal_cta_button_index",
+          "id": 3,
+          "type": "integer"
+        },
+        "cloudApiSignalData": {
+          "falcoName": "cloud_api_signal_data",
+          "id": 4,
+          "type": "string"
+        },
+        "cloudApiSignalTemplateType": {
+          "enum": "CLOUD_API_SIGNAL_TEMPLATE_TYPE",
+          "falcoName": "cloud_api_signal_template_type",
+          "id": 5,
+          "type": "enum"
+        },
+        "cloudApiSignalType": {
+          "enum": "CLOUD_API_SIGNAL_TYPE",
+          "falcoName": "cloud_api_signal_type",
+          "id": 6,
+          "type": "enum"
+        }
+      },
+      "id": 8572,
+      "module": "WAWebCloudApiSignalEventWamEvent",
+      "privateStatsIdInt": 0,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
       }
     },
     "CoexPrivacySysMsg": {
@@ -67626,7 +67753,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1047552994",
+  "waVersion": "2.3000.1047765575",
   "wireFormat": {
     "markers": {
       "event": 1,

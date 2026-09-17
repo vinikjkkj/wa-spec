@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047552994
+// WhatsApp Version: 2.3000.1047765575
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -25,32 +25,21 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdPreferencesDemographicCategoryOptOut: WaMexPersistId
     readonly AdPreferencesHideAdvertiser: WaMexPersistId
     readonly AdPreferencesInterestCategoryOptOut: WaMexPersistId
-    readonly AdsAccountHasCapabilityQueryPlugin_: WaMexPersistId
-    readonly AdsAccountStoreNewSourceServer: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexPersistId
-    readonly AdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProduct: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexPersistId
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexPersistId
-    readonly AdsCallAdsCampaignBudgetPluginCommon: WaMexPersistId
-    readonly AdsInsightsAdInsightsShadowValidation: WaMexPersistId
     readonly AdsManagerLiveDataCampaign: WaMexPersistId
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
-    readonly AdsReminderAdsAdAccountDataLoader: WaMexPersistId
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
     readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexPersistId
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexPersistId
-    readonly AdsUnificationCampaignNUXEntrypointModalContainerInner: WaMexPersistId
-    readonly AdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttribute: WaMexPersistId
-    readonly AdsUnificationCampaignNUXModalUtils_useImpressionData: WaMexPersistId
     readonly AiAgentAutoReplyControl: WaMexPersistId
     readonly AuthAgentFeaturePolicy: WaMexPersistId
     readonly BPAccessTokenAndSessionCookies: WaMexPersistId
-    readonly BillingWizardNameUtils: WaMexPersistId
-    readonly BillingWizardNameUtilsRefetch: WaMexPersistId
     readonly BizCreateOrder: WaMexPersistId
     readonly BizCustomUrlGetUserGraphql: WaMexPersistId
     readonly BizGetCategories: WaMexPersistId
@@ -151,6 +140,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly GetPrivacySettings: WaMexPersistId
     readonly GetUsername: WaMexPersistId
     readonly GetWAAEligibility: WaMexPersistId
+    readonly GetWoasAgeSignal: WaMexPersistId
     readonly GraphQLProductCatalogGetPublicKey: WaMexPersistId
     readonly GraphQLVerifyPostcode: WaMexPersistId
     readonly GroupStoreInviteSms: WaMexPersistId
@@ -158,7 +148,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly IntegrityChallengeResponse: WaMexPersistId
     readonly JoinNewsletter: WaMexPersistId
     readonly KeyTransparencyGraphQLClient_: WaMexPersistId
-    readonly L1LiveTrueTieredReverseInteropStoreSourceTier2Server: WaMexPersistId
     readonly LeaveNewsletter: WaMexPersistId
     readonly LidChangeNotification: WaMexPersistId
     readonly LogNewsletterExposures: WaMexPersistId
@@ -188,6 +177,8 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLManagedGroups: WaMexPersistId
     readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
+    readonly OrgAdminGraphQLRemoveMember: WaMexPersistId
+    readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
@@ -204,11 +195,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexPersistId
     readonly RevokeNewsletterAdminInvite: WaMexPersistId
     readonly RotateLabyrinthEpoch: WaMexPersistId
-    readonly SYDAccountInfoWidgetContainerV3: WaMexPersistId
-    readonly SYDGuidanceHubV3RelayContainerLive: WaMexPersistId
-    readonly SYDMetricSnapshotWidgetContainer: WaMexPersistId
-    readonly SYDNewFeaturesWidgetGraphQLContainer: WaMexPersistId
-    readonly SYDPageRELAY: WaMexPersistId
     readonly SetUsername: WaMexPersistId
     readonly SetUsernameKey: WaMexPersistId
     readonly SignupMetadata: WaMexPersistId
@@ -216,6 +202,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexPersistId
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexPersistId
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexPersistId
+    readonly SubscriptionWaffleAgeCheck: WaMexPersistId
     readonly SupportBugReportSubmit: WaMexPersistId
     readonly SupportContactFormSubmit: WaMexPersistId
     readonly SupportMessageFeedbackSubmit: WaMexPersistId
@@ -238,15 +225,14 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly WaffleFXServiceDataQueryV2: WaMexPersistId
     readonly WaffleFXWAMOUpdateUOOM: WaMexPersistId
     readonly WaffleXE: WaMexPersistId
-    readonly WamoAvailableIdentitiesStoreSourceServer: WaMexPersistId
-    readonly adsMessageMarketingDeliveryDataServer: WaMexPersistId
     readonly useFlowJSONValidationLibrary: WaMexPersistId
-    readonly useGetDatasetSplitByAdAccount: WaMexPersistId
     readonly useIsMessengerPlatformBot: WaMexPersistId
     readonly useMAIBADraftStatus: WaMexPersistId
     readonly useMAIBAMedia: WaMexPersistId
+    readonly useMAIBAWidgetState: WaMexPersistId
     readonly useWAWebEstimatedDailyReach: WaMexPersistId
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexPersistId
+    readonly useWAWebSmartComposerReportThreadEvent: WaMexPersistId
     readonly useWAWebSmartComposerReportUsed: WaMexPersistId
 }
 
@@ -261,32 +247,21 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdPreferencesDemographicCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['bctID', 'isUndo']>
     readonly AdPreferencesHideAdvertiser: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdPreferencesInterestCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['interestID', 'isUndo']>
-    readonly AdsAccountHasCapabilityQueryPlugin_: WaMexOperationSchema<'query', readonly ['accountID', 'capability']>
-    readonly AdsAccountStoreNewSourceServer: WaMexOperationSchema<'query', readonly ['adAccountID', 'useAdAccountRef']>
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id']>
-    readonly AdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProduct: WaMexOperationSchema<'query', readonly ['campaignGroupID', 'shouldSkipQuery']>
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexOperationSchema<'query', readonly ['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']>
-    readonly AdsCallAdsCampaignBudgetPluginCommon: WaMexOperationSchema<'query', readonly ['accountID']>
-    readonly AdsInsightsAdInsightsShadowValidation: WaMexOperationSchema<'query', readonly ['datePreset', 'from', 'ids', 'to']>
     readonly AdsManagerLiveDataCampaign: WaMexOperationSchema<'query', readonly ['ids', 'skip_data_transform']>
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
-    readonly AdsReminderAdsAdAccountDataLoader: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexOperationSchema<'query', readonly ['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
     readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexOperationSchema<'query', readonly ['adAccountId', 'pageWhatsAppNumberId']>
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexOperationSchema<'query', readonly ['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']>
-    readonly AdsUnificationCampaignNUXEntrypointModalContainerInner: WaMexOperationSchema<'query', readonly ['campaign_details', 'campaign_group_daily_budget', 'campaign_group_lifetime_budget', 'is_e2e_proxy_campaign_group']>
-    readonly AdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttribute: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly AdsUnificationCampaignNUXModalUtils_useImpressionData: WaMexOperationSchema<'query', readonly ['attribute_types', 'scope_ids']>
     readonly AiAgentAutoReplyControl: WaMexOperationSchema<'mutation', readonly ['consumer_lid', 'phone_number', 'thread_status']>
     readonly AuthAgentFeaturePolicy: WaMexOperationSchema<'query', readonly []>
     readonly BPAccessTokenAndSessionCookies: WaMexOperationSchema<'mutation', readonly ['application_id', 'code']>
-    readonly BillingWizardNameUtils: WaMexOperationSchema<'query', readonly ['budget', 'deviceCountry', 'deviceCurrency', 'paymentAccountID', 'specificEntrypoint']>
-    readonly BillingWizardNameUtilsRefetch: WaMexOperationSchema<'query', readonly ['boostDurationInDays', 'budget', 'dailyBudget', 'deviceCountry', 'deviceCurrency', 'paymentAccountID', 'specificEntrypoint']>
     readonly BizCreateOrder: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly BizCustomUrlGetUserGraphql: WaMexOperationSchema<'query', readonly ['data']>
     readonly BizGetCategories: WaMexOperationSchema<'query', readonly ['query_params']>
@@ -387,6 +362,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly GetPrivacySettings: WaMexOperationSchema<'query', readonly ['input']>
     readonly GetUsername: WaMexOperationSchema<'query', readonly []>
     readonly GetWAAEligibility: WaMexOperationSchema<'query', readonly ['input']>
+    readonly GetWoasAgeSignal: WaMexOperationSchema<'query', readonly ['input']>
     readonly GraphQLProductCatalogGetPublicKey: WaMexOperationSchema<'query', readonly ['request']>
     readonly GraphQLVerifyPostcode: WaMexOperationSchema<'query', readonly ['request']>
     readonly GroupStoreInviteSms: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -394,7 +370,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly IntegrityChallengeResponse: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly JoinNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly KeyTransparencyGraphQLClient_: WaMexOperationSchema<'query', readonly ['auditor_ids', 'requested_accounts', 'serfmt']>
-    readonly L1LiveTrueTieredReverseInteropStoreSourceTier2Server: WaMexOperationSchema<'query', readonly ['fetch_instagram_field', 'ids']>
     readonly LeaveNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly LidChangeNotification: WaMexOperationSchema<'query', readonly []>
     readonly LogNewsletterExposures: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -424,6 +399,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLManagedGroups: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
+    readonly OrgAdminGraphQLRemoveMember: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
@@ -440,11 +417,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexOperationSchema<'query', readonly ['pageId']>
     readonly RevokeNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly RotateLabyrinthEpoch: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly SYDAccountInfoWidgetContainerV3: WaMexOperationSchema<'query', readonly ['adAccountID']>
-    readonly SYDGuidanceHubV3RelayContainerLive: WaMexOperationSchema<'query', readonly ['adAccountID', 'contentRequest', 'recommendation3D', 'requestId', 'shouldPrefetchSYDUris']>
-    readonly SYDMetricSnapshotWidgetContainer: WaMexOperationSchema<'query', readonly ['accountID', 'shouldPrefetchSYDUris', 'useEntrypointForWidgetModal']>
-    readonly SYDNewFeaturesWidgetGraphQLContainer: WaMexOperationSchema<'query', readonly ['adAccountID', 'shouldPrefetchSYDUris']>
-    readonly SYDPageRELAY: WaMexOperationSchema<'query', readonly ['accountID', 'channel', 'failsGK', 'flexSolutionID', 'gk_perseus_syd_nuo_merge_3d', 'shouldDeferAdSliderOutcomeEstimates', 'shouldFetchSYDMAIBAAccountInsights', 'shouldPrefetchSYDUris', 'shouldPrefetchThumbnails', 'shouldSkipMessengerMM', 'shouldSkipWhatsAppMM', 'shouldUseRelay3D']>
     readonly SetUsername: WaMexOperationSchema<'mutation', readonly ['input', 'reserved', 'session_id', 'source']>
     readonly SetUsernameKey: WaMexOperationSchema<'mutation', readonly ['pin']>
     readonly SignupMetadata: WaMexOperationSchema<'query', readonly ['phone_number', 'signup_id']>
@@ -452,6 +424,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexOperationSchema<'query', readonly ['ad_account_id', 'ad_caption', 'destination_type', 'page_id', 'post_id', 'skip']>
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexOperationSchema<'query', readonly ['input']>
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'ad_caption', 'ad_id', 'current_icebreaker', 'destination_type', 'ent_id', 'page_id', 'post_id']>
+    readonly SubscriptionWaffleAgeCheck: WaMexOperationSchema<'query', readonly []>
     readonly SupportBugReportSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportContactFormSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportMessageFeedbackSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -474,15 +447,14 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly WaffleFXServiceDataQueryV2: WaMexOperationSchema<'mutation', readonly []>
     readonly WaffleFXWAMOUpdateUOOM: WaMexOperationSchema<'mutation', readonly []>
     readonly WaffleXE: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly WamoAvailableIdentitiesStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id', 'page_id']>
-    readonly adsMessageMarketingDeliveryDataServer: WaMexOperationSchema<'query', readonly ['campaign_id']>
     readonly useFlowJSONValidationLibrary: WaMexOperationSchema<'query', readonly ['skipRequest', 'version', 'wabaID']>
-    readonly useGetDatasetSplitByAdAccount: WaMexOperationSchema<'query', readonly ['adAccountID', 'datasetTypes', 'shouldSkip']>
     readonly useIsMessengerPlatformBot: WaMexOperationSchema<'query', readonly ['page_id']>
     readonly useMAIBADraftStatus: WaMexOperationSchema<'query', readonly ['campaignGroupId', 'id']>
     readonly useMAIBAMedia: WaMexOperationSchema<'query', readonly ['adObjectIDs', 'thumbnailSize']>
+    readonly useMAIBAWidgetState: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useWAWebEstimatedDailyReach: WaMexOperationSchema<'query', readonly ['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']>
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly useWAWebSmartComposerReportThreadEvent: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useWAWebSmartComposerReportUsed: WaMexOperationSchema<'mutation', readonly ['input']>
 }
 
@@ -531,16 +503,6 @@ export type WaMexAdPreferencesInterestCategoryOptOutVariables = {
     readonly isUndo?: unknown
 }
 
-export type WaMexAdsAccountHasCapabilityQueryPlugin_Variables = {
-    readonly accountID?: string
-    readonly capability?: unknown
-}
-
-export type WaMexAdsAccountStoreNewSourceServerVariables = {
-    readonly adAccountID?: string
-    readonly useAdAccountRef?: unknown
-}
-
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables = {
     readonly input?: string
 }
@@ -551,11 +513,6 @@ export type WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusVariab
 
 export type WaMexAdsAdAccountSettingsStoreSourceServerVariables = {
     readonly ad_account_id?: string
-}
-
-export type WaMexAdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProductVariables = {
-    readonly campaignGroupID?: string
-    readonly shouldSkipQuery?: boolean
 }
 
 export type WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerVariables = {
@@ -573,27 +530,12 @@ export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables = {
     readonly contextKey?: unknown
 }
 
-export type WaMexAdsCallAdsCampaignBudgetPluginCommonVariables = {
-    readonly accountID?: string
-}
-
-export type WaMexAdsInsightsAdInsightsShadowValidationVariables = {
-    readonly datePreset?: boolean
-    readonly from?: unknown
-    readonly ids?: ReadonlyArray<string>
-    readonly to?: unknown
-}
-
 export type WaMexAdsManagerLiveDataCampaignVariables = {
     readonly ids?: ReadonlyArray<string>
     readonly skip_data_transform?: boolean
 }
 
 export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables = Readonly<Record<string, never>>
-
-export type WaMexAdsReminderAdsAdAccountDataLoaderVariables = {
-    readonly adAccountID?: string
-}
 
 export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables = {
     readonly accountID?: string
@@ -622,22 +564,6 @@ export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variabl
     readonly secondaryPageID?: string
 }
 
-export type WaMexAdsUnificationCampaignNUXEntrypointModalContainerInnerVariables = {
-    readonly campaign_details?: unknown
-    readonly campaign_group_daily_budget?: unknown
-    readonly campaign_group_lifetime_budget?: unknown
-    readonly is_e2e_proxy_campaign_group?: boolean
-}
-
-export type WaMexAdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttributeVariables = {
-    readonly input?: string
-}
-
-export type WaMexAdsUnificationCampaignNUXModalUtils_useImpressionDataVariables = {
-    readonly attribute_types?: unknown
-    readonly scope_ids?: ReadonlyArray<string>
-}
-
 export type WaMexAiAgentAutoReplyControlVariables = {
     readonly consumer_lid?: string
     readonly phone_number?: string
@@ -649,24 +575,6 @@ export type WaMexAuthAgentFeaturePolicyVariables = Readonly<Record<string, never
 export type WaMexBPAccessTokenAndSessionCookiesVariables = {
     readonly application_id?: number
     readonly code?: string
-}
-
-export type WaMexBillingWizardNameUtilsVariables = {
-    readonly budget?: unknown
-    readonly deviceCountry?: unknown
-    readonly deviceCurrency?: string
-    readonly paymentAccountID?: string
-    readonly specificEntrypoint?: unknown
-}
-
-export type WaMexBillingWizardNameUtilsRefetchVariables = {
-    readonly boostDurationInDays?: number
-    readonly budget?: unknown
-    readonly dailyBudget?: number
-    readonly deviceCountry?: unknown
-    readonly deviceCurrency?: string
-    readonly paymentAccountID?: string
-    readonly specificEntrypoint?: unknown
 }
 
 export type WaMexBizCreateOrderVariables = {
@@ -1282,6 +1190,14 @@ export type WaMexGetWAAEligibilityVariables = {
     }
 }
 
+export type WaMexGetWoasAgeSignalVariables = {
+    readonly input?: {
+        readonly query_input?: ReadonlyArray<{
+            readonly jid?: string
+        }>
+    }
+}
+
 export type WaMexGraphQLProductCatalogGetPublicKeyVariables = {
     readonly request?: {
         readonly public_key?: {
@@ -1332,11 +1248,6 @@ export type WaMexKeyTransparencyGraphQLClient_Variables = {
     readonly auditor_ids?: ReadonlyArray<string>
     readonly requested_accounts?: unknown
     readonly serfmt?: 'BASE64'
-}
-
-export type WaMexL1LiveTrueTieredReverseInteropStoreSourceTier2ServerVariables = {
-    readonly fetch_instagram_field?: boolean
-    readonly ids?: ReadonlyArray<string>
 }
 
 export type WaMexLeaveNewsletterVariables = {
@@ -1487,9 +1398,30 @@ export type WaMexOrgAdminGraphQLOrgsVariables = {
     readonly emails?: ReadonlyArray<string>
     readonly first?: number
     readonly gid?: unknown
+    readonly input?: {
+        readonly member_lid?: string
+        readonly org_id?: string
+        readonly role?: string
+    }
     readonly memberTag?: unknown
     readonly orgID?: unknown
     readonly query?: string
+}
+
+export type WaMexOrgAdminGraphQLRemoveMemberVariables = {
+    readonly input?: {
+        readonly member_lid?: string
+        readonly org_id?: string
+        readonly role?: string
+    }
+}
+
+export type WaMexOrgAdminGraphQLSetMemberRoleVariables = {
+    readonly input?: {
+        readonly member_lid?: string
+        readonly org_id?: string
+        readonly role?: string
+    }
 }
 
 export type WaMexPaymentsPasskeyHasCredentialVariables = Readonly<Record<string, never>>
@@ -1640,44 +1572,6 @@ export type WaMexRotateLabyrinthEpochVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
-export type WaMexSYDAccountInfoWidgetContainerV3Variables = {
-    readonly adAccountID?: string
-}
-
-export type WaMexSYDGuidanceHubV3RelayContainerLiveVariables = {
-    readonly adAccountID?: string
-    readonly contentRequest?: unknown
-    readonly recommendation3D?: unknown
-    readonly requestId?: string
-    readonly shouldPrefetchSYDUris?: unknown
-}
-
-export type WaMexSYDMetricSnapshotWidgetContainerVariables = {
-    readonly accountID?: string
-    readonly shouldPrefetchSYDUris?: unknown
-    readonly useEntrypointForWidgetModal?: unknown
-}
-
-export type WaMexSYDNewFeaturesWidgetGraphQLContainerVariables = {
-    readonly adAccountID?: string
-    readonly shouldPrefetchSYDUris?: unknown
-}
-
-export type WaMexSYDPageRELAYVariables = {
-    readonly accountID?: string
-    readonly channel?: unknown
-    readonly failsGK?: unknown
-    readonly flexSolutionID?: unknown
-    readonly gk_perseus_syd_nuo_merge_3d?: unknown
-    readonly shouldDeferAdSliderOutcomeEstimates?: unknown
-    readonly shouldFetchSYDMAIBAAccountInsights?: unknown
-    readonly shouldPrefetchSYDUris?: unknown
-    readonly shouldPrefetchThumbnails?: unknown
-    readonly shouldSkipMessengerMM?: unknown
-    readonly shouldSkipWhatsAppMM?: unknown
-    readonly shouldUseRelay3D?: unknown
-}
-
 export type WaMexSetUsernameVariables = {
     readonly input?: string
     readonly reserved?: boolean
@@ -1721,6 +1615,8 @@ export type WaMexStartConversationsTemplateFAQGenAIRegenerationVariables = {
     readonly page_id?: string
     readonly post_id?: string
 }
+
+export type WaMexSubscriptionWaffleAgeCheckVariables = Readonly<Record<string, never>>
 
 export type WaMexSupportBugReportSubmitVariables = {
     readonly input?: Readonly<Record<string, unknown>>
@@ -1836,25 +1732,10 @@ export type WaMexWaffleXEVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
-export type WaMexWamoAvailableIdentitiesStoreSourceServerVariables = {
-    readonly ad_account_id?: string
-    readonly page_id?: string
-}
-
-export type WaMexadsMessageMarketingDeliveryDataServerVariables = {
-    readonly campaign_id?: string
-}
-
 export type WaMexuseFlowJSONValidationLibraryVariables = {
     readonly skipRequest?: boolean
     readonly version?: number
     readonly wabaID?: string
-}
-
-export type WaMexuseGetDatasetSplitByAdAccountVariables = {
-    readonly adAccountID?: string
-    readonly datasetTypes?: unknown
-    readonly shouldSkip?: boolean
 }
 
 export type WaMexuseIsMessengerPlatformBotVariables = {
@@ -1869,6 +1750,10 @@ export type WaMexuseMAIBADraftStatusVariables = {
 export type WaMexuseMAIBAMediaVariables = {
     readonly adObjectIDs?: unknown
     readonly thumbnailSize?: number
+}
+
+export type WaMexuseMAIBAWidgetStateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
 }
 
 export type WaMexuseWAWebEstimatedDailyReachVariables = {
@@ -1887,6 +1772,10 @@ export type WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexuseWAWebSmartComposerReportThreadEventVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexuseWAWebSmartComposerReportUsedVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -1902,32 +1791,21 @@ export interface WaMexOperationVariables {
     readonly AdPreferencesDemographicCategoryOptOut: WaMexAdPreferencesDemographicCategoryOptOutVariables
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserVariables
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutVariables
-    readonly AdsAccountHasCapabilityQueryPlugin_: WaMexAdsAccountHasCapabilityQueryPlugin_Variables
-    readonly AdsAccountStoreNewSourceServer: WaMexAdsAccountStoreNewSourceServerVariables
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerVariables
-    readonly AdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProduct: WaMexAdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProductVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeVariables
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables
-    readonly AdsCallAdsCampaignBudgetPluginCommon: WaMexAdsCallAdsCampaignBudgetPluginCommonVariables
-    readonly AdsInsightsAdInsightsShadowValidation: WaMexAdsInsightsAdInsightsShadowValidationVariables
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignVariables
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
-    readonly AdsReminderAdsAdAccountDataLoader: WaMexAdsReminderAdsAdAccountDataLoaderVariables
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
     readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexAdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Variables
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables
-    readonly AdsUnificationCampaignNUXEntrypointModalContainerInner: WaMexAdsUnificationCampaignNUXEntrypointModalContainerInnerVariables
-    readonly AdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttribute: WaMexAdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttributeVariables
-    readonly AdsUnificationCampaignNUXModalUtils_useImpressionData: WaMexAdsUnificationCampaignNUXModalUtils_useImpressionDataVariables
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlVariables
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyVariables
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesVariables
-    readonly BillingWizardNameUtils: WaMexBillingWizardNameUtilsVariables
-    readonly BillingWizardNameUtilsRefetch: WaMexBillingWizardNameUtilsRefetchVariables
     readonly BizCreateOrder: WaMexBizCreateOrderVariables
     readonly BizCustomUrlGetUserGraphql: WaMexBizCustomUrlGetUserGraphqlVariables
     readonly BizGetCategories: WaMexBizGetCategoriesVariables
@@ -2028,6 +1906,7 @@ export interface WaMexOperationVariables {
     readonly GetPrivacySettings: WaMexGetPrivacySettingsVariables
     readonly GetUsername: WaMexGetUsernameVariables
     readonly GetWAAEligibility: WaMexGetWAAEligibilityVariables
+    readonly GetWoasAgeSignal: WaMexGetWoasAgeSignalVariables
     readonly GraphQLProductCatalogGetPublicKey: WaMexGraphQLProductCatalogGetPublicKeyVariables
     readonly GraphQLVerifyPostcode: WaMexGraphQLVerifyPostcodeVariables
     readonly GroupStoreInviteSms: WaMexGroupStoreInviteSmsVariables
@@ -2035,7 +1914,6 @@ export interface WaMexOperationVariables {
     readonly IntegrityChallengeResponse: WaMexIntegrityChallengeResponseVariables
     readonly JoinNewsletter: WaMexJoinNewsletterVariables
     readonly KeyTransparencyGraphQLClient_: WaMexKeyTransparencyGraphQLClient_Variables
-    readonly L1LiveTrueTieredReverseInteropStoreSourceTier2Server: WaMexL1LiveTrueTieredReverseInteropStoreSourceTier2ServerVariables
     readonly LeaveNewsletter: WaMexLeaveNewsletterVariables
     readonly LidChangeNotification: WaMexLidChangeNotificationVariables
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresVariables
@@ -2065,6 +1943,8 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsVariables
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
+    readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberVariables
+    readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
@@ -2081,11 +1961,6 @@ export interface WaMexOperationVariables {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexResolveAccountTypeAndAdPageQueryVariables
     readonly RevokeNewsletterAdminInvite: WaMexRevokeNewsletterAdminInviteVariables
     readonly RotateLabyrinthEpoch: WaMexRotateLabyrinthEpochVariables
-    readonly SYDAccountInfoWidgetContainerV3: WaMexSYDAccountInfoWidgetContainerV3Variables
-    readonly SYDGuidanceHubV3RelayContainerLive: WaMexSYDGuidanceHubV3RelayContainerLiveVariables
-    readonly SYDMetricSnapshotWidgetContainer: WaMexSYDMetricSnapshotWidgetContainerVariables
-    readonly SYDNewFeaturesWidgetGraphQLContainer: WaMexSYDNewFeaturesWidgetGraphQLContainerVariables
-    readonly SYDPageRELAY: WaMexSYDPageRELAYVariables
     readonly SetUsername: WaMexSetUsernameVariables
     readonly SetUsernameKey: WaMexSetUsernameKeyVariables
     readonly SignupMetadata: WaMexSignupMetadataVariables
@@ -2093,6 +1968,7 @@ export interface WaMexOperationVariables {
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegenerationVariables
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlowsVariables
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexStartConversationsTemplateFAQGenAIRegenerationVariables
+    readonly SubscriptionWaffleAgeCheck: WaMexSubscriptionWaffleAgeCheckVariables
     readonly SupportBugReportSubmit: WaMexSupportBugReportSubmitVariables
     readonly SupportContactFormSubmit: WaMexSupportContactFormSubmitVariables
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitVariables
@@ -2115,15 +1991,14 @@ export interface WaMexOperationVariables {
     readonly WaffleFXServiceDataQueryV2: WaMexWaffleFXServiceDataQueryV2Variables
     readonly WaffleFXWAMOUpdateUOOM: WaMexWaffleFXWAMOUpdateUOOMVariables
     readonly WaffleXE: WaMexWaffleXEVariables
-    readonly WamoAvailableIdentitiesStoreSourceServer: WaMexWamoAvailableIdentitiesStoreSourceServerVariables
-    readonly adsMessageMarketingDeliveryDataServer: WaMexadsMessageMarketingDeliveryDataServerVariables
     readonly useFlowJSONValidationLibrary: WaMexuseFlowJSONValidationLibraryVariables
-    readonly useGetDatasetSplitByAdAccount: WaMexuseGetDatasetSplitByAdAccountVariables
     readonly useIsMessengerPlatformBot: WaMexuseIsMessengerPlatformBotVariables
     readonly useMAIBADraftStatus: WaMexuseMAIBADraftStatusVariables
     readonly useMAIBAMedia: WaMexuseMAIBAMediaVariables
+    readonly useMAIBAWidgetState: WaMexuseMAIBAWidgetStateVariables
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachVariables
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables
+    readonly useWAWebSmartComposerReportThreadEvent: WaMexuseWAWebSmartComposerReportThreadEventVariables
     readonly useWAWebSmartComposerReportUsed: WaMexuseWAWebSmartComposerReportUsedVariables
 }
 
@@ -2227,25 +2102,6 @@ export type WaMexAdPreferencesInterestCategoryOptOutResponse = {
     }
 }
 
-export type WaMexAdsAccountHasCapabilityQueryPlugin_Response = {
-    readonly ad_account?: {
-        readonly has_capability?: boolean
-        readonly id?: string
-    }
-}
-
-export type WaMexAdsAccountStoreNewSourceServerResponse = {
-    readonly ad_account?: {
-        readonly id?: string
-    }
-    readonly ad_account_ref?: {
-        readonly ad_account?: {
-            readonly id?: string
-        }
-        readonly id?: string
-    }
-}
-
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse = {
     readonly set_aplus_cfeature_sticky_status_ads_ad_account_settings?: {
         readonly ads_ad_account_settings?: {
@@ -2288,14 +2144,6 @@ export type WaMexAdsAdAccountSettingsStoreSourceServerResponse = {
     }
 }
 
-export type WaMexAdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProductResponse = {
-    readonly node?: {
-        readonly __typename?: string
-        readonly id?: string
-        readonly recommended_budget_product?: unknown
-    }
-}
-
 export type WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse = {
     readonly ad_account?: {
         readonly agency_fee_config?: {
@@ -2330,35 +2178,6 @@ export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response = {
     }
 }
 
-export type WaMexAdsCallAdsCampaignBudgetPluginCommonResponse = {
-    readonly ad_account?: {
-        readonly call_ads_recommended_budget?: {
-            readonly budget_limit_15s?: unknown
-        }
-        readonly id?: string
-    }
-}
-
-export type WaMexAdsInsightsAdInsightsShadowValidationResponse = {
-    readonly nodes?: ReadonlyArray<{
-        readonly __typename?: string
-        readonly ad_insights?: {
-            readonly nodes?: ReadonlyArray<{
-                readonly cost_per_result?: string
-                readonly impressions_as_string?: unknown
-                readonly metrics?: ReadonlyArray<{
-                    readonly metric_id?: string
-                    readonly metric_value_raw?: unknown
-                }>
-                readonly reach?: number
-                readonly results?: unknown
-                readonly spend?: number
-            }>
-        }
-        readonly id?: string
-    }>
-}
-
 export type WaMexAdsManagerLiveDataCampaignResponse = {
     readonly nodes?: ReadonlyArray<{
         readonly __typename?: string
@@ -2376,12 +2195,6 @@ export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse 
                 }>
             }
         }
-    }
-}
-
-export type WaMexAdsReminderAdsAdAccountDataLoaderResponse = {
-    readonly ad_account?: {
-        readonly id?: string
     }
 }
 
@@ -2504,32 +2317,6 @@ export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Respons
     }
 }
 
-export type WaMexAdsUnificationCampaignNUXEntrypointModalContainerInnerResponse = Readonly<Record<string, unknown>>
-
-export type WaMexAdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttributeResponse = {
-    readonly xfb_advertiser_profile_mutate_manual_signals?: ReadonlyArray<{
-        readonly __typename?: string
-        readonly id?: string
-        readonly value?: {
-            readonly __typename?: string
-            readonly as_boolean?: unknown
-            readonly as_integer?: unknown
-        }
-    }>
-}
-
-export type WaMexAdsUnificationCampaignNUXModalUtils_useImpressionDataResponse = {
-    readonly xfb_advertiser_profile_editable_attributes?: ReadonlyArray<{
-        readonly __typename?: string
-        readonly id?: string
-        readonly value?: {
-            readonly __typename?: string
-            readonly as_boolean?: unknown
-            readonly as_integer?: unknown
-        }
-    }>
-}
-
 export type WaMexAiAgentAutoReplyControlResponse = {
     readonly xfb_whatsapp_smb_maiba_status_update?: {
         readonly success?: boolean
@@ -2551,47 +2338,6 @@ export type WaMexBPAccessTokenAndSessionCookiesResponse = {
         readonly email_attr?: string
         readonly session_cookies?: string
         readonly status?: string
-    }
-}
-
-export type WaMexBillingWizardNameUtilsResponse = {
-    readonly billing_believe_eligibility?: {
-        readonly is_eligible?: boolean
-    }
-    readonly payment_account?: {
-        readonly __typename?: string
-        readonly billable_account?: {
-            readonly __typename?: string
-            readonly billing_info?: {
-                readonly required_action?: {
-                    readonly action?: {
-                        readonly wizard_name?: string
-                        readonly wizard_props_json?: unknown
-                    }
-                }
-            }
-            readonly id?: string
-        }
-        readonly id?: string
-    }
-}
-
-export type WaMexBillingWizardNameUtilsRefetchResponse = {
-    readonly payment_account?: {
-        readonly __typename?: string
-        readonly billable_account?: {
-            readonly __typename?: string
-            readonly billing_info?: {
-                readonly required_action?: {
-                    readonly action?: {
-                        readonly wizard_name?: string
-                        readonly wizard_props_json?: unknown
-                    }
-                }
-            }
-            readonly id?: string
-        }
-        readonly id?: string
     }
 }
 
@@ -3549,6 +3295,7 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                                 readonly message_metadata_version?: number
                                 readonly protobuf_timestamp?: string
                                 readonly reporting_tag?: string
+                                readonly server_origin_content_type?: string
                                 readonly supplemental_key?: string
                                 readonly supplemental_otid?: unknown
                                 readonly transport_sender_message_signature?: string
@@ -3576,6 +3323,7 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                                 readonly message_metadata_version?: number
                                 readonly protobuf_timestamp?: string
                                 readonly reporting_tag?: string
+                                readonly server_origin_content_type?: string
                                 readonly transport_sender_message_signature?: string
                                 readonly transport_sender_signing_pk?: unknown
                             }
@@ -5083,6 +4831,20 @@ export type WaMexGetWAAEligibilityResponse = {
     }
 }
 
+export type WaMexGetWoasAgeSignalResponse = {
+    readonly xwa2_fetch_wa_users?: ReadonlyArray<{
+        readonly __typename?: string
+        readonly age_collection_info?: {
+            readonly assets?: ReadonlyArray<{
+                readonly name?: 'WOAS'
+                readonly ttl_sec?: number
+                readonly value?: boolean
+            }>
+        }
+        readonly id?: string
+    }>
+}
+
 export type WaMexGraphQLProductCatalogGetPublicKeyResponse = {
     readonly xwa_product_catalog_get_public_key?: {
         readonly public_key_certificate_pem?: string
@@ -5143,14 +4905,6 @@ export type WaMexKeyTransparencyGraphQLClient_Response = {
             readonly proto_for_client?: unknown
         }>
     }
-}
-
-export type WaMexL1LiveTrueTieredReverseInteropStoreSourceTier2ServerResponse = {
-    readonly nodes?: ReadonlyArray<{
-        readonly __typename?: string
-        readonly id?: string
-        readonly node_id?: string
-    }>
 }
 
 export type WaMexLeaveNewsletterResponse = {
@@ -5362,7 +5116,7 @@ export type WaMexOrgAdminGraphQLAddChannelResponse = {
     readonly xwa_org_managed_channel_add?: {
         readonly channel?: {
             readonly description?: string
-            readonly id?: string
+            readonly id?: number
             readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
@@ -5388,18 +5142,25 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
 }
 
 export type WaMexOrgAdminGraphQLDirectoryResponse = {
-    readonly xwa_org_admin_directory?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
-        readonly member_tags?: ReadonlyArray<string>
-        readonly members?: ReadonlyArray<{
-            readonly display_name?: string
-            readonly lid?: string
-            readonly member_tag?: string
-            readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
-            readonly username?: string
-        }>
+    readonly xwa_org_get?: {
+        readonly error_reason?: string
+        readonly org_info?: {
+            readonly id?: number
+            readonly members?: {
+                readonly count?: number
+                readonly nodes?: ReadonlyArray<{
+                    readonly display_name?: string
+                    readonly lid?: boolean
+                    readonly member_tag?: string
+                    readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+                    readonly username?: string
+                }>
+                readonly page_info?: {
+                    readonly has_next_page?: boolean
+                }
+            }
+        }
         readonly status?: 'SUCCESS'
-        readonly truncated?: unknown
     }
 }
 
@@ -5411,7 +5172,7 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
             readonly gid?: unknown
             readonly participant_count?: number
             readonly participants?: ReadonlyArray<{
-                readonly lid?: string
+                readonly lid?: boolean
                 readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
             }>
             readonly roster_partial?: unknown
@@ -5452,7 +5213,7 @@ export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
             readonly gid?: unknown
             readonly participant_count?: number
             readonly participants?: ReadonlyArray<{
-                readonly lid?: string
+                readonly lid?: boolean
                 readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
             }>
             readonly roster_partial?: unknown
@@ -5464,11 +5225,11 @@ export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
 
 export type WaMexOrgAdminGraphQLMemberSearchResponse = {
     readonly xwa_org_member_search?: {
-        readonly count?: unknown
+        readonly count?: number
         readonly nodes?: ReadonlyArray<{
             readonly member?: {
                 readonly display_name?: string
-                readonly lid?: string
+                readonly lid?: boolean
                 readonly member_tag?: string
                 readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
                 readonly username?: string
@@ -5487,7 +5248,30 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
             readonly id?: string
             readonly member_count?: number
             readonly name?: string
+            readonly viewer_role?: string
         }>
+    }
+}
+
+export type WaMexOrgAdminGraphQLRemoveMemberResponse = {
+    readonly xwa_org_member_remove?: {
+        readonly error_reason?: string
+        readonly org?: {
+            readonly id?: number
+            readonly member_count?: number
+        }
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLSetMemberRoleResponse = {
+    readonly xwa_org_member_set_role?: {
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly org?: {
+            readonly id?: number
+            readonly member_count?: number
+        }
+        readonly status?: 'SUCCESS'
     }
 }
 
@@ -6066,1294 +5850,6 @@ export type WaMexRotateLabyrinthEpochResponse = {
     }
 }
 
-export type WaMexSYDAccountInfoWidgetContainerV3Response = {
-    readonly ad_account?: {
-        readonly currency?: string
-        readonly id?: string
-        readonly last_7_day_insights_spend?: {
-            readonly amount?: number
-            readonly currency?: string
-        }
-        readonly name?: string
-        readonly num_active_campaign_groups?: unknown
-        readonly spend_info?: {
-            readonly amount_spent?: {
-                readonly offset_amount?: number
-            }
-            readonly spend_limit?: {
-                readonly offset_amount?: number
-            }
-        }
-        readonly total_learning_phase_spend_ratio?: unknown
-    }
-}
-
-export type WaMexSYDGuidanceHubV3RelayContainerLiveResponse = {
-    readonly ad_account?: {
-        readonly business_constraints?: {
-            readonly ads_business_constraints_status?: string
-        }
-        readonly id?: string
-        readonly ugp_recommendations?: {
-            readonly __typename?: string
-            readonly checked_gks?: {
-                readonly top_level?: ReadonlyArray<{
-                    readonly aspect?: unknown
-                    readonly gks?: ReadonlyArray<{
-                        readonly gk_name?: string
-                        readonly gk_type?: string
-                        readonly result?: string
-                    }>
-                }>
-            }
-            readonly checked_qes?: {
-                readonly guidance_qe_mapping?: ReadonlyArray<{
-                    readonly qe?: unknown
-                    readonly recommendation_stage?: unknown
-                    readonly recommendation_type?: string
-                }>
-                readonly top_level?: ReadonlyArray<{
-                    readonly aspect?: unknown
-                    readonly qes?: ReadonlyArray<{
-                        readonly bool_result?: unknown
-                        readonly group?: unknown
-                        readonly param?: unknown
-                        readonly qe_unit_id?: string
-                        readonly recommendations?: ReadonlyArray<{
-                            readonly runtime_metadata?: {
-                                readonly __typename?: string
-                                readonly ad_object_tree?: {
-                                    readonly ad_group_ids?: {
-                                        readonly nodes?: ReadonlyArray<{
-                                            readonly id?: string
-                                        }>
-                                    }
-                                    readonly campaign_group_ids?: {
-                                        readonly nodes?: ReadonlyArray<{
-                                            readonly id?: string
-                                        }>
-                                    }
-                                    readonly campaigns_ids?: {
-                                        readonly nodes?: ReadonlyArray<{
-                                            readonly id?: string
-                                        }>
-                                    }
-                                }
-                                readonly id?: string
-                            }
-                        }>
-                        readonly string_result?: unknown
-                        readonly universe?: unknown
-                    }>
-                }>
-            }
-            readonly contents?: ReadonlyArray<{
-                readonly group_content?: {
-                    readonly body?: ReadonlyArray<{
-                        readonly image_ranges?: ReadonlyArray<{
-                            readonly entity_with_image?: {
-                                readonly __typename?: string
-                                readonly id?: string
-                                readonly image?: {
-                                    readonly downloadable_uri?: string
-                                }
-                            }
-                            readonly length?: number
-                            readonly offset?: number
-                        }>
-                        readonly inline_style_ranges?: ReadonlyArray<{
-                            readonly inline_style?: unknown
-                            readonly length?: number
-                            readonly offset?: number
-                        }>
-                        readonly ranges?: ReadonlyArray<{
-                            readonly entity?: {
-                                readonly __typename?: string
-                                readonly id?: string
-                                readonly inner_text_by_locale?: unknown
-                                readonly tag_names?: ReadonlyArray<string>
-                                readonly url?: string
-                            }
-                            readonly length?: number
-                            readonly offset?: number
-                        }>
-                        readonly text?: string
-                    }>
-                    readonly grouped_by?: ReadonlyArray<{
-                        readonly type?: 'COMMUNITY' | 'DEFAULT' | 'LINKED_ANNOUNCEMENT_GROUP' | 'LINKED_GENERAL_GROUP' | 'LINKED_SUBGROUP'
-                        readonly value?: string
-                    }>
-                    readonly header?: {
-                        readonly title?: {
-                            readonly checked_qes?: ReadonlyArray<{
-                                readonly bool_result?: unknown
-                                readonly group?: unknown
-                                readonly param?: unknown
-                                readonly qe_unit_id?: string
-                                readonly string_result?: unknown
-                                readonly universe?: unknown
-                            }>
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly inline_style?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                            readonly urc_qe_info?: {
-                                readonly qe_universe_name?: string
-                            }
-                            readonly urc_qe_infos?: ReadonlyArray<{
-                                readonly qe_universe_name?: string
-                            }>
-                            readonly urc_variant_name?: string
-                        }
-                    }
-                }
-                readonly recommendation_contents?: ReadonlyArray<{
-                    readonly ad_object_label?: ReadonlyArray<{
-                        readonly text?: string
-                    }>
-                    readonly body?: ReadonlyArray<{
-                        readonly image_ranges?: ReadonlyArray<{
-                            readonly entity_with_image?: {
-                                readonly __typename?: string
-                                readonly id?: string
-                                readonly image?: {
-                                    readonly downloadable_uri?: string
-                                }
-                            }
-                            readonly length?: number
-                            readonly offset?: number
-                        }>
-                        readonly inline_style_ranges?: ReadonlyArray<{
-                            readonly inline_style?: unknown
-                            readonly length?: number
-                            readonly offset?: number
-                        }>
-                        readonly ranges?: ReadonlyArray<{
-                            readonly entity?: {
-                                readonly __typename?: string
-                                readonly id?: string
-                                readonly tag_names?: ReadonlyArray<string>
-                                readonly url?: string
-                            }
-                            readonly length?: number
-                            readonly offset?: number
-                        }>
-                        readonly text?: string
-                        readonly urc_variant_name?: string
-                    }>
-                    readonly delivery_info?: {
-                        readonly extra_data?: {
-                            readonly campaign_group_issues_info?: ReadonlyArray<{
-                                readonly error_code?: number
-                                readonly error_message?: string
-                                readonly mid?: unknown
-                            }>
-                            readonly campaign_issues_info?: ReadonlyArray<{
-                                readonly error_code?: number
-                                readonly error_message?: string
-                                readonly mid?: unknown
-                            }>
-                            readonly children_error_statuses_v2?: ReadonlyArray<{
-                                readonly children?: ReadonlyArray<{
-                                    readonly object_id?: string
-                                    readonly substatuses?: unknown
-                                }>
-                                readonly object_id?: string
-                                readonly substatuses?: unknown
-                            }>
-                        }
-                        readonly substatuses?: ReadonlyArray<{
-                            readonly id?: string
-                        }>
-                    }
-                    readonly header?: {
-                        readonly title?: {
-                            readonly checked_qes?: ReadonlyArray<{
-                                readonly bool_result?: unknown
-                                readonly group?: unknown
-                                readonly param?: unknown
-                                readonly qe_unit_id?: string
-                                readonly string_result?: unknown
-                                readonly universe?: unknown
-                            }>
-                            readonly image_ranges?: ReadonlyArray<{
-                                readonly entity_with_image?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly image?: {
-                                        readonly downloadable_uri?: string
-                                    }
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly inline_style?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly locale?: string
-                            readonly ranges?: ReadonlyArray<{
-                                readonly entity?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly url?: string
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                            readonly urc_qe_info?: {
-                                readonly qe_universe_name?: string
-                            }
-                            readonly urc_qe_infos?: ReadonlyArray<{
-                                readonly qe_universe_name?: string
-                            }>
-                            readonly urc_variant_name?: string
-                        }
-                    }
-                    readonly learning_phase_disclosure?: {
-                        readonly disclosure?: {
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly inline_style?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                        }
-                        readonly threshold_info?: ReadonlyArray<{
-                            readonly text?: string
-                        }>
-                        readonly tooltip?: ReadonlyArray<{
-                            readonly ranges?: ReadonlyArray<{
-                                readonly entity?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly tag_names?: ReadonlyArray<string>
-                                    readonly url?: string
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                        }>
-                    }
-                    readonly outcome?: {
-                        readonly explanation?: {
-                            readonly body?: ReadonlyArray<{
-                                readonly image_ranges?: ReadonlyArray<{
-                                    readonly entity_with_image?: {
-                                        readonly __typename?: string
-                                        readonly id?: string
-                                        readonly image?: {
-                                            readonly downloadable_uri?: string
-                                        }
-                                    }
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly inline_style_ranges?: ReadonlyArray<{
-                                    readonly inline_style?: unknown
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly ranges?: ReadonlyArray<{
-                                    readonly entity?: {
-                                        readonly __typename?: string
-                                        readonly id?: string
-                                        readonly tag_names?: ReadonlyArray<string>
-                                        readonly url?: string
-                                    }
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly text?: string
-                                readonly urc_variant_name?: string
-                            }>
-                            readonly footer?: {
-                                readonly image_ranges?: ReadonlyArray<{
-                                    readonly entity_with_image?: {
-                                        readonly __typename?: string
-                                        readonly id?: string
-                                        readonly image?: {
-                                            readonly downloadable_uri?: string
-                                        }
-                                    }
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly inline_style_ranges?: ReadonlyArray<{
-                                    readonly inline_style?: unknown
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly ranges?: ReadonlyArray<{
-                                    readonly entity?: {
-                                        readonly __typename?: string
-                                        readonly id?: string
-                                        readonly tag_names?: ReadonlyArray<string>
-                                        readonly url?: string
-                                    }
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly text?: string
-                                readonly urc_variant_name?: string
-                            }
-                            readonly title?: {
-                                readonly image_ranges?: ReadonlyArray<{
-                                    readonly entity_with_image?: {
-                                        readonly __typename?: string
-                                        readonly id?: string
-                                        readonly image?: {
-                                            readonly downloadable_uri?: string
-                                        }
-                                    }
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly inline_style_ranges?: ReadonlyArray<{
-                                    readonly inline_style?: unknown
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly ranges?: ReadonlyArray<{
-                                    readonly entity?: {
-                                        readonly __typename?: string
-                                        readonly id?: string
-                                        readonly tag_names?: ReadonlyArray<string>
-                                        readonly url?: string
-                                    }
-                                    readonly length?: number
-                                    readonly offset?: number
-                                }>
-                                readonly text?: string
-                                readonly urc_qe_info?: {
-                                    readonly qe_universe_name?: string
-                                }
-                                readonly urc_variant_name?: string
-                            }
-                        }
-                        readonly footer?: {
-                            readonly image_ranges?: ReadonlyArray<{
-                                readonly entity_with_image?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly image?: {
-                                        readonly downloadable_uri?: string
-                                    }
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly inline_style?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly ranges?: ReadonlyArray<{
-                                readonly entity?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly tag_names?: ReadonlyArray<string>
-                                    readonly url?: string
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                            readonly urc_variant_name?: string
-                        }
-                        readonly lift?: {
-                            readonly checked_qes?: ReadonlyArray<{
-                                readonly bool_result?: unknown
-                                readonly group?: unknown
-                                readonly param?: unknown
-                                readonly qe_unit_id?: string
-                                readonly string_result?: unknown
-                                readonly universe?: unknown
-                            }>
-                            readonly image_ranges?: ReadonlyArray<{
-                                readonly entity_with_image?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly image?: {
-                                        readonly downloadable_uri?: string
-                                    }
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly inline_style?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly ranges?: ReadonlyArray<{
-                                readonly entity?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly tag_names?: ReadonlyArray<string>
-                                    readonly url?: string
-                                }
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                            readonly urc_qe_info?: {
-                                readonly qe_universe_name?: string
-                            }
-                            readonly urc_qe_infos?: ReadonlyArray<{
-                                readonly qe_universe_name?: string
-                            }>
-                            readonly urc_variant_name?: string
-                        }
-                        readonly title?: {
-                            readonly checked_qes?: ReadonlyArray<{
-                                readonly bool_result?: unknown
-                                readonly group?: unknown
-                                readonly param?: unknown
-                                readonly qe_unit_id?: string
-                                readonly string_result?: unknown
-                                readonly universe?: unknown
-                            }>
-                            readonly inline_style_ranges?: ReadonlyArray<{
-                                readonly inline_style?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                            readonly urc_qe_info?: {
-                                readonly qe_universe_name?: string
-                            }
-                            readonly urc_qe_infos?: ReadonlyArray<{
-                                readonly qe_universe_name?: string
-                            }>
-                            readonly urc_variant_name?: string
-                        }
-                    }
-                    readonly precreate_thumbnail_urls?: unknown
-                    readonly recommendation_id?: string
-                    readonly thumbnail_images?: ReadonlyArray<{
-                        readonly uri?: string
-                    }>
-                    readonly thumbnail_urls?: unknown
-                    readonly value_rules_checkbox?: {
-                        readonly recommended_rule_set?: {
-                            readonly text?: string
-                        }
-                        readonly rule_set?: {
-                            readonly text?: string
-                        }
-                        readonly title?: {
-                            readonly text?: string
-                        }
-                    }
-                }>
-                readonly recommendation_stage?: unknown
-                readonly recommendation_type?: string
-            }>
-            readonly might_render_recommendations?: Readonly<Record<string, unknown>>
-            readonly performance_scores?: ReadonlyArray<{
-                readonly score_calculation_response_code?: unknown
-                readonly score_items?: ReadonlyArray<{
-                    readonly calculation_insight?: {
-                        readonly __typename?: string
-                        readonly campaigngroup_lifts?: ReadonlyArray<{
-                            readonly ad_object_id?: string
-                            readonly guidance_lifts?: ReadonlyArray<{
-                                readonly guidance_status?: string
-                                readonly opportunity_lift?: unknown
-                                readonly recommendation_hash_id?: string
-                                readonly recommendation_id?: string
-                            }>
-                            readonly lift?: unknown
-                        }>
-                        readonly guidance_lifts?: ReadonlyArray<{
-                            readonly guidance_status?: string
-                            readonly opportunity_lift?: unknown
-                            readonly recommendation_hash_id?: string
-                            readonly recommendation_id?: string
-                        }>
-                        readonly id?: string
-                        readonly recommendation_type_guidance_lifts?: ReadonlyArray<{
-                            readonly opportunity_lift?: unknown
-                            readonly recommendation_type?: string
-                        }>
-                    }
-                    readonly score_item_name?: string
-                    readonly score_value?: unknown
-                }>
-                readonly score_setting_id?: string
-            }>
-            readonly qe_exposure_map?: ReadonlyArray<{
-                readonly exposure_result?: unknown
-                readonly qe_name?: string
-            }>
-            readonly recommendations?: ReadonlyArray<{
-                readonly __typename?: string
-                readonly ads_rewards?: {
-                    readonly optin_status?: string
-                }
-                readonly draft_stage_id?: string
-                readonly feedback_service_data?: ReadonlyArray<{
-                    readonly backing_event?: {
-                        readonly __typename?: string
-                        readonly id?: string
-                        readonly source?: string
-                        readonly target?: unknown
-                    }
-                    readonly event?: unknown
-                }>
-                readonly generated_time?: string
-                readonly guidance_score?: {
-                    readonly scores?: ReadonlyArray<{
-                        readonly name?: string
-                        readonly value?: string
-                    }>
-                }
-                readonly guidance_version?: number
-                readonly is_precreate?: boolean
-                readonly learning_phase_info?: {
-                    readonly outcome?: unknown
-                }
-                readonly lift_estimation?: {
-                    readonly metric?: unknown
-                    readonly value?: string
-                    readonly version?: number
-                }
-                readonly outcome_predictions?: ReadonlyArray<{
-                    readonly fields?: ReadonlyArray<{
-                        readonly metric?: unknown
-                        readonly value?: string
-                        readonly version?: number
-                    }>
-                }>
-                readonly pcr_subtype?: unknown
-                readonly recommendation_hash_id?: string
-                readonly recommendation_hash_string?: unknown
-                readonly recommendation_id?: string
-                readonly recommendation_insights?: {
-                    readonly close_the_loop?: {
-                        readonly base_metric_reading?: unknown
-                        readonly base_metric_readings_by_timestamps?: {
-                            readonly readings?: ReadonlyArray<{
-                                readonly timestamp?: string
-                                readonly value?: string
-                            }>
-                        }
-                        readonly delta?: unknown
-                        readonly metric_reading?: unknown
-                        readonly metric_readings_by_timestamps?: {
-                            readonly readings?: ReadonlyArray<{
-                                readonly timestamp?: string
-                                readonly value?: string
-                            }>
-                        }
-                        readonly spec?: {
-                            readonly ad_object_spec?: {
-                                readonly id?: string
-                                readonly level?: unknown
-                                readonly name?: string
-                            }
-                            readonly ds?: unknown
-                            readonly metric?: unknown
-                        }
-                    }
-                    readonly mr_ple?: {
-                        readonly base_metric_reading?: unknown
-                        readonly delta?: unknown
-                        readonly metric_reading?: unknown
-                    }
-                    readonly um_ple?: {
-                        readonly base_metric_reading?: unknown
-                        readonly delta?: unknown
-                        readonly metric_reading?: unknown
-                    }
-                }
-                readonly recommendation_status?: string
-                readonly recommendation_type?: string
-                readonly runtime_metadata?: {
-                    readonly __typename?: string
-                    readonly ad_group_ids?: {
-                        readonly count?: unknown
-                        readonly nodes?: ReadonlyArray<{
-                            readonly ad_campaign_group?: {
-                                readonly id?: string
-                                readonly name?: string
-                            }
-                            readonly ad_campaign_group_id?: string
-                            readonly ad_campaign_id?: string
-                            readonly id?: string
-                        }>
-                    }
-                    readonly ad_object_tree?: {
-                        readonly campaign_group_ids?: {
-                            readonly nodes?: ReadonlyArray<{
-                                readonly daily_budget_safe_value_str?: unknown
-                                readonly id?: string
-                                readonly lifetime_budget_safe_value_str?: unknown
-                                readonly name?: string
-                                readonly objective?: unknown
-                            }>
-                        }
-                        readonly campaigns_ids?: {
-                            readonly nodes?: ReadonlyArray<{
-                                readonly daily_budget_safe_value_str?: unknown
-                                readonly id?: string
-                                readonly lifetime_budget_safe_value_str?: unknown
-                                readonly name?: string
-                                readonly optimization_goal?: unknown
-                                readonly promoted_object?: {
-                                    readonly custom_event_type_enum?: unknown
-                                    readonly id?: string
-                                }
-                            }>
-                        }
-                    }
-                    readonly campaign_group_ids?: {
-                        readonly count?: unknown
-                        readonly nodes?: ReadonlyArray<{
-                            readonly id?: string
-                            readonly name?: string
-                        }>
-                    }
-                    readonly campaigns_ids?: {
-                        readonly count?: unknown
-                        readonly nodes?: ReadonlyArray<{
-                            readonly ad_campaign_group?: {
-                                readonly id?: string
-                                readonly name?: string
-                            }
-                            readonly ad_campaign_group_id?: string
-                            readonly id?: string
-                            readonly name?: string
-                        }>
-                    }
-                    readonly high_cost_industry_benchmark?: {
-                        readonly root_cause_identifier_label_v2?: unknown
-                    }
-                    readonly id?: string
-                    readonly is_seen_by_user?: boolean
-                    readonly metadata?: {
-                        readonly ad_set_budget_sharing_guidance_mfr?: {
-                            readonly campaign_group_ids?: ReadonlyArray<string>
-                        }
-                        readonly adopt_single_media_ad_format_bundle_mfr?: {
-                            readonly adgroup_idto_child_recommendation_types?: ReadonlyArray<{
-                                readonly adgroup_id?: string
-                                readonly child_recommendation_types?: unknown
-                            }>
-                            readonly child_recommendation_types?: unknown
-                        }
-                        readonly advantage_plus_audience?: {
-                            readonly ad_object_ids?: ReadonlyArray<string>
-                            readonly is_narrow_audience?: boolean
-                            readonly is_var_recommendation_eligible?: boolean
-                        }
-                        readonly advantage_plus_catalog_ads?: {
-                            readonly catalog_id?: string
-                        }
-                        readonly aplusc_mfr?: {
-                            readonly adgroup_idto_creative_feature_names?: ReadonlyArray<{
-                                readonly adgroup_id?: string
-                                readonly creative_feature_names?: ReadonlyArray<string>
-                            }>
-                        }
-                        readonly auto_cat_selection_enhancement?: {
-                            readonly __typename?: string
-                            readonly catalog_id?: string
-                            readonly catalog_name?: string
-                            readonly external_catalog_url?: string
-                        }
-                        readonly autobid_to_manual_bid_mfr?: {
-                            readonly autobid_to_manual_bid_mapping?: ReadonlyArray<{
-                                readonly additional_bid_percent?: unknown
-                                readonly base_budget_value?: unknown
-                                readonly base_budget_value_lower_bound?: number
-                                readonly base_budget_value_upper_bound?: number
-                                readonly bid_strategy?: unknown
-                                readonly campaign_category?: string
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                                readonly estimated_cpa_or_roas?: unknown
-                                readonly estimated_volume_lift_percent?: unknown
-                                readonly optimization_goal?: unknown
-                                readonly suggested_budget_value?: unknown
-                            }>
-                        }
-                        readonly automatic_placements?: {
-                            readonly placement_controls_data?: {
-                                readonly excluded_audience_network_positions?: unknown
-                                readonly excluded_facebook_positions?: unknown
-                            }
-                        }
-                        readonly bid_limited_sensitive_mfr?: {
-                            readonly bid_recommendation_objects?: ReadonlyArray<{
-                                readonly bid_recommendation_options?: ReadonlyArray<{
-                                    readonly additional_bid_percent?: unknown
-                                    readonly base_bid_value?: unknown
-                                }>
-                                readonly bid_strategy?: unknown
-                                readonly campaign_id?: string
-                            }>
-                        }
-                        readonly bid_limited_starving_mfr?: {
-                            readonly bid_recommendation_objects?: ReadonlyArray<{
-                                readonly bid_recommendation_options?: ReadonlyArray<{
-                                    readonly additional_bid_percent?: unknown
-                                    readonly base_bid_value?: unknown
-                                    readonly estimated_volume?: unknown
-                                    readonly estimated_volume_lift?: unknown
-                                    readonly target_lower_bid_bound?: number
-                                    readonly target_upper_bid_bound?: number
-                                }>
-                                readonly bid_strategy?: unknown
-                                readonly campaign_category?: string
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                            }>
-                        }
-                        readonly budget_limited?: {
-                            readonly budget_limited_mapping?: ReadonlyArray<{
-                                readonly budget_recommendation_options?: ReadonlyArray<{
-                                    readonly estimated_conv?: unknown
-                                    readonly estimated_conv_lift?: unknown
-                                    readonly is_recommended?: boolean
-                                    readonly recommended_budget_amount?: number
-                                }>
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                                readonly daily_budget?: string
-                                readonly is_acb?: boolean
-                                readonly is_one_to_n_acb?: boolean
-                                readonly lifetime_budget?: string
-                                readonly optimization_goal?: unknown
-                            }>
-                        }
-                        readonly capi_crm_guidance?: {
-                            readonly data_source_config_status?: string
-                            readonly data_source_fbid?: string
-                        }
-                        readonly capi_crm_setup_mfr?: {
-                            readonly ad_credit_amount_cents?: unknown
-                            readonly ad_credit_pixel_setup_state?: string
-                            readonly business_id?: string
-                            readonly data_source_id?: string
-                            readonly is_ad_credit_eligible?: boolean
-                            readonly retrieval_rec?: unknown
-                        }
-                        readonly capi_event_coverage?: {
-                            readonly __typename?: string
-                            readonly business_id?: string
-                            readonly event_coverage_percentage?: unknown
-                            readonly event_name?: string
-                            readonly is_capig_dual_setup_eligible?: boolean
-                            readonly pixel_id?: string
-                            readonly pixel_name?: string
-                        }
-                        readonly capi_performance_match_key?: {
-                            readonly campaign_group_to_pixel_info?: ReadonlyArray<{
-                                readonly aly_acr_percentage?: unknown
-                                readonly best_pixel_id?: string
-                                readonly business_id?: string
-                                readonly campaign_group_id?: string
-                                readonly event_name?: string
-                                readonly match_keys?: ReadonlyArray<string>
-                            }>
-                            readonly owning_business_id?: string
-                        }
-                        readonly capi_performance_match_key_v2?: {
-                            readonly __typename?: string
-                            readonly business_id?: string
-                            readonly event_name?: string
-                            readonly match_keys?: ReadonlyArray<string>
-                            readonly owning_business_id?: string
-                            readonly pixel_id?: string
-                            readonly pixel_name?: string
-                        }
-                        readonly capi_performance_match_key_v3_mfr?: {
-                            readonly business_id?: string
-                            readonly event_name?: string
-                            readonly match_keys?: ReadonlyArray<string>
-                            readonly pixel_id?: string
-                        }
-                        readonly ctx_precreate?: {
-                            readonly messaging_apps?: unknown
-                            readonly optimization_goal?: unknown
-                        }
-                        readonly custom_audience_relaxation?: {
-                            readonly target_suggestions?: ReadonlyArray<{
-                                readonly action_sequence?: unknown
-                                readonly campaign_id?: string
-                                readonly minimum_age?: unknown
-                                readonly target_spec?: unknown
-                            }>
-                        }
-                        readonly defragmentation_using_value_rules_test_v2?: {
-                            readonly var_persona_struct?: unknown
-                        }
-                        readonly delivery_error?: {
-                            readonly ad_object_id?: string
-                            readonly delivery_substatuses?: unknown
-                        }
-                        readonly fragmentation?: {
-                            readonly auction_overlap_experience_eligible?: unknown
-                            readonly cluster_features?: ReadonlyArray<string>
-                            readonly objective?: unknown
-                        }
-                        readonly gen_multi_text?: {
-                            readonly all_text_options?: ReadonlyArray<{
-                                readonly adgroup_id?: string
-                                readonly text_options?: ReadonlyArray<{
-                                    readonly creative_text_suggestions_source?: string
-                                    readonly text?: string
-                                    readonly type?: string
-                                }>
-                            }>
-                        }
-                        readonly gen_uncrop?: {
-                            readonly all_uncrop_options?: ReadonlyArray<{
-                                readonly adgroup_id?: string
-                            }>
-                        }
-                        readonly in_app_ad_impression_roas_android_pcr?: {
-                            readonly app_id?: string
-                            readonly app_name?: string
-                            readonly app_store?: unknown
-                            readonly apps?: ReadonlyArray<{
-                                readonly app_id?: string
-                                readonly app_name?: string
-                                readonly app_store?: unknown
-                                readonly is_iaa_creation_eligible?: boolean
-                                readonly logo_url?: string
-                                readonly object_store_url?: string
-                            }>
-                            readonly is_iaa_creation_eligible?: boolean
-                            readonly object_store_url?: string
-                        }
-                        readonly incremental_attribution_mfr?: {
-                            readonly event_name?: string
-                            readonly is_eligible_for_incremental_attribution?: boolean
-                            readonly is_incremental_attribution_enabled?: boolean
-                        }
-                        readonly lead_ads_dfca_lookalike_adoption_mfr?: {
-                            readonly has_qualified_dfcaexclusion?: boolean
-                            readonly no_dfcalookalike_inclusion?: unknown
-                            readonly qualified_dfca_ids?: ReadonlyArray<string>
-                        }
-                        readonly low_budget_utilization?: {
-                            readonly should_recommend_automation?: boolean
-                            readonly should_recommend_retargeting?: boolean
-                            readonly target_suggestions?: ReadonlyArray<{
-                                readonly action_sequence?: unknown
-                                readonly campaign_id?: string
-                                readonly minimum_age?: unknown
-                                readonly target_spec?: unknown
-                            }>
-                        }
-                        readonly manual_bidding_budget_limited_mfr?: {
-                            readonly additional_budget_percent?: unknown
-                            readonly base_budget_value?: unknown
-                            readonly base_budget_value_lower_bound?: number
-                            readonly base_budget_value_upper_bound?: number
-                            readonly bid_strategy?: unknown
-                            readonly campaign_group_id?: string
-                            readonly campaign_id?: string
-                            readonly estimated_volume_lift_percent?: unknown
-                            readonly optimization_goal?: unknown
-                            readonly suggested_budget_value?: unknown
-                        }
-                        readonly mixed_formats?: {
-                            readonly is_using_image_only?: boolean
-                            readonly is_using_video_only?: boolean
-                        }
-                        readonly offsite_conversion?: {
-                            readonly budgets_in_local_currency?: string
-                            readonly is_pcrbundle_eligible?: boolean
-                            readonly predicted_cpas?: unknown
-                            readonly predicted_daily_conversions?: unknown
-                            readonly recommended_budget?: unknown
-                        }
-                        readonly offsite_conversion_leads_optimization_mfr?: {
-                            readonly offsite_conversion_leads_adoption_status?: string
-                        }
-                        readonly offsite_conversion_leads_optimization_pcr?: {
-                            readonly offsite_conversion_leads_adoption_status?: string
-                        }
-                        readonly omni_optimization_mfr?: {
-                            readonly __typename?: string
-                            readonly business_id?: string
-                            readonly datasource_id?: string
-                            readonly datasource_name?: string
-                            readonly omni_optimization_integration_status?: string
-                        }
-                        readonly omni_optimization_pcr?: {
-                            readonly __typename?: string
-                            readonly business_id?: string
-                            readonly offline_ads_credit_eligible_status?: string
-                            readonly offline_ads_credit_value?: unknown
-                            readonly omni_optimization_integration_status?: string
-                            readonly pixel_id?: string
-                            readonly pixel_name?: string
-                        }
-                        readonly partnership_ads_pcr?: {
-                            readonly business_id_with_recommended_content?: string
-                        }
-                        readonly pixel_optimization_hie_precreate?: {
-                            readonly business_id?: string
-                            readonly guidance_type?: string
-                            readonly lift_estimation_data?: {
-                                readonly cpa?: unknown
-                            }
-                            readonly pixel_id?: string
-                            readonly use_consolidated_container?: unknown
-                        }
-                        readonly pixel_upsell?: {
-                            readonly best_domain?: unknown
-                            readonly best_partner?: unknown
-                            readonly business_id?: string
-                            readonly is_pcrbundle_eligible?: boolean
-                            readonly partner_name?: string
-                            readonly pixel_id?: string
-                        }
-                        readonly post_adoption_budget_scaling_mfr?: {
-                            readonly adoption_date?: string
-                            readonly budget_recommendation?: {
-                                readonly current_daily_budget?: unknown
-                                readonly current_lifetime_budget?: unknown
-                                readonly recommendation_options?: ReadonlyArray<{
-                                    readonly additional_budget_percent?: unknown
-                                    readonly estimated_conv?: unknown
-                                    readonly estimated_conv_lift?: unknown
-                                    readonly is_recommended?: boolean
-                                    readonly spend_future_2d_avg?: number
-                                }>
-                                readonly source?: string
-                            }
-                            readonly campaign_group_id?: string
-                            readonly campaign_id?: string
-                            readonly guidance_type?: string
-                            readonly historical_cpr?: ReadonlyArray<{
-                                readonly cpr?: unknown
-                                readonly date?: unknown
-                            }>
-                            readonly is_acb?: boolean
-                            readonly lift_percent?: unknown
-                            readonly post_adoption_cpr?: unknown
-                            readonly pre_adoption_cpr?: unknown
-                        }
-                        readonly scale_good_campaign?: {
-                            readonly good_campaign_budget_mappings?: ReadonlyArray<{
-                                readonly budget_recommendation_options?: ReadonlyArray<{
-                                    readonly additional_budget_percent?: unknown
-                                    readonly estimated_conv_lift?: unknown
-                                    readonly is_recommended?: boolean
-                                }>
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                                readonly daily_budget?: string
-                                readonly good_campaign_duration?: {
-                                    readonly duration_recommendation_options?: ReadonlyArray<{
-                                        readonly additional_budget?: unknown
-                                        readonly additional_duration_in_days?: number
-                                        readonly estimated_conv_lift?: unknown
-                                        readonly recommended_end_date?: string
-                                    }>
-                                    readonly end_date?: string
-                                    readonly start_date?: string
-                                }
-                                readonly is_acb?: boolean
-                                readonly is_budget_rec_from_ll_of?: boolean
-                                readonly is_one_to_n_acb?: boolean
-                                readonly lifetime_budget?: string
-                                readonly rank?: number
-                                readonly version?: number
-                            }>
-                        }
-                        readonly scale_good_ctx_campaign?: {
-                            readonly good_ctx_campaign_budget_mappings?: ReadonlyArray<{
-                                readonly budget_recommendation_options?: ReadonlyArray<{
-                                    readonly additional_budget_percent?: unknown
-                                    readonly estimated_conv_lift?: unknown
-                                    readonly is_recommended?: boolean
-                                }>
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                                readonly daily_budget?: string
-                                readonly has_cta?: boolean
-                                readonly is_acb?: boolean
-                                readonly is_one_to_n_acb?: boolean
-                                readonly lifetime_budget?: string
-                                readonly rank?: number
-                                readonly version?: number
-                            }>
-                        }
-                        readonly scale_good_vo_campaign?: {
-                            readonly good_vo_campaign_budget_mappings?: ReadonlyArray<{
-                                readonly budget_recommendation_options?: ReadonlyArray<{
-                                    readonly additional_budget_percent?: unknown
-                                    readonly estimated_roas_change?: unknown
-                                    readonly estimated_value?: unknown
-                                    readonly is_recommended?: boolean
-                                }>
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                                readonly is_acb?: boolean
-                                readonly is_one_to_n_acb?: boolean
-                                readonly rank?: number
-                                readonly version?: number
-                            }>
-                        }
-                        readonly shops_ads_saoff_mfr?: {
-                            readonly ad_group_sddresponses_struct?: ReadonlyArray<{
-                                readonly adgroup_id?: string
-                                readonly sdd_responses?: ReadonlyArray<{
-                                    readonly key?: string
-                                    readonly value?: string
-                                }>
-                            }>
-                            readonly adgroup_ids_to_enroll?: unknown
-                            readonly campaign_id_to_adgroup_ids_struct?: ReadonlyArray<{
-                                readonly adgroup_ids?: ReadonlyArray<string>
-                                readonly campaign_id?: string
-                            }>
-                            readonly campaign_id_to_cms_id_struct?: ReadonlyArray<{
-                                readonly campaign_id?: string
-                                readonly cms_id?: string
-                            }>
-                            readonly campaign_ids_to_enroll?: unknown
-                        }
-                        readonly signals_down_funnel_event_optimization_precreate?: {
-                            readonly event_name?: string
-                            readonly pixel_id?: string
-                        }
-                        readonly signals_growth_capi_v2?: {
-                            readonly __typename?: string
-                            readonly business_id?: string
-                            readonly capi_adoption_recommendation?: {
-                                readonly product?: unknown
-                                readonly product_detail?: unknown
-                            }
-                            readonly integration_recommendation?: unknown
-                            readonly pixel_id?: string
-                            readonly pixel_name?: string
-                        }
-                        readonly signals_vo_using_co_model_mfr?: {
-                            readonly business_id?: string
-                            readonly data_source_id?: string
-                            readonly data_source_name?: string
-                            readonly data_source_type?: string
-                            readonly event_name?: string
-                        }
-                        readonly unified_inbox?: {
-                            readonly page_to_pending_messages?: ReadonlyArray<{
-                                readonly page_id?: string
-                                readonly page_image?: unknown
-                                readonly page_name?: string
-                                readonly pending_messages_count?: number
-                            }>
-                            readonly user_to_pages_with_message_access?: ReadonlyArray<{
-                                readonly page_ids?: ReadonlyArray<string>
-                            }>
-                        }
-                        readonly unused_budget?: {
-                            readonly campaign_unused_budget_mappings?: ReadonlyArray<{
-                                readonly campaign_id?: string
-                                readonly unused_budget?: unknown
-                            }>
-                            readonly total_unused_budget?: unknown
-                        }
-                        readonly value_co_campaigns_low_purchase_dq_mfr?: {
-                            readonly business_id?: string
-                            readonly data_source_id?: string
-                            readonly data_source_name?: string
-                            readonly data_source_type?: string
-                            readonly event_name?: string
-                            readonly issue_type?: string
-                        }
-                        readonly value_optimization_goal_mfr?: {
-                            readonly budgets_in_local_currency?: string
-                            readonly gtm_version?: number
-                            readonly high_value_item_id?: string
-                            readonly is_pcrbundle_eligible?: boolean
-                            readonly low_value_item_id?: string
-                            readonly predicted_cpas?: unknown
-                            readonly predicted_daily_conversions?: unknown
-                            readonly recommended_budget?: unknown
-                        }
-                        readonly vo_in_app_purchase_pcr?: {
-                            readonly app_id?: string
-                            readonly app_name?: string
-                            readonly apps?: ReadonlyArray<{
-                                readonly app_id?: string
-                                readonly app_name?: string
-                                readonly app_store?: unknown
-                                readonly is_iap_creation_eligible?: boolean
-                                readonly logo_url?: string
-                                readonly object_store_url?: string
-                            }>
-                            readonly is_iap_creation_eligible?: boolean
-                            readonly object_store_url?: string
-                        }
-                        readonly zero_outcome_budget_mfr?: {
-                            readonly cas_segment?: unknown
-                            readonly current_budget?: unknown
-                            readonly has_spend_in_last_28_days?: boolean
-                            readonly is_acb?: boolean
-                            readonly is_lifetime_budget?: boolean
-                            readonly recommended_budget?: unknown
-                            readonly recommended_conversions?: unknown
-                        }
-                    }
-                    readonly optimization_goal?: unknown
-                    readonly promoted_object?: {
-                        readonly custom_event_type_enum?: unknown
-                        readonly id?: string
-                    }
-                    readonly root_cause_identifier?: {
-                        readonly label_to_ad_object_ids?: ReadonlyArray<{
-                            readonly key?: string
-                        }>
-                        readonly root_cause_identifier_label?: string
-                    }
-                    readonly worst_performing_ad_object_ids?: ReadonlyArray<string>
-                }
-                readonly stage?: unknown
-                readonly target?: {
-                    readonly __typename?: string
-                    readonly ad_object_ids?: ReadonlyArray<string>
-                    readonly id?: string
-                    readonly levels?: unknown
-                }
-                readonly www_request_id?: string
-            }>
-            readonly response_status?: {
-                readonly response_code?: string
-            }
-            readonly www_request_id?: string
-        }
-    }
-}
-
-export type WaMexSYDMetricSnapshotWidgetContainerResponse = {
-    readonly ad_account?: {
-        readonly currency_code_enum?: unknown
-        readonly id?: string
-        readonly metric_snapshot_widget_data?: {
-            readonly campaigns?: ReadonlyArray<{
-                readonly __typename?: string
-                readonly id?: string
-            }>
-            readonly filter_options?: ReadonlyArray<{
-                readonly label?: string
-                readonly type?: string
-            }>
-            readonly metrics?: ReadonlyArray<{
-                readonly aggregate_value_by_metric_type?: string
-                readonly highest_campaign?: {
-                    readonly __typename?: string
-                    readonly campaign?: {
-                        readonly id?: string
-                    }
-                    readonly metric_type?: string
-                }
-                readonly lowest_campaign?: {
-                    readonly __typename?: string
-                    readonly campaign?: {
-                        readonly id?: string
-                    }
-                    readonly metric_type?: string
-                }
-                readonly metric_type?: string
-            }>
-            readonly selected_filter_option?: {
-                readonly type?: string
-            }
-        }
-    }
-}
-
-export type WaMexSYDNewFeaturesWidgetGraphQLContainerResponse = {
-    readonly ad_account?: {
-        readonly id?: string
-        readonly request_id?: string
-        readonly syd_new_features_channel_tips?: ReadonlyArray<{
-            readonly cta?: {
-                readonly __typename?: string
-            }
-            readonly tip?: {
-                readonly channel_id?: string
-                readonly id?: string
-                readonly specs?: ReadonlyArray<{
-                    readonly action?: {
-                        readonly link?: unknown
-                        readonly text?: {
-                            readonly text?: string
-                        }
-                    }
-                    readonly body?: {
-                        readonly text?: {
-                            readonly ranges?: ReadonlyArray<{
-                                readonly entity?: {
-                                    readonly __typename?: string
-                                    readonly id?: string
-                                    readonly url?: string
-                                }
-                                readonly entity_is_weak_reference?: unknown
-                                readonly length?: number
-                                readonly offset?: number
-                            }>
-                            readonly text?: string
-                        }
-                    }
-                    readonly image?: {
-                        readonly regular_image?: {
-                            readonly uri?: string
-                        }
-                    }
-                    readonly title?: {
-                        readonly text?: {
-                            readonly text?: string
-                        }
-                    }
-                }>
-                readonly tip_id?: string
-                readonly tip_name?: string
-            }
-        }>
-    }
-}
-
-export type WaMexSYDPageRELAYResponse = {
-    readonly ad_account?: {
-        readonly account_id?: string
-        readonly id?: string
-        readonly request_id?: string
-        readonly syd_maiba_account_insights?: Readonly<Record<string, unknown>>
-        readonly syd_maiba_insights_dismiss_count?: ReadonlyArray<{
-            readonly __typename?: string
-            readonly id?: string
-            readonly value?: {
-                readonly __typename?: string
-                readonly as_integer?: unknown
-            }
-        }>
-    }
-    readonly xfb_advertiser_profile_eligible_solutions?: ReadonlyArray<{
-        readonly __typename?: string
-        readonly id?: string
-        readonly status?: string
-        readonly widget_column?: unknown
-        readonly widget_id?: string
-        readonly widget_renderer?: {
-            readonly __typename?: string
-        }
-    }>
-}
-
 export type WaMexSetUsernameResponse = {
     readonly xwa2_username_set?: {
         readonly result?: 'SUCCESS'
@@ -7407,6 +5903,10 @@ export type WaMexStartConversationsTemplateFAQGenAIRegenerationResponse = {
             readonly title?: string
         }
     }
+}
+
+export type WaMexSubscriptionWaffleAgeCheckResponse = {
+    readonly pass_age_check_for_wa_meta_one_v2?: string
 }
 
 export type WaMexSupportBugReportSubmitResponse = {
@@ -7686,54 +6186,8 @@ export type WaMexWaffleXEResponse = {
     }
 }
 
-export type WaMexWamoAvailableIdentitiesStoreSourceServerResponse = {
-    readonly wamo_available_identities?: {
-        readonly available_identities?: ReadonlyArray<{
-            readonly invalid_reason?: string
-            readonly is_valid?: boolean
-            readonly should_be_defaulted?: boolean
-            readonly should_hide?: boolean
-            readonly wamo_whatsapp_identity_id?: string
-            readonly wamo_whatsapp_identity_id_type?: string
-            readonly wamo_whatsapp_identity_metadata?: {
-                readonly formatted_wa_number?: unknown
-                readonly page_token?: string
-                readonly profile_name?: string
-                readonly profile_picture_url?: string
-            }
-            readonly wamo_whatsapp_identity_source?: string
-        }>
-    }
-}
-
-export type WaMexadsMessageMarketingDeliveryDataServerResponse = {
-    readonly xfb_message_marketing_delivery_data?: {
-        readonly phone_number_id?: string
-    }
-}
-
 export type WaMexuseFlowJSONValidationLibraryResponse = {
     readonly xfb_wa_flows_is_json_version_accessible?: unknown
-}
-
-export type WaMexuseGetDatasetSplitByAdAccountResponse = {
-    readonly ad_account?: {
-        readonly dataset_splits?: ReadonlyArray<{
-            readonly dataset?: {
-                readonly dataset_id?: string
-                readonly dataset_type?: string
-                readonly is_unavailable?: boolean
-                readonly last_fired_time?: string
-                readonly name?: string
-            }
-            readonly dataset_splits?: ReadonlyArray<{
-                readonly filter_key?: string
-                readonly filter_value?: string
-                readonly id?: string
-            }>
-        }>
-        readonly id?: string
-    }
 }
 
 export type WaMexuseIsMessengerPlatformBotResponse = {
@@ -7802,6 +6256,572 @@ export type WaMexuseMAIBAMediaResponse = {
     }>
 }
 
+export type WaMexuseMAIBAWidgetStateResponse = {
+    readonly maiba_persist_widget_state?: {
+        readonly message?: {
+            readonly content?: {
+                readonly __typename?: string
+                readonly composed_text?: {
+                    readonly content?: ReadonlyArray<{
+                        readonly __typename?: string
+                        readonly block_type?: string
+                        readonly data?: string
+                        readonly depth?: number
+                        readonly entity_ranges?: ReadonlyArray<{
+                            readonly entity?: {
+                                readonly __typename?: string
+                                readonly action?: unknown
+                                readonly action_button_caption?: string
+                                readonly action_button_label?: string
+                                readonly action_label?: string
+                                readonly action_type?: string
+                                readonly ad_account?: unknown
+                                readonly ad_account_id?: string
+                                readonly ad_id?: string
+                                readonly ad_ids?: ReadonlyArray<string>
+                                readonly ad_image_alt_text?: string
+                                readonly ad_image_hash?: string
+                                readonly ad_image_postback_message?: string
+                                readonly ad_image_source_type?: string
+                                readonly ad_image_url?: string
+                                readonly ad_library_url?: string
+                                readonly ad_object_ids?: ReadonlyArray<string>
+                                readonly ad_object_type?: string
+                                readonly adgroup_id?: string
+                                readonly ads_checker_action?: unknown
+                                readonly age_max?: number
+                                readonly age_min?: number
+                                readonly apply_button_label?: string
+                                readonly apply_message_template?: unknown
+                                readonly asset_id?: string
+                                readonly asset_ids?: ReadonlyArray<string>
+                                readonly asset_type?: string
+                                readonly asset_types?: unknown
+                                readonly attributes_json?: unknown
+                                readonly audience_description?: string
+                                readonly auth_cta_label?: string
+                                readonly author?: {
+                                    readonly display_name?: string
+                                    readonly profile_picture_uri?: string
+                                }
+                                readonly auto_advance?: unknown
+                                readonly banner_label?: string
+                                readonly banner_status?: string
+                                readonly blocks_json?: unknown
+                                readonly body?: string
+                                readonly boost_message?: string
+                                readonly branch_condition?: unknown
+                                readonly branch_description?: string
+                                readonly brand_ig_user_id?: string
+                                readonly browser_action?: unknown
+                                readonly budget_and_duration_description?: string
+                                readonly budget_recommendation_source?: string
+                                readonly business_asset_ig_user_id?: string
+                                readonly business_asset_page_id?: string
+                                readonly business_avatar_uri?: string
+                                readonly business_id?: string
+                                readonly business_name?: string
+                                readonly business_portfolio?: unknown
+                                readonly business_user_id?: string
+                                readonly call_to_action?: {
+                                    readonly destination?: unknown
+                                    readonly label?: string
+                                    readonly type?: string
+                                }
+                                readonly callout?: unknown
+                                readonly campaign_group_draft_id?: string
+                                readonly campaign_group_id?: string
+                                readonly campaign_id?: string
+                                readonly campaign_name?: string
+                                readonly campaigns?: ReadonlyArray<{
+                                    readonly audience?: unknown
+                                    readonly budget?: unknown
+                                    readonly budget_pct?: unknown
+                                    readonly budget_rationale?: unknown
+                                    readonly creative?: unknown
+                                    readonly end_date?: string
+                                    readonly id?: string
+                                    readonly insight?: unknown
+                                    readonly name?: string
+                                    readonly objective?: unknown
+                                    readonly phase?: unknown
+                                    readonly placement?: unknown
+                                    readonly start_date?: string
+                                    readonly timeline_end?: unknown
+                                    readonly timeline_start?: unknown
+                                }>
+                                readonly caption?: string
+                                readonly case_id?: string
+                                readonly cdn_url?: string
+                                readonly challenge_id?: string
+                                readonly compass_insight_unit_id?: string
+                                readonly condition_matched?: unknown
+                                readonly content_id?: string
+                                readonly created_time?: string
+                                readonly creation_time?: string
+                                readonly creative_description?: string
+                                readonly creative_fatigue_status?: string
+                                readonly creators?: ReadonlyArray<{
+                                    readonly explanation?: string
+                                    readonly fbid?: unknown
+                                    readonly name?: string
+                                    readonly profile_pic_url?: string
+                                    readonly username?: string
+                                }>
+                                readonly cta_action?: unknown
+                                readonly cta_text?: string
+                                readonly cta_type?: string
+                                readonly dag_conclusion?: unknown
+                                readonly dag_description?: string
+                                readonly dag_name?: string
+                                readonly dag_root?: unknown
+                                readonly dag_root_id?: string
+                                readonly data_config?: ReadonlyArray<{
+                                    readonly composed_text_label?: {
+                                        readonly content?: ReadonlyArray<{
+                                            readonly __typename?: string
+                                            readonly block_type?: string
+                                            readonly data?: string
+                                            readonly depth?: number
+                                            readonly entity_ranges?: ReadonlyArray<{
+                                                readonly entity?: {
+                                                    readonly __typename?: string
+                                                    readonly ad_object_ids?: ReadonlyArray<string>
+                                                    readonly ad_object_type?: string
+                                                    readonly display_text?: string
+                                                    readonly id?: string
+                                                    readonly request_id?: string
+                                                }
+                                                readonly entity_type?: string
+                                                readonly length?: string
+                                                readonly offset?: number
+                                            }>
+                                            readonly inline_style_ranges?: ReadonlyArray<{
+                                                readonly inline_style?: unknown
+                                                readonly length?: string
+                                                readonly offset?: number
+                                            }>
+                                            readonly text?: string
+                                        }>
+                                    }
+                                    readonly description?: string
+                                    readonly label?: string
+                                    readonly metric_name?: string
+                                    readonly type?: string
+                                }>
+                                readonly data_entries?: ReadonlyArray<{
+                                    readonly composed_text_values?: ReadonlyArray<{
+                                        readonly content?: ReadonlyArray<{
+                                            readonly __typename?: string
+                                            readonly block_type?: string
+                                            readonly data?: string
+                                            readonly depth?: number
+                                            readonly entity_ranges?: ReadonlyArray<{
+                                                readonly entity?: {
+                                                    readonly __typename?: string
+                                                    readonly ad_object_ids?: ReadonlyArray<string>
+                                                    readonly ad_object_type?: string
+                                                    readonly display_text?: string
+                                                    readonly id?: string
+                                                    readonly request_id?: string
+                                                }
+                                                readonly entity_type?: string
+                                                readonly length?: string
+                                                readonly offset?: number
+                                            }>
+                                            readonly inline_style_ranges?: ReadonlyArray<{
+                                                readonly inline_style?: unknown
+                                                readonly length?: string
+                                                readonly offset?: number
+                                            }>
+                                            readonly text?: string
+                                        }>
+                                    }>
+                                    readonly values?: unknown
+                                }>
+                                readonly data_set_id?: string
+                                readonly data_viz_type?: string
+                                readonly date_range?: unknown
+                                readonly dependencies_met?: ReadonlyArray<{
+                                    readonly ref?: unknown
+                                    readonly status?: string
+                                }>
+                                readonly description?: string
+                                readonly diagnosis_description?: string
+                                readonly diagnosis_title?: string
+                                readonly digital_creation_disclosure?: unknown
+                                readonly disclosure_kind?: string
+                                readonly display_name?: string
+                                readonly display_text?: string
+                                readonly draft_id?: string
+                                readonly echo_override?: unknown
+                                readonly edited?: unknown
+                                readonly enrollment_context_enc?: unknown
+                                readonly error?: boolean
+                                readonly error_message?: string
+                                readonly error_phase?: unknown
+                                readonly evaluation?: unknown
+                                readonly evidence?: ReadonlyArray<{
+                                    readonly description?: string
+                                    readonly title?: string
+                                    readonly type?: string
+                                }>
+                                readonly expression?: unknown
+                                readonly external_url?: string
+                                readonly eyebrow_image_url?: string
+                                readonly eyebrow_text?: string
+                                readonly fallback_text?: string
+                                readonly fill_value?: unknown
+                                readonly forecasted_results?: ReadonlyArray<{
+                                    readonly label?: string
+                                    readonly subtitle?: string
+                                    readonly value?: string
+                                }>
+                                readonly form_fields?: ReadonlyArray<{
+                                    readonly is_required?: boolean
+                                    readonly label?: string
+                                    readonly name?: string
+                                    readonly placeholder?: unknown
+                                    readonly prefilled_value?: unknown
+                                    readonly react_component?: unknown
+                                }>
+                                readonly format?: string
+                                readonly format_type?: string
+                                readonly funnel_chart_data?: unknown
+                                readonly gender?: unknown
+                                readonly goal_context?: unknown
+                                readonly goal_description?: string
+                                readonly goal_detail?: unknown
+                                readonly has_payment_method?: boolean
+                                readonly heading?: unknown
+                                readonly icon?: unknown
+                                readonly id?: string
+                                readonly idea_creatives?: ReadonlyArray<{
+                                    readonly adgroup_id?: string
+                                    readonly concept_id?: string
+                                    readonly creative_id?: string
+                                    readonly image_url?: string
+                                    readonly media_type?: string
+                                    readonly video_url?: string
+                                }>
+                                readonly idea_id?: string
+                                readonly ideas?: ReadonlyArray<{
+                                    readonly concept_id?: string
+                                    readonly cover_image_url?: string
+                                    readonly cover_video_url?: string
+                                    readonly rationale?: unknown
+                                    readonly reasoning?: unknown
+                                    readonly title?: string
+                                    readonly type?: string
+                                }>
+                                readonly image_url?: string
+                                readonly image_urls?: unknown
+                                readonly initial_description?: string
+                                readonly initial_title?: string
+                                readonly initial_url?: string
+                                readonly input_role?: string
+                                readonly insights?: ReadonlyArray<{
+                                    readonly category?: string
+                                    readonly detail?: unknown
+                                    readonly headline?: string
+                                    readonly icon?: unknown
+                                    readonly source?: string
+                                }>
+                                readonly interests?: unknown
+                                readonly invited_people?: unknown
+                                readonly is_action?: boolean
+                                readonly is_completed?: boolean
+                                readonly is_continuous_duration?: boolean
+                                readonly is_ctx_ad?: boolean
+                                readonly is_decision?: boolean
+                                readonly is_error?: boolean
+                                readonly is_join?: boolean
+                                readonly is_loading?: boolean
+                                readonly is_parallel?: boolean
+                                readonly is_pill_hidden?: boolean
+                                readonly is_skipped?: boolean
+                                readonly is_streaming?: boolean
+                                readonly is_success?: boolean
+                                readonly issue_cards_data?: unknown
+                                readonly kpi_tiles_data?: unknown
+                                readonly label?: string
+                                readonly limit?: number
+                                readonly link_description?: string
+                                readonly lower_limit?: number
+                                readonly maiba_interviewer_rec_key?: string
+                                readonly maiba_recommendation_id?: string
+                                readonly media_layout?: unknown
+                                readonly metadata?: unknown
+                                readonly metrics?: ReadonlyArray<{
+                                    readonly label?: string
+                                    readonly note?: string
+                                    readonly trend?: unknown
+                                    readonly value?: string
+                                }>
+                                readonly mime_type?: string
+                                readonly next_node?: unknown
+                                readonly node_id?: string
+                                readonly node_type?: string
+                                readonly nodes?: ReadonlyArray<{
+                                    readonly __typename?: string
+                                    readonly branches?: ReadonlyArray<{
+                                        readonly condition?: unknown
+                                        readonly description?: string
+                                        readonly target?: unknown
+                                    }>
+                                    readonly depends_on?: unknown
+                                    readonly description?: string
+                                    readonly evaluate?: unknown
+                                    readonly next?: unknown
+                                    readonly node_id?: string
+                                    readonly on_complete?: unknown
+                                    readonly parallel_paths?: ReadonlyArray<{
+                                        readonly target?: unknown
+                                    }>
+                                    readonly request?: unknown
+                                    readonly type?: string
+                                }>
+                                readonly option_label?: string
+                                readonly options?: ReadonlyArray<{
+                                    readonly age_max?: number
+                                    readonly age_min?: number
+                                    readonly description?: string
+                                    readonly gender?: unknown
+                                    readonly id?: string
+                                    readonly interests?: unknown
+                                    readonly is_recommended?: boolean
+                                    readonly subtitle?: string
+                                    readonly thumbnail_url?: string
+                                    readonly title?: string
+                                }>
+                                readonly options_json?: unknown
+                                readonly organic_insights?: {
+                                    readonly comments?: unknown
+                                    readonly likes?: unknown
+                                    readonly shares?: unknown
+                                    readonly views?: unknown
+                                }
+                                readonly outcome_predictions?: {
+                                    readonly impressions?: number
+                                    readonly optimization_goal?: unknown
+                                    readonly outcome_label?: string
+                                    readonly outcomes?: unknown
+                                }
+                                readonly page_id?: string
+                                readonly page_name?: string
+                                readonly page_profile_pic_url?: string
+                                readonly paths_completed?: ReadonlyArray<{
+                                    readonly id?: string
+                                    readonly status?: string
+                                    readonly summary?: string
+                                }>
+                                readonly payment_summary?: {
+                                    readonly billing_wizard_name?: string
+                                    readonly billing_wizard_props_json?: unknown
+                                    readonly currency?: string
+                                    readonly daily_budget?: string
+                                    readonly duration_days?: number
+                                    readonly payment_account_id?: string
+                                    readonly payment_method_label?: string
+                                    readonly payment_method_logo_url?: string
+                                    readonly payment_method_type?: string
+                                    readonly taxes?: ReadonlyArray<{
+                                        readonly amount?: number
+                                        readonly label?: string
+                                    }>
+                                    readonly total_amount?: number
+                                    readonly total_budget?: unknown
+                                }
+                                readonly per_platform?: ReadonlyArray<{
+                                    readonly caption?: string
+                                    readonly image_url?: string
+                                    readonly platform?: unknown
+                                }>
+                                readonly period_basis?: unknown
+                                readonly placement_description?: string
+                                readonly platform?: unknown
+                                readonly playbook?: ReadonlyArray<{
+                                    readonly description?: string
+                                    readonly title?: string
+                                    readonly type?: string
+                                }>
+                                readonly ple_text?: string
+                                readonly points?: unknown
+                                readonly post_confirm_description?: string
+                                readonly post_confirm_title?: string
+                                readonly post_id?: string
+                                readonly post_metadata?: {
+                                    readonly caption?: string
+                                    readonly content_type?: string
+                                    readonly creation_time?: string
+                                    readonly id?: string
+                                    readonly image_url?: string
+                                    readonly lwi_product?: unknown
+                                    readonly page_id?: string
+                                }
+                                readonly postback_message?: string
+                                readonly previews?: ReadonlyArray<{
+                                    readonly ad_id?: string
+                                    readonly ad_library_url?: string
+                                    readonly body?: string
+                                    readonly caption?: string
+                                    readonly cta_text?: string
+                                    readonly cta_type?: string
+                                    readonly id?: string
+                                    readonly image_url?: string
+                                    readonly link_description?: string
+                                    readonly page_id?: string
+                                    readonly page_name?: string
+                                    readonly page_profile_pic_url?: string
+                                    readonly platform?: unknown
+                                    readonly title?: string
+                                }>
+                                readonly primary_cta_label?: string
+                                readonly profiles?: unknown
+                                readonly progress_subscription_id?: string
+                                readonly progress_summary?: string
+                                readonly progress_title?: string
+                                readonly prompt?: unknown
+                                readonly prompt_composed_text?: {
+                                    readonly content?: ReadonlyArray<{
+                                        readonly __typename?: string
+                                        readonly block_type?: string
+                                        readonly data?: string
+                                        readonly depth?: number
+                                        readonly entity_ranges?: ReadonlyArray<{
+                                            readonly entity?: {
+                                                readonly __typename?: string
+                                                readonly ad_object_ids?: ReadonlyArray<string>
+                                                readonly ad_object_type?: string
+                                                readonly display_text?: string
+                                                readonly id?: string
+                                                readonly request_id?: string
+                                            }
+                                            readonly entity_type?: string
+                                            readonly length?: string
+                                            readonly offset?: number
+                                        }>
+                                        readonly inline_style_ranges?: ReadonlyArray<{
+                                            readonly inline_style?: unknown
+                                            readonly length?: string
+                                            readonly offset?: number
+                                        }>
+                                        readonly text?: string
+                                    }>
+                                }
+                                readonly publish_metadata?: {
+                                    readonly fragment_ids?: ReadonlyArray<string>
+                                    readonly state?: string
+                                    readonly tooltip?: unknown
+                                }
+                                readonly publish_status?: string
+                                readonly quarter?: unknown
+                                readonly raw_json?: unknown
+                                readonly raw_value?: string
+                                readonly reasoning?: unknown
+                                readonly recap?: unknown
+                                readonly recommendation_id?: string
+                                readonly recommendation_reason?: string
+                                readonly recommendation_reason_audience?: unknown
+                                readonly recommendation_reason_budget_and_duration?: number
+                                readonly recommendation_reason_creative?: unknown
+                                readonly recommendation_reason_goal?: unknown
+                                readonly recommendation_reason_placement?: unknown
+                                readonly recommended_post_variant?: unknown
+                                readonly redirect_url?: string
+                                readonly region?: string
+                                readonly request_id?: string
+                                readonly review_header?: unknown
+                                readonly scheduled_time?: string
+                                readonly scorecard_cta_label?: string
+                                readonly scorecard_cta_prompt?: unknown
+                                readonly scorecard_report_description?: string
+                                readonly scorecard_report_summary?: string
+                                readonly scorecard_report_title?: string
+                                readonly scorecard_shell_tabs?: unknown
+                                readonly search_filters_json?: unknown
+                                readonly search_label?: string
+                                readonly secondary_cta_label?: string
+                                readonly secondary_label?: string
+                                readonly secondary_message?: string
+                                readonly section?: unknown
+                                readonly selection_mode?: string
+                                readonly server_formatted_text?: string
+                                readonly show_creative_terms?: unknown
+                                readonly show_select_all?: unknown
+                                readonly signals_action?: unknown
+                                readonly single_apply_uses_template?: unknown
+                                readonly spec_type?: string
+                                readonly special_ad_categories_description?: string
+                                readonly specs?: ReadonlyArray<{
+                                    readonly description?: string
+                                    readonly name?: string
+                                }>
+                                readonly status?: string
+                                readonly subtitle?: string
+                                readonly summary?: string
+                                readonly surface?: unknown
+                                readonly surface_id?: string
+                                readonly symptom?: unknown
+                                readonly target?: unknown
+                                readonly target_asset?: unknown
+                                readonly target_metric?: unknown
+                                readonly target_metric_benchmark_value?: unknown
+                                readonly target_metric_value?: unknown
+                                readonly target_performance_tier?: unknown
+                                readonly task?: unknown
+                                readonly thumbnail_uri?: string
+                                readonly title?: string
+                                readonly tool_call_args?: unknown
+                                readonly tool_call_id?: string
+                                readonly tool_name?: string
+                                readonly tool_result?: unknown
+                                readonly tool_status?: string
+                                readonly tooltip?: unknown
+                                readonly total_budget?: unknown
+                                readonly total_count?: number
+                                readonly type?: string
+                                readonly unit_id?: string
+                                readonly upper_limit?: number
+                                readonly url?: string
+                                readonly variant?: unknown
+                                readonly version?: number
+                                readonly was_approved?: boolean
+                                readonly welcome_message_template?: {
+                                    readonly greeting?: unknown
+                                    readonly icebreakers?: unknown
+                                }
+                                readonly why_bullets?: unknown
+                                readonly widget_data?: string
+                                readonly widget_status?: 'CONFIRMED'
+                                readonly widget_variant?: unknown
+                                readonly workspace_creators?: ReadonlyArray<{
+                                    readonly explanation?: string
+                                    readonly fbid?: unknown
+                                }>
+                                readonly workspace_id?: string
+                                readonly workspace_type?: string
+                            }
+                            readonly entity_type?: string
+                            readonly length?: string
+                            readonly offset?: number
+                        }>
+                        readonly inline_style_ranges?: ReadonlyArray<{
+                            readonly inline_style?: unknown
+                            readonly length?: string
+                            readonly offset?: number
+                        }>
+                        readonly media_alignment?: unknown
+                        readonly media_caption?: string
+                        readonly text?: string
+                    }>
+                }
+            }
+            readonly id?: string
+        }
+    }
+}
+
 export type WaMexuseWAWebEstimatedDailyReachResponse = {
     readonly lwi?: {
         readonly budget_estimate_data_v2?: {
@@ -7826,6 +6846,12 @@ export type WaMexuseWAWebSmartComposerCoachSuggestedReplyResponse = {
     }
 }
 
+export type WaMexuseWAWebSmartComposerReportThreadEventResponse = {
+    readonly meta_ai_biz_agent_wa_suggested_reply_thread_event?: {
+        readonly success?: boolean
+    }
+}
+
 export type WaMexuseWAWebSmartComposerReportUsedResponse = {
     readonly meta_ai_biz_agent_wa_suggested_reply_used?: {
         readonly success?: boolean
@@ -7843,32 +6869,21 @@ export interface WaMexOperationResponses {
     readonly AdPreferencesDemographicCategoryOptOut: WaMexAdPreferencesDemographicCategoryOptOutResponse
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserResponse
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutResponse
-    readonly AdsAccountHasCapabilityQueryPlugin_: WaMexAdsAccountHasCapabilityQueryPlugin_Response
-    readonly AdsAccountStoreNewSourceServer: WaMexAdsAccountStoreNewSourceServerResponse
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerResponse
-    readonly AdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProduct: WaMexAdsBudgetProductRecommendationQEUtilsCampaignBasedRecommendedBudgetProductResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeResponse
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response
-    readonly AdsCallAdsCampaignBudgetPluginCommon: WaMexAdsCallAdsCampaignBudgetPluginCommonResponse
-    readonly AdsInsightsAdInsightsShadowValidation: WaMexAdsInsightsAdInsightsShadowValidationResponse
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignResponse
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
-    readonly AdsReminderAdsAdAccountDataLoader: WaMexAdsReminderAdsAdAccountDataLoaderResponse
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
     readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexAdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Response
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response
-    readonly AdsUnificationCampaignNUXEntrypointModalContainerInner: WaMexAdsUnificationCampaignNUXEntrypointModalContainerInnerResponse
-    readonly AdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttribute: WaMexAdsUnificationCampaignNUXModalContainerInnerShared_updateImpressionAttributeResponse
-    readonly AdsUnificationCampaignNUXModalUtils_useImpressionData: WaMexAdsUnificationCampaignNUXModalUtils_useImpressionDataResponse
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlResponse
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyResponse
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesResponse
-    readonly BillingWizardNameUtils: WaMexBillingWizardNameUtilsResponse
-    readonly BillingWizardNameUtilsRefetch: WaMexBillingWizardNameUtilsRefetchResponse
     readonly BizCreateOrder: WaMexBizCreateOrderResponse
     readonly BizCustomUrlGetUserGraphql: WaMexBizCustomUrlGetUserGraphqlResponse
     readonly BizGetCategories: WaMexBizGetCategoriesResponse
@@ -7969,6 +6984,7 @@ export interface WaMexOperationResponses {
     readonly GetPrivacySettings: WaMexGetPrivacySettingsResponse
     readonly GetUsername: WaMexGetUsernameResponse
     readonly GetWAAEligibility: WaMexGetWAAEligibilityResponse
+    readonly GetWoasAgeSignal: WaMexGetWoasAgeSignalResponse
     readonly GraphQLProductCatalogGetPublicKey: WaMexGraphQLProductCatalogGetPublicKeyResponse
     readonly GraphQLVerifyPostcode: WaMexGraphQLVerifyPostcodeResponse
     readonly GroupStoreInviteSms: WaMexGroupStoreInviteSmsResponse
@@ -7976,7 +6992,6 @@ export interface WaMexOperationResponses {
     readonly IntegrityChallengeResponse: WaMexIntegrityChallengeResponseResponse
     readonly JoinNewsletter: WaMexJoinNewsletterResponse
     readonly KeyTransparencyGraphQLClient_: WaMexKeyTransparencyGraphQLClient_Response
-    readonly L1LiveTrueTieredReverseInteropStoreSourceTier2Server: WaMexL1LiveTrueTieredReverseInteropStoreSourceTier2ServerResponse
     readonly LeaveNewsletter: WaMexLeaveNewsletterResponse
     readonly LidChangeNotification: WaMexLidChangeNotificationResponse
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresResponse
@@ -8006,6 +7021,8 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsResponse
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse
+    readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberResponse
+    readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
@@ -8022,11 +7039,6 @@ export interface WaMexOperationResponses {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexResolveAccountTypeAndAdPageQueryResponse
     readonly RevokeNewsletterAdminInvite: WaMexRevokeNewsletterAdminInviteResponse
     readonly RotateLabyrinthEpoch: WaMexRotateLabyrinthEpochResponse
-    readonly SYDAccountInfoWidgetContainerV3: WaMexSYDAccountInfoWidgetContainerV3Response
-    readonly SYDGuidanceHubV3RelayContainerLive: WaMexSYDGuidanceHubV3RelayContainerLiveResponse
-    readonly SYDMetricSnapshotWidgetContainer: WaMexSYDMetricSnapshotWidgetContainerResponse
-    readonly SYDNewFeaturesWidgetGraphQLContainer: WaMexSYDNewFeaturesWidgetGraphQLContainerResponse
-    readonly SYDPageRELAY: WaMexSYDPageRELAYResponse
     readonly SetUsername: WaMexSetUsernameResponse
     readonly SetUsernameKey: WaMexSetUsernameKeyResponse
     readonly SignupMetadata: WaMexSignupMetadataResponse
@@ -8034,6 +7046,7 @@ export interface WaMexOperationResponses {
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegenerationResponse
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlowsResponse
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexStartConversationsTemplateFAQGenAIRegenerationResponse
+    readonly SubscriptionWaffleAgeCheck: WaMexSubscriptionWaffleAgeCheckResponse
     readonly SupportBugReportSubmit: WaMexSupportBugReportSubmitResponse
     readonly SupportContactFormSubmit: WaMexSupportContactFormSubmitResponse
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitResponse
@@ -8056,14 +7069,13 @@ export interface WaMexOperationResponses {
     readonly WaffleFXServiceDataQueryV2: WaMexWaffleFXServiceDataQueryV2Response
     readonly WaffleFXWAMOUpdateUOOM: WaMexWaffleFXWAMOUpdateUOOMResponse
     readonly WaffleXE: WaMexWaffleXEResponse
-    readonly WamoAvailableIdentitiesStoreSourceServer: WaMexWamoAvailableIdentitiesStoreSourceServerResponse
-    readonly adsMessageMarketingDeliveryDataServer: WaMexadsMessageMarketingDeliveryDataServerResponse
     readonly useFlowJSONValidationLibrary: WaMexuseFlowJSONValidationLibraryResponse
-    readonly useGetDatasetSplitByAdAccount: WaMexuseGetDatasetSplitByAdAccountResponse
     readonly useIsMessengerPlatformBot: WaMexuseIsMessengerPlatformBotResponse
     readonly useMAIBADraftStatus: WaMexuseMAIBADraftStatusResponse
     readonly useMAIBAMedia: WaMexuseMAIBAMediaResponse
+    readonly useMAIBAWidgetState: WaMexuseMAIBAWidgetStateResponse
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachResponse
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyResponse
+    readonly useWAWebSmartComposerReportThreadEvent: WaMexuseWAWebSmartComposerReportThreadEventResponse
     readonly useWAWebSmartComposerReportUsed: WaMexuseWAWebSmartComposerReportUsedResponse
 }

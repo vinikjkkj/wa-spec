@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047552994
+// WhatsApp Version: 2.3000.1047765575
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -3314,6 +3314,38 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLIENT_SAVED': 2,
         'CLIENT_WAITING_TO_ENCRYPT': 5,
         'CLIENT_WRITTEN_WIRE': 3
+        })
+    }),
+    CLOUD_API_SIGNAL_CTA_ACTION: Object.freeze({
+        module: 'WAWebWamEnumCloudApiSignalCtaAction',
+        export: 'CLOUD_API_SIGNAL_CTA_ACTION',
+        values: Object.freeze({
+        'COPY_BOLETO_CODE': 2,
+        'COPY_PIX_CODE': 0,
+        'COPY_PIX_KEY': 1,
+        'MORE_OPTIONS': 9,
+        'OFFSITE_CARD': 8,
+        'OPEN_PAYMENT_LINK': 4,
+        'PAY_WITH_CARD': 7,
+        'PAY_WITH_PIX': 3,
+        'REVIEW_AND_PAY': 5,
+        'VIEW_DETAILS': 6
+        })
+    }),
+    CLOUD_API_SIGNAL_TEMPLATE_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCloudApiSignalTemplateType',
+        export: 'CLOUD_API_SIGNAL_TEMPLATE_TYPE',
+        values: Object.freeze({
+        'ORDER_DETAILS': 0,
+        'PAYMENT_REQUEST': 1
+        })
+    }),
+    CLOUD_API_SIGNAL_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCloudApiSignalType',
+        export: 'CLOUD_API_SIGNAL_TYPE',
+        values: Object.freeze({
+        'PAYMENT_TEMPLATE_CLICK': 0,
+        'URL_CTA_CLICK': 1
         })
     }),
     COEX_STATUS_REPLY_PRIVACY_DISCLAIMER_USER_ACTION: Object.freeze({
@@ -18305,6 +18337,7 @@ const WA_WAM_EVENTS = Object.freeze({
             callOnNonoptimalRelayMs: Object.freeze({ id: 1903, type: 'timer', falcoName: 'call_on_nonoptimal_relay_ms' }),
             callP2pDisabled: Object.freeze({ id: 18, type: 'boolean', falcoName: 'call_p2p_disabled' }),
             callPeakThermalState: Object.freeze({ id: 2539, type: 'integer', falcoName: 'call_peak_thermal_state' }),
+            callPeerAbpropBucketIdList: Object.freeze({ id: 3162, type: 'string', falcoName: 'call_peer_abprop_bucket_id_list' }),
             callPeerAppVersion: Object.freeze({ id: 15, type: 'string', falcoName: 'call_peer_app_version' }),
             callPeerHasBadge: Object.freeze({ id: 2464, type: 'boolean', falcoName: 'call_peer_has_badge' }),
             callPeerIpStr: Object.freeze({ id: 10, type: 'string', falcoName: 'call_peer_ip_str' }),
@@ -18373,6 +18406,7 @@ const WA_WAM_EVENTS = Object.freeze({
             callRxStoppedT: Object.freeze({ id: 100, type: 'timer', falcoName: 'call_rx_stopped_t' }),
             callSampledForProbing: Object.freeze({ id: 1964, type: 'boolean', falcoName: 'call_sampled_for_probing' }),
             callSamplingRate: Object.freeze({ id: 30, type: 'integer', falcoName: 'call_sampling_rate' }),
+            callSelfAbpropBucketIdList: Object.freeze({ id: 3163, type: 'string', falcoName: 'call_self_abprop_bucket_id_list' }),
             callSelfIpStr: Object.freeze({ id: 9, type: 'string', falcoName: 'call_self_ip_str' }),
             callSelfIpv4: Object.freeze({ id: 7, type: 'integer', falcoName: 'call_self_ipv4' }),
             callSelfV4Ip: Object.freeze({ id: 2069, type: 'string', falcoName: 'call_self_v4_ip' }),
@@ -18561,6 +18595,7 @@ const WA_WAM_EVENTS = Object.freeze({
             decSs960pFreezeT: Object.freeze({ id: 2771, type: 'timer', falcoName: 'dec_ss960p_freeze_t' }),
             decSs960pPauseT: Object.freeze({ id: 2772, type: 'timer', falcoName: 'dec_ss960p_pause_t' }),
             decVidStreamActiveTime: Object.freeze({ id: 1858, type: 'timer', falcoName: 'dec_vid_stream_active_time' }),
+            dedupKey: Object.freeze({ id: 3161, type: 'integer', falcoName: 'dedup_key' }),
             defaultMicMode: Object.freeze({ id: 2647, type: 'integer', falcoName: 'default_mic_mode' }),
             delayResetCount: Object.freeze({ id: 2171, type: 'integer', falcoName: 'delay_reset_count' }),
             deviceArClass: Object.freeze({ id: 2031, type: 'integer', falcoName: 'device_ar_class' }),
@@ -20587,6 +20622,12 @@ const WA_WAM_EVENTS = Object.freeze({
             webSctpBaPeakMaxBytes: Object.freeze({ id: 2896, type: 'number', falcoName: 'web_sctp_ba_peak_max_bytes' }),
             webSctpBaTailAvgBytes: Object.freeze({ id: 2897, type: 'number', falcoName: 'web_sctp_ba_tail_avg_bytes' }),
             webSctpBaTailMaxBytes: Object.freeze({ id: 2898, type: 'number', falcoName: 'web_sctp_ba_tail_max_bytes' }),
+            webTransportConfigEnabled: Object.freeze({ id: 3164, type: 'boolean', falcoName: 'web_transport_config_enabled' }),
+            webTransportConnectAttempted: Object.freeze({ id: 3165, type: 'boolean', falcoName: 'web_transport_connect_attempted' }),
+            webTransportConnectOpened: Object.freeze({ id: 3166, type: 'boolean', falcoName: 'web_transport_connect_opened' }),
+            webTransportFallbackTriggered: Object.freeze({ id: 3167, type: 'boolean', falcoName: 'web_transport_fallback_triggered' }),
+            webTransportRelayTrafficSent: Object.freeze({ id: 3168, type: 'boolean', falcoName: 'web_transport_relay_traffic_sent' }),
+            webTransportRuntimeEligible: Object.freeze({ id: 3169, type: 'boolean', falcoName: 'web_transport_runtime_eligible' }),
             webTransportUsed: Object.freeze({ id: 2900, type: 'boolean', falcoName: 'web_transport_used' }),
             webVideoCaptureCaptureToEncodedAvgMs: Object.freeze({ id: 2907, type: 'timer', falcoName: 'web_video_capture_capture_to_encoded_avg_ms' }),
             webVideoCapturePresentToConstructAvgMs: Object.freeze({ id: 2908, type: 'timer', falcoName: 'web_video_capture_present_to_construct_avg_ms' }),
@@ -21608,6 +21649,24 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             clockSkewHourly: Object.freeze({ id: 1, type: 'integer', falcoName: 'clock_skew_hourly' })
+        })
+    }),
+    CloudApiSignalEvent: Object.freeze({
+        id: 8572,
+        falcoName: 'wam_cloud_api_signal_event',
+        channel: 'private',
+        privateStatsIdInt: 0,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            cloudApiSignalCarouselCardIndex: Object.freeze({ id: 1, type: 'integer', falcoName: 'cloud_api_signal_carousel_card_index' }),
+            cloudApiSignalCtaAction: Object.freeze({ id: 2, type: 'enum', enum: 'CLOUD_API_SIGNAL_CTA_ACTION', falcoName: 'cloud_api_signal_cta_action' }),
+            cloudApiSignalCtaButtonIndex: Object.freeze({ id: 3, type: 'integer', falcoName: 'cloud_api_signal_cta_button_index' }),
+            cloudApiSignalData: Object.freeze({ id: 4, type: 'string', falcoName: 'cloud_api_signal_data' }),
+            cloudApiSignalTemplateType: Object.freeze({ id: 5, type: 'enum', enum: 'CLOUD_API_SIGNAL_TEMPLATE_TYPE', falcoName: 'cloud_api_signal_template_type' }),
+            cloudApiSignalType: Object.freeze({ id: 6, type: 'enum', enum: 'CLOUD_API_SIGNAL_TYPE', falcoName: 'cloud_api_signal_type' })
         })
     }),
     CoexPrivacySysMsg: Object.freeze({
