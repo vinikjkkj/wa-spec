@@ -360,7 +360,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "38493987773525432",
+      "docId": "27999326929677383",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -383,7 +383,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "38494231696826744",
+      "docId": "37768328176144162",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -1275,6 +1275,58 @@
       "variablesShape": {
         "newsletter_id": "string",
         "user_id": "string"
+      }
+    },
+    "ClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalog": {
+      "docId": "28392457797119809",
+      "operationKind": "query",
+      "originalName": "ClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalog",
+      "response": {
+        "node": {
+          "__typename": "string",
+          "id": "string",
+          "is_agentic_checkout_enabled": "boolean"
+        }
+      },
+      "variables": [
+        "id"
+      ],
+      "variablesShape": {
+        "id": "string"
+      }
+    },
+    "ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalog": {
+      "docId": "28535935112706483",
+      "operationKind": "query",
+      "originalName": "ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalog",
+      "response": {
+        "node": {
+          "__typename": "string",
+          "id": "string"
+        }
+      },
+      "variables": [
+        "id"
+      ],
+      "variablesShape": {
+        "id": "string"
+      }
+    },
+    "ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog": {
+      "docId": "28909016462037998",
+      "operationKind": "query",
+      "originalName": "ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog",
+      "response": {
+        "node": {
+          "__typename": "string",
+          "id": "string"
+        }
+      },
+      "variables": [
+        "id"
+      ],
+      "variablesShape": {
+        "id": "string"
       }
     },
     "ConsumerFetchQuickPromotions": {
@@ -5401,7 +5453,7 @@
       }
     },
     "OrgAdminGraphQLAddChannel": {
-      "docId": "28297373133212292",
+      "docId": "28394837166818065",
       "operationKind": "mutation",
       "originalName": "WAWebOrgAdminGraphQLAddChannelMutation",
       "response": {
@@ -5429,7 +5481,7 @@
       }
     },
     "OrgAdminGraphQLAddGroup": {
-      "docId": "27409847525383193",
+      "docId": "28671827069172109",
       "operationKind": "mutation",
       "originalName": "WAWebOrgAdminGraphQLAddGroupMutation",
       "response": {
@@ -5453,8 +5505,40 @@
         "orgID": "string"
       }
     },
+    "OrgAdminGraphQLAdminRoster": {
+      "docId": "29183618847906353",
+      "operationKind": "query",
+      "originalName": "WAWebOrgAdminGraphQLAdminRosterQuery",
+      "response": {
+        "xwa_org_get": {
+          "error_reason": "string",
+          "org_info": {
+            "admin_roster": {
+              "entries": [
+                {
+                  "email_address": "unknown",
+                  "id": "number",
+                  "member_tag": "string",
+                  "name": "string",
+                  "phone_number": "string"
+                }
+              ],
+              "is_truncated": "boolean"
+            },
+            "id": "number"
+          },
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "orgID"
+      ],
+      "variablesShape": {
+        "orgID": "string"
+      }
+    },
     "OrgAdminGraphQLDirectory": {
-      "docId": "28669501339402450",
+      "docId": "28208994918711791",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
       "response": {
@@ -5489,7 +5573,7 @@
       }
     },
     "OrgAdminGraphQLGroup": {
-      "docId": "28486573690950714",
+      "docId": "26407716885592599",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLGroupQuery",
       "response": {
@@ -5542,7 +5626,7 @@
       }
     },
     "OrgAdminGraphQLManagedChannels": {
-      "docId": "28517574477882450",
+      "docId": "27988950254107459",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLManagedChannelsQuery",
       "response": {
@@ -5570,7 +5654,7 @@
       }
     },
     "OrgAdminGraphQLManagedGroups": {
-      "docId": "28617119817893147",
+      "docId": "38372552505692451",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
@@ -5602,7 +5686,7 @@
       }
     },
     "OrgAdminGraphQLMemberSearch": {
-      "docId": "28398762773092863",
+      "docId": "28242210495435097",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLMemberSearchQuery",
       "response": {
@@ -5641,7 +5725,7 @@
       }
     },
     "OrgAdminGraphQLOrgs": {
-      "docId": "28343145172013853",
+      "docId": "27937329845939200",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLOrgsQuery",
       "response": {
@@ -5649,6 +5733,7 @@
           "orgs": [
             {
               "id": "string",
+              "is_member_directory_enabled": "boolean",
               "member_count": "number",
               "name": "string",
               "viewer_role": "string"
@@ -5666,6 +5751,7 @@
         "first": "number",
         "gid": "unknown",
         "input": {
+          "entries": "unknown",
           "member_lid": "string",
           "org_id": "string",
           "role": "string"
@@ -5681,7 +5767,7 @@
       "originalName": "WAWebOrgAdminGraphQLRemoveMemberMutation",
       "response": {
         "xwa_org_member_remove": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "org": {
             "id": "number",
             "member_count": "number"
@@ -5694,6 +5780,45 @@
       ],
       "variablesShape": {
         "input": {
+          "entries": "unknown",
+          "member_lid": "string",
+          "org_id": "string",
+          "role": "string"
+        }
+      }
+    },
+    "OrgAdminGraphQLReplaceAdminRoster": {
+      "docId": "28351575267818242",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLReplaceAdminRosterMutation",
+      "response": {
+        "xwa_org_admin_roster_replace": {
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "invalid_row_number": "unknown",
+          "org": {
+            "admin_roster": {
+              "entries": [
+                {
+                  "email_address": "unknown",
+                  "id": "number",
+                  "member_tag": "string",
+                  "name": "string",
+                  "phone_number": "string"
+                }
+              ],
+              "is_truncated": "boolean"
+            },
+            "id": "number"
+          },
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "entries": "unknown",
           "member_lid": "string",
           "org_id": "string",
           "role": "string"
@@ -5719,6 +5844,7 @@
       ],
       "variablesShape": {
         "input": {
+          "entries": "unknown",
           "member_lid": "string",
           "org_id": "string",
           "role": "string"
@@ -7475,7 +7601,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "28140610808964289",
+      "docId": "38439202149027818",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -7516,6 +7642,7 @@
                           ],
                           "ad_object_type": "string",
                           "adgroup_id": "string",
+                          "adgroup_or_fragment_id": "string",
                           "ads_checker_action": "unknown",
                           "age_max": "number",
                           "age_min": "number",
@@ -8045,6 +8172,7 @@
                           "secondary_label": "string",
                           "secondary_message": "string",
                           "section": "unknown",
+                          "seed_image_uri": "string",
                           "selection_mode": "string",
                           "server_formatted_text": "string",
                           "show_creative_terms": "unknown",
@@ -8231,5 +8359,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047765575"
+  "waVersion": "2.3000.1047863799"
 }

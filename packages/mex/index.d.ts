@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047765575
+// WhatsApp Version: 2.3000.1047863799
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -58,6 +58,9 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly CachedToken: WaMexPersistId
     readonly CanonicalUserValid: WaMexPersistId
     readonly ChangeNewsletterOwner: WaMexPersistId
+    readonly ClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalog: WaMexPersistId
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalog: WaMexPersistId
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog: WaMexPersistId
     readonly ConsumerFetchQuickPromotions: WaMexPersistId
     readonly ConsumerQuickPromotionActionGraphQL: WaMexPersistId
     readonly ContactManagerCustomerProfile: WaMexPersistId
@@ -170,6 +173,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly NewsletterUnpinMessages: WaMexPersistId
     readonly OrgAdminGraphQLAddChannel: WaMexPersistId
     readonly OrgAdminGraphQLAddGroup: WaMexPersistId
+    readonly OrgAdminGraphQLAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLDirectory: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
     readonly OrgAdminGraphQLInviteMembers: WaMexPersistId
@@ -178,6 +182,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
     readonly OrgAdminGraphQLRemoveMember: WaMexPersistId
+    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
@@ -280,6 +285,9 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CachedToken: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CanonicalUserValid: WaMexOperationSchema<'query', readonly []>
     readonly ChangeNewsletterOwner: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
+    readonly ClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalog: WaMexOperationSchema<'query', readonly ['id']>
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalog: WaMexOperationSchema<'query', readonly ['id']>
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog: WaMexOperationSchema<'query', readonly ['id']>
     readonly ConsumerFetchQuickPromotions: WaMexOperationSchema<'query', readonly ['nux_ids', 'trigger_context']>
     readonly ConsumerQuickPromotionActionGraphQL: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly ContactManagerCustomerProfile: WaMexOperationSchema<'query', readonly ['lid']>
@@ -392,6 +400,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly NewsletterUnpinMessages: WaMexOperationSchema<'mutation', readonly ['input', 'newsletter_id']>
     readonly OrgAdminGraphQLAddChannel: WaMexOperationSchema<'mutation', readonly ['channelID', 'orgID']>
     readonly OrgAdminGraphQLAddGroup: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID']>
+    readonly OrgAdminGraphQLAdminRoster: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLDirectory: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLInviteMembers: WaMexOperationSchema<'mutation', readonly ['emails', 'orgID']>
@@ -400,6 +409,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
     readonly OrgAdminGraphQLRemoveMember: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
@@ -689,6 +699,18 @@ export type WaMexCanonicalUserValidVariables = Readonly<Record<string, never>>
 export type WaMexChangeNewsletterOwnerVariables = {
     readonly newsletter_id?: string
     readonly user_id?: string
+}
+
+export type WaMexClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalogVariables = {
+    readonly id?: string
+}
+
+export type WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalogVariables = {
+    readonly id?: string
+}
+
+export type WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalogVariables = {
+    readonly id?: string
 }
 
 export type WaMexConsumerFetchQuickPromotionsVariables = {
@@ -1362,6 +1384,10 @@ export type WaMexOrgAdminGraphQLAddGroupVariables = {
     readonly orgID?: string
 }
 
+export type WaMexOrgAdminGraphQLAdminRosterVariables = {
+    readonly orgID?: string
+}
+
 export type WaMexOrgAdminGraphQLDirectoryVariables = {
     readonly orgID?: string
 }
@@ -1399,6 +1425,7 @@ export type WaMexOrgAdminGraphQLOrgsVariables = {
     readonly first?: number
     readonly gid?: unknown
     readonly input?: {
+        readonly entries?: unknown
         readonly member_lid?: string
         readonly org_id?: string
         readonly role?: string
@@ -1410,6 +1437,16 @@ export type WaMexOrgAdminGraphQLOrgsVariables = {
 
 export type WaMexOrgAdminGraphQLRemoveMemberVariables = {
     readonly input?: {
+        readonly entries?: unknown
+        readonly member_lid?: string
+        readonly org_id?: string
+        readonly role?: string
+    }
+}
+
+export type WaMexOrgAdminGraphQLReplaceAdminRosterVariables = {
+    readonly input?: {
+        readonly entries?: unknown
         readonly member_lid?: string
         readonly org_id?: string
         readonly role?: string
@@ -1418,6 +1455,7 @@ export type WaMexOrgAdminGraphQLRemoveMemberVariables = {
 
 export type WaMexOrgAdminGraphQLSetMemberRoleVariables = {
     readonly input?: {
+        readonly entries?: unknown
         readonly member_lid?: string
         readonly org_id?: string
         readonly role?: string
@@ -1824,6 +1862,9 @@ export interface WaMexOperationVariables {
     readonly CachedToken: WaMexCachedTokenVariables
     readonly CanonicalUserValid: WaMexCanonicalUserValidVariables
     readonly ChangeNewsletterOwner: WaMexChangeNewsletterOwnerVariables
+    readonly ClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalog: WaMexClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalogVariables
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalog: WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalogVariables
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog: WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalogVariables
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsVariables
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLVariables
     readonly ContactManagerCustomerProfile: WaMexContactManagerCustomerProfileVariables
@@ -1936,6 +1977,7 @@ export interface WaMexOperationVariables {
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesVariables
     readonly OrgAdminGraphQLAddChannel: WaMexOrgAdminGraphQLAddChannelVariables
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupVariables
+    readonly OrgAdminGraphQLAdminRoster: WaMexOrgAdminGraphQLAdminRosterVariables
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersVariables
@@ -1944,6 +1986,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberVariables
+    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterVariables
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
@@ -2696,6 +2739,28 @@ export type WaMexCanonicalUserValidResponse = {
 
 export type WaMexChangeNewsletterOwnerResponse = {
     readonly xwa2_newsletter_change_owner?: {
+        readonly __typename?: string
+        readonly id?: string
+    }
+}
+
+export type WaMexClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalogResponse = {
+    readonly node?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly is_agentic_checkout_enabled?: boolean
+    }
+}
+
+export type WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalogResponse = {
+    readonly node?: {
+        readonly __typename?: string
+        readonly id?: string
+    }
+}
+
+export type WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalogResponse = {
+    readonly node?: {
         readonly __typename?: string
         readonly id?: string
     }
@@ -5141,6 +5206,26 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
     }
 }
 
+export type WaMexOrgAdminGraphQLAdminRosterResponse = {
+    readonly xwa_org_get?: {
+        readonly error_reason?: string
+        readonly org_info?: {
+            readonly admin_roster?: {
+                readonly entries?: ReadonlyArray<{
+                    readonly email_address?: unknown
+                    readonly id?: number
+                    readonly member_tag?: string
+                    readonly name?: string
+                    readonly phone_number?: string
+                }>
+                readonly is_truncated?: boolean
+            }
+            readonly id?: number
+        }
+        readonly status?: 'SUCCESS'
+    }
+}
+
 export type WaMexOrgAdminGraphQLDirectoryResponse = {
     readonly xwa_org_get?: {
         readonly error_reason?: string
@@ -5246,6 +5331,7 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
     readonly xwa_org_list?: {
         readonly orgs?: ReadonlyArray<{
             readonly id?: string
+            readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
             readonly name?: string
             readonly viewer_role?: string
@@ -5255,10 +5341,31 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
 
 export type WaMexOrgAdminGraphQLRemoveMemberResponse = {
     readonly xwa_org_member_remove?: {
-        readonly error_reason?: string
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
         readonly org?: {
             readonly id?: number
             readonly member_count?: number
+        }
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLReplaceAdminRosterResponse = {
+    readonly xwa_org_admin_roster_replace?: {
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly invalid_row_number?: unknown
+        readonly org?: {
+            readonly admin_roster?: {
+                readonly entries?: ReadonlyArray<{
+                    readonly email_address?: unknown
+                    readonly id?: number
+                    readonly member_tag?: string
+                    readonly name?: string
+                    readonly phone_number?: string
+                }>
+                readonly is_truncated?: boolean
+            }
+            readonly id?: number
         }
         readonly status?: 'SUCCESS'
     }
@@ -6288,6 +6395,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly ad_object_ids?: ReadonlyArray<string>
                                 readonly ad_object_type?: string
                                 readonly adgroup_id?: string
+                                readonly adgroup_or_fragment_id?: string
                                 readonly ads_checker_action?: unknown
                                 readonly age_max?: number
                                 readonly age_min?: number
@@ -6745,6 +6853,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly secondary_label?: string
                                 readonly secondary_message?: string
                                 readonly section?: unknown
+                                readonly seed_image_uri?: string
                                 readonly selection_mode?: string
                                 readonly server_formatted_text?: string
                                 readonly show_creative_terms?: unknown
@@ -6902,6 +7011,9 @@ export interface WaMexOperationResponses {
     readonly CachedToken: WaMexCachedTokenResponse
     readonly CanonicalUserValid: WaMexCanonicalUserValidResponse
     readonly ChangeNewsletterOwner: WaMexChangeNewsletterOwnerResponse
+    readonly ClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalog: WaMexClientEdgeQuery_AdsBulkEditAdgroupAgenticCheckoutOptInPlugin_Query_selected_ad_account__shops_ads_identity_product_catalogResponse
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalog: WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_combined_campaign_group__product_catalogResponse
+    readonly ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog: WaMexClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalogResponse
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsResponse
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLResponse
     readonly ContactManagerCustomerProfile: WaMexContactManagerCustomerProfileResponse
@@ -7014,6 +7126,7 @@ export interface WaMexOperationResponses {
     readonly NewsletterUnpinMessages: WaMexNewsletterUnpinMessagesResponse
     readonly OrgAdminGraphQLAddChannel: WaMexOrgAdminGraphQLAddChannelResponse
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupResponse
+    readonly OrgAdminGraphQLAdminRoster: WaMexOrgAdminGraphQLAdminRosterResponse
     readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersResponse
@@ -7022,6 +7135,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberResponse
+    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterResponse
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse

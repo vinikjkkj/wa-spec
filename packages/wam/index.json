@@ -107,6 +107,14 @@
         "UNKNOWN_RESPONSE": 4
       }
     },
+    "ACP_VERSION_TYPE": {
+      "export": "ACP_VERSION_TYPE",
+      "module": "WAWebWamEnumAcpVersionType",
+      "values": {
+        "ACP_V1": 1,
+        "ACP_V2": 2
+      }
+    },
     "ACTION_CODE": {
       "export": "ACTION_CODE",
       "module": "WAWebWamEnumActionCode",
@@ -425,6 +433,14 @@
       "values": {
         "HERO_CARD": 2,
         "SUGGESTED_PROMPT": 1
+      }
+    },
+    "AI_SUB_BLOCK_SOURCE": {
+      "export": "AI_SUB_BLOCK_SOURCE",
+      "module": "WAWebWamEnumAiSubBlockSource",
+      "values": {
+        "CACHE": 1,
+        "SERVER": 2
       }
     },
     "AI_SUB_COMPONENT": {
@@ -903,6 +919,7 @@
         "QP_PRIVACY_FOOTER_UPDATES_TAB": 88,
         "QP_UPSELLL_FOOTER_PREVIEW_FILE": 90,
         "QP_UPSELL_BANNER_CHAT_DOCUMENT_GALLERY": 91,
+        "QP_UPSELL_BANNER_MEDIA_PICKER_INTERSTITIAL": 127,
         "QP_UPSELL_BANNER_SEND_FILE": 89,
         "RECOVER_GOOGLE_BACKUP": 92,
         "SMB_ADSCREATION_CONVERSATIONS_BANNER_WITHOUT_VALID_PRODUCT": 25,
@@ -1035,6 +1052,8 @@
         "CHAT_LIST_BLOCK": 20,
         "CHAT_LIST_CONTEXT_MENU_BLOCK": 22,
         "CHAT_LIST_NOINSUB_BLOCK": 21,
+        "CHAT_LIST_SWIPE_DELETE_BLOCK_UPSELL": 61,
+        "CHAT_LIST_SWIPE_DELETE_REPORT_UPSELL": 62,
         "CHAT_LONG_PRESS_OPTIONS": 51,
         "CHAT_MORE_OPTIONS": 50,
         "COMMENT_ACTIONS_BOTTOM_SHEET": 42,
@@ -2706,7 +2725,8 @@
         "BUSINESS": 3,
         "CHANNEL": 5,
         "GROUP": 2,
-        "INDIVIDUAL": 1
+        "INDIVIDUAL": 1,
+        "META_AI": 6
       }
     },
     "CHAT_ACTION_ENTRY_POINT": {
@@ -2720,7 +2740,9 @@
         "DEPENDENT_CONVERSATION_MESAGE_REQUEST": 11,
         "DEPENDENT_MESSAGE_REQUESTS_FOLDER": 10,
         "GROUP_INFO": 3,
+        "MESSAGE": 13,
         "SEARCH_LIST": 4,
+        "SETTINGS": 12,
         "SPAM_FOLDER": 9,
         "SYSTEM_NOTIFICATIONS": 8,
         "WEB_ACTION": 7
@@ -2733,12 +2755,16 @@
         "ARCHIVE": 3,
         "CLEAR": 4,
         "DELETE": 6,
+        "DISABLE_ANNOUNCEMENTS": 14,
+        "ENABLE_ANNOUNCEMENTS": 13,
         "EXIT_GROUP": 5,
         "MUTE": 1,
         "PIN": 7,
         "READ": 9,
         "SUSPEND_CHAT_DELETE": 10,
+        "UNARCHIVE": 11,
         "UNMUTE": 2,
+        "UNPIN": 12,
         "UNREAD": 8
       }
     },
@@ -3087,6 +3113,7 @@
         "GROUP": 3,
         "LABEL": 21,
         "LINKS": 14,
+        "META_AI": 30,
         "NEW_CUSTOMER": 5,
         "NEW_ORDER": 6,
         "NONE": 0,
@@ -3098,6 +3125,7 @@
         "PERSONAL": 19,
         "PHOTOS": 12,
         "STICKERS": 23,
+        "TO_YOU": 29,
         "UNREAD": 2,
         "VIDEOS": 15
       }
@@ -3747,6 +3775,24 @@
         "WEB_UI_COMPONENT_FAILURE": 18
       }
     },
+    "CREATION_FAILURE_REASON": {
+      "export": "CREATION_FAILURE_REASON",
+      "module": "WAWebWamEnumCreationFailureReason",
+      "values": {
+        "OFFLINE": 1,
+        "SERVER_ERROR": 2,
+        "TIMEOUT": 3,
+        "UNKNOWN": 4
+      }
+    },
+    "CREATION_STATUS": {
+      "export": "CREATION_STATUS",
+      "module": "WAWebWamEnumCreationStatus",
+      "values": {
+        "CREATED": 1,
+        "FAILED": 2
+      }
+    },
     "CROSSPOST_DESTINATION_TYPE": {
       "export": "CROSSPOST_DESTINATION_TYPE",
       "module": "WAWebWamEnumCrosspostDestinationType",
@@ -4213,6 +4259,7 @@
         "DEEP_LINK_SMB_LOCATION": 50,
         "DEEP_LINK_SMB_MANAGE_ADS": 39,
         "DEEP_LINK_SMB_MANAGE_ADS_DETAIL": 40,
+        "DEEP_LINK_SMB_MX_CLABE": 262,
         "DEEP_LINK_SMB_ORDERS_HOME": 100,
         "DEEP_LINK_SMB_PROFILE_COMPLETENESS": 73,
         "DEEP_LINK_SMB_QUICK_REPLIES_WITH_BIZTAB": 182,
@@ -5031,7 +5078,8 @@
         "CREATIVE_TOOLS": 3,
         "MIMICRY": 1,
         "MIMICRY_UPDATES_TAB": 5,
-        "MUSIC": 2
+        "MUSIC": 2,
+        "STICKERS": 8
       }
     },
     "ENTRY_POINT": {
@@ -5643,6 +5691,9 @@
       "module": "WAWebWamEnumGroupHistorySenderActionType",
       "values": {
         "CONTACT_CARD_LAUNCHED": 2,
+        "GROUP_HISTORY_ADMIN_DEFAULT_ON_PROMOTION_CONFIRMED": 30,
+        "GROUP_HISTORY_ADMIN_DEFAULT_ON_PROMOTION_DISMISSED": 31,
+        "GROUP_HISTORY_ADMIN_DEFAULT_ON_PROMOTION_DISPLAYED": 29,
         "GROUP_HISTORY_BOTTOMSHEET_CANCEL_BUTTON_CLICKED": 21,
         "GROUP_HISTORY_BOTTOMSHEET_CONFIRM_BUTTON_CLICKED": 20,
         "GROUP_HISTORY_BOTTOMSHEET_DISMISSED": 22,
@@ -5665,6 +5716,7 @@
         "GROUP_HISTORY_SPEED_BUMP_DIALOG_CANCELED": 28,
         "GROUP_HISTORY_SPEED_BUMP_DIALOG_CONTINUED": 27,
         "GROUP_HISTORY_SPEED_BUMP_DIALOG_DISPLAYED": 26,
+        "GROUP_HISTORY_TOGGLE_MODE_MD_SYNC_RECEIVED": 32,
         "GROUP_HISTORY_TOGGLE_OFF": 25,
         "GROUP_HISTORY_TOGGLE_ON": 24,
         "SEND_MESSAGE_HISTORY_CTA_SYSTEM_MESSAGE_DISPLAY": 17,
@@ -5683,6 +5735,15 @@
         "INVITE_LINK": 1,
         "MANUALLY_ADD": 0,
         "UNKNOWN": 5
+      }
+    },
+    "GROUP_HISTORY_TOGGLE_MODE": {
+      "export": "GROUP_HISTORY_TOGGLE_MODE",
+      "module": "WAWebWamEnumGroupHistoryToggleMode",
+      "values": {
+        "DEFAULT": 0,
+        "OFF": 2,
+        "ON": 1
       }
     },
     "GROUP_INFO_SETTING_TYPE": {
@@ -6120,6 +6181,7 @@
         "IMAGINE_PTT_IMPRESSION": 86,
         "IMAGINE_PTT_SENT": 79,
         "IMAGINE_PTT_STARTED": 77,
+        "IMAGINE_QUOTA_BLOCKED_VIEW": 109,
         "IMAGINE_RETAKE_BOTTOM_SHEET_CLICK": 41,
         "IMAGINE_RETAKE_INLINE_CLICK": 31,
         "IMAGINE_RETAKE_INLINE_PREVIEWED": 30,
@@ -6172,6 +6234,9 @@
         "MIMICRY_STICKER_CLICKED": 58,
         "NULL_STATE_INITIATED": 0,
         "PASSWORD_PROTECTED_FILE_ERROR": 82,
+        "PRESETS_BOTTOMSHEET_OPEN": 106,
+        "PRESETS_PREVIEW_LOADED": 107,
+        "PRESET_SELECTED": 108,
         "REGENERATE_BUTTON_CLICK": 8,
         "REPORT_BUTTON_CLICKED": 104,
         "REPORT_SUBMITTED": 105,
@@ -6180,6 +6245,9 @@
         "RESTYLE_OPTION_VIEWED": 100,
         "SAVE_BUTTON_CLICKED": 103,
         "SPOTLIGHT_CLICK": 45,
+        "SUGGESTED_EDIT_PILLS_VIEWED": 110,
+        "SUGGESTED_EDIT_PILL_CLICKED": 111,
+        "SUGGESTED_EDIT_PROMPT_SEND": 112,
         "SUGGESTED_PROMPT_CLICK": 1,
         "UNDONE_MEDIA_SENT": 72,
         "UNSUPPORTED_FILE_TYPE_ERROR": 81,
@@ -6214,10 +6282,12 @@
         "MIMICRY": 18,
         "MIMICRY_ATTRIBUTION": 19,
         "NONE": 28,
+        "PRESETS": 29,
         "RETAKE_INLINE": 4,
         "SEARCH": 3,
         "SETTINGS": 2,
         "STATUS": 11,
+        "SUGGESTED_EDIT_PROMPT": 30,
         "USER_PROFILE_PAGE_PICTURE": 5
       }
     },
@@ -6241,8 +6311,10 @@
         "MEDIA_SHARING_EDIT": 6,
         "MEDIA_SHARING_FILTERS": 9,
         "MEDIA_SHARING_INTENTS": 8,
+        "MEDIA_SHARING_PRESETS": 10,
         "MEDIA_SHARING_STYLES": 7,
-        "NONE": 0
+        "NONE": 0,
+        "SUGGESTED_EDIT_PROMPT": 11
       }
     },
     "IMAGINE_ACTION_THREAD_TYPE": {
@@ -6257,6 +6329,14 @@
         "STATUS": 7,
         "TO_CHARACTER": 5,
         "TO_UGC": 6
+      }
+    },
+    "IMAGINE_BLOCK_REASON": {
+      "export": "IMAGINE_BLOCK_REASON",
+      "module": "WAWebWamEnumImagineBlockReason",
+      "values": {
+        "QUOTA_CACHE": 1,
+        "QUOTA_SERVER": 2
       }
     },
     "IMAGINE_MEDIA_TYPE": {
@@ -6452,6 +6532,7 @@
         "FLOW_ERROR": 3,
         "FLOW_SUCCESS": 2,
         "MODIFY_PAYMENT_METHOD": 9,
+        "OFFSITE_CARD_PAY": 108,
         "PAYMENT_TEXT_DETECTION_CLICK": 103,
         "PAY_WITH_PIX": 53,
         "PAY_WITH_PIX_COMPLETE_TRANSACTION_STATUS": 80,
@@ -6601,6 +6682,19 @@
         "NONE": 14,
         "NONE_US": 12,
         "S_WHATSAPP_NET": 0
+      }
+    },
+    "KEY_ENTRY_ERROR_TYPE": {
+      "export": "KEY_ENTRY_ERROR_TYPE",
+      "module": "WAWebWamEnumKeyEntryErrorType",
+      "values": {
+        "INVALID_FORMAT": 2,
+        "INVALID_LENGTH": 1,
+        "NO_INTERNET": 6,
+        "REQUESTEE_RATE_LIMITED": 5,
+        "REQUESTOR_RATE_LIMITED": 4,
+        "SERVER_ERROR": 7,
+        "WRONG_KEY": 3
       }
     },
     "KIC_ACTION_NAME_TYPE": {
@@ -6828,6 +6922,7 @@
         "CREATE": 1,
         "DELETE": 2,
         "HIDE": 8,
+        "MENTIONS_AND_REPLIES_CACHE_BUILD": 12,
         "MUTE": 6,
         "RENAME": 4,
         "REORDER": 10,
@@ -6851,6 +6946,7 @@
         "NONE": 0,
         "PREDEFINED": 4,
         "SERVER_ASSIGNED": 10,
+        "TO_YOU": 11,
         "UNREAD": 1
       }
     },
@@ -6861,6 +6957,7 @@
         "CREATE_LIST": 2,
         "CREATE_LIST_TAP": 6,
         "EDIT_TAP": 7,
+        "FILTER_APPLIED": 8,
         "LIST_ITEM_TAP": 5,
         "MORE_BOTTOM_SHEET_OPEN": 3,
         "MORE_BUTTON_TAP": 4,
@@ -7056,6 +7153,7 @@
         "LWI_ADS_CONTENT_TYPE_PRODUCT": 1,
         "LWI_ADS_CONTENT_TYPE_RECENTLY_USED_MEDIA": 10,
         "LWI_ADS_CONTENT_TYPE_RECREATION_MEDIA": 13,
+        "LWI_ADS_CONTENT_TYPE_SENT_MEDIA": 18,
         "LWI_ADS_CONTENT_TYPE_STATUS": 2,
         "LWI_ADS_CONTENT_TYPE_STATUSES_ALL": 12
       }
@@ -7602,6 +7700,24 @@
         "LWI_ACTION_PAC_DEFAULT_BOTTOMSHEET_IMPRESSION": 479,
         "LWI_ACTION_PAC_DEFAULT_CREATE_NEW_AD_CLICK": 481,
         "LWI_ACTION_PAC_DEFAULT_VIEW_ADS_CLICK": 480,
+        "LWI_ACTION_PAC_FUNDING_PREPAY_LOW_FUNDS_ADD_FUNDS_BOTTOMSHEET_IMPRESSION": 559,
+        "LWI_ACTION_PAC_FUNDING_PREPAY_LOW_FUNDS_ADD_FUNDS_CTA_CLICK": 560,
+        "LWI_ACTION_PAC_FUNDING_PREPAY_LOW_FUNDS_ADD_FUNDS_DISMISS": 561,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_INCREASE_BOTTOMSHEET_IMPRESSION": 554,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_INCREASE_CTA_CLICK": 555,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_INCREASE_DISMISS": 556,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_INCREASE_FAILURE": 558,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_INCREASE_SUCCESS": 557,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_RESET_BOTTOMSHEET_IMPRESSION": 549,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_RESET_CTA_CLICK": 550,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_RESET_DISMISS": 551,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_RESET_FAILURE": 553,
+        "LWI_ACTION_PAC_FUNDING_PROSPECTIVE_ASL_RESET_SUCCESS": 552,
+        "LWI_ACTION_PAC_FUNDING_REACHED_ASL_RESET_BOTTOMSHEET_IMPRESSION": 544,
+        "LWI_ACTION_PAC_FUNDING_REACHED_ASL_RESET_CTA_CLICK": 545,
+        "LWI_ACTION_PAC_FUNDING_REACHED_ASL_RESET_DISMISS": 546,
+        "LWI_ACTION_PAC_FUNDING_REACHED_ASL_RESET_FAILURE": 548,
+        "LWI_ACTION_PAC_FUNDING_REACHED_ASL_RESET_SUCCESS": 547,
         "LWI_ACTION_PAC_SABR_V2_BOTTOMSHEET_IMPRESSION": 494,
         "LWI_ACTION_PAC_SABR_V2_CTA_CLICK": 495,
         "LWI_ACTION_PAC_SABR_V2_DISMISS": 496,
@@ -7930,6 +8046,7 @@
         "LWI_SCREEN_MEDIA_PICKER_CATALOG": 53,
         "LWI_SCREEN_MEDIA_PICKER_FB_MEDIA": 92,
         "LWI_SCREEN_MEDIA_PICKER_RECENTLY_USED": 51,
+        "LWI_SCREEN_MEDIA_PICKER_SENT_MEDIA": 118,
         "LWI_SCREEN_MEDIA_PICKER_STATUSES": 52,
         "LWI_SCREEN_MEDIA_SELECTION_FLOW": 19,
         "LWI_SCREEN_MEDIA_SIZE_WARNING": 113,
@@ -8387,6 +8504,7 @@
         "AI_IMAGINE_MESSAGE_QUICK_ACTION": 94,
         "AI_IMAGINE_MESSAGE_QUICK_EDIT": 131,
         "ARCHIVE_STATUS_VIEWER": 130,
+        "BIZ_AI_CHECKOUT_SUGGESTION": 135,
         "BUSINESS_FLOWS": 51,
         "CAMERA_TAB_CAPTURE": 2,
         "CAMERA_TAB_GIF": 30,
@@ -8450,6 +8568,7 @@
         "MEDIA_VIEWER_CREATE_STICKER": 45,
         "MENU_CAMERA_CAPTURE": 7,
         "MENU_CAMERA_PHOTO_LIBRARY": 21,
+        "ME_TAB": 136,
         "MUSIC_ATTRIBUTION": 88,
         "MUSIC_STANDALONE_TYPE": 89,
         "MY_CHANNEL_STATUS_BUTTON": 117,
@@ -8964,6 +9083,7 @@
         "CHAT_LIST": 4,
         "CONTINUE_CHAT_MODULE": 6,
         "NAVIGATION_BAR_BUTTON": 5,
+        "THREAD_INFO_PAGE": 7,
         "THREAD_LIST_VIEW": 2,
         "THREE_DOT_MENU": 1,
         "TOP_NAV": 3
@@ -9548,6 +9668,7 @@
         "GROUP": 2,
         "INORGANIC_NOTIFICATION": 5,
         "INTEROP": 4,
+        "META_AI": 6,
         "ONE_ON_ONE": 1
       }
     },
@@ -9563,7 +9684,8 @@
         "CONTACT_INFO": 2,
         "CONVERSATION_SCREEN": 3,
         "INORGANIC_NOTIFICATION": 6,
-        "LIST_BASED_MUTE": 7
+        "LIST_BASED_MUTE": 7,
+        "META_AI_SETTINGS": 10
       }
     },
     "MUTE_ORIGIN": {
@@ -9709,6 +9831,7 @@
         "CALL_LINK_CREATOR": 34,
         "CALL_TRANSFER": 59,
         "CHANNEL_NOTIFICATION_SUMMARY": 48,
+        "CHANNEL_QUESTION_RESPONSE_LIKED": 74,
         "CHANNEL_STATUS_QUESTION_ANSWER_POST_RESHARE": 63,
         "CONTACT_MESSAGE": 42,
         "EVENT_INVITE_MESSAGE": 66,
@@ -10283,6 +10406,7 @@
         "DEREGISTER_ALIAS": 23,
         "DEVICE_BINDING": 20,
         "ENROLL_AND_GET_REFERRAL_ID": 59,
+        "ENROLL_UPI_INCENTIVE": 69,
         "EXECUTE_MANDATE": 53,
         "FETCH_BILL": 43,
         "GENERATE_OTP": 16,
@@ -10445,6 +10569,7 @@
         "CONTEXT_MENU_BUTTON": 260,
         "CONTINUE_BUTTON": 5,
         "COPY_BUTTON": 186,
+        "COPY_PIX_KEY": 392,
         "COPY_UPI_ID_BUTTON": 262,
         "CPF_SECTION": 23,
         "CREATE_ACCOUNT_BUTTON": 71,
@@ -11197,6 +11322,14 @@
         "PQ_NO_SESSION_REGULAR_FALLBACK": 1,
         "PQ_SESSION_DELETED_KEYLESS_RETRY": 2,
         "UNKNOWN": 0
+      }
+    },
+    "PQ_RECEIVE_GATE_STATE": {
+      "export": "PQ_RECEIVE_GATE_STATE",
+      "module": "WAWebWamEnumPqReceiveGateState",
+      "values": {
+        "UPLOAD_UNCONFIRMED_LOCAL_KEY_MISSING": 2,
+        "UPLOAD_UNCONFIRMED_LOCAL_KEY_PRESENT": 1
       }
     },
     "PRECISE_SIZE_BUCKET": {
@@ -12300,6 +12433,8 @@
         "SELECT_ALBUM_THUMBNAIL": 11,
         "SELECT_PROFILE": 9,
         "SELECT_TAB_IN_REACTION_DETAILS": 12,
+        "STICKER_REACTION_OPEN": 13,
+        "STICKER_REACTION_SELECT": 14,
         "TRAY_CLOSE": 7,
         "TRAY_OPEN": 1
       }
@@ -12421,6 +12556,8 @@
         "GROUP_HISTORY_MESSAGE_MISSING_FROM_PUBLIC_STANZA": 4,
         "MISMATCH_REPORTING_TOKEN": 2,
         "MISSING_MESSAGE_SECRET": 0,
+        "MISSING_REPORTING_TOKEN": 5,
+        "MISSING_REPORTING_TOKEN_SECRET": 6,
         "UNSUPPORTED_VERSION": 3
       }
     },
@@ -13012,6 +13149,7 @@
         "CHANNELS": 2,
         "CHAT_THREAD_BUSINESS": 0,
         "CHAT_THREAD_OTHER": 1,
+        "CTWA_THREAD": 9,
         "EXTERNAL": 6,
         "FACEBOOK": 4,
         "INSTAGRAM": 5,
@@ -13030,6 +13168,7 @@
         "AGM_CANCELLED_USER_LEFT": 10,
         "AGM_CTA_CLICKED": 11,
         "AGM_INJECTED": 9,
+        "AGM_RECEIVED": 27,
         "AGM_SPINNER_SHOWN": 8,
         "AGM_VIEW_DETAILS_CLICKED": 12,
         "APP_UPDATE_DISMISSED": 2,
@@ -13044,9 +13183,12 @@
         "SIGNUP_CONFIRMATION_BOTTOMSHEET_EXTERNAL_NAVIGATION": 24,
         "SIGNUP_CONFIRMATION_BOTTOMSHEET_SHOWN": 23,
         "SIGNUP_CONFIRMATION_CTA_CLICKED": 21,
+        "SIGNUP_CONFIRMATION_NOT_RECEIVED": 30,
+        "SIGNUP_CONFIRMATION_PARSE_FAILURE": 29,
         "SIGNUP_CONFIRMATION_RECEIVED": 20,
         "SIGNUP_CONFIRMATION_VIEW_DETAILS_CLICKED": 22,
         "SIGNUP_CONFIRMATION_WEBSITE_CTA_CLICKED": 26,
+        "SIGNUP_REQUEST_FAILED": 28,
         "SIGNUP_REQUEST_SENT": 16,
         "WEBHOOK_REQUEST_FAILURE": 19,
         "WEBHOOK_REQUEST_SENT": 17,
@@ -14461,6 +14603,7 @@
         "BB_TEMP_BANNED": 161,
         "BB_THREAD": 147,
         "BB_WEBSITE_INFO": 153,
+        "BIZ_PROFILE_IMPORT_RECAP": 341,
         "BIZ_PROFILE_PREVIEW": 224,
         "BLOCKED_COMPOSER": 298,
         "BL_MOVED_TO_BB_BANNER": 150,
@@ -14848,18 +14991,25 @@
       "values": {
         "AI_HOME_IMPRESSION": 15,
         "CLICK_CHAT_HISTORY": 6,
+        "CLICK_CHAT_INFO": 22,
         "CLICK_CONTINUE_CHAT_MODULE": 16,
         "CLICK_CONVERSATION_THREAD": 7,
         "CLICK_NEW_CHAT": 5,
+        "CREATION_SHEET_DISMISSED": 23,
+        "CREATION_SHEET_SHOWN": 17,
         "DELETE": 3,
         "FIRST_PROMPT_SENT": 12,
+        "GREETING_RECEIVED": 21,
         "PIN": 1,
         "RENAME": 4,
         "SEARCH_RESULT_CLICK": 13,
         "SEARCH_RESULT_SHOWN": 14,
+        "THREAD_CREATE_REQUEST": 19,
+        "THREAD_CREATE_RESPONSE": 20,
         "THREAD_ENTER": 8,
         "THREAD_EXIT": 9,
         "THREAD_LIST_IMPRESSION": 10,
+        "THREAD_PHOTO_CHANGED": 18,
         "THREE_DOT_MENU": 11,
         "UNPIN": 2
       }
@@ -15110,6 +15260,7 @@
         "IMAGINE_BOTTOM_SHEET": 144,
         "IN_CALL_UI": 16,
         "LANDING_SCREEN": 87,
+        "LEAD_GEN": 272,
         "LIGHTWEIGHT_CALL_BANNER": 37,
         "LIGHTWEIGHT_CALL_NUX": 38,
         "LIGHTWEIGHT_CALL_UI": 35,
@@ -16813,12 +16964,14 @@
         "CHAT_LIST_FIX_ENCRYPTION_BANNER": 9,
         "GROUP": 3,
         "LIST": 4,
+        "META_SUBS_DEEPLINK": 12,
         "ONE_TO_ONE": 2,
         "REGISTRATION_RESTORE_SETUP": 10,
         "SETTINGS_BACKUP_PROVIDER_ROW": 5,
         "SETTINGS_ENABLE_CLOUD_BACKUPS_BANNER": 8,
         "SETTINGS_FINISH_BACKUP_SETUP_BANNER": 6,
-        "SETTINGS_FIX_ENCRYPTION_BANNER": 7
+        "SETTINGS_FIX_ENCRYPTION_BANNER": 7,
+        "THIRD_PARTY_MANAGE_STORAGE_BOTTOM_SHEET": 13
       }
     },
     "WPBUJ_SURFACE": {
@@ -16874,7 +17027,9 @@
         "GET_META_ONE_BUSINESS": 39,
         "GET_MORE_FOR_LESS": 33,
         "GET_MORE_WITH_ONE_SUB": 32,
+        "GET_VERIFIED": 46,
         "GET_WHATSAPP_PLUS_BUTTON": 11,
+        "GHOST_BADGE": 45,
         "JOIN_WAITLIST_BUTTON": 4,
         "JOIN_WAITLIST_DEEPLINK": 3,
         "LEARN_MORE": 18,
@@ -16894,6 +17049,7 @@
         "RESET_DEFAULT_REACTIONS": 43,
         "SUBSCRIPTIONS_ENTRY_POINT": 20,
         "SUBSCRIPTIONS_ENTRY_POINT_LIST_ITEM": 7,
+        "TURN_ON_BACKUP": 44,
         "UNDO_BUTTON": 6,
         "UPSELL_CARD": 37,
         "UPSELL_CTA": 16,
@@ -16902,6 +17058,14 @@
         "VIEW_ALL_PLANS": 34,
         "VIEW_STICKER_PACK": 14,
         "WHATSAPP_PLUS": 22
+      }
+    },
+    "WSUA_BLOCK_SOURCE": {
+      "export": "WSUA_BLOCK_SOURCE",
+      "module": "WAWebWamEnumWsuaBlockSource",
+      "values": {
+        "CACHE": 1,
+        "SERVER": 2
       }
     },
     "WSUA_PRODUCT_TYPE": {
@@ -16964,15 +17128,20 @@
       "module": "WAWebWamEnumWsuaScreen",
       "values": {
         "AI_HANDOFF": 49,
+        "AI_REPLY": 84,
         "AI_RESPONSES": 54,
         "AI_TAB_THINKING": 41,
         "APPEARANCE_SETTINGS": 5,
         "APPT_BOOKING": 52,
         "APP_ICON_SETTINGS": 6,
         "APP_THEME_SETTINGS": 7,
+        "BACKUP_NUX_PROVIDER_SELECTION": 81,
+        "BACKUP_SETTINGS_PROVIDER_SELECTION": 80,
         "BB_CREDITS": 28,
         "BIZ_AI_AGENT_THREAD": 46,
         "BIZ_AI_HOME": 47,
+        "BIZ_SUB_VERIFICATION_ELIGIBLE_BUSINESS_ALERT": 94,
+        "BIZ_SUB_VERIFICATION_ELIGIBLE_NOTIFICATION": 93,
         "BUSINESS_BROADCAST_HOME": 43,
         "BUSINESS_BROADCAST_REVIEW_SCREEN": 45,
         "BUSINESS_BROADCAST_THREAD": 44,
@@ -16980,6 +17149,8 @@
         "BUSINESS_TOOLS": 19,
         "CALLS_TAB": 25,
         "CHAT_ASSIGNMENT": 27,
+        "CHAT_BACKUP_BOTTOMSHEET": 82,
+        "CHAT_BACKUP_SETTINGS": 90,
         "CHAT_HOME": 15,
         "CHAT_LIST": 48,
         "CHAT_NOTIFICATION_SETTINGS": 11,
@@ -16989,6 +17160,7 @@
         "CHAT_THREAD_IMAGINE": 37,
         "CHAT_THREAD_THINKING": 36,
         "CHAT_THREAD_VIDEO": 38,
+        "CONSUMER_SUBS_PAYMENT_ABANDONMENT_NOTIF": 92,
         "CUSTOMER_LEAD_GEN": 51,
         "CUSTOM_REACTIONS_SETTINGS": 69,
         "CUSTOM_URL": 18,
@@ -17016,8 +17188,17 @@
         "META_AI_SETTINGS": 34,
         "META_ONE_ELIGIBLE_BOTTOMSHEET": 42,
         "META_SUBS_PRO_ACQ_WA_EMAIL": 73,
+        "META_SUBS_PRO_MSGRBIZAI_AYMT": 86,
+        "META_SUBS_PRO_MSGRBIZAI_EMAIL": 85,
+        "META_SUBS_PRO_MSGRBIZAI_FBADS": 87,
+        "META_SUBS_PRO_SEM_WEB": 89,
         "META_SUBS_PRO_WABIZAI_EMAIL": 74,
         "META_SUBS_PRO_WABIZAI_FBADS": 75,
+        "META_SUBS_PRO_WEB": 88,
+        "NCT_FIRST_WARNING": 76,
+        "NCT_HOME": 79,
+        "NCT_LIMIT_REACHED": 78,
+        "NCT_SECOND_WARNING": 77,
         "NOTIFICATIONS": 29,
         "ON_WAITLIST_BOTTOMSHEET": 2,
         "PAYMENT_CHECKOUT": 53,
@@ -17029,6 +17210,7 @@
         "REACTION_KEYBOARD": 70,
         "SETTINGS": 1,
         "SMART_COMPOSER": 50,
+        "SMART_COMPOSER_SELECTOR": 83,
         "STICKER_RECEIVED": 14,
         "STICKER_TRAY": 13,
         "SUBSCRIPTION_MANAGEMENT": 20,
@@ -17037,6 +17219,7 @@
         "VALID_NAME_BOTTOMSHEET": 35,
         "VALUE_SCREEN": 31,
         "WAPLUS_CONSUMER_HOUSEAD": 72,
+        "WAPLUS_CONSUMER_SEM_WEB": 91,
         "WAPLUS_CONSUMER_WEB": 71
       }
     },
@@ -17064,6 +17247,7 @@
         "GET_MORE_FOR_LESS": 23,
         "GET_MORE_WITH_ONE_SUB": 22,
         "GET_WHATSAPP_PLUS_BUTTON": 8,
+        "GHOST_BADGE": 40,
         "LEAVE_WAITLIST_TOAST": 2,
         "LIST_ALERT_TONE": 15,
         "LIST_ITEM": 3,
@@ -17073,12 +17257,16 @@
         "PREMIUM_STICKER": 21,
         "PREMIUM_STICKER_PACK": 20,
         "QP_BANNER": 1,
+        "STORAGE_LIMIT_REACHED": 38,
+        "STORAGE_LIMIT_WARNING": 37,
         "SUBSCRIPTIONS_LIST_ITEM": 4,
+        "THIRD_PARTY_UPSELL": 39,
         "TIER_CARD": 24,
         "TOAST_BANNER": 18,
         "UNIFIED_RESPONSE_UPSELL": 17,
         "UPSELL_BANNER": 11,
-        "UPSELL_CARD": 25
+        "UPSELL_CARD": 25,
+        "WA_STORAGE": 36
       }
     },
     "WSUA_TIER": {
@@ -17113,6 +17301,11 @@
           "falcoName": "about_consumption_surface",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
         }
       },
       "id": 6814,
@@ -17153,6 +17346,11 @@
         "aboutMessageSendCount": {
           "falcoName": "about_message_send_count",
           "id": 4,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
           "type": "integer"
         }
       },
@@ -17231,6 +17429,11 @@
           "id": 11,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
+        },
         "preset": {
           "enum": "PRESET_TYPE",
           "falcoName": "preset",
@@ -17289,6 +17492,11 @@
           "falcoName": "about_success_count",
           "id": 6,
           "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
         }
       },
       "id": 6820,
@@ -17317,6 +17525,11 @@
           "falcoName": "about_locale",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
         }
       },
       "id": 7084,
@@ -17335,6 +17548,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_addressing_mode_mismatch",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "iqResponse": {
           "enum": "IQ_RESPONSE_TYPE",
           "falcoName": "iq_response",
@@ -17385,6 +17603,11 @@
           "falcoName": "adv_metadata_is_me",
           "id": 1,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
         }
       },
       "id": 3048,
@@ -17407,6 +17630,11 @@
           "falcoName": "adv_expire_time_in_hours",
           "id": 1,
           "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
         }
       },
       "id": 3036,
@@ -17425,6 +17653,12 @@
       "emittedByWorker": false,
       "falcoName": "wam_ai_subs_benefit_uj",
       "fields": {
+        "aiSubBlockSource": {
+          "enum": "AI_SUB_BLOCK_SOURCE",
+          "falcoName": "ai_sub_block_source",
+          "id": 8,
+          "type": "enum"
+        },
         "aiSubComponent": {
           "enum": "AI_SUB_COMPONENT",
           "falcoName": "ai_sub_component",
@@ -17454,10 +17688,20 @@
           "id": 4,
           "type": "enum"
         },
+        "aiSubWaffleLinked": {
+          "falcoName": "ai_sub_waffle_linked",
+          "id": 9,
+          "type": "boolean"
+        },
         "aiSubscriptionTier": {
           "falcoName": "ai_subscription_tier",
           "id": 5,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
         }
       },
       "id": 8220,
@@ -17496,6 +17740,23 @@
           "id": 4,
           "type": "string"
         },
+        "creationFailureReason": {
+          "enum": "CREATION_FAILURE_REASON",
+          "falcoName": "creation_failure_reason",
+          "id": 12,
+          "type": "enum"
+        },
+        "creationStatus": {
+          "enum": "CREATION_STATUS",
+          "falcoName": "creation_status",
+          "id": 13,
+          "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "eventTsMs": {
           "falcoName": "event_ts_ms",
           "id": 5,
@@ -17527,6 +17788,11 @@
           "falcoName": "thread_action_type",
           "id": 8,
           "type": "enum"
+        },
+        "threadInboxPosition": {
+          "falcoName": "thread_inbox_position",
+          "id": 14,
+          "type": "integer"
         }
       },
       "id": 7224,
@@ -17570,6 +17836,11 @@
         "bucketedSenderKeyDistributionHashTime": {
           "falcoName": "bucketed_sender_key_distribution_hash_time",
           "id": 35,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 51,
           "type": "integer"
         },
         "deviceCount": {
@@ -17876,6 +18147,11 @@
           "id": 9,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 27,
+          "type": "integer"
+        },
         "lowPowerModeEnabled": {
           "falcoName": "low_power_mode_enabled",
           "id": 12,
@@ -17924,6 +18200,11 @@
           "id": 2,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "nuxVersion": {
           "falcoName": "nux_version",
           "id": 3,
@@ -17968,6 +18249,11 @@
           "falcoName": "attachment_tray_action_target",
           "id": 3,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
         },
         "groupSizeBucket": {
           "enum": "CLIENT_GROUP_SIZE_BUCKET",
@@ -18041,6 +18327,11 @@
           "falcoName": "audience_resolution_trigger",
           "id": 5,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         }
       },
       "id": 7900,
@@ -18064,6 +18355,11 @@
           "falcoName": "automatic_events_target_component",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
         },
         "extraAttributes": {
           "falcoName": "extra_attributes",
@@ -18115,6 +18411,11 @@
           "falcoName": "banner_type",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         },
         "deviceId": {
           "falcoName": "device_id",
@@ -18189,6 +18490,11 @@
           "falcoName": "biz_ai_render_outcome",
           "id": 4,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
         }
       },
       "id": 8490,
@@ -18207,6 +18513,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_biz_ai_handoff_notification",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "handoffNotifAction": {
           "enum": "HANDOFF_NOTIF_ACTION_TYPE",
           "falcoName": "handoff_notif_action",
@@ -18424,6 +18735,11 @@
           "id": 4,
           "type": "boolean"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "pastCall": {
           "falcoName": "past_call",
           "id": 5,
@@ -18480,6 +18796,11 @@
           "falcoName": "bot_type",
           "id": 4,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
         }
       },
       "id": 4868,
@@ -18634,6 +18955,11 @@
           "falcoName": "conversation_starter_prompt_mode",
           "id": 28,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 57,
+          "type": "integer"
         },
         "deviceLanguage": {
           "falcoName": "device_language",
@@ -18844,6 +19170,11 @@
           "id": 13,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
         "submitBugCategory": {
           "falcoName": "submit_bug_category",
           "id": 6,
@@ -18928,6 +19259,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_business_mute",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "muteT": {
           "falcoName": "mute_t",
           "id": 2,
@@ -19046,6 +19382,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "linkingTarget": {
           "enum": "BUSINESS_TOOLS_LINKED_ACCOUNT_TYPE",
           "falcoName": "linking_target",
@@ -19084,6 +19425,11 @@
           "falcoName": "business_tools_session_id",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
         }
       },
       "id": 2216,
@@ -19117,6 +19463,11 @@
           "falcoName": "business_tools_session_id",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
         }
       },
       "id": 2220,
@@ -19135,6 +19486,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_business_unmute",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "muteeId": {
           "falcoName": "mutee_id",
           "id": 1,
@@ -19168,6 +19524,11 @@
           "falcoName": "cadmin_demote_result",
           "id": 2,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
         },
         "isLastCadminOrCreator": {
           "falcoName": "is_last_cadmin_or_creator",
@@ -22816,6 +23177,11 @@
           "falcoName": "dropped_net_event_count",
           "id": 2005,
           "type": "integer"
+        },
+        "dsmDurationT": {
+          "falcoName": "dsm_duration_t",
+          "id": 3170,
+          "type": "timer"
         },
         "dtlsConnectionSetupT": {
           "falcoName": "dtls_connection_setup_t",
@@ -33129,6 +33495,11 @@
           "id": 4,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
+        },
         "genaiBots": {
           "falcoName": "genai_bots",
           "id": 11,
@@ -33223,6 +33594,11 @@
           "id": 7,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "isWaitingRoomEnabled": {
           "falcoName": "is_waiting_room_enabled",
           "id": 10,
@@ -33275,6 +33651,11 @@
           "falcoName": "call_random_id",
           "id": 3,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
         },
         "isCallConnected": {
           "falcoName": "is_call_connected",
@@ -33387,6 +33768,11 @@
           "id": 10,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "deviceId": {
           "falcoName": "device_id",
           "id": 5,
@@ -33442,6 +33828,11 @@
         "canonicalEntSequenceNumberSinceLastRegistration": {
           "falcoName": "canonical_ent_sequence_number_since_last_registration",
           "id": 7,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
           "type": "integer"
         },
         "deviceId": {
@@ -33522,6 +33913,11 @@
           "falcoName": "collection_index",
           "id": 15,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 25,
+          "type": "integer"
         },
         "deepLinkOpenFrom": {
           "enum": "DEEP_LINK_OPEN_FROM",
@@ -33623,6 +34019,11 @@
           "id": 2,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "leafCertCommonName": {
           "falcoName": "leaf_cert_common_name",
           "id": 3,
@@ -33690,6 +34091,11 @@
         "channelAdminSessionId": {
           "falcoName": "channel_admin_session_id",
           "id": 4,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
           "type": "integer"
         },
         "unifiedSessionId": {
@@ -33784,6 +34190,11 @@
           "falcoName": "core_event_trigger",
           "id": 21,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 22,
+          "type": "integer"
         },
         "directoryChannelIndex": {
           "falcoName": "directory_channel_index",
@@ -33902,6 +34313,11 @@
           "id": 8,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
+        },
         "impReason": {
           "enum": "CHANNEL_DIRECTORY_IMP_REASON",
           "falcoName": "imp_reason",
@@ -33992,6 +34408,11 @@
           "id": 7,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 21,
+          "type": "integer"
+        },
         "discoverySurface": {
           "enum": "TS_SURFACE",
           "falcoName": "discovery_surface",
@@ -34052,6 +34473,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "unifiedSessionId": {
           "falcoName": "unified_session_id",
           "id": 2,
@@ -34102,6 +34528,11 @@
           "id": 3,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "unifiedSessionId": {
           "falcoName": "unified_session_id",
           "id": 5,
@@ -34139,6 +34570,11 @@
           "falcoName": "cid",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
         },
         "unifiedSessionId": {
           "falcoName": "unified_session_id",
@@ -34192,6 +34628,11 @@
           "falcoName": "contains_music",
           "id": 9,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
         },
         "isOriginalAuthor": {
           "falcoName": "is_original_author",
@@ -34282,6 +34723,11 @@
           "falcoName": "cid",
           "id": 6,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 22,
+          "type": "integer"
         },
         "deeplinkSource": {
           "enum": "DEEPLINK_SOURCE",
@@ -34431,6 +34877,11 @@
           "id": 6,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "producerInsightsSessionId": {
           "falcoName": "producer_insights_session_id",
           "id": 7,
@@ -34479,6 +34930,11 @@
           "falcoName": "cid",
           "id": 3,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "similarChannelDisplayRank": {
           "falcoName": "similar_channel_display_rank",
@@ -34548,6 +35004,11 @@
           "falcoName": "cid",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
         },
         "finishCount": {
           "falcoName": "finish_count",
@@ -34651,6 +35112,11 @@
           "falcoName": "chat_action_type",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
         }
       },
       "id": 2312,
@@ -34674,6 +35140,11 @@
           "falcoName": "chat_type",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
         },
         "exportDateRangeUsed": {
           "falcoName": "export_date_range_used",
@@ -34744,6 +35215,11 @@
           "falcoName": "activity_session_id",
           "id": 6,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
         },
         "filterType": {
           "enum": "CHAT_FILTER_TYPES",
@@ -34836,6 +35312,11 @@
           "id": 2,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "folderType": {
           "falcoName": "folder_type",
           "id": 1,
@@ -34872,6 +35353,11 @@
           "falcoName": "chat_themes_enabled",
           "id": 2,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
         }
       },
       "id": 5284,
@@ -34917,6 +35403,11 @@
           "falcoName": "chat_lock_is_group",
           "id": 2,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         }
       },
       "id": 4212,
@@ -34935,6 +35426,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_chat_lock_daily",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "folderChatsCount": {
           "falcoName": "folder_chats_count",
           "id": 1,
@@ -35211,6 +35707,11 @@
         "commerceMsgsSent": {
           "falcoName": "commerce_msgs_sent",
           "id": 40,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 265,
           "type": "integer"
         },
         "deviceLanguage": {
@@ -36244,6 +36745,11 @@
           "id": 5,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "muteChatType": {
           "enum": "MUTE_CHAT_TYPE",
           "falcoName": "mute_chat_type",
@@ -36289,6 +36795,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_chat_psa_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "messageMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "message_media_type",
@@ -36328,6 +36839,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_chat_psa_read",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "messageMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "message_media_type",
@@ -36367,6 +36883,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_chat_psa_remove",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "lastReceivedMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "last_received_media_type",
@@ -36462,6 +36983,11 @@
           "id": 6,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "wallpaperId": {
           "falcoName": "wallpaper_id",
           "id": 7,
@@ -36516,6 +37042,11 @@
           "falcoName": "color_scheme_id",
           "id": 8,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
         },
         "threadId": {
           "falcoName": "thread_id",
@@ -36576,6 +37107,11 @@
           "falcoName": "chat_wallpaper_visit",
           "id": 4,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         }
       },
       "id": 5264,
@@ -36763,6 +37299,11 @@
           "falcoName": "community_id",
           "id": 6,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
         }
       },
       "id": 3492,
@@ -36797,6 +37338,11 @@
           "falcoName": "community_ui_feature",
           "id": 3,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
         }
       },
       "id": 3696,
@@ -36838,6 +37384,11 @@
         "communityHomeViews": {
           "falcoName": "community_home_views",
           "id": 5,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
           "type": "integer"
         }
       },
@@ -36881,6 +37432,11 @@
           "falcoName": "community_tab_views_via_context_menu",
           "id": 5,
           "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         }
       },
       "id": 3496,
@@ -36899,6 +37455,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_companion_email_invite_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "webcEmailInviteAction": {
           "enum": "WEBC_EMAIL_INVITE_ACTION_TYPE",
           "falcoName": "webc_email_invite_action",
@@ -36975,6 +37536,11 @@
           "falcoName": "companion_valid_invite_code",
           "id": 7,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
         }
       },
       "id": 8230,
@@ -37077,6 +37643,11 @@
           "falcoName": "companion_whatsapp_contact_status",
           "id": 16,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
         }
       },
       "id": 5718,
@@ -37178,6 +37749,11 @@
           "id": 2,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "groupSize": {
           "falcoName": "group_size",
           "id": 3,
@@ -37212,6 +37788,11 @@
           "id": 5,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "isSearchTargetBusiness": {
           "falcoName": "is_search_target_business",
           "id": 6,
@@ -37221,6 +37802,12 @@
           "falcoName": "is_username_search",
           "id": 1,
           "type": "boolean"
+        },
+        "keyEntryErrorType": {
+          "enum": "KEY_ENTRY_ERROR_TYPE",
+          "falcoName": "key_entry_error_type",
+          "id": 8,
+          "type": "enum"
         },
         "searchActionName": {
           "enum": "SEARCH_ACTION_NAME",
@@ -37450,6 +38037,11 @@
           "falcoName": "contact_sync_type_is_snapshot",
           "id": 32,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 41,
+          "type": "integer"
         }
       },
       "id": 1006,
@@ -37513,6 +38105,11 @@
           "falcoName": "contact_us_t",
           "id": 11,
           "type": "timer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 23,
+          "type": "integer"
         },
         "languageCode": {
           "falcoName": "language_code",
@@ -37615,6 +38212,11 @@
           "id": 6,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 37,
+          "type": "integer"
+        },
         "iphoneProcessNonGlobal": {
           "enum": "IPHONE_PROCESS_NON_GLOBAL",
           "falcoName": "iphone_process_non_global",
@@ -37701,6 +38303,11 @@
           "falcoName": "debug",
           "id": 3,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
         },
         "extraDebug": {
           "falcoName": "extra_debug",
@@ -37865,6 +38472,11 @@
           "id": 10,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
+        },
         "threadIdHmac": {
           "falcoName": "thread_id_hmac",
           "id": 11,
@@ -37937,6 +38549,11 @@
           "falcoName": "ctwa_tracking_payload",
           "id": 6,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
         }
       },
       "id": 5138,
@@ -38033,6 +38650,11 @@
           "falcoName": "ctwa_ad_account_type",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "extraAttributes": {
           "falcoName": "extra_attributes",
@@ -38142,6 +38764,11 @@
           "falcoName": "ctwa_biz_user_journey_operation",
           "id": 2,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
         }
       },
       "id": 5992,
@@ -38244,6 +38871,11 @@
           "id": 10,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
+        },
         "deepLinkConversionData": {
           "falcoName": "deep_link_conversion_data",
           "id": 4,
@@ -38301,6 +38933,11 @@
           "falcoName": "customer_ads_sharing_setting_enabled",
           "id": 11,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
         },
         "deepLinkConversionData": {
           "falcoName": "deep_link_conversion_data",
@@ -38569,6 +39206,11 @@
         "dbAddressbookTableSize": {
           "falcoName": "db_addressbook_table_size",
           "id": 206,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 263,
           "type": "integer"
         },
         "defaultAfterReadDuration": {
@@ -39270,6 +39912,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_deep_link_click",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "deepLinkHasPhoneNumber": {
           "falcoName": "deep_link_has_phone_number",
           "id": 2,
@@ -39317,6 +39964,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_deep_link_msg_sent",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "deepLinkAction": {
           "enum": "DEEP_LINK_ACTION",
           "falcoName": "deep_link_action",
@@ -39349,6 +40001,11 @@
           "falcoName": "campaign",
           "id": 8,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
         },
         "deepLinkOpenFrom": {
           "enum": "DEEP_LINK_OPEN_FROM",
@@ -39411,6 +40068,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "defenseModeClickAccepted": {
           "falcoName": "defense_mode_click_accepted",
           "id": 2,
@@ -39439,6 +40101,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_defense_mode_quarantine",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "defenseModeQuarantineEventCount": {
           "falcoName": "defense_mode_quarantine_event_count",
           "id": 2,
@@ -39478,6 +40145,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_dialog_event",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "dialogEventSource": {
           "falcoName": "dialog_event_source",
           "id": 1,
@@ -39515,6 +40187,11 @@
         "chatsSelected": {
           "falcoName": "chats_selected",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
           "type": "integer"
         },
         "dmChatPickerEntryPoint": {
@@ -39579,6 +40256,11 @@
         "chatEphemeralityDuration": {
           "falcoName": "chat_ephemerality_duration",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
           "type": "integer"
         },
         "isAGroup": {
@@ -39672,6 +40354,11 @@
           "id": 5,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "disappearingModeEntryPoint": {
           "enum": "DISAPPEARING_MODE_ENTRY_POINT_TYPE",
           "falcoName": "disappearing_mode_entry_point",
@@ -39731,6 +40418,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_disappearing_mode_setting_events",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "disappearingModeEntryPoint": {
           "enum": "DISAPPEARING_MODE_ENTRY_POINT_TYPE",
           "falcoName": "disappearing_mode_entry_point",
@@ -39780,6 +40472,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_dyi_report_download",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "dyiDownloadErrorMessage": {
           "falcoName": "dyi_download_error_message",
           "id": 3,
@@ -39813,6 +40510,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_dyi_report_request",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "dyiReportType": {
           "enum": "DYI_REPORT_TYPE_CODE",
           "falcoName": "dyi_report_type",
@@ -39863,6 +40565,11 @@
           "falcoName": "bot_type",
           "id": 19,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 33,
+          "type": "integer"
         },
         "e2eCiphertextType": {
           "enum": "E2E_CIPHERTEXT_TYPE",
@@ -39971,6 +40678,12 @@
           "id": 9,
           "type": "boolean"
         },
+        "pqReceiveGateState": {
+          "enum": "PQ_RECEIVE_GATE_STATE",
+          "falcoName": "pq_receive_gate_state",
+          "id": 34,
+          "type": "enum"
+        },
         "processingDeferred": {
           "falcoName": "processing_deferred",
           "id": 29,
@@ -40056,6 +40769,11 @@
           "falcoName": "bot_type",
           "id": 17,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 29,
+          "type": "integer"
         },
         "e2eBackfill": {
           "falcoName": "e2e_backfill",
@@ -40220,6 +40938,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_e2e_retry_reject",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "e2eSenderType": {
           "enum": "E2E_DEVICE_TYPE",
           "falcoName": "e2e_sender_type",
@@ -40317,6 +41040,11 @@
           "id": 10,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "editBusinessProfileSessionId": {
           "falcoName": "edit_business_profile_session_id",
           "id": 2,
@@ -40396,6 +41124,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_edit_message_send",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "editDuration": {
           "falcoName": "edit_duration",
           "id": 1,
@@ -40462,6 +41195,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ephemeral_out_of_sync_info",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "groupSizeBucket": {
           "enum": "CLIENT_GROUP_SIZE_BUCKET",
           "falcoName": "group_size_bucket",
@@ -40528,6 +41266,11 @@
         "chatEphemeralityDuration": {
           "falcoName": "chat_ephemerality_duration",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
           "type": "integer"
         },
         "ephemeralSettingEntryPoint": {
@@ -40617,6 +41360,11 @@
           "falcoName": "client_ephemerality_trigger_action",
           "id": 5,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
         },
         "esrDisappearingModeInitiator": {
           "enum": "DISAPPEARING_CHAT_INITIATOR_TYPE",
@@ -40712,6 +41460,11 @@
           "falcoName": "client_ephemerality_trigger_action",
           "id": 5,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 21,
+          "type": "integer"
         },
         "esrDisappearingModeInitiator": {
           "enum": "DISAPPEARING_CHAT_INITIATOR_TYPE",
@@ -41056,6 +41809,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "forwardActionUserJourneyAction": {
           "enum": "FORWARD_ACTION_USER_JOURNEY_ACTION",
           "falcoName": "forward_action_user_journey_action",
@@ -41128,6 +41886,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_forward_send",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 29,
+          "type": "integer"
+        },
         "disappearingChatInitiator": {
           "enum": "DISAPPEARING_CHAT_INITIATOR_TYPE",
           "falcoName": "disappearing_chat_initiator",
@@ -41290,6 +42053,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_fs_api_signup_flow",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "signupEntryPoint": {
           "enum": "SIGNUP_ENTRY_POINT",
           "falcoName": "signup_entry_point",
@@ -41341,6 +42109,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "selfInitiated": {
           "falcoName": "self_initiated",
           "id": 2,
@@ -41368,6 +42141,11 @@
           "falcoName": "chat_gated_reason",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
         }
       },
       "id": 3152,
@@ -41386,6 +42164,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_gif_from_provider_sent",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "gifSearchProvider": {
           "enum": "GIF_SEARCH_PROVIDER",
           "falcoName": "gif_search_provider",
@@ -41409,6 +42192,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_gif_search_cancelled",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "gifSearchProvider": {
           "enum": "GIF_SEARCH_PROVIDER",
           "falcoName": "gif_search_provider",
@@ -41432,6 +42220,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_gif_search_no_results",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "gifSearchProvider": {
           "enum": "GIF_SEARCH_PROVIDER",
           "falcoName": "gif_search_provider",
@@ -41465,6 +42258,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_gif_search_result_tapped",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "gifSearchProvider": {
           "enum": "GIF_SEARCH_PROVIDER",
           "falcoName": "gif_search_provider",
@@ -41493,6 +42291,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_gif_search_session_started",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "gifSearchProvider": {
           "enum": "GIF_SEARCH_PROVIDER",
           "falcoName": "gif_search_provider",
@@ -41571,6 +42374,11 @@
           "id": 2,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "groupBulkRemovalAction": {
           "enum": "GROUP_BULK_REMOVAL_ACTION",
           "falcoName": "group_bulk_removal_action",
@@ -41605,6 +42413,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_catch_up",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "mentionsCountPendingPercentage": {
           "falcoName": "mentions_count_pending_percentage",
           "id": 4,
@@ -41627,6 +42440,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_create",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "ephemeralityDuration": {
           "falcoName": "ephemerality_duration",
           "id": 2,
@@ -41659,7 +42477,13 @@
       "conditions": [],
       "emittedByWorker": false,
       "falcoName": "wam_group_create_c",
-      "fields": {},
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 1,
+          "type": "integer"
+        }
+      },
       "id": 156,
       "module": "WAWebGroupCreateCWamEvent",
       "privateStatsIdInt": null,
@@ -41676,6 +42500,16 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_history_receiver_user_journey",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
+        "groupHistoryBundleApplyDurationMs": {
+          "falcoName": "group_history_bundle_apply_duration_ms",
+          "id": 16,
+          "type": "integer"
+        },
         "groupHistoryDbIgnoredOlderMessages": {
           "falcoName": "group_history_db_ignored_older_messages",
           "id": 9,
@@ -41776,6 +42610,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 22,
+          "type": "integer"
+        },
         "groupAddMemberEntryPoint": {
           "enum": "ADD_MEMBERS_ENTRYPOINT_TYPE",
           "falcoName": "group_add_member_entry_point",
@@ -41787,6 +42626,16 @@
           "falcoName": "group_create_entry_point",
           "id": 20,
           "type": "enum"
+        },
+        "groupHistoryBundleBuildDurationMs": {
+          "falcoName": "group_history_bundle_build_duration_ms",
+          "id": 23,
+          "type": "integer"
+        },
+        "groupHistoryBundleDeflatedBytes": {
+          "falcoName": "group_history_bundle_deflated_bytes",
+          "id": 24,
+          "type": "integer"
         },
         "groupHistoryMessagesCount": {
           "falcoName": "group_history_messages_count",
@@ -41813,6 +42662,12 @@
           "enum": "GROUP_HISTORY_SYSTEM_MESSAGE_TYPE",
           "falcoName": "group_history_system_message_type",
           "id": 6,
+          "type": "enum"
+        },
+        "groupHistoryToggleMode": {
+          "enum": "GROUP_HISTORY_TOGGLE_MODE",
+          "falcoName": "group_history_toggle_mode",
+          "id": 25,
           "type": "enum"
         },
         "groupHistoryUncountedMessagesCount": {
@@ -41850,6 +42705,26 @@
           "falcoName": "recipient_count",
           "id": 10,
           "type": "integer"
+        },
+        "toggleAdminActivated": {
+          "falcoName": "toggle_admin_activated",
+          "id": 26,
+          "type": "boolean"
+        },
+        "toggleDefaultOn": {
+          "falcoName": "toggle_default_on",
+          "id": 27,
+          "type": "boolean"
+        },
+        "togglePerGroupUsageActivated": {
+          "falcoName": "toggle_per_group_usage_activated",
+          "id": 28,
+          "type": "boolean"
+        },
+        "toggleUserActivated": {
+          "falcoName": "toggle_user_activated",
+          "id": 29,
+          "type": "boolean"
         },
         "uiSurface": {
           "enum": "TS_SURFACE",
@@ -41893,7 +42768,13 @@
       "conditions": [],
       "emittedByWorker": true,
       "falcoName": "wam_group_join_c",
-      "fields": {},
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 1,
+          "type": "integer"
+        }
+      },
       "id": 158,
       "module": "WAWebGroupJoinCWamEvent",
       "privateStatsIdInt": null,
@@ -41920,6 +42801,11 @@
           "falcoName": "app_session_id",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
         },
         "groupSize": {
           "falcoName": "group_size",
@@ -41982,6 +42868,11 @@
           "falcoName": "bundle_send_source",
           "id": 20,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 31,
+          "type": "integer"
         },
         "frequentlyContactedIndex": {
           "falcoName": "frequently_contacted_index",
@@ -42135,6 +43026,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_member_tag_update",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "groupId": {
           "falcoName": "group_id",
           "id": 1,
@@ -42190,6 +43086,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_member_updates",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "fetchedMessageCount": {
           "falcoName": "fetched_message_count",
           "id": 1,
@@ -42234,6 +43135,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_profile_picture",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "groupCreationDs": {
           "falcoName": "group_creation_ds",
           "id": 1,
@@ -42284,6 +43190,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_group_suspension_appeal_events",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "groupJid": {
           "falcoName": "group_jid",
           "id": 5,
@@ -42340,6 +43251,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_guest_upsell_interaction",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "guestUpsellAction": {
           "enum": "GUEST_UPSELL_ACTION_TYPE",
           "falcoName": "guest_upsell_action",
@@ -42373,6 +43289,11 @@
           "falcoName": "ai_session_id",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
         },
         "hatchActionType": {
           "enum": "HATCH_ACTION_TYPE",
@@ -42432,7 +43353,13 @@
       "conditions": [],
       "emittedByWorker": false,
       "falcoName": "wam_hfm_text_search_complete",
-      "fields": {},
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 1,
+          "type": "integer"
+        }
+      },
       "id": 2186,
       "module": "WAWebHfmTextSearchCompleteWamEvent",
       "privateStatsIdInt": null,
@@ -42453,6 +43380,21 @@
           "falcoName": "ai_session_id",
           "id": 14,
           "type": "string"
+        },
+        "aiSubSessionId": {
+          "falcoName": "ai_sub_session_id",
+          "id": 25,
+          "type": "string"
+        },
+        "componentId": {
+          "falcoName": "component_id",
+          "id": 24,
+          "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 19,
+          "type": "integer"
         },
         "imagineAction": {
           "enum": "IMAGINE_ACTION",
@@ -42489,6 +43431,12 @@
           "id": 5,
           "type": "enum"
         },
+        "imagineBlockReason": {
+          "enum": "IMAGINE_BLOCK_REASON",
+          "falcoName": "imagine_block_reason",
+          "id": 20,
+          "type": "enum"
+        },
         "imagineMediaType": {
           "enum": "IMAGINE_MEDIA_TYPE",
           "falcoName": "imagine_media_type",
@@ -42511,6 +43459,11 @@
           "id": 7,
           "type": "boolean"
         },
+        "isSuggestedPrompt": {
+          "falcoName": "is_suggested_prompt",
+          "id": 21,
+          "type": "boolean"
+        },
         "maxIndex": {
           "falcoName": "max_index",
           "id": 9,
@@ -42524,6 +43477,16 @@
         "selectedImageIndex": {
           "falcoName": "selected_image_index",
           "id": 10,
+          "type": "integer"
+        },
+        "suggestedPromptIndex": {
+          "falcoName": "suggested_prompt_index",
+          "id": 22,
+          "type": "integer"
+        },
+        "suggestionCount": {
+          "falcoName": "suggestion_count",
+          "id": 23,
           "type": "integer"
         },
         "textModality": {
@@ -42570,6 +43533,11 @@
           "falcoName": "bot_type",
           "id": 14,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 25,
+          "type": "integer"
         },
         "e2eCiphertextType": {
           "enum": "E2E_CIPHERTEXT_TYPE",
@@ -42711,6 +43679,11 @@
           "id": 14,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
+        },
         "inlineVideoCancelBeforePlayStateT": {
           "falcoName": "inline_video_cancel_before_play_state_t",
           "id": 7,
@@ -42832,6 +43805,11 @@
           "falcoName": "call_side",
           "id": 41,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 57,
+          "type": "integer"
         },
         "groupAcceptNoCriticalGroupUpdate": {
           "falcoName": "group_accept_no_critical_group_update",
@@ -43098,6 +44076,11 @@
           "id": 7,
           "type": "boolean"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "isAGroup": {
           "falcoName": "is_a_group",
           "id": 2,
@@ -43142,6 +44125,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_keep_in_chat_notif",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "kicGroupNotificationTaps": {
           "falcoName": "kic_group_notification_taps",
           "id": 3,
@@ -43184,6 +44172,11 @@
           "id": 1,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "kicNuxActionName": {
           "enum": "KIC_NUX_ACTION_NAME_TYPE",
           "falcoName": "kic_nux_action_name",
@@ -43221,6 +44214,11 @@
         "chatEphemeralityDuration": {
           "falcoName": "chat_ephemerality_duration",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
           "type": "integer"
         },
         "kicErrorCode": {
@@ -43282,6 +44280,11 @@
           "falcoName": "custom_label_title",
           "id": 9,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 21,
+          "type": "integer"
         },
         "entryPointConversionSource": {
           "falcoName": "entry_point_conversion_source",
@@ -43400,6 +44403,11 @@
           "id": 10,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
+        },
         "fakeLidCount": {
           "falcoName": "fake_lid_count",
           "id": 3,
@@ -43483,6 +44491,11 @@
           "falcoName": "completed_migrations",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 24,
+          "type": "integer"
         },
         "lidMigrationSource": {
           "enum": "LID_MIGRATION_SOURCE_TYPE",
@@ -43612,6 +44625,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_limit_sharing_setting_update",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "opusAction": {
           "enum": "OPUS_ACTION",
           "falcoName": "opus_action",
@@ -43646,6 +44664,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_list_update",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
+        },
         "groupsAdded": {
           "falcoName": "groups_added",
           "id": 9,
@@ -43672,6 +44695,16 @@
           "falcoName": "list_type",
           "id": 3,
           "type": "enum"
+        },
+        "mentionsAndRepliesCacheBuildChatCount": {
+          "falcoName": "mentions_and_replies_cache_build_chat_count",
+          "id": 14,
+          "type": "integer"
+        },
+        "mentionsAndRepliesCacheBuildDurationMs": {
+          "falcoName": "mentions_and_replies_cache_build_duration_ms",
+          "id": 15,
+          "type": "integer"
         },
         "predefinedId": {
           "falcoName": "predefined_id",
@@ -43721,6 +44754,11 @@
           "id": 7,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "listAction": {
           "enum": "LIST_ACTION",
           "falcoName": "list_action",
@@ -43743,6 +44781,11 @@
           "falcoName": "list_update_user_journey_action",
           "id": 4,
           "type": "enum"
+        },
+        "mentionsAndRepliesFilterChatCount": {
+          "falcoName": "mentions_and_replies_filter_chat_count",
+          "id": 12,
+          "type": "integer"
         },
         "predefinedId": {
           "falcoName": "predefined_id",
@@ -43787,6 +44830,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_lock_folder_unlock",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "landingSurface": {
           "enum": "LANDING_SURFACE",
           "falcoName": "landing_surface",
@@ -43853,6 +44901,11 @@
           "falcoName": "connection_t",
           "id": 5,
           "type": "timer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 30,
+          "type": "integer"
         },
         "dnsResolutionMethod": {
           "enum": "DNS_RESOLUTION_METHOD_TYPE",
@@ -44012,6 +45065,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "itemsCount": {
           "falcoName": "items_count",
           "id": 7,
@@ -44091,6 +45149,11 @@
           "falcoName": "catalog_session_id",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 20,
+          "type": "integer"
         },
         "itemsCount": {
           "falcoName": "items_count",
@@ -44234,6 +45297,11 @@
           "falcoName": "ctwa_login_type",
           "id": 59,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 68,
+          "type": "integer"
         },
         "defaultAdsContentSelected": {
           "enum": "LWI_ADS_CONTENT_TYPE",
@@ -44531,6 +45599,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_manage_ads_entry_point_impression",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "manageAdsEntryPoint": {
           "enum": "MANAGE_ADS_ENTRY_POINT",
           "falcoName": "manage_ads_entry_point",
@@ -44623,6 +45696,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_md_app_state_dirty_bits",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "dirtyBitsFalsePositive": {
           "falcoName": "dirty_bits_false_positive",
           "id": 2,
@@ -44654,6 +45732,11 @@
           "falcoName": "companion_session_ids",
           "id": 3,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
         },
         "mdAppStateKeyRotationReason": {
           "enum": "MD_APP_STATE_KEY_ROTATION_REASON_CODE",
@@ -44707,6 +45790,11 @@
           "falcoName": "additional_messages_count",
           "id": 1,
           "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
         }
       },
       "id": 2522,
@@ -44725,6 +45813,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_md_app_state_offline_notifications",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "redundantCount": {
           "falcoName": "redundant_count",
           "id": 1,
@@ -44750,6 +45843,11 @@
         "crossIndexConflictCount": {
           "falcoName": "cross_index_conflict_count",
           "id": 11,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
           "type": "integer"
         },
         "invalidActionCount": {
@@ -44861,6 +45959,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_md_bad_device_sent_message",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "dsmError": {
           "enum": "DSM_ERROR",
           "falcoName": "dsm_error",
@@ -44937,6 +46040,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "mdBootstrapPayloadType": {
           "enum": "MD_BOOTSTRAP_PAYLOAD_TYPE",
           "falcoName": "md_bootstrap_payload_type",
@@ -44990,6 +46098,11 @@
           "falcoName": "application_state",
           "id": 13,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 18,
+          "type": "integer"
         },
         "historySyncRetryRequestId": {
           "falcoName": "history_sync_retry_request_id",
@@ -45107,6 +46220,11 @@
           "falcoName": "collection",
           "id": 5,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 27,
+          "type": "integer"
         },
         "gkContext": {
           "falcoName": "gk_context",
@@ -45245,6 +46363,11 @@
           "id": 17,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 22,
+          "type": "integer"
+        },
         "historySyncChunkOrder": {
           "falcoName": "history_sync_chunk_order",
           "id": 15,
@@ -45355,6 +46478,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_md_bootstrap_history_data_received",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "historySyncChunkOrder": {
           "falcoName": "history_sync_chunk_order",
           "id": 6,
@@ -45414,6 +46542,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_md_bootstrap_history_data_start_downloading",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "historySyncChunkOrder": {
           "falcoName": "history_sync_chunk_order",
           "id": 1,
@@ -45483,6 +46616,11 @@
           "falcoName": "active_time_after_pairing",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "isLoopRunning": {
           "falcoName": "is_loop_running",
@@ -45610,6 +46748,11 @@
           "falcoName": "chats_cnt",
           "id": 10,
           "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
         }
       },
       "id": 3752,
@@ -45628,6 +46771,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_md_chat_assignment_secondary_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "mdChatAssignmentSecondaryActionAgentId": {
           "falcoName": "md_chat_assignment_secondary_action_agent_id",
           "id": 1,
@@ -45696,6 +46844,11 @@
           "id": 2,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "mdCriticalEventCode": {
           "enum": "MD_SYNCD_CRITICAL_EVENT_CODE",
           "falcoName": "md_critical_event_code",
@@ -45739,6 +46892,11 @@
           "falcoName": "chat_type",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
         },
         "encryptionType": {
           "enum": "ENCRYPTION_TYPE_CODE",
@@ -45810,6 +46968,11 @@
         "companionMdId": {
           "falcoName": "companion_md_id",
           "id": 5,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
           "type": "integer"
         },
         "isCustomAgentName": {
@@ -45894,6 +47057,11 @@
         "daysSinceLastPeriodicSync": {
           "falcoName": "days_since_last_periodic_sync",
           "id": 11,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 52,
           "type": "integer"
         },
         "didBootstrapFromSnapshot": {
@@ -46134,6 +47302,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_md_group_participant_miss_ack",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "groupSizeBucket": {
           "enum": "CLIENT_GROUP_SIZE_BUCKET",
           "falcoName": "group_size_bucket",
@@ -46183,6 +47356,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_md_label_sync_tracking",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "labelSyncDeviceRole": {
           "enum": "LABEL_SYNC_DEVICE_ROLE_TYPE",
           "falcoName": "label_sync_device_role",
@@ -46270,6 +47448,11 @@
           "id": 12,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
+        },
         "mdCompanionRefHash": {
           "falcoName": "md_companion_ref_hash",
           "id": 10,
@@ -46338,6 +47521,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_md_linked_devices_windows_xdr",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "mdLinkedDevicesWindowsXdrStage": {
           "enum": "MD_LINKED_DEVICES_WINDOWS_XDR_STAGE",
           "falcoName": "md_linked_devices_windows_xdr_stage",
@@ -46387,6 +47575,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_md_retry_from_unknown_device",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "offline": {
           "falcoName": "offline",
           "id": 2,
@@ -46434,6 +47627,11 @@
           "falcoName": "computed_lthash",
           "id": 4,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 18,
+          "type": "integer"
         },
         "expectedMac": {
           "falcoName": "expected_mac",
@@ -46521,6 +47719,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_md_syncd_dogfooding_feature_usage",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "mdSyncdDogfoodingFeature": {
           "enum": "MD_FEATURE_CODE",
           "falcoName": "md_syncd_dogfooding_feature",
@@ -46557,6 +47760,11 @@
         "contentLength": {
           "falcoName": "content_length",
           "id": 3,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
           "type": "integer"
         },
         "isInBootstrap": {
@@ -46649,6 +47857,11 @@
           "falcoName": "companion_session_ids",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
         },
         "isInBootstrap": {
           "falcoName": "is_in_bootstrap",
@@ -46776,6 +47989,11 @@
           "falcoName": "debug_url",
           "id": 23,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 73,
+          "type": "integer"
         },
         "deviceCount": {
           "falcoName": "device_count",
@@ -47100,6 +48318,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "mediaHubAction": {
           "enum": "ACTION_CODE",
           "falcoName": "media_hub_action",
@@ -47173,6 +48396,11 @@
         "chatRecipients": {
           "falcoName": "chat_recipients",
           "id": 16,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 56,
           "type": "integer"
         },
         "hasCollectionCaption": {
@@ -47432,6 +48660,11 @@
           "id": 5,
           "type": "number"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 20,
+          "type": "integer"
+        },
         "didPlay": {
           "falcoName": "did_play",
           "id": 15,
@@ -47572,6 +48805,11 @@
           "falcoName": "debug_url",
           "id": 33,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 65,
+          "type": "integer"
         },
         "estimatedBandwidth": {
           "falcoName": "estimated_bandwidth",
@@ -47888,6 +49126,11 @@
           "id": 15,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
+        },
         "hasVerifiedNumber": {
           "falcoName": "has_verified_number",
           "id": 7,
@@ -47945,6 +49188,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_mention_picker_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "groupSize": {
           "falcoName": "group_size",
           "id": 1,
@@ -48055,6 +49303,11 @@
           "id": 10,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 23,
+          "type": "integer"
+        },
         "extraAttributes": {
           "falcoName": "extra_attributes",
           "id": 11,
@@ -48112,6 +49365,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_message_capping",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "extraAttributes": {
           "falcoName": "extra_attributes",
           "id": 2,
@@ -48167,6 +49425,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_message_context_menu_actions",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "isAGroup": {
           "falcoName": "is_a_group",
           "id": 1,
@@ -48211,6 +49474,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_message_delete_actions",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "deleteActionType": {
           "enum": "DELETE_ACTION_TYPE",
           "falcoName": "delete_action_type",
@@ -48265,6 +49533,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_message_high_retry_count",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
+        },
         "deviceSizeBucket": {
           "enum": "SIZE_BUCKET",
           "falcoName": "device_size_bucket",
@@ -48376,6 +49649,11 @@
           "falcoName": "chat_origins",
           "id": 38,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 68,
+          "type": "integer"
         },
         "deviceCount": {
           "falcoName": "device_count",
@@ -48715,6 +49993,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_message_secret_errors",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "messageMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "message_media_type",
@@ -48793,6 +50076,11 @@
           "falcoName": "chat_session_id",
           "id": 67,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 98,
+          "type": "integer"
         },
         "deviceCount": {
           "falcoName": "device_count",
@@ -49288,6 +50576,11 @@
           "id": 2,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "favoritesUpdateEntryPoint": {
           "enum": "FAVORITES_UPDATE_ENTRY_POINT",
           "falcoName": "favorites_update_entry_point",
@@ -49325,6 +50618,11 @@
           "falcoName": "app_session_id",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
         },
         "isSelfPin": {
           "falcoName": "is_self_pin",
@@ -49393,6 +50691,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_meta_ai_upsell_cta",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "metaAiUpsellCtaOperation": {
           "enum": "META_AI_UPSELL_CTA_OPERATION_TYPE",
           "falcoName": "meta_ai_upsell_cta_operation",
@@ -49484,6 +50787,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_meta_verified_user_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 23,
+          "type": "integer"
+        },
         "isProfileLocked": {
           "falcoName": "is_profile_locked",
           "id": 16,
@@ -49622,6 +50930,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_mex_event",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
         "isMex": {
           "falcoName": "is_mex",
           "id": 1,
@@ -49694,6 +51007,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_mex_event_v2",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "mexEventV2DurationMs": {
           "falcoName": "mex_event_v2_duration_ms",
           "id": 1,
@@ -49940,6 +51258,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_mm_disclosure_state_fs_event",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "disclosureEventType": {
           "enum": "DISCLOSURE_EVENT_TYPE",
           "falcoName": "disclosure_event_type",
@@ -50294,6 +51617,11 @@
           "id": 20,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 21,
+          "type": "integer"
+        },
         "isCompanionDevice": {
           "falcoName": "is_companion_device",
           "id": 1,
@@ -50592,6 +51920,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_native_contacts_nux_event",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "nativeContactsNuxEntryPoint": {
           "enum": "NATIVE_CONTACTS_NUX_ENTRY_POINT",
           "falcoName": "native_contacts_nux_entry_point",
@@ -50625,6 +51958,11 @@
           "falcoName": "cid",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
         },
         "enforcementInteractionEvent": {
           "enum": "ENFORCEMENT_INTERACTION_EVENT",
@@ -50677,6 +52015,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_non_message_peer_data_media_upload",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "peerDataErrorCount": {
           "falcoName": "peer_data_error_count",
           "id": 1,
@@ -50741,6 +52084,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_non_message_peer_data_operation_response",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "peerDataErrorCount": {
           "falcoName": "peer_data_error_count",
           "id": 1,
@@ -50806,6 +52154,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_non_message_peer_data_request",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "peerDataRequestCount": {
           "falcoName": "peer_data_request_count",
           "id": 1,
@@ -50859,6 +52212,11 @@
           "falcoName": "client_message_id",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
         },
         "isSilenced": {
           "falcoName": "is_silenced",
@@ -50951,6 +52309,11 @@
           "falcoName": "avg_notif_engagement_t",
           "id": 1,
           "type": "timer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 25,
+          "type": "integer"
         },
         "groupSizeBucket": {
           "enum": "CLIENT_GROUP_SIZE_BUCKET",
@@ -51086,6 +52449,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_notification_setting",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 24,
+          "type": "integer"
+        },
         "groupReactionNotification": {
           "falcoName": "group_reaction_notification",
           "id": 1,
@@ -51208,6 +52576,11 @@
           "falcoName": "call_stanza_type",
           "id": 7,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
         },
         "e2eSenderType": {
           "enum": "E2E_DEVICE_TYPE",
@@ -51335,6 +52708,11 @@
         "dbWritesCount": {
           "falcoName": "db_writes_count",
           "id": 44,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 58,
           "type": "integer"
         },
         "disconnected": {
@@ -51591,6 +52969,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 18,
+          "type": "integer"
+        },
         "isResumeInForeground": {
           "falcoName": "is_resume_in_foreground",
           "id": 5,
@@ -51688,6 +53071,11 @@
           "falcoName": "action_category",
           "id": 2,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
         },
         "entryPointConversionSource": {
           "falcoName": "entry_point_conversion_source",
@@ -51978,6 +53366,11 @@
           "id": 7,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 30,
+          "type": "integer"
+        },
         "deltaTime": {
           "falcoName": "delta_time",
           "id": 8,
@@ -52227,6 +53620,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_pathfinder_framework_health",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "pathfinderHealthEventData": {
           "falcoName": "pathfinder_health_event_data",
           "id": 1,
@@ -52271,6 +53669,11 @@
           "falcoName": "custom_payment_methods_sync_status",
           "id": 48,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 53,
+          "type": "integer"
         },
         "eventTsMs": {
           "falcoName": "event_ts_ms",
@@ -52546,6 +53949,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_pin_in_chat_interaction",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "groupRole": {
           "enum": "GROUP_ROLE_TYPE",
           "falcoName": "group_role",
@@ -52618,6 +54026,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_pin_in_chat_message_send",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "groupRole": {
           "enum": "GROUP_ROLE_TYPE",
           "falcoName": "group_role",
@@ -52684,6 +54097,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_pinned_chats",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "pinnedChatNumber": {
           "falcoName": "pinned_chat_number",
           "id": 1,
@@ -52716,6 +54134,11 @@
           "falcoName": "add_to_list_selected",
           "id": 1,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
         },
         "premiumStatus": {
           "enum": "PREMIUM_STATUS_TYPE",
@@ -52750,6 +54173,11 @@
           "falcoName": "bot_type",
           "id": 24,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 26,
+          "type": "integer"
         },
         "deviceCount": {
           "falcoName": "device_count",
@@ -52896,6 +54324,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "mappingMissing": {
           "falcoName": "mapping_missing",
           "id": 7,
@@ -52949,6 +54382,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_pnh_request_reveal_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "pnhAction": {
           "enum": "PNH_ACTION_TYPE",
           "falcoName": "pnh_action",
@@ -53005,6 +54443,11 @@
           "falcoName": "chat_type",
           "id": 8,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "groupSizeBucket": {
           "enum": "CLIENT_GROUP_SIZE_BUCKET",
@@ -53093,6 +54536,11 @@
           "id": 2,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "genaiBots": {
           "falcoName": "genai_bots",
           "id": 11,
@@ -53173,6 +54621,11 @@
           "id": 7,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
         "genaiBots": {
           "falcoName": "genai_bots",
           "id": 14,
@@ -53237,6 +54690,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_prekeys_depletion",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "deviceSizeBucket": {
           "enum": "SIZE_BUCKET",
           "falcoName": "device_size_bucket",
@@ -53272,6 +54730,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_privacy_highlight_daily",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "dialogAppearCount": {
           "falcoName": "dialog_appear_count",
           "id": 1,
@@ -53316,6 +54779,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_privacy_settings_click",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "privacyControlEntryPoint": {
           "enum": "PRIVACY_CONTROL_ENTRY_POINT_TYPE",
           "falcoName": "privacy_control_entry_point",
@@ -53345,6 +54813,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_privacy_tip_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "privacyTipActionType": {
           "enum": "PRIVACY_TIP_ACTION_TYPE",
           "falcoName": "privacy_tip_action_type",
@@ -53368,6 +54841,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_protobuf_validation_error",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "protobufCorrelationOutcome": {
           "enum": "PROTOBUF_CORRELATION_OUTCOME",
           "falcoName": "protobuf_correlation_outcome",
@@ -53492,6 +54970,11 @@
           "falcoName": "application_state",
           "id": 6,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
         },
         "isFromWamsys": {
           "falcoName": "is_from_wamsys",
@@ -53987,6 +55470,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ps_id_update",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "isFromWamsys": {
           "falcoName": "is_from_wamsys",
           "id": 4,
@@ -54194,6 +55682,11 @@
         "audioDriverRestartReason": {
           "falcoName": "audio_driver_restart_reason",
           "id": 53,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 66,
           "type": "integer"
         },
         "deviceAgcState": {
@@ -54483,6 +55976,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ptt_daily",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 52,
+          "type": "integer"
+        },
         "pttCancelBroadcast": {
           "falcoName": "ptt_cancel_broadcast",
           "id": 9,
@@ -54761,6 +56259,11 @@
           "id": 7,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
         "isMetaAiThread": {
           "falcoName": "is_meta_ai_thread",
           "id": 12,
@@ -54849,6 +56352,11 @@
           "falcoName": "audio_stream_type",
           "id": 19,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 29,
+          "type": "integer"
         },
         "messageKeyHash": {
           "falcoName": "message_key_hash",
@@ -55090,6 +56598,11 @@
           "id": 41,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 67,
+          "type": "integer"
+        },
         "entSourceSubplatform": {
           "falcoName": "ent_source_subplatform",
           "id": 40,
@@ -55129,6 +56642,11 @@
         "isBizIntent": {
           "falcoName": "is_biz_intent",
           "id": 37,
+          "type": "boolean"
+        },
+        "isBizMetaVerified": {
+          "falcoName": "is_biz_meta_verified",
+          "id": 68,
           "type": "boolean"
         },
         "isBroadcastMessage": {
@@ -55314,6 +56832,11 @@
           "id": 42,
           "type": "string"
         },
+        "unifiedSessionId": {
+          "falcoName": "unified_session_id",
+          "id": 66,
+          "type": "string"
+        },
         "urlUniqueCountInt": {
           "falcoName": "url_unique_count_int",
           "id": 55,
@@ -55384,6 +56907,11 @@
           "id": 17,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 40,
+          "type": "integer"
+        },
         "deltaTime": {
           "falcoName": "delta_time",
           "id": 4,
@@ -55418,6 +56946,11 @@
         "isBizIntent": {
           "falcoName": "is_biz_intent",
           "id": 13,
+          "type": "boolean"
+        },
+        "isBizMetaVerified": {
+          "falcoName": "is_biz_meta_verified",
+          "id": 41,
           "type": "boolean"
         },
         "isBroadcastMessage": {
@@ -55508,6 +57041,11 @@
           "id": 12,
           "type": "enum"
         },
+        "unifiedSessionId": {
+          "falcoName": "unified_session_id",
+          "id": 39,
+          "type": "string"
+        },
         "urlUniqueCountInt": {
           "falcoName": "url_unique_count_int",
           "id": 30,
@@ -55566,6 +57104,11 @@
           "id": 13,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 36,
+          "type": "integer"
+        },
         "deltaTimeReceived": {
           "falcoName": "delta_time_received",
           "id": 3,
@@ -55574,6 +57117,11 @@
         "entSourceSubplatform": {
           "falcoName": "ent_source_subplatform",
           "id": 12,
+          "type": "string"
+        },
+        "hsmTagStr": {
+          "falcoName": "hsm_tag_str",
+          "id": 37,
           "type": "string"
         },
         "iasEntryPoint": {
@@ -55590,6 +57138,11 @@
         "isBizIntent": {
           "falcoName": "is_biz_intent",
           "id": 10,
+          "type": "boolean"
+        },
+        "isBizMetaVerified": {
+          "falcoName": "is_biz_meta_verified",
+          "id": 38,
           "type": "boolean"
         },
         "isBroadcastMessage": {
@@ -55665,6 +57218,12 @@
           "id": 33,
           "type": "enum"
         },
+        "qbmFlag": {
+          "enum": "QBM_FLAG",
+          "falcoName": "qbm_flag",
+          "id": 39,
+          "type": "enum"
+        },
         "submessageFieldJsonArray": {
           "falcoName": "submessage_field_json_array",
           "id": 18,
@@ -55678,6 +57237,11 @@
         "threadLidHmac": {
           "falcoName": "thread_lid_hmac",
           "id": 14,
+          "type": "string"
+        },
+        "unifiedSessionId": {
+          "falcoName": "unified_session_id",
+          "id": 35,
           "type": "string"
         },
         "urlUniqueCountInt": {
@@ -55784,6 +57348,11 @@
           "id": 40,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 64,
+          "type": "integer"
+        },
         "deltaTime": {
           "falcoName": "delta_time",
           "id": 3,
@@ -55818,6 +57387,11 @@
         "isBizIntent": {
           "falcoName": "is_biz_intent",
           "id": 37,
+          "type": "boolean"
+        },
+        "isBizMetaVerified": {
+          "falcoName": "is_biz_meta_verified",
+          "id": 65,
           "type": "boolean"
         },
         "isBroadcastMessage": {
@@ -55995,6 +57569,11 @@
           "id": 36,
           "type": "enum"
         },
+        "unifiedSessionId": {
+          "falcoName": "unified_session_id",
+          "id": 63,
+          "type": "string"
+        },
         "urlUniqueCountInt": {
           "falcoName": "url_unique_count_int",
           "id": 54,
@@ -56038,6 +57617,11 @@
           "falcoName": "decision_id",
           "id": 4,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 18,
+          "type": "integer"
         },
         "deltaTime": {
           "falcoName": "delta_time",
@@ -56136,6 +57720,11 @@
         "attachmentVideoCount": {
           "falcoName": "attachment_video_count",
           "id": 6,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 21,
           "type": "integer"
         },
         "isSmartDefault": {
@@ -56252,6 +57841,11 @@
           "id": 12,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "messageMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "message_media_type",
@@ -56335,6 +57929,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_reachout_timelock_enforcement_sheet_info",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "reachoutTimelockAction": {
           "enum": "REACHOUT_TIMELOCK_ACTION",
           "falcoName": "reachout_timelock_action",
@@ -56374,6 +57973,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_reaction_actions",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "mediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "media_type",
@@ -56413,6 +58017,11 @@
           "falcoName": "app_session_id",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "messageHasOwnReaction": {
           "falcoName": "message_has_own_reaction",
@@ -56500,6 +58109,11 @@
         "dbWritesCount": {
           "falcoName": "db_writes_count",
           "id": 13,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
           "type": "integer"
         },
         "mediaType": {
@@ -56593,6 +58207,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_report_to_admin_events",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "reportToAdminInteraction": {
           "enum": "REPORT_TO_ADMIN_INTERACTION",
           "falcoName": "report_to_admin_interaction",
@@ -56621,6 +58240,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_reporting_token_validation_failure",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
         "editType": {
           "enum": "EDIT_TYPE",
           "falcoName": "edit_type",
@@ -56811,6 +58435,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_revoke_message_send",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "messageSendResultIsTerminal": {
           "falcoName": "message_send_result_is_terminal",
           "id": 1,
@@ -56860,6 +58489,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ringtone_screen",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "premiumRingtonesDownloadedCount": {
           "falcoName": "premium_ringtones_downloaded_count",
           "id": 1,
@@ -56913,6 +58547,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_scheduled_message_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "groupRole": {
           "enum": "GROUP_ROLE_TYPE",
           "falcoName": "group_role",
@@ -56985,6 +58624,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_screen_lock_settings_data",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "screenAutoLockDuration": {
           "falcoName": "screen_auto_lock_duration",
           "id": 1,
@@ -57013,6 +58657,11 @@
         "bizSearchCount": {
           "falcoName": "biz_search_count",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
           "type": "integer"
         },
         "resultPageShown": {
@@ -57084,6 +58733,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_search_the_web_funnel",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "imageSearchFailedErrorType": {
           "enum": "IMAGE_SEARCH_FAILED_ERROR_TYPE",
           "falcoName": "image_search_failed_error_type",
@@ -57131,6 +58785,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_search_user_journey",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 35,
+          "type": "integer"
+        },
         "searchDsSendContentType": {
           "enum": "SEARCH_DS_SEND_CONTENT_TYPE",
           "falcoName": "search_ds_send_content_type",
@@ -57327,6 +58986,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_send_document",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "documentExt": {
           "falcoName": "document_ext",
           "id": 3,
@@ -57365,6 +59029,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_send_revoke_message",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "messageMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "message_media_type",
@@ -57405,6 +59074,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "deviceSizeBucket": {
           "enum": "SIZE_BUCKET",
           "falcoName": "device_size_bucket",
@@ -57439,6 +59113,11 @@
           "id": 4,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "previousSettingValue": {
           "falcoName": "previous_setting_value",
           "id": 2,
@@ -57467,6 +59146,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_settings_click",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "isBookmarkAppInstalled": {
           "falcoName": "is_bookmark_app_installed",
           "id": 4,
@@ -57507,6 +59191,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_settings_search_initiate",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "settingsPageType": {
           "enum": "SETTINGS_PAGE_TYPE",
           "falcoName": "settings_page_type",
@@ -57530,6 +59219,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_settings_search_tap",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "tapItemName": {
           "falcoName": "tap_item_name",
           "id": 1,
@@ -57567,6 +59261,11 @@
           "falcoName": "caption_added",
           "id": 12,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 28,
+          "type": "integer"
         },
         "forwardUserJourneyFunnelId": {
           "falcoName": "forward_user_journey_funnel_id",
@@ -57700,6 +59399,11 @@
           "id": 6,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "isFromWameta": {
           "falcoName": "is_from_wameta",
           "id": 8,
@@ -57754,6 +59458,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_smb_data_sharing_consent_screen",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "elapsedTimeMs": {
           "falcoName": "elapsed_time_ms",
           "id": 4,
@@ -57808,6 +59517,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_smb_data_sharing_consent_setting",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "smbDataSharingConsentSettingEntryPoint": {
           "enum": "SMB_DATA_SHARING_CONSENT_SETTING_ENTRY_POINT",
           "falcoName": "smb_data_sharing_consent_setting_entry_point",
@@ -57860,6 +59574,11 @@
           "falcoName": "custom_list_title",
           "id": 1,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 22,
+          "type": "integer"
         },
         "entryPointConversionSource": {
           "falcoName": "entry_point_conversion_source",
@@ -58024,6 +59743,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_smb_per_customer_data_sharing_control",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "smbPerCustomerDataSharingControlAction": {
           "enum": "SMB_PER_CUSTOMER_DATA_SHARING_CONTROL_ACTION",
           "falcoName": "smb_per_customer_data_sharing_control_action",
@@ -58079,6 +59803,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_smb_qp_call_health",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "fetchExceptionMessage": {
           "falcoName": "fetch_exception_message",
           "id": 1,
@@ -58129,6 +59858,11 @@
           "falcoName": "contact_is_saved",
           "id": 2,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 23,
+          "type": "integer"
         },
         "entryPoint": {
           "enum": "ENTRY_POINT",
@@ -58228,6 +59962,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_snackbar_delete_undo",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "isAGroup": {
           "falcoName": "is_a_group",
           "id": 1,
@@ -58293,6 +60032,11 @@
           "falcoName": "crosspost_origin",
           "id": 4,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 18,
+          "type": "integer"
         },
         "defaultStatusPrivacySettings": {
           "enum": "PRIVACY_SETTINGS_VALUE_TYPE",
@@ -58391,6 +60135,11 @@
           "id": 8,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "statusId": {
           "falcoName": "status_id",
           "id": 1,
@@ -58462,6 +60211,11 @@
           "falcoName": "cid",
           "id": 12,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "statusId": {
           "falcoName": "status_id",
@@ -58535,6 +60289,11 @@
           "falcoName": "bytes_downloaded_start_view",
           "id": 47,
           "type": "number"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 59,
+          "type": "integer"
         },
         "estimatedBandwidth": {
           "falcoName": "estimated_bandwidth",
@@ -58821,6 +60580,11 @@
           "id": 15,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
+        },
         "isPosterBiz": {
           "falcoName": "is_poster_biz",
           "id": 9,
@@ -58917,6 +60681,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "pogIndex": {
           "falcoName": "pog_index",
           "id": 2,
@@ -58986,6 +60755,11 @@
           "falcoName": "contains_prompt",
           "id": 19,
           "type": "boolean"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 63,
+          "type": "integer"
         },
         "defaultStatusPrivacySetting": {
           "enum": "PRIVACY_SETTINGS_VALUE_TYPE",
@@ -59330,6 +61104,11 @@
           "id": 48,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 57,
+          "type": "integer"
+        },
         "entryMethod": {
           "enum": "STATUS_VIEW_ENTRY_METHOD",
           "falcoName": "entry_method",
@@ -59616,6 +61395,11 @@
           "id": 36,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 39,
+          "type": "integer"
+        },
         "defaultTrimmedVideoDuration": {
           "falcoName": "default_trimmed_video_duration",
           "id": 26,
@@ -59825,6 +61609,11 @@
           "id": 14,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
+        },
         "lastSuccessfulRankingUpdate": {
           "falcoName": "last_successful_ranking_update",
           "id": 15,
@@ -59907,6 +61696,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_status_reply",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 27,
+          "type": "integer"
+        },
         "isMentioned": {
           "falcoName": "is_mentioned",
           "id": 7,
@@ -60053,6 +61847,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_status_reporting_events",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "statusPosterContactType": {
           "enum": "STATUS_POSTER_CONTACT_TYPE",
           "falcoName": "status_poster_contact_type",
@@ -60082,6 +61881,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_status_revoke",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "mediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "media_type",
@@ -60130,6 +61934,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_status_row_view",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "psaCampaigns": {
           "falcoName": "psa_campaigns",
           "id": 8,
@@ -60210,6 +62019,11 @@
           "id": 3,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "externalSourceDomainType": {
           "enum": "INLINE_VIDEO_TYPE",
           "falcoName": "external_source_domain_type",
@@ -60272,6 +62086,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_add_to_favorite",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "stickerAddToFavoriteOrigin": {
           "enum": "STICKER_ADD_TO_FAVORITE_ORIGIN_TYPE",
           "falcoName": "sticker_add_to_favorite_origin",
@@ -60356,6 +62175,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_common_query_to_static_server",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "httpResponseCode": {
           "falcoName": "http_response_code",
           "id": 2,
@@ -60394,6 +62218,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_error",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "stickerErrorType": {
           "enum": "STICKER_ERROR_TYPE",
           "falcoName": "sticker_error_type",
@@ -60423,6 +62252,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_latency",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "size": {
           "falcoName": "size",
           "id": 1,
@@ -60456,6 +62290,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_picker_opened",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "stickerPickerEntryPoint": {
           "enum": "STICKER_PICKER_ENTRY_POINT",
           "falcoName": "sticker_picker_entry_point",
@@ -60479,6 +62318,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_send",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 16,
+          "type": "integer"
+        },
         "stickerIsAi": {
           "falcoName": "sticker_is_ai",
           "id": 7,
@@ -60574,6 +62418,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_sticker_store_opened",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "stickerStoreOpenedOrigin": {
           "enum": "STICKER_STORE_OPENED_ORIGIN_TYPE",
           "falcoName": "sticker_store_opened_origin",
@@ -60602,6 +62451,11 @@
           "falcoName": "biz_platform",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         },
         "messageClass": {
           "enum": "STRUCTURED_MESSAGE_CLASS",
@@ -60648,6 +62502,11 @@
           "falcoName": "biz_platform",
           "id": 1,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         },
         "messageClass": {
           "enum": "STRUCTURED_MESSAGE_CLASS",
@@ -60771,6 +62630,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_subscription_user_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
+          "type": "integer"
+        },
         "wsuaAction": {
           "enum": "WSUA_ACTION",
           "falcoName": "wsua_action",
@@ -60797,6 +62661,12 @@
           "falcoName": "wsua_benefits_shown",
           "id": 9,
           "type": "string"
+        },
+        "wsuaBlockSource": {
+          "enum": "WSUA_BLOCK_SOURCE",
+          "falcoName": "wsua_block_source",
+          "id": 15,
+          "type": "enum"
         },
         "wsuaEligibleSubscriptions": {
           "falcoName": "wsua_eligible_subscriptions",
@@ -60842,6 +62712,11 @@
           "falcoName": "wsua_tier",
           "id": 12,
           "type": "enum"
+        },
+        "wsuaWaffleLinked": {
+          "falcoName": "wsua_waffle_linked",
+          "id": 16,
+          "type": "boolean"
         }
       },
       "id": 7458,
@@ -60864,6 +62739,11 @@
           "falcoName": "citation_cms_id",
           "id": 5,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
         },
         "supportAiErrorCode": {
           "falcoName": "support_ai_error_code",
@@ -60921,6 +62801,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_syncd_key_count",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "keysUsedInSnapshotCount": {
           "falcoName": "keys_used_in_snapshot_count",
           "id": 1,
@@ -60963,6 +62848,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_system_message_click",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "isAGroup": {
           "falcoName": "is_a_group",
           "id": 1,
@@ -61133,6 +63023,11 @@
           "id": 6,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "textMessageUserJourneyAction": {
           "enum": "TEXT_MESSAGE_USER_JOURNEY_ACTION",
           "falcoName": "text_message_user_journey_action",
@@ -61249,6 +63144,11 @@
           "id": 11,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 30,
+          "type": "integer"
+        },
         "imagineCommandClick": {
           "falcoName": "imagine_command_click",
           "id": 14,
@@ -61263,6 +63163,11 @@
           "falcoName": "imagine_me_prompts_initiated_count",
           "id": 16,
           "type": "integer"
+        },
+        "imagineMediaEdit": {
+          "falcoName": "imagine_media_edit",
+          "id": 31,
+          "type": "boolean"
         },
         "metaAiMentionClick": {
           "falcoName": "meta_ai_mention_click",
@@ -61391,6 +63296,11 @@
         "commerceMsgsSent": {
           "falcoName": "commerce_msgs_sent",
           "id": 8,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 55,
           "type": "integer"
         },
         "entryPointConversionApp": {
@@ -61610,6 +63520,12 @@
       "emittedByWorker": false,
       "falcoName": "wam_thread_interaction_data_core_consumer",
       "fields": {
+        "acpVersion": {
+          "enum": "ACP_VERSION_TYPE",
+          "falcoName": "acp_version",
+          "id": 160,
+          "type": "enum"
+        },
         "afterReadDuration": {
           "falcoName": "after_read_duration",
           "id": 138,
@@ -61690,6 +63606,11 @@
         "commentsReceived": {
           "falcoName": "comments_received",
           "id": 10,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 159,
           "type": "integer"
         },
         "documentMessagesReceived": {
@@ -62234,6 +64155,12 @@
           "id": 109,
           "type": "string"
         },
+        "threadType": {
+          "enum": "THREAD_TYPE",
+          "falcoName": "thread_type",
+          "id": 161,
+          "type": "enum"
+        },
         "tombstoneAiFutureproofedMessagesReceived": {
           "falcoName": "tombstone_ai_futureproofed_messages_received",
           "id": 130,
@@ -62373,6 +64300,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "isBlocked": {
           "falcoName": "is_blocked",
           "id": 2,
@@ -62430,6 +64362,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_thread_interaction_data_notification",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 27,
+          "type": "integer"
+        },
         "groupSizeBucket": {
           "enum": "CLIENT_GROUP_SIZE_BUCKET",
           "falcoName": "group_size_bucket",
@@ -62614,6 +64551,11 @@
           "id": 8,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 17,
+          "type": "integer"
+        },
         "threadCreationDate": {
           "falcoName": "thread_creation_date",
           "id": 16,
@@ -62686,6 +64628,11 @@
           "id": 4,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "relativeTimestampMs": {
           "falcoName": "relative_timestamp_ms",
           "id": 5,
@@ -62728,6 +64675,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ts_external",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "relativeTimestampMs": {
           "falcoName": "relative_timestamp_ms",
           "id": 1,
@@ -62790,6 +64742,11 @@
           "falcoName": "cid",
           "id": 19,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 45,
+          "type": "integer"
         },
         "entryPointConversationInitiated": {
           "enum": "ENTRY_POINT_CONVERSATION_INITIATED",
@@ -63028,6 +64985,11 @@
           "id": 15,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 31,
+          "type": "integer"
+        },
         "deviceCount": {
           "falcoName": "device_count",
           "id": 5,
@@ -63134,6 +65096,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ui_message_yourself_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "uiMessageYourselfActionSessionId": {
           "falcoName": "ui_message_yourself_action_session_id",
           "id": 1,
@@ -63168,6 +65135,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_ui_revoke_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "messageAction": {
           "enum": "UI_REVOKE_ACTION_TYPE",
           "falcoName": "message_action",
@@ -63201,6 +65173,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_unknown_stanza",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "unknownStanzaDropReason": {
           "falcoName": "unknown_stanza_drop_reason",
           "id": 3,
@@ -63241,6 +65218,11 @@
         "channelsFollowedCount": {
           "falcoName": "channels_followed_count",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 14,
           "type": "integer"
         },
         "premiumChannelsFollowedCount": {
@@ -63318,6 +65300,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_user_activity",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "userActivityBitmapHigh": {
           "falcoName": "user_activity_bitmap_high",
           "id": 4,
@@ -63370,6 +65357,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_user_notice",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "noticeTriggeredBy": {
           "enum": "NOTICE_TRIGGERED_BY",
           "falcoName": "notice_triggered_by",
@@ -63420,6 +65412,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_user_notice_error",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "noticeType": {
           "enum": "NOTICE_TYPE",
           "falcoName": "notice_type",
@@ -63459,6 +65456,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_username_creation_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 19,
+          "type": "integer"
+        },
         "eligibleToLink": {
           "falcoName": "eligible_to_link",
           "id": 14,
@@ -63564,6 +65566,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_username_exposed",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "usernameExposureContext": {
           "falcoName": "username_exposure_context",
           "id": 1,
@@ -63589,6 +65596,11 @@
         "clientTsMs": {
           "falcoName": "client_ts_ms",
           "id": 2,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
           "type": "integer"
         },
         "durationInSecs": {
@@ -63659,6 +65671,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_video_transcoder",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 28,
+          "type": "integer"
+        },
         "sourceAudioBitRate": {
           "falcoName": "source_audio_bit_rate",
           "id": 12,
@@ -63837,6 +65854,11 @@
           "id": 6,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
+        },
         "hasCoverPhoto": {
           "falcoName": "has_cover_photo",
           "id": 12,
@@ -63898,6 +65920,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_view_once_screenshot_actions",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "isAGroup": {
           "falcoName": "is_a_group",
           "id": 1,
@@ -63937,6 +65964,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_wa_fs_group_join_request_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "groupJid": {
           "falcoName": "group_jid",
           "id": 1,
@@ -64001,6 +66033,11 @@
           "id": 3,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
+          "type": "integer"
+        },
         "emojiClickCnt": {
           "falcoName": "emoji_click_cnt",
           "id": 4,
@@ -64048,6 +66085,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_wa_old_code",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "deviceId": {
           "falcoName": "device_id",
           "id": 1,
@@ -64070,6 +66112,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_wa_plus_benefit_user_journey",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 12,
+          "type": "integer"
+        },
         "wpbujAction": {
           "enum": "WPBUJ_ACTION",
           "falcoName": "wpbuj_action",
@@ -64149,6 +66196,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_wa_shops_management",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "isShopsProductPreviewVisible": {
           "falcoName": "is_shops_product_preview_visible",
           "id": 2,
@@ -64182,6 +66234,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_waffle_companion_state_lifecycle",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "waffleLifecycleElapsedMs": {
           "falcoName": "waffle_lifecycle_elapsed_ms",
           "id": 1,
@@ -64513,6 +66570,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_web_arkose_token",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "mdClientSessionId": {
           "falcoName": "md_client_session_id",
           "id": 3,
@@ -64545,6 +66607,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_web_contact_list_start_new_chat",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webContactListStartNewChatSearch": {
           "falcoName": "web_contact_list_start_new_chat_search",
           "id": 1,
@@ -64573,6 +66640,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_web_db_load_from_version_failure_non_anonymous",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webDbLoader": {
           "enum": "WEB_DB_LOADER_TYPE",
           "falcoName": "web_db_loader",
@@ -64602,6 +66674,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_web_db_table_usage",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "offlineSessionId": {
           "falcoName": "offline_session_id",
           "id": 1,
@@ -64651,6 +66728,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_web_db_version_non_anonymous",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webDbName": {
           "enum": "WEB_DB_NAME_TYPE",
           "falcoName": "web_db_name",
@@ -64679,6 +66761,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_web_db_versions_source",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webDbVersionSource": {
           "enum": "WEB_DB_VERSION_SOURCE_TYPE",
           "falcoName": "web_db_version_source",
@@ -64707,7 +66794,13 @@
       "conditions": [],
       "emittedByWorker": false,
       "falcoName": "wam_web_dynamic_sampling_test_event_with_sampling",
-      "fields": {},
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 1,
+          "type": "integer"
+        }
+      },
       "id": 5320,
       "module": "WAWebWebDynamicSamplingTestEventWithSamplingWamEvent",
       "privateStatsIdInt": null,
@@ -64723,7 +66816,13 @@
       "conditions": [],
       "emittedByWorker": false,
       "falcoName": "wam_web_dynamic_sampling_test_event_without_sampling",
-      "fields": {},
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 1,
+          "type": "integer"
+        }
+      },
       "id": 5322,
       "module": "WAWebWebDynamicSamplingTestEventWithoutSamplingWamEvent",
       "privateStatsIdInt": null,
@@ -64740,6 +66839,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_web_hd_media_awareness_interaction",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "hdMediaSelected": {
           "falcoName": "hd_media_selected",
           "id": 1,
@@ -64762,6 +66866,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_web_hybrid_app_rate_and_review_prompt_dialog_shown",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "webHybridAppRateAndReviewPromptDialogShownTime": {
           "falcoName": "web_hybrid_app_rate_and_review_prompt_dialog_shown_time",
           "id": 1,
@@ -64795,6 +66904,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_web_hybrid_app_rate_and_review_requested",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "webHybridAppRateAndReviewRequestDialogShownTime": {
           "falcoName": "web_hybrid_app_rate_and_review_request_dialog_shown_time",
           "id": 1,
@@ -64838,7 +66952,13 @@
       "conditions": [],
       "emittedByWorker": false,
       "falcoName": "wam_web_wam_force_flush",
-      "fields": {},
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 1,
+          "type": "integer"
+        }
+      },
       "id": 3264,
       "module": "WAWebWebWamForceFlushWamEvent",
       "privateStatsIdInt": null,
@@ -64855,6 +66975,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_asset_load",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "webcAssetCacheType": {
           "enum": "WEBC_ASSET_CACHE_TYPE_CODE",
           "falcoName": "webc_asset_cache_type",
@@ -64898,6 +67023,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_background_sync_adoption",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "offboardSource": {
           "enum": "OFFBOARD_SOURCES",
           "falcoName": "offboard_source",
@@ -64939,6 +67069,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_butterbar_event",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webcButterbarAction": {
           "enum": "WEBC_BUTTERBAR_ACTION_TYPE",
           "falcoName": "webc_butterbar_action",
@@ -64974,6 +67109,11 @@
           "id": 1,
           "type": "enum"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "noCreated": {
           "falcoName": "no_created",
           "id": 2,
@@ -64996,6 +67136,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_chat_open",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "webcChatOpenBeforePaintT": {
           "falcoName": "webc_chat_open_before_paint_t",
           "id": 7,
@@ -65048,6 +67193,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_webc_db_open",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "webcDbName": {
           "falcoName": "webc_db_name",
           "id": 1,
@@ -65080,6 +67230,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_emoji_open",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcEmojiOpenTab": {
           "falcoName": "webc_emoji_open_tab",
           "id": 1,
@@ -65137,6 +67292,11 @@
           "falcoName": "cpu_make",
           "id": 38,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 55,
+          "type": "integer"
         },
         "deviceMemory": {
           "falcoName": "device_memory",
@@ -65292,6 +67452,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_fts_storage",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "ftsTotalSize": {
           "falcoName": "fts_total_size",
           "id": 1,
@@ -65314,6 +67479,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_img_error",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcImgErrorCode": {
           "falcoName": "webc_img_error_code",
           "id": 1,
@@ -65336,6 +67506,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_webc_job_info",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
         "jobName": {
           "falcoName": "job_name",
           "id": 1,
@@ -65395,6 +67570,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_link_preview_display",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "didFallbackNonHq": {
           "falcoName": "did_fallback_non_hq",
           "id": 2,
@@ -65433,6 +67613,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_webc_link_preview_response_handle",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "didRespondHqPreview": {
           "falcoName": "did_respond_hq_preview",
           "id": 5,
@@ -65470,6 +67655,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_login",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 18,
+          "type": "integer"
+        },
         "webcBrowserNetworkType": {
           "falcoName": "webc_browser_network_type",
           "id": 14,
@@ -65572,6 +67762,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_media_analyzed",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "webcMediaAnalyzeT": {
           "falcoName": "webc_media_analyze_t",
           "id": 3,
@@ -65607,6 +67802,11 @@
         "blurImageCount": {
           "falcoName": "blur_image_count",
           "id": 7,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
           "type": "integer"
         },
         "editedImageCount": {
@@ -65656,6 +67856,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_media_error_unknown_details",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "mediaId": {
           "falcoName": "media_id",
           "id": 1,
@@ -65694,6 +67899,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_media_load",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webcMediaLoadResult": {
           "enum": "WEBC_MEDIA_LOAD_RESULT_CODE",
           "falcoName": "webc_media_load_result",
@@ -65722,6 +67932,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_media_rmr",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 15,
+          "type": "integer"
+        },
         "messageMediaType": {
           "enum": "MEDIA_TYPE",
           "falcoName": "message_media_type",
@@ -65837,6 +68052,11 @@
           "id": 20,
           "type": "integer"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 28,
+          "type": "integer"
+        },
         "isForeground": {
           "falcoName": "is_foreground",
           "id": 13,
@@ -65911,6 +68131,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_menu",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "webcMenuAction": {
           "enum": "WEBC_MENU_TYPE",
           "falcoName": "webc_menu_action",
@@ -65948,6 +68173,11 @@
         "decryptionT": {
           "falcoName": "decryption_t",
           "id": 1,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
           "type": "integer"
         },
         "isOffline": {
@@ -66002,6 +68232,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_message_query",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 22,
+          "type": "integer"
+        },
         "webcAudioMessageCount": {
           "falcoName": "webc_audio_message_count",
           "id": 14,
@@ -66122,6 +68357,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_message_send",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "messageIsForward": {
           "falcoName": "message_is_forward",
           "id": 3,
@@ -66166,6 +68406,11 @@
           "id": 1,
           "type": "string"
         },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "logContext": {
           "falcoName": "log_context",
           "id": 2,
@@ -66204,6 +68449,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_native_upsell_cta",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
         "webcNativeUpsellCtaEventType": {
           "enum": "WEBC_NATIVE_UPSELL_CTA_EVENT_TYPE",
           "falcoName": "webc_native_upsell_cta_event_type",
@@ -66250,6 +68500,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_navbar",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcNavbarItemLabel": {
           "enum": "WEBC_NAVBAR_ITEM_LABEL",
           "falcoName": "webc_navbar_item_label",
@@ -66278,6 +68533,11 @@
           "falcoName": "current_offline_process_stage",
           "id": 4,
           "type": "enum"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 13,
+          "type": "integer"
         },
         "offlineProcessDecryptErrorCount": {
           "falcoName": "offline_process_decrypt_error_count",
@@ -66337,6 +68597,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_page_load",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 55,
+          "type": "integer"
+        },
         "webcAppcacheStatus": {
           "enum": "WEBC_APPCACHE_STATUS_CODE",
           "falcoName": "webc_appcache_status",
@@ -66586,6 +68851,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_page_load2",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcPageLoadId": {
           "falcoName": "webc_page_load_id",
           "id": 1,
@@ -66608,6 +68878,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_webc_page_resume",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcResumeCount": {
           "falcoName": "webc_resume_count",
           "id": 1,
@@ -66630,6 +68905,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_progressive_image",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "webcFirstRenderScans": {
           "falcoName": "webc_first_render_scans",
           "id": 1,
@@ -66667,6 +68947,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_pwa_event",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 3,
+          "type": "integer"
+        },
         "webcPwaAction": {
           "enum": "WEBC_PWA_ACTION_TYPE",
           "falcoName": "webc_pwa_action",
@@ -66690,6 +68975,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_quick_action",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
+        },
         "webcQuickActionEventType": {
           "enum": "WEBC_QUICK_ACTION_EVENT_TYPE",
           "falcoName": "webc_quick_action_event_type",
@@ -66740,6 +69030,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_webc_raw_platforms",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcRawPlatform": {
           "falcoName": "webc_raw_platform",
           "id": 1,
@@ -66762,6 +69057,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_resource_load",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "webcResourceCached": {
           "falcoName": "webc_resource_cached",
           "id": 3,
@@ -66794,6 +69094,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_socket_connect",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "webcAuthHandshakeDuration": {
           "falcoName": "webc_auth_handshake_duration",
           "id": 1,
@@ -66832,6 +69137,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_status_session",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "webcStatusMutedItemCount": {
           "falcoName": "webc_status_muted_item_count",
           "id": 4,
@@ -66884,6 +69194,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_status_sync",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 8,
+          "type": "integer"
+        },
         "webcStatusMutedItemCount": {
           "falcoName": "webc_status_muted_item_count",
           "id": 4,
@@ -66936,6 +69251,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_sticker_maker_events",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "stickerMakerEventName": {
           "enum": "WEBC_STICKER_MAKER_EVENT_NAME_TYPE",
           "falcoName": "sticker_maker_event_name",
@@ -66959,6 +69279,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_storage_stat",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "webcAgeOfStorage": {
           "falcoName": "webc_age_of_storage",
           "id": 3,
@@ -66996,6 +69321,11 @@
       "emittedByWorker": true,
       "falcoName": "wam_webc_stream_mode_change",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 2,
+          "type": "integer"
+        },
         "webcStreamMode": {
           "enum": "WEBC_STREAM_MODE_CODE",
           "falcoName": "webc_stream_mode",
@@ -67019,6 +69349,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_webtp_pdf_viewer",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 11,
+          "type": "integer"
+        },
         "webtpErrorCode": {
           "falcoName": "webtp_error_code",
           "id": 1,
@@ -67088,6 +69423,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_webc_whats_new_impression",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "webcWhatsNewAction": {
           "enum": "WEBC_WHATS_NEW_ACTION_TYPE",
           "falcoName": "webc_whats_new_action",
@@ -67130,6 +69470,11 @@
         "canonicalEntLastValidationTsMs": {
           "falcoName": "canonical_ent_last_validation_ts_ms",
           "id": 8,
+          "type": "integer"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 10,
           "type": "integer"
         },
         "deviceExpId": {
@@ -67184,6 +69529,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_wefr_group_client_exposure",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 4,
+          "type": "integer"
+        },
         "exposureKey": {
           "falcoName": "exposure_key",
           "id": 1,
@@ -67220,6 +69570,11 @@
           "falcoName": "client_extra_data",
           "id": 6,
           "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 7,
+          "type": "integer"
         },
         "eligibilityStatus": {
           "falcoName": "eligibility_status",
@@ -67263,6 +69618,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_windows_default_protocol_activation",
       "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 5,
+          "type": "integer"
+        },
         "defaultProtocolResult": {
           "enum": "DEFAULT_PROTOCOL_RESULT_TYPE",
           "falcoName": "default_protocol_result",
@@ -67753,7 +70113,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1047765575",
+  "waVersion": "2.3000.1047863799",
   "wireFormat": {
     "markers": {
       "event": 1,

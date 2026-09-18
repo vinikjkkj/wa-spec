@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2493,
+  "propCount": 2508,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -720,6 +720,12 @@
     },
     "ai_hatch_secret_encrypted_message_enabled": {
       "code": 31040,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_space_enabled": {
+      "code": 37054,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -1648,6 +1654,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "aura_stickers_suggestions_enabled": {
+      "code": 37137,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "aura_subscription_simulation_enabled": {
       "code": 26086,
       "debugDefaultValue": false,
@@ -2298,6 +2310,12 @@
     },
     "br_payments_add_pix_key_deeplink_enabled": {
       "code": 35682,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "br_payments_add_pix_key_message_enabled": {
+      "code": 37076,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -3069,6 +3087,12 @@
       "debugDefaultValue": 2,
       "defaultValue": 0,
       "type": "int"
+    },
+    "channels_directory_flat_categories_list_enabled": {
+      "code": 37126,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "channels_directory_page_size": {
       "code": 5853,
@@ -3867,6 +3891,12 @@
       "debugDefaultValue": 1320,
       "defaultValue": 1320,
       "type": "int"
+    },
+    "contact_manager_mvp_enabled": {
+      "code": 37166,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "context_menu_content_fix": {
       "code": 34337,
@@ -5232,7 +5262,7 @@
     },
     "enable_turn_on_call_notification_reminders": {
       "code": 5360,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -11440,6 +11470,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_navchain_event_time_resolution_enabled": {
+      "code": 37036,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_nct_capping_kill_switch_enabled": {
       "code": 34795,
       "debugDefaultValue": false,
@@ -11529,6 +11565,12 @@
       "debugDefaultValue": 3,
       "defaultValue": 3,
       "type": "int"
+    },
+    "wa_thumbnail_gen_in_worker_enabled": {
+      "code": 37062,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "wa_vpv_logging_phases_enabled": {
       "code": 35650,
@@ -11709,6 +11751,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "wa_web_calling_settings_mode": {
+      "code": 37116,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
     },
     "wa_web_calling_sidenav_calls_tab_nux_enabled": {
       "code": 33008,
@@ -12496,6 +12544,24 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_voip_audio_device_list_dedupe": {
+      "code": 37140,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_voip_device_menu_animation_stagger_ms": {
+      "code": 37085,
+      "debugDefaultValue": 96,
+      "defaultValue": 96,
+      "type": "int"
+    },
+    "wa_web_voip_mic_health_compact_affordance": {
+      "code": 37121,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_voip_mic_health_experience": {
       "code": 34761,
       "debugDefaultValue": false,
@@ -12504,6 +12570,12 @@
     },
     "wa_web_voip_mic_input_level": {
       "code": 34765,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_voip_speaker_menu_split": {
+      "code": 37084,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -14602,6 +14674,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_voip_adaptive_sctp_prewarm_v2": {
+      "code": 37167,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_audio_capture_impl": {
       "code": 21688,
       "debugDefaultValue": 0,
@@ -14660,6 +14738,12 @@
       "code": 34924,
       "debugDefaultValue": 120000,
       "defaultValue": 120000,
+      "type": "int"
+    },
+    "web_voip_dtls_cert_cache_mode": {
+      "code": 37058,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
       "type": "int"
     },
     "web_voip_dynamic_thread_preallocate_count": {
@@ -14914,6 +14998,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "win_hybrid_eager_device_watching": {
+      "code": 37128,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "win_hybrid_force_persistent_storage_permission": {
       "code": 20260,
       "debugDefaultValue": true,
@@ -15096,5 +15186,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047765575"
+  "waVersion": "2.3000.1047863799"
 }
