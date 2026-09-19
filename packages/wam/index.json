@@ -2313,6 +2313,7 @@
         "CATALOG_ENTRY_POINT_SETTINGS": 2,
         "CATALOG_ENTRY_POINT_TOP_BAR": 11,
         "CATALOG_ENTRY_POINT_TRUST_CARD": 22,
+        "CATALOG_ENTRY_POINT_TRUST_CARD_V2": 27,
         "CATALOG_ENTRY_POINT_WA_PAGES": 18,
         "CATALOG_ENTRY_QBM": 16
       }
@@ -5368,6 +5369,7 @@
       "module": "WAWebWamEnumFmxEntryPoint",
       "values": {
         "FMX_CARD": 0,
+        "FMX_CARD_V2": 2,
         "SAFETY_TOOLS": 1
       }
     },
@@ -5776,75 +5778,6 @@
         "GROUP_INFO": 3,
         "NOTIFICATION": 4,
         "SYSTEM_MESSAGE": 1
-      }
-    },
-    "GROUP_MEMBER_ADDING_ACTION_TYPE": {
-      "export": "GROUP_MEMBER_ADDING_ACTION_TYPE",
-      "module": "WAWebWamEnumGroupMemberAddingActionType",
-      "values": {
-        "ACTIVE_CALL_TOAST_SHOWN": 44,
-        "BOT_SELECTION_BOTTOM_SHEET_SHOWN": 45,
-        "CANCEL_BUTTON_IN_BOT_SELECTION_BOTTOM_SHEET_CLICKED": 49,
-        "CHAT_MENTION_PICKER_CREATE_AI_GROUP_CHAT_CLICKED": 50,
-        "CHAT_MENTION_PICKER_CREATE_AI_GROUP_CHAT_RENDERED": 52,
-        "CONTACTS_LOADED": 1,
-        "CONTACTS_PICKER_OPENED": 0,
-        "CONTACT_ADDED_IN_SEARCH_BAR": 21,
-        "CONTACT_NOT_SUGGESTED_CLICKED": 3,
-        "CONTACT_NOT_SUGGESTED_UNCLICKED": 5,
-        "CONTACT_REMOVED_FROM_SEARCH_BAR": 22,
-        "CONTACT_SUGGESTED_CLICKED": 2,
-        "CONTACT_SUGGESTED_UNCLICKED": 4,
-        "DISAPPEARING_MESSAGES_CLICKED": 13,
-        "DONE_BUTTON_IN_BOT_SELECTION_BOTTOM_SHEET_CLICKED": 48,
-        "GROUP_AI_DEEPLINK_CLICKED": 42,
-        "GROUP_ALREADY_EXISTS_CANCELED_CLICKED": 11,
-        "GROUP_ALREADY_EXISTS_CREATE_NEW_CLICKED": 10,
-        "GROUP_ALREADY_EXISTS_DIALOG_SHOWN": 8,
-        "GROUP_ALREADY_EXISTS_VIEW_GROUP_CLICKED": 9,
-        "GROUP_CREATE_FINAL_STEP_BACK_BUTTON_CLICKED": 25,
-        "GROUP_CREATION_FAILED": 20,
-        "GROUP_CREATION_SUBMIT_BUTTON_CLICKED": 7,
-        "GROUP_CREATION_SUCCEEDED": 19,
-        "GROUP_HISTORY_BUNDLE_MESSAGE_SENT": 38,
-        "GROUP_HISTORY_COUNT_CHANGED": 34,
-        "GROUP_HISTORY_COUNT_CHANGE_ENTRY_POINT_CLICKED": 33,
-        "GROUP_HISTORY_FOOTER_DISPLAYED": 30,
-        "GROUP_HISTORY_NOTICE_MESSAGE_SENT": 39,
-        "GROUP_HISTORY_SELECTABLE_MESSAGES_LOADED": 29,
-        "GROUP_HISTORY_SPEED_BUMP_DIALOG_CANCELED": 37,
-        "GROUP_HISTORY_SPEED_BUMP_DIALOG_CONTINUED": 36,
-        "GROUP_HISTORY_SPEED_BUMP_DIALOG_DISPLAYED": 35,
-        "GROUP_HISTORY_TOGGLE_OFF": 32,
-        "GROUP_HISTORY_TOGGLE_ON": 31,
-        "GROUP_MEMBER_ADD_BUTTON_CLICKED": 6,
-        "GROUP_MENTION_PICKER_ADD_AI_CLICKED": 43,
-        "GROUP_MENTION_PICKER_ADD_AI_RENDERED": 51,
-        "GROUP_NAME_ENTERED": 12,
-        "GROUP_PERMISSIONS_CLICKED": 14,
-        "MEMBER_SELECTOR_BACK_BUTTON_CLICKED": 24,
-        "MEMBER_SELECTOR_BACK_DISCARD_CONFIRM_DIALOG_CANCEL_CLICKED": 27,
-        "MEMBER_SELECTOR_BACK_DISCARD_CONFIRM_DIALOG_DISCARD_CLICKED": 28,
-        "MEMBER_SELECTOR_BACK_DISCARD_CONFIRM_DIALOG_SHOWN": 26,
-        "MESSAGE_BUTTON_CLICKED": 23,
-        "META_AI_NULL_STATE_GROUPS_CAPABILITY_CLICKED": 41,
-        "META_AI_NULL_STATE_GROUPS_MENU_BUTTON_CLICKED": 40,
-        "NEW_CHAT_CLICKED": 16,
-        "NEW_GROUP_CLICKED": 18,
-        "OPEN_BOT_IN_SELECTION_BOTTOM_SHEET_CLICKED": 47,
-        "OVERFLOW_MENU_CLICKED": 17,
-        "SET_PROFILE_PHOTO_CLICKED": 15,
-        "TEE_BOT_IN_SELECTION_BOTTOM_SHEET_CLICKED": 46
-      }
-    },
-    "GROUP_MEMBER_ADDING_MEMBER_TYPE": {
-      "export": "GROUP_MEMBER_ADDING_MEMBER_TYPE",
-      "module": "WAWebWamEnumGroupMemberAddingMemberType",
-      "values": {
-        "NON_WA_USER": 3,
-        "OPEN_META_AI": 0,
-        "TEE_BOT": 1,
-        "WA_USER": 2
       }
     },
     "GROUP_MEMBER_TAG_ENTRY_POINT_TYPE": {
@@ -7109,6 +7042,7 @@
         "ROADBLOCKED_DETAIL": 17,
         "SCHEDULED_LOGOUT": 7,
         "SERVER_ACK_KICK": 18,
+        "SERVER_BAD_MAC": 22,
         "SERVER_PING_KICK": 19,
         "SWITCH_ACCOUNT": 12,
         "UNKNOWN": 0,
@@ -9573,13 +9507,15 @@
         "INTERESTED": 1,
         "LEARN_MORE": 13,
         "MANAGE_MESSAGES": 14,
+        "MUTE": 16,
         "NOT_INTERESTED": 2,
         "REPORT": 15,
         "RESUME": 6,
         "RESUME_CONFIRMATION": 11,
         "STOP": 3,
         "STOP_CONFIRMATION": 10,
-        "UNDO": 8
+        "UNDO": 8,
+        "UNMUTE": 17
       }
     },
     "MM_USER_CONTROLS_ENTRY_POINT": {
@@ -9775,6 +9711,7 @@
       "export": "NOTIFICATION_ACTION_TYPE",
       "module": "WAWebWamEnumNotificationActionType",
       "values": {
+        "CLICK": 3,
         "REMOVE": 2,
         "SHOW": 1
       }
@@ -10733,6 +10670,7 @@
         "PSP_TC_PRIVACY_LINK": 31,
         "QR_CODE_UPI_PAY_BUTTON": 235,
         "QR_CODE_UPI_VIEW_BUTTON": 364,
+        "QR_SCANNER_ZOOM": 393,
         "QUICK_PAY_BUTTON": 168,
         "RAISE_COMPLAINT_BUTTON": 138,
         "RECEIVER_BUTTON": 56,
@@ -17989,6 +17927,12 @@
           "falcoName": "prekeys_eligible_for_prallel_processing",
           "id": 28,
           "type": "boolean"
+        },
+        "privateAiFeatureName": {
+          "enum": "PRIVATE_AI_FEATURE_NAME",
+          "falcoName": "private_ai_feature_name",
+          "id": 52,
+          "type": "enum"
         },
         "receiverDeviceCount": {
           "falcoName": "receiver_device_count",
@@ -32460,6 +32404,16 @@
           "id": 271,
           "type": "integer"
         },
+        "videoVsrAppleTime": {
+          "falcoName": "video_vsr_apple_time",
+          "id": 3171,
+          "type": "integer"
+        },
+        "videoVsrTime": {
+          "falcoName": "video_vsr_time",
+          "id": 3172,
+          "type": "integer"
+        },
         "videoWebcodecsDecFatalErrorNum": {
           "falcoName": "video_webcodecs_dec_fatal_error_num",
           "id": 2874,
@@ -33278,6 +33232,41 @@
           "falcoName": "web_transport_connect_opened",
           "id": 3166,
           "type": "boolean"
+        },
+        "webTransportFallbackPhase": {
+          "falcoName": "web_transport_fallback_phase",
+          "id": 3173,
+          "type": "integer"
+        },
+        "webTransportFallbackReason": {
+          "falcoName": "web_transport_fallback_reason",
+          "id": 3174,
+          "type": "integer"
+        },
+        "webTransportFallbackSctpConnectedMs": {
+          "falcoName": "web_transport_fallback_sctp_connected_ms",
+          "id": 3175,
+          "type": "timer"
+        },
+        "webTransportFallbackSctpStartMs": {
+          "falcoName": "web_transport_fallback_sctp_start_ms",
+          "id": 3176,
+          "type": "timer"
+        },
+        "webTransportFallbackSinceAcceptMs": {
+          "falcoName": "web_transport_fallback_since_accept_ms",
+          "id": 3177,
+          "type": "timer"
+        },
+        "webTransportFallbackSinceCallStartMs": {
+          "falcoName": "web_transport_fallback_since_call_start_ms",
+          "id": 3178,
+          "type": "timer"
+        },
+        "webTransportFallbackToFirstActiveMs": {
+          "falcoName": "web_transport_fallback_to_first_active_ms",
+          "id": 3179,
+          "type": "timer"
         },
         "webTransportFallbackTriggered": {
           "falcoName": "web_transport_fallback_triggered",
@@ -40684,6 +40673,12 @@
           "id": 34,
           "type": "enum"
         },
+        "privateAiFeatureName": {
+          "enum": "PRIVATE_AI_FEATURE_NAME",
+          "falcoName": "private_ai_feature_name",
+          "id": 35,
+          "type": "enum"
+        },
         "processingDeferred": {
           "falcoName": "processing_deferred",
           "id": 29,
@@ -40897,6 +40892,12 @@
           "falcoName": "message_type_str",
           "id": 28,
           "type": "string"
+        },
+        "privateAiFeatureName": {
+          "enum": "PRIVATE_AI_FEATURE_NAME",
+          "falcoName": "private_ai_feature_name",
+          "id": 30,
+          "type": "enum"
         },
         "retryCount": {
           "falcoName": "retry_count",
@@ -42847,179 +42848,6 @@
         "gkx26259": 1
       }
     },
-    "GroupMemberAddingUserJourney": {
-      "channel": "regular",
-      "conditions": [],
-      "emittedByWorker": false,
-      "falcoName": "wam_group_member_adding_user_journey",
-      "fields": {
-        "addSelectedContactsCount": {
-          "falcoName": "add_selected_contacts_count",
-          "id": 1,
-          "type": "integer"
-        },
-        "appSessionId": {
-          "falcoName": "app_session_id",
-          "id": 2,
-          "type": "string"
-        },
-        "bundleSendSource": {
-          "enum": "BUNDLE_SEND_SOURCE",
-          "falcoName": "bundle_send_source",
-          "id": 20,
-          "type": "enum"
-        },
-        "dedupKey": {
-          "falcoName": "dedup_key",
-          "id": 31,
-          "type": "integer"
-        },
-        "frequentlyContactedIndex": {
-          "falcoName": "frequently_contacted_index",
-          "id": 3,
-          "type": "integer"
-        },
-        "groupAddMemberEntryPoint": {
-          "enum": "ADD_MEMBERS_ENTRYPOINT_TYPE",
-          "falcoName": "group_add_member_entry_point",
-          "id": 28,
-          "type": "enum"
-        },
-        "groupCreateEntryPoint": {
-          "enum": "GROUP_CREATE_ENTRY_POINT",
-          "falcoName": "group_create_entry_point",
-          "id": 16,
-          "type": "enum"
-        },
-        "groupCreationGroupId": {
-          "falcoName": "group_creation_group_id",
-          "id": 11,
-          "type": "string"
-        },
-        "groupHistoryMessagesCount": {
-          "falcoName": "group_history_messages_count",
-          "id": 21,
-          "type": "integer"
-        },
-        "groupHistoryOutWindowPinsCount": {
-          "falcoName": "group_history_out_window_pins_count",
-          "id": 25,
-          "type": "integer"
-        },
-        "groupHistoryPinsCount": {
-          "falcoName": "group_history_pins_count",
-          "id": 26,
-          "type": "integer"
-        },
-        "groupHistoryUncountedMessagesCount": {
-          "falcoName": "group_history_uncounted_messages_count",
-          "id": 27,
-          "type": "integer"
-        },
-        "groupMemberAddingActionType": {
-          "enum": "GROUP_MEMBER_ADDING_ACTION_TYPE",
-          "falcoName": "group_member_adding_action_type",
-          "id": 4,
-          "type": "enum"
-        },
-        "groupMemberAddingMemberType": {
-          "enum": "GROUP_MEMBER_ADDING_MEMBER_TYPE",
-          "falcoName": "group_member_adding_member_type",
-          "id": 24,
-          "type": "enum"
-        },
-        "groupServerErrorCode": {
-          "falcoName": "group_server_error_code",
-          "id": 18,
-          "type": "integer"
-        },
-        "groupServerErrorCodeMsg": {
-          "falcoName": "group_server_error_code_msg",
-          "id": 19,
-          "type": "string"
-        },
-        "hasGroupName": {
-          "falcoName": "has_group_name",
-          "id": 12,
-          "type": "boolean"
-        },
-        "hasProfilePicture": {
-          "falcoName": "has_profile_picture",
-          "id": 13,
-          "type": "boolean"
-        },
-        "isAdmin": {
-          "falcoName": "is_admin",
-          "id": 29,
-          "type": "boolean"
-        },
-        "isGroupHistoryToggledOn": {
-          "falcoName": "is_group_history_toggled_on",
-          "id": 22,
-          "type": "boolean"
-        },
-        "isTeeBotNoticeOnly": {
-          "falcoName": "is_tee_bot_notice_only",
-          "id": 30,
-          "type": "boolean"
-        },
-        "potentialTotalSuggestionCount": {
-          "falcoName": "potential_total_suggestion_count",
-          "id": 10,
-          "type": "integer"
-        },
-        "recentlyContactedIndex": {
-          "falcoName": "recently_contacted_index",
-          "id": 5,
-          "type": "integer"
-        },
-        "selectedMemberCnt": {
-          "falcoName": "selected_member_cnt",
-          "id": 14,
-          "type": "integer"
-        },
-        "suggestedContactsCount": {
-          "falcoName": "suggested_contacts_count",
-          "id": 6,
-          "type": "integer"
-        },
-        "suggestedContactsIndex": {
-          "falcoName": "suggested_contacts_index",
-          "id": 7,
-          "type": "integer"
-        },
-        "uiSurface": {
-          "enum": "TS_SURFACE",
-          "falcoName": "ui_surface",
-          "id": 8,
-          "type": "enum"
-        },
-        "unifiedSessionId": {
-          "falcoName": "unified_session_id",
-          "id": 23,
-          "type": "string"
-        },
-        "userJourneyEventMs": {
-          "falcoName": "user_journey_event_ms",
-          "id": 15,
-          "type": "integer"
-        },
-        "userJourneyFunnelId": {
-          "falcoName": "user_journey_funnel_id",
-          "id": 9,
-          "type": "string"
-        }
-      },
-      "id": 5336,
-      "module": "WAWebGroupMemberAddingUserJourneyWamEvent",
-      "privateStatsIdInt": null,
-      "requiredFields": [],
-      "weight": {
-        "default": 1,
-        "gkx26258": 1,
-        "gkx26259": 1
-      }
-    },
     "GroupMemberTagUpdate": {
       "channel": "regular",
       "conditions": [],
@@ -43617,6 +43445,12 @@
           "falcoName": "offline_count",
           "id": 11,
           "type": "integer"
+        },
+        "privateAiFeatureName": {
+          "enum": "PRIVATE_AI_FEATURE_NAME",
+          "falcoName": "private_ai_feature_name",
+          "id": 26,
+          "type": "enum"
         },
         "processingDeferred": {
           "falcoName": "processing_deferred",
@@ -54290,6 +54124,12 @@
           "id": 1,
           "type": "enum"
         },
+        "privateAiFeatureName": {
+          "enum": "PRIVATE_AI_FEATURE_NAME",
+          "falcoName": "private_ai_feature_name",
+          "id": 27,
+          "type": "enum"
+        },
         "senderPlatform": {
           "enum": "PLATFORM_TYPE",
           "falcoName": "sender_platform",
@@ -58115,6 +57955,12 @@
           "falcoName": "dedup_key",
           "id": 17,
           "type": "integer"
+        },
+        "groupSizeBucket": {
+          "enum": "CLIENT_GROUP_SIZE_BUCKET",
+          "falcoName": "group_size_bucket",
+          "id": 18,
+          "type": "enum"
         },
         "mediaType": {
           "enum": "MEDIA_TYPE",
@@ -65526,6 +65372,11 @@
           "id": 9,
           "type": "enum"
         },
+        "usernameCreationRequiredAccounts": {
+          "falcoName": "username_creation_required_accounts",
+          "id": 20,
+          "type": "string"
+        },
         "usernameCreationUsernameSessionId": {
           "falcoName": "username_creation_username_session_id",
           "id": 6,
@@ -70113,7 +69964,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1047863799",
+  "waVersion": "2.3000.1047951837",
   "wireFormat": {
     "markers": {
       "event": 1,

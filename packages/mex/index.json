@@ -2771,6 +2771,51 @@
         ]
       }
     },
+    "FetchBotTasks": {
+      "docId": "29230830279853278",
+      "operationKind": "query",
+      "originalName": "WAWebFetchBotTasksQuery",
+      "response": {
+        "xfb_gen_ai_meta_ai_reminders": {
+          "edges": [
+            {
+              "node": {
+                "id": "string",
+                "natural_language_schedule": "unknown",
+                "prompt": "unknown",
+                "recurrence_frequency": "unknown",
+                "recurrence_interval": "unknown",
+                "reminder_type": "string",
+                "status": "string",
+                "timezone": "unknown",
+                "title": "string"
+              }
+            }
+          ],
+          "is_server_enabled": "boolean",
+          "suggested_tasks": [
+            {
+              "display_label": "string",
+              "id": "string",
+              "prompt": "unknown",
+              "subtitle": "string"
+            }
+          ]
+        }
+      },
+      "variables": [
+        "first",
+        "statuses",
+        "suggestedLimit",
+        "surface"
+      ],
+      "variablesShape": {
+        "first": "number",
+        "statuses": "unknown",
+        "suggestedLimit": "number",
+        "surface": "unknown"
+      }
+    },
     "FetchDynamicAIModes": {
       "docId": "25335662402775799",
       "operationKind": "query",
@@ -5511,7 +5556,7 @@
       "originalName": "WAWebOrgAdminGraphQLAdminRosterQuery",
       "response": {
         "xwa_org_get": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "org_info": {
             "admin_roster": {
               "entries": [
@@ -5543,7 +5588,7 @@
       "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
       "response": {
         "xwa_org_get": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "org_info": {
             "id": "number",
             "members": {
@@ -5578,7 +5623,7 @@
       "originalName": "WAWebOrgAdminGraphQLGroupQuery",
       "response": {
         "xwa_org_managed_group": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "group": {
             "creation_timestamp_s": "unknown",
             "gid": "unknown",
@@ -5659,7 +5704,7 @@
       "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
         "xwa_org_managed_groups": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "groups": [
             {
               "creation_timestamp_s": "unknown",
@@ -8359,5 +8404,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047863799"
+  "waVersion": "2.3000.1047951837"
 }

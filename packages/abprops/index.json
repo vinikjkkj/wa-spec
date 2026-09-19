@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2508,
+  "propCount": 2516,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -712,6 +712,12 @@
       "defaultValue": 10,
       "type": "int"
     },
+    "ai_hatch_mweb_signup_enabled": {
+      "code": 37224,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_revoke_enabled": {
       "code": 36027,
       "debugDefaultValue": true,
@@ -723,6 +729,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_hatch_signup_trusted_hosts": {
+      "code": 37222,
+      "debugDefaultValue": "agent.meta.ai",
+      "defaultValue": "agent.meta.ai",
+      "type": "string"
     },
     "ai_hatch_space_enabled": {
       "code": 37054,
@@ -891,6 +903,12 @@
       "debugDefaultValue": "en",
       "defaultValue": " ",
       "type": "string"
+    },
+    "ai_reminders_enabled": {
+      "code": 9379,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_reminders_m1_enabled": {
       "code": 35746,
@@ -3964,6 +3982,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ctwa_3pd_aggregated_label_logging_allowed": {
+      "code": 37185,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ctwa_3pd_conversion_on_ae_detection": {
       "code": 34045,
       "debugDefaultValue": false,
@@ -3973,6 +3997,12 @@
     "ctwa_3pd_data_sharing_additional_logging": {
       "code": 29333,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_3pd_data_sharing_after_first_biz_reply": {
+      "code": 37187,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -4002,6 +4032,12 @@
     },
     "ctwa_3pd_opt_out_counter_optimization_enabled": {
       "code": 24984,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_3pd_per_customer_data_sharing_always_shown": {
+      "code": 37186,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8722,6 +8758,12 @@
       "defaultValue": 200,
       "type": "int"
     },
+    "pre_call_logging_enabled": {
+      "code": 37184,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "premium_blue_enabled": {
       "code": 5318,
       "debugDefaultValue": false,
@@ -10108,6 +10150,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "status_archive_refetch_old_music_artwork_enabled": {
+      "code": 37213,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "status_chain_from_cl_mode": {
       "code": 27343,
       "debugDefaultValue": 0,
@@ -11470,8 +11518,8 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "wa_navchain_event_time_resolution_enabled": {
-      "code": 37036,
+    "wa_navchain_context_resolution_enabled": {
+      "code": 37182,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -15186,5 +15234,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047863799"
+  "waVersion": "2.3000.1047951837"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047863799
+// WhatsApp Version: 2.3000.1047951837
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -2367,6 +2367,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CATALOG_ENTRY_POINT_SETTINGS': 2,
         'CATALOG_ENTRY_POINT_TOP_BAR': 11,
         'CATALOG_ENTRY_POINT_TRUST_CARD': 22,
+        'CATALOG_ENTRY_POINT_TRUST_CARD_V2': 27,
         'CATALOG_ENTRY_POINT_WA_PAGES': 18,
         'CATALOG_ENTRY_QBM': 16
         })
@@ -5422,6 +5423,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'FMX_ENTRY_POINT',
         values: Object.freeze({
         'FMX_CARD': 0,
+        'FMX_CARD_V2': 2,
         'SAFETY_TOOLS': 1
         })
     }),
@@ -5830,75 +5832,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'GROUP_INFO': 3,
         'NOTIFICATION': 4,
         'SYSTEM_MESSAGE': 1
-        })
-    }),
-    GROUP_MEMBER_ADDING_ACTION_TYPE: Object.freeze({
-        module: 'WAWebWamEnumGroupMemberAddingActionType',
-        export: 'GROUP_MEMBER_ADDING_ACTION_TYPE',
-        values: Object.freeze({
-        'ACTIVE_CALL_TOAST_SHOWN': 44,
-        'BOT_SELECTION_BOTTOM_SHEET_SHOWN': 45,
-        'CANCEL_BUTTON_IN_BOT_SELECTION_BOTTOM_SHEET_CLICKED': 49,
-        'CHAT_MENTION_PICKER_CREATE_AI_GROUP_CHAT_CLICKED': 50,
-        'CHAT_MENTION_PICKER_CREATE_AI_GROUP_CHAT_RENDERED': 52,
-        'CONTACTS_LOADED': 1,
-        'CONTACTS_PICKER_OPENED': 0,
-        'CONTACT_ADDED_IN_SEARCH_BAR': 21,
-        'CONTACT_NOT_SUGGESTED_CLICKED': 3,
-        'CONTACT_NOT_SUGGESTED_UNCLICKED': 5,
-        'CONTACT_REMOVED_FROM_SEARCH_BAR': 22,
-        'CONTACT_SUGGESTED_CLICKED': 2,
-        'CONTACT_SUGGESTED_UNCLICKED': 4,
-        'DISAPPEARING_MESSAGES_CLICKED': 13,
-        'DONE_BUTTON_IN_BOT_SELECTION_BOTTOM_SHEET_CLICKED': 48,
-        'GROUP_AI_DEEPLINK_CLICKED': 42,
-        'GROUP_ALREADY_EXISTS_CANCELED_CLICKED': 11,
-        'GROUP_ALREADY_EXISTS_CREATE_NEW_CLICKED': 10,
-        'GROUP_ALREADY_EXISTS_DIALOG_SHOWN': 8,
-        'GROUP_ALREADY_EXISTS_VIEW_GROUP_CLICKED': 9,
-        'GROUP_CREATE_FINAL_STEP_BACK_BUTTON_CLICKED': 25,
-        'GROUP_CREATION_FAILED': 20,
-        'GROUP_CREATION_SUBMIT_BUTTON_CLICKED': 7,
-        'GROUP_CREATION_SUCCEEDED': 19,
-        'GROUP_HISTORY_BUNDLE_MESSAGE_SENT': 38,
-        'GROUP_HISTORY_COUNT_CHANGED': 34,
-        'GROUP_HISTORY_COUNT_CHANGE_ENTRY_POINT_CLICKED': 33,
-        'GROUP_HISTORY_FOOTER_DISPLAYED': 30,
-        'GROUP_HISTORY_NOTICE_MESSAGE_SENT': 39,
-        'GROUP_HISTORY_SELECTABLE_MESSAGES_LOADED': 29,
-        'GROUP_HISTORY_SPEED_BUMP_DIALOG_CANCELED': 37,
-        'GROUP_HISTORY_SPEED_BUMP_DIALOG_CONTINUED': 36,
-        'GROUP_HISTORY_SPEED_BUMP_DIALOG_DISPLAYED': 35,
-        'GROUP_HISTORY_TOGGLE_OFF': 32,
-        'GROUP_HISTORY_TOGGLE_ON': 31,
-        'GROUP_MEMBER_ADD_BUTTON_CLICKED': 6,
-        'GROUP_MENTION_PICKER_ADD_AI_CLICKED': 43,
-        'GROUP_MENTION_PICKER_ADD_AI_RENDERED': 51,
-        'GROUP_NAME_ENTERED': 12,
-        'GROUP_PERMISSIONS_CLICKED': 14,
-        'MEMBER_SELECTOR_BACK_BUTTON_CLICKED': 24,
-        'MEMBER_SELECTOR_BACK_DISCARD_CONFIRM_DIALOG_CANCEL_CLICKED': 27,
-        'MEMBER_SELECTOR_BACK_DISCARD_CONFIRM_DIALOG_DISCARD_CLICKED': 28,
-        'MEMBER_SELECTOR_BACK_DISCARD_CONFIRM_DIALOG_SHOWN': 26,
-        'MESSAGE_BUTTON_CLICKED': 23,
-        'META_AI_NULL_STATE_GROUPS_CAPABILITY_CLICKED': 41,
-        'META_AI_NULL_STATE_GROUPS_MENU_BUTTON_CLICKED': 40,
-        'NEW_CHAT_CLICKED': 16,
-        'NEW_GROUP_CLICKED': 18,
-        'OPEN_BOT_IN_SELECTION_BOTTOM_SHEET_CLICKED': 47,
-        'OVERFLOW_MENU_CLICKED': 17,
-        'SET_PROFILE_PHOTO_CLICKED': 15,
-        'TEE_BOT_IN_SELECTION_BOTTOM_SHEET_CLICKED': 46
-        })
-    }),
-    GROUP_MEMBER_ADDING_MEMBER_TYPE: Object.freeze({
-        module: 'WAWebWamEnumGroupMemberAddingMemberType',
-        export: 'GROUP_MEMBER_ADDING_MEMBER_TYPE',
-        values: Object.freeze({
-        'NON_WA_USER': 3,
-        'OPEN_META_AI': 0,
-        'TEE_BOT': 1,
-        'WA_USER': 2
         })
     }),
     GROUP_MEMBER_TAG_ENTRY_POINT_TYPE: Object.freeze({
@@ -7163,6 +7096,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'ROADBLOCKED_DETAIL': 17,
         'SCHEDULED_LOGOUT': 7,
         'SERVER_ACK_KICK': 18,
+        'SERVER_BAD_MAC': 22,
         'SERVER_PING_KICK': 19,
         'SWITCH_ACCOUNT': 12,
         'UNKNOWN': 0,
@@ -9627,13 +9561,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'INTERESTED': 1,
         'LEARN_MORE': 13,
         'MANAGE_MESSAGES': 14,
+        'MUTE': 16,
         'NOT_INTERESTED': 2,
         'REPORT': 15,
         'RESUME': 6,
         'RESUME_CONFIRMATION': 11,
         'STOP': 3,
         'STOP_CONFIRMATION': 10,
-        'UNDO': 8
+        'UNDO': 8,
+        'UNMUTE': 17
         })
     }),
     MM_USER_CONTROLS_ENTRY_POINT: Object.freeze({
@@ -9829,6 +9765,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumNotificationActionType',
         export: 'NOTIFICATION_ACTION_TYPE',
         values: Object.freeze({
+        'CLICK': 3,
         'REMOVE': 2,
         'SHOW': 1
         })
@@ -10787,6 +10724,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PSP_TC_PRIVACY_LINK': 31,
         'QR_CODE_UPI_PAY_BUTTON': 235,
         'QR_CODE_UPI_VIEW_BUTTON': 364,
+        'QR_SCANNER_ZOOM': 393,
         'QUICK_PAY_BUTTON': 168,
         'RAISE_COMPLAINT_BUTTON': 138,
         'RECEIVER_BUTTON': 56,
@@ -17620,6 +17558,7 @@ const WA_WAM_EVENTS = Object.freeze({
             participantCount: Object.freeze({ id: 37, type: 'integer', falcoName: 'participant_count' }),
             phoneCores: Object.freeze({ id: 34, type: 'integer', falcoName: 'phone_cores' }),
             prekeysEligibleForPrallelProcessing: Object.freeze({ id: 28, type: 'boolean', falcoName: 'prekeys_eligible_for_prallel_processing' }),
+            privateAiFeatureName: Object.freeze({ id: 52, type: 'enum', enum: 'PRIVATE_AI_FEATURE_NAME', falcoName: 'private_ai_feature_name' }),
             receiverDeviceCount: Object.freeze({ id: 39, type: 'integer', falcoName: 'receiver_device_count' }),
             runningTasks: Object.freeze({ id: 44, type: 'string', falcoName: 'running_tasks' }),
             sendCount: Object.freeze({ id: 13, type: 'integer', falcoName: 'send_count' }),
@@ -20685,6 +20624,8 @@ const WA_WAM_EVENTS = Object.freeze({
             videoUpgradeRejectByTimeoutCount: Object.freeze({ id: 326, type: 'integer', falcoName: 'video_upgrade_reject_by_timeout_count' }),
             videoUpgradeRejectCount: Object.freeze({ id: 324, type: 'integer', falcoName: 'video_upgrade_reject_count' }),
             videoUpgradeRequestCount: Object.freeze({ id: 271, type: 'integer', falcoName: 'video_upgrade_request_count' }),
+            videoVsrAppleTime: Object.freeze({ id: 3171, type: 'integer', falcoName: 'video_vsr_apple_time' }),
+            videoVsrTime: Object.freeze({ id: 3172, type: 'integer', falcoName: 'video_vsr_time' }),
             videoWebcodecsDecFatalErrorNum: Object.freeze({ id: 2874, type: 'integer', falcoName: 'video_webcodecs_dec_fatal_error_num' }),
             videoWidth: Object.freeze({ id: 188, type: 'integer', falcoName: 'video_width' }),
             viewUnknownPeerVideoCount: Object.freeze({ id: 2351, type: 'integer', falcoName: 'view_unknown_peer_video_count' }),
@@ -20848,6 +20789,13 @@ const WA_WAM_EVENTS = Object.freeze({
             webTransportConfigEnabled: Object.freeze({ id: 3164, type: 'boolean', falcoName: 'web_transport_config_enabled' }),
             webTransportConnectAttempted: Object.freeze({ id: 3165, type: 'boolean', falcoName: 'web_transport_connect_attempted' }),
             webTransportConnectOpened: Object.freeze({ id: 3166, type: 'boolean', falcoName: 'web_transport_connect_opened' }),
+            webTransportFallbackPhase: Object.freeze({ id: 3173, type: 'integer', falcoName: 'web_transport_fallback_phase' }),
+            webTransportFallbackReason: Object.freeze({ id: 3174, type: 'integer', falcoName: 'web_transport_fallback_reason' }),
+            webTransportFallbackSctpConnectedMs: Object.freeze({ id: 3175, type: 'timer', falcoName: 'web_transport_fallback_sctp_connected_ms' }),
+            webTransportFallbackSctpStartMs: Object.freeze({ id: 3176, type: 'timer', falcoName: 'web_transport_fallback_sctp_start_ms' }),
+            webTransportFallbackSinceAcceptMs: Object.freeze({ id: 3177, type: 'timer', falcoName: 'web_transport_fallback_since_accept_ms' }),
+            webTransportFallbackSinceCallStartMs: Object.freeze({ id: 3178, type: 'timer', falcoName: 'web_transport_fallback_since_call_start_ms' }),
+            webTransportFallbackToFirstActiveMs: Object.freeze({ id: 3179, type: 'timer', falcoName: 'web_transport_fallback_to_first_active_ms' }),
             webTransportFallbackTriggered: Object.freeze({ id: 3167, type: 'boolean', falcoName: 'web_transport_fallback_triggered' }),
             webTransportRelayTrafficSent: Object.freeze({ id: 3168, type: 'boolean', falcoName: 'web_transport_relay_traffic_sent' }),
             webTransportRuntimeEligible: Object.freeze({ id: 3169, type: 'boolean', falcoName: 'web_transport_runtime_eligible' }),
@@ -22933,6 +22881,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageMediaType: Object.freeze({ id: 7, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'message_media_type' }),
             offline: Object.freeze({ id: 9, type: 'boolean', falcoName: 'offline' }),
             pqReceiveGateState: Object.freeze({ id: 34, type: 'enum', enum: 'PQ_RECEIVE_GATE_STATE', falcoName: 'pq_receive_gate_state' }),
+            privateAiFeatureName: Object.freeze({ id: 35, type: 'enum', enum: 'PRIVATE_AI_FEATURE_NAME', falcoName: 'private_ai_feature_name' }),
             processingDeferred: Object.freeze({ id: 29, type: 'boolean', falcoName: 'processing_deferred' }),
             retryCount: Object.freeze({ id: 3, type: 'integer', falcoName: 'retry_count' }),
             revokeType: Object.freeze({ id: 10, type: 'enum', enum: 'REVOKE_TYPE', falcoName: 'revoke_type' }),
@@ -22980,6 +22929,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageIsInvisible: Object.freeze({ id: 10, type: 'boolean', falcoName: 'message_is_invisible' }),
             messageMediaType: Object.freeze({ id: 7, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'message_media_type' }),
             messageTypeStr: Object.freeze({ id: 28, type: 'string', falcoName: 'message_type_str' }),
+            privateAiFeatureName: Object.freeze({ id: 30, type: 'enum', enum: 'PRIVATE_AI_FEATURE_NAME', falcoName: 'private_ai_feature_name' }),
             retryCount: Object.freeze({ id: 3, type: 'integer', falcoName: 'retry_count' }),
             revokeType: Object.freeze({ id: 11, type: 'enum', enum: 'REVOKE_TYPE', falcoName: 'revoke_type' }),
             sessionScope: Object.freeze({ id: 27, type: 'enum', enum: 'SESSION_SCOPE_TYPE', falcoName: 'session_scope' }),
@@ -23591,48 +23541,6 @@ const WA_WAM_EVENTS = Object.freeze({
             userRole: Object.freeze({ id: 6, type: 'enum', enum: 'USER_ROLE_TYPE', falcoName: 'user_role' })
         })
     }),
-    GroupMemberAddingUserJourney: Object.freeze({
-        id: 5336,
-        falcoName: 'wam_group_member_adding_user_journey',
-        channel: 'regular',
-        privateStatsIdInt: null,
-        emittedByWorker: false,
-        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
-        requiredFields: Object.freeze([]),
-        conditions: Object.freeze([]),
-        fields: Object.freeze({
-            addSelectedContactsCount: Object.freeze({ id: 1, type: 'integer', falcoName: 'add_selected_contacts_count' }),
-            appSessionId: Object.freeze({ id: 2, type: 'string', falcoName: 'app_session_id' }),
-            bundleSendSource: Object.freeze({ id: 20, type: 'enum', enum: 'BUNDLE_SEND_SOURCE', falcoName: 'bundle_send_source' }),
-            dedupKey: Object.freeze({ id: 31, type: 'integer', falcoName: 'dedup_key' }),
-            frequentlyContactedIndex: Object.freeze({ id: 3, type: 'integer', falcoName: 'frequently_contacted_index' }),
-            groupAddMemberEntryPoint: Object.freeze({ id: 28, type: 'enum', enum: 'ADD_MEMBERS_ENTRYPOINT_TYPE', falcoName: 'group_add_member_entry_point' }),
-            groupCreateEntryPoint: Object.freeze({ id: 16, type: 'enum', enum: 'GROUP_CREATE_ENTRY_POINT', falcoName: 'group_create_entry_point' }),
-            groupCreationGroupId: Object.freeze({ id: 11, type: 'string', falcoName: 'group_creation_group_id' }),
-            groupHistoryMessagesCount: Object.freeze({ id: 21, type: 'integer', falcoName: 'group_history_messages_count' }),
-            groupHistoryOutWindowPinsCount: Object.freeze({ id: 25, type: 'integer', falcoName: 'group_history_out_window_pins_count' }),
-            groupHistoryPinsCount: Object.freeze({ id: 26, type: 'integer', falcoName: 'group_history_pins_count' }),
-            groupHistoryUncountedMessagesCount: Object.freeze({ id: 27, type: 'integer', falcoName: 'group_history_uncounted_messages_count' }),
-            groupMemberAddingActionType: Object.freeze({ id: 4, type: 'enum', enum: 'GROUP_MEMBER_ADDING_ACTION_TYPE', falcoName: 'group_member_adding_action_type' }),
-            groupMemberAddingMemberType: Object.freeze({ id: 24, type: 'enum', enum: 'GROUP_MEMBER_ADDING_MEMBER_TYPE', falcoName: 'group_member_adding_member_type' }),
-            groupServerErrorCode: Object.freeze({ id: 18, type: 'integer', falcoName: 'group_server_error_code' }),
-            groupServerErrorCodeMsg: Object.freeze({ id: 19, type: 'string', falcoName: 'group_server_error_code_msg' }),
-            hasGroupName: Object.freeze({ id: 12, type: 'boolean', falcoName: 'has_group_name' }),
-            hasProfilePicture: Object.freeze({ id: 13, type: 'boolean', falcoName: 'has_profile_picture' }),
-            isAdmin: Object.freeze({ id: 29, type: 'boolean', falcoName: 'is_admin' }),
-            isGroupHistoryToggledOn: Object.freeze({ id: 22, type: 'boolean', falcoName: 'is_group_history_toggled_on' }),
-            isTeeBotNoticeOnly: Object.freeze({ id: 30, type: 'boolean', falcoName: 'is_tee_bot_notice_only' }),
-            potentialTotalSuggestionCount: Object.freeze({ id: 10, type: 'integer', falcoName: 'potential_total_suggestion_count' }),
-            recentlyContactedIndex: Object.freeze({ id: 5, type: 'integer', falcoName: 'recently_contacted_index' }),
-            selectedMemberCnt: Object.freeze({ id: 14, type: 'integer', falcoName: 'selected_member_cnt' }),
-            suggestedContactsCount: Object.freeze({ id: 6, type: 'integer', falcoName: 'suggested_contacts_count' }),
-            suggestedContactsIndex: Object.freeze({ id: 7, type: 'integer', falcoName: 'suggested_contacts_index' }),
-            uiSurface: Object.freeze({ id: 8, type: 'enum', enum: 'TS_SURFACE', falcoName: 'ui_surface' }),
-            unifiedSessionId: Object.freeze({ id: 23, type: 'string', falcoName: 'unified_session_id' }),
-            userJourneyEventMs: Object.freeze({ id: 15, type: 'integer', falcoName: 'user_journey_event_ms' }),
-            userJourneyFunnelId: Object.freeze({ id: 9, type: 'string', falcoName: 'user_journey_funnel_id' })
-        })
-    }),
     GroupMemberTagUpdate: Object.freeze({
         id: 7010,
         falcoName: 'wam_group_member_tag_update',
@@ -23823,6 +23731,7 @@ const WA_WAM_EVENTS = Object.freeze({
             messageMediaType: Object.freeze({ id: 5, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'message_media_type' }),
             offline: Object.freeze({ id: 6, type: 'boolean', falcoName: 'offline' }),
             offlineCount: Object.freeze({ id: 11, type: 'integer', falcoName: 'offline_count' }),
+            privateAiFeatureName: Object.freeze({ id: 26, type: 'enum', enum: 'PRIVATE_AI_FEATURE_NAME', falcoName: 'private_ai_feature_name' }),
             processingDeferred: Object.freeze({ id: 22, type: 'boolean', falcoName: 'processing_deferred' }),
             retryCount: Object.freeze({ id: 7, type: 'integer', falcoName: 'retry_count' }),
             revokeType: Object.freeze({ id: 8, type: 'enum', enum: 'REVOKE_TYPE', falcoName: 'revoke_type' }),
@@ -26738,6 +26647,7 @@ const WA_WAM_EVENTS = Object.freeze({
             placeholderPopulationType: Object.freeze({ id: 17, type: 'enum', enum: 'PLACEHOLDER_POPULATION_TYPE', falcoName: 'placeholder_population_type' }),
             placeholderTimePeriod: Object.freeze({ id: 4, type: 'integer', falcoName: 'placeholder_time_period' }),
             placeholderTypeInd: Object.freeze({ id: 1, type: 'enum', enum: 'PLACEHOLDER_TYPE', falcoName: 'placeholder_type_ind' }),
+            privateAiFeatureName: Object.freeze({ id: 27, type: 'enum', enum: 'PRIVATE_AI_FEATURE_NAME', falcoName: 'private_ai_feature_name' }),
             senderPlatform: Object.freeze({ id: 25, type: 'enum', enum: 'PLATFORM_TYPE', falcoName: 'sender_platform' }),
             typeOfGroup: Object.freeze({ id: 13, type: 'enum', enum: 'TYPE_OF_GROUP_ENUM', falcoName: 'type_of_group' })
         })
@@ -27829,6 +27739,7 @@ const WA_WAM_EVENTS = Object.freeze({
             dbReadsCount: Object.freeze({ id: 12, type: 'integer', falcoName: 'db_reads_count' }),
             dbWritesCount: Object.freeze({ id: 13, type: 'integer', falcoName: 'db_writes_count' }),
             dedupKey: Object.freeze({ id: 17, type: 'integer', falcoName: 'dedup_key' }),
+            groupSizeBucket: Object.freeze({ id: 18, type: 'enum', enum: 'CLIENT_GROUP_SIZE_BUCKET', falcoName: 'group_size_bucket' }),
             mediaType: Object.freeze({ id: 2, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'media_type' }),
             messageType: Object.freeze({ id: 10, type: 'enum', enum: 'MESSAGE_TYPE', falcoName: 'message_type' }),
             processingDeferred: Object.freeze({ id: 14, type: 'boolean', falcoName: 'processing_deferred' }),
@@ -29955,6 +29866,7 @@ const WA_WAM_EVENTS = Object.freeze({
             usernameCreationErrorCd: Object.freeze({ id: 7, type: 'integer', falcoName: 'username_creation_error_cd' }),
             usernameCreationErrorMessage: Object.freeze({ id: 13, type: 'enum', enum: 'USERNAME_CREATION_ERROR_MESSAGE', falcoName: 'username_creation_error_message' }),
             usernameCreationFlowType: Object.freeze({ id: 9, type: 'enum', enum: 'USERNAME_CREATION_FLOW_TYPE', falcoName: 'username_creation_flow_type' }),
+            usernameCreationRequiredAccounts: Object.freeze({ id: 20, type: 'string', falcoName: 'username_creation_required_accounts' }),
             usernameCreationUsernameSessionId: Object.freeze({ id: 6, type: 'string', falcoName: 'username_creation_username_session_id' }),
             usernameLinkOriginSurface: Object.freeze({ id: 18, type: 'enum', enum: 'USERNAME_LINK_ORIGIN_SURFACE', falcoName: 'username_link_origin_surface' }),
             usernameLinkType: Object.freeze({ id: 12, type: 'enum', enum: 'USERNAME_LINK_TYPE', falcoName: 'username_link_type' }),

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047863799
+// WhatsApp Version: 2.3000.1047951837
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -99,6 +99,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchAllSubgroups: WaMexPersistId
     readonly FetchBotCertificateRevocationList: WaMexPersistId
     readonly FetchBotProfilesGQL: WaMexPersistId
+    readonly FetchBotTasks: WaMexPersistId
     readonly FetchDynamicAIModes: WaMexPersistId
     readonly FetchGroupInfo: WaMexPersistId
     readonly FetchGroupInfoIncludBots: WaMexPersistId
@@ -326,6 +327,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchAllSubgroups: WaMexOperationSchema<'query', readonly ['group_id', 'query_context', 'sub_group_hint_id']>
     readonly FetchBotCertificateRevocationList: WaMexOperationSchema<'query', readonly ['crl_name']>
     readonly FetchBotProfilesGQL: WaMexOperationSchema<'query', readonly ['ids']>
+    readonly FetchBotTasks: WaMexOperationSchema<'query', readonly ['first', 'statuses', 'suggestedLimit', 'surface']>
     readonly FetchDynamicAIModes: WaMexOperationSchema<'query', readonly []>
     readonly FetchGroupInfo: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
     readonly FetchGroupInfoIncludBots: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
@@ -921,6 +923,13 @@ export type WaMexFetchBotCertificateRevocationListVariables = {
 
 export type WaMexFetchBotProfilesGQLVariables = {
     readonly ids?: ReadonlyArray<string>
+}
+
+export type WaMexFetchBotTasksVariables = {
+    readonly first?: number
+    readonly statuses?: unknown
+    readonly suggestedLimit?: number
+    readonly surface?: unknown
 }
 
 export type WaMexFetchDynamicAIModesVariables = Readonly<Record<string, never>>
@@ -1903,6 +1912,7 @@ export interface WaMexOperationVariables {
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsVariables
     readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListVariables
     readonly FetchBotProfilesGQL: WaMexFetchBotProfilesGQLVariables
+    readonly FetchBotTasks: WaMexFetchBotTasksVariables
     readonly FetchDynamicAIModes: WaMexFetchDynamicAIModesVariables
     readonly FetchGroupInfo: WaMexFetchGroupInfoVariables
     readonly FetchGroupInfoIncludBots: WaMexFetchGroupInfoIncludBotsVariables
@@ -3627,6 +3637,31 @@ export type WaMexFetchBotProfilesGQLResponse = {
     }>
 }
 
+export type WaMexFetchBotTasksResponse = {
+    readonly xfb_gen_ai_meta_ai_reminders?: {
+        readonly edges?: ReadonlyArray<{
+            readonly node?: {
+                readonly id?: string
+                readonly natural_language_schedule?: unknown
+                readonly prompt?: unknown
+                readonly recurrence_frequency?: unknown
+                readonly recurrence_interval?: unknown
+                readonly reminder_type?: string
+                readonly status?: string
+                readonly timezone?: unknown
+                readonly title?: string
+            }
+        }>
+        readonly is_server_enabled?: boolean
+        readonly suggested_tasks?: ReadonlyArray<{
+            readonly display_label?: string
+            readonly id?: string
+            readonly prompt?: unknown
+            readonly subtitle?: string
+        }>
+    }
+}
+
 export type WaMexFetchDynamicAIModesResponse = {
     readonly xfb_meta_ai_modes?: ReadonlyArray<{
         readonly is_experimental?: boolean
@@ -5208,7 +5243,7 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
 
 export type WaMexOrgAdminGraphQLAdminRosterResponse = {
     readonly xwa_org_get?: {
-        readonly error_reason?: string
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
         readonly org_info?: {
             readonly admin_roster?: {
                 readonly entries?: ReadonlyArray<{
@@ -5228,7 +5263,7 @@ export type WaMexOrgAdminGraphQLAdminRosterResponse = {
 
 export type WaMexOrgAdminGraphQLDirectoryResponse = {
     readonly xwa_org_get?: {
-        readonly error_reason?: string
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
         readonly org_info?: {
             readonly id?: number
             readonly members?: {
@@ -5251,7 +5286,7 @@ export type WaMexOrgAdminGraphQLDirectoryResponse = {
 
 export type WaMexOrgAdminGraphQLGroupResponse = {
     readonly xwa_org_managed_group?: {
-        readonly error_reason?: string
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
         readonly group?: {
             readonly creation_timestamp_s?: unknown
             readonly gid?: unknown
@@ -5292,7 +5327,7 @@ export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
 
 export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
     readonly xwa_org_managed_groups?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly groups?: ReadonlyArray<{
             readonly creation_timestamp_s?: unknown
             readonly gid?: unknown
@@ -7052,6 +7087,7 @@ export interface WaMexOperationResponses {
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsResponse
     readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListResponse
     readonly FetchBotProfilesGQL: WaMexFetchBotProfilesGQLResponse
+    readonly FetchBotTasks: WaMexFetchBotTasksResponse
     readonly FetchDynamicAIModes: WaMexFetchDynamicAIModesResponse
     readonly FetchGroupInfo: WaMexFetchGroupInfoResponse
     readonly FetchGroupInfoIncludBots: WaMexFetchGroupInfoIncludBotsResponse
