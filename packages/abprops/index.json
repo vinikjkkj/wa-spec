@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2516,
+  "propCount": 2527,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -646,6 +646,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_connectors_enabled": {
+      "code": 37227,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_document_upload_size_limit_mb": {
       "code": 27873,
       "debugDefaultValue": 20,
@@ -706,6 +712,12 @@
       "defaultValue": "https://www.whatsapp.com/",
       "type": "string"
     },
+    "ai_hatch_media_enabled": {
+      "code": 37240,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_media_upload_count_limit": {
       "code": 27897,
       "debugDefaultValue": 10,
@@ -739,6 +751,12 @@
     "ai_hatch_space_enabled": {
       "code": 37054,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_subscription_ui_enabled": {
+      "code": 37238,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -2019,6 +2037,12 @@
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
+    },
+    "biz_ai_upr_countries": {
+      "code": 37272,
+      "debugDefaultValue": "ID",
+      "defaultValue": "",
+      "type": "string"
     },
     "biz_ai_upr_id_enabled": {
       "code": 36878,
@@ -4630,6 +4654,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "document_format_verification_enabled": {
+      "code": 37236,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "document_format_verification_mime_exclusions": {
+      "code": 37235,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
+    },
     "download_document_thumb_mms_enabled": {
       "code": 250,
       "debugDefaultValue": true,
@@ -6751,6 +6787,12 @@
     "kmp_syncd_engine_outgoing_processor_enabled": {
       "code": 18234,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ks_pdf_strict_validation_enabled": {
+      "code": 37251,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -9364,6 +9406,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "server_sent_invites_web_enabled": {
+      "code": 37278,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "service_improvement_opt_out_flag": {
       "code": 3664,
       "debugDefaultValue": false,
@@ -9990,13 +10038,13 @@
     },
     "smb_web_customer_manager_bulk_edit_enabled": {
       "code": 32550,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
     "smb_web_customer_manager_date_range_filter_enabled": {
       "code": 32096,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -10008,7 +10056,7 @@
     },
     "smb_web_customer_manager_export_enabled": {
       "code": 32287,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -11773,6 +11821,12 @@
     "wa_web_calling_calls_tab_empty_state_update_enabled": {
       "code": 33154,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_calling_calls_tab_notifications_off_banner_enabled": {
+      "code": 37282,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -14752,6 +14806,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_voip_av_sync_strict_fifo_drain": {
+      "code": 37275,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_call_end_teardown_yield": {
       "code": 36805,
       "debugDefaultValue": false,
@@ -14883,6 +14943,12 @@
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
+    },
+    "web_voip_video_drop_out_of_order_frames": {
+      "code": 37276,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "web_voip_video_low_cap_height": {
       "code": 28042,
@@ -15234,5 +15300,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047951837"
+  "waVersion": "2.3000.1047977712"
 }

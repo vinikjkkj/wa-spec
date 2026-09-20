@@ -7646,7 +7646,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "38439202149027818",
+      "docId": "28744753401859100",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8246,6 +8246,7 @@
                           "target_performance_tier": "unknown",
                           "task": "unknown",
                           "thumbnail_uri": "string",
+                          "thumbnails": "unknown",
                           "title": "string",
                           "tool_call_args": "unknown",
                           "tool_call_id": "string",
@@ -8404,5 +8405,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047951837"
+  "waVersion": "2.3000.1047977712"
 }
