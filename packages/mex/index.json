@@ -234,6 +234,32 @@
         "input": "string"
       }
     },
+    "AdsAdAccountSettingsStoreSetL1AESourceStickyStatus": {
+      "docId": "28191055560552476",
+      "operationKind": "mutation",
+      "originalName": "AdsAdAccountSettingsStoreSetL1AESourceStickyStatusMutation",
+      "response": {
+        "set_l1_ae_source_sticky_status_ads_ad_account_settings": {
+          "ads_ad_account_settings": {
+            "id": "string",
+            "l1ae_source_sticky_entries": [
+              {
+                "container": "unknown",
+                "source": "string",
+                "status": "string",
+                "timestamp": "string"
+              }
+            ]
+          }
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": "string"
+      }
+    },
     "AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus": {
       "docId": "38096061813371664",
       "operationKind": "mutation",
@@ -260,7 +286,7 @@
       }
     },
     "AdsAdAccountSettingsStoreSourceServer": {
-      "docId": "27633358993026573",
+      "docId": "27992178770485033",
       "operationKind": "query",
       "originalName": "AdsAdAccountSettingsStoreSourceServerQuery",
       "response": {
@@ -273,6 +299,14 @@
             }
           ],
           "id": "string",
+          "l1ae_source_sticky_entries": [
+            {
+              "container": "unknown",
+              "source": "string",
+              "status": "string",
+              "timestamp": "string"
+            }
+          ],
           "video_optimization_sticky_entries": [
             {
               "optimization": "unknown",
@@ -360,7 +394,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "27999326929677383",
+      "docId": "38432615566386775",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -383,7 +417,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "37768328176144162",
+      "docId": "27988888704140141",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -1708,12 +1742,13 @@
       }
     },
     "CreateInviteCode": {
-      "docId": "26155584267463745",
+      "docId": "28250338504572715",
       "operationKind": "mutation",
       "originalName": "WAWebMexCreateInviteCodeJobMutation",
       "response": {
         "xwa2_growth_create_invite_code": {
-          "code": "string"
+          "code": "string",
+          "error_reason": "string"
         }
       },
       "variables": [
@@ -7646,7 +7681,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "28744753401859100",
+      "docId": "26853457271019559",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -7743,12 +7778,12 @@
                               "budget_rationale": "unknown",
                               "creative": "unknown",
                               "end_date": "string",
-                              "id": "string",
                               "insight": "unknown",
                               "name": "string",
                               "objective": "unknown",
                               "phase": "unknown",
                               "placement": "unknown",
+                              "section_key": "string",
                               "start_date": "string",
                               "timeline_end": "unknown",
                               "timeline_start": "unknown"
@@ -7764,7 +7799,6 @@
                           "created_time": "string",
                           "creation_time": "string",
                           "creative_description": "string",
-                          "creative_fatigue_status": "string",
                           "creators": [
                             {
                               "explanation": "string",
@@ -7877,7 +7911,6 @@
                             }
                           ],
                           "description": "string",
-                          "diagnosis_description": "string",
                           "diagnosis_title": "string",
                           "digital_creation_disclosure": "unknown",
                           "disclosure_kind": "string",
@@ -7891,13 +7924,6 @@
                           "error_message": "string",
                           "error_phase": "unknown",
                           "evaluation": "unknown",
-                          "evidence": [
-                            {
-                              "description": "string",
-                              "title": "string",
-                              "type": "string"
-                            }
-                          ],
                           "expression": "unknown",
                           "external_url": "string",
                           "eyebrow_image_url": "string",
@@ -8098,13 +8124,6 @@
                           "period_basis": "unknown",
                           "placement_description": "string",
                           "platform": "unknown",
-                          "playbook": [
-                            {
-                              "description": "string",
-                              "title": "string",
-                              "type": "string"
-                            }
-                          ],
                           "ple_text": "string",
                           "points": "unknown",
                           "post_confirm_description": "string",
@@ -8217,6 +8236,33 @@
                           "secondary_label": "string",
                           "secondary_message": "string",
                           "section": "unknown",
+                          "sections": [
+                            {
+                              "body": "string",
+                              "data_viz": {
+                                "data_config": [
+                                  {
+                                    "description": "string",
+                                    "label": "string",
+                                    "metric_name": "string",
+                                    "type": "string"
+                                  }
+                                ],
+                                "data_entries": [
+                                  {
+                                    "values": "unknown"
+                                  }
+                                ],
+                                "data_viz_type": "string",
+                                "description": "string",
+                                "id": "string",
+                                "title": "string"
+                              },
+                              "icon": "unknown",
+                              "section_key": "string",
+                              "title": "string"
+                            }
+                          ],
                           "seed_image_uri": "string",
                           "selection_mode": "string",
                           "server_formatted_text": "string",
@@ -8240,10 +8286,6 @@
                           "symptom": "unknown",
                           "target": "unknown",
                           "target_asset": "unknown",
-                          "target_metric": "unknown",
-                          "target_metric_benchmark_value": "unknown",
-                          "target_metric_value": "unknown",
-                          "target_performance_tier": "unknown",
                           "task": "unknown",
                           "thumbnail_uri": "string",
                           "thumbnails": "unknown",
@@ -8405,5 +8447,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1047999808"
+  "waVersion": "2.3000.1048124278"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047999808
+// WhatsApp Version: 2.3000.1048124278
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -551,6 +551,7 @@ export declare const WA_ABPROPS: {
     readonly channels_invite_contacts_to_follow_receiver_logging_enabled: { readonly code: 20836; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_invite_contacts_to_follow_sender_logging_enabled: { readonly code: 20837; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_invite_link_preview_improvement_enabled: { readonly code: 22196; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly channels_invite_link_preview_reliability_enabled: { readonly code: 37302; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_is_multi_admin_lid_migration_enabled: { readonly code: 16193; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly channels_max_messages_batch_pull: { readonly code: 5494; readonly type: "int"; readonly defaultValue: 100; readonly debugDefaultValue: 100 }
     readonly channels_message_pin_admin_enabled: { readonly code: 29516; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1440,6 +1441,7 @@ export declare const WA_ABPROPS: {
     readonly pinned_messages_m2: { readonly code: 3141; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pinned_messages_m2_image_thumbnail: { readonly code: 7467; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pinned_messages_m2_pin_max: { readonly code: 3732; readonly type: "int"; readonly defaultValue: 1; readonly debugDefaultValue: 1 }
+    readonly pinned_messages_remove_30_day_pins: { readonly code: 37344; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly pinned_messages_sender_short_expiry_durations_enabled: { readonly code: 4432; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pix_onboarding_new_content_enabled: { readonly code: 23953; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pix_payment_request_update_status_enabled: { readonly code: 27006; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1931,6 +1933,8 @@ export declare const WA_ABPROPS: {
     readonly wa_meta_one_subscription_notifications_enabled: { readonly code: 29866; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_native_ads_web_add_media_dummy: { readonly code: 35872; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_native_ads_web_add_media_rollout: { readonly code: 35871; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly wa_native_ads_web_advertise_badge_dummy_enabled: { readonly code: 37296; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly wa_native_ads_web_advertise_badge_enabled: { readonly code: 37295; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_native_ads_web_creation_dummy: { readonly code: 33640; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_native_ads_web_creation_rollout: { readonly code: 33639; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_native_ads_web_creation_rollout_no_exposure: { readonly code: 33752; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2026,6 +2030,7 @@ export declare const WA_ABPROPS: {
     readonly wa_web_enable_mention_message: { readonly code: 27714; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_enable_status_hq_thumbnail: { readonly code: 25079; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_enable_syncd_key_persistence_only_after_server_ack: { readonly code: 27069; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly wa_web_enable_test_notification: { readonly code: 37356; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_expansion_countries_bonsai_enabled: { readonly code: 29543; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_web_export_chat: { readonly code: 26201; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_falco_clear_local_storage_queue_enabled: { readonly code: 18835; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -2326,6 +2331,7 @@ export declare const WA_ABPROPS: {
     readonly web_e2e_backfill_expire_time: { readonly code: 3234; readonly type: "int"; readonly defaultValue: 5; readonly debugDefaultValue: 60 }
     readonly web_e2e_status_likes_sending_enabled: { readonly code: 34296; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly web_email_invites_group_info: { readonly code: 33556; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly web_email_invites_server_send_enabled: { readonly code: 37284; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_enable_biz_catalog_view_ps_logging: { readonly code: 2056; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly web_enable_camera_capture_refresh: { readonly code: 28316; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_enable_improved_bulk_merge: { readonly code: 19854; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -2382,6 +2388,7 @@ export declare const WA_ABPROPS: {
     readonly web_message_custom_aria_label: { readonly code: 2280; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_message_drop_bulk_db_operation_fallback_enabled: { readonly code: 7865; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_message_list_a11y_redesign: { readonly code: 2016; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
+    readonly web_message_list_skip_noop_scroll_anchor: { readonly code: 37294; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly web_message_plugin_frontend_registration_enabled: { readonly code: 2793; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_message_processing_cache_size: { readonly code: 3728; readonly type: "int"; readonly defaultValue: 400; readonly debugDefaultValue: 400 }
     readonly web_messages_content_visibility: { readonly code: 31260; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -5103,6 +5110,13 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37276: "web_voip_video_drop_out_of_order_frames"
     readonly 37278: "server_sent_invites_web_enabled"
     readonly 37282: "wa_web_calling_calls_tab_notifications_off_banner_enabled"
+    readonly 37284: "web_email_invites_server_send_enabled"
+    readonly 37294: "web_message_list_skip_noop_scroll_anchor"
+    readonly 37295: "wa_native_ads_web_advertise_badge_enabled"
+    readonly 37296: "wa_native_ads_web_advertise_badge_dummy_enabled"
+    readonly 37302: "channels_invite_link_preview_reliability_enabled"
+    readonly 37344: "pinned_messages_remove_30_day_pins"
+    readonly 37356: "wa_web_enable_test_notification"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

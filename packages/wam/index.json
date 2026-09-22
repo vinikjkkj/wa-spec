@@ -11092,15 +11092,12 @@
         "ANDROID": 2,
         "ANDROIDWAMETATEST": 62,
         "ARDEV": 50,
-        "BB": 3,
-        "BBX": 7,
         "BLOKS": 19,
         "BLUEA": 20,
         "BLUEI": 21,
         "BLUEVR": 69,
         "BLUEW": 53,
         "CAPI": 46,
-        "ENT": 12,
         "FBLITEA": 22,
         "GREENA": 23,
         "GREENI": 24,
@@ -11117,7 +11114,6 @@
         "IPAD": 58,
         "IPHONE": 1,
         "IPHONEWAMETATEST": 54,
-        "KAIOS": 14,
         "MACOS": 48,
         "MLITEA": 28,
         "MSGRA": 29,
@@ -11133,13 +11129,9 @@
         "MSGRT": 60,
         "MSGRVR": 52,
         "MSGRW": 32,
-        "OSMETA": 11,
-        "PAGE": 34,
         "PORTAL": 18,
-        "S40": 4,
         "SMBA": 13,
         "SMBI": 15,
-        "SYMBIAN": 5,
         "TEST": 9,
         "UNKNOWN": 10,
         "WAIL": 70,
@@ -11153,7 +11145,6 @@
         "WINDOWS": 16,
         "WORKA": 71,
         "WORKI": 72,
-        "WP": 6,
         "XR": 47
       }
     },
@@ -12800,12 +12791,17 @@
       "export": "SETTINGS_CLICK_ENTRY_POINT",
       "module": "WAWebWamEnumSettingsClickEntryPoint",
       "values": {
+        "CALLS_TAB_OVERFLOW_MENU": 9,
+        "CHAT_LIST_OVERFLOW_MENU": 7,
+        "COMMUNITIES_TAB_OVERFLOW_MENU": 10,
         "DEEP_LINK": 2,
+        "METAB_GEAR": 6,
         "METAB_SCREEN": 4,
         "PRIVACY_CHECKUP": 3,
         "SETTINGS_SCREEN": 0,
         "SETTINGS_SEARCH": 1,
-        "THREE_DOT_MENU": 5
+        "THREE_DOT_MENU": 5,
+        "UPDATES_TAB_OVERFLOW_MENU": 8
       }
     },
     "SETTINGS_ITEM_TYPE": {
@@ -33193,6 +33189,11 @@
           "id": 2851,
           "type": "integer"
         },
+        "webAvSyncReorderCount": {
+          "falcoName": "web_av_sync_reorder_count",
+          "id": 3180,
+          "type": "integer"
+        },
         "webAvSyncTimeOutOfSyncMs": {
           "falcoName": "web_av_sync_time_out_of_sync_ms",
           "id": 2852,
@@ -33298,10 +33299,40 @@
           "id": 2908,
           "type": "timer"
         },
+        "webVideoDecOrderingMode": {
+          "falcoName": "web_video_dec_ordering_mode",
+          "id": 3181,
+          "type": "integer"
+        },
+        "webVideoDecOutOfOrderFrames": {
+          "falcoName": "web_video_dec_out_of_order_frames",
+          "id": 3182,
+          "type": "integer"
+        },
+        "webVideoDecRefChainBreakCount": {
+          "falcoName": "web_video_dec_ref_chain_break_count",
+          "id": 3183,
+          "type": "integer"
+        },
+        "webVideoDecRefChainBrokenT": {
+          "falcoName": "web_video_dec_ref_chain_broken_t",
+          "id": 3184,
+          "type": "timer"
+        },
         "webVideoEncoderType": {
           "falcoName": "web_video_encoder_type",
           "id": 3032,
           "type": "string"
+        },
+        "webVideoRenderFreezeT": {
+          "falcoName": "web_video_render_freeze_t",
+          "id": 3185,
+          "type": "timer"
+        },
+        "webVideoRenderNumFreezes": {
+          "falcoName": "web_video_render_num_freezes",
+          "id": 3186,
+          "type": "integer"
         },
         "webrtcCompatible": {
           "falcoName": "webrtc_compatible",
@@ -69964,7 +69995,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1047999808",
+  "waVersion": "2.3000.1048124278",
   "wireFormat": {
     "markers": {
       "event": 1,

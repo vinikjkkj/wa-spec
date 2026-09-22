@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047999808
+// WhatsApp Version: 2.3000.1048124278
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -532,6 +532,7 @@ const WA_ABPROPS = Object.freeze({
     channels_invite_contacts_to_follow_receiver_logging_enabled: Object.freeze({ code: 20836, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_invite_contacts_to_follow_sender_logging_enabled: Object.freeze({ code: 20837, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_invite_link_preview_improvement_enabled: Object.freeze({ code: 22196, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_invite_link_preview_reliability_enabled: Object.freeze({ code: 37302, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_is_multi_admin_lid_migration_enabled: Object.freeze({ code: 16193, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_max_messages_batch_pull: Object.freeze({ code: 5494, type: "int", defaultValue: 100, debugDefaultValue: 100 }),
     channels_message_pin_admin_enabled: Object.freeze({ code: 29516, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1421,6 +1422,7 @@ const WA_ABPROPS = Object.freeze({
     pinned_messages_m2: Object.freeze({ code: 3141, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pinned_messages_m2_image_thumbnail: Object.freeze({ code: 7467, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pinned_messages_m2_pin_max: Object.freeze({ code: 3732, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
+    pinned_messages_remove_30_day_pins: Object.freeze({ code: 37344, type: "bool", defaultValue: false, debugDefaultValue: true }),
     pinned_messages_sender_short_expiry_durations_enabled: Object.freeze({ code: 4432, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pix_onboarding_new_content_enabled: Object.freeze({ code: 23953, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pix_payment_request_update_status_enabled: Object.freeze({ code: 27006, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1912,6 +1914,8 @@ const WA_ABPROPS = Object.freeze({
     wa_meta_one_subscription_notifications_enabled: Object.freeze({ code: 29866, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wa_native_ads_web_add_media_dummy: Object.freeze({ code: 35872, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_add_media_rollout: Object.freeze({ code: 35871, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_native_ads_web_advertise_badge_dummy_enabled: Object.freeze({ code: 37296, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_native_ads_web_advertise_badge_enabled: Object.freeze({ code: 37295, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_creation_dummy: Object.freeze({ code: 33640, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_creation_rollout: Object.freeze({ code: 33639, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_native_ads_web_creation_rollout_no_exposure: Object.freeze({ code: 33752, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2007,6 +2011,7 @@ const WA_ABPROPS = Object.freeze({
     wa_web_enable_mention_message: Object.freeze({ code: 27714, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_enable_status_hq_thumbnail: Object.freeze({ code: 25079, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_enable_syncd_key_persistence_only_after_server_ack: Object.freeze({ code: 27069, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    wa_web_enable_test_notification: Object.freeze({ code: 37356, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_expansion_countries_bonsai_enabled: Object.freeze({ code: 29543, type: "bool", defaultValue: false, debugDefaultValue: true }),
     wa_web_export_chat: Object.freeze({ code: 26201, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_falco_clear_local_storage_queue_enabled: Object.freeze({ code: 18835, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2307,6 +2312,7 @@ const WA_ABPROPS = Object.freeze({
     web_e2e_backfill_expire_time: Object.freeze({ code: 3234, type: "int", defaultValue: 5, debugDefaultValue: 60 }),
     web_e2e_status_likes_sending_enabled: Object.freeze({ code: 34296, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_email_invites_group_info: Object.freeze({ code: 33556, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_email_invites_server_send_enabled: Object.freeze({ code: 37284, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_enable_biz_catalog_view_ps_logging: Object.freeze({ code: 2056, type: "bool", defaultValue: true, debugDefaultValue: true }),
     web_enable_camera_capture_refresh: Object.freeze({ code: 28316, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_enable_improved_bulk_merge: Object.freeze({ code: 19854, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -2363,6 +2369,7 @@ const WA_ABPROPS = Object.freeze({
     web_message_custom_aria_label: Object.freeze({ code: 2280, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_message_drop_bulk_db_operation_fallback_enabled: Object.freeze({ code: 7865, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_message_list_a11y_redesign: Object.freeze({ code: 2016, type: "bool", defaultValue: true, debugDefaultValue: true }),
+    web_message_list_skip_noop_scroll_anchor: Object.freeze({ code: 37294, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_message_plugin_frontend_registration_enabled: Object.freeze({ code: 2793, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_message_processing_cache_size: Object.freeze({ code: 3728, type: "int", defaultValue: 400, debugDefaultValue: 400 }),
     web_messages_content_visibility: Object.freeze({ code: 31260, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -5086,7 +5093,14 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     37275: "web_voip_av_sync_strict_fifo_drain",
     37276: "web_voip_video_drop_out_of_order_frames",
     37278: "server_sent_invites_web_enabled",
-    37282: "wa_web_calling_calls_tab_notifications_off_banner_enabled"
+    37282: "wa_web_calling_calls_tab_notifications_off_banner_enabled",
+    37284: "web_email_invites_server_send_enabled",
+    37294: "web_message_list_skip_noop_scroll_anchor",
+    37295: "wa_native_ads_web_advertise_badge_enabled",
+    37296: "wa_native_ads_web_advertise_badge_dummy_enabled",
+    37302: "channels_invite_link_preview_reliability_enabled",
+    37344: "pinned_messages_remove_30_day_pins",
+    37356: "wa_web_enable_test_notification"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

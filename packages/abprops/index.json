@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2527,
+  "propCount": 2534,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -3252,6 +3252,12 @@
     },
     "channels_invite_link_preview_improvement_enabled": {
       "code": 22196,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channels_invite_link_preview_reliability_enabled": {
+      "code": 37302,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -8590,6 +8596,12 @@
       "defaultValue": 1,
       "type": "int"
     },
+    "pinned_messages_remove_30_day_pins": {
+      "code": 37344,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "pinned_messages_sender_short_expiry_durations_enabled": {
       "code": 4432,
       "debugDefaultValue": false,
@@ -11536,6 +11548,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_native_ads_web_advertise_badge_dummy_enabled": {
+      "code": 37296,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_native_ads_web_advertise_badge_enabled": {
+      "code": 37295,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_native_ads_web_creation_dummy": {
       "code": 33640,
       "debugDefaultValue": false,
@@ -12103,6 +12127,12 @@
     "wa_web_enable_syncd_key_persistence_only_after_server_ack": {
       "code": 27069,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_enable_test_notification": {
+      "code": 37356,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -13906,6 +13936,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_email_invites_server_send_enabled": {
+      "code": 37284,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_enable_biz_catalog_view_ps_logging": {
       "code": 2056,
       "debugDefaultValue": true,
@@ -14240,6 +14276,12 @@
       "code": 2016,
       "debugDefaultValue": true,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "web_message_list_skip_noop_scroll_anchor": {
+      "code": 37294,
+      "debugDefaultValue": true,
+      "defaultValue": false,
       "type": "bool"
     },
     "web_message_plugin_frontend_registration_enabled": {
@@ -15300,5 +15342,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1047999808"
+  "waVersion": "2.3000.1048124278"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047999808
+// WhatsApp Version: 2.3000.1048124278
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -11255,15 +11255,12 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ANDROID': 2;
             readonly 'ANDROIDWAMETATEST': 62;
             readonly 'ARDEV': 50;
-            readonly 'BB': 3;
-            readonly 'BBX': 7;
             readonly 'BLOKS': 19;
             readonly 'BLUEA': 20;
             readonly 'BLUEI': 21;
             readonly 'BLUEVR': 69;
             readonly 'BLUEW': 53;
             readonly 'CAPI': 46;
-            readonly 'ENT': 12;
             readonly 'FBLITEA': 22;
             readonly 'GREENA': 23;
             readonly 'GREENI': 24;
@@ -11280,7 +11277,6 @@ export declare const WA_WAM_ENUMS: {
             readonly 'IPAD': 58;
             readonly 'IPHONE': 1;
             readonly 'IPHONEWAMETATEST': 54;
-            readonly 'KAIOS': 14;
             readonly 'MACOS': 48;
             readonly 'MLITEA': 28;
             readonly 'MSGRA': 29;
@@ -11296,13 +11292,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'MSGRT': 60;
             readonly 'MSGRVR': 52;
             readonly 'MSGRW': 32;
-            readonly 'OSMETA': 11;
-            readonly 'PAGE': 34;
             readonly 'PORTAL': 18;
-            readonly 'S40': 4;
             readonly 'SMBA': 13;
             readonly 'SMBI': 15;
-            readonly 'SYMBIAN': 5;
             readonly 'TEST': 9;
             readonly 'UNKNOWN': 10;
             readonly 'WAIL': 70;
@@ -11316,7 +11308,6 @@ export declare const WA_WAM_ENUMS: {
             readonly 'WINDOWS': 16;
             readonly 'WORKA': 71;
             readonly 'WORKI': 72;
-            readonly 'WP': 6;
             readonly 'XR': 47
         }
     }
@@ -12963,12 +12954,17 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumSettingsClickEntryPoint'
         readonly export: 'SETTINGS_CLICK_ENTRY_POINT'
         readonly values: {
+            readonly 'CALLS_TAB_OVERFLOW_MENU': 9;
+            readonly 'CHAT_LIST_OVERFLOW_MENU': 7;
+            readonly 'COMMUNITIES_TAB_OVERFLOW_MENU': 10;
             readonly 'DEEP_LINK': 2;
+            readonly 'METAB_GEAR': 6;
             readonly 'METAB_SCREEN': 4;
             readonly 'PRIVACY_CHECKUP': 3;
             readonly 'SETTINGS_SCREEN': 0;
             readonly 'SETTINGS_SEARCH': 1;
-            readonly 'THREE_DOT_MENU': 5
+            readonly 'THREE_DOT_MENU': 5;
+            readonly 'UPDATES_TAB_OVERFLOW_MENU': 8
         }
     }
     readonly SETTINGS_ITEM_TYPE: {
@@ -21026,6 +21022,7 @@ export declare const WA_WAM_EVENTS: {
             readonly webAvSyncP50DeltaMs: { readonly id: 2849; readonly type: 'number'; readonly falcoName: 'web_av_sync_p50_delta_ms' }
             readonly webAvSyncP95DeltaMs: { readonly id: 2850; readonly type: 'number'; readonly falcoName: 'web_av_sync_p95_delta_ms' }
             readonly webAvSyncRecalibrationCount: { readonly id: 2851; readonly type: 'integer'; readonly falcoName: 'web_av_sync_recalibration_count' }
+            readonly webAvSyncReorderCount: { readonly id: 3180; readonly type: 'integer'; readonly falcoName: 'web_av_sync_reorder_count' }
             readonly webAvSyncTimeOutOfSyncMs: { readonly id: 2852; readonly type: 'integer'; readonly falcoName: 'web_av_sync_time_out_of_sync_ms' }
             readonly webSctpBaPeakAvgBytes: { readonly id: 2895; readonly type: 'number'; readonly falcoName: 'web_sctp_ba_peak_avg_bytes' }
             readonly webSctpBaPeakMaxBytes: { readonly id: 2896; readonly type: 'number'; readonly falcoName: 'web_sctp_ba_peak_max_bytes' }
@@ -21047,7 +21044,13 @@ export declare const WA_WAM_EVENTS: {
             readonly webTransportUsed: { readonly id: 2900; readonly type: 'boolean'; readonly falcoName: 'web_transport_used' }
             readonly webVideoCaptureCaptureToEncodedAvgMs: { readonly id: 2907; readonly type: 'timer'; readonly falcoName: 'web_video_capture_capture_to_encoded_avg_ms' }
             readonly webVideoCapturePresentToConstructAvgMs: { readonly id: 2908; readonly type: 'timer'; readonly falcoName: 'web_video_capture_present_to_construct_avg_ms' }
+            readonly webVideoDecOrderingMode: { readonly id: 3181; readonly type: 'integer'; readonly falcoName: 'web_video_dec_ordering_mode' }
+            readonly webVideoDecOutOfOrderFrames: { readonly id: 3182; readonly type: 'integer'; readonly falcoName: 'web_video_dec_out_of_order_frames' }
+            readonly webVideoDecRefChainBreakCount: { readonly id: 3183; readonly type: 'integer'; readonly falcoName: 'web_video_dec_ref_chain_break_count' }
+            readonly webVideoDecRefChainBrokenT: { readonly id: 3184; readonly type: 'timer'; readonly falcoName: 'web_video_dec_ref_chain_broken_t' }
             readonly webVideoEncoderType: { readonly id: 3032; readonly type: 'string'; readonly falcoName: 'web_video_encoder_type' }
+            readonly webVideoRenderFreezeT: { readonly id: 3185; readonly type: 'timer'; readonly falcoName: 'web_video_render_freeze_t' }
+            readonly webVideoRenderNumFreezes: { readonly id: 3186; readonly type: 'integer'; readonly falcoName: 'web_video_render_num_freezes' }
             readonly webrtcCompatible: { readonly id: 1984; readonly type: 'boolean'; readonly falcoName: 'webrtc_compatible' }
             readonly wifiInfoAtEnd: { readonly id: 2416; readonly type: 'string'; readonly falcoName: 'wifi_info_at_end' }
             readonly wifiInfoAtStart: { readonly id: 2417; readonly type: 'string'; readonly falcoName: 'wifi_info_at_start' }

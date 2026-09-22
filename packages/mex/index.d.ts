@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047999808
+// WhatsApp Version: 2.3000.1048124278
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -26,6 +26,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdPreferencesHideAdvertiser: WaMexPersistId
     readonly AdPreferencesInterestCategoryOptOut: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexPersistId
+    readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexPersistId
@@ -254,6 +255,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdPreferencesHideAdvertiser: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdPreferencesInterestCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['interestID', 'isUndo']>
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id']>
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexOperationSchema<'query', readonly ['adAccountID']>
@@ -516,6 +518,10 @@ export type WaMexAdPreferencesInterestCategoryOptOutVariables = {
 }
 
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables = {
+    readonly input?: string
+}
+
+export type WaMexAdsAdAccountSettingsStoreSetL1AESourceStickyStatusVariables = {
     readonly input?: string
 }
 
@@ -1839,6 +1845,7 @@ export interface WaMexOperationVariables {
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserVariables
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutVariables
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables
+    readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexAdsAdAccountSettingsStoreSetL1AESourceStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerVariables
@@ -2168,6 +2175,20 @@ export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse =
     }
 }
 
+export type WaMexAdsAdAccountSettingsStoreSetL1AESourceStickyStatusResponse = {
+    readonly set_l1_ae_source_sticky_status_ads_ad_account_settings?: {
+        readonly ads_ad_account_settings?: {
+            readonly id?: string
+            readonly l1ae_source_sticky_entries?: ReadonlyArray<{
+                readonly container?: unknown
+                readonly source?: string
+                readonly status?: string
+                readonly timestamp?: string
+            }>
+        }
+    }
+}
+
 export type WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusResponse = {
     readonly set_video_optimization_sticky_status_ads_ad_account_settings?: {
         readonly ads_ad_account_settings?: {
@@ -2189,6 +2210,12 @@ export type WaMexAdsAdAccountSettingsStoreSourceServerResponse = {
             readonly timestamp?: string
         }>
         readonly id?: string
+        readonly l1ae_source_sticky_entries?: ReadonlyArray<{
+            readonly container?: unknown
+            readonly source?: string
+            readonly status?: string
+            readonly timestamp?: string
+        }>
         readonly video_optimization_sticky_entries?: ReadonlyArray<{
             readonly optimization?: unknown
             readonly status?: string
@@ -3002,6 +3029,7 @@ export type WaMexCreateEnforcementAppealResponse = {
 export type WaMexCreateInviteCodeResponse = {
     readonly xwa2_growth_create_invite_code?: {
         readonly code?: string
+        readonly error_reason?: string
     }
 }
 
@@ -6483,12 +6511,12 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly budget_rationale?: unknown
                                     readonly creative?: unknown
                                     readonly end_date?: string
-                                    readonly id?: string
                                     readonly insight?: unknown
                                     readonly name?: string
                                     readonly objective?: unknown
                                     readonly phase?: unknown
                                     readonly placement?: unknown
+                                    readonly section_key?: string
                                     readonly start_date?: string
                                     readonly timeline_end?: unknown
                                     readonly timeline_start?: unknown
@@ -6503,7 +6531,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly created_time?: string
                                 readonly creation_time?: string
                                 readonly creative_description?: string
-                                readonly creative_fatigue_status?: string
                                 readonly creators?: ReadonlyArray<{
                                     readonly explanation?: string
                                     readonly fbid?: unknown
@@ -6590,7 +6617,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly status?: string
                                 }>
                                 readonly description?: string
-                                readonly diagnosis_description?: string
                                 readonly diagnosis_title?: string
                                 readonly digital_creation_disclosure?: unknown
                                 readonly disclosure_kind?: string
@@ -6604,11 +6630,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly error_message?: string
                                 readonly error_phase?: unknown
                                 readonly evaluation?: unknown
-                                readonly evidence?: ReadonlyArray<{
-                                    readonly description?: string
-                                    readonly title?: string
-                                    readonly type?: string
-                                }>
                                 readonly expression?: unknown
                                 readonly external_url?: string
                                 readonly eyebrow_image_url?: string
@@ -6783,11 +6804,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly period_basis?: unknown
                                 readonly placement_description?: string
                                 readonly platform?: unknown
-                                readonly playbook?: ReadonlyArray<{
-                                    readonly description?: string
-                                    readonly title?: string
-                                    readonly type?: string
-                                }>
                                 readonly ple_text?: string
                                 readonly points?: unknown
                                 readonly post_confirm_description?: string
@@ -6888,6 +6904,27 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly secondary_label?: string
                                 readonly secondary_message?: string
                                 readonly section?: unknown
+                                readonly sections?: ReadonlyArray<{
+                                    readonly body?: string
+                                    readonly data_viz?: {
+                                        readonly data_config?: ReadonlyArray<{
+                                            readonly description?: string
+                                            readonly label?: string
+                                            readonly metric_name?: string
+                                            readonly type?: string
+                                        }>
+                                        readonly data_entries?: ReadonlyArray<{
+                                            readonly values?: unknown
+                                        }>
+                                        readonly data_viz_type?: string
+                                        readonly description?: string
+                                        readonly id?: string
+                                        readonly title?: string
+                                    }
+                                    readonly icon?: unknown
+                                    readonly section_key?: string
+                                    readonly title?: string
+                                }>
                                 readonly seed_image_uri?: string
                                 readonly selection_mode?: string
                                 readonly server_formatted_text?: string
@@ -6909,10 +6946,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly symptom?: unknown
                                 readonly target?: unknown
                                 readonly target_asset?: unknown
-                                readonly target_metric?: unknown
-                                readonly target_metric_benchmark_value?: unknown
-                                readonly target_metric_value?: unknown
-                                readonly target_performance_tier?: unknown
                                 readonly task?: unknown
                                 readonly thumbnail_uri?: string
                                 readonly thumbnails?: unknown
@@ -7015,6 +7048,7 @@ export interface WaMexOperationResponses {
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserResponse
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutResponse
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse
+    readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexAdsAdAccountSettingsStoreSetL1AESourceStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: WaMexAdsAdAccountSettingsStoreSetVideoOptimizationStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSourceServer: WaMexAdsAdAccountSettingsStoreSourceServerResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1047999808
+// WhatsApp Version: 2.3000.1048124278
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -11146,15 +11146,12 @@ const WA_WAM_ENUMS = Object.freeze({
         'ANDROID': 2,
         'ANDROIDWAMETATEST': 62,
         'ARDEV': 50,
-        'BB': 3,
-        'BBX': 7,
         'BLOKS': 19,
         'BLUEA': 20,
         'BLUEI': 21,
         'BLUEVR': 69,
         'BLUEW': 53,
         'CAPI': 46,
-        'ENT': 12,
         'FBLITEA': 22,
         'GREENA': 23,
         'GREENI': 24,
@@ -11171,7 +11168,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'IPAD': 58,
         'IPHONE': 1,
         'IPHONEWAMETATEST': 54,
-        'KAIOS': 14,
         'MACOS': 48,
         'MLITEA': 28,
         'MSGRA': 29,
@@ -11187,13 +11183,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'MSGRT': 60,
         'MSGRVR': 52,
         'MSGRW': 32,
-        'OSMETA': 11,
-        'PAGE': 34,
         'PORTAL': 18,
-        'S40': 4,
         'SMBA': 13,
         'SMBI': 15,
-        'SYMBIAN': 5,
         'TEST': 9,
         'UNKNOWN': 10,
         'WAIL': 70,
@@ -11207,7 +11199,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'WINDOWS': 16,
         'WORKA': 71,
         'WORKI': 72,
-        'WP': 6,
         'XR': 47
         })
     }),
@@ -12854,12 +12845,17 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumSettingsClickEntryPoint',
         export: 'SETTINGS_CLICK_ENTRY_POINT',
         values: Object.freeze({
+        'CALLS_TAB_OVERFLOW_MENU': 9,
+        'CHAT_LIST_OVERFLOW_MENU': 7,
+        'COMMUNITIES_TAB_OVERFLOW_MENU': 10,
         'DEEP_LINK': 2,
+        'METAB_GEAR': 6,
         'METAB_SCREEN': 4,
         'PRIVACY_CHECKUP': 3,
         'SETTINGS_SCREEN': 0,
         'SETTINGS_SEARCH': 1,
-        'THREE_DOT_MENU': 5
+        'THREE_DOT_MENU': 5,
+        'UPDATES_TAB_OVERFLOW_MENU': 8
         })
     }),
     SETTINGS_ITEM_TYPE: Object.freeze({
@@ -20781,6 +20777,7 @@ const WA_WAM_EVENTS = Object.freeze({
             webAvSyncP50DeltaMs: Object.freeze({ id: 2849, type: 'number', falcoName: 'web_av_sync_p50_delta_ms' }),
             webAvSyncP95DeltaMs: Object.freeze({ id: 2850, type: 'number', falcoName: 'web_av_sync_p95_delta_ms' }),
             webAvSyncRecalibrationCount: Object.freeze({ id: 2851, type: 'integer', falcoName: 'web_av_sync_recalibration_count' }),
+            webAvSyncReorderCount: Object.freeze({ id: 3180, type: 'integer', falcoName: 'web_av_sync_reorder_count' }),
             webAvSyncTimeOutOfSyncMs: Object.freeze({ id: 2852, type: 'integer', falcoName: 'web_av_sync_time_out_of_sync_ms' }),
             webSctpBaPeakAvgBytes: Object.freeze({ id: 2895, type: 'number', falcoName: 'web_sctp_ba_peak_avg_bytes' }),
             webSctpBaPeakMaxBytes: Object.freeze({ id: 2896, type: 'number', falcoName: 'web_sctp_ba_peak_max_bytes' }),
@@ -20802,7 +20799,13 @@ const WA_WAM_EVENTS = Object.freeze({
             webTransportUsed: Object.freeze({ id: 2900, type: 'boolean', falcoName: 'web_transport_used' }),
             webVideoCaptureCaptureToEncodedAvgMs: Object.freeze({ id: 2907, type: 'timer', falcoName: 'web_video_capture_capture_to_encoded_avg_ms' }),
             webVideoCapturePresentToConstructAvgMs: Object.freeze({ id: 2908, type: 'timer', falcoName: 'web_video_capture_present_to_construct_avg_ms' }),
+            webVideoDecOrderingMode: Object.freeze({ id: 3181, type: 'integer', falcoName: 'web_video_dec_ordering_mode' }),
+            webVideoDecOutOfOrderFrames: Object.freeze({ id: 3182, type: 'integer', falcoName: 'web_video_dec_out_of_order_frames' }),
+            webVideoDecRefChainBreakCount: Object.freeze({ id: 3183, type: 'integer', falcoName: 'web_video_dec_ref_chain_break_count' }),
+            webVideoDecRefChainBrokenT: Object.freeze({ id: 3184, type: 'timer', falcoName: 'web_video_dec_ref_chain_broken_t' }),
             webVideoEncoderType: Object.freeze({ id: 3032, type: 'string', falcoName: 'web_video_encoder_type' }),
+            webVideoRenderFreezeT: Object.freeze({ id: 3185, type: 'timer', falcoName: 'web_video_render_freeze_t' }),
+            webVideoRenderNumFreezes: Object.freeze({ id: 3186, type: 'integer', falcoName: 'web_video_render_num_freezes' }),
             webrtcCompatible: Object.freeze({ id: 1984, type: 'boolean', falcoName: 'webrtc_compatible' }),
             wifiInfoAtEnd: Object.freeze({ id: 2416, type: 'string', falcoName: 'wifi_info_at_end' }),
             wifiInfoAtStart: Object.freeze({ id: 2417, type: 'string', falcoName: 'wifi_info_at_start' }),
