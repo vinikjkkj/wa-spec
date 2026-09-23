@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048124278
+// WhatsApp Version: 2.3000.1048238984
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -3007,6 +3007,8 @@ export type WaMexContactManagerCustomerProfilesResponse = {
         readonly cursor?: string
         readonly profiles?: ReadonlyArray<{
             readonly acquisition_source?: string
+            readonly address?: string
+            readonly dob?: unknown
             readonly email?: string
             readonly last_order_date?: string
             readonly last_updates?: ReadonlyArray<{
@@ -6774,6 +6776,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly page_id?: string
                                 readonly page_name?: string
                                 readonly page_profile_pic_url?: string
+                                readonly partner?: unknown
                                 readonly paths_completed?: ReadonlyArray<{
                                     readonly id?: string
                                     readonly status?: string

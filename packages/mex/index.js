@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048124278
+// WhatsApp Version: 2.3000.1048238984
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -20,8 +20,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeBulkContainer: Object.freeze({ docId: '25592298897124600', clientDocId: '25592298897124600' }),
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '38432615566386775', clientDocId: '38432615566386775' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '27988888704140141', clientDocId: '27988888704140141' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '28198886239781081', clientDocId: '28198886239781081' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28240324965607044', clientDocId: '28240324965607044' }),
     AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '28581644508193043', clientDocId: '28581644508193043' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
     AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: Object.freeze({ docId: '39157849030468989', clientDocId: '39157849030468989' }),
@@ -54,7 +54,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
     ContactManagerCustomerProfile: Object.freeze({ docId: '37925750573706165', clientDocId: '37925750573706165' }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '27789071790751197', clientDocId: '27789071790751197' }),
-    ContactManagerCustomerProfiles: Object.freeze({ docId: '27796221486653417', clientDocId: '27796221486653417' }),
+    ContactManagerCustomerProfiles: Object.freeze({ docId: '27994011783631250', clientDocId: '27994011783631250' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
     CreateInviteCode: Object.freeze({ docId: '28250338504572715', clientDocId: '28250338504572715' }),
     CreateLabyrinthBackup: Object.freeze({ docId: '27515507191403198', clientDocId: '27515507191403198' }),
@@ -224,7 +224,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '26853457271019559', clientDocId: '26853457271019559' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '29363394989914106', clientDocId: '29363394989914106' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
     useWAWebSmartComposerReportThreadEvent: Object.freeze({ docId: '28777618758528424', clientDocId: '28777618758528424' }),

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048124278
+// WhatsApp Version: 2.3000.1048238984
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -7848,6 +7848,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'LWI_ACTION_PREVIOUS_ADS_AD_ROW_TAPPED': 384;
             readonly 'LWI_ACTION_PRE_BLOKS_LOAD_STARTED': 358;
             readonly 'LWI_ACTION_PRODUCT_DESELECTED': 16;
+            readonly 'LWI_ACTION_PRODUCT_PICKER_RECOMMENDATION_IMPRESSION': 562;
+            readonly 'LWI_ACTION_PRODUCT_PICKER_RECOMMENDATION_TAPPED': 563;
             readonly 'LWI_ACTION_PRODUCT_SELECTED': 6;
             readonly 'LWI_ACTION_PROMOTE_AGAIN_TAPPED': 111;
             readonly 'LWI_ACTION_PROMOTE_CATALOG_ITEMS_TAPPED': 10;
@@ -18455,6 +18457,14 @@ export declare const WA_WAM_EVENTS: {
             readonly audioRtxPktProcessed: { readonly id: 676; readonly type: 'integer'; readonly falcoName: 'audio_rtx_pkt_processed' }
             readonly audioRtxPktSent: { readonly id: 675; readonly type: 'integer'; readonly falcoName: 'audio_rtx_pkt_sent' }
             readonly audioRxAvgFpp: { readonly id: 728; readonly type: 'number'; readonly falcoName: 'audio_rx_avg_fpp' }
+            readonly audioRxParseErrPtMlow: { readonly id: 3187; readonly type: 'integer'; readonly falcoName: 'audio_rx_parse_err_pt_mlow' }
+            readonly audioRxParseErrPtMlowRed: { readonly id: 3188; readonly type: 'integer'; readonly falcoName: 'audio_rx_parse_err_pt_mlow_red' }
+            readonly audioRxParseErrPtOpus: { readonly id: 3189; readonly type: 'integer'; readonly falcoName: 'audio_rx_parse_err_pt_opus' }
+            readonly audioRxParseErrPtOther: { readonly id: 3190; readonly type: 'integer'; readonly falcoName: 'audio_rx_parse_err_pt_other' }
+            readonly audioRxPktPtMlow: { readonly id: 3191; readonly type: 'integer'; readonly falcoName: 'audio_rx_pkt_pt_mlow' }
+            readonly audioRxPktPtMlowRed: { readonly id: 3192; readonly type: 'integer'; readonly falcoName: 'audio_rx_pkt_pt_mlow_red' }
+            readonly audioRxPktPtOpus: { readonly id: 3193; readonly type: 'integer'; readonly falcoName: 'audio_rx_pkt_pt_opus' }
+            readonly audioRxPktPtOther: { readonly id: 3194; readonly type: 'integer'; readonly falcoName: 'audio_rx_pkt_pt_other' }
             readonly audioStreamRecreations: { readonly id: 1561; readonly type: 'integer'; readonly falcoName: 'audio_stream_recreations' }
             readonly audioSwbDurationMs: { readonly id: 1322; readonly type: 'timer'; readonly falcoName: 'audio_swb_duration_ms' }
             readonly audioTarget06Ms: { readonly id: 1351; readonly type: 'integer'; readonly falcoName: 'audio_target06_ms' }
@@ -18944,9 +18954,14 @@ export declare const WA_WAM_EVENTS: {
             readonly conservativeRampUpRampingUpT: { readonly id: 742; readonly type: 'timer'; readonly falcoName: 'conservative_ramp_up_ramping_up_t' }
             readonly countInMcp: { readonly id: 2188; readonly type: 'integer'; readonly falcoName: 'count_in_mcp' }
             readonly countInSru: { readonly id: 2189; readonly type: 'integer'; readonly falcoName: 'count_in_sru' }
+            readonly cpuArch: { readonly id: 3195; readonly type: 'string'; readonly falcoName: 'cpu_arch' }
+            readonly cpuClockMhz: { readonly id: 3196; readonly type: 'integer'; readonly falcoName: 'cpu_clock_mhz' }
+            readonly cpuLogicalCores: { readonly id: 3197; readonly type: 'integer'; readonly falcoName: 'cpu_logical_cores' }
+            readonly cpuName: { readonly id: 3198; readonly type: 'string'; readonly falcoName: 'cpu_name' }
             readonly cpuOverUtilizationPct: { readonly id: 1223; readonly type: 'number'; readonly falcoName: 'cpu_over_utilization_pct' }
             readonly cpuUtilizationAvg: { readonly id: 1820; readonly type: 'number'; readonly falcoName: 'cpu_utilization_avg' }
             readonly cpuUtilizationPeak: { readonly id: 1821; readonly type: 'number'; readonly falcoName: 'cpu_utilization_peak' }
+            readonly cpuVendor: { readonly id: 3199; readonly type: 'string'; readonly falcoName: 'cpu_vendor' }
             readonly createdFromGroupCallDowngrade: { readonly id: 519; readonly type: 'boolean'; readonly falcoName: 'created_from_group_call_downgrade' }
             readonly criticalGroupUpdateProcessT: { readonly id: 1556; readonly type: 'timer'; readonly falcoName: 'critical_group_update_process_t' }
             readonly croppedColumnsSs: { readonly id: 1438; readonly type: 'integer'; readonly falcoName: 'cropped_columns_ss' }
@@ -19172,8 +19187,12 @@ export declare const WA_WAM_EVENTS: {
             readonly genaiVoipToUiListeningMs: { readonly id: 2835; readonly type: 'timer'; readonly falcoName: 'genai_voip_to_ui_listening_ms' }
             readonly goodputPeerDownlink: { readonly id: 2322; readonly type: 'integer'; readonly falcoName: 'goodput_peer_downlink' }
             readonly googlePlayServicesStatus: { readonly id: 1967; readonly type: 'enum'; readonly enum: 'GOOGLE_PLAY_SERVICES_STATUS'; readonly falcoName: 'google_play_services_status' }
+            readonly gpuCount: { readonly id: 3200; readonly type: 'integer'; readonly falcoName: 'gpu_count' }
+            readonly gpuDriverVersion: { readonly id: 3201; readonly type: 'string'; readonly falcoName: 'gpu_driver_version' }
+            readonly gpuName: { readonly id: 3202; readonly type: 'string'; readonly falcoName: 'gpu_name' }
             readonly gpuUtilizationAvg: { readonly id: 1822; readonly type: 'number'; readonly falcoName: 'gpu_utilization_avg' }
             readonly gpuUtilizationPeak: { readonly id: 1823; readonly type: 'number'; readonly falcoName: 'gpu_utilization_peak' }
+            readonly gpuVendor: { readonly id: 3203; readonly type: 'string'; readonly falcoName: 'gpu_vendor' }
             readonly greaterThanLowPlrIsRandomCount: { readonly id: 1529; readonly type: 'integer'; readonly falcoName: 'greater_than_low_plr_is_random_count' }
             readonly groupAcceptNoCriticalGroupUpdate: { readonly id: 1013; readonly type: 'boolean'; readonly falcoName: 'group_accept_no_critical_group_update' }
             readonly groupAcceptToCriticalGroupUpdateMs: { readonly id: 1014; readonly type: 'timer'; readonly falcoName: 'group_accept_to_critical_group_update_ms' }

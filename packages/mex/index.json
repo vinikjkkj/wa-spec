@@ -394,7 +394,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "38432615566386775",
+      "docId": "28198886239781081",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -417,7 +417,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "27988888704140141",
+      "docId": "28240324965607044",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -1674,7 +1674,7 @@
       }
     },
     "ContactManagerCustomerProfiles": {
-      "docId": "27796221486653417",
+      "docId": "27994011783631250",
       "operationKind": "query",
       "originalName": "WAWebContactManagerCustomerProfilesQuery",
       "response": {
@@ -1683,6 +1683,8 @@
           "profiles": [
             {
               "acquisition_source": "string",
+              "address": "string",
+              "dob": "unknown",
               "email": "string",
               "last_order_date": "string",
               "last_updates": [
@@ -7681,7 +7683,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "26853457271019559",
+      "docId": "29363394989914106",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8088,6 +8090,7 @@
                           "page_id": "string",
                           "page_name": "string",
                           "page_profile_pic_url": "string",
+                          "partner": "unknown",
                           "paths_completed": [
                             {
                               "id": "string",
@@ -8447,5 +8450,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048124278"
+  "waVersion": "2.3000.1048238984"
 }

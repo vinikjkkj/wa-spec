@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2534,
+  "propCount": 2558,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -756,6 +756,12 @@
     },
     "ai_hatch_subscription_ui_enabled": {
       "code": 37238,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_upsell_in_agents_screen_enabled": {
+      "code": 37476,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -1695,6 +1701,18 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "aura_stickers_suggestions_overlay_enabled": {
+      "code": 37370,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "aura_stickers_suggestions_weight": {
+      "code": 37398,
+      "debugDefaultValue": 2,
+      "defaultValue": 2,
+      "type": "float"
     },
     "aura_subscription_simulation_enabled": {
       "code": 26086,
@@ -2845,6 +2863,12 @@
     "channel_reactions_settings_enabled": {
       "code": 4887,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "channel_status_admin_insights_enabled": {
+      "code": 37381,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -5332,6 +5356,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "enable_syncd_write_coex_v2": {
+      "code": 37465,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "enable_tooltip_for_media_hub": {
       "code": 21535,
       "debugDefaultValue": false,
@@ -5798,6 +5828,12 @@
       "code": 6061,
       "debugDefaultValue": false,
       "defaultValue": false,
+      "type": "bool"
+    },
+    "fmx_manage_messages_simplified_logging_symmetry_enabled": {
+      "code": 37451,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "fmx_persistent_country_trust_signal_enabled": {
@@ -6387,6 +6423,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "host_write_mutation_name_allowlist": {
+      "code": 37456,
+      "debugDefaultValue": "",
+      "defaultValue": "",
+      "type": "string"
     },
     "hosted_message_flag_enabled": {
       "code": 27979,
@@ -11326,6 +11368,18 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_audio_experience_id": {
+      "code": 37379,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_channel_audio_experience_id": {
+      "code": 37394,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "wa_media_channel_document_experience_id": {
       "code": 34915,
       "debugDefaultValue": 0,
@@ -11350,6 +11404,18 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_channel_ptt_experience_id": {
+      "code": 37395,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_channel_reaction_experience_id": {
+      "code": 37396,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "wa_media_channel_sticker_experience_id": {
       "code": 34913,
       "debugDefaultValue": 0,
@@ -11362,8 +11428,20 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_channel_url_experience_id": {
+      "code": 37393,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "wa_media_channel_video_experience_id": {
       "code": 34912,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_chat_audio_experience_id": {
+      "code": 37386,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
@@ -11392,6 +11470,18 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_chat_ptt_experience_id": {
+      "code": 37385,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_chat_reaction_experience_id": {
+      "code": 37388,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "wa_media_chat_sticker_experience_id": {
       "code": 34901,
       "debugDefaultValue": 0,
@@ -11400,6 +11490,12 @@
     },
     "wa_media_chat_text_experience_id": {
       "code": 34944,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_chat_url_experience_id": {
+      "code": 37387,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
@@ -11446,6 +11542,24 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_ptt_experience_id": {
+      "code": 37376,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_reaction_experience_id": {
+      "code": 37384,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_status_audio_experience_id": {
+      "code": 37391,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "wa_media_status_document_experience_id": {
       "code": 34909,
       "debugDefaultValue": 0,
@@ -11470,6 +11584,18 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "wa_media_status_ptt_experience_id": {
+      "code": 37392,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_status_reaction_experience_id": {
+      "code": 37389,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "wa_media_status_sticker_experience_id": {
       "code": 34907,
       "debugDefaultValue": 0,
@@ -11478,6 +11604,12 @@
     },
     "wa_media_status_text_experience_id": {
       "code": 34945,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_status_url_experience_id": {
+      "code": 37390,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
@@ -11496,6 +11628,12 @@
     },
     "wa_media_text_experience_id": {
       "code": 34943,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "wa_media_url_experience_id": {
+      "code": 37383,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
@@ -14854,6 +14992,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_voip_browser_mute_toast_enabled": {
+      "code": 37450,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_call_end_teardown_yield": {
       "code": 36805,
       "debugDefaultValue": false,
@@ -15342,5 +15486,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1048124278"
+  "waVersion": "2.3000.1048238984"
 }

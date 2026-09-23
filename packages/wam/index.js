@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048124278
+// WhatsApp Version: 2.3000.1048238984
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -7739,6 +7739,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LWI_ACTION_PREVIOUS_ADS_AD_ROW_TAPPED': 384,
         'LWI_ACTION_PRE_BLOKS_LOAD_STARTED': 358,
         'LWI_ACTION_PRODUCT_DESELECTED': 16,
+        'LWI_ACTION_PRODUCT_PICKER_RECOMMENDATION_IMPRESSION': 562,
+        'LWI_ACTION_PRODUCT_PICKER_RECOMMENDATION_TAPPED': 563,
         'LWI_ACTION_PRODUCT_SELECTED': 6,
         'LWI_ACTION_PROMOTE_AGAIN_TAPPED': 111,
         'LWI_ACTION_PROMOTE_CATALOG_ITEMS_TAPPED': 10,
@@ -18210,6 +18212,14 @@ const WA_WAM_EVENTS = Object.freeze({
             audioRtxPktProcessed: Object.freeze({ id: 676, type: 'integer', falcoName: 'audio_rtx_pkt_processed' }),
             audioRtxPktSent: Object.freeze({ id: 675, type: 'integer', falcoName: 'audio_rtx_pkt_sent' }),
             audioRxAvgFpp: Object.freeze({ id: 728, type: 'number', falcoName: 'audio_rx_avg_fpp' }),
+            audioRxParseErrPtMlow: Object.freeze({ id: 3187, type: 'integer', falcoName: 'audio_rx_parse_err_pt_mlow' }),
+            audioRxParseErrPtMlowRed: Object.freeze({ id: 3188, type: 'integer', falcoName: 'audio_rx_parse_err_pt_mlow_red' }),
+            audioRxParseErrPtOpus: Object.freeze({ id: 3189, type: 'integer', falcoName: 'audio_rx_parse_err_pt_opus' }),
+            audioRxParseErrPtOther: Object.freeze({ id: 3190, type: 'integer', falcoName: 'audio_rx_parse_err_pt_other' }),
+            audioRxPktPtMlow: Object.freeze({ id: 3191, type: 'integer', falcoName: 'audio_rx_pkt_pt_mlow' }),
+            audioRxPktPtMlowRed: Object.freeze({ id: 3192, type: 'integer', falcoName: 'audio_rx_pkt_pt_mlow_red' }),
+            audioRxPktPtOpus: Object.freeze({ id: 3193, type: 'integer', falcoName: 'audio_rx_pkt_pt_opus' }),
+            audioRxPktPtOther: Object.freeze({ id: 3194, type: 'integer', falcoName: 'audio_rx_pkt_pt_other' }),
             audioStreamRecreations: Object.freeze({ id: 1561, type: 'integer', falcoName: 'audio_stream_recreations' }),
             audioSwbDurationMs: Object.freeze({ id: 1322, type: 'timer', falcoName: 'audio_swb_duration_ms' }),
             audioTarget06Ms: Object.freeze({ id: 1351, type: 'integer', falcoName: 'audio_target06_ms' }),
@@ -18699,9 +18709,14 @@ const WA_WAM_EVENTS = Object.freeze({
             conservativeRampUpRampingUpT: Object.freeze({ id: 742, type: 'timer', falcoName: 'conservative_ramp_up_ramping_up_t' }),
             countInMcp: Object.freeze({ id: 2188, type: 'integer', falcoName: 'count_in_mcp' }),
             countInSru: Object.freeze({ id: 2189, type: 'integer', falcoName: 'count_in_sru' }),
+            cpuArch: Object.freeze({ id: 3195, type: 'string', falcoName: 'cpu_arch' }),
+            cpuClockMhz: Object.freeze({ id: 3196, type: 'integer', falcoName: 'cpu_clock_mhz' }),
+            cpuLogicalCores: Object.freeze({ id: 3197, type: 'integer', falcoName: 'cpu_logical_cores' }),
+            cpuName: Object.freeze({ id: 3198, type: 'string', falcoName: 'cpu_name' }),
             cpuOverUtilizationPct: Object.freeze({ id: 1223, type: 'number', falcoName: 'cpu_over_utilization_pct' }),
             cpuUtilizationAvg: Object.freeze({ id: 1820, type: 'number', falcoName: 'cpu_utilization_avg' }),
             cpuUtilizationPeak: Object.freeze({ id: 1821, type: 'number', falcoName: 'cpu_utilization_peak' }),
+            cpuVendor: Object.freeze({ id: 3199, type: 'string', falcoName: 'cpu_vendor' }),
             createdFromGroupCallDowngrade: Object.freeze({ id: 519, type: 'boolean', falcoName: 'created_from_group_call_downgrade' }),
             criticalGroupUpdateProcessT: Object.freeze({ id: 1556, type: 'timer', falcoName: 'critical_group_update_process_t' }),
             croppedColumnsSs: Object.freeze({ id: 1438, type: 'integer', falcoName: 'cropped_columns_ss' }),
@@ -18927,8 +18942,12 @@ const WA_WAM_EVENTS = Object.freeze({
             genaiVoipToUiListeningMs: Object.freeze({ id: 2835, type: 'timer', falcoName: 'genai_voip_to_ui_listening_ms' }),
             goodputPeerDownlink: Object.freeze({ id: 2322, type: 'integer', falcoName: 'goodput_peer_downlink' }),
             googlePlayServicesStatus: Object.freeze({ id: 1967, type: 'enum', enum: 'GOOGLE_PLAY_SERVICES_STATUS', falcoName: 'google_play_services_status' }),
+            gpuCount: Object.freeze({ id: 3200, type: 'integer', falcoName: 'gpu_count' }),
+            gpuDriverVersion: Object.freeze({ id: 3201, type: 'string', falcoName: 'gpu_driver_version' }),
+            gpuName: Object.freeze({ id: 3202, type: 'string', falcoName: 'gpu_name' }),
             gpuUtilizationAvg: Object.freeze({ id: 1822, type: 'number', falcoName: 'gpu_utilization_avg' }),
             gpuUtilizationPeak: Object.freeze({ id: 1823, type: 'number', falcoName: 'gpu_utilization_peak' }),
+            gpuVendor: Object.freeze({ id: 3203, type: 'string', falcoName: 'gpu_vendor' }),
             greaterThanLowPlrIsRandomCount: Object.freeze({ id: 1529, type: 'integer', falcoName: 'greater_than_low_plr_is_random_count' }),
             groupAcceptNoCriticalGroupUpdate: Object.freeze({ id: 1013, type: 'boolean', falcoName: 'group_accept_no_critical_group_update' }),
             groupAcceptToCriticalGroupUpdateMs: Object.freeze({ id: 1014, type: 'timer', falcoName: 'group_accept_to_critical_group_update_ms' }),

@@ -232,7 +232,7 @@
           "value": "business_broadcast_campaign"
         },
         {
-          "name": "campaign",
+          "name": "campaignId",
           "type": "string"
         }
       ],
@@ -1481,5 +1481,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1048124278"
+  "waVersion": "2.3000.1048238984"
 }

@@ -1,11 +1,12 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1048124278
+/// WhatsApp Version: 2.3000.1048238984
 
 enum ADVEncryptionType {
     E2EE = 0;
     HOSTED = 1;
+    NON_E2EE = 2;
 }
 
 enum AIRichResponseMessageType {
@@ -1881,6 +1882,7 @@ message ClientPairingProps {
     optional bool isSyncdSnapshotRecoveryEnabled = 3;
     optional bool isHsThumbnailSyncEnabled = 4;
     optional bytes subscriptionSyncPayload = 5;
+    optional bool isBotJidDbMigrated = 6;
 }
 
 message ClientPayload {
@@ -2944,6 +2946,9 @@ message DeviceProps {
         VR = 22;
         CLOUD_API = 23;
         SMARTGLASSES = 24;
+        WAIL = 25;
+        WASS = 26;
+        BUSINESS_BACK_OFFICE = 27;
     }
     message HistorySyncConfig {
         optional uint32 fullSyncDaysLimit = 1;
@@ -2970,6 +2975,7 @@ message DeviceProps {
         optional bool supportHatchHistory = 22;
         repeated string supportedBotChannelFbids = 23;
         optional bool supportInlineContacts = 24;
+        optional bool supportNewsletter = 25;
     }
     message AppVersion {
         optional uint32 primary = 1;
