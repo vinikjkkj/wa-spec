@@ -55,6 +55,15 @@ const reId = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
 const LB = '(?<![\\w$])' // left identifier boundary (replaces a leading \b)
 const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
 
+// Canonical bundles (fetcher/src/bundles.cjs) already hold one copy of each
+// module, in a bundle of its own, indexed by name: look it up instead of
+// scanning every bundle.
+function moduleScope(bundles, modName) {
+    if (!bundles.moduleIndex) return bundles
+    const b = bundles.moduleIndex.get(modName)
+    return b ? [b] : []
+}
+
 // Find the parenthesised body of `__d("<name>", ...)` in any of the bundles.
 // Skips string/template literals when balancing parens: a stray `(`/`)` inside
 // a string otherwise unbalances the count, which either truncates the body
@@ -63,7 +72,7 @@ const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
 // into unrelated modules. Both were observed in real bundles.
 function findModuleBody(bundles, modName) {
     const needle = `__d("${modName}"`
-    for (const b of bundles) {
+    for (const b of moduleScope(bundles, modName)) {
         const idx = b.text.indexOf(needle)
         if (idx === -1) continue
         const t = b.text
@@ -286,7 +295,7 @@ function traceLocalLiteral(body, ident, scanUntil) {
 // and resolve `<enumVar>` through the enum map.
 function parseSyncActionValueTypes(bundles) {
     const empty = { fieldToMessage: {}, messageEnumFields: {} }
-    for (const b of bundles) {
+    for (const b of moduleScope(bundles, 'WAWebProtobufSyncAction.pb')) {
         const idx = b.text.indexOf('__d("WAWebProtobufSyncAction.pb"')
         if (idx === -1) continue
         let depth = 0
@@ -465,6 +474,42 @@ function findHandlerClassBody(body) {
     }
 }
 
+// Handlers can also extend another module's SyncdAction subclass instead of a
+// WAWebSyncdAction base directly: WAWebDeviceCapabilitiesSync and
+// WAWebDeviceCapabilitiesV2Sync are `(function(e){…})(r("WAWebDeviceCapabilitiesSyncBase"))`,
+// where the shared base holds the constructor (collectionName), getVersion,
+// getValueField and getMutation while each subclass only overrides getAction,
+// getJidIndex and, for V2, getValueField. Resolve the chain and hand back the
+// subclass body followed by the base body — every field extractor takes the
+// first match, so subclass overrides win and inherited methods still resolve.
+function findDerivedHandlerClass(body, bundles, depth = 0) {
+    if (depth > 3) return null
+    const re = /\}\s*\)?\s*\(\s*[A-Za-z_$][\w$]*\("([^"]+)"\)(?:\.default)?\s*\)/g
+    let m
+    let last = null
+    while ((m = re.exec(body))) last = m
+    if (!last) return null
+    const baseModule = last[1]
+    const baseFound = findModuleBody(bundles, baseModule)
+    if (!baseFound) return null
+    const base =
+        findHandlerClassBody(baseFound.text) ?? findDerivedHandlerClass(baseFound.text, bundles, depth + 1)
+    if (!base) return null
+    let i = last.index
+    let d = 1
+    while (--i >= 0) {
+        if (body[i] === '}') d++
+        else if (body[i] === '{') {
+            if (--d === 0) break
+        }
+    }
+    if (i < 0) return null
+    return {
+        funcBody: body.slice(i + 1, last.index) + ';\n' + base.funcBody,
+        baseClass: base.baseClass
+    }
+}
+
 const BASE_SCOPE = {
     AccountSyncdActionBase: 'account',
     ChatSyncdActionBase: 'chat',
@@ -478,7 +523,7 @@ function extractHandler(moduleName, bundles, syncdConst, valueTypes, messageEnum
     if (!found) return { module: moduleName, error: 'module-not-found' }
     const body = found.text
 
-    const klass = findHandlerClassBody(body)
+    const klass = findHandlerClassBody(body) ?? findDerivedHandlerClass(body, bundles)
     if (!klass) return { module: moduleName, error: 'no-syncd-class-found' }
 
     const fb = klass.funcBody
@@ -504,7 +549,13 @@ function extractHandler(moduleName, bundles, syncdConst, valueTypes, messageEnum
     const version = resolveVersion(versionRaw, syncdConst.constants)
 
     const valueField = extractValueField(fb)
-    const { slots: indexSlots, aliases } = extractIndexInfo(fb)
+    const { slots: readSlots, aliases } = extractIndexInfo(fb)
+    // The index is `JSON.stringify([action].concat(indexArgs))`
+    // (WAWebSyncdActionUtils.buildIndex), so a literal `indexArgs:[…]` fixes
+    // the slot count even when every read of it goes through a variable
+    // subscript (`e.indexParts[c]`) that extractIndexInfo cannot count.
+    const indexArgsCount = countIndexArgs(fb)
+    const indexSlots = Math.max(readSlots, indexArgsCount ? indexArgsCount + 1 : 0)
     const { slotNames, slotProtoEnums } = inferSlotNames(fb, aliases)
     const indexParts = buildIndexParts({
         scope,
@@ -620,6 +671,11 @@ function resolveVersion(raw, constants) {
 //   3. If <token> is an identifier, trace `var <token>={<key>:...}` and return <key>.
 //   4. Fallback: scan for `<something>.value.<key>` accesses.
 function extractValueField(fb) {
+    // A `getValueField(){return "<field>"}` method names the field outright
+    // (the DeviceCapabilities base picks the oneOf member through it, and the
+    // V2 subclass overrides it).
+    const gm = fb.match(/\bgetValueField\s*=\s*\(?\s*function\s*\(\s*\)\s*\{\s*return\s*"([A-Za-z_$][\w$]*)"/)
+    if (gm) return gm[1]
     const callRe = /\bbuildPendingMutation\s*\(\s*\{/g
     let cm
     while ((cm = callRe.exec(fb))) {
@@ -744,6 +800,24 @@ function extractIndexInfo(fb) {
         while ((acc = accessRe.exec(fb))) maxIdx = Math.max(maxIdx, Number(acc[1]))
     }
     return { slots: maxIdx >= 0 ? maxIdx + 1 : 0, aliases: [...aliases] }
+}
+
+// Largest literal `indexArgs:[…]` passed to buildPendingMutation, or 0.
+function countIndexArgs(fb) {
+    let max = 0
+    const callRe = /\bbuildPendingMutation\s*\(\s*\{/g
+    let cm
+    while ((cm = callRe.exec(fb))) {
+        const objStart = cm.index + cm[0].length - 1
+        const objEnd = skipExpr(fb, objStart + 1, ['}'])
+        const argsMatch = fb.slice(objStart + 1, objEnd).match(/(?:^|[,{\s])indexArgs\s*:\s*\[/)
+        if (!argsMatch) continue
+        const open = objStart + 1 + argsMatch.index + argsMatch[0].length
+        const close = skipExpr(fb, open, [']'])
+        const inner = fb.slice(open, close).trim()
+        if (inner) max = Math.max(max, splitTopLevelCommas(inner).length)
+    }
+    return max
 }
 
 // Best-effort slot-name inference. Several sources, applied in order:
@@ -1112,6 +1186,38 @@ function inferSlotNames(fb, indexPartsAliases) {
         }
     }
 
+    // 4i (last resort) — the `indexArgs:[…]` entries 4b could not name, for
+    // slots every source above left empty (slots found only through the
+    // indexArgs count, e.g. CallLog/Sentinel/DeviceCapabilities):
+    //   - getter call `this.getJidIndex()` → `jid`
+    //   - a local that also fills another field of the same call,
+    //     `{collection:n,indexArgs:[n],…}` → `collection`
+    //   - a local traced to its declaration (`p=n.callId` → `callId`)
+    // Minifier-sized results are dropped: a 1–2 char "name" is a variable.
+    callRe.lastIndex = 0
+    while ((cm = callRe.exec(fb))) {
+        const objStart = cm.index + cm[0].length - 1
+        const objEnd = skipExpr(fb, objStart + 1, ['}'])
+        const objSrc = fb.slice(objStart + 1, objEnd)
+        const argsMatch = objSrc.match(/(?:^|[,{\s])indexArgs\s*:\s*\[([^\]]*)\]/)
+        if (!argsMatch) continue
+        splitTopLevelCommas(argsMatch[1]).forEach((raw, i) => {
+            const slot = i + 1
+            if (slot in slotNames) return
+            const expr = raw.trim()
+            let name = null
+            const g = expr.match(/\.get([A-Z][\w$]*?)(?:Index)?\s*\(\s*\)\s*$/)
+            if (g) name = g[1][0].toLowerCase() + g[1].slice(1)
+            else if (/^[A-Za-z_$][\w$]*$/.test(expr)) {
+                const sibling = objSrc.match(
+                    new RegExp(`(?:^|[,{\\s])([A-Za-z_$][\\w$]*)\\s*:\\s*${reId(expr)}(?![\\w$.(\\[])`)
+                )
+                name = sibling && sibling[1] !== 'indexArgs' ? sibling[1] : extractTrailingName(expr, fb, cm.index)
+            }
+            if (name && name.length > 2 && !reserved.has(name)) slotNames[slot] = name
+        })
+    }
+
     return { slotNames, slotProtoEnums }
 }
 
@@ -1121,6 +1227,10 @@ function inferSlotNames(fb, indexPartsAliases) {
 function extractTrailingName(expr, fb, scanFrom) {
     const propM = expr.match(/\.([A-Za-z_$][\w$]*)\s*$/)
     if (propM) return propM[1]
+    // A flag serialized for the index: `n.fromMe?"1":"0"` → `fromMe`. Only a
+    // member access names it; a bare `n?"1":"0"` is just a minified local.
+    const boolM = expr.match(/\.([A-Za-z_$][\w$]*)\s*\?\s*"1"\s*:\s*"0"$/)
+    if (boolM) return boolM[1]
     const idM = expr.match(/^([A-Za-z_$][\w$]*)$/)
     if (idM) {
         const ident = idM[1]
