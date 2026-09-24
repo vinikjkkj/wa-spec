@@ -35,7 +35,8 @@ const {
     parseObject,
     iterModuleHeaders
 } = require('./parser.cjs')
-const { fillInputTypes, fillResponseTypes } = require('./infer-leaf-types.cjs')
+const { fillInputTypes, fillResponseTypes, schemaInvariantType } = require('./infer-leaf-types.cjs')
+const { makeRecoverer } = require('./recover-leaves.cjs')
 
 // Minifier identifiers can contain `$` (e.g. `$e`) or be a bare `$`. Interpolating
 // a name into a RegExp unescaped lets `$` act as the end-of-input anchor, and `\b`
@@ -47,6 +48,15 @@ const RB = '(?![\\w$])' // right identifier boundary (replaces a trailing \b)
 
 const NOISE =
     /BizAd|BizAi|BizCatalog|BizPay|BizBroadcast|Comet|LWI|MWChat|Mmlite|BizMeta|BizCommerce|BizAccount|BizDeli|BizMass|BizMcomm|BizMessageTemplate|BizOrder|BizPlatform|BizPostpaid|BizSendOptIn|BizSetting|BizShipping|BizQuickReplies|BizLabel|BizAway|BizGreeting|BizOnboarding|BizGroup|BizHub|BizInstall|BizInterop|BizLogin|BizPnh|BizQrCode|BizQuote|BizRecurring|BizRequest|BizSubscribed|BizUpsell|BizVerify|BizWa|BizWam|BizWelcome|BizYou|MetaAi|MetaTransp|Saved|Telemetry|Subscribe|Galaxy|Hatch|LinkedAccounts|Provisioning|RtcRing|XplatGen|Wallet|Transaction|Boost/i
+
+// Canonical bundles (fetcher/src/bundles.cjs) already hold one copy of each
+// module, in a bundle of its own, indexed by name: look it up instead of
+// scanning every bundle.
+function moduleScope(bundles, modName) {
+    if (!bundles.moduleIndex) return bundles
+    const b = bundles.moduleIndex.get(modName)
+    return b ? [b] : []
+}
 
 // Locate the parenthesised body of `__d("<name>", ...)` in any of the bundle texts.
 //
@@ -66,7 +76,7 @@ const NOISE =
 function findModuleBody(bundles, modName) {
     const needle = `__d("${modName}"`
     const found = []
-    for (const b of bundles) {
+    for (const b of moduleScope(bundles, modName)) {
         const idx = b.text.indexOf(needle)
         if (idx === -1) continue
         let depth = 0
@@ -513,9 +523,14 @@ function extractVarsShape(body) {
 // many fetchQuery calls (one per op), and our naive merge picks up keys
 // from sibling ops. We trust argDefNames as the source of truth: keep only
 // matching keys (preserving their nested shape) and add missing argDefs as
-// `null` leaves. When there are no argDefs, fall back to the raw shape.
-function augmentWithArgDefs(shape, argDefNames) {
-    if (argDefNames.length === 0) return shape || {}
+// `null` leaves. Fall back to the raw shape only when the definitions could
+// not be read at all — a literal `argumentDefinitions:[]` means the op takes
+// no variables, and everything the caller scan found there belongs to the
+// sibling ops sharing that caller (WAWebOrgAdminGraphQL runs every OrgAdmin
+// query; WAWebResolveAccountTypeAndAdPageMutation shares its caller with the
+// Query that takes `pageId`).
+function augmentWithArgDefs(shape, argDefNames, argDefsKnown) {
+    if (argDefNames.length === 0) return argDefsKnown ? {} : shape || {}
     const src = shape && typeof shape === 'object' && !Array.isArray(shape) ? shape : {}
     const out = {}
     for (const name of argDefNames) {
@@ -552,73 +567,72 @@ function findFetchQueryPos(body) {
     return m ? m.index : null
 }
 
-// Search every bundle for a `<methodName>:function(...){...}` definition and
-// return the first matched body slice (between the opening `{` and matching
-// `}`). Used by the leaf-shape recovery in `fillInputTypes` to inspect
+// Search every bundle for `<methodName>:function(...){...}` definitions and
+// return their distinct bodies (outer `{…}` included), best candidate first.
+// Used by the leaf-shape recovery in `fillInputTypes` to inspect
 // `get<Field>` builder methods scattered across modules outside the direct
 // wrapper/consumer dependency chain.
-function findMethodImplementation(bundles, methodName) {
-    if (!methodName) return null
+function findMethodImplementations(bundles, methodName) {
+    if (!methodName) return []
     const escaped = methodName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-    const headerRe = new RegExp(`${LB}${escaped}\\s*:\\s*function\\s*\\(`)
-    // Same duplication problem as findModuleBody, and worse: a method name is
-    // not unique across the codebase, so the matches include unrelated methods
-    // that merely share it. `getMetrics` resolves to four distinct bodies here
-    // — an opaque `{return[c,d]}`, a single-call wrapper, the newsletter
-    // insights builder we actually want, and a counter aggregator returning a
-    // plain object. Taking the first made the recovered shape depend on file
-    // order; taking the longest reliably picked the unrelated aggregator.
+    const headerRe = new RegExp(`${LB}${escaped}\\s*:\\s*function\\s*\\(`, 'g')
+    // A method name is not unique across the codebase: `getMetrics` alone has
+    // over a dozen definitions — the newsletter insight Processors' builders
+    // (`return[{id,type,group_by,…},…]`), React sections returning
+    // `[<metricInfo>()]`, a story's opaque `{return[c,d]}`. Every
+    // definition is collected, not just the first per bundle: which one came
+    // "first" used to depend on how modules happened to be packed into files.
     //
-    // Select on shape instead: the caller mines a returned array of object
-    // literals, so prefer a body that has one, and only then fall back. Within
-    // a tier the longest wins (richest literal) and ties break on content, so
-    // the result never depends on file order.
+    // Order by shape: the caller mines a returned array of object literals, so
+    // bodies with one come first, then any returned array, then the rest.
+    // Within a tier the longest leads and ties break on content, so the order
+    // never depends on bundle layout.
     const candidates = []
     for (const b of bundles) {
-        const m = headerRe.exec(b.text)
-        if (!m) continue
-        // Find the function body opening `{` after the args close `)`.
-        let i = m.index + m[0].length
-        // walk to matching `)` for args
-        let dp = 1
-        while (i < b.text.length && dp > 0) {
-            const c = b.text[i]
-            if (c === '(') dp++
-            else if (c === ')') dp--
-            i++
-        }
-        // skip whitespace
-        while (i < b.text.length && /\s/.test(b.text[i])) i++
-        if (b.text[i] !== '{') continue
-        // walk to matching `}`
-        let depth = 1
-        let j = i + 1
-        let inStr = false
-        let strCh = ''
-        while (j < b.text.length && depth > 0) {
-            const c = b.text[j]
-            if (inStr) {
-                if (c === '\\') { j += 2; continue }
-                if (c === strCh) inStr = false
-                j++
-                continue
+        headerRe.lastIndex = 0
+        let m
+        while ((m = headerRe.exec(b.text))) {
+            // Find the function body opening `{` after the args close `)`.
+            let i = m.index + m[0].length
+            // walk to matching `)` for args
+            let dp = 1
+            while (i < b.text.length && dp > 0) {
+                const c = b.text[i]
+                if (c === '(') dp++
+                else if (c === ')') dp--
+                i++
             }
-            if (c === '"' || c === "'" || c === '`') { inStr = true; strCh = c; j++; continue }
-            if (c === '{') depth++
-            else if (c === '}') depth--
-            j++
+            // skip whitespace
+            while (i < b.text.length && /\s/.test(b.text[i])) i++
+            if (b.text[i] !== '{') continue
+            // walk to matching `}`
+            let depth = 1
+            let j = i + 1
+            let inStr = false
+            let strCh = ''
+            while (j < b.text.length && depth > 0) {
+                const c = b.text[j]
+                if (inStr) {
+                    if (c === '\\') { j += 2; continue }
+                    if (c === strCh) inStr = false
+                    j++
+                    continue
+                }
+                if (c === '"' || c === "'" || c === '`') { inStr = true; strCh = c; j++; continue }
+                if (c === '{') depth++
+                else if (c === '}') depth--
+                j++
+            }
+            candidates.push(b.text.slice(i, j)) // includes outer { ... }
         }
-        candidates.push(b.text.slice(i, j)) // includes outer { ... }
     }
-    if (candidates.length === 0) return null
     const uniq = [...new Set(candidates)]
-    if (uniq.length === 1) return uniq[0]
     const tier = (b) => (/return\s*\[\s*\{/.test(b) ? 0 : /return\s*\[/.test(b) ? 1 : 2)
     uniq.sort(
         (x, y) =>
             tier(x) - tier(y) || y.length - x.length || (x < y ? -1 : x > y ? 1 : 0)
     )
-    return uniq[0]
+    return uniq
 }
 
 function extractMex(bundles) {
@@ -672,9 +686,43 @@ function extractMex(bundles) {
     } catch {}
 
     const operations = {}
+    const methodCache = new Map() // methodName → findMethodImplementations result
     let kept = 0
     let skipped = 0
     let unparseable = 0
+    let leavesRecovered = 0
+
+    // Second-chance typing of `unknown` response leaves from the op's feature
+    // neighborhood (see recover-leaves.cjs). Module bodies are cached: the
+    // neighborhood walk revisits the same modules for every leaf.
+    const bodyCache = new Map()
+    const readerCache = new Map()
+    const moduleBundles = bundles.moduleIndex ? bundles.filter((b) => b.url.startsWith('module:')) : null
+    const recoverUnknownLeaves = makeRecoverer({
+        text: (name) => {
+            if (!bodyCache.has(name)) bodyCache.set(name, findModuleBody(bundles, name))
+            return bodyCache.get(name)
+        },
+        deps: (name) => depsOf[name] || [],
+        dependents: (name) => dependents[name] || [],
+        invariant: schemaInvariantType,
+        // Bundle-wide reader lookup needs one module per bundle (canonical
+        // input); over raw files a hit would name a whole file, not a module.
+        readers: moduleBundles
+            ? (key) => {
+                if (!readerCache.has(key)) {
+                    const re = new RegExp(`\\.${reId(key)}${RB}`)
+                    readerCache.set(
+                        key,
+                        moduleBundles
+                            .filter((b) => !b.url.endsWith('.graphql') && b.text.includes(key) && re.test(b.text))
+                            .map((b) => b.url.slice(7))
+                    )
+                }
+                return readerCache.get(key)
+            }
+            : null
+    })
 
     for (const gqlName of graphqlModules) {
         const body = findModuleBody(bundles, gqlName)
@@ -711,7 +759,10 @@ function extractMex(bundles) {
         const callerName = callerByGraphql[gqlName]
         const callerBody = callerName ? findModuleBody(bundles, callerName) : null
         const rawVarsShape = extractVarsShape(callerBody)
-        const structuralVars = augmentWithArgDefs(rawVarsShape, argDefNames)
+        // A literal empty list declares "no variables"; a list whose entries
+        // did not resolve tells us nothing.
+        const noVariables = Array.isArray(argDefs) && argDefs.length === 0
+        const structuralVars = augmentWithArgDefs(rawVarsShape, argDefNames, noVariables)
         const structuralResp = shapeFromSelections(op.operation && op.operation.selections)
         // Promote `null` leaves to inferred type tags. Collect bodies for
         // both directions: the primary caller (wrapper Job module that
@@ -774,9 +825,13 @@ function extractMex(bundles) {
         // (e.g. `metrics`) traces through opaque function calls to a
         // builder method (e.g. `getMetrics:function(){return[{id, type,
         // group_by}]}`) defined far from the wrapper's dep chain.
-        const findMethod = (methodName) => findMethodImplementation(bundles, methodName)
+        const findMethod = (methodName) => {
+            if (!methodCache.has(methodName)) methodCache.set(methodName, findMethodImplementations(bundles, methodName))
+            return methodCache.get(methodName)
+        }
         const variablesShape = fillInputTypes(structuralVars, respBodies, respPositions, null, null, 0, varToField, findMethod, sharedEnumIndex)
         const response = fillResponseTypes(structuralResp, respBodies)
+        leavesRecovered += recoverUnknownLeaves(response, gqlName)
         operations[opName] = {
             docId,
             operationKind: params.operationKind,
@@ -794,7 +849,8 @@ function extractMex(bundles) {
             operationsKept: kept,
             operationsSkippedBiz: skipped,
             operationsUnparseable: unparseable,
-            callerMatches: Object.keys(callerByGraphql).length
+            callerMatches: Object.keys(callerByGraphql).length,
+            responseLeavesRecovered: leavesRecovered
         }
     }
 }

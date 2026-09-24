@@ -673,6 +673,11 @@ function schemaInvariantType(fieldName) {
     // GraphQL spec — ID scalar applies to all `*_id` fields too
     if (fieldName === '__typename') return 'string'
     if (fieldName === 'id' || /_id$/.test(fieldName)) return 'string'
+    // Typed accessors on union value wrappers — `value{as_boolean}` is selected
+    // on `…BooleanBasedAttributeValue`, `as_string` on `…StringBasedAttributeValue`.
+    if (/^as_(?:boolean|bool)$/.test(fieldName)) return 'boolean'
+    if (/^as_(?:string|text)$/.test(fieldName)) return 'string'
+    if (/^as_(?:int|integer|long|float|double|number)$/.test(fieldName)) return 'number'
     // Canonical English boolean prefixes — `is_*`/`has_*`/`can_*`/`should_*`/
     // `did_*` are unambiguous (no realistic non-boolean field starts with these).
     if (/^(?:is|has|can|should|did|are|was|were|will)_/.test(fieldName)) return 'boolean'
@@ -1640,40 +1645,100 @@ function recoverArrayItemShape(fieldName, finder, enumIndex) {
         'get' + camel.replace(/ies$/, 'y').replace(/sses$/, 'ss').replace(/s$/, '')
     ]
     for (const cand of candidates) {
-        const body = finder(cand)
-        if (!body) continue
-        // Look for `return [{...}]` in the body. Minified, so no whitespace
-        // requirement — must accept `return[{`.
-        const retIdx = body.search(/\breturn\b\s*\[/)
-        if (retIdx === -1) continue
-        let i = body.indexOf('[', retIdx)
-        if (i === -1) continue
-        let j = i + 1
-        while (j < body.length && /\s/.test(body[j])) j++
-        if (body[j] !== '{') continue
-        // Parse every element, not just the first. These builders list one
-        // object per variant — `[{type:"FOLLOWS",…},{type:"UNFOLLOWS",…}]` —
-        // so the elements together carry the value set for the keys that
-        // differ. Reading only element 0 saw a lone literal and reported
-        // `string`, discarding the rest of the enum.
+        const found = finder(cand)
+        const bodies = Array.isArray(found) ? found : found ? [found] : []
+        // The builder usually has several definitions, one per Processor
+        // module, and the input is their union: the wrapper sends
+        // `.flatMap(p => p.getMetrics())` across every Processor. Merge the
+        // elements of every body that returns an array of object literals
+        // instead of betting on one — which single body used to win depended
+        // on how modules were packed into bundle files.
         const shapes = []
-        let cur = j
-        while (cur < body.length && body[cur] === '{' && shapes.length < 24) {
-            const r = parseObjectShapeInline(body, cur, enumIndex)
-            if (!r || !r.value || typeof r.value !== 'object') break
-            shapes.push(r.value)
-            let k = r.end
-            while (k < body.length && /\s/.test(body[k])) k++
-            if (body[k] !== ',') break
-            k++
-            while (k < body.length && /\s/.test(body[k])) k++
-            cur = k
+        for (const body of bodies) {
+            // Look for `return [{...}]` in the body. Minified, so no whitespace
+            // requirement — must accept `return[{`.
+            const retIdx = body.search(/\breturn\b\s*\[/)
+            if (retIdx === -1) continue
+            let i = body.indexOf('[', retIdx)
+            if (i === -1) continue
+            let j = i + 1
+            while (j < body.length && /\s/.test(body[j])) j++
+            if (body[j] !== '{') continue
+            // Parse every element, not just the first. These builders list one
+            // object per variant — `[{type:"FOLLOWS",…},{type:"UNFOLLOWS",…}]` —
+            // so the elements together carry the value set for the keys that
+            // differ. Reading only element 0 saw a lone literal and reported
+            // `string`, discarding the rest of the enum. Gated variants are
+            // conditionals — `hide()?null:{type:"NEW_UNIQUE_VISITORS",…}`,
+            // `gate()&&{…}`, cleaned up by a trailing `.filter(Boolean)` — so
+            // take the object-literal branches of those too.
+            let cur = j
+            let n = 0
+            while (cur < body.length && body[cur] !== ']' && n < 24) {
+                const end = skipExpr(body, cur, [',', ']'])
+                for (const at of objectLiteralBranches(body, cur, end, 0)) {
+                    const r = parseObjectShapeInline(body, at, enumIndex)
+                    if (!r || !r.value || typeof r.value !== 'object') continue
+                    shapes.push(r.value)
+                    n++
+                }
+                if (body[end] !== ',') break
+                cur = end + 1
+                while (cur < body.length && /\s/.test(body[cur])) cur++
+            }
         }
         if (shapes.length === 0) continue
         const merged = mergeArrayItemShapes(shapes)
         if (merged && Object.keys(merged).length > 0) return merged
     }
     return null
+}
+
+// Start offsets of the object literals an array element can evaluate to:
+// the element itself when it is `{…}`, otherwise the branches of a top-level
+// `c ? a : b` or the right side of `c && a`, recursively. `s[from, to)` is the
+// element's source.
+function objectLiteralBranches(s, from, to, depth) {
+    while (from < to && /\s/.test(s[from])) from++
+    if (from >= to || depth > 3) return []
+    if (s[from] === '{') return [from]
+    // Walk the element at bracket depth 0, skipping strings; `?.` and `??`
+    // are not the conditional operator.
+    const top = []
+    let d = 0
+    for (let i = from; i < to; i++) {
+        const c = s[i]
+        if (c === '"' || c === "'" || c === '`') {
+            i = skipString(s, i) - 1
+            continue
+        }
+        if (c === '(' || c === '[' || c === '{') d++
+        else if (c === ')' || c === ']' || c === '}') d--
+        else if (d === 0) {
+            if (c === '?' && s[i + 1] !== '.' && s[i + 1] !== '?' && s[i - 1] !== '?') top.push(['?', i])
+            else if (c === ':') top.push([':', i])
+            else if (c === '&' && s[i + 1] === '&') top.push(['&&', i++])
+        }
+    }
+    const q = top.findIndex(([t]) => t === '?')
+    if (q !== -1) {
+        // The `:` that closes this `?`, skipping nested conditionals.
+        let nest = 0
+        for (let k = q + 1; k < top.length; k++) {
+            if (top[k][0] === '?') nest++
+            else if (top[k][0] === ':' && nest-- === 0) {
+                const qi = top[q][1]
+                const ci = top[k][1]
+                return [
+                    ...objectLiteralBranches(s, qi + 1, ci, depth + 1),
+                    ...objectLiteralBranches(s, ci + 1, to, depth + 1)
+                ]
+            }
+        }
+        return []
+    }
+    const and = top.find(([t]) => t === '&&')
+    return and ? objectLiteralBranches(s, and[1] + 2, to, depth + 1) : []
 }
 
 // Merge the per-element shapes recovered from a builder's returned array.
@@ -1904,6 +1969,9 @@ function classifyInlineRhs(expr, enumIndex) {
 function inputNameInvariant(key) {
     if (/^(?:fetch|include|with|exclude|skip|should|use|enable|disable)_/.test(key)) return 'boolean'
     if (key === 'picture' || key === 'avatar' || key === 'image' || key === 'photo') return 'string'
+    // camelCase plural ID lists — `adgroupRelayIDs`, `creatorIDs`,
+    // `adObjectIDs` — the input-side counterpart of the `*_ids` response rule.
+    if (/[a-z](?:IDs|Ids)$/.test(key)) return ['string']
     return null
 }
 
@@ -1913,5 +1981,6 @@ module.exports = {
     fillResponseTypes,
     fillInputTypes,
     classifyInputLeafByName,
-    buildBodyContext
+    buildBodyContext,
+    schemaInvariantType
 }
