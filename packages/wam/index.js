@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -4273,6 +4273,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'DEEP_LINK_SETTINGS_CHATS_HISTORY': 24,
         'DEEP_LINK_SETTINGS_CHATS_PRIVATE_PROCESSING': 212,
         'DEEP_LINK_SETTINGS_CHAT_THEMES': 156,
+        'DEEP_LINK_SETTINGS_EVENTS_HOME': 263,
         'DEEP_LINK_SETTINGS_HOME_SCREEN_NOTIFICATIONS': 168,
         'DEEP_LINK_SETTINGS_LINKED_DEVICES': 43,
         'DEEP_LINK_SETTINGS_MEDIA_UPLOAD_QUALITY': 231,
@@ -5851,6 +5852,7 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'DELETE_CONFIRM': 2,
         'ERROR': 3,
+        'OPEN': 4,
         'UPDATE': 1
         })
     }),
@@ -10557,7 +10559,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'CLICK_SAVED_FORM': 242,
         'CLOSE_BUTTON': 247,
         'COMPOSER_REMITTANCE_BUTTON': 326,
+        'CONFIRM_BANK': 398,
         'CONFIRM_BUTTON': 4,
+        'CONNECT_BANK': 395,
         'CONTACT_SUPPORT_BUTTON': 158,
         'CONTEXT_MENU_BUTTON': 260,
         'CONTINUE_BUTTON': 5,
@@ -10716,10 +10720,18 @@ const WA_WAM_ENUMS = Object.freeze({
         'PIX_INVITE_REQUEST_PAYMENT': 377,
         'PIX_KEY': 191,
         'PIX_NAME': 192,
+        'PIX_NATIVE_ENROLLMENT_BANNER': 394,
+        'PIX_NATIVE_ENROLLMENT_BANNER_DISMISS': 403,
+        'PIX_NATIVE_ENROLLMENT_DEEP_LINK': 400,
+        'PIX_NATIVE_ENROLLMENT_REDIRECT_STATUS': 399,
+        'PIX_NATIVE_FIDO_REGISTRATION': 402,
+        'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 401,
         'PIX_PAYMENT_REQUEST_AMOUNT_INPUT': 253,
         'PIX_PAYMENT_REQUEST_EDIT_PIX_BUTTON': 264,
         'PIX_PAYMENT_REQUEST_SEND_BUTTON': 252,
         'PIX_ROW': 209,
+        'PIX_SELECT_BANK_GRID': 396,
+        'PIX_SELECT_BANK_LIST': 397,
         'PIX_TYPE': 190,
         'PMT_DETAILS': 44,
         'PRIVACY_AND_TERM_BUTTON': 95,
@@ -14012,6 +14024,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumStatusPrivacySettingsView',
         export: 'STATUS_PRIVACY_SETTINGS_VIEW',
         values: Object.freeze({
+        'CLOSE_FRIENDS_UPSELL_BANNER': 4,
         'SELECTION_PILLS': 3,
         'SETTINGS_BOTTOM_SHEET': 2,
         'SETTINGS_FULL': 1
@@ -14556,6 +14569,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'ADD_ITEM': 95,
         'ADD_PROFILE_PHOTO': 83,
         'ADVANCED_TOOLS_BOTTOM_SHEET': 143,
+        'AGENTIC_ONBOARDING_FOOTER': 342,
         'AI_HOME': 287,
         'ALERTS_CENTER_HOME': 198,
         'AWAY_MESSAGE_AUDIENCE': 271,
@@ -23816,6 +23830,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isDeviceSwitch: Object.freeze({ id: 55, type: 'boolean', falcoName: 'is_device_switch' }),
             isEventsLink: Object.freeze({ id: 50, type: 'boolean', falcoName: 'is_events_link' }),
             isFromCallLink: Object.freeze({ id: 32, type: 'boolean', falcoName: 'is_from_call_link' }),
+            isGuestParticipant: Object.freeze({ id: 58, type: 'boolean', falcoName: 'is_guest_participant' }),
             isLidCall: Object.freeze({ id: 45, type: 'boolean', falcoName: 'is_lid_call' }),
             isLinkCreator: Object.freeze({ id: 39, type: 'boolean', falcoName: 'is_link_creator' }),
             isLinkJoin: Object.freeze({ id: 33, type: 'boolean', falcoName: 'is_link_join' }),

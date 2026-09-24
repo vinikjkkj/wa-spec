@@ -5542,7 +5542,7 @@
         "xwa_org_managed_channel_add": {
           "channel": {
             "description": "string",
-            "id": "number",
+            "id": "string",
             "invite_code": "string",
             "name": "string",
             "picture": {
@@ -7683,7 +7683,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "29363394989914106",
+      "docId": "28209134908781610",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -7799,6 +7799,7 @@
                           "condition_matched": "unknown",
                           "content_id": "string",
                           "created_time": "string",
+                          "creation_lifecycle_identity": "unknown",
                           "creation_time": "string",
                           "creative_description": "string",
                           "creators": [
@@ -8450,5 +8451,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048238984"
+  "waVersion": "2.3000.1048298845"
 }

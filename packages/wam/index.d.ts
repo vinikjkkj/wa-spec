@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -4382,6 +4382,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'DEEP_LINK_SETTINGS_CHATS_HISTORY': 24;
             readonly 'DEEP_LINK_SETTINGS_CHATS_PRIVATE_PROCESSING': 212;
             readonly 'DEEP_LINK_SETTINGS_CHAT_THEMES': 156;
+            readonly 'DEEP_LINK_SETTINGS_EVENTS_HOME': 263;
             readonly 'DEEP_LINK_SETTINGS_HOME_SCREEN_NOTIFICATIONS': 168;
             readonly 'DEEP_LINK_SETTINGS_LINKED_DEVICES': 43;
             readonly 'DEEP_LINK_SETTINGS_MEDIA_UPLOAD_QUALITY': 231;
@@ -5960,6 +5961,7 @@ export declare const WA_WAM_ENUMS: {
         readonly values: {
             readonly 'DELETE_CONFIRM': 2;
             readonly 'ERROR': 3;
+            readonly 'OPEN': 4;
             readonly 'UPDATE': 1
         }
     }
@@ -10666,7 +10668,9 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CLICK_SAVED_FORM': 242;
             readonly 'CLOSE_BUTTON': 247;
             readonly 'COMPOSER_REMITTANCE_BUTTON': 326;
+            readonly 'CONFIRM_BANK': 398;
             readonly 'CONFIRM_BUTTON': 4;
+            readonly 'CONNECT_BANK': 395;
             readonly 'CONTACT_SUPPORT_BUTTON': 158;
             readonly 'CONTEXT_MENU_BUTTON': 260;
             readonly 'CONTINUE_BUTTON': 5;
@@ -10825,10 +10829,18 @@ export declare const WA_WAM_ENUMS: {
             readonly 'PIX_INVITE_REQUEST_PAYMENT': 377;
             readonly 'PIX_KEY': 191;
             readonly 'PIX_NAME': 192;
+            readonly 'PIX_NATIVE_ENROLLMENT_BANNER': 394;
+            readonly 'PIX_NATIVE_ENROLLMENT_BANNER_DISMISS': 403;
+            readonly 'PIX_NATIVE_ENROLLMENT_DEEP_LINK': 400;
+            readonly 'PIX_NATIVE_ENROLLMENT_REDIRECT_STATUS': 399;
+            readonly 'PIX_NATIVE_FIDO_REGISTRATION': 402;
+            readonly 'PIX_NATIVE_FIDO_REGISTRATION_OPTIONS': 401;
             readonly 'PIX_PAYMENT_REQUEST_AMOUNT_INPUT': 253;
             readonly 'PIX_PAYMENT_REQUEST_EDIT_PIX_BUTTON': 264;
             readonly 'PIX_PAYMENT_REQUEST_SEND_BUTTON': 252;
             readonly 'PIX_ROW': 209;
+            readonly 'PIX_SELECT_BANK_GRID': 396;
+            readonly 'PIX_SELECT_BANK_LIST': 397;
             readonly 'PIX_TYPE': 190;
             readonly 'PMT_DETAILS': 44;
             readonly 'PRIVACY_AND_TERM_BUTTON': 95;
@@ -14121,6 +14133,7 @@ export declare const WA_WAM_ENUMS: {
         readonly module: 'WAWebWamEnumStatusPrivacySettingsView'
         readonly export: 'STATUS_PRIVACY_SETTINGS_VIEW'
         readonly values: {
+            readonly 'CLOSE_FRIENDS_UPSELL_BANNER': 4;
             readonly 'SELECTION_PILLS': 3;
             readonly 'SETTINGS_BOTTOM_SHEET': 2;
             readonly 'SETTINGS_FULL': 1
@@ -14665,6 +14678,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'ADD_ITEM': 95;
             readonly 'ADD_PROFILE_PHOTO': 83;
             readonly 'ADVANCED_TOOLS_BOTTOM_SHEET': 143;
+            readonly 'AGENTIC_ONBOARDING_FOOTER': 342;
             readonly 'AI_HOME': 287;
             readonly 'ALERTS_CENTER_HOME': 198;
             readonly 'AWAY_MESSAGE_AUDIENCE': 271;
@@ -24525,6 +24539,7 @@ export declare const WA_WAM_EVENTS: {
             readonly isDeviceSwitch: { readonly id: 55; readonly type: 'boolean'; readonly falcoName: 'is_device_switch' }
             readonly isEventsLink: { readonly id: 50; readonly type: 'boolean'; readonly falcoName: 'is_events_link' }
             readonly isFromCallLink: { readonly id: 32; readonly type: 'boolean'; readonly falcoName: 'is_from_call_link' }
+            readonly isGuestParticipant: { readonly id: 58; readonly type: 'boolean'; readonly falcoName: 'is_guest_participant' }
             readonly isLidCall: { readonly id: 45; readonly type: 'boolean'; readonly falcoName: 'is_lid_call' }
             readonly isLinkCreator: { readonly id: 39; readonly type: 'boolean'; readonly falcoName: 'is_link_creator' }
             readonly isLinkJoin: { readonly id: 33; readonly type: 'boolean'; readonly falcoName: 'is_link_join' }

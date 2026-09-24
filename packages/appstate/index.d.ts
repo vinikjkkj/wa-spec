@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -93,6 +93,7 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly ExternalWebBeta: WaAppstateSchema<'external_web_beta', 'regular', 'account', 'externalWebBetaAction', 'SyncActionValue.ExternalWebBetaAction', null, readonly [{ readonly type: 'literal'; readonly value: 'external_web_beta' }]>
     readonly FavoriteSticker: WaAppstateSchema<'favoriteSticker', 'regular_low', 'account', 'stickerAction', 'SyncActionValue.StickerAction', null, readonly [{ readonly type: 'literal'; readonly value: 'favoriteSticker' }, { readonly type: 'string'; readonly name: 'filehash' }]>
     readonly Favorites: WaAppstateSchema<'favorites', 'regular_high', 'account', 'favoritesAction', 'SyncActionValue.FavoritesAction', null, readonly [{ readonly type: 'literal'; readonly value: 'favorites' }]>
+    readonly GroupHistoryToggle: WaAppstateSchema<'group_history_toggle', 'regular_low', 'chat', 'groupHistoryToggleAction', 'SyncActionValue.GroupHistoryToggleAction', { readonly 'groupHistoryToggleMode': 'GroupHistoryToggleAction.GroupHistoryToggleMode' }, readonly [{ readonly type: 'literal'; readonly value: 'group_history_toggle' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
     readonly InteractiveMessageAction: WaAppstateSchema<'interactive_message_action', 'regular_low', 'message', 'interactiveMessageAction', 'SyncActionValue.InteractiveMessageAction', { readonly 'type': 'InteractiveMessageAction.InteractiveMessageActionMode' }, readonly [{ readonly type: 'literal'; readonly value: 'interactive_message_action' }, { readonly type: 'jid'; readonly name: 'remote' }, { readonly type: 'string'; readonly name: 'id' }, { readonly type: 'boolString'; readonly name: 'fromMe' }, { readonly type: 'jidOrZero'; readonly name: 'participant' }, { readonly type: 'string'; readonly name: 'arg5' }]>
     readonly LabelEdit: WaAppstateSchema<'label_edit', 'regular', 'account', 'labelEditAction', 'SyncActionValue.LabelEditAction', { readonly 'type': 'LabelEditAction.ListType' }, readonly [{ readonly type: 'literal'; readonly value: 'label_edit' }, { readonly type: 'string'; readonly name: 'labelId' }]>
     readonly LabelJid: WaAppstateSchema<'label_jid', 'regular', 'chatOrContact', 'labelAssociationAction', 'SyncActionValue.LabelAssociationAction', null, readonly [{ readonly type: 'literal'; readonly value: 'label_jid' }, { readonly type: 'string'; readonly name: 'labelId' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>

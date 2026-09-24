@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -367,6 +367,19 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'favorites' })
+        ])
+    }),
+    GroupHistoryToggle: Object.freeze({
+        name: 'group_history_toggle',
+        collection: 'regular_low',
+        version: 1,
+        scope: 'chat',
+        valueField: 'groupHistoryToggleAction',
+        valueProtoType: 'SyncActionValue.GroupHistoryToggleAction',
+        valueEnumFields: Object.freeze({ 'groupHistoryToggleMode': 'GroupHistoryToggleAction.GroupHistoryToggleMode' }),
+        indexParts: Object.freeze([
+            Object.freeze({ type: 'literal', value: 'group_history_toggle' }),
+            Object.freeze({ type: 'jid', name: 'chatJid' })
         ])
     }),
     InteractiveMessageAction: Object.freeze({

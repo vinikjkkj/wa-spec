@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -2094,6 +2094,7 @@ export declare const WA_ABPROPS: {
     readonly wa_web_media_loader_button_uix_improvement: { readonly code: 33245; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_media_upload_retry_retries_count: { readonly code: 27782; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly wa_web_mention_search: { readonly code: 28455; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly wa_web_meta_one_dev: { readonly code: 37481; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_multi_ppl_typing_indicator_for_chatlist_groups_variant: { readonly code: 24560; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly wa_web_notifications_modal: { readonly code: 32228; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_notifications_modal_timer: { readonly code: 36113; readonly type: "int"; readonly defaultValue: 180; readonly debugDefaultValue: 180 }
@@ -2524,6 +2525,7 @@ export declare const WA_ABPROPS: {
     readonly web_voip_outgoing_call_setup_latency_mode: { readonly code: 33122; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_pin_worker_glue_to_wasm: { readonly code: 36184; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_pre_init_worker_bootstrap: { readonly code: 34685; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly web_voip_pthread_hardening_level: { readonly code: 37490; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_relay_setup_yield_ipv4_first: { readonly code: 36803; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_runtime_stack_selection_enabled: { readonly code: 33151; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_sctp_worker_safari_exp: { readonly code: 27695; readonly type: "int"; readonly defaultValue: 1; readonly debugDefaultValue: 1 }
@@ -5165,6 +5167,8 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37456: "host_write_mutation_name_allowlist"
     readonly 37465: "enable_syncd_write_coex_v2"
     readonly 37476: "ai_hatch_upsell_in_agents_screen_enabled"
+    readonly 37481: "wa_web_meta_one_dev"
+    readonly 37490: "web_voip_pthread_hardening_level"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -2075,6 +2075,7 @@ const WA_ABPROPS = Object.freeze({
     wa_web_media_loader_button_uix_improvement: Object.freeze({ code: 33245, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_media_upload_retry_retries_count: Object.freeze({ code: 27782, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_web_mention_search: Object.freeze({ code: 28455, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_web_meta_one_dev: Object.freeze({ code: 37481, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_multi_ppl_typing_indicator_for_chatlist_groups_variant: Object.freeze({ code: 24560, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_web_notifications_modal: Object.freeze({ code: 32228, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_notifications_modal_timer: Object.freeze({ code: 36113, type: "int", defaultValue: 180, debugDefaultValue: 180 }),
@@ -2505,6 +2506,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_outgoing_call_setup_latency_mode: Object.freeze({ code: 33122, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_pin_worker_glue_to_wasm: Object.freeze({ code: 36184, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_pre_init_worker_bootstrap: Object.freeze({ code: 34685, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_voip_pthread_hardening_level: Object.freeze({ code: 37490, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_relay_setup_yield_ipv4_first: Object.freeze({ code: 36803, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_runtime_stack_selection_enabled: Object.freeze({ code: 33151, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_sctp_worker_safari_exp: Object.freeze({ code: 27695, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
@@ -5148,7 +5150,9 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     37451: "fmx_manage_messages_simplified_logging_symmetry_enabled",
     37456: "host_write_mutation_name_allowlist",
     37465: "enable_syncd_write_coex_v2",
-    37476: "ai_hatch_upsell_in_agents_screen_enabled"
+    37476: "ai_hatch_upsell_in_agents_screen_enabled",
+    37481: "wa_web_meta_one_dev",
+    37490: "web_voip_pthread_hardening_level"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

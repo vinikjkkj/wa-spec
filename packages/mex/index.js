@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048238984
+// WhatsApp Version: 2.3000.1048298845
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -224,7 +224,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '29363394989914106', clientDocId: '29363394989914106' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '28209134908781610', clientDocId: '28209134908781610' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
     useWAWebSmartComposerReportThreadEvent: Object.freeze({ docId: '28777618758528424', clientDocId: '28777618758528424' }),

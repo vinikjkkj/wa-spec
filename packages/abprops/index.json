@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2558,
+  "propCount": 2560,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -12514,6 +12514,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_meta_one_dev": {
+      "code": 37481,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_multi_ppl_typing_indicator_for_chatlist_groups_variant": {
       "code": 24560,
       "debugDefaultValue": 0,
@@ -15094,6 +15100,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_voip_pthread_hardening_level": {
+      "code": 37490,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "web_voip_relay_setup_yield_ipv4_first": {
       "code": 36803,
       "debugDefaultValue": false,
@@ -15486,5 +15498,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1048238984"
+  "waVersion": "2.3000.1048298845"
 }

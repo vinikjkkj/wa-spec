@@ -626,6 +626,30 @@
       "valueProtoType": "SyncActionValue.FavoritesAction",
       "version": 1
     },
+    "GroupHistoryToggle": {
+      "baseClass": "ChatSyncdActionBase",
+      "chatJidIndex": 1,
+      "collection": "regular_low",
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "group_history_toggle"
+        },
+        {
+          "name": "chatJid",
+          "type": "jid"
+        }
+      ],
+      "module": "WAWebGroupHistoryToggleSync",
+      "name": "group_history_toggle",
+      "scope": "chat",
+      "valueEnumFields": {
+        "groupHistoryToggleMode": "GroupHistoryToggleAction.GroupHistoryToggleMode"
+      },
+      "valueField": "groupHistoryToggleAction",
+      "valueProtoType": "SyncActionValue.GroupHistoryToggleAction",
+      "version": 1
+    },
     "InteractiveMessageAction": {
       "baseClass": "MessageSyncdActionBase",
       "chatJidIndex": 1,
@@ -1481,5 +1505,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1048238984"
+  "waVersion": "2.3000.1048298845"
 }
