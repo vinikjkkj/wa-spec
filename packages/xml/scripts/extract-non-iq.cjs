@@ -260,7 +260,7 @@ function parseDispatchTable(moduleIndex) {
                     // Used by `notification.psa` and some other content-child
                     // dispatchers. Extract each `<id> === "<val>" ? <handler>`
                     // step plus the final fallback.
-                    const ternaryRe = /([A-Za-z_$][\w$]*)\s*===\s*"([^"]+)"\s*\?\s*(?:yield\s+)?/g
+                    const ternaryRe = /([A-Za-z_$][\w$]*)\s*===\s*"([^"]+)"\s*\?\s*(?:(?:yield|await)\s+)?/g
                     const ternaryVariants = []
                     let tm
                     while ((tm = ternaryRe.exec(typeBody))) {
@@ -297,8 +297,7 @@ function parseDispatchTable(moduleIndex) {
                             else if (c === ':' && depth === 0) { colonIdx = i; break }
                         }
                         if (colonIdx !== -1) {
-                            let rest = trailing.slice(colonIdx + 1).trimStart()
-                            if (rest.startsWith('yield ')) rest = rest.slice(6).trimStart()
+                            const rest = trailing.slice(colonIdx + 1).replace(/^\s*(?:(?:yield|await)\s+)?/, '')
                             const innerFb = extractHandlerRef(rest)
                             if (innerFb && !newVariants[`${type}/*`]) {
                                 newVariants[`${type}/*`] = innerFb
@@ -399,13 +398,15 @@ function parseDispatchTable(moduleIndex) {
     // Special-case `receipt` branch: when the case body uses
     // `if(n.type==="retry"||n.type==="enc_rekey_retry") return yield <h>(e)`
     // instead of a nested switch, capture those types explicitly. Run once
-    // per receipt occurrence across both modules.
+    // per receipt occurrence across both modules. The attrs alias is whatever
+    // the minifier picked (`n` in the asyncToGenerator build, `a` in the
+    // native-async one) and the call is `yield`ed or `await`ed accordingly.
     //
     // We can't regex the handler call directly — its expression may contain
     // nested `(` (e.g. `o("Mod").method(`). Find the `return ... ` then walk
     // forward to extract the full handler reference until the matching `(`.
     {
-        const re = /n\.type\s*===\s*"([^"]+)"(?:\s*\|\|\s*n\.type\s*===\s*"([^"]+)")?\s*\)\s*return\s+(?:yield\s+)?/g
+        const re = /(?<![\w$.])([A-Za-z_$][\w$]*)\.type\s*===\s*"([^"]+)"(?:\s*\|\|\s*\1\.type\s*===\s*"([^"]+)")?\s*\)\s*return\s+(?:(?:yield|await)\s+)?/g
         const variants = {}
         for (const [tag, caseBody] of cases) {
             if (tag !== 'receipt') continue
@@ -414,8 +415,8 @@ function parseDispatchTable(moduleIndex) {
                 const after = caseBody.slice(m.index + m[0].length)
                 const handler = extractHandlerRef(after)
                 if (!handler) continue
-                if (m[1]) variants[m[1]] = handler
                 if (m[2]) variants[m[2]] = handler
+                if (m[3]) variants[m[3]] = handler
             }
         }
         if (Object.keys(variants).length > 0) {
@@ -578,7 +579,8 @@ function splitSwitchCases(body) {
     return out
 }
 
-// Find the handler that owns a case body. Three patterns in the wild:
+// Find the handler that owns a case body. Three patterns in the wild
+// (`yield` in the asyncToGenerator build, `await` in the native-async one):
 //
 //   `return yield <ld>("Mod").method(e)`
 //   `return <ld>("Mod")(e)`                  — default-export form
@@ -591,7 +593,7 @@ function splitSwitchCases(body) {
 function findReturnHandler(caseBody) {
     const SKIP = /^(WAWebCreateNackFromStanza|WALogger|WAWebPostUnknownStanzaMetric|WAJids|WAWebWid|WAWebStatusGatingUtils|WAWebCommsHandleStanzaUtils)$/
     // First pass — direct `return` of a handler call (most common).
-    const retRe = /\breturn\s+(?:yield\s+)?/g
+    const retRe = /\breturn\s+(?:(?:yield|await)\s+)?/g
     let m
     while ((m = retRe.exec(caseBody))) {
         const after = caseBody.slice(m.index + m[0].length).trim()
@@ -1804,7 +1806,8 @@ function extractHandlerModule(moduleName, method, moduleIndex) {
             const traced = new RegExp(`${LB}${reId(nameArg)}\\s*=\\s*['"]([^'"]+)['"]`).exec(body)
             if (traced) parserName = traced[1]
         }
-        const fnMatch = args[1].match(/^function\s*\(([^)]*)\)\s*\{/)
+        // Some builds paren-wrap function arguments: `("x",(function(e){…}))`.
+        const fnMatch = args[1].match(/^\(?\s*function\s*\(([^)]*)\)\s*\{/)
         if (!fnMatch) continue
         const paramsText = fnMatch[1]
         const fnBodyOpen = body.indexOf(args[1], openParen) + fnMatch.index + fnMatch[0].length

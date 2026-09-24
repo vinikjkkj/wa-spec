@@ -71,6 +71,8 @@ const MODULE_TARGET_HINTS = [
     // <message> pure builders
     [/^WAWebSendMsgCreate/, 'message'],
     [/^WAWebSendMsgMetaNode$/, 'message'],
+    // <bot> child, split out of WAWebSendMsgCreateFanoutStanza in 2.3000.1048124278
+    [/^WAWebSendMsgBotStanza$/, 'message'],
     [/^WAWebEncryptAndSend.*Msg$/, 'message'],
     [/^WAWebResend.*Msg$/, 'message'],
     [/^WAWebBroadcastMessageRPC$/, 'message'],
@@ -322,12 +324,68 @@ function precollectLiteralUnions(outNodes) {
     for (const n of outNodes) applyTo(n)
 }
 
+// An attr one builder emits conditionally (`x ? DEVICE_JID(x) : DROP_ATTR`)
+// is optional on the wire even when another builder always sets it. The
+// merge copies the flag from whichever builder reaches an attr first, so
+// spread it to every out node carrying that (tag, attr) before merging.
+function precollectOptional(outNodes) {
+    const optional = new Set() // `${tag}#${attr}`
+    function walk(n, apply) {
+        if (!n) return
+        if (n.tag && n.attrs) {
+            for (const [k, v] of Object.entries(n.attrs)) {
+                const key = n.tag + '#' + k
+                if (apply) {
+                    if (optional.has(key) && !v.optional) n.attrs[k] = { ...v, optional: true }
+                } else if (v.optional) optional.add(key)
+            }
+        }
+        if (n.children) for (const c of n.children) walk(c, apply)
+    }
+    for (const n of outNodes) walk(n, false)
+    if (optional.size) for (const n of outNodes) walk(n, true)
+}
+
+const JID_TYPES = new Set([
+    'jid', 'userJid', 'deviceJid', 'groupJid', 'newsletterJid', 'broadcastJid',
+    'callJid', 'phoneUserJid', 'lidUserJid', 'phoneDeviceJid', 'lidDeviceJid'
+])
+
+// Builders can disagree on which kind of JID an attr carries: `<ack
+// participant>` is DEVICE_JID in the message/receipt acks, USER_JID in the
+// group-notification acks and plain JID in the PSA ack. First-wins used to
+// keep whichever builder merged first. When the kinds differ the attr can hold
+// any of them, so type it with the common `jid`.
+function precollectJidUnions(outNodes) {
+    const kinds = new Map() // `${tag}#${attr}` → Set of JID kinds
+    function walk(n, apply) {
+        if (!n) return
+        if (n.tag && n.attrs) {
+            for (const [k, v] of Object.entries(n.attrs)) {
+                if (!v || !JID_TYPES.has(v.type)) continue
+                const key = n.tag + '#' + k
+                if (apply) {
+                    if (kinds.get(key).size > 1 && v.type !== 'jid') n.attrs[k] = { ...v, type: 'jid' }
+                } else {
+                    if (!kinds.has(key)) kinds.set(key, new Set())
+                    kinds.get(key).add(v.type)
+                }
+            }
+        }
+        if (n.children) for (const c of n.children) walk(c, apply)
+    }
+    for (const n of outNodes) walk(n, false)
+    if ([...kinds.values()].some((s) => s.size > 1)) for (const n of outNodes) walk(n, true)
+}
+
 function mergeForStanza(ir, rootTag, outNodes) {
     let merged = 0
     // Pre-collect literal unions BEFORE merging so multi-builder attrs
     // (like `<ack class>`) become enums instead of losing variants to
     // first-wins.
     precollectLiteralUnions(outNodes)
+    precollectOptional(outNodes)
+    precollectJidUnions(outNodes)
     let stanza = ir.stanzas?.[rootTag]
     // Synthesise the stanza if it doesn't exist yet (e.g. `<ack>` —
     // outgoing-only, never appears in the incoming dispatch tables).
@@ -424,7 +482,17 @@ function extractOutgoing(ir, moduleIndex) {
     // (the synthesised stanza's `node` is mutated repeatedly).
     const byRoot = {}
 
-    for (const [modName, modText] of moduleIndex.entries()) {
+    // mergeOutgoingNode is first-wins for an attr's type, and builders do
+    // disagree (`<message participant>` is DEVICE_JID in the real senders
+    // but USER_JID in the dev-only WAWebOfflineSimulatorMsg). Merge the
+    // hand-verified pure builders first, then everything else, each group in
+    // module-name order — never in bundle order, which changed every build.
+    const hinted = (name) => MODULE_TARGET_HINTS.some(([re]) => re.test(name))
+    const ordered = [...moduleIndex.entries()].sort(
+        ([a], [b]) => hinted(b) - hinted(a) || (a < b ? -1 : a > b ? 1 : 0)
+    )
+
+    for (const [modName, modText] of ordered) {
         if (!modName.startsWith('WAWeb')) continue
         if (shouldSkipModule(modName)) continue
         if (!modText.includes('"WAWap"')) continue
@@ -487,6 +555,8 @@ function extractOutgoing(ir, moduleIndex) {
 function mergeInnerForChildScoped(ir, targetStanzaTag, childTag, outNodes) {
     const stanza = ir.stanzas?.[targetStanzaTag]
     if (!stanza) return 0
+    precollectOptional(outNodes)
+    precollectJidUnions(outNodes)
     const targets = []
     function visit(node) {
         if (!node || !node.children) return
