@@ -16,6 +16,7 @@
 
 const fs = require('node:fs')
 const path = require('node:path')
+const { loadCanonicalBundles } = require('../../fetcher/src/bundles.cjs')
 const { extractXml, buildModuleIndex } = require('./extract-xml.cjs')
 const { extractNonIq } = require('./extract-non-iq-debug.cjs')
 const { resolveEnumsInIR } = require('./resolve-enums.cjs')
@@ -74,15 +75,16 @@ function loadBundles(dir) {
         console.error(`bundles dir not found: ${dir}`)
         process.exit(1)
     }
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.js'))
-    if (files.length === 0) {
+    // One registration per module, picked by content and ordered by module
+    // name. The archive defines most modules several times (transpile
+    // variants) across files named by content hash, so reading the files
+    // as-is let each build's file names decide which variant got extracted.
+    const bundles = loadCanonicalBundles(dir)
+    if (bundles.length === 0) {
         console.error(`no .js bundles in ${dir}`)
         process.exit(1)
     }
-    return files.map((f) => ({
-        url: f,
-        text: fs.readFileSync(path.join(dir, f), 'utf8')
-    }))
+    return bundles
 }
 
 function detectWaVersion(bundlesDir, fallback) {

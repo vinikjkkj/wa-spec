@@ -96,6 +96,23 @@ const dump = await fetchArchive({ out: 'dump' })
 //   dump.paths.manifest         absolute path to dump/manifest.json
 ```
 
+The archive defines most modules several times — transpile variants of the
+same source (native `async` vs `asyncToGeneratorRuntime`, paren-wrapped
+function arguments, …) spread over files named by content hash. Reading the
+files in order lets each build's file names pick the variant you see. To read
+a dump the way the wa-spec extractors do, load it canonically:
+
+```js
+const { loadCanonicalBundles } = require('@vinikjkkj/wa-fetcher')
+
+const bundles = loadCanonicalBundles(dump.paths.raw)
+//   bundles[]                   [{ url: 'module:<name>', text }, ...] — one
+//                               `__d(...)` registration per module (shortest
+//                               copy, ties by content), in module-name order,
+//                               then code outside any registration
+//   bundles.moduleIndex         Map<moduleName, bundle>
+```
+
 Legacy scrape API, unchanged:
 
 ```js

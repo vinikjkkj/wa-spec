@@ -30,6 +30,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 const { connect } = require('puppeteer-real-browser')
 const { ARCHIVE_URL_ENV, resolveRevision, fetchArchive, unpackArchive } = require('./archive.cjs')
+const { loadCanonicalBundles } = require('./bundles.cjs')
 
 const WHATSAPP_URL = 'https://web.whatsapp.com/'
 const NAV_TIMEOUT_MS = 60_000
@@ -285,6 +286,7 @@ module.exports = {
     discoverBundleUrls,
     fetchBundles,
     fetchArchive: fetchArchiveWithFallback,
+    loadCanonicalBundles,
     resolveRevision,
     resolveRevisionViaBrowser,
     unpackArchive

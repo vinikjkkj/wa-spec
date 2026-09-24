@@ -28,12 +28,11 @@
  *
  * Caveat worth knowing: the archive ships several transpile variants of the
  * same module (modern vs legacy — native `async` vs `asyncToGeneratorRuntime`,
- * and so on). Extractors index the first occurrence they encounter, so file
- * iteration order decides which variant wins. Output filenames are derived
- * from entry content and callers sort them, which makes that choice stable
- * across runs — but it is stable, not curated. If an extractor starts
- * returning empty results after an archive switch, check whether it is
- * matching against a variant it was not written for.
+ * with and without paren-wrapped function arguments, and so on), spread over
+ * files named by content hash. Read as-is, file order would decide which
+ * variant an extractor sees, and that order reshuffles on every build — so
+ * the extractors load a dump through bundles.cjs, which keeps one copy per
+ * module picked by content and orders modules by name.
  */
 
 const fs = require('node:fs')

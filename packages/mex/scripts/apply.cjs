@@ -15,6 +15,7 @@
 
 const fs = require('node:fs')
 const path = require('node:path')
+const { loadCanonicalBundles } = require('../../fetcher/src/bundles.cjs')
 const { extractMex } = require('./extract-mex.cjs')
 const { buildOverrides, applyOverrides } = require('./wire-overrides.cjs')
 const { discoverEnums, matchEnumForLeaf } = require('./enum-discovery.cjs')
@@ -134,19 +135,16 @@ function loadBundles(dir) {
         console.error(`bundles dir not found: ${dir}`)
         process.exit(1)
     }
-    // Sorted so bundle order is deterministic. Several extractors resolve a
-    // module by first match, and the archive defines most modules in more
-    // than one file, so raw readdir order let the chosen variant vary
-    // between runs on identical input.
-    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.js')).sort()
-    if (files.length === 0) {
+    // One registration per module, picked by content and ordered by module
+    // name. The archive defines most modules several times (transpile
+    // variants) across files named by content hash, so reading the files
+    // as-is let each build's file names decide which variant got extracted.
+    const bundles = loadCanonicalBundles(dir)
+    if (bundles.length === 0) {
         console.error(`no .js bundles in ${dir}`)
         process.exit(1)
     }
-    return files.map((f) => ({
-        url: f,
-        text: fs.readFileSync(path.join(dir, f), 'utf8')
-    }))
+    return bundles
 }
 
 function detectWaVersion(bundlesDir, fallback) {
