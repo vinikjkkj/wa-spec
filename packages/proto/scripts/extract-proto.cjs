@@ -66,10 +66,19 @@ const FLAG_PACKED = 128
 const FLAG_REQUIRED = 256
 const TYPE_MASK = 0x3f
 
+// Canonical bundles (fetcher/src/bundles.cjs) already hold one copy of each
+// module, in a bundle of its own, indexed by name: look it up instead of
+// scanning every bundle.
+function moduleScope(bundles, modName) {
+    if (!bundles.moduleIndex) return bundles
+    const b = bundles.moduleIndex.get(modName)
+    return b ? [b] : []
+}
+
 // Locate a __d("Name", ...) registration body in bundle texts.
 function findModuleBody(bundles, modName) {
     const needle = `__d("${modName}"`
-    for (const b of bundles) {
+    for (const b of moduleScope(bundles, modName)) {
         const idx = b.text.indexOf(needle)
         if (idx === -1) continue
         let depth = 0
@@ -633,7 +642,19 @@ function extractProto(bundles, options = {}) {
     // different module (e.g. `SyncdVersion` lives in two .pb modules).
     const moduleLocalToQualified = new Map() // modName -> Map<localVar, {kind, qualified}>
 
-    for (const [modName, mod] of modules) {
+    // The global registries below are first-wins, and ~480 qualified names are
+    // defined by more than one module: the web client's own WAWebProtobufs*
+    // modules next to older generated copies (WAE2E.pb, WAAICommon.pb,
+    // WAWa5.pb beside WAWebProtobufsWa6.pb, …). Measured on a real archive the
+    // WAWebProtobufs* definition is equal to the other copy or a strict
+    // superset of it, never a subset. Walking modules in bundle order made the
+    // winner flip between the two from one build to the next (values like
+    // BotMetricsEntryPoint.CONTACTS_TAB came and went); rank the web client's
+    // modules first, then go by name.
+    const rank = (name) => (name.startsWith('WAWebProtobufs') ? 0 : 1)
+    const ranked = [...modules].sort(([a], [b]) => rank(a) - rank(b) || (a < b ? -1 : a > b ? 1 : 0))
+
+    for (const [modName, mod] of ranked) {
         const locals = new Map()
         moduleLocalToQualified.set(modName, locals)
 
