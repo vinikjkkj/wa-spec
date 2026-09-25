@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1048298845
+/// WhatsApp Version: 2.3000.1048451567
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -1034,7 +1034,7 @@ message Armadillo {
 }
 
 message AudioMsgContentProto {
-    optional int32 duration = 1;
+    optional uint32 duration = 1;
     optional string mimetype = 2;
     optional bool played = 3;
     optional bytes waveform = 4;
@@ -3517,8 +3517,10 @@ message ImageMsgContentProto {
     optional uint32 width = 1;
     optional uint32 height = 2;
     optional bytes jpegThumbnail = 3;
-    optional int32 jpegThumbnailHeight = 4;
-    optional int32 jpegThumbnailWidth = 5;
+    optional uint32 jpegThumbnailHeight = 4;
+    optional uint32 jpegThumbnailWidth = 5;
+    optional string thumbnailPlaintextHash = 6;
+    optional HD_TYPE hdType = 7;
 }
 
 message ImageTransport {
@@ -8223,13 +8225,15 @@ message VerifyKeyTransparencyForUserSignalResult {
 }
 
 message VideoMsgContentProto {
-    optional int32 duration = 1;
-    optional int32 width = 2;
-    optional int32 height = 3;
+    optional uint32 duration = 1;
+    optional uint32 width = 2;
+    optional uint32 height = 3;
     optional string mimetype = 4;
     optional bytes jpegThumbnail = 5;
-    optional int32 jpegThumbnailHeight = 6;
-    optional int32 jpegThumbnailWidth = 7;
+    optional uint32 jpegThumbnailHeight = 6;
+    optional uint32 jpegThumbnailWidth = 7;
+    optional string thumbnailPlaintextHash = 8;
+    optional bool gifPlayback = 9;
 }
 
 message VideoTransport {

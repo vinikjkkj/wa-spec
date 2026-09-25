@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2560,
+  "propCount": 2567,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -1548,6 +1548,12 @@
     },
     "aura_focus_lists_exclusion_enabled": {
       "code": 33928,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "aura_focus_lists_kill_switch": {
+      "code": 37611,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -6838,6 +6844,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ks_ogg_opus_strict_validation_enabled": {
+      "code": 37509,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ks_pdf_strict_validation_enabled": {
       "code": 37251,
       "debugDefaultValue": true,
@@ -9460,6 +9472,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "server_sent_invites_for_groups_web_enabled": {
+      "code": 37630,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "server_sent_invites_web_enabled": {
       "code": 37278,
       "debugDefaultValue": 0,
@@ -10369,6 +10387,12 @@
     "status_web_ranking": {
       "code": 31666,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "sticker_non_square_rendering_enabled": {
+      "code": 37618,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -11823,6 +11847,24 @@
       "debugDefaultValue": 3,
       "defaultValue": 3,
       "type": "int"
+    },
+    "wa_subs_benefit_loss_enabled": {
+      "code": 37617,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_subs_cancel_anytime_enabled": {
+      "code": 37615,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_subs_try_for_zero_enabled": {
+      "code": 37616,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "wa_thumbnail_gen_in_worker_enabled": {
       "code": 37062,
@@ -15498,5 +15540,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1048298845"
+  "waVersion": "2.3000.1048451567"
 }

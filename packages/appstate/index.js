@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048298845
+// WhatsApp Version: 2.3000.1048451567
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -183,7 +183,10 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueProtoType: 'SyncActionValue.CallLogAction',
         valueEnumFields: Object.freeze({ 'callLogRecord.callResult': 'CallLogRecord.CallResult', 'callLogRecord.callType': 'CallLogRecord.CallType', 'callLogRecord.participants.callResult': 'CallLogRecord.CallResult', 'callLogRecord.silenceReason': 'CallLogRecord.SilenceReason' }),
         indexParts: Object.freeze([
-            Object.freeze({ type: 'literal', value: 'call_log' })
+            Object.freeze({ type: 'literal', value: 'call_log' }),
+            Object.freeze({ type: 'string', name: 'key1' }),
+            Object.freeze({ type: 'string', name: 'callId' }),
+            Object.freeze({ type: 'string', name: 'fromMe' })
         ])
     }),
     ChatAssignment: Object.freeze({
@@ -318,6 +321,32 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueEnumFields: null,
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'detected_outcomes_status_action' })
+        ])
+    }),
+    DeviceCapabilities: Object.freeze({
+        name: 'device_capabilities',
+        collection: 'regular_low',
+        version: 7,
+        scope: 'account',
+        valueField: 'deviceCapabilities',
+        valueProtoType: 'DeviceCapabilities',
+        valueEnumFields: null,
+        indexParts: Object.freeze([
+            Object.freeze({ type: 'literal', value: 'device_capabilities' }),
+            Object.freeze({ type: 'string', name: 'jid' })
+        ])
+    }),
+    DeviceCapabilitiesV2: Object.freeze({
+        name: 'device_capabilities_v2',
+        collection: 'regular_low',
+        version: 7,
+        scope: 'account',
+        valueField: 'deviceCapabilitiesV2',
+        valueProtoType: 'DeviceCapabilities',
+        valueEnumFields: null,
+        indexParts: Object.freeze([
+            Object.freeze({ type: 'literal', value: 'device_capabilities_v2' }),
+            Object.freeze({ type: 'string', name: 'jid' })
         ])
     }),
     DisableLinkPreviews: Object.freeze({
@@ -716,7 +745,8 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         valueProtoType: 'SyncActionValue.KeyExpiration',
         valueEnumFields: null,
         indexParts: Object.freeze([
-            Object.freeze({ type: 'literal', value: 'sentinel' })
+            Object.freeze({ type: 'literal', value: 'sentinel' }),
+            Object.freeze({ type: 'string', name: 'collection' })
         ])
     }),
     SettingPushName: Object.freeze({

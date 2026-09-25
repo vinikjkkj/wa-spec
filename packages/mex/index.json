@@ -389,7 +389,9 @@
       "variablesShape": {
         "accountID": "string",
         "ads_andromeda_bulk_edit_campaign_group_budget": "boolean",
-        "campaignGroupRelayIDs": "unknown",
+        "campaignGroupRelayIDs": [
+          "string"
+        ],
         "contextKey": "unknown"
       }
     },
@@ -485,8 +487,8 @@
               "id": "string",
               "value": {
                 "__typename": "string",
-                "as_boolean": "unknown",
-                "as_string": "unknown"
+                "as_boolean": "boolean",
+                "as_string": "string"
               }
             }
           ]
@@ -556,10 +558,16 @@
       ],
       "variablesShape": {
         "accountID": "string",
-        "adgroupRelayIDs": "unknown",
+        "adgroupRelayIDs": [
+          "string"
+        ],
         "businessID": "string",
-        "campaignGroupRelayIDs": "unknown",
-        "campaignRelayIDs": "unknown",
+        "campaignGroupRelayIDs": [
+          "string"
+        ],
+        "campaignRelayIDs": [
+          "string"
+        ],
         "skip_business_query": "boolean",
         "use_waac": "boolean"
       }
@@ -589,7 +597,7 @@
       "response": {
         "xfb_wamo_advertiser_profile_information_from_pwan": {
           "business_name": "string",
-          "business_profile_image": "unknown"
+          "business_profile_image": "string"
         }
       },
       "variables": [
@@ -1640,7 +1648,7 @@
               "ts": "unknown"
             }
           ],
-          "lead_stage": "unknown",
+          "lead_stage": "string",
           "name": "string"
         }
       },
@@ -1692,7 +1700,7 @@
                   "ts": "unknown"
                 }
               ],
-              "lead_stage": "unknown",
+              "lead_stage": "string",
               "lid": "string",
               "name": "string"
             }
@@ -2818,10 +2826,10 @@
             {
               "node": {
                 "id": "string",
-                "natural_language_schedule": "unknown",
+                "natural_language_schedule": "string",
                 "prompt": "unknown",
-                "recurrence_frequency": "unknown",
-                "recurrence_interval": "unknown",
+                "recurrence_frequency": "string",
+                "recurrence_interval": "number",
                 "reminder_type": "string",
                 "status": "string",
                 "timezone": "unknown",
@@ -3100,6 +3108,246 @@
       ],
       "variablesShape": {
         "id": "string",
+        "include_username": "boolean",
+        "participants_phash": "string",
+        "query_context": "string"
+      }
+    },
+    "FetchGroupInfoIncludBotsJobAcp2": {
+      "docId": "29425004333754440",
+      "operationKind": "query",
+      "originalName": "WAWebMexFetchGroupInfoIncludBotsJobAcp2Query",
+      "response": {
+        "xwa2_group_query_by_id": {
+          "__typename": "string",
+          "creation_time": "string",
+          "creator": {
+            "id": "string",
+            "lid": "string",
+            "pn": "string",
+            "username_info": {
+              "__typename": "string",
+              "username": "string"
+            }
+          },
+          "description": {
+            "creation_time": "string",
+            "creator": {
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
+              "username_info": {
+                "__typename": "string",
+                "username": "string"
+              }
+            },
+            "id": "string",
+            "value": "string"
+          },
+          "id": "string",
+          "membership_approval_request": "boolean",
+          "missing_participant_identification": "boolean",
+          "participants": {
+            "edges": [
+              {
+                "group_history_sent": "boolean",
+                "join_time": "string",
+                "participant": {
+                  "__typename": "string",
+                  "display_name": "string",
+                  "id": "string",
+                  "jid": "string",
+                  "lid": "string",
+                  "pn": "string",
+                  "username_info": {
+                    "__typename": "string",
+                    "username": "string"
+                  }
+                },
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+              }
+            ],
+            "participants_phash_match": "boolean"
+          },
+          "properties": {
+            "allow_admin_reports": "boolean",
+            "allow_non_admin_sub_group_creation": "boolean",
+            "announcement": "boolean",
+            "appeal_status": "string",
+            "appeal_update_time": "string",
+            "auto_add_disabled": "boolean",
+            "capi": "boolean",
+            "closed_by_membership_approval_mode": "boolean",
+            "ephemeral": {
+              "expiration_time_in_sec": "number"
+            },
+            "general_chat": "boolean",
+            "group_safety_check": "boolean",
+            "growth_locked2": {
+              "locked": "boolean"
+            },
+            "hidden_group": "boolean",
+            "lid_migration_state": {
+              "addressing_mode": "boolean"
+            },
+            "limit_sharing": {
+              "limit_companion_sharing_enabled": "boolean",
+              "limit_sharing_enabled": "boolean"
+            },
+            "locked": "boolean",
+            "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
+            "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
+            "member_share_group_history_mode": "string",
+            "membership_approval_mode_enabled": "boolean",
+            "parent_group_jid": "string",
+            "support": "boolean"
+          },
+          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
+          "subject": {
+            "creation_time": "string",
+            "creator": {
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
+              "username_info": {
+                "__typename": "string",
+                "username": "string"
+              }
+            },
+            "value": "string"
+          },
+          "total_participants_count": "number"
+        }
+      },
+      "variables": [
+        "id",
+        "include_acp2",
+        "include_username",
+        "participants_phash",
+        "query_context"
+      ],
+      "variablesShape": {
+        "id": "string",
+        "include_acp2": "boolean",
+        "include_username": "boolean",
+        "participants_phash": "string",
+        "query_context": "string"
+      }
+    },
+    "FetchGroupInfoJobAcp2": {
+      "docId": "28011005051915725",
+      "operationKind": "query",
+      "originalName": "WAWebMexFetchGroupInfoJobAcp2Query",
+      "response": {
+        "xwa2_group_query_by_id": {
+          "__typename": "string",
+          "creation_time": "string",
+          "creator": {
+            "id": "string",
+            "lid": "string",
+            "pn": "string",
+            "username_info": {
+              "__typename": "string",
+              "username": "string"
+            }
+          },
+          "description": {
+            "creation_time": "string",
+            "creator": {
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
+              "username_info": {
+                "__typename": "string",
+                "username": "string"
+              }
+            },
+            "id": "string",
+            "value": "string"
+          },
+          "id": "string",
+          "membership_approval_request": "boolean",
+          "missing_participant_identification": "boolean",
+          "participants": {
+            "edges": [
+              {
+                "group_history_sent": "boolean",
+                "join_time": "string",
+                "node": {
+                  "display_name": "string",
+                  "id": "string",
+                  "lid": "string",
+                  "pn": "string",
+                  "username_info": {
+                    "__typename": "string",
+                    "username": "string"
+                  }
+                },
+                "role": "enum:ADMIN_MEMBER|MEMBER|SUPERADMIN_MEMBER"
+              }
+            ],
+            "participants_phash_match": "boolean"
+          },
+          "properties": {
+            "allow_admin_reports": "boolean",
+            "allow_non_admin_sub_group_creation": "boolean",
+            "announcement": "boolean",
+            "appeal_status": "string",
+            "appeal_update_time": "string",
+            "auto_add_disabled": "boolean",
+            "capi": "boolean",
+            "closed_by_membership_approval_mode": "boolean",
+            "ephemeral": {
+              "expiration_time_in_sec": "number"
+            },
+            "general_chat": "boolean",
+            "group_safety_check": "boolean",
+            "growth_locked2": {
+              "locked": "boolean"
+            },
+            "hidden_group": "boolean",
+            "lid_migration_state": {
+              "addressing_mode": "boolean"
+            },
+            "limit_sharing": {
+              "limit_companion_sharing_enabled": "boolean",
+              "limit_sharing_enabled": "boolean"
+            },
+            "locked": "boolean",
+            "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
+            "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
+            "member_share_group_history_mode": "string",
+            "membership_approval_mode_enabled": "boolean",
+            "parent_group_jid": "string",
+            "support": "boolean"
+          },
+          "state": "enum:ACTIVE|NON_EXISTENT|SUSPENDED",
+          "subject": {
+            "creation_time": "string",
+            "creator": {
+              "id": "string",
+              "lid": "string",
+              "pn": "string",
+              "username_info": {
+                "__typename": "string",
+                "username": "string"
+              }
+            },
+            "value": "string"
+          },
+          "total_participants_count": "number"
+        }
+      },
+      "variables": [
+        "id",
+        "include_acp2",
+        "include_username",
+        "participants_phash",
+        "query_context"
+      ],
+      "variablesShape": {
+        "id": "string",
+        "include_acp2": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
@@ -3873,11 +4121,13 @@
           "metrics": [
             {
               "group_by": {
-                "number_of_days": "number"
+                "country": "boolean",
+                "number_of_days": "number",
+                "role": "boolean"
               },
               "id": "number",
               "limit": "number",
-              "type": "enum:FOLLOWS|UNFOLLOWS"
+              "type": "enum:FOLLOWER|FOLLOWS|NET_FOLLOWS|NEW_UNIQUE_VISITORS|UNFOLLOWS|UNIQUE_VISITORS"
             }
           ],
           "newsletter_id": "string"
@@ -3941,7 +4191,7 @@
       }
     },
     "FetchNewsletterPendingInvites": {
-      "docId": "9783111038412085",
+      "docId": "28049623068067370",
       "operationKind": "query",
       "originalName": "WAWebMexFetchNewsletterPendingInvitesJobQuery",
       "response": {
@@ -3950,8 +4200,7 @@
           "pending_admin_invites": [
             {
               "user": {
-                "id": "string",
-                "pn": "string"
+                "id": "string"
               }
             }
           ]
@@ -4605,7 +4854,7 @@
             "bot_fbid": "string",
             "is_deprecated": "boolean",
             "name": "string",
-            "product": "unknown",
+            "product": "enum:MANUS|META_AI_THREAD|THIRD_PARTY",
             "profile_pic_full_url": "string",
             "profile_pic_thumb_url": "string"
           }
@@ -4622,7 +4871,7 @@
         "get_wass_account_profile": {
           "is_deprecated": "boolean",
           "name": "string",
-          "product": "unknown",
+          "product": "enum:MANUS|META_AI_THREAD|THIRD_PARTY",
           "profile_pic_full_url": "string",
           "profile_pic_thumb_url": "string"
         }
@@ -4952,6 +5201,38 @@
         }
       }
     },
+    "GroupStoreAndSendInviteSms": {
+      "docId": "29313771494886407",
+      "operationKind": "mutation",
+      "originalName": "WAWebMexGroupStoreAndSendInviteSmsJobMutation",
+      "response": {
+        "xwa2_group_store_and_send_invites_sms": {
+          "group_jid": "string",
+          "participant_responses": [
+            {
+              "error_code": "number",
+              "jid": "string",
+              "server_sent": "boolean"
+            }
+          ]
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "entry_point": "string",
+          "group_jid": "string",
+          "participants": [
+            {
+              "participant": "unknown",
+              "server_sent_sms": "boolean"
+            }
+          ]
+        }
+      }
+    },
     "GroupStoreInviteSms": {
       "docId": "26810859745268181",
       "operationKind": "mutation",
@@ -5154,7 +5435,7 @@
             "name": "string",
             "pill_label": "string",
             "pill_status": "string",
-            "platform": "unknown",
+            "platform": "enum:facebook|instagram",
             "type": "string"
           }
         ]
@@ -5206,27 +5487,9 @@
       ],
       "variablesShape": {
         "brandIgUserID": "string",
-        "creatorIDs": "unknown"
-      }
-    },
-    "MAIBAMessageLiveBrowserRendererScreenshot": {
-      "docId": "26819206974436266",
-      "operationKind": "query",
-      "originalName": "MAIBAMessageLiveBrowserRendererScreenshotQuery",
-      "response": {
-        "xfb_maiba_browser_screenshot": {
-          "screenshot_data": "unknown",
-          "screenshot_url": "string",
-          "status": "string"
-        }
-      },
-      "variables": [
-        "click_selector",
-        "initial_url"
-      ],
-      "variablesShape": {
-        "click_selector": "unknown",
-        "initial_url": "string"
+        "creatorIDs": [
+          "string"
+        ]
       }
     },
     "MAIBAMessageSignalsCTARenderer": {
@@ -5236,7 +5499,7 @@
       "response": {
         "set_automatic_advanced_matching_ads_pixel": {
           "ads_pixel": {
-            "enable_automatic_matching": "unknown",
+            "enable_automatic_matching": "boolean",
             "id": "string",
             "name": "string"
           }
@@ -5570,7 +5833,7 @@
         "xwa_org_managed_group_add": {
           "error_reason": "string",
           "group": {
-            "creation_timestamp_s": "unknown",
+            "creation_timestamp_s": "number",
             "gid": "unknown",
             "participant_count": "number",
             "subject": "string"
@@ -5588,7 +5851,7 @@
       }
     },
     "OrgAdminGraphQLAdminRoster": {
-      "docId": "29183618847906353",
+      "docId": "28625796647045484",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLAdminRosterQuery",
       "response": {
@@ -5598,14 +5861,15 @@
             "admin_roster": {
               "entries": [
                 {
-                  "email_address": "unknown",
+                  "email_address": "string",
                   "id": "number",
                   "member_tag": "string",
                   "name": "string",
                   "phone_number": "string"
                 }
               ],
-              "is_truncated": "boolean"
+              "is_truncated": "boolean",
+              "total_count": "number"
             },
             "id": "number"
           },
@@ -5619,8 +5883,34 @@
         "orgID": "string"
       }
     },
+    "OrgAdminGraphQLAppendAdminRoster": {
+      "docId": "28096717049979269",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLAppendAdminRosterMutation",
+      "response": {
+        "xwa_org_admin_roster_append": {
+          "added_count": "number",
+          "deduplicated_count": "number",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "invalid_row_number": "number",
+          "status": "enum:SUCCESS",
+          "total_count": "number"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "entries": "unknown",
+          "member_lid": "string",
+          "org_id": "string",
+          "role": "string"
+        }
+      }
+    },
     "OrgAdminGraphQLDirectory": {
-      "docId": "28208994918711791",
+      "docId": "28872036855764640",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
       "response": {
@@ -5635,6 +5925,7 @@
                   "display_name": "string",
                   "lid": "boolean",
                   "member_tag": "string",
+                  "phone_number": "string",
                   "role": "enum:ADMIN|CREATOR|SUPERADMIN",
                   "username": "string"
                 }
@@ -5662,7 +5953,7 @@
         "xwa_org_managed_group": {
           "error_reason": "enum:INVALID_EMAIL_BATCH",
           "group": {
-            "creation_timestamp_s": "unknown",
+            "creation_timestamp_s": "number",
             "gid": "unknown",
             "participant_count": "number",
             "participants": [
@@ -5671,7 +5962,7 @@
                 "role": "enum:ADMIN|CREATOR|SUPERADMIN"
               }
             ],
-            "roster_partial": "unknown",
+            "roster_partial": "boolean",
             "subject": "string"
           },
           "status": "enum:SUCCESS"
@@ -5741,10 +6032,10 @@
       "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
         "xwa_org_managed_groups": {
-          "error_reason": "string",
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
           "groups": [
             {
-              "creation_timestamp_s": "unknown",
+              "creation_timestamp_s": "number",
               "gid": "unknown",
               "participant_count": "number",
               "participants": [
@@ -5753,7 +6044,7 @@
                   "role": "enum:ADMIN|CREATOR|SUPERADMIN"
                 }
               ],
-              "roster_partial": "unknown",
+              "roster_partial": "boolean",
               "subject": "string"
             }
           ],
@@ -5768,7 +6059,7 @@
       }
     },
     "OrgAdminGraphQLMemberSearch": {
-      "docId": "28242210495435097",
+      "docId": "28641250612201754",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLMemberSearchQuery",
       "response": {
@@ -5780,6 +6071,7 @@
                 "display_name": "string",
                 "lid": "boolean",
                 "member_tag": "string",
+                "phone_number": "string",
                 "role": "enum:ADMIN|CREATOR|SUPERADMIN",
                 "username": "string"
               }
@@ -5807,13 +6099,16 @@
       }
     },
     "OrgAdminGraphQLOrgs": {
-      "docId": "27937329845939200",
+      "docId": "28490402823987784",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLOrgsQuery",
       "response": {
         "xwa_org_list": {
           "orgs": [
             {
+              "icon": {
+                "uri": "string"
+              },
               "id": "string",
               "is_member_directory_enabled": "boolean",
               "member_count": "number",
@@ -5824,24 +6119,7 @@
         }
       },
       "variables": [],
-      "variablesShape": {
-        "after": "string",
-        "channelID": "unknown",
-        "emails": [
-          "string"
-        ],
-        "first": "number",
-        "gid": "unknown",
-        "input": {
-          "entries": "unknown",
-          "member_lid": "string",
-          "org_id": "string",
-          "role": "string"
-        },
-        "memberTag": "unknown",
-        "orgID": "unknown",
-        "query": "string"
-      }
+      "variablesShape": {}
     },
     "OrgAdminGraphQLRemoveMember": {
       "docId": "28130496313288374",
@@ -5870,25 +6148,26 @@
       }
     },
     "OrgAdminGraphQLReplaceAdminRoster": {
-      "docId": "28351575267818242",
+      "docId": "38389150840730215",
       "operationKind": "mutation",
       "originalName": "WAWebOrgAdminGraphQLReplaceAdminRosterMutation",
       "response": {
         "xwa_org_admin_roster_replace": {
           "error_reason": "enum:INVALID_EMAIL_BATCH",
-          "invalid_row_number": "unknown",
+          "invalid_row_number": "number",
           "org": {
             "admin_roster": {
               "entries": [
                 {
-                  "email_address": "unknown",
+                  "email_address": "string",
                   "id": "number",
                   "member_tag": "string",
                   "name": "string",
                   "phone_number": "string"
                 }
               ],
-              "is_truncated": "boolean"
+              "is_truncated": "boolean",
+              "total_count": "number"
             },
             "id": "number"
           },
@@ -6755,8 +7034,8 @@
           "mv_status": "string",
           "ote_status": "string",
           "server_sent_timestamp": "string",
-          "total_quota": "unknown",
-          "used_quota": "unknown"
+          "total_quota": "number",
+          "used_quota": "number"
         }
       },
       "variables": [
@@ -6778,9 +7057,7 @@
         "xfb_wa_biz_clear_oidc_preference": "boolean"
       },
       "variables": [],
-      "variablesShape": {
-        "pageId": "string"
-      }
+      "variablesShape": {}
     },
     "ResolveAccountTypeAndAdPageQuery": {
       "docId": "24856134350695832",
@@ -7678,12 +7955,14 @@
         "thumbnailSize"
       ],
       "variablesShape": {
-        "adObjectIDs": "unknown",
+        "adObjectIDs": [
+          "string"
+        ],
         "thumbnailSize": "number"
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "28209134908781610",
+      "docId": "39136753719256138",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -7702,7 +7981,7 @@
                       {
                         "entity": {
                           "__typename": "string",
-                          "action": "unknown",
+                          "action": "string",
                           "action_button_caption": "string",
                           "action_button_label": "string",
                           "action_label": "string",
@@ -7725,28 +8004,28 @@
                           "ad_object_type": "string",
                           "adgroup_id": "string",
                           "adgroup_or_fragment_id": "string",
-                          "ads_checker_action": "unknown",
+                          "ads_checker_action": "string",
                           "age_max": "number",
                           "age_min": "number",
                           "apply_button_label": "string",
-                          "apply_message_template": "unknown",
+                          "apply_message_template": "string",
                           "asset_id": "string",
                           "asset_ids": [
                             "string"
                           ],
                           "asset_type": "string",
                           "asset_types": "unknown",
-                          "attributes_json": "unknown",
+                          "attributes_json": "string",
                           "audience_description": "string",
                           "auth_cta_label": "string",
                           "author": {
                             "display_name": "string",
                             "profile_picture_uri": "string"
                           },
-                          "auto_advance": "unknown",
+                          "auto_advance": "boolean",
                           "banner_label": "string",
                           "banner_status": "string",
-                          "blocks_json": "unknown",
+                          "blocks_json": "string",
                           "body": "string",
                           "boost_message": "string",
                           "branch_condition": "unknown",
@@ -7776,13 +8055,13 @@
                             {
                               "audience": "unknown",
                               "budget": "unknown",
-                              "budget_pct": "unknown",
+                              "budget_pct": "string",
                               "budget_rationale": "unknown",
                               "creative": "unknown",
                               "end_date": "string",
                               "insight": "unknown",
                               "name": "string",
-                              "objective": "unknown",
+                              "objective": "string",
                               "phase": "unknown",
                               "placement": "unknown",
                               "section_key": "string",
@@ -7814,6 +8093,8 @@
                           "cta_action": "unknown",
                           "cta_text": "string",
                           "cta_type": "string",
+                          "current_value": "unknown",
+                          "current_value_formatted": "unknown",
                           "dag_conclusion": "unknown",
                           "dag_description": "string",
                           "dag_name": "string",
@@ -7847,7 +8128,7 @@
                                     ],
                                     "inline_style_ranges": [
                                       {
-                                        "inline_style": "unknown",
+                                        "inline_style": "enum:BOLD|CODE|ITALIC|LIGHTSTRIKETHROUGH|LINEBREAK|STRIKETHROUGH|SUBSCRIPT|SUPERSCRIPT|UNDERLINE",
                                         "length": "string",
                                         "offset": "number"
                                       }
@@ -7891,7 +8172,7 @@
                                       ],
                                       "inline_style_ranges": [
                                         {
-                                          "inline_style": "unknown",
+                                          "inline_style": "enum:BOLD|CODE|ITALIC|LIGHTSTRIKETHROUGH|LINEBREAK|STRIKETHROUGH|SUBSCRIPT|SUPERSCRIPT|UNDERLINE",
                                           "length": "string",
                                           "offset": "number"
                                         }
@@ -7906,7 +8187,9 @@
                           ],
                           "data_set_id": "string",
                           "data_viz_type": "string",
-                          "date_range": "unknown",
+                          "date_range": "string",
+                          "dates": "unknown",
+                          "delta": "number",
                           "dependencies_met": [
                             {
                               "ref": "unknown",
@@ -7915,24 +8198,24 @@
                           ],
                           "description": "string",
                           "diagnosis_title": "string",
-                          "digital_creation_disclosure": "unknown",
+                          "digital_creation_disclosure": "string",
                           "disclosure_kind": "string",
                           "display_name": "string",
                           "display_text": "string",
                           "draft_id": "string",
-                          "echo_override": "unknown",
+                          "echo_override": "string",
                           "edited": "unknown",
                           "enrollment_context_enc": "unknown",
                           "error": "boolean",
                           "error_message": "string",
                           "error_phase": "unknown",
-                          "evaluation": "unknown",
+                          "evaluation": "string",
                           "expression": "unknown",
                           "external_url": "string",
                           "eyebrow_image_url": "string",
                           "eyebrow_text": "string",
                           "fallback_text": "string",
-                          "fill_value": "unknown",
+                          "fill_value": "string",
                           "forecasted_results": [
                             {
                               "label": "string",
@@ -7946,20 +8229,21 @@
                               "label": "string",
                               "name": "string",
                               "placeholder": "unknown",
-                              "prefilled_value": "unknown",
-                              "react_component": "unknown"
+                              "prefilled_value": "string",
+                              "react_component": "enum:EMAIL|PHONE_NUMBER"
                             }
                           ],
                           "format": "string",
                           "format_type": "string",
-                          "funnel_chart_data": "unknown",
+                          "funnel_chart_data": "string",
                           "gender": "unknown",
-                          "goal_context": "unknown",
+                          "goal_context": "string",
                           "goal_description": "string",
-                          "goal_detail": "unknown",
+                          "goal_detail": "string",
                           "has_payment_method": "boolean",
-                          "heading": "unknown",
-                          "icon": "unknown",
+                          "heading": "string",
+                          "heat_bar_label": "string",
+                          "icon": "enum:error|info|success|warning",
                           "id": "string",
                           "idea_creatives": [
                             {
@@ -7978,7 +8262,7 @@
                               "cover_image_url": "string",
                               "cover_video_url": "string",
                               "rationale": "unknown",
-                              "reasoning": "unknown",
+                              "reasoning": "string",
                               "title": "string",
                               "type": "string"
                             }
@@ -7994,7 +8278,7 @@
                               "category": "string",
                               "detail": "unknown",
                               "headline": "string",
-                              "icon": "unknown",
+                              "icon": "enum:error|info|success|warning",
                               "source": "string"
                             }
                           ],
@@ -8013,25 +8297,34 @@
                           "is_skipped": "boolean",
                           "is_streaming": "boolean",
                           "is_success": "boolean",
-                          "issue_cards_data": "unknown",
-                          "kpi_tiles_data": "unknown",
+                          "issue_cards_data": "string",
+                          "kpi_tiles_data": "string",
                           "label": "string",
                           "limit": "number",
                           "link_description": "string",
                           "lower_limit": "number",
                           "maiba_interviewer_rec_key": "string",
                           "maiba_recommendation_id": "string",
+                          "max_value": "number",
                           "media_layout": "unknown",
                           "metadata": "unknown",
+                          "metric_value": "unknown",
                           "metrics": [
                             {
+                              "dates": "unknown",
+                              "delta": "number",
                               "label": "string",
+                              "metric_value": "unknown",
                               "note": "string",
+                              "sentiment": "string",
+                              "series": "unknown",
+                              "sparkline_label": "string",
                               "trend": "unknown",
                               "value": "string"
                             }
                           ],
                           "mime_type": "string",
+                          "min_value": "number",
                           "next_node": "unknown",
                           "node_id": "string",
                           "node_type": "string",
@@ -8045,7 +8338,9 @@
                                   "target": "unknown"
                                 }
                               ],
-                              "depends_on": "unknown",
+                              "depends_on": [
+                                "string"
+                              ],
                               "description": "string",
                               "evaluate": "unknown",
                               "next": "unknown",
@@ -8075,7 +8370,7 @@
                               "title": "string"
                             }
                           ],
-                          "options_json": "unknown",
+                          "options_json": "string",
                           "organic_insights": {
                             "comments": "unknown",
                             "likes": "unknown",
@@ -8122,12 +8417,12 @@
                             {
                               "caption": "string",
                               "image_url": "string",
-                              "platform": "unknown"
+                              "platform": "enum:facebook|instagram"
                             }
                           ],
                           "period_basis": "unknown",
                           "placement_description": "string",
-                          "platform": "unknown",
+                          "platform": "enum:facebook|instagram",
                           "ple_text": "string",
                           "points": "unknown",
                           "post_confirm_description": "string",
@@ -8157,7 +8452,7 @@
                               "page_id": "string",
                               "page_name": "string",
                               "page_profile_pic_url": "string",
-                              "platform": "unknown",
+                              "platform": "enum:facebook|instagram",
                               "title": "string"
                             }
                           ],
@@ -8166,7 +8461,7 @@
                           "progress_subscription_id": "string",
                           "progress_summary": "string",
                           "progress_title": "string",
-                          "prompt": "unknown",
+                          "prompt": "string",
                           "prompt_composed_text": {
                             "content": [
                               {
@@ -8193,7 +8488,7 @@
                                 ],
                                 "inline_style_ranges": [
                                   {
-                                    "inline_style": "unknown",
+                                    "inline_style": "enum:BOLD|CODE|ITALIC|LIGHTSTRIKETHROUGH|LINEBREAK|STRIKETHROUGH|SUBSCRIPT|SUPERSCRIPT|UNDERLINE",
                                     "length": "string",
                                     "offset": "number"
                                   }
@@ -8207,21 +8502,21 @@
                               "string"
                             ],
                             "state": "string",
-                            "tooltip": "unknown"
+                            "tooltip": "string"
                           },
                           "publish_status": "string",
-                          "quarter": "unknown",
+                          "quarter": "string",
                           "raw_json": "unknown",
                           "raw_value": "string",
-                          "reasoning": "unknown",
+                          "reasoning": "string",
                           "recap": "unknown",
                           "recommendation_id": "string",
                           "recommendation_reason": "string",
-                          "recommendation_reason_audience": "unknown",
+                          "recommendation_reason_audience": "string",
                           "recommendation_reason_budget_and_duration": "number",
-                          "recommendation_reason_creative": "unknown",
-                          "recommendation_reason_goal": "unknown",
-                          "recommendation_reason_placement": "unknown",
+                          "recommendation_reason_creative": "string",
+                          "recommendation_reason_goal": "string",
+                          "recommendation_reason_placement": "string",
                           "recommended_post_variant": "unknown",
                           "redirect_url": "string",
                           "region": "string",
@@ -8233,13 +8528,13 @@
                           "scorecard_report_description": "string",
                           "scorecard_report_summary": "string",
                           "scorecard_report_title": "string",
-                          "scorecard_shell_tabs": "unknown",
-                          "search_filters_json": "unknown",
+                          "scorecard_shell_tabs": "string",
+                          "search_filters_json": "string",
                           "search_label": "string",
                           "secondary_cta_label": "string",
                           "secondary_label": "string",
                           "secondary_message": "string",
-                          "section": "unknown",
+                          "section": "string",
                           "sections": [
                             {
                               "body": "string",
@@ -8262,18 +8557,21 @@
                                 "id": "string",
                                 "title": "string"
                               },
-                              "icon": "unknown",
+                              "icon": "enum:error|info|success|warning",
                               "section_key": "string",
                               "title": "string"
                             }
                           ],
                           "seed_image_uri": "string",
                           "selection_mode": "string",
+                          "sentiment": "string",
+                          "series": "unknown",
                           "server_formatted_text": "string",
-                          "show_creative_terms": "unknown",
-                          "show_select_all": "unknown",
-                          "signals_action": "unknown",
-                          "single_apply_uses_template": "unknown",
+                          "show_creative_terms": "boolean",
+                          "show_select_all": "boolean",
+                          "signals_action": "enum:ENABLE_AAM|ENABLE_CAPIG|OPEN_PIXEL_HELPER",
+                          "single_apply_uses_template": "boolean",
+                          "sparkline_label": "string",
                           "spec_type": "string",
                           "special_ad_categories_description": "string",
                           "specs": [
@@ -8289,34 +8587,37 @@
                           "surface_id": "string",
                           "symptom": "unknown",
                           "target": "unknown",
-                          "target_asset": "unknown",
+                          "target_asset": "string",
+                          "target_value": "number",
+                          "target_value_formatted": "unknown",
                           "task": "unknown",
                           "thumbnail_uri": "string",
                           "thumbnails": "unknown",
                           "title": "string",
-                          "tool_call_args": "unknown",
+                          "tool_call_args": "string",
                           "tool_call_id": "string",
                           "tool_name": "string",
-                          "tool_result": "unknown",
+                          "tool_result": "string",
                           "tool_status": "string",
-                          "tooltip": "unknown",
+                          "tooltip": "string",
                           "total_budget": "unknown",
                           "total_count": "number",
                           "type": "string",
                           "unit_id": "string",
                           "upper_limit": "number",
                           "url": "string",
-                          "variant": "unknown",
+                          "variant": "string",
                           "version": "number",
+                          "video_permalink": "unknown",
                           "was_approved": "boolean",
                           "welcome_message_template": {
                             "greeting": "unknown",
                             "icebreakers": "unknown"
                           },
-                          "why_bullets": "unknown",
+                          "why_bullets": "string",
                           "widget_data": "string",
                           "widget_status": "enum:CONFIRMED",
-                          "widget_variant": "unknown",
+                          "widget_variant": "enum:DECISION_REVIEW|IMAGE_GRID|TEXT|TEXT_WITH_FREEFORM",
                           "workspace_creators": [
                             {
                               "explanation": "string",
@@ -8333,7 +8634,7 @@
                     ],
                     "inline_style_ranges": [
                       {
-                        "inline_style": "unknown",
+                        "inline_style": "enum:BOLD|CODE|ITALIC|LIGHTSTRIKETHROUGH|LINEBREAK|STRIKETHROUGH|SUBSCRIPT|SUPERSCRIPT|UNDERLINE",
                         "length": "string",
                         "offset": "number"
                       }
@@ -8451,5 +8752,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048298845"
+  "waVersion": "2.3000.1048451567"
 }

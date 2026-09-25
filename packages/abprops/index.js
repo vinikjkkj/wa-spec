@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048298845
+// WhatsApp Version: 2.3000.1048451567
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -248,6 +248,7 @@ const WA_ABPROPS = Object.freeze({
     aura_focus_lists_default_list_enabled: Object.freeze({ code: 34252, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_enabled: Object.freeze({ code: 32723, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_exclusion_enabled: Object.freeze({ code: 33928, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    aura_focus_lists_kill_switch: Object.freeze({ code: 37611, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_focus_lists_schedule_enabled: Object.freeze({ code: 33413, type: "bool", defaultValue: false, debugDefaultValue: true }),
     aura_focus_lists_setup_enabled: Object.freeze({ code: 35805, type: "bool", defaultValue: false, debugDefaultValue: false }),
     aura_group_reactions_blocking_enabled: Object.freeze({ code: 33522, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1129,6 +1130,7 @@ const WA_ABPROPS = Object.freeze({
     kill_switch_ctwa_ml_entry_point_config: Object.freeze({ code: 6215, type: "bool", defaultValue: true, debugDefaultValue: false }),
     kmp_syncd_engine_crypto_enabled: Object.freeze({ code: 15909, type: "bool", defaultValue: false, debugDefaultValue: false }),
     kmp_syncd_engine_outgoing_processor_enabled: Object.freeze({ code: 18234, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ks_ogg_opus_strict_validation_enabled: Object.freeze({ code: 37509, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ks_pdf_strict_validation_enabled: Object.freeze({ code: 37251, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ks_use_component_model: Object.freeze({ code: 26966, type: "bool", defaultValue: false, debugDefaultValue: false }),
     lanczos_min_upscale_scale_for_vod: Object.freeze({ code: 35473, type: "float", defaultValue: 1.2000000476837158, debugDefaultValue: 1.2000000476837158 }),
@@ -1566,6 +1568,7 @@ const WA_ABPROPS = Object.freeze({
     send_cag_member_revokes_as_GDM: Object.freeze({ code: 3069, type: "bool", defaultValue: true, debugDefaultValue: true }),
     send_extended_nack_enabled: Object.freeze({ code: 3280, type: "bool", defaultValue: false, debugDefaultValue: false }),
     server_driven_copy_m2: Object.freeze({ code: 30492, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    server_sent_invites_for_groups_web_enabled: Object.freeze({ code: 37630, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     server_sent_invites_web_enabled: Object.freeze({ code: 37278, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     service_improvement_opt_out_flag: Object.freeze({ code: 3664, type: "bool", defaultValue: false, debugDefaultValue: false }),
     settings_sync_enabled: Object.freeze({ code: 22692, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1718,6 +1721,7 @@ const WA_ABPROPS = Object.freeze({
     status_video_playback_max_duration_second: Object.freeze({ code: 7902, type: "int", defaultValue: 30, debugDefaultValue: 30 }),
     status_viewer_action_psa_link_click_logging_enabled: Object.freeze({ code: 34489, type: "bool", defaultValue: false, debugDefaultValue: true }),
     status_web_ranking: Object.freeze({ code: 31666, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    sticker_non_square_rendering_enabled: Object.freeze({ code: 37618, type: "bool", defaultValue: false, debugDefaultValue: true }),
     sticker_store_testing_enabled: Object.freeze({ code: 25639, type: "bool", defaultValue: false, debugDefaultValue: false }),
     stickers_emoji_tagging_enabled: Object.freeze({ code: 26465, type: "bool", defaultValue: false, debugDefaultValue: false }),
     sticky_chat_profile_picture_enabled: Object.freeze({ code: 13692, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1960,6 +1964,9 @@ const WA_ABPROPS = Object.freeze({
     wa_smb_web_lists_quick_replies_enabled: Object.freeze({ code: 31061, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_status_chain_new_at_end: Object.freeze({ code: 24110, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_status_chain_unseen_min_pog: Object.freeze({ code: 24500, type: "int", defaultValue: 3, debugDefaultValue: 3 }),
+    wa_subs_benefit_loss_enabled: Object.freeze({ code: 37617, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_subs_cancel_anytime_enabled: Object.freeze({ code: 37615, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_subs_try_for_zero_enabled: Object.freeze({ code: 37616, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_thumbnail_gen_in_worker_enabled: Object.freeze({ code: 37062, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_vpv_logging_phases_enabled: Object.freeze({ code: 35650, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_adaptive_layout_enabled: Object.freeze({ code: 30140, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -5152,7 +5159,14 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     37465: "enable_syncd_write_coex_v2",
     37476: "ai_hatch_upsell_in_agents_screen_enabled",
     37481: "wa_web_meta_one_dev",
-    37490: "web_voip_pthread_hardening_level"
+    37490: "web_voip_pthread_hardening_level",
+    37509: "ks_ogg_opus_strict_validation_enabled",
+    37611: "aura_focus_lists_kill_switch",
+    37615: "wa_subs_cancel_anytime_enabled",
+    37616: "wa_subs_try_for_zero_enabled",
+    37617: "wa_subs_benefit_loss_enabled",
+    37618: "sticker_non_square_rendering_enabled",
+    37630: "server_sent_invites_for_groups_web_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

@@ -7718,7 +7718,6 @@
           "node": {
             "attrs": {
               "from": {
-                "direction": "both",
                 "type": "literal",
                 "value": "s.whatsapp.net"
               }
@@ -7736,101 +7735,6 @@
                 "max": 1,
                 "min": 1,
                 "tag": "client_expiration"
-              },
-              {
-                "attrs": {
-                  "from": {
-                    "arg": "e",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "t": {
-                    "arg": "n[e]",
-                    "direction": "out",
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 1,
-                "tag": "item"
-              },
-              {
-                "attrs": {
-                  "count": {
-                    "arg": "e",
-                    "direction": "out",
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 1,
-                "tag": "offline"
-              },
-              {
-                "attrs": {
-                  "count": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "offline_batch"
-              },
-              {
-                "attrs": {
-                  "count": {
-                    "arg": "e+t+n",
-                    "direction": "out",
-                    "type": "int"
-                  },
-                  "message": {
-                    "arg": "e",
-                    "direction": "out",
-                    "type": "int"
-                  },
-                  "notification": {
-                    "arg": "n",
-                    "direction": "out",
-                    "type": "int"
-                  },
-                  "receipt": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 1,
-                "tag": "offline_preview"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "presence": true,
-                "tag": "thread_metadata"
-              },
-              {
-                "attrs": {
-                  "id": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "unified_session"
               }
             ],
             "content": null,
@@ -23130,7 +23034,7 @@
             ],
             "attrs": {
               "addressing_mode": {
-                "arg": "q",
+                "arg": "G",
                 "direction": "both",
                 "enumValues": [
                   "lid",
@@ -23239,7 +23143,7 @@
                 "type": "string"
               },
               "notify": {
-                "arg": "d(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
+                "arg": "c(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -23251,10 +23155,10 @@
                 "type": "int"
               },
               "participant": {
-                "arg": "y",
+                "arg": "i",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "jid"
               },
               "peer_recipient_lid": {
                 "arg": "Q",
@@ -23275,7 +23179,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "A",
+                "arg": "c",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -23304,7 +23208,7 @@
                 "type": "userJid"
               },
               "sender_lid": {
-                "arg": "m()",
+                "arg": "d()",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -23389,7 +23293,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "d",
                 "direction": "both",
                 "type": "jid"
               },
@@ -47729,21 +47633,21 @@
             "type": "enum"
           },
           "error": {
-            "arg": "e.error",
+            "arg": "t",
             "direction": "out",
             "optional": true,
             "type": "int"
           },
           "id": {
-            "arg": "n.stanzaId",
+            "arg": "a",
             "direction": "out",
             "type": "stanzaId"
           },
           "participant": {
-            "arg": "o(\"WAWebWidFactory\").createWid(e.participant)",
+            "arg": "r",
             "direction": "out",
             "optional": true,
-            "type": "deviceJid"
+            "type": "jid"
           },
           "recipient": {
             "arg": "r",
@@ -47752,8 +47656,9 @@
             "type": "userJid"
           },
           "to": {
-            "arg": "n.from",
+            "arg": "n",
             "direction": "out",
+            "optional": true,
             "type": "jid"
           },
           "type": {
@@ -47855,7 +47760,7 @@
             "type": "time"
           },
           "to": {
-            "arg": "f",
+            "arg": "_",
             "direction": "both",
             "type": "jid"
           },
@@ -48314,28 +48219,28 @@
       "tag": "failure"
     },
     "ib": {
-      "delegatesToRPC": {
-        "method": "receiveClientExpirationRPC",
-        "module": "WASmaxClientExpirationClientExpirationRPC"
-      },
       "entryName": "default",
       "handler": {
         "method": "default",
         "module": "WAWebHandleInfoBulletin"
       },
-      "inlinedFrom": {
-        "method": "receiveClientExpirationRPC",
-        "module": "WASmaxClientExpirationClientExpirationRPC"
-      },
       "node": {
         "attrs": {
           "from": {
-            "direction": "both",
+            "direction": "out",
             "type": "literal",
             "value": "s.whatsapp.net"
           }
         },
         "children": [
+          {
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "max": null,
+            "min": 0,
+            "tag": "*"
+          },
           {
             "attrs": {
               "t": {
@@ -48351,35 +48256,86 @@
           },
           {
             "attrs": {
-              "from": {
-                "arg": "e",
-                "direction": "out",
-                "type": "string"
-              },
-              "t": {
-                "arg": "n[e]",
-                "direction": "out",
+              "timestamp": {
                 "type": "int"
+              },
+              "type": {
+                "enumValues": [
+                  "groups",
+                  "account_sync",
+                  "syncd_app_state",
+                  "newsletter_metadata"
+                ],
+                "type": "enum"
               }
             },
-            "children": [],
+            "children": [
+              {
+                "__variants": [
+                  "devices",
+                  "picture",
+                  "privacy",
+                  "blocklist",
+                  "notice"
+                ],
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "max": null,
+                "min": 0,
+                "tag": "*"
+              }
+            ],
+            "content": null,
+            "max": null,
+            "min": 0,
+            "tag": "dirty"
+          },
+          {
+            "attrs": {},
+            "children": [
+              {
+                "attrs": {},
+                "children": [],
+                "content": {
+                  "enumRef": "o(\"WAWebHandleRoutingInfo\").DOMAINS",
+                  "enumValues": [
+                    "fb",
+                    "sl"
+                  ],
+                  "type": "enum"
+                },
+                "max": 1,
+                "min": 0,
+                "tag": "dns_domain"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": {
+                  "type": "bytes"
+                },
+                "max": 1,
+                "min": 1,
+                "tag": "routing_info"
+              }
+            ],
             "content": null,
             "max": 1,
             "min": 1,
-            "tag": "item"
+            "tag": "edge_routing"
           },
           {
             "attrs": {
               "count": {
-                "arg": "e",
-                "direction": "out",
+                "direction": "both",
                 "type": "int"
               }
             },
             "children": [],
             "content": null,
             "max": 1,
-            "min": 1,
+            "min": 0,
             "tag": "offline"
           },
           {
@@ -48397,24 +48353,47 @@
           },
           {
             "attrs": {
+              "call": {
+                "type": "int"
+              },
               "count": {
-                "arg": "e+t+n",
-                "direction": "out",
+                "direction": "both",
                 "type": "int"
               },
               "message": {
-                "arg": "e",
-                "direction": "out",
+                "direction": "both",
                 "type": "int"
               },
               "notification": {
-                "arg": "n",
-                "direction": "out",
+                "direction": "both",
                 "type": "int"
               },
               "receipt": {
-                "arg": "t",
-                "direction": "out",
+                "direction": "both",
+                "type": "int"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 0,
+            "tag": "offline_preview"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 0,
+            "presence": true,
+            "tag": "priority_offline_complete"
+          },
+          {
+            "attrs": {
+              "code": {
+                "type": "string"
+              },
+              "use_case": {
                 "type": "int"
               }
             },
@@ -48422,14 +48401,85 @@
             "content": null,
             "max": 1,
             "min": 1,
-            "tag": "offline_preview"
+            "tag": "recovery_nonce"
           },
           {
             "attrs": {},
-            "children": [],
+            "children": [
+              {
+                "attrs": {
+                  "from": {
+                    "direction": "both",
+                    "type": "jid"
+                  },
+                  "t": {
+                    "direction": "both",
+                    "type": "time"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": null,
+                "min": 0,
+                "tag": "item"
+              },
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {
+                      "from": {
+                        "direction": "both",
+                        "type": "jid"
+                      },
+                      "sts": {
+                        "optional": true,
+                        "type": "int"
+                      },
+                      "t": {
+                        "arg": "n[e]",
+                        "direction": "out",
+                        "type": "int"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "item"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 0,
+                "tag": "watermark"
+              }
+            ],
             "content": null,
-            "presence": true,
+            "max": 1,
+            "min": 1,
             "tag": "thread_metadata"
+          },
+          {
+            "attrs": {},
+            "children": [
+              {
+                "attrs": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": null,
+                "min": 0,
+                "tag": "notice"
+              }
+            ],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "tos"
           },
           {
             "attrs": {
@@ -48446,8 +48496,15 @@
           }
         ],
         "content": null,
+        "graftedFromRPCs": [
+          {
+            "child": "client_expiration",
+            "module": "WASmaxClientExpirationClientExpirationRPC"
+          }
+        ],
         "tag": "ib"
       },
+      "parserName": "infoBulletinParser",
       "tag": "ib"
     },
     "iq": {
@@ -48953,7 +49010,7 @@
             ],
             "attrs": {
               "addressing_mode": {
-                "arg": "q",
+                "arg": "G",
                 "direction": "both",
                 "enumValues": [
                   "lid",
@@ -49062,7 +49119,7 @@
                 "type": "string"
               },
               "notify": {
-                "arg": "d(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
+                "arg": "c(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -49074,10 +49131,10 @@
                 "type": "int"
               },
               "participant": {
-                "arg": "y",
+                "arg": "i",
                 "direction": "both",
                 "optional": true,
-                "type": "deviceJid"
+                "type": "jid"
               },
               "peer_recipient_lid": {
                 "arg": "Q",
@@ -49098,7 +49155,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "A",
+                "arg": "c",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -49127,7 +49184,7 @@
                 "type": "userJid"
               },
               "sender_lid": {
-                "arg": "m()",
+                "arg": "d()",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -49212,7 +49269,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "d",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50096,7 +50153,7 @@
           "node": {
             "attrs": {
               "addressing_mode": {
-                "arg": "q",
+                "arg": "G",
                 "direction": "both",
                 "enumValues": [
                   "lid",
@@ -50166,7 +50223,7 @@
                 "type": "jid"
               },
               "id": {
-                "arg": "S.id",
+                "arg": "l",
                 "direction": "both",
                 "type": "stanzaId"
               },
@@ -50205,7 +50262,7 @@
                 "type": "string"
               },
               "notify": {
-                "arg": "d(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
+                "arg": "c(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -50239,7 +50296,7 @@
                 "type": "string"
               },
               "phash": {
-                "arg": "A",
+                "arg": "c",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -50266,7 +50323,7 @@
                 "type": "userJid"
               },
               "sender_lid": {
-                "arg": "m()",
+                "arg": "d()",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -50342,7 +50399,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "V",
+                "arg": "d",
                 "direction": "both",
                 "type": "jid"
               },
@@ -50524,7 +50581,7 @@
                 "attrs": {
                   "agent_engagement_type": {
                     "arg": "_",
-                    "direction": "out",
+                    "direction": "both",
                     "optional": true,
                     "type": "string"
                   },
@@ -50535,6 +50592,11 @@
                     ],
                     "optional": true,
                     "type": "enum"
+                  },
+                  "client_thread_id": {
+                    "arg": "e.clientThreadId",
+                    "direction": "out",
+                    "type": "string"
                   },
                   "edit": {
                     "enumValues": [
@@ -50556,9 +50618,29 @@
                     "type": "literal",
                     "value": "true"
                   },
-                  "persona_type": {
-                    "arg": "D",
+                  "local_automated_type": {
+                    "arg": "e.localAutomatedType",
                     "direction": "out",
+                    "enumValues": [
+                      "1p_partial",
+                      "3p_full",
+                      "unknown"
+                    ],
+                    "type": "enum"
+                  },
+                  "mode_selected": {
+                    "arg": "e.modeSelected",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "mode_selection": {
+                    "arg": "e.modeSelection",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "persona_type": {
+                    "arg": "i",
+                    "direction": "both",
                     "enumValues": [
                       "1p",
                       "default",
@@ -55616,12 +55698,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55664,7 +55746,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55685,7 +55767,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -55695,9 +55777,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "p",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "type": "literal",
@@ -55877,7 +55959,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "y",
+                    "arg": "h",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -55887,7 +55969,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "p",
+                    "arg": "m",
                     "direction": "out",
                     "type": "int"
                   },
@@ -55917,12 +55999,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -55952,13 +56034,13 @@
                 "type": "stanzaId"
               },
               "participant": {
-                "arg": "i",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
-                "type": "userJid"
+                "type": "deviceJid"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55969,7 +56051,7 @@
                 "value": "false"
               },
               "recipient": {
-                "arg": "I",
+                "arg": "u",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -55980,21 +56062,21 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
               },
               "t": {
-                "arg": "d",
+                "arg": "Date.now().toString()",
                 "direction": "both",
                 "optional": true,
                 "type": "int"
               },
               "to": {
-                "arg": "f",
+                "arg": "p",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -56100,12 +56182,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56156,7 +56238,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -56177,7 +56259,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56187,9 +56269,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "p",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "direction": "both",
@@ -56367,12 +56449,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "T",
+                "arg": "I",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "v",
+                "arg": "m",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56415,7 +56497,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "s",
+                "arg": "l",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -56436,7 +56518,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(b)",
+                "arg": "String(y)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56446,9 +56528,9 @@
                 "type": "time"
               },
               "to": {
-                "arg": "f",
+                "arg": "p",
                 "direction": "both",
-                "type": "userJid"
+                "type": "jid"
               },
               "type": {
                 "type": "literal",
@@ -56628,7 +56710,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "y",
+                    "arg": "h",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -56638,7 +56720,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "p",
+                    "arg": "m",
                     "direction": "out",
                     "type": "int"
                   },
@@ -57082,8 +57164,12 @@
       "node": {
         "attrs": {
           "abprops": {
-            "arg": "e.toString()",
-            "direction": "out",
+            "direction": "both",
+            "optional": true,
+            "type": "int"
+          },
+          "companion_enc_static": {
+            "optional": true,
             "type": "string"
           },
           "creation": {
@@ -57092,9 +57178,17 @@
             "type": "string"
           },
           "display_name": {
-            "arg": "t!=null?t:\"random_name\"",
-            "direction": "out",
+            "direction": "both",
+            "optional": true,
             "type": "string"
+          },
+          "group_abprops": {
+            "optional": true,
+            "type": "int"
+          },
+          "lid": {
+            "optional": true,
+            "type": "lidUserJid"
           },
           "props": {
             "arg": "e.toString()",
@@ -57102,15 +57196,15 @@
             "type": "string"
           },
           "t": {
-            "arg": "String(o(\"WATimeUtils\").unixTime())",
-            "direction": "out",
-            "type": "int"
+            "direction": "both",
+            "type": "time"
           }
         },
         "children": [],
         "content": null,
         "tag": "success"
       },
+      "parserName": "successParser",
       "tag": "success"
     },
     "xmlstreamend": {
@@ -57118,5 +57212,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1048298845"
+  "waVersion": "2.3000.1048451567"
 }

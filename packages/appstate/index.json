@@ -299,6 +299,18 @@
         {
           "type": "literal",
           "value": "call_log"
+        },
+        {
+          "name": "key1",
+          "type": "string"
+        },
+        {
+          "name": "callId",
+          "type": "string"
+        },
+        {
+          "name": "fromMe",
+          "type": "string"
         }
       ],
       "module": "WAWebCallLogSync",
@@ -549,6 +561,50 @@
       "valueField": "detectedOutcomesStatusAction",
       "valueProtoType": "SyncActionValue.DetectedOutcomesStatusAction",
       "version": 1
+    },
+    "DeviceCapabilities": {
+      "baseClass": "AccountSyncdActionBase",
+      "chatJidIndex": null,
+      "collection": "regular_low",
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "device_capabilities"
+        },
+        {
+          "name": "jid",
+          "type": "string"
+        }
+      ],
+      "module": "WAWebDeviceCapabilitiesSync",
+      "name": "device_capabilities",
+      "scope": "account",
+      "valueEnumFields": null,
+      "valueField": "deviceCapabilities",
+      "valueProtoType": "DeviceCapabilities",
+      "version": 7
+    },
+    "DeviceCapabilitiesV2": {
+      "baseClass": "AccountSyncdActionBase",
+      "chatJidIndex": null,
+      "collection": "regular_low",
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "device_capabilities_v2"
+        },
+        {
+          "name": "jid",
+          "type": "string"
+        }
+      ],
+      "module": "WAWebDeviceCapabilitiesV2Sync",
+      "name": "device_capabilities_v2",
+      "scope": "account",
+      "valueEnumFields": null,
+      "valueField": "deviceCapabilitiesV2",
+      "valueProtoType": "DeviceCapabilities",
+      "version": 7
     },
     "DisableLinkPreviews": {
       "baseClass": "AccountSyncdActionBase",
@@ -1218,6 +1274,10 @@
         {
           "type": "literal",
           "value": "sentinel"
+        },
+        {
+          "name": "collection",
+          "type": "string"
         }
       ],
       "module": "WAWebSentinelMutationSync",
@@ -1505,5 +1565,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1048298845"
+  "waVersion": "2.3000.1048451567"
 }
