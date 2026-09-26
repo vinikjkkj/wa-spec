@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048451567
+// WhatsApp Version: 2.3000.1048557256
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -79,6 +79,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ docId: '25059194933691009', clientDocId: '25059194933691009' }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ docId: '25043279768674646', clientDocId: '25043279768674646' }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ docId: '25456033884014560', clientDocId: '25456033884014560' }),
+    EBMessageMetadataQuery: Object.freeze({ docId: '28525853583670706', clientDocId: '28525853583670706' }),
     EBMessageRangeQueryForThreads: Object.freeze({ docId: '27443670391974737', clientDocId: '27443670391974737' }),
     EBRegisterMinosMessageEncryptionKey: Object.freeze({ docId: '25185089431099815', clientDocId: '25185089431099815' }),
     EditBizProfile: Object.freeze({ docId: '26652989367627867', clientDocId: '26652989367627867' }),
@@ -152,6 +153,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '28486209884399157', clientDocId: '28486209884399157' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ docId: '27087116144243008', clientDocId: '27087116144243008' }),
+    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ docId: '9948369021930229', clientDocId: '9948369021930229' }),
     MetaPayVaultInitialize: Object.freeze({ docId: '27977299271866413', clientDocId: '27977299271866413' }),
     MetaPayVaultLabyrinthDelete: Object.freeze({ docId: '27984854301168611', clientDocId: '27984854301168611' }),
     MetaPayVaultLabyrinthFetchAll: Object.freeze({ docId: '27594971176872211', clientDocId: '27594971176872211' }),
@@ -227,7 +229,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '39136753719256138', clientDocId: '39136753719256138' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '38756833310629693', clientDocId: '38756833310629693' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
     useWAWebSmartComposerReportThreadEvent: Object.freeze({ docId: '28777618758528424', clientDocId: '28777618758528424' }),
@@ -311,6 +313,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     E2EEMetadataMailboxPromoteGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxRemoveGroupParticipants: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     E2EEMetadataMailboxSetGroupSubject: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    EBMessageMetadataQuery: Object.freeze({ operationKind: 'query', variables: Object.freeze(['data']) }),
     EBMessageRangeQueryForThreads: Object.freeze({ operationKind: 'query', variables: Object.freeze(['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']) }),
     EBRegisterMinosMessageEncryptionKey: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     EditBizProfile: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input', 'lid']) }),
@@ -384,6 +387,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ operationKind: 'query', variables: Object.freeze(['brandIgUserID', 'creatorIDs']) }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['ad_account_id', 'page_id']) }),
+    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     MetaPayVaultInitialize: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MetaPayVaultLabyrinthDelete: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MetaPayVaultLabyrinthFetchAll: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),

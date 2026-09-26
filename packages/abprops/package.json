@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-abprops",
-    "version": "2.3000.1048451567-f21a45c",
+    "version": "2.3000.1048557256-2c4d27b",
     "description": "WhatsApp Web AB props (server-driven experiment configs) — config codes, value types, defaults and debug defaults (daily-extracted).",
     "keywords": [
         "whatsapp",

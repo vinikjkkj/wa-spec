@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048451567
+// WhatsApp Version: 2.3000.1048557256
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -91,6 +91,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
+    readonly EBMessageMetadataQuery: WaMexPersistId
     readonly EBMessageRangeQueryForThreads: WaMexPersistId
     readonly EBRegisterMinosMessageEncryptionKey: WaMexPersistId
     readonly EditBizProfile: WaMexPersistId
@@ -164,6 +165,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly MAIBAMessageCreatorCardsRenderer: WaMexPersistId
     readonly MAIBAMessageSignalsCTARenderer: WaMexPersistId
     readonly MAIBARecordAsyncAuthConsent: WaMexPersistId
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexPersistId
     readonly MetaPayVaultInitialize: WaMexPersistId
     readonly MetaPayVaultLabyrinthDelete: WaMexPersistId
     readonly MetaPayVaultLabyrinthFetchAll: WaMexPersistId
@@ -323,6 +325,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly EBMessageMetadataQuery: WaMexOperationSchema<'query', readonly ['data']>
     readonly EBMessageRangeQueryForThreads: WaMexOperationSchema<'query', readonly ['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']>
     readonly EBRegisterMinosMessageEncryptionKey: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
@@ -396,6 +399,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly MAIBAMessageCreatorCardsRenderer: WaMexOperationSchema<'query', readonly ['brandIgUserID', 'creatorIDs']>
     readonly MAIBAMessageSignalsCTARenderer: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MAIBARecordAsyncAuthConsent: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'page_id']>
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexOperationSchema<'query', readonly ['id']>
     readonly MetaPayVaultInitialize: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthDelete: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthFetchAll: WaMexOperationSchema<'query', readonly ['input']>
@@ -892,6 +896,10 @@ export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexEBMessageMetadataQueryVariables = {
+    readonly data?: string
+}
+
 export type WaMexEBMessageRangeQueryForThreadsVariables = {
     readonly app_id?: string
     readonly includeAttachmentData?: boolean
@@ -1357,6 +1365,10 @@ export type WaMexMAIBAMessageSignalsCTARendererVariables = {
 export type WaMexMAIBARecordAsyncAuthConsentVariables = {
     readonly ad_account_id?: string
     readonly page_id?: string
+}
+
+export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables = {
+    readonly id?: string
 }
 
 export type WaMexMetaPayVaultInitializeVariables = {
@@ -1932,6 +1944,7 @@ export interface WaMexOperationVariables {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
+    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryVariables
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsVariables
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyVariables
     readonly EditBizProfile: WaMexEditBizProfileVariables
@@ -2005,6 +2018,7 @@ export interface WaMexOperationVariables {
     readonly MAIBAMessageCreatorCardsRenderer: WaMexMAIBAMessageCreatorCardsRendererVariables
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererVariables
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentVariables
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeVariables
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteVariables
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllVariables
@@ -3380,6 +3394,23 @@ export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse = {
 export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
     readonly xfb_e2ee_metadata_mailbox_set_group_subject?: {
         readonly success?: boolean
+    }
+}
+
+export type WaMexEBMessageMetadataQueryResponse = {
+    readonly viewer?: {
+        readonly encrypted_backup?: {
+            readonly id?: string
+            readonly mailbox?: {
+                readonly deanon_messages_metadata?: ReadonlyArray<{
+                    readonly admin_message?: string
+                    readonly is_admin_message?: boolean
+                    readonly offline_threading_id?: string
+                    readonly sender_id?: string
+                    readonly sort_order_ms?: number
+                }>
+            }
+        }
     }
 }
 
@@ -5357,6 +5388,13 @@ export type WaMexMAIBARecordAsyncAuthConsentResponse = {
     }
 }
 
+export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Response = {
+    readonly user?: {
+        readonly id?: string
+        readonly message_capabilities2_str?: unknown
+    }
+}
+
 export type WaMexMetaPayVaultInitializeResponse = {
     readonly meta_pay_vault_initialize?: {
         readonly error_reason?: string
@@ -7224,6 +7262,8 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly tool_result?: string
                                 readonly tool_status?: string
                                 readonly tooltip?: string
+                                readonly tooltip_text?: string
+                                readonly tooltip_variant?: 'ESTIMATED_COST_PER_RESULT' | 'ESTIMATED_RESULTS_RANGE' | 'SIMILAR_ADVERTISER_BUDGET_RECOMMENDATION'
                                 readonly total_budget?: unknown
                                 readonly total_count?: number
                                 readonly type?: string
@@ -7382,6 +7422,7 @@ export interface WaMexOperationResponses {
     readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse
     readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
     readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
+    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryResponse
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsResponse
     readonly EBRegisterMinosMessageEncryptionKey: WaMexEBRegisterMinosMessageEncryptionKeyResponse
     readonly EditBizProfile: WaMexEditBizProfileResponse
@@ -7455,6 +7496,7 @@ export interface WaMexOperationResponses {
     readonly MAIBAMessageCreatorCardsRenderer: WaMexMAIBAMessageCreatorCardsRendererResponse
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererResponse
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentResponse
+    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Response
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeResponse
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteResponse
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllResponse

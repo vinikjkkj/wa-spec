@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048451567
+// WhatsApp Version: 2.3000.1048557256
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -136,6 +136,7 @@ export declare const WA_ABPROPS: {
     readonly ai_hatch_space_enabled: { readonly code: 37054; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_hatch_subscription_ui_enabled: { readonly code: 37238; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_hatch_upsell_in_agents_screen_enabled: { readonly code: 37476; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly ai_hatch_upsell_in_agents_screen_variant: { readonly code: 37665; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly ai_hatch_video_avatars_enabled: { readonly code: 31494; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_hatch_video_upload_enabled: { readonly code: 27470; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_home_bot_profile_sync_interval_sec: { readonly code: 11168; readonly type: "int"; readonly defaultValue: 86400; readonly debugDefaultValue: 86400 }
@@ -791,6 +792,7 @@ export declare const WA_ABPROPS: {
     readonly dm_reliability_logging: { readonly code: 5580; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly dm_updated_system_message: { readonly code: 1670; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly document_format_verification_enabled: { readonly code: 37236; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly document_format_verification_enforcement_enabled: { readonly code: 37650; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly document_format_verification_mime_exclusions: { readonly code: 37235; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly download_document_thumb_mms_enabled: { readonly code: 250; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly download_status_thumb_mms_enabled: { readonly code: 249; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1486,6 +1488,8 @@ export declare const WA_ABPROPS: {
     readonly pq_batch_upload_size: { readonly code: 21201; readonly type: "int"; readonly defaultValue: 10; readonly debugDefaultValue: 10 }
     readonly pq_keys_upload: { readonly code: 21198; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pq_max_keys_on_server: { readonly code: 21200; readonly type: "int"; readonly defaultValue: 200; readonly debugDefaultValue: 200 }
+    readonly pq_session_upgrade_max_devices_per_period: { readonly code: 35305; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
+    readonly pq_session_upgrade_period_days: { readonly code: 35744; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly pre_call_logging_enabled: { readonly code: 37184; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly premium_blue_enabled: { readonly code: 5318; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly premium_broadcast_smb_capping_enabled: { readonly code: 13808; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -4943,6 +4947,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 35283: "ctwa_web_native_ads_continuous_duration_default_dummy"
     readonly 35286: "payment_integrity_friction_p2m_upr_enabled"
     readonly 35290: "weave_upsell_wa_smb"
+    readonly 35305: "pq_session_upgrade_max_devices_per_period"
     readonly 35318: "unknown_user_usync_request_cool_down"
     readonly 35321: "unknown_user_recovery_enabled"
     readonly 35334: "web_voip_webtransport_timeout_before_sctp_fallback_ms"
@@ -4998,6 +5003,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 35688: "web_getters_lazy_slot_allocation"
     readonly 35716: "web_voip_video_presentation_orientation_fix"
     readonly 35738: "wa_web_wrap_associated_child_message_enabled"
+    readonly 35744: "pq_session_upgrade_period_days"
     readonly 35746: "ai_reminders_m1_enabled"
     readonly 35752: "channels_quiz_option_reshuffle_enabled"
     readonly 35760: "ai_fbid_db_migration_version_pre_chatd"
@@ -5183,6 +5189,8 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37617: "wa_subs_benefit_loss_enabled"
     readonly 37618: "sticker_non_square_rendering_enabled"
     readonly 37630: "server_sent_invites_for_groups_web_enabled"
+    readonly 37650: "document_format_verification_enforcement_enabled"
+    readonly 37665: "ai_hatch_upsell_in_agents_screen_variant"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

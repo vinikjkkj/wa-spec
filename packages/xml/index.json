@@ -6596,6 +6596,196 @@
       "type": "set",
       "xmlns": "w:pay"
     },
+    "BrPaymentGetPixBankList": {
+      "module": "WASmaxBrPaymentGetPixBankListRPC",
+      "opName": "GetPixBankList",
+      "request": {
+        "argShape": {},
+        "module": "WASmaxOutBrPaymentGetPixBankListRequest",
+        "node": {
+          "appliedMixin": "WASmaxOutBrPaymentBaseIQGetRequestMixin",
+          "attrs": {
+            "id": {
+              "generated": true,
+              "type": "stanzaId"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "type": {
+              "type": "literal",
+              "value": "get"
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "w:pay"
+            }
+          },
+          "children": [
+            {
+              "attrs": {
+                "action": {
+                  "type": "literal",
+                  "value": "get-pix-bank-list"
+                }
+              },
+              "children": [],
+              "max": 1,
+              "min": 1,
+              "tag": "account"
+            }
+          ],
+          "tag": "iq"
+        }
+      },
+      "responses": [
+        {
+          "entryName": "parseGetPixBankListResponseError",
+          "module": "WASmaxInBrPaymentGetPixBankListResponseError",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "code": {
+                    "max": null,
+                    "min": 1,
+                    "type": "int"
+                  },
+                  "text": {
+                    "enumValues": [
+                      "INCORRECT_NONCE",
+                      "TOO_MANY_ATTEMPTS",
+                      "already-exists",
+                      "bad-request",
+                      "conflict",
+                      "feature-not-implemented",
+                      "forbidden",
+                      "gone",
+                      "internal-server-error",
+                      "item-not-found",
+                      "not-acceptable",
+                      "rate-overlimit",
+                      "service-unavailable"
+                    ],
+                    "type": "enum"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "error"
+              }
+            ],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Error"
+        },
+        {
+          "entryName": "parseGetPixBankListResponseSuccess",
+          "module": "WASmaxInBrPaymentGetPixBankListResponseSuccess",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "action": {
+                    "type": "string"
+                  }
+                },
+                "children": [
+                  {
+                    "attrs": {},
+                    "children": [
+                      {
+                        "attrs": {
+                          "bank_name": {
+                            "type": "string"
+                          },
+                          "bank_ref_id": {
+                            "type": "string"
+                          },
+                          "image_url": {
+                            "type": "string"
+                          },
+                          "is_available": {
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_FALSE_TRUE",
+                            "enumValues": [
+                              "false",
+                              "true"
+                            ],
+                            "type": "enum"
+                          },
+                          "is_popular": {
+                            "enumRef": "o(\"WASmaxInBrPaymentEnums\").ENUM_FALSE_TRUE",
+                            "enumValues": [
+                              "false",
+                              "true"
+                            ],
+                            "optional": true,
+                            "type": "enum"
+                          },
+                          "psp_routing": {
+                            "type": "string"
+                          },
+                          "ttl": {
+                            "type": "int"
+                          }
+                        },
+                        "children": [],
+                        "content": null,
+                        "max": 1000,
+                        "min": 0,
+                        "tag": "bank"
+                      }
+                    ],
+                    "content": null,
+                    "max": 1,
+                    "min": 1,
+                    "tag": "banks"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "account"
+              }
+            ],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Success"
+        }
+      ],
+      "rootTag": "iq",
+      "type": "get",
+      "xmlns": "w:pay"
+    },
     "BrPaymentRemoveCustomPaymentMethod": {
       "module": "WASmaxBrPaymentRemoveCustomPaymentMethodRPC",
       "opName": "RemoveCustomPaymentMethod",
@@ -57212,5 +57402,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1048451567"
+  "waVersion": "2.3000.1048557256"
 }

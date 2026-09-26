@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048451567
+// WhatsApp Version: 2.3000.1048557256
 'use strict'
 
 const WA_XML_OPERATIONS = Object.freeze({
@@ -29,6 +29,7 @@ const WA_XML_OPERATIONS = Object.freeze({
     BlocklistsUpdateOptOutList: Object.freeze({ module: 'WASmaxBlocklistsUpdateOptOutListRPC', opName: 'UpdateOptOutList', rootTag: 'iq', xmlns: 'optoutlist', type: 'set', requestModule: 'WASmaxOutBlocklistsUpdateOptOutListRequest', responseModules: Object.freeze(['WASmaxInBlocklistsUpdateOptOutListResponseInvalidRequest', 'WASmaxInBlocklistsUpdateOptOutListResponseServerError', 'WASmaxInBlocklistsUpdateOptOutListResponseSuccessWithMatch', 'WASmaxInBlocklistsUpdateOptOutListResponseSuccessWithMismatch']) }),
     BotBotList: Object.freeze({ module: 'WASmaxBotBotListRPC', opName: 'BotList', rootTag: 'iq', xmlns: 'bot', type: 'get', requestModule: 'WASmaxOutBotBotListRequest', responseModules: Object.freeze(['WASmaxInBotBotListResponseError', 'WASmaxInBotBotListResponseSuccessV2', 'WASmaxInBotBotListResponseSuccessV3']) }),
     BrPaymentCreateCustomPaymentMethod: Object.freeze({ module: 'WASmaxBrPaymentCreateCustomPaymentMethodRPC', opName: 'CreateCustomPaymentMethod', rootTag: 'iq', xmlns: 'w:pay', type: 'set', requestModule: 'WASmaxOutBrPaymentCreateCustomPaymentMethodRequest', responseModules: Object.freeze(['WASmaxInBrPaymentCreateCustomPaymentMethodResponseIQErrorWithCodeAndReason', 'WASmaxInBrPaymentCreateCustomPaymentMethodResponseSuccess']) }),
+    BrPaymentGetPixBankList: Object.freeze({ module: 'WASmaxBrPaymentGetPixBankListRPC', opName: 'GetPixBankList', rootTag: 'iq', xmlns: 'w:pay', type: 'get', requestModule: 'WASmaxOutBrPaymentGetPixBankListRequest', responseModules: Object.freeze(['WASmaxInBrPaymentGetPixBankListResponseError', 'WASmaxInBrPaymentGetPixBankListResponseSuccess']) }),
     BrPaymentRemoveCustomPaymentMethod: Object.freeze({ module: 'WASmaxBrPaymentRemoveCustomPaymentMethodRPC', opName: 'RemoveCustomPaymentMethod', rootTag: 'iq', xmlns: 'w:pay', type: 'set', requestModule: 'WASmaxOutBrPaymentRemoveCustomPaymentMethodRequest', responseModules: Object.freeze(['WASmaxInBrPaymentRemoveCustomPaymentMethodResponseError', 'WASmaxInBrPaymentRemoveCustomPaymentMethodResponseSuccess']) }),
     ChatstateClientNotification: Object.freeze({ module: 'WASmaxChatstateClientNotificationRPC', opName: 'ClientNotification', rootTag: 'chatstate', xmlns: null, type: null, requestModule: 'WASmaxOutChatstateClientNotificationRequest', responseModules: Object.freeze([]) }),
     ChatstateServerNotification: Object.freeze({ module: 'WASmaxChatstateServerNotificationRPC', opName: 'ServerNotification', rootTag: 'chatstate', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxInChatstateServerNotificationRequest']) }),
