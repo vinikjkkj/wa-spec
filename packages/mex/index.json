@@ -4874,16 +4874,18 @@
       }
     },
     "FetchWassBotListProfilesGQL": {
-      "docId": "28479090065021614",
+      "docId": "28390809103933079",
       "operationKind": "query",
       "originalName": "WAWebFetchWassBotListProfilesGQLQuery",
       "response": {
         "wass_account_list_profiles": [
           {
             "bot_fbid": "string",
+            "creator_lid": "string",
+            "hca_entrypoint_id": "string",
             "is_deprecated": "boolean",
             "name": "string",
-            "product": "enum:MANUS|META_AI_THREAD|THIRD_PARTY",
+            "product": "enum:MANUS|META_AI_THREAD|MUSE|THIRD_PARTY",
             "profile_pic_full_url": "string",
             "profile_pic_thumb_url": "string"
           }
@@ -4893,14 +4895,16 @@
       "variablesShape": {}
     },
     "FetchWassBotProfileGQL": {
-      "docId": "27911751148486446",
+      "docId": "29075540695397423",
       "operationKind": "query",
       "originalName": "WAWebFetchWassBotProfileGQLQuery",
       "response": {
         "get_wass_account_profile": {
+          "creator_lid": "string",
+          "hca_entrypoint_id": "string",
           "is_deprecated": "boolean",
           "name": "string",
-          "product": "enum:MANUS|META_AI_THREAD|THIRD_PARTY",
+          "product": "enum:MANUS|META_AI_THREAD|MUSE|THIRD_PARTY",
           "profile_pic_full_url": "string",
           "profile_pic_thumb_url": "string"
         }
@@ -8008,7 +8012,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "38756833310629693",
+      "docId": "29101363012781041",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8117,6 +8121,7 @@
                             }
                           ],
                           "caption": "string",
+                          "card_data": "unknown",
                           "case_id": "string",
                           "cdn_url": "string",
                           "challenge_id": "string",
@@ -8800,5 +8805,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048557256"
+  "waVersion": "2.3000.1048590665"
 }

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1048557256
+/// WhatsApp Version: 2.3000.1048590665
 
 enum ADVEncryptionType {
     E2EE = 0;

@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2571,
+  "propCount": 2582,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -628,6 +628,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_3p_bot_group_add_enabled": {
+      "code": 37767,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_activity_enabled": {
       "code": 36263,
       "debugDefaultValue": false,
@@ -885,6 +891,18 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_pdfn_nux_ai_group_muse_initiator_notice_id": {
+      "code": 37762,
+      "debugDefaultValue": " ",
+      "defaultValue": " ",
+      "type": "string"
+    },
+    "ai_pdfn_nux_ai_group_muse_non_initiator_notice_id": {
+      "code": 37763,
+      "debugDefaultValue": " ",
+      "defaultValue": " ",
+      "type": "string"
     },
     "ai_pdfn_nux_ai_group_tee_discover_notice_id": {
       "code": 26171,
@@ -1213,6 +1231,12 @@
     "ai_standard_bot_profile_enabled": {
       "code": 32961,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_standard_bot_profile_group_enabled": {
+      "code": 37766,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -7888,6 +7912,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "overscroll_logo_enabled": {
+      "code": 37770,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "p2b_calling_availability_experiment_enabled": {
       "code": 31098,
       "debugDefaultValue": true,
@@ -8776,11 +8806,23 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "poll_creator_edit_option_removal_enabled": {
+      "code": 37731,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "poll_creator_edit_receiving_version": {
       "code": 24886,
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
+    },
+    "poll_creator_remove_added_option_enabled": {
+      "code": 37732,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "poll_end_time_enabled": {
       "code": 24405,
@@ -8823,6 +8865,12 @@
       "debugDefaultValue": 100,
       "defaultValue": 100,
       "type": "int"
+    },
+    "poll_participant_remove_added_option_enabled": {
+      "code": 37734,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "poll_receiving_cag_enabled": {
       "code": 2737,
@@ -9748,6 +9796,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "smb_business_broadcast_pro_min_audience_recipients": {
+      "code": 37761,
+      "debugDefaultValue": 100,
+      "defaultValue": 100,
+      "type": "int"
+    },
     "smb_business_broadcast_pro_web_scheduled_sends_enabled": {
       "code": 33169,
       "debugDefaultValue": true,
@@ -10608,6 +10662,12 @@
     },
     "text_user_journey_logging_wam_enabled": {
       "code": 8627,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "thread_interactions_falco_native_logging_enabled": {
+      "code": 37737,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -12708,6 +12768,12 @@
     },
     "wa_web_search_empty_state_m1": {
       "code": 25310,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_search_highlight_offset_normalization_enabled": {
+      "code": 37690,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -15564,5 +15630,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1048557256"
+  "waVersion": "2.3000.1048590665"
 }

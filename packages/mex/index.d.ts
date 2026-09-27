@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048557256
+// WhatsApp Version: 2.3000.1048590665
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -5100,9 +5100,11 @@ export type WaMexFetchTextStatusListResponse = {
 export type WaMexFetchWassBotListProfilesGQLResponse = {
     readonly wass_account_list_profiles?: ReadonlyArray<{
         readonly bot_fbid?: string
+        readonly creator_lid?: string
+        readonly hca_entrypoint_id?: string
         readonly is_deprecated?: boolean
         readonly name?: string
-        readonly product?: 'MANUS' | 'META_AI_THREAD' | 'THIRD_PARTY'
+        readonly product?: 'MANUS' | 'META_AI_THREAD' | 'MUSE' | 'THIRD_PARTY'
         readonly profile_pic_full_url?: string
         readonly profile_pic_thumb_url?: string
     }>
@@ -5110,9 +5112,11 @@ export type WaMexFetchWassBotListProfilesGQLResponse = {
 
 export type WaMexFetchWassBotProfileGQLResponse = {
     readonly get_wass_account_profile?: {
+        readonly creator_lid?: string
+        readonly hca_entrypoint_id?: string
         readonly is_deprecated?: boolean
         readonly name?: string
-        readonly product?: 'MANUS' | 'META_AI_THREAD' | 'THIRD_PARTY'
+        readonly product?: 'MANUS' | 'META_AI_THREAD' | 'MUSE' | 'THIRD_PARTY'
         readonly profile_pic_full_url?: string
         readonly profile_pic_thumb_url?: string
     }
@@ -6807,6 +6811,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly timeline_start?: unknown
                                 }>
                                 readonly caption?: string
+                                readonly card_data?: unknown
                                 readonly case_id?: string
                                 readonly cdn_url?: string
                                 readonly challenge_id?: string

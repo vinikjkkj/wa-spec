@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048557256
+// WhatsApp Version: 2.3000.1048590665
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -94,6 +94,7 @@ const WA_ABPROPS = Object.freeze({
     ai_group_tee_history_share_enabled: Object.freeze({ code: 28278, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_group_tee_require_additional_member_enabled: Object.freeze({ code: 33050, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_groups_open_enabled: Object.freeze({ code: 22165, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_hatch_3p_bot_group_add_enabled: Object.freeze({ code: 37767, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_activity_enabled: Object.freeze({ code: 36263, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_approval_notification_enabled: Object.freeze({ code: 36472, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_commands_enabled: Object.freeze({ code: 27660, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -137,6 +138,8 @@ const WA_ABPROPS = Object.freeze({
     ai_migrate_away_from_inline_tos_enabled: Object.freeze({ code: 18843, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_mode_selector_enabled: Object.freeze({ code: 23885, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_mode_selector_media_editor_enabled: Object.freeze({ code: 30986, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_pdfn_nux_ai_group_muse_initiator_notice_id: Object.freeze({ code: 37762, type: "string", defaultValue: " ", debugDefaultValue: " " }),
+    ai_pdfn_nux_ai_group_muse_non_initiator_notice_id: Object.freeze({ code: 37763, type: "string", defaultValue: " ", debugDefaultValue: " " }),
     ai_pdfn_nux_ai_group_tee_discover_notice_id: Object.freeze({ code: 26171, type: "string", defaultValue: "20260212", debugDefaultValue: "20260212" }),
     ai_pdfn_nux_ai_side_chat_notice_id: Object.freeze({ code: 31542, type: "string", defaultValue: " 20260211", debugDefaultValue: " 20260211" }),
     ai_pdfn_tos_inline_notices: Object.freeze({ code: 13970, type: "string", defaultValue: " ", debugDefaultValue: " " }),
@@ -192,6 +195,7 @@ const WA_ABPROPS = Object.freeze({
     ai_session_transparency_meta_ai_enabled: Object.freeze({ code: 23188, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_simplified_profile_page_enabled: Object.freeze({ code: 17104, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_standard_bot_profile_enabled: Object.freeze({ code: 32961, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    ai_standard_bot_profile_group_enabled: Object.freeze({ code: 37766, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_subscription_enabled: Object.freeze({ code: 25927, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_subscription_imagine_intent_enabled: Object.freeze({ code: 28585, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_subscription_imagine_intent_metering_enabled: Object.freeze({ code: 33229, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1304,6 +1308,7 @@ const WA_ABPROPS = Object.freeze({
     otp_lid_migration_enabled: Object.freeze({ code: 12553, type: "bool", defaultValue: false, debugDefaultValue: true }),
     out_contact_invites_enabled: Object.freeze({ code: 28170, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     out_of_sync_disappearing_messages_logging: Object.freeze({ code: 2561, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    overscroll_logo_enabled: Object.freeze({ code: 37770, type: "bool", defaultValue: false, debugDefaultValue: false }),
     p2b_calling_availability_experiment_enabled: Object.freeze({ code: 31098, type: "bool", defaultValue: false, debugDefaultValue: true }),
     p2m_external_payments_link_enabled: Object.freeze({ code: 4295, type: "bool", defaultValue: false, debugDefaultValue: true }),
     p2p_pills_allowlist: Object.freeze({ code: 29554, type: "string", defaultValue: "[{ \"business_id\": \"34666845417\", \"pills\": [\"CHAT\", \"PROFILE\", \"BOOK_APPOINTMENT\", \"CATALOG\", \"BESTSELLERS\", \"OFFERS\", \"ABOUT_US\"] }]", debugDefaultValue: "[{ \"business_id\": \"34666845417\", \"pills\": [\"CHAT\", \"PROFILE\", \"BOOK_APPOINTMENT\", \"CATALOG\", \"BESTSELLERS\", \"OFFERS\", \"ABOUT_US\"] }]" }),
@@ -1452,7 +1457,9 @@ const WA_ABPROPS = Object.freeze({
     poll_add_option_receiving_enabled: Object.freeze({ code: 25758, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     poll_creation_cag_enabled: Object.freeze({ code: 2738, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_creator_edit_enabled: Object.freeze({ code: 24887, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    poll_creator_edit_option_removal_enabled: Object.freeze({ code: 37731, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_creator_edit_receiving_version: Object.freeze({ code: 24886, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
+    poll_creator_remove_added_option_enabled: Object.freeze({ code: 37732, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_end_time_enabled: Object.freeze({ code: 24405, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_end_time_receiving_enabled: Object.freeze({ code: 24884, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_hide_voters_enabled: Object.freeze({ code: 24518, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1460,6 +1467,7 @@ const WA_ABPROPS = Object.freeze({
     poll_name_length: Object.freeze({ code: 1406, type: "int", defaultValue: 255, debugDefaultValue: 255 }),
     poll_option_count: Object.freeze({ code: 1408, type: "int", defaultValue: 12, debugDefaultValue: 12 }),
     poll_option_length: Object.freeze({ code: 1407, type: "int", defaultValue: 100, debugDefaultValue: 100 }),
+    poll_participant_remove_added_option_enabled: Object.freeze({ code: 37734, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_receiving_cag_enabled: Object.freeze({ code: 2737, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_result_snapshot_polltype_envelope_enabled: Object.freeze({ code: 12258, type: "bool", defaultValue: false, debugDefaultValue: false }),
     poll_tc_receiving_enabled: Object.freeze({ code: 31592, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1614,6 +1622,7 @@ const WA_ABPROPS = Object.freeze({
     smb_business_broadcast_import_contact: Object.freeze({ code: 17433, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_business_broadcast_multi_audience_send_web: Object.freeze({ code: 25206, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_business_broadcast_pro_enabled: Object.freeze({ code: 29033, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    smb_business_broadcast_pro_min_audience_recipients: Object.freeze({ code: 37761, type: "int", defaultValue: 100, debugDefaultValue: 100 }),
     smb_business_broadcast_pro_web_scheduled_sends_enabled: Object.freeze({ code: 33169, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_business_broadcast_send_web: Object.freeze({ code: 21508, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_business_broadcast_send_web_no_exp: Object.freeze({ code: 28138, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1758,6 +1767,7 @@ const WA_ABPROPS = Object.freeze({
     teamlink_enabled: Object.freeze({ code: 33978, type: "bool", defaultValue: false, debugDefaultValue: false }),
     text_status_ttl_seconds_allowlist: Object.freeze({ code: 6153, type: "string", defaultValue: "1800,3600,7200,14400,28800,86400", debugDefaultValue: "1800,3600,7200,14400,28800,86400" }),
     text_user_journey_logging_wam_enabled: Object.freeze({ code: 8627, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    thread_interactions_falco_native_logging_enabled: Object.freeze({ code: 37737, type: "bool", defaultValue: false, debugDefaultValue: true }),
     timeout_mex_call_expand_fmx_trust_signals: Object.freeze({ code: 27862, type: "int", defaultValue: 600, debugDefaultValue: 600 }),
     top_level_message_secret_check: Object.freeze({ code: 23796, type: "bool", defaultValue: false, debugDefaultValue: true }),
     tos_3_client_gating_enabled: Object.freeze({ code: 791, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2108,6 +2118,7 @@ const WA_ABPROPS = Object.freeze({
     wa_web_scrollable_reaction_tray_enabled: Object.freeze({ code: 27709, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_search_emoji_picker: Object.freeze({ code: 27857, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_search_empty_state_m1: Object.freeze({ code: 25310, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_web_search_highlight_offset_normalization_enabled: Object.freeze({ code: 37690, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_select_all_chats_enabled: Object.freeze({ code: 30040, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_self_profile_photo_fix_enabled: Object.freeze({ code: 24945, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_send_hd_photo: Object.freeze({ code: 36998, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -5174,7 +5185,18 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     37618: "sticker_non_square_rendering_enabled",
     37630: "server_sent_invites_for_groups_web_enabled",
     37650: "document_format_verification_enforcement_enabled",
-    37665: "ai_hatch_upsell_in_agents_screen_variant"
+    37665: "ai_hatch_upsell_in_agents_screen_variant",
+    37690: "wa_web_search_highlight_offset_normalization_enabled",
+    37731: "poll_creator_edit_option_removal_enabled",
+    37732: "poll_creator_remove_added_option_enabled",
+    37734: "poll_participant_remove_added_option_enabled",
+    37737: "thread_interactions_falco_native_logging_enabled",
+    37761: "smb_business_broadcast_pro_min_audience_recipients",
+    37762: "ai_pdfn_nux_ai_group_muse_initiator_notice_id",
+    37763: "ai_pdfn_nux_ai_group_muse_non_initiator_notice_id",
+    37766: "ai_standard_bot_profile_group_enabled",
+    37767: "ai_hatch_3p_bot_group_add_enabled",
+    37770: "overscroll_logo_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({
