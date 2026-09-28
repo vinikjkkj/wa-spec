@@ -5855,7 +5855,7 @@
         "xwa_org_managed_channel_add": {
           "channel": {
             "description": "string",
-            "id": "string",
+            "id": "number",
             "invite_code": "string",
             "name": "string",
             "picture": {
@@ -5952,8 +5952,11 @@
       ],
       "variablesShape": {
         "input": {
+          "description": "string",
           "entries": "unknown",
+          "icon_blob": "unknown",
           "member_lid": "string",
+          "member_tag_options": "unknown",
           "org_id": "string",
           "role": "string"
         }
@@ -6057,7 +6060,7 @@
           "channels": [
             {
               "description": "string",
-              "id": "string",
+              "id": "number",
               "invite_code": "string",
               "name": "string",
               "picture": {
@@ -6141,7 +6144,12 @@
         "query"
       ],
       "variablesShape": {
-        "after": "string",
+        "after": {
+          "description": "string",
+          "icon_blob": "unknown",
+          "member_tag_options": "unknown",
+          "org_id": "string"
+        },
         "first": "number",
         "memberTag": "string",
         "orgID": "string",
@@ -6149,19 +6157,21 @@
       }
     },
     "OrgAdminGraphQLOrgs": {
-      "docId": "28490402823987784",
+      "docId": "28450688771254327",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLOrgsQuery",
       "response": {
         "xwa_org_list": {
           "orgs": [
             {
+              "description": "string",
               "icon": {
                 "uri": "string"
               },
-              "id": "string",
+              "id": "number",
               "is_member_directory_enabled": "boolean",
               "member_count": "number",
+              "member_tag_options": "unknown",
               "name": "string",
               "viewer_role": "string"
             }
@@ -6190,8 +6200,11 @@
       ],
       "variablesShape": {
         "input": {
+          "description": "string",
           "entries": "unknown",
+          "icon_blob": "unknown",
           "member_lid": "string",
+          "member_tag_options": "unknown",
           "org_id": "string",
           "role": "string"
         }
@@ -6229,8 +6242,11 @@
       ],
       "variablesShape": {
         "input": {
+          "description": "string",
           "entries": "unknown",
+          "icon_blob": "unknown",
           "member_lid": "string",
+          "member_tag_options": "unknown",
           "org_id": "string",
           "role": "string"
         }
@@ -6255,8 +6271,48 @@
       ],
       "variablesShape": {
         "input": {
+          "description": "string",
           "entries": "unknown",
+          "icon_blob": "unknown",
           "member_lid": "string",
+          "member_tag_options": "unknown",
+          "org_id": "string",
+          "role": "string"
+        }
+      }
+    },
+    "OrgAdminGraphQLUpdateOrg": {
+      "docId": "28301720222820867",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLUpdateOrgMutation",
+      "response": {
+        "xwa_org_update": {
+          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "org": {
+            "description": "string",
+            "icon": {
+              "uri": "string"
+            },
+            "id": "number",
+            "is_member_directory_enabled": "boolean",
+            "member_count": "number",
+            "member_tag_options": "unknown",
+            "name": "string",
+            "viewer_role": "string"
+          },
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "description": "string",
+          "entries": "unknown",
+          "icon_blob": "unknown",
+          "member_lid": "string",
+          "member_tag_options": "unknown",
           "org_id": "string",
           "role": "string"
         }
@@ -8805,5 +8861,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048590665"
+  "waVersion": "2.3000.1048620361"
 }

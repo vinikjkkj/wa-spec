@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048590665
+// WhatsApp Version: 2.3000.1048620361
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -54,6 +54,7 @@ export declare const WA_ABPROPS: {
     readonly ai_asset_replacement_enabled: { readonly code: 28265; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_bizai_2way_integration_enabled: { readonly code: 26613; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_bizai_2way_integration_history_sync_pre_chatd_enabled: { readonly code: 26614; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ai_bot_group_soak_enabled: { readonly code: 37778; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_bot_integration_bot_profile: { readonly code: 25268; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly ai_bot_integration_enabled: { readonly code: 25119; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_bot_integration_history_sync_enabled: { readonly code: 25269; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -113,7 +114,9 @@ export declare const WA_ABPROPS: {
     readonly ai_group_tee_history_share_enabled: { readonly code: 28278; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_group_tee_require_additional_member_enabled: { readonly code: 33050; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_groups_open_enabled: { readonly code: 22165; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ai_hatch_3p_bot_group_add_companion_enabled: { readonly code: 37791; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_hatch_3p_bot_group_add_enabled: { readonly code: 37767; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ai_hatch_3p_bot_group_add_tee_removal_enabled: { readonly code: 37793; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_hatch_activity_enabled: { readonly code: 36263; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_hatch_approval_notification_enabled: { readonly code: 36472; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_hatch_commands_enabled: { readonly code: 27660; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -121,6 +124,7 @@ export declare const WA_ABPROPS: {
     readonly ai_hatch_document_upload_size_limit_mb: { readonly code: 27873; readonly type: "int"; readonly defaultValue: 20; readonly debugDefaultValue: 20 }
     readonly ai_hatch_encrypted_media_enabled: { readonly code: 32496; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_hatch_forwarding_html_enabled: { readonly code: 27876; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ai_hatch_gzip_encoding_enabled: { readonly code: 37777; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_hatch_integration_bot_profile: { readonly code: 26190; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly ai_hatch_integration_enabled: { readonly code: 26189; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_hatch_integration_history_sync_enabled: { readonly code: 26517; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -650,6 +654,7 @@ export declare const WA_ABPROPS: {
     readonly channels_view_counts_vpv_logging_enabled: { readonly code: 12295; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly channels_visibility_logging_fullscreen_media_enabled: { readonly code: 28148; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_vpv_logging_enabled: { readonly code: 9834; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly chat_interactive_preview_enabled: { readonly code: 37775; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly chatlist_filters_v1: { readonly code: 1608; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly chatlist_prevent_autoread: { readonly code: 21156; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly chatlist_show_draft_for_empty_chat: { readonly code: 19287; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1703,6 +1708,10 @@ export declare const WA_ABPROPS: {
     readonly smb_web_ai_tos_master_notice_id: { readonly code: 34831; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly smb_web_bb_home_qp_surface_enabled: { readonly code: 32613; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_category_search_via_graph_enabled: { readonly code: 28519; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly smb_web_create_ad_chatlist_qp_dummy_enabled: { readonly code: 37787; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly smb_web_create_ad_chatlist_qp_enabled: { readonly code: 37785; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly smb_web_create_ad_chatlist_qp_filter_dummy_enabled: { readonly code: 37789; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly smb_web_create_ad_chatlist_qp_filter_enabled: { readonly code: 37788; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_customer_management_custom_fields: { readonly code: 36576; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_customer_management_enabled: { readonly code: 26165; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_customer_management_import_export: { readonly code: 36497; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2546,6 +2555,7 @@ export declare const WA_ABPROPS: {
     readonly web_voip_low_resource_device: { readonly code: 28203; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_outgoing_call_setup_latency_mode: { readonly code: 33122; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_pin_worker_glue_to_wasm: { readonly code: 36184; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly web_voip_playback_restart_after_mic_mode: { readonly code: 37782; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_pre_init_worker_bootstrap: { readonly code: 34685; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_voip_pthread_hardening_level: { readonly code: 37490; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly web_voip_relay_setup_yield_ipv4_first: { readonly code: 36803; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -5213,6 +5223,16 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37766: "ai_standard_bot_profile_group_enabled"
     readonly 37767: "ai_hatch_3p_bot_group_add_enabled"
     readonly 37770: "overscroll_logo_enabled"
+    readonly 37775: "chat_interactive_preview_enabled"
+    readonly 37777: "ai_hatch_gzip_encoding_enabled"
+    readonly 37778: "ai_bot_group_soak_enabled"
+    readonly 37782: "web_voip_playback_restart_after_mic_mode"
+    readonly 37785: "smb_web_create_ad_chatlist_qp_enabled"
+    readonly 37787: "smb_web_create_ad_chatlist_qp_dummy_enabled"
+    readonly 37788: "smb_web_create_ad_chatlist_qp_filter_enabled"
+    readonly 37789: "smb_web_create_ad_chatlist_qp_filter_dummy_enabled"
+    readonly 37791: "ai_hatch_3p_bot_group_add_companion_enabled"
+    readonly 37793: "ai_hatch_3p_bot_group_add_tee_removal_enabled"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

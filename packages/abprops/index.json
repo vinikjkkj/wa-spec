@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2582,
+  "propCount": 2592,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -270,6 +270,12 @@
     },
     "ai_bizai_2way_integration_history_sync_pre_chatd_enabled": {
       "code": 26614,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_bot_group_soak_enabled": {
+      "code": 37778,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -628,8 +634,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_3p_bot_group_add_companion_enabled": {
+      "code": 37791,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_3p_bot_group_add_enabled": {
       "code": 37767,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_3p_bot_group_add_tee_removal_enabled": {
+      "code": 37793,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -673,6 +691,12 @@
     "ai_hatch_forwarding_html_enabled": {
       "code": 27876,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_gzip_encoding_enabled": {
+      "code": 37777,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -3847,6 +3871,12 @@
     "channels_vpv_logging_enabled": {
       "code": 9834,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "chat_interactive_preview_enabled": {
+      "code": 37775,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -10168,6 +10198,30 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "smb_web_create_ad_chatlist_qp_dummy_enabled": {
+      "code": 37787,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_web_create_ad_chatlist_qp_enabled": {
+      "code": 37785,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_web_create_ad_chatlist_qp_filter_dummy_enabled": {
+      "code": 37789,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_web_create_ad_chatlist_qp_filter_enabled": {
+      "code": 37788,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "smb_web_customer_management_custom_fields": {
       "code": 36576,
       "debugDefaultValue": false,
@@ -15226,6 +15280,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_voip_playback_restart_after_mic_mode": {
+      "code": 37782,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "web_voip_pre_init_worker_bootstrap": {
       "code": 34685,
       "debugDefaultValue": false,
@@ -15630,5 +15690,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1048590665"
+  "waVersion": "2.3000.1048620361"
 }

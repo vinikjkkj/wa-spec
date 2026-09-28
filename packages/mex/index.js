@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048590665
+// WhatsApp Version: 2.3000.1048620361
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -175,10 +175,11 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     OrgAdminGraphQLManagedChannels: Object.freeze({ docId: '27988950254107459', clientDocId: '27988950254107459' }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '38372552505692451', clientDocId: '38372552505692451' }),
     OrgAdminGraphQLMemberSearch: Object.freeze({ docId: '28641250612201754', clientDocId: '28641250612201754' }),
-    OrgAdminGraphQLOrgs: Object.freeze({ docId: '28490402823987784', clientDocId: '28490402823987784' }),
+    OrgAdminGraphQLOrgs: Object.freeze({ docId: '28450688771254327', clientDocId: '28450688771254327' }),
     OrgAdminGraphQLRemoveMember: Object.freeze({ docId: '28130496313288374', clientDocId: '28130496313288374' }),
     OrgAdminGraphQLReplaceAdminRoster: Object.freeze({ docId: '38389150840730215', clientDocId: '38389150840730215' }),
     OrgAdminGraphQLSetMemberRole: Object.freeze({ docId: '28470063769311553', clientDocId: '28470063769311553' }),
+    OrgAdminGraphQLUpdateOrg: Object.freeze({ docId: '28301720222820867', clientDocId: '28301720222820867' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
     QueryCatalog: Object.freeze({ docId: '30445081048424116', clientDocId: '30445081048424116' }),
     QueryCatalogHasCategories: Object.freeze({ docId: '9746549555457302', clientDocId: '9746549555457302' }),
@@ -413,6 +414,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     OrgAdminGraphQLRemoveMember: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     OrgAdminGraphQLReplaceAdminRoster: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     OrgAdminGraphQLSetMemberRole: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    OrgAdminGraphQLUpdateOrg: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     PaymentsPasskeyHasCredential: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     QueryCatalog: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),
     QueryCatalogHasCategories: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),

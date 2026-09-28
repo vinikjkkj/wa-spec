@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048590665
+// WhatsApp Version: 2.3000.1048620361
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -35,6 +35,7 @@ const WA_ABPROPS = Object.freeze({
     ai_asset_replacement_enabled: Object.freeze({ code: 28265, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_bizai_2way_integration_enabled: Object.freeze({ code: 26613, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_bizai_2way_integration_history_sync_pre_chatd_enabled: Object.freeze({ code: 26614, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_bot_group_soak_enabled: Object.freeze({ code: 37778, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_bot_integration_bot_profile: Object.freeze({ code: 25268, type: "string", defaultValue: "", debugDefaultValue: "" }),
     ai_bot_integration_enabled: Object.freeze({ code: 25119, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_bot_integration_history_sync_enabled: Object.freeze({ code: 25269, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -94,7 +95,9 @@ const WA_ABPROPS = Object.freeze({
     ai_group_tee_history_share_enabled: Object.freeze({ code: 28278, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_group_tee_require_additional_member_enabled: Object.freeze({ code: 33050, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_groups_open_enabled: Object.freeze({ code: 22165, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_hatch_3p_bot_group_add_companion_enabled: Object.freeze({ code: 37791, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_3p_bot_group_add_enabled: Object.freeze({ code: 37767, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_hatch_3p_bot_group_add_tee_removal_enabled: Object.freeze({ code: 37793, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_activity_enabled: Object.freeze({ code: 36263, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_approval_notification_enabled: Object.freeze({ code: 36472, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_commands_enabled: Object.freeze({ code: 27660, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -102,6 +105,7 @@ const WA_ABPROPS = Object.freeze({
     ai_hatch_document_upload_size_limit_mb: Object.freeze({ code: 27873, type: "int", defaultValue: 20, debugDefaultValue: 20 }),
     ai_hatch_encrypted_media_enabled: Object.freeze({ code: 32496, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_forwarding_html_enabled: Object.freeze({ code: 27876, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_hatch_gzip_encoding_enabled: Object.freeze({ code: 37777, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_integration_bot_profile: Object.freeze({ code: 26190, type: "string", defaultValue: "", debugDefaultValue: "" }),
     ai_hatch_integration_enabled: Object.freeze({ code: 26189, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_integration_history_sync_enabled: Object.freeze({ code: 26517, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -631,6 +635,7 @@ const WA_ABPROPS = Object.freeze({
     channels_view_counts_vpv_logging_enabled: Object.freeze({ code: 12295, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_visibility_logging_fullscreen_media_enabled: Object.freeze({ code: 28148, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_vpv_logging_enabled: Object.freeze({ code: 9834, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    chat_interactive_preview_enabled: Object.freeze({ code: 37775, type: "bool", defaultValue: false, debugDefaultValue: false }),
     chatlist_filters_v1: Object.freeze({ code: 1608, type: "bool", defaultValue: false, debugDefaultValue: false }),
     chatlist_prevent_autoread: Object.freeze({ code: 21156, type: "bool", defaultValue: false, debugDefaultValue: false }),
     chatlist_show_draft_for_empty_chat: Object.freeze({ code: 19287, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1684,6 +1689,10 @@ const WA_ABPROPS = Object.freeze({
     smb_web_ai_tos_master_notice_id: Object.freeze({ code: 34831, type: "string", defaultValue: "", debugDefaultValue: "" }),
     smb_web_bb_home_qp_surface_enabled: Object.freeze({ code: 32613, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_category_search_via_graph_enabled: Object.freeze({ code: 28519, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    smb_web_create_ad_chatlist_qp_dummy_enabled: Object.freeze({ code: 37787, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    smb_web_create_ad_chatlist_qp_enabled: Object.freeze({ code: 37785, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    smb_web_create_ad_chatlist_qp_filter_dummy_enabled: Object.freeze({ code: 37789, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    smb_web_create_ad_chatlist_qp_filter_enabled: Object.freeze({ code: 37788, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_management_custom_fields: Object.freeze({ code: 36576, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_management_enabled: Object.freeze({ code: 26165, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_web_customer_management_import_export: Object.freeze({ code: 36497, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2527,6 +2536,7 @@ const WA_ABPROPS = Object.freeze({
     web_voip_low_resource_device: Object.freeze({ code: 28203, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_outgoing_call_setup_latency_mode: Object.freeze({ code: 33122, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_pin_worker_glue_to_wasm: Object.freeze({ code: 36184, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_voip_playback_restart_after_mic_mode: Object.freeze({ code: 37782, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_pre_init_worker_bootstrap: Object.freeze({ code: 34685, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_voip_pthread_hardening_level: Object.freeze({ code: 37490, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     web_voip_relay_setup_yield_ipv4_first: Object.freeze({ code: 36803, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -5196,7 +5206,17 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     37763: "ai_pdfn_nux_ai_group_muse_non_initiator_notice_id",
     37766: "ai_standard_bot_profile_group_enabled",
     37767: "ai_hatch_3p_bot_group_add_enabled",
-    37770: "overscroll_logo_enabled"
+    37770: "overscroll_logo_enabled",
+    37775: "chat_interactive_preview_enabled",
+    37777: "ai_hatch_gzip_encoding_enabled",
+    37778: "ai_bot_group_soak_enabled",
+    37782: "web_voip_playback_restart_after_mic_mode",
+    37785: "smb_web_create_ad_chatlist_qp_enabled",
+    37787: "smb_web_create_ad_chatlist_qp_dummy_enabled",
+    37788: "smb_web_create_ad_chatlist_qp_filter_enabled",
+    37789: "smb_web_create_ad_chatlist_qp_filter_dummy_enabled",
+    37791: "ai_hatch_3p_bot_group_add_companion_enabled",
+    37793: "ai_hatch_3p_bot_group_add_tee_removal_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

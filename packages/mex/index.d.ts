@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048590665
+// WhatsApp Version: 2.3000.1048620361
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -191,6 +191,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLRemoveMember: WaMexPersistId
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
+    readonly OrgAdminGraphQLUpdateOrg: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
@@ -425,6 +426,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLRemoveMember: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly OrgAdminGraphQLUpdateOrg: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
@@ -1447,8 +1449,11 @@ export type WaMexOrgAdminGraphQLAdminRosterVariables = {
 
 export type WaMexOrgAdminGraphQLAppendAdminRosterVariables = {
     readonly input?: {
+        readonly description?: string
         readonly entries?: unknown
+        readonly icon_blob?: unknown
         readonly member_lid?: string
+        readonly member_tag_options?: unknown
         readonly org_id?: string
         readonly role?: string
     }
@@ -1477,7 +1482,12 @@ export type WaMexOrgAdminGraphQLManagedGroupsVariables = {
 }
 
 export type WaMexOrgAdminGraphQLMemberSearchVariables = {
-    readonly after?: string
+    readonly after?: {
+        readonly description?: string
+        readonly icon_blob?: unknown
+        readonly member_tag_options?: unknown
+        readonly org_id?: string
+    }
     readonly first?: number
     readonly memberTag?: string
     readonly orgID?: string
@@ -1488,8 +1498,11 @@ export type WaMexOrgAdminGraphQLOrgsVariables = Readonly<Record<string, never>>
 
 export type WaMexOrgAdminGraphQLRemoveMemberVariables = {
     readonly input?: {
+        readonly description?: string
         readonly entries?: unknown
+        readonly icon_blob?: unknown
         readonly member_lid?: string
+        readonly member_tag_options?: unknown
         readonly org_id?: string
         readonly role?: string
     }
@@ -1497,8 +1510,11 @@ export type WaMexOrgAdminGraphQLRemoveMemberVariables = {
 
 export type WaMexOrgAdminGraphQLReplaceAdminRosterVariables = {
     readonly input?: {
+        readonly description?: string
         readonly entries?: unknown
+        readonly icon_blob?: unknown
         readonly member_lid?: string
+        readonly member_tag_options?: unknown
         readonly org_id?: string
         readonly role?: string
     }
@@ -1506,8 +1522,23 @@ export type WaMexOrgAdminGraphQLReplaceAdminRosterVariables = {
 
 export type WaMexOrgAdminGraphQLSetMemberRoleVariables = {
     readonly input?: {
+        readonly description?: string
         readonly entries?: unknown
+        readonly icon_blob?: unknown
         readonly member_lid?: string
+        readonly member_tag_options?: unknown
+        readonly org_id?: string
+        readonly role?: string
+    }
+}
+
+export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
+    readonly input?: {
+        readonly description?: string
+        readonly entries?: unknown
+        readonly icon_blob?: unknown
+        readonly member_lid?: string
+        readonly member_tag_options?: unknown
         readonly org_id?: string
         readonly role?: string
     }
@@ -2044,6 +2075,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberVariables
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterVariables
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
+    readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
@@ -5515,7 +5547,7 @@ export type WaMexOrgAdminGraphQLAddChannelResponse = {
     readonly xwa_org_managed_channel_add?: {
         readonly channel?: {
             readonly description?: string
-            readonly id?: string
+            readonly id?: number
             readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
@@ -5625,7 +5657,7 @@ export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
     readonly xwa_org_managed_channels?: {
         readonly channels?: ReadonlyArray<{
             readonly description?: string
-            readonly id?: string
+            readonly id?: number
             readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
@@ -5678,12 +5710,14 @@ export type WaMexOrgAdminGraphQLMemberSearchResponse = {
 export type WaMexOrgAdminGraphQLOrgsResponse = {
     readonly xwa_org_list?: {
         readonly orgs?: ReadonlyArray<{
+            readonly description?: string
             readonly icon?: {
                 readonly uri?: string
             }
-            readonly id?: string
+            readonly id?: number
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
+            readonly member_tag_options?: unknown
             readonly name?: string
             readonly viewer_role?: string
         }>
@@ -5729,6 +5763,25 @@ export type WaMexOrgAdminGraphQLSetMemberRoleResponse = {
         readonly org?: {
             readonly id?: number
             readonly member_count?: number
+        }
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
+    readonly xwa_org_update?: {
+        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly org?: {
+            readonly description?: string
+            readonly icon?: {
+                readonly uri?: string
+            }
+            readonly id?: number
+            readonly is_member_directory_enabled?: boolean
+            readonly member_count?: number
+            readonly member_tag_options?: unknown
+            readonly name?: string
+            readonly viewer_role?: string
         }
         readonly status?: 'SUCCESS'
     }
@@ -7527,6 +7580,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberResponse
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterResponse
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
+    readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
