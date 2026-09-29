@@ -48255,17 +48255,10 @@
         "method": "receiveServerNotificationRPC",
         "module": "WASmaxChatstateServerNotificationRPC"
       },
-      "entryName": "createHandleChatState",
+      "entryName": "maybeHandleCoexV2ChatStateStanza",
       "handler": {
-        "indirect": {
-          "delegate": {
-            "method": "receiveServerNotificationRPC",
-            "module": "WASmaxChatstateServerNotificationRPC"
-          },
-          "via": "WAHandleDecisionTreeResult"
-        },
-        "method": "createHandleChatState",
-        "module": "WACreateHandleChatState"
+        "method": "maybeHandleCoexV2ChatStateStanza",
+        "module": "WAWebHandleCoexV2ChatState"
       },
       "inlinedFrom": {
         "method": "receiveServerNotificationRPC",
@@ -57402,5 +57395,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1048620361"
+  "waVersion": "2.3000.1048738070"
 }

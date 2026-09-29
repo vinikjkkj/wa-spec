@@ -1231,22 +1231,6 @@
         "input": {}
       }
     },
-    "CTXChatBuilderDialogContainerUtils": {
-      "docId": "25623894560605325",
-      "operationKind": "query",
-      "originalName": "CTXChatBuilderDialogContainerUtilsQuery",
-      "response": {
-        "welcome_message_flows": {
-          "has_welcome_message_flows": "boolean"
-        }
-      },
-      "variables": [
-        "input"
-      ],
-      "variablesShape": {
-        "input": "string"
-      }
-    },
     "CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal": {
       "docId": "26336150576021452",
       "operationKind": "mutation",
@@ -3457,6 +3441,30 @@
           }
         }
       }
+    },
+    "FetchLabyrinthEpochDevices": {
+      "docId": "28943839351888604",
+      "operationKind": "query",
+      "originalName": "WAWebFetchLabyrinthEpochDevicesJobQuery",
+      "response": {
+        "wa_labyrinth_fetch_epoch_devices": {
+          "__typename": "string",
+          "devices": [
+            {
+              "device_epoch_hmac": "string",
+              "device_id": "string",
+              "device_public_key": "string",
+              "epoch_storage_public_key": "string",
+              "epoch_storage_public_key_sig": "unknown"
+            }
+          ],
+          "epoch_id": "string",
+          "error_code": "number",
+          "message": "string"
+        }
+      },
+      "variables": [],
+      "variablesShape": {}
     },
     "FetchNewChatMessageCappingInfo": {
       "docId": "27910975521856601",
@@ -5855,7 +5863,7 @@
         "xwa_org_managed_channel_add": {
           "channel": {
             "description": "string",
-            "id": "number",
+            "id": "string",
             "invite_code": "string",
             "name": "string",
             "picture": {
@@ -5906,13 +5914,13 @@
       "originalName": "WAWebOrgAdminGraphQLAdminRosterQuery",
       "response": {
         "xwa_org_get": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "org_info": {
             "admin_roster": {
               "entries": [
                 {
                   "email_address": "string",
-                  "id": "number",
+                  "id": "string",
                   "member_tag": "string",
                   "name": "string",
                   "phone_number": "string"
@@ -5921,7 +5929,7 @@
               "is_truncated": "boolean",
               "total_count": "number"
             },
-            "id": "number"
+            "id": "string"
           },
           "status": "enum:SUCCESS"
         }
@@ -5962,28 +5970,29 @@
         }
       }
     },
-    "OrgAdminGraphQLDirectory": {
-      "docId": "28872036855764640",
+    "OrgAdminGraphQLDirectoryPage": {
+      "docId": "28535112302815446",
       "operationKind": "query",
-      "originalName": "WAWebOrgAdminGraphQLDirectoryQuery",
+      "originalName": "WAWebOrgAdminGraphQLDirectoryPageQuery",
       "response": {
         "xwa_org_get": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "org_info": {
-            "id": "number",
+            "id": "string",
             "members": {
               "count": "number",
               "nodes": [
                 {
                   "display_name": "string",
-                  "lid": "boolean",
+                  "lid": "string",
                   "member_tag": "string",
                   "phone_number": "string",
-                  "role": "enum:ADMIN|CREATOR|SUPERADMIN",
+                  "role": "enum:ADMIN|CREATOR",
                   "username": "string"
                 }
               ],
               "page_info": {
+                "end_cursor": "string",
                 "has_next_page": "boolean"
               }
             }
@@ -5992,9 +6001,18 @@
         }
       },
       "variables": [
+        "after",
+        "first",
         "orgID"
       ],
       "variablesShape": {
+        "after": {
+          "description": "string",
+          "icon_blob": "unknown",
+          "member_tag_options": "unknown",
+          "org_id": "string"
+        },
+        "first": "number",
         "orgID": "string"
       }
     },
@@ -6004,15 +6022,15 @@
       "originalName": "WAWebOrgAdminGraphQLGroupQuery",
       "response": {
         "xwa_org_managed_group": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "group": {
             "creation_timestamp_s": "number",
             "gid": "unknown",
             "participant_count": "number",
             "participants": [
               {
-                "lid": "boolean",
-                "role": "enum:ADMIN|CREATOR|SUPERADMIN"
+                "lid": "string",
+                "role": "enum:ADMIN|CREATOR"
               }
             ],
             "roster_partial": "boolean",
@@ -6060,7 +6078,7 @@
           "channels": [
             {
               "description": "string",
-              "id": "number",
+              "id": "string",
               "invite_code": "string",
               "name": "string",
               "picture": {
@@ -6085,7 +6103,7 @@
       "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
         "xwa_org_managed_groups": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "groups": [
             {
               "creation_timestamp_s": "number",
@@ -6093,8 +6111,8 @@
               "participant_count": "number",
               "participants": [
                 {
-                  "lid": "boolean",
-                  "role": "enum:ADMIN|CREATOR|SUPERADMIN"
+                  "lid": "string",
+                  "role": "enum:ADMIN|CREATOR"
                 }
               ],
               "roster_partial": "boolean",
@@ -6122,10 +6140,10 @@
             {
               "member": {
                 "display_name": "string",
-                "lid": "boolean",
+                "lid": "string",
                 "member_tag": "string",
                 "phone_number": "string",
-                "role": "enum:ADMIN|CREATOR|SUPERADMIN",
+                "role": "enum:ADMIN|CREATOR",
                 "username": "string"
               }
             }
@@ -6168,7 +6186,7 @@
               "icon": {
                 "uri": "string"
               },
-              "id": "number",
+              "id": "string",
               "is_member_directory_enabled": "boolean",
               "member_count": "number",
               "member_tag_options": "unknown",
@@ -6187,9 +6205,9 @@
       "originalName": "WAWebOrgAdminGraphQLRemoveMemberMutation",
       "response": {
         "xwa_org_member_remove": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "org": {
-            "id": "number",
+            "id": "string",
             "member_count": "number"
           },
           "status": "enum:SUCCESS"
@@ -6223,7 +6241,7 @@
               "entries": [
                 {
                   "email_address": "string",
-                  "id": "number",
+                  "id": "string",
                   "member_tag": "string",
                   "name": "string",
                   "phone_number": "string"
@@ -6232,7 +6250,7 @@
               "is_truncated": "boolean",
               "total_count": "number"
             },
-            "id": "number"
+            "id": "string"
           },
           "status": "enum:SUCCESS"
         }
@@ -6258,9 +6276,9 @@
       "originalName": "WAWebOrgAdminGraphQLSetMemberRoleMutation",
       "response": {
         "xwa_org_member_set_role": {
-          "error_reason": "enum:INVALID_EMAIL_BATCH",
+          "error_reason": "string",
           "org": {
-            "id": "number",
+            "id": "string",
             "member_count": "number"
           },
           "status": "enum:SUCCESS"
@@ -6293,7 +6311,7 @@
             "icon": {
               "uri": "string"
             },
-            "id": "number",
+            "id": "string",
             "is_member_directory_enabled": "boolean",
             "member_count": "number",
             "member_tag_options": "unknown",
@@ -6316,6 +6334,95 @@
           "org_id": "string",
           "role": "string"
         }
+      }
+    },
+    "PageAdminSettingsWhatsAppLinkAccount": {
+      "docId": "38588798504099313",
+      "operationKind": "mutation",
+      "originalName": "PageAdminSettingsWhatsAppLinkAccountMutation",
+      "response": {
+        "verify_page_whatsapp_number": {
+          "biz_link_attempted": "boolean",
+          "error_msg": "unknown",
+          "link_request_data": {
+            "eligible_for_request_flow": "unknown",
+            "page_name": "string",
+            "target_bp_name": "string",
+            "wa_business_person_id": "string",
+            "wa_phone_number": "string"
+          },
+          "page": {
+            "can_see_page_wa_link_post_phone_verification_ber_sdk_experiment": "boolean",
+            "connected_whatsapp_number": "unknown",
+            "formatted_primary_whatsapp_number": "unknown",
+            "id": "string",
+            "if_viewer_can_see_link_confirmation_flow": "unknown",
+            "if_viewer_can_see_mixed_permissions_forward_fix_page_wa_link_invite_modal_comet": {
+              "id": "string"
+            },
+            "is_page_in_mixed_permissions_state": "boolean",
+            "owner_business": {
+              "id": "string"
+            },
+            "page_call_to_action": {
+              "cta_type": "string",
+              "id": "string"
+            },
+            "page_whatsapp_number_id": "string",
+            "pending_request_whatsapp_business_number": "unknown",
+            "primary_whatsapp_number": "unknown",
+            "should_whatsapp_number_be_business_only": "boolean",
+            "verified_whatsapp_numbers": {
+              "nodes": [
+                {
+                  "formatted_whatsapp_number": "unknown",
+                  "id": "string",
+                  "raw_whatsapp_number": "unknown",
+                  "should_show_in_page_profile": "boolean",
+                  "whatsapp_number": "unknown",
+                  "whatsapp_number_type_slow_and_accurate": "unknown"
+                }
+              ]
+            },
+            "whatsapp_display_number": "unknown",
+            "whatsapp_initial_country_code": "string",
+            "whatsapp_number_eligible_for_link_confirmation_flow": {
+              "link_confirmation_eligible_number": "unknown",
+              "link_confirmation_eligible_number_formatted": "unknown"
+            }
+          },
+          "result": "string"
+        }
+      },
+      "variables": [
+        "allow_business_override",
+        "business_id_to_claim_assets",
+        "client_params",
+        "disclosure_auth_data",
+        "flow_type",
+        "is_mixed_permissions_flow",
+        "page_id",
+        "register_wa_to_page",
+        "require_business_number",
+        "set_primary_number",
+        "source",
+        "verification_code",
+        "whatsapp_number"
+      ],
+      "variablesShape": {
+        "allow_business_override": "boolean",
+        "business_id_to_claim_assets": "unknown",
+        "client_params": "unknown",
+        "disclosure_auth_data": "unknown",
+        "flow_type": "enum:PAGE_WHATSAPP_LINKING",
+        "is_mixed_permissions_flow": "boolean",
+        "page_id": "string",
+        "register_wa_to_page": "number",
+        "require_business_number": "boolean",
+        "set_primary_number": "boolean",
+        "source": "enum:PAGE_SETTING_PAGE_MULTI_NUMBER",
+        "verification_code": "unknown",
+        "whatsapp_number": "unknown"
       }
     },
     "PaymentsPasskeyHasCredential": {
@@ -7696,7 +7803,7 @@
           "message": "string",
           "results": [
             {
-              "error": "boolean",
+              "error": "string",
               "offline_threading_id": "string",
               "success": "string"
             }
@@ -7776,6 +7883,33 @@
           "query_input": {},
           "telemetry": {}
         }
+      }
+    },
+    "VerifyPageWhatsAppAccountForDisclosures": {
+      "docId": "9705996306161471",
+      "operationKind": "mutation",
+      "originalName": "VerifyPageWhatsAppAccountForDisclosuresMutation",
+      "response": {
+        "verify_page_whatsapp_account_for_disclosures": {
+          "error_msg": "unknown",
+          "wa_nonce": "string"
+        }
+      },
+      "variables": [
+        "disclosure_type",
+        "page_id",
+        "require_business_number",
+        "source",
+        "verification_code",
+        "wa_number"
+      ],
+      "variablesShape": {
+        "disclosure_type": "string",
+        "page_id": "string",
+        "require_business_number": "unknown",
+        "source": "enum:ADS_LWI",
+        "verification_code": "unknown",
+        "wa_number": "unknown"
       }
     },
     "WAAOnboarding": {
@@ -8068,7 +8202,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "29101363012781041",
+      "docId": "28442456898736645",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8131,6 +8265,7 @@
                           "auto_advance": "boolean",
                           "banner_label": "string",
                           "banner_status": "string",
+                          "benchmark": "unknown",
                           "blocks_json": "string",
                           "body": "string",
                           "boost_message": "string",
@@ -8178,6 +8313,7 @@
                           ],
                           "caption": "string",
                           "card_data": "unknown",
+                          "card_variant": "string",
                           "case_id": "string",
                           "cdn_url": "string",
                           "challenge_id": "string",
@@ -8349,6 +8485,7 @@
                           "goal_detail": "string",
                           "has_payment_method": "boolean",
                           "heading": "string",
+                          "heading_subtitle": "string",
                           "heat_bar_label": "string",
                           "icon": "enum:error|info|success|warning",
                           "id": "string",
@@ -8418,6 +8555,7 @@
                           "metric_value": "unknown",
                           "metrics": [
                             {
+                              "benchmark": "unknown",
                               "dates": "unknown",
                               "delta": "number",
                               "label": "string",
@@ -8473,6 +8611,7 @@
                               "interests": "unknown",
                               "is_recommended": "boolean",
                               "subtitle": "string",
+                              "subtitle_value": "number",
                               "thumbnail_url": "string",
                               "title": "string"
                             }
@@ -8861,5 +9000,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048620361"
+  "waVersion": "2.3000.1048738070"
 }

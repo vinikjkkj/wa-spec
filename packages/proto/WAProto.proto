@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1048620361
+/// WhatsApp Version: 2.3000.1048738070
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -3059,6 +3059,7 @@ message DeviceOutput {
     optional bytes ocmfClientState = 9;
     optional bytes epochStoragePrivateKey = 10;
     optional bytes epochAuthPrivateKey = 11;
+    optional bytes deviceEpochHmac = 12;
 }
 
 message DeviceProps {
@@ -7401,6 +7402,8 @@ message RotateEpochMemberInput {
     optional uint64 deviceId = 1;
     optional bytes epochStoragePublicKey = 2;
     optional bytes devicePublicKey = 3;
+    optional bytes prevDeviceEpochHmac = 4;
+    optional bytes epochStoragePublicKeySig = 5;
 }
 
 message RotateEpochOutput {

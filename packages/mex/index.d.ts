@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048620361
+// WhatsApp Version: 2.3000.1048738070
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -54,7 +54,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly BizProfileRoot: WaMexPersistId
     readonly BizQueryOrder: WaMexPersistId
     readonly BizSetMerchantCompliance: WaMexPersistId
-    readonly CTXChatBuilderDialogContainerUtils: WaMexPersistId
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexPersistId
     readonly CachedToken: WaMexPersistId
     readonly CanonicalUserValid: WaMexPersistId
@@ -110,6 +109,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchGroupInviteCode: WaMexPersistId
     readonly FetchGroupIsInternal: WaMexPersistId
     readonly FetchIntegritySignals: WaMexPersistId
+    readonly FetchLabyrinthEpochDevices: WaMexPersistId
     readonly FetchNewChatMessageCappingInfo: WaMexPersistId
     readonly FetchNewsletter: WaMexPersistId
     readonly FetchNewsletterAdminCapabilities: WaMexPersistId
@@ -181,7 +181,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLAddGroup: WaMexPersistId
     readonly OrgAdminGraphQLAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLAppendAdminRoster: WaMexPersistId
-    readonly OrgAdminGraphQLDirectory: WaMexPersistId
+    readonly OrgAdminGraphQLDirectoryPage: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
     readonly OrgAdminGraphQLInviteMembers: WaMexPersistId
     readonly OrgAdminGraphQLManagedChannels: WaMexPersistId
@@ -192,6 +192,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
     readonly OrgAdminGraphQLUpdateOrg: WaMexPersistId
+    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
@@ -232,6 +233,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly UploadLabyrinthMessages: WaMexPersistId
     readonly UsernameAvailability: WaMexPersistId
     readonly Usync: WaMexPersistId
+    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexPersistId
     readonly WAAOnboarding: WaMexPersistId
     readonly WAMFlowsCTWAEditorModal: WaMexPersistId
     readonly WAMFlowsCTWAFlowPreview: WaMexPersistId
@@ -289,7 +291,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly BizProfileRoot: WaMexOperationSchema<'query', readonly []>
     readonly BizQueryOrder: WaMexOperationSchema<'query', readonly ['request']>
     readonly BizSetMerchantCompliance: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly CTXChatBuilderDialogContainerUtils: WaMexOperationSchema<'query', readonly ['input']>
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CachedToken: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CanonicalUserValid: WaMexOperationSchema<'query', readonly []>
@@ -345,6 +346,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchGroupInviteCode: WaMexOperationSchema<'query', readonly ['id', 'query_context']>
     readonly FetchGroupIsInternal: WaMexOperationSchema<'query', readonly ['id']>
     readonly FetchIntegritySignals: WaMexOperationSchema<'query', readonly ['input']>
+    readonly FetchLabyrinthEpochDevices: WaMexOperationSchema<'query', readonly []>
     readonly FetchNewChatMessageCappingInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_pinned_messages', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
     readonly FetchNewsletterAdminCapabilities: WaMexOperationSchema<'query', readonly ['newsletter_id']>
@@ -416,7 +418,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLAddGroup: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLAdminRoster: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLAppendAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly OrgAdminGraphQLDirectory: WaMexOperationSchema<'query', readonly ['orgID']>
+    readonly OrgAdminGraphQLDirectoryPage: WaMexOperationSchema<'query', readonly ['after', 'first', 'orgID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLInviteMembers: WaMexOperationSchema<'mutation', readonly ['emails', 'orgID']>
     readonly OrgAdminGraphQLManagedChannels: WaMexOperationSchema<'query', readonly ['orgID']>
@@ -427,6 +429,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLUpdateOrg: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexOperationSchema<'mutation', readonly ['allow_business_override', 'business_id_to_claim_assets', 'client_params', 'disclosure_auth_data', 'flow_type', 'is_mixed_permissions_flow', 'page_id', 'register_wa_to_page', 'require_business_number', 'set_primary_number', 'source', 'verification_code', 'whatsapp_number']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
@@ -467,6 +470,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
     readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_username', 'input']>
+    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexOperationSchema<'mutation', readonly ['disclosure_type', 'page_id', 'require_business_number', 'source', 'verification_code', 'wa_number']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly WAMFlowsCTWAEditorModal: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'flowId', 'skipRequest']>
     readonly WAMFlowsCTWAFlowPreview: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']>
@@ -697,10 +701,6 @@ export type WaMexBizQueryOrderVariables = {
 
 export type WaMexBizSetMerchantComplianceVariables = {
     readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexCTXChatBuilderDialogContainerUtilsVariables = {
-    readonly input?: string
 }
 
 export type WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalVariables = {
@@ -1008,6 +1008,8 @@ export type WaMexFetchIntegritySignalsVariables = {
         }
     }
 }
+
+export type WaMexFetchLabyrinthEpochDevicesVariables = Readonly<Record<string, never>>
 
 export type WaMexFetchNewChatMessageCappingInfoVariables = {
     readonly input?: {
@@ -1459,7 +1461,14 @@ export type WaMexOrgAdminGraphQLAppendAdminRosterVariables = {
     }
 }
 
-export type WaMexOrgAdminGraphQLDirectoryVariables = {
+export type WaMexOrgAdminGraphQLDirectoryPageVariables = {
+    readonly after?: {
+        readonly description?: string
+        readonly icon_blob?: unknown
+        readonly member_tag_options?: unknown
+        readonly org_id?: string
+    }
+    readonly first?: number
     readonly orgID?: string
 }
 
@@ -1542,6 +1551,22 @@ export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
         readonly org_id?: string
         readonly role?: string
     }
+}
+
+export type WaMexPageAdminSettingsWhatsAppLinkAccountVariables = {
+    readonly allow_business_override?: boolean
+    readonly business_id_to_claim_assets?: unknown
+    readonly client_params?: unknown
+    readonly disclosure_auth_data?: unknown
+    readonly flow_type?: 'PAGE_WHATSAPP_LINKING'
+    readonly is_mixed_permissions_flow?: boolean
+    readonly page_id?: string
+    readonly register_wa_to_page?: number
+    readonly require_business_number?: boolean
+    readonly set_primary_number?: boolean
+    readonly source?: 'PAGE_SETTING_PAGE_MULTI_NUMBER'
+    readonly verification_code?: unknown
+    readonly whatsapp_number?: unknown
 }
 
 export type WaMexPaymentsPasskeyHasCredentialVariables = Readonly<Record<string, never>>
@@ -1820,6 +1845,15 @@ export type WaMexUsyncVariables = {
     }
 }
 
+export type WaMexVerifyPageWhatsAppAccountForDisclosuresVariables = {
+    readonly disclosure_type?: string
+    readonly page_id?: string
+    readonly require_business_number?: unknown
+    readonly source?: 'ADS_LWI'
+    readonly verification_code?: unknown
+    readonly wa_number?: unknown
+}
+
 export type WaMexWAAOnboardingVariables = {
     readonly input?: {
         readonly flow_id?: string
@@ -1938,7 +1972,6 @@ export interface WaMexOperationVariables {
     readonly BizProfileRoot: WaMexBizProfileRootVariables
     readonly BizQueryOrder: WaMexBizQueryOrderVariables
     readonly BizSetMerchantCompliance: WaMexBizSetMerchantComplianceVariables
-    readonly CTXChatBuilderDialogContainerUtils: WaMexCTXChatBuilderDialogContainerUtilsVariables
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalVariables
     readonly CachedToken: WaMexCachedTokenVariables
     readonly CanonicalUserValid: WaMexCanonicalUserValidVariables
@@ -1994,6 +2027,7 @@ export interface WaMexOperationVariables {
     readonly FetchGroupInviteCode: WaMexFetchGroupInviteCodeVariables
     readonly FetchGroupIsInternal: WaMexFetchGroupIsInternalVariables
     readonly FetchIntegritySignals: WaMexFetchIntegritySignalsVariables
+    readonly FetchLabyrinthEpochDevices: WaMexFetchLabyrinthEpochDevicesVariables
     readonly FetchNewChatMessageCappingInfo: WaMexFetchNewChatMessageCappingInfoVariables
     readonly FetchNewsletter: WaMexFetchNewsletterVariables
     readonly FetchNewsletterAdminCapabilities: WaMexFetchNewsletterAdminCapabilitiesVariables
@@ -2065,7 +2099,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupVariables
     readonly OrgAdminGraphQLAdminRoster: WaMexOrgAdminGraphQLAdminRosterVariables
     readonly OrgAdminGraphQLAppendAdminRoster: WaMexOrgAdminGraphQLAppendAdminRosterVariables
-    readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryVariables
+    readonly OrgAdminGraphQLDirectoryPage: WaMexOrgAdminGraphQLDirectoryPageVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersVariables
     readonly OrgAdminGraphQLManagedChannels: WaMexOrgAdminGraphQLManagedChannelsVariables
@@ -2076,6 +2110,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterVariables
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgVariables
+    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexPageAdminSettingsWhatsAppLinkAccountVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
@@ -2116,6 +2151,7 @@ export interface WaMexOperationVariables {
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesVariables
     readonly UsernameAvailability: WaMexUsernameAvailabilityVariables
     readonly Usync: WaMexUsyncVariables
+    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexVerifyPageWhatsAppAccountForDisclosuresVariables
     readonly WAAOnboarding: WaMexWAAOnboardingVariables
     readonly WAMFlowsCTWAEditorModal: WaMexWAMFlowsCTWAEditorModalVariables
     readonly WAMFlowsCTWAFlowPreview: WaMexWAMFlowsCTWAFlowPreviewVariables
@@ -2812,12 +2848,6 @@ export type WaMexBizSetMerchantComplianceResponse = {
             }
             readonly is_registered?: boolean
         }
-    }
-}
-
-export type WaMexCTXChatBuilderDialogContainerUtilsResponse = {
-    readonly welcome_message_flows?: {
-        readonly has_welcome_message_flows?: boolean
     }
 }
 
@@ -4218,6 +4248,22 @@ export type WaMexFetchIntegritySignalsResponse = {
     }>
 }
 
+export type WaMexFetchLabyrinthEpochDevicesResponse = {
+    readonly wa_labyrinth_fetch_epoch_devices?: {
+        readonly __typename?: string
+        readonly devices?: ReadonlyArray<{
+            readonly device_epoch_hmac?: string
+            readonly device_id?: string
+            readonly device_public_key?: string
+            readonly epoch_storage_public_key?: string
+            readonly epoch_storage_public_key_sig?: unknown
+        }>
+        readonly epoch_id?: string
+        readonly error_code?: number
+        readonly message?: string
+    }
+}
+
 export type WaMexFetchNewChatMessageCappingInfoResponse = {
     readonly xwa2_message_capping_info?: {
         readonly capping_status?: string
@@ -5547,7 +5593,7 @@ export type WaMexOrgAdminGraphQLAddChannelResponse = {
     readonly xwa_org_managed_channel_add?: {
         readonly channel?: {
             readonly description?: string
-            readonly id?: number
+            readonly id?: string
             readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
@@ -5574,12 +5620,12 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
 
 export type WaMexOrgAdminGraphQLAdminRosterResponse = {
     readonly xwa_org_get?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly org_info?: {
             readonly admin_roster?: {
                 readonly entries?: ReadonlyArray<{
                     readonly email_address?: string
-                    readonly id?: number
+                    readonly id?: string
                     readonly member_tag?: string
                     readonly name?: string
                     readonly phone_number?: string
@@ -5587,7 +5633,7 @@ export type WaMexOrgAdminGraphQLAdminRosterResponse = {
                 readonly is_truncated?: boolean
                 readonly total_count?: number
             }
-            readonly id?: number
+            readonly id?: string
         }
         readonly status?: 'SUCCESS'
     }
@@ -5604,22 +5650,23 @@ export type WaMexOrgAdminGraphQLAppendAdminRosterResponse = {
     }
 }
 
-export type WaMexOrgAdminGraphQLDirectoryResponse = {
+export type WaMexOrgAdminGraphQLDirectoryPageResponse = {
     readonly xwa_org_get?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly org_info?: {
-            readonly id?: number
+            readonly id?: string
             readonly members?: {
                 readonly count?: number
                 readonly nodes?: ReadonlyArray<{
                     readonly display_name?: string
-                    readonly lid?: boolean
+                    readonly lid?: string
                     readonly member_tag?: string
                     readonly phone_number?: string
-                    readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+                    readonly role?: 'ADMIN' | 'CREATOR'
                     readonly username?: string
                 }>
                 readonly page_info?: {
+                    readonly end_cursor?: string
                     readonly has_next_page?: boolean
                 }
             }
@@ -5630,14 +5677,14 @@ export type WaMexOrgAdminGraphQLDirectoryResponse = {
 
 export type WaMexOrgAdminGraphQLGroupResponse = {
     readonly xwa_org_managed_group?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly group?: {
             readonly creation_timestamp_s?: number
             readonly gid?: unknown
             readonly participant_count?: number
             readonly participants?: ReadonlyArray<{
-                readonly lid?: boolean
-                readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+                readonly lid?: string
+                readonly role?: 'ADMIN' | 'CREATOR'
             }>
             readonly roster_partial?: boolean
             readonly subject?: string
@@ -5657,7 +5704,7 @@ export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
     readonly xwa_org_managed_channels?: {
         readonly channels?: ReadonlyArray<{
             readonly description?: string
-            readonly id?: number
+            readonly id?: string
             readonly invite_code?: string
             readonly name?: string
             readonly picture?: {
@@ -5671,14 +5718,14 @@ export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
 
 export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
     readonly xwa_org_managed_groups?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly groups?: ReadonlyArray<{
             readonly creation_timestamp_s?: number
             readonly gid?: unknown
             readonly participant_count?: number
             readonly participants?: ReadonlyArray<{
-                readonly lid?: boolean
-                readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+                readonly lid?: string
+                readonly role?: 'ADMIN' | 'CREATOR'
             }>
             readonly roster_partial?: boolean
             readonly subject?: string
@@ -5693,10 +5740,10 @@ export type WaMexOrgAdminGraphQLMemberSearchResponse = {
         readonly nodes?: ReadonlyArray<{
             readonly member?: {
                 readonly display_name?: string
-                readonly lid?: boolean
+                readonly lid?: string
                 readonly member_tag?: string
                 readonly phone_number?: string
-                readonly role?: 'ADMIN' | 'CREATOR' | 'SUPERADMIN'
+                readonly role?: 'ADMIN' | 'CREATOR'
                 readonly username?: string
             }
         }>
@@ -5714,7 +5761,7 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
             readonly icon?: {
                 readonly uri?: string
             }
-            readonly id?: number
+            readonly id?: string
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
             readonly member_tag_options?: unknown
@@ -5726,9 +5773,9 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
 
 export type WaMexOrgAdminGraphQLRemoveMemberResponse = {
     readonly xwa_org_member_remove?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly org?: {
-            readonly id?: number
+            readonly id?: string
             readonly member_count?: number
         }
         readonly status?: 'SUCCESS'
@@ -5743,7 +5790,7 @@ export type WaMexOrgAdminGraphQLReplaceAdminRosterResponse = {
             readonly admin_roster?: {
                 readonly entries?: ReadonlyArray<{
                     readonly email_address?: string
-                    readonly id?: number
+                    readonly id?: string
                     readonly member_tag?: string
                     readonly name?: string
                     readonly phone_number?: string
@@ -5751,7 +5798,7 @@ export type WaMexOrgAdminGraphQLReplaceAdminRosterResponse = {
                 readonly is_truncated?: boolean
                 readonly total_count?: number
             }
-            readonly id?: number
+            readonly id?: string
         }
         readonly status?: 'SUCCESS'
     }
@@ -5759,9 +5806,9 @@ export type WaMexOrgAdminGraphQLReplaceAdminRosterResponse = {
 
 export type WaMexOrgAdminGraphQLSetMemberRoleResponse = {
     readonly xwa_org_member_set_role?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: string
         readonly org?: {
-            readonly id?: number
+            readonly id?: string
             readonly member_count?: number
         }
         readonly status?: 'SUCCESS'
@@ -5776,7 +5823,7 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             readonly icon?: {
                 readonly uri?: string
             }
-            readonly id?: number
+            readonly id?: string
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
             readonly member_tag_options?: unknown
@@ -5784,6 +5831,59 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             readonly viewer_role?: string
         }
         readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexPageAdminSettingsWhatsAppLinkAccountResponse = {
+    readonly verify_page_whatsapp_number?: {
+        readonly biz_link_attempted?: boolean
+        readonly error_msg?: unknown
+        readonly link_request_data?: {
+            readonly eligible_for_request_flow?: unknown
+            readonly page_name?: string
+            readonly target_bp_name?: string
+            readonly wa_business_person_id?: string
+            readonly wa_phone_number?: string
+        }
+        readonly page?: {
+            readonly can_see_page_wa_link_post_phone_verification_ber_sdk_experiment?: boolean
+            readonly connected_whatsapp_number?: unknown
+            readonly formatted_primary_whatsapp_number?: unknown
+            readonly id?: string
+            readonly if_viewer_can_see_link_confirmation_flow?: unknown
+            readonly if_viewer_can_see_mixed_permissions_forward_fix_page_wa_link_invite_modal_comet?: {
+                readonly id?: string
+            }
+            readonly is_page_in_mixed_permissions_state?: boolean
+            readonly owner_business?: {
+                readonly id?: string
+            }
+            readonly page_call_to_action?: {
+                readonly cta_type?: string
+                readonly id?: string
+            }
+            readonly page_whatsapp_number_id?: string
+            readonly pending_request_whatsapp_business_number?: unknown
+            readonly primary_whatsapp_number?: unknown
+            readonly should_whatsapp_number_be_business_only?: boolean
+            readonly verified_whatsapp_numbers?: {
+                readonly nodes?: ReadonlyArray<{
+                    readonly formatted_whatsapp_number?: unknown
+                    readonly id?: string
+                    readonly raw_whatsapp_number?: unknown
+                    readonly should_show_in_page_profile?: boolean
+                    readonly whatsapp_number?: unknown
+                    readonly whatsapp_number_type_slow_and_accurate?: unknown
+                }>
+            }
+            readonly whatsapp_display_number?: unknown
+            readonly whatsapp_initial_country_code?: string
+            readonly whatsapp_number_eligible_for_link_confirmation_flow?: {
+                readonly link_confirmation_eligible_number?: unknown
+                readonly link_confirmation_eligible_number_formatted?: unknown
+            }
+        }
+        readonly result?: string
     }
 }
 
@@ -6578,7 +6678,7 @@ export type WaMexUploadLabyrinthMessagesResponse = {
         readonly __typename?: string
         readonly message?: string
         readonly results?: ReadonlyArray<{
-            readonly error?: boolean
+            readonly error?: string
             readonly offline_threading_id?: string
             readonly success?: string
         }>
@@ -6614,6 +6714,13 @@ export type WaMexUsyncResponse = {
             readonly username?: string
         }
     }>
+}
+
+export type WaMexVerifyPageWhatsAppAccountForDisclosuresResponse = {
+    readonly verify_page_whatsapp_account_for_disclosures?: {
+        readonly error_msg?: unknown
+        readonly wa_nonce?: string
+    }
 }
 
 export type WaMexWAAOnboardingResponse = {
@@ -6820,6 +6927,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly auto_advance?: boolean
                                 readonly banner_label?: string
                                 readonly banner_status?: string
+                                readonly benchmark?: unknown
                                 readonly blocks_json?: string
                                 readonly body?: string
                                 readonly boost_message?: string
@@ -6865,6 +6973,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 }>
                                 readonly caption?: string
                                 readonly card_data?: unknown
+                                readonly card_variant?: string
                                 readonly case_id?: string
                                 readonly cdn_url?: string
                                 readonly challenge_id?: string
@@ -7006,6 +7115,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly goal_detail?: string
                                 readonly has_payment_method?: boolean
                                 readonly heading?: string
+                                readonly heading_subtitle?: string
                                 readonly heat_bar_label?: string
                                 readonly icon?: 'error' | 'info' | 'success' | 'warning'
                                 readonly id?: string
@@ -7068,6 +7178,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly metadata?: unknown
                                 readonly metric_value?: unknown
                                 readonly metrics?: ReadonlyArray<{
+                                    readonly benchmark?: unknown
                                     readonly dates?: unknown
                                     readonly delta?: number
                                     readonly label?: string
@@ -7113,6 +7224,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly interests?: unknown
                                     readonly is_recommended?: boolean
                                     readonly subtitle?: string
+                                    readonly subtitle_value?: number
                                     readonly thumbnail_url?: string
                                     readonly title?: string
                                 }>
@@ -7443,7 +7555,6 @@ export interface WaMexOperationResponses {
     readonly BizProfileRoot: WaMexBizProfileRootResponse
     readonly BizQueryOrder: WaMexBizQueryOrderResponse
     readonly BizSetMerchantCompliance: WaMexBizSetMerchantComplianceResponse
-    readonly CTXChatBuilderDialogContainerUtils: WaMexCTXChatBuilderDialogContainerUtilsResponse
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalResponse
     readonly CachedToken: WaMexCachedTokenResponse
     readonly CanonicalUserValid: WaMexCanonicalUserValidResponse
@@ -7499,6 +7610,7 @@ export interface WaMexOperationResponses {
     readonly FetchGroupInviteCode: WaMexFetchGroupInviteCodeResponse
     readonly FetchGroupIsInternal: WaMexFetchGroupIsInternalResponse
     readonly FetchIntegritySignals: WaMexFetchIntegritySignalsResponse
+    readonly FetchLabyrinthEpochDevices: WaMexFetchLabyrinthEpochDevicesResponse
     readonly FetchNewChatMessageCappingInfo: WaMexFetchNewChatMessageCappingInfoResponse
     readonly FetchNewsletter: WaMexFetchNewsletterResponse
     readonly FetchNewsletterAdminCapabilities: WaMexFetchNewsletterAdminCapabilitiesResponse
@@ -7570,7 +7682,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupResponse
     readonly OrgAdminGraphQLAdminRoster: WaMexOrgAdminGraphQLAdminRosterResponse
     readonly OrgAdminGraphQLAppendAdminRoster: WaMexOrgAdminGraphQLAppendAdminRosterResponse
-    readonly OrgAdminGraphQLDirectory: WaMexOrgAdminGraphQLDirectoryResponse
+    readonly OrgAdminGraphQLDirectoryPage: WaMexOrgAdminGraphQLDirectoryPageResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersResponse
     readonly OrgAdminGraphQLManagedChannels: WaMexOrgAdminGraphQLManagedChannelsResponse
@@ -7581,6 +7693,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterResponse
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgResponse
+    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexPageAdminSettingsWhatsAppLinkAccountResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
@@ -7621,6 +7734,7 @@ export interface WaMexOperationResponses {
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesResponse
     readonly UsernameAvailability: WaMexUsernameAvailabilityResponse
     readonly Usync: WaMexUsyncResponse
+    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexVerifyPageWhatsAppAccountForDisclosuresResponse
     readonly WAAOnboarding: WaMexWAAOnboardingResponse
     readonly WAMFlowsCTWAEditorModal: WaMexWAMFlowsCTWAEditorModalResponse
     readonly WAMFlowsCTWAFlowPreview: WaMexWAMFlowsCTWAFlowPreviewResponse
