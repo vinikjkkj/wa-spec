@@ -113,7 +113,13 @@ const emptySaw = () => ({ string: [], number: [], boolean: [], stringList: [], e
 
 // Accumulate unambiguous evidence for the expression pattern `A` in `text`.
 function collect(text, A, saw) {
+    // The transpiled optional chain `(s==null?void 0:s.field)` compared as a
+    // whole reads the field itself.
+    const OA = `\\(\\s*[A-Za-z_$][\\w$]*\\s*==\\s*null\\s*\\?\\s*void 0\\s*:\\s*${A}\\s*\\)`
     const tests = [
+        [new RegExp(`${OA}\\s*[!=]==\\s*"([A-Za-z][A-Za-z0-9_]*)"`, 'g'), (m) => saw.enum.add(m[1])],
+        [new RegExp(`${OA}\\s*[!=]==\\s*(?:!0|!1|true|false)${RB}`, 'g'), () => saw.boolean.push('=== bool')],
+        [new RegExp(`${OA}\\s*[!=]==\\s*""`, 'g'), () => saw.string.push('=== ""')],
         [new RegExp(`${A}\\s*[!=]==\\s*"([A-Za-z][A-Za-z0-9_]*)"`, 'g'), (m) => saw.enum.add(m[1])],
         [new RegExp(`"([A-Za-z][A-Za-z0-9_]*)"\\s*[!=]==\\s*${A}`, 'g'), (m) => saw.enum.add(m[1])],
         [new RegExp(`typeof\\s+${A}\\s*[!=]==?\\s*"(string|number|boolean)"`, 'g'), (m) => saw[m[1]].push('typeof')],
@@ -375,6 +381,16 @@ function makeRecoverer(graph) {
             if (!readers || readers.length === 0 || readers.length > 8) continue
             const global = classifyIn(key, readers, null)
             if (global) return global
+        }
+        // A long snake_case name read in only a handful of modules bundle-wide
+        // is the same field wherever it is read — typically the same feature
+        // under another prefix (PageAdminSettings… is consumed by LWIComet…).
+        if (field.includes('_') && field.length >= 12 && graph.readers) {
+            const readers = graph.readers(field)
+            if (readers.length > 0 && readers.length <= 8) {
+                const global = classifyIn(field, readers, null)
+                if (global) return global
+            }
         }
         // Last resort, as for the original names: the curated schema
         // conventions applied to what the client renamed the field to

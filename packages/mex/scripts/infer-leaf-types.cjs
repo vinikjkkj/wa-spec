@@ -726,6 +726,16 @@ function schemaInvariantType(fieldName) {
     if (fieldName === 'currency' || fieldName === 'currency_code' || /_currency(?:_code)?$/.test(fieldName)) return 'string'
     // Errors
     if (fieldName === 'error_message' || /_error_message$/.test(fieldName)) return 'string'
+    if (fieldName === 'error_msg' || /_error_msg$/.test(fieldName)) return 'string'
+    // Explicitly stringified payloads: `message_capabilities2_str`
+    if (/_str$/.test(fieldName)) return 'string'
+    // Phone numbers — raw, formatted, display — are strings (`whatsapp_number`,
+    // `formatted_primary_whatsapp_number`, `whatsapp_display_number`,
+    // `link_confirmation_eligible_number_formatted`). Not a generic `*_number`
+    // rule: `invalid_row_number` is a count.
+    if (/whatsapp_(?:display_)?number|_display_number$|eligible_number(?:_formatted)?$/.test(fieldName)) return 'string'
+    // Facebook viewer-permission predicates: `if_viewer_can_see_…`
+    if (/^if_viewer_(?:can|has|is)_/.test(fieldName)) return 'boolean'
     if (fieldName === 'error_code') return 'number'
     // Contact / locale
     if (fieldName === 'email' || /_email$/.test(fieldName)) return 'string'
@@ -777,7 +787,7 @@ function schemaInvariantType(fieldName) {
     // PEM-encoded crypto material — string
     if (/_pem$|_certificate_pem$|_certificate$/.test(fieldName)) return 'string'
     // WA Crypto Waffle key material — base64-encoded strings
-    if (/^purpose_(?:public|dummy|private)_/.test(fieldName) || /_ek$|_ik$|_ik_sig$|_ik_enc_certificate$|_ciphertext$|_nonce$|_key$|_iv$|_hmac$|_signature$|_proof$/.test(fieldName)) return 'string'
+    if (/^purpose_(?:public|dummy|private)_/.test(fieldName) || /_ek$|_ik$|_ik_sig$|_key_sig$|_ik_enc_certificate$|_ciphertext$|_nonce$|_key$|_iv$|_hmac$|_signature$|_proof$/.test(fieldName)) return 'string'
     // Meta internal Waffle service fields — all opaque base64/string blobs.
     if (/^waffle_/.test(fieldName)) return 'string'
     // UpdateTextStatus / similar mutation result fields — string (often enum).
@@ -1198,7 +1208,16 @@ function collectAmbiguousNames(shape) {
     return out
 }
 
+// Names whose type the schema fixes: a GraphQL `id` field and WA addresses
+// (`jid`/`lid`/`wid`, `*_jid`…) are always strings on the wire. They win over
+// body evidence, which for such common names is usually a sibling's: OrgAdmin
+// `lid` read as boolean and `id` as number for weeks, then flipped when the
+// module was refactored. `*_id` stays a soft default — `participant_version_id`
+// is a number the client wraps in String().
+const HARD_STRING_NAME = /^(?:id|jid|lid|wid)$|_(?:jid|lid|wid)$/
+
 function classifyAcrossBodies(bodies, ctxs, fieldName, parents, isAmbiguous) {
+    if (HARD_STRING_NAME.test(fieldName)) return 'string'
     const parent = parents && parents.length > 0 ? parents[parents.length - 1] : null
     let best = 'unknown'
     let enumAcc = null

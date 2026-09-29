@@ -230,20 +230,65 @@ function mergeShapeNode(a, b) {
 // This mirrors the in-page logic but operates on Node-side bundle text.
 // Reused from the original mex extractor with the new shared parser utilities.
 
+// Start of the body of the function enclosing `pos` (just after its `{`), or 0.
+// Walks outward through unmatched `{`s until one opens a function.
+function enclosingFunctionStart(body, pos) {
+    let depth = 0
+    for (let i = pos - 1; i >= 0; i--) {
+        const c = body[i]
+        if (c === '}') depth++
+        else if (c === '{') {
+            if (depth > 0) {
+                depth--
+                continue
+            }
+            const head = body.slice(Math.max(0, i - 200), i)
+            if (/(?:function\s*\*?\s*[\w$]*\s*\([^()]*\)|=>)\s*$/.test(head)) return i + 1
+        }
+    }
+    return 0
+}
+
+// Resolve identifiers in a call's arguments to the literal last assigned to
+// them, looking in the calling function first and then outward through the
+// enclosing functions (closures). Scanning the whole module prefix mixed
+// scopes — minified names are reused in every function (`after:r` in the
+// member search picked up an `r={description:…,org_id:…}` from the org update
+// next door).
 function makeTracer(body, callPos) {
-    const sub = body.slice(0, callPos)
+    const starts = []
+    for (let p = callPos; ; ) {
+        const s = enclosingFunctionStart(body, p)
+        starts.push(s)
+        if (s === 0) break
+        p = s - 1
+    }
+    // Parameters of each enclosing function: a name bound there is not the
+    // outer scope's variable of the same name.
+    const paramsOf = (start) => {
+        if (start === 0) return []
+        const head = body.slice(Math.max(0, start - 201), start - 1)
+        const m = head.match(/\(([^()]*)\)\s*(?:=>)?\s*$/) || head.match(/([A-Za-z_$][\w$]*)\s*=>\s*$/)
+        return m ? m[1].split(',').map((p) => p.trim()) : []
+    }
     function trace(ident) {
         const re = new RegExp(`(?:var|let|const)?\\s*${LB}${reId(ident)}\\s*=\\s*`, 'g')
-        let dm
-        let last = null
-        while ((dm = re.exec(sub))) {
-            const pos = dm.index + dm[0].length
-            if (sub[pos] === '{' || sub[pos] === '[') {
-                const r = parseValueShape(sub, pos, trace)
-                if (r.value !== null) last = r.value
+        for (const start of starts) {
+            const sub = body.slice(start, callPos)
+            let dm
+            let last = null
+            while ((dm = re.exec(sub))) {
+                const pos = dm.index + dm[0].length
+                if (sub[pos] === '{' || sub[pos] === '[') {
+                    const r = parseValueShape(sub, pos, trace)
+                    if (r.value !== null) last = r.value
+                }
             }
+            re.lastIndex = 0
+            if (last !== null) return last
+            if (paramsOf(start).includes(ident)) return null
         }
-        return last
+        return null
     }
     return trace
 }
@@ -501,19 +546,38 @@ function parseSecondArg(body, start) {
     return null
 }
 
-function extractVarsShape(body) {
+// A caller shared by several ops (WAWebOrgAdminGraphQL runs every OrgAdmin
+// query and mutation) holds one fetch call per op, and merging all of their
+// variable objects handed each op its siblings' fields — every `input` became
+// the union of all inputs, and a cursor `after` picked up an object. Keep only
+// the calls whose first argument is this op's document: the `.graphql` module
+// itself, or a local bound to it (`T=d!==void 0?d:d=n("X.graphql")`). When no
+// call can be attributed, fall back to all of them.
+function callTargetsGraphql(body, firstArg, gqlName) {
+    if (!gqlName) return false
+    const needle = `"${gqlName}"`
+    if (firstArg.includes(needle)) return true
+    const id = firstArg.trim()
+    if (!/^[A-Za-z_$][\w$]*$/.test(id)) return false
+    return new RegExp(`${LB}${reId(id)}\\s*=[^,;]{0,80}?${reId(needle)}`).test(body)
+}
+
+function extractVarsShape(body, gqlName) {
     if (!body) return null
     const re = /\.(fetchQuery|commitMutation|fetchSubscription)\s*\(/g
     let m
-    const shapes = []
+    const all = []
+    const own = []
     while ((m = re.exec(body))) {
-        let i = m.index + m[0].length
-        i = skipExpr(body, i, [','])
+        const start = m.index + m[0].length
+        const i = skipExpr(body, start, [','])
         if (body[i] !== ',') continue
-        i++
-        const shape = parseSecondArg(body, i)
-        if (shape !== null) shapes.push(shape)
+        const shape = parseSecondArg(body, i + 1)
+        if (shape === null) continue
+        all.push(shape)
+        if (callTargetsGraphql(body, body.slice(start, i), gqlName)) own.push(shape)
     }
+    const shapes = own.length ? own : all
     if (shapes.length === 0) return null
     return shapes.reduce(mergeShapes, null)
 }
@@ -711,7 +775,9 @@ function extractMex(bundles) {
         readers: moduleBundles
             ? (key) => {
                 if (!readerCache.has(key)) {
-                    const re = new RegExp(`\\.${reId(key)}${RB}`)
+                    // Read (`.key`) or built (`{…,key:…}`) — variables are
+                    // usually only ever built.
+                    const re = new RegExp(`(?:\\.${reId(key)}|[{,]\\s*${reId(key)}\\s*:)${RB}`)
                     readerCache.set(
                         key,
                         moduleBundles
@@ -758,7 +824,7 @@ function extractMex(bundles) {
             : []
         const callerName = callerByGraphql[gqlName]
         const callerBody = callerName ? findModuleBody(bundles, callerName) : null
-        const rawVarsShape = extractVarsShape(callerBody)
+        const rawVarsShape = extractVarsShape(callerBody, gqlName)
         // A literal empty list declares "no variables"; a list whose entries
         // did not resolve tells us nothing.
         const noVariables = Array.isArray(argDefs) && argDefs.length === 0
@@ -832,6 +898,7 @@ function extractMex(bundles) {
         const variablesShape = fillInputTypes(structuralVars, respBodies, respPositions, null, null, 0, varToField, findMethod, sharedEnumIndex)
         const response = fillResponseTypes(structuralResp, respBodies)
         leavesRecovered += recoverUnknownLeaves(response, gqlName)
+        leavesRecovered += recoverUnknownLeaves(variablesShape, gqlName)
         operations[opName] = {
             docId,
             operationKind: params.operationKind,
