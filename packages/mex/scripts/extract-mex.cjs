@@ -271,24 +271,38 @@ function makeTracer(body, callPos) {
         const m = head.match(/\(([^()]*)\)\s*(?:=>)?\s*$/) || head.match(/([A-Za-z_$][\w$]*)\s*=>\s*$/)
         return m ? m[1].split(',').map((p) => p.trim()) : []
     }
-    function trace(ident) {
+    // Memoized, and a name being resolved resolves to nothing inside itself:
+    // nested literals that reference each other (`a={x:b}`, `b={y:a}`) used to
+    // re-parse every assignment of every name they mention, exponentially —
+    // 2.3000.1048976053 hung the CI there.
+    const cache = new Map()
+    function resolve(ident) {
         const re = new RegExp(`(?:var|let|const)?\\s*${LB}${reId(ident)}\\s*=\\s*`, 'g')
         for (const start of starts) {
             const sub = body.slice(start, callPos)
+            // Only the last literal assignment counts: collect positions and
+            // parse from the last one back until one yields a shape.
+            const positions = []
             let dm
-            let last = null
             while ((dm = re.exec(sub))) {
                 const pos = dm.index + dm[0].length
-                if (sub[pos] === '{' || sub[pos] === '[') {
-                    const r = parseValueShape(sub, pos, trace)
-                    if (r.value !== null) last = r.value
-                }
+                if (sub[pos] === '{' || sub[pos] === '[') positions.push(pos)
             }
             re.lastIndex = 0
-            if (last !== null) return last
+            for (let k = positions.length - 1; k >= 0; k--) {
+                const r = parseValueShape(sub, positions[k], trace)
+                if (r.value !== null) return r.value
+            }
             if (paramsOf(start).includes(ident)) return null
         }
         return null
+    }
+    function trace(ident) {
+        if (cache.has(ident)) return cache.get(ident)
+        cache.set(ident, null)
+        const v = resolve(ident)
+        cache.set(ident, v)
+        return v
     }
     return trace
 }
@@ -298,8 +312,18 @@ function makeTracer(body, callPos) {
 function parseValueShape(s, start, traceIdent) {
     let i = skipWs(s, start)
     const c = s[i]
-    if (c === '{') return parseObjectShape(s, i, traceIdent)
-    if (c === '[') return parseArrayShape(s, i, traceIdent)
+    if (c === '{' || c === '[') {
+        const r = c === '{' ? parseObjectShape(s, i, traceIdent) : parseArrayShape(s, i, traceIdent)
+        // A literal can head a longer expression — `[].concat(e)`,
+        // `{…}.foo`. Consume the rest so the caller resumes at the next
+        // separator; stopping at `.concat` left parseObjectShape spinning on a
+        // char that is neither a key nor `:`/`,` (2.3000.1048976053 hung CI).
+        const after = skipWs(s, r.end)
+        if (after < s.length && !',}]);'.includes(s[after])) {
+            return { value: r.value, end: skipExpr(s, after, [',', '}', ']']) }
+        }
+        return r
+    }
     if (traceIdent && /[\w$]/.test(c)) {
         let k = i
         while (k < s.length && /[\w$]/.test(s[k])) k++
@@ -378,9 +402,17 @@ function extractMapCallbackReturn(expr) {
 
 function parseObjectShape(s, start, traceIdent) {
     let i = start + 1
+    let lastI = -1
     const out = {}
     i = skipWs(s, i)
     while (i < s.length && s[i] !== '}') {
+        // Never spin: if the previous pass consumed nothing, skip to the next
+        // separator.
+        if (i === lastI) {
+            i = skipExpr(s, i + 1, [',', '}'])
+            if (s[i] === ',') i++
+        }
+        lastI = i
         i = skipWs(s, i)
         if (s.slice(i, i + 3) === '...') {
             i += 3
