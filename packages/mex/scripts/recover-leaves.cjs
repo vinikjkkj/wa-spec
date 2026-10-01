@@ -109,6 +109,29 @@ function splitArgs(s, open) {
     return null
 }
 
+// `text` with the contents of string and template literals replaced by
+// spaces (same length, so offsets still line up). Cached: the same module
+// bodies are scanned for many fields.
+const blankCache = new Map()
+function blankStrings(text) {
+    const hit = blankCache.get(text)
+    if (hit !== undefined) return hit
+    let out = ''
+    let last = 0
+    for (let i = 0; i < text.length; i++) {
+        const c = text[i]
+        if (c !== '"' && c !== "'" && c !== '`') continue
+        const end = skipStr(text, i)
+        out += text.slice(last, i + 1) + ' '.repeat(Math.max(0, end - i - 2)) + (end - 1 > i ? text[end - 1] : '')
+        last = end
+        i = end - 1
+    }
+    out += text.slice(last)
+    if (blankCache.size > 256) blankCache.clear()
+    blankCache.set(text, out)
+    return out
+}
+
 const emptySaw = () => ({ string: [], number: [], boolean: [], stringList: [], enum: new Set() })
 
 // Accumulate unambiguous evidence for the expression pattern `A` in `text`.
@@ -164,6 +187,17 @@ function collect(text, A, saw) {
     for (const [re, fn] of tests) {
         let m
         while ((m = re.exec(text))) fn(m)
+    }
+    // Subtraction only means something for numbers (unlike `+`):
+    // `(e-t)/(n-t)*100`; `--`/`-=` excluded. Matched on the code with string
+    // contents blanked — a bare `-` is all over class names and labels
+    // (`"x-default-marker …"`).
+    const code = blankStrings(text)
+    for (const re of [
+        new RegExp(`${A}\\s*-(?![-=])\\s*(?=[A-Za-z_$(\\d])`, 'g'),
+        new RegExp(`[\\w$)\\]]\\s*(?<!-)-(?![-=])\\s*${A}`, 'g')
+    ]) {
+        if (re.test(code)) saw.number.push('subtraction')
     }
     // switch(A){case"X":…}
     const sw = new RegExp(`switch\\s*\\(\\s*${A}\\s*\\)\\s*\\{`, 'g')
@@ -254,10 +288,13 @@ function positionalFlows(body, field) {
 
 // The same, across modules: `.field` passed to another module's export,
 // `o("Mod").fn(…,x.field,…)` / `r("Mod")(…)`. `text(name)` resolves bodies.
-function crossModuleFlows(body, field, text) {
+// `argMatch` overrides which argument counts (a local bound to the field).
+function crossModuleFlows(body, field, text, argMatch) {
     const out = []
-    if (!body || !body.includes(field)) return out
-    const argRe = new RegExp(`^\\s*(?:\\(\\s*[A-Za-z_$][\\w$]*\\s*=\\s*)?[A-Za-z_$][\\w$]*\\??\\.${esc(field)}\\s*\\)?\\s*$`)
+    if (!body || (!argMatch && !body.includes(field))) return out
+    const argRe =
+        argMatch ||
+        new RegExp(`^\\s*(?:\\(\\s*[A-Za-z_$][\\w$]*\\s*=\\s*)?[A-Za-z_$][\\w$]*\\??\\.${esc(field)}\\s*\\)?\\s*$`)
     const callRe = /[A-Za-z_$][\w$]*\(\s*"([^"]+)"\s*\)(?:\s*\.\s*([A-Za-z_$][\w$]*))?\s*\(/g
     let c
     while ((c = callRe.exec(body))) {
@@ -278,6 +315,25 @@ function crossModuleFlows(body, field, text) {
         args.forEach((a, k) => {
             if (params[k] && argRe.test(a)) out.push({ fnBody, param: params[k] })
         })
+    }
+    return out
+}
+
+// A local bound to the field (`d=e.targetValue`) handed to another module's
+// export within its own function (`o("MAIBAHeatBarUtils")
+// .getMAIBAHeatBarPercent(d,l,a)`): the value's type lives in that export.
+function localCrossModuleFlows(body, field, text) {
+    const out = []
+    if (!body || !body.includes(field)) return out
+    const bindRe = new RegExp(
+        `(?<![\\w$.])([A-Za-z_$][\\w$]*)\\s*=\\s*(?:\\([^()]*\\)\\s*==\\s*null\\s*\\?\\s*void 0\\s*:\\s*)?[A-Za-z_$][\\w$]*\\??\\.${esc(field)}${RB}(?!\\s*\\()`,
+        'g'
+    )
+    let m
+    while ((m = bindRe.exec(body))) {
+        const from = m.index + m[0].length
+        const window = body.slice(from, scopeEnd(body, from))
+        out.push(...crossModuleFlows(window, field, text, new RegExp(`^\\s*${esc(m[1])}\\s*$`)))
     }
     return out
 }
@@ -346,7 +402,11 @@ function makeRecoverer(graph) {
         }
         for (const m of mods) {
             const body = graph.text(m)
-            for (const fl of [...positionalFlows(body, name), ...crossModuleFlows(body, name, graph.text)]) {
+            for (const fl of [
+                ...positionalFlows(body, name),
+                ...crossModuleFlows(body, name, graph.text),
+                ...localCrossModuleFlows(body, name, graph.text)
+            ]) {
                 const saw = emptySaw()
                 collect(fl.fnBody, `(?:(?<![\\w$.])${esc(fl.param)}${RB})`, saw)
                 const tag = verdict(saw)
