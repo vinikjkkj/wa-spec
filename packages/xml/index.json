@@ -4267,6 +4267,91 @@
       "type": null,
       "xmlns": null
     },
+    "BizThreadDataNotify": {
+      "module": "WASmaxBizThreadDataNotifyRPC",
+      "opName": "Notify",
+      "request": null,
+      "responses": [
+        {
+          "entryName": "parseNotifyRequest",
+          "incoming": true,
+          "module": "WASmaxInBizThreadDataNotifyRequest",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "literal",
+                "value": "s.whatsapp.net"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "offline": {
+                "optional": true,
+                "type": "int"
+              },
+              "t": {
+                "max": null,
+                "min": 0,
+                "type": "int"
+              },
+              "type": {
+                "type": "literal",
+                "value": "biz_thread_data"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "notif_sub_type": {
+                    "type": "string"
+                  },
+                  "origin": {
+                    "enumRef": "o(\"WASmaxInBizThreadDataEnums\").ENUM_GENERATED_MANUAL",
+                    "enumValues": [
+                      "generated",
+                      "manual"
+                    ],
+                    "type": "enum"
+                  },
+                  "thread_lid": {
+                    "type": "lidUserJid"
+                  },
+                  "update_ts": {
+                    "max": 4102473600,
+                    "min": 1577865600,
+                    "type": "int"
+                  }
+                },
+                "children": [
+                  {
+                    "attrs": {},
+                    "children": [],
+                    "content": {
+                      "max": 4096,
+                      "min": 1,
+                      "type": "bytes"
+                    },
+                    "max": 1,
+                    "min": 1,
+                    "tag": "payload"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "thread_data"
+              }
+            ],
+            "content": null,
+            "tag": "notification"
+          },
+          "variant": "Request"
+        }
+      ],
+      "rootTag": "notification",
+      "type": null,
+      "xmlns": null
+    },
     "BlocklistsGetBlockList": {
       "module": "WASmaxBlocklistsGetBlockListRPC",
       "opName": "GetBlockList",
@@ -23224,7 +23309,7 @@
             ],
             "attrs": {
               "addressing_mode": {
-                "arg": "G",
+                "arg": "te",
                 "direction": "both",
                 "enumValues": [
                   "lid",
@@ -23351,19 +23436,19 @@
                 "type": "jid"
               },
               "peer_recipient_lid": {
-                "arg": "Q",
+                "arg": "se",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "peer_recipient_pn": {
-                "arg": "K",
+                "arg": "le",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "peer_recipient_username": {
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(X)",
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ue)",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -23375,24 +23460,24 @@
                 "type": "string"
               },
               "privacy_sensitive": {
-                "arg": "f.privacySensitive.valueOf().toString()",
+                "arg": "v.privacySensitive.valueOf().toString()",
                 "direction": "out",
                 "optional": true,
                 "type": "bool"
               },
               "push_priority": {
-                "arg": "W",
+                "arg": "Z",
                 "direction": "out",
                 "type": "string"
               },
               "recipient": {
-                "arg": "h",
+                "arg": "R",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ae",
+                "arg": "ue",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -30377,6 +30462,27 @@
                         "max": 1,
                         "min": 1,
                         "tag": "message"
+                      },
+                      {
+                        "attrs": {},
+                        "children": [
+                          {
+                            "attrs": {
+                              "code": {
+                                "type": "string"
+                              }
+                            },
+                            "children": [],
+                            "content": null,
+                            "max": 1,
+                            "min": 1,
+                            "tag": "reaction"
+                          }
+                        ],
+                        "content": null,
+                        "max": 1,
+                        "min": 1,
+                        "tag": "reactions"
                       },
                       {
                         "attrs": {
@@ -49193,7 +49299,7 @@
             ],
             "attrs": {
               "addressing_mode": {
-                "arg": "G",
+                "arg": "te",
                 "direction": "both",
                 "enumValues": [
                   "lid",
@@ -49320,19 +49426,19 @@
                 "type": "jid"
               },
               "peer_recipient_lid": {
-                "arg": "Q",
+                "arg": "se",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "peer_recipient_pn": {
-                "arg": "K",
+                "arg": "le",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "peer_recipient_username": {
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(X)",
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ue)",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -49344,24 +49450,24 @@
                 "type": "string"
               },
               "privacy_sensitive": {
-                "arg": "f.privacySensitive.valueOf().toString()",
+                "arg": "v.privacySensitive.valueOf().toString()",
                 "direction": "out",
                 "optional": true,
                 "type": "bool"
               },
               "push_priority": {
-                "arg": "W",
+                "arg": "Z",
                 "direction": "out",
                 "type": "string"
               },
               "recipient": {
-                "arg": "h",
+                "arg": "R",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ae",
+                "arg": "ue",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -50336,7 +50442,7 @@
           "node": {
             "attrs": {
               "addressing_mode": {
-                "arg": "G",
+                "arg": "te",
                 "direction": "both",
                 "enumValues": [
                   "lid",
@@ -50461,19 +50567,19 @@
                 "type": "userJid"
               },
               "peer_recipient_lid": {
-                "arg": "Q",
+                "arg": "se",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "peer_recipient_pn": {
-                "arg": "K",
+                "arg": "le",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
               },
               "peer_recipient_username": {
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(X)",
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ue)",
                 "direction": "both",
                 "optional": true,
                 "type": "string"
@@ -50485,13 +50591,13 @@
                 "type": "string"
               },
               "privacy_sensitive": {
-                "arg": "f.privacySensitive.valueOf().toString()",
+                "arg": "v.privacySensitive.valueOf().toString()",
                 "direction": "out",
                 "optional": true,
                 "type": "bool"
               },
               "push_priority": {
-                "arg": "W",
+                "arg": "Z",
                 "direction": "out",
                 "type": "string"
               },
@@ -50500,7 +50606,7 @@
                 "type": "userJid"
               },
               "recipient_pn": {
-                "arg": "ae",
+                "arg": "ue",
                 "direction": "both",
                 "optional": true,
                 "type": "userJid"
@@ -50763,7 +50869,7 @@
               {
                 "attrs": {
                   "agent_engagement_type": {
-                    "arg": "_",
+                    "arg": "T",
                     "direction": "both",
                     "optional": true,
                     "type": "string"
@@ -57395,5 +57501,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1048738070"
+  "waVersion": "2.3000.1049098065"
 }

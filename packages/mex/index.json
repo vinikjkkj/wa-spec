@@ -260,6 +260,31 @@
         "input": "string"
       }
     },
+    "AdsAdAccountSettingsStoreSetMultiMediaStickyStatus": {
+      "docId": "28849732088050420",
+      "operationKind": "mutation",
+      "originalName": "AdsAdAccountSettingsStoreSetMultiMediaStickyStatusMutation",
+      "response": {
+        "set_multi_media_sticky_status_ads_ad_account_settings": {
+          "ads_ad_account_settings": {
+            "id": "string",
+            "multi_media_sticky_entries": [
+              {
+                "feature": "unknown",
+                "status": "string",
+                "timestamp": "string"
+              }
+            ]
+          }
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": "string"
+      }
+    },
     "AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus": {
       "docId": "38096061813371664",
       "operationKind": "mutation",
@@ -286,7 +311,7 @@
       }
     },
     "AdsAdAccountSettingsStoreSourceServer": {
-      "docId": "27992178770485033",
+      "docId": "27447217501621159",
       "operationKind": "query",
       "originalName": "AdsAdAccountSettingsStoreSourceServerQuery",
       "response": {
@@ -299,10 +324,18 @@
             }
           ],
           "id": "string",
+          "is_video_gen_survey_exhausted": "boolean",
           "l1ae_source_sticky_entries": [
             {
               "container": "unknown",
               "source": "string",
+              "status": "string",
+              "timestamp": "string"
+            }
+          ],
+          "multi_media_sticky_entries": [
+            {
+              "feature": "unknown",
               "status": "string",
               "timestamp": "string"
             }
@@ -396,7 +429,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "28198886239781081",
+      "docId": "28195694260131286",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -419,7 +452,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "28240324965607044",
+      "docId": "29340711762196284",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -1184,7 +1217,6 @@
       "variablesShape": {
         "request": {
           "order": {
-            "direct_connection_encrypted_info": "string",
             "id": "string",
             "image_dimensions": {
               "height": "number",
@@ -1616,7 +1648,7 @@
       }
     },
     "ContactManagerCustomerProfile": {
-      "docId": "37925750573706165",
+      "docId": "28687308460925443",
       "operationKind": "query",
       "originalName": "WAWebContactManagerCustomerProfileQuery",
       "response": {
@@ -1626,6 +1658,7 @@
           "address": "string",
           "dob": "unknown",
           "email": "string",
+          "etag": "string",
           "last_order_date": "string",
           "last_updates": [
             {
@@ -1644,11 +1677,16 @@
       }
     },
     "ContactManagerCustomerProfileUpsert": {
-      "docId": "27789071790751197",
+      "docId": "39017784967837337",
       "operationKind": "mutation",
       "originalName": "WAWebContactManagerCustomerProfileUpsertMutation",
       "response": {
         "xfb_wa_upsert_customer_profiles": {
+          "conflicts": [
+            {
+              "lid": "string"
+            }
+          ],
           "profiles": [
             {
               "lid": "string"
@@ -2613,6 +2651,36 @@
         "lid": "string"
       }
     },
+    "EmailInviteSendGroup": {
+      "docId": "28484430131216234",
+      "operationKind": "mutation",
+      "originalName": "WAWebEmailInviteSendGroupMutation",
+      "response": {
+        "xwa_send_email_invites": {
+          "error_reason": "string",
+          "results": [
+            {
+              "email": "string",
+              "status": "string"
+            }
+          ],
+          "status": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "emails": [
+            "string"
+          ],
+          "source": "enum:GROUP_INFO_PANEL",
+          "target_id": "string",
+          "target_type": "enum:GROUP"
+        }
+      }
+    },
     "ExternalCtxAuthoriseWAChat": {
       "docId": "9790465291023292",
       "operationKind": "mutation",
@@ -3455,7 +3523,7 @@
               "device_id": "string",
               "device_public_key": "string",
               "epoch_storage_public_key": "string",
-              "epoch_storage_public_key_sig": "unknown"
+              "epoch_storage_public_key_sig": "string"
             }
           ],
           "epoch_id": "string",
@@ -4903,7 +4971,7 @@
       "variablesShape": {}
     },
     "FetchWassBotProfileGQL": {
-      "docId": "29075540695397423",
+      "docId": "38799514653026858",
       "operationKind": "query",
       "originalName": "WAWebFetchWassBotProfileGQLQuery",
       "response": {
@@ -4914,14 +4982,24 @@
           "name": "string",
           "product": "enum:MANUS|META_AI_THREAD|MUSE|THIRD_PARTY",
           "profile_pic_full_url": "string",
-          "profile_pic_thumb_url": "string"
+          "profile_pic_thumb_url": "string",
+          "tos": {
+            "group": [
+              {
+                "blocking": "unknown",
+                "id": "string"
+              }
+            ]
+          }
         }
       },
       "variables": [
-        "botFbid"
+        "botFbid",
+        "groupJid"
       ],
       "variablesShape": {
-        "botFbid": "string"
+        "botFbid": "string",
+        "groupJid": "string"
       }
     },
     "GetAccessTokenFromOIDCCode": {
@@ -5553,6 +5631,25 @@
         "input": "string"
       }
     },
+    "MAIBAMessageSignalsCTARendererEnableAutomaticEvents": {
+      "docId": "38558715557105651",
+      "operationKind": "mutation",
+      "originalName": "MAIBAMessageSignalsCTARendererEnableAutomaticEventsMutation",
+      "response": {
+        "xfb_pixel_set_enable_automatic_events_setup": {
+          "auto_accepted_count": "number",
+          "enabled": "boolean"
+        }
+      },
+      "variables": [
+        "enable",
+        "pixel_id"
+      ],
+      "variablesShape": {
+        "enable": "boolean",
+        "pixel_id": "string"
+      }
+    },
     "MAIBARecordAsyncAuthConsent": {
       "docId": "27087116144243008",
       "operationKind": "mutation",
@@ -5579,7 +5676,7 @@
       "response": {
         "user": {
           "id": "string",
-          "message_capabilities2_str": "unknown"
+          "message_capabilities2_str": "string"
         }
       },
       "variables": [
@@ -5892,7 +5989,7 @@
           "error_reason": "string",
           "group": {
             "creation_timestamp_s": "number",
-            "gid": "unknown",
+            "gid": "string",
             "participant_count": "number",
             "subject": "string"
           },
@@ -5904,12 +6001,12 @@
         "orgID"
       ],
       "variablesShape": {
-        "gid": "unknown",
+        "gid": "string",
         "orgID": "string"
       }
     },
     "OrgAdminGraphQLAdminRoster": {
-      "docId": "28625796647045484",
+      "docId": "28588811080804291",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLAdminRosterQuery",
       "response": {
@@ -5921,6 +6018,7 @@
                 {
                   "email_address": "string",
                   "id": "string",
+                  "member_lid": "string",
                   "member_tag": "string",
                   "name": "string",
                   "phone_number": "string"
@@ -5960,18 +6058,13 @@
       ],
       "variablesShape": {
         "input": {
-          "description": "string",
           "entries": "unknown",
-          "icon_blob": "unknown",
-          "member_lid": "string",
-          "member_tag_options": "unknown",
-          "org_id": "string",
-          "role": "string"
+          "org_id": "string"
         }
       }
     },
     "OrgAdminGraphQLDirectoryPage": {
-      "docId": "28535112302815446",
+      "docId": "28428616673445598",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLDirectoryPageQuery",
       "response": {
@@ -5992,7 +6085,6 @@
                 }
               ],
               "page_info": {
-                "end_cursor": "string",
                 "has_next_page": "boolean"
               }
             }
@@ -6001,40 +6093,36 @@
         }
       },
       "variables": [
-        "after",
         "first",
         "orgID"
       ],
       "variablesShape": {
-        "after": {
-          "description": "string",
-          "icon_blob": "unknown",
-          "member_tag_options": "unknown",
-          "org_id": "string"
-        },
         "first": "number",
         "orgID": "string"
       }
     },
     "OrgAdminGraphQLGroup": {
-      "docId": "26407716885592599",
+      "docId": "39383855724546026",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLGroupQuery",
       "response": {
-        "xwa_org_managed_group": {
+        "xwa_org_get": {
           "error_reason": "string",
-          "group": {
-            "creation_timestamp_s": "number",
-            "gid": "unknown",
-            "participant_count": "number",
-            "participants": [
-              {
-                "lid": "string",
-                "role": "enum:ADMIN|CREATOR"
-              }
-            ],
-            "roster_partial": "boolean",
-            "subject": "string"
+          "org_info": {
+            "id": "string",
+            "managed_group": {
+              "creation_timestamp_s": "number",
+              "gid": "string",
+              "participant_count": "number",
+              "participants": [
+                {
+                  "lid": "string",
+                  "role": "enum:ADMIN|CREATOR"
+                }
+              ],
+              "roster_partial": "boolean",
+              "subject": "string"
+            }
           },
           "status": "enum:SUCCESS"
         }
@@ -6044,7 +6132,7 @@
         "orgID"
       ],
       "variablesShape": {
-        "gid": "unknown",
+        "gid": "string",
         "orgID": "string"
       }
     },
@@ -6070,23 +6158,28 @@
       }
     },
     "OrgAdminGraphQLManagedChannels": {
-      "docId": "27988950254107459",
+      "docId": "28671299149132484",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLManagedChannelsQuery",
       "response": {
-        "xwa_org_managed_channels": {
-          "channels": [
-            {
-              "description": "string",
-              "id": "string",
-              "invite_code": "string",
-              "name": "string",
-              "picture": {
-                "uri": "string"
-              }
-            }
-          ],
+        "xwa_org_get": {
           "error_reason": "string",
+          "org_info": {
+            "id": "string",
+            "managed_channels": {
+              "nodes": [
+                {
+                  "description": "string",
+                  "id": "string",
+                  "invite_code": "string",
+                  "name": "string",
+                  "picture": {
+                    "uri": "string"
+                  }
+                }
+              ]
+            }
+          },
           "status": "enum:SUCCESS"
         }
       },
@@ -6098,27 +6191,32 @@
       }
     },
     "OrgAdminGraphQLManagedGroups": {
-      "docId": "38372552505692451",
+      "docId": "28885446151060025",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLManagedGroupsQuery",
       "response": {
-        "xwa_org_managed_groups": {
+        "xwa_org_get": {
           "error_reason": "string",
-          "groups": [
-            {
-              "creation_timestamp_s": "number",
-              "gid": "unknown",
-              "participant_count": "number",
-              "participants": [
+          "org_info": {
+            "id": "string",
+            "managed_groups": {
+              "nodes": [
                 {
-                  "lid": "string",
-                  "role": "enum:ADMIN|CREATOR"
+                  "creation_timestamp_s": "number",
+                  "gid": "string",
+                  "participant_count": "number",
+                  "participants": [
+                    {
+                      "lid": "string",
+                      "role": "enum:ADMIN|CREATOR"
+                    }
+                  ],
+                  "roster_partial": "boolean",
+                  "subject": "string"
                 }
-              ],
-              "roster_partial": "boolean",
-              "subject": "string"
+              ]
             }
-          ],
+          },
           "status": "enum:SUCCESS"
         }
       },
@@ -6162,12 +6260,7 @@
         "query"
       ],
       "variablesShape": {
-        "after": {
-          "description": "string",
-          "icon_blob": "unknown",
-          "member_tag_options": "unknown",
-          "org_id": "string"
-        },
+        "after": "string",
         "first": "number",
         "memberTag": "string",
         "orgID": "string",
@@ -6218,18 +6311,13 @@
       ],
       "variablesShape": {
         "input": {
-          "description": "string",
-          "entries": "unknown",
-          "icon_blob": "unknown",
           "member_lid": "string",
-          "member_tag_options": "unknown",
-          "org_id": "string",
-          "role": "string"
+          "org_id": "string"
         }
       }
     },
     "OrgAdminGraphQLReplaceAdminRoster": {
-      "docId": "38389150840730215",
+      "docId": "28419705454357517",
       "operationKind": "mutation",
       "originalName": "WAWebOrgAdminGraphQLReplaceAdminRosterMutation",
       "response": {
@@ -6242,6 +6330,7 @@
                 {
                   "email_address": "string",
                   "id": "string",
+                  "member_lid": "string",
                   "member_tag": "string",
                   "name": "string",
                   "phone_number": "string"
@@ -6260,13 +6349,8 @@
       ],
       "variablesShape": {
         "input": {
-          "description": "string",
           "entries": "unknown",
-          "icon_blob": "unknown",
-          "member_lid": "string",
-          "member_tag_options": "unknown",
-          "org_id": "string",
-          "role": "string"
+          "org_id": "string"
         }
       }
     },
@@ -6289,11 +6373,7 @@
       ],
       "variablesShape": {
         "input": {
-          "description": "string",
-          "entries": "unknown",
-          "icon_blob": "unknown",
           "member_lid": "string",
-          "member_tag_options": "unknown",
           "org_id": "string",
           "role": "string"
         }
@@ -6327,12 +6407,9 @@
       "variablesShape": {
         "input": {
           "description": "string",
-          "entries": "unknown",
           "icon_blob": "unknown",
-          "member_lid": "string",
           "member_tag_options": "unknown",
-          "org_id": "string",
-          "role": "string"
+          "org_id": "string"
         }
       }
     },
@@ -6343,9 +6420,9 @@
       "response": {
         "verify_page_whatsapp_number": {
           "biz_link_attempted": "boolean",
-          "error_msg": "unknown",
+          "error_msg": "string",
           "link_request_data": {
-            "eligible_for_request_flow": "unknown",
+            "eligible_for_request_flow": "boolean",
             "page_name": "string",
             "target_bp_name": "string",
             "wa_business_person_id": "string",
@@ -6353,10 +6430,10 @@
           },
           "page": {
             "can_see_page_wa_link_post_phone_verification_ber_sdk_experiment": "boolean",
-            "connected_whatsapp_number": "unknown",
-            "formatted_primary_whatsapp_number": "unknown",
+            "connected_whatsapp_number": "string",
+            "formatted_primary_whatsapp_number": "string",
             "id": "string",
-            "if_viewer_can_see_link_confirmation_flow": "unknown",
+            "if_viewer_can_see_link_confirmation_flow": "boolean",
             "if_viewer_can_see_mixed_permissions_forward_fix_page_wa_link_invite_modal_comet": {
               "id": "string"
             },
@@ -6370,25 +6447,25 @@
             },
             "page_whatsapp_number_id": "string",
             "pending_request_whatsapp_business_number": "unknown",
-            "primary_whatsapp_number": "unknown",
+            "primary_whatsapp_number": "string",
             "should_whatsapp_number_be_business_only": "boolean",
             "verified_whatsapp_numbers": {
               "nodes": [
                 {
-                  "formatted_whatsapp_number": "unknown",
+                  "formatted_whatsapp_number": "string",
                   "id": "string",
-                  "raw_whatsapp_number": "unknown",
+                  "raw_whatsapp_number": "string",
                   "should_show_in_page_profile": "boolean",
-                  "whatsapp_number": "unknown",
-                  "whatsapp_number_type_slow_and_accurate": "unknown"
+                  "whatsapp_number": "string",
+                  "whatsapp_number_type_slow_and_accurate": "string"
                 }
               ]
             },
-            "whatsapp_display_number": "unknown",
+            "whatsapp_display_number": "string",
             "whatsapp_initial_country_code": "string",
             "whatsapp_number_eligible_for_link_confirmation_flow": {
-              "link_confirmation_eligible_number": "unknown",
-              "link_confirmation_eligible_number_formatted": "unknown"
+              "link_confirmation_eligible_number": "string",
+              "link_confirmation_eligible_number_formatted": "string"
             }
           },
           "result": "string"
@@ -6422,7 +6499,7 @@
         "set_primary_number": "boolean",
         "source": "enum:PAGE_SETTING_PAGE_MULTI_NUMBER",
         "verification_code": "unknown",
-        "whatsapp_number": "unknown"
+        "whatsapp_number": "string"
       }
     },
     "PaymentsPasskeyHasCredential": {
@@ -6562,7 +6639,6 @@
             "after": "string",
             "allow_shop_source": "enum:ALLOWSHOPSOURCE_FALSE|ALLOWSHOPSOURCE_TRUE",
             "catalog_session_id": "string",
-            "direct_connection_encrypted_info": "string",
             "height": "string",
             "jid": "string",
             "limit": "string",
@@ -6595,7 +6671,6 @@
           "categories": {
             "biz_jid": "string",
             "catalog_session_id": "string",
-            "direct_connection_encrypted_info": "string",
             "image_dimensions": {}
           }
         }
@@ -6716,7 +6791,6 @@
       "variablesShape": {
         "request": {
           "product": {
-            "direct_connection_encrypted_info": "string",
             "fetch_compliance_info": "string",
             "height": "string",
             "jid": "string",
@@ -6863,7 +6937,6 @@
             "after": "string",
             "biz_jid": "string",
             "collection_limit": "string",
-            "direct_connection_encrypted_info": "string",
             "height": "string",
             "item_limit": "string",
             "variant_info_fields": {},
@@ -7135,7 +7208,6 @@
           "collection": {
             "after": "string",
             "biz_jid": "string",
-            "direct_connection_encrypted_info": "string",
             "height": "string",
             "id": "string",
             "limit": "string",
@@ -7891,7 +7963,7 @@
       "originalName": "VerifyPageWhatsAppAccountForDisclosuresMutation",
       "response": {
         "verify_page_whatsapp_account_for_disclosures": {
-          "error_msg": "unknown",
+          "error_msg": "string",
           "wa_nonce": "string"
         }
       },
@@ -7906,7 +7978,7 @@
       "variablesShape": {
         "disclosure_type": "string",
         "page_id": "string",
-        "require_business_number": "unknown",
+        "require_business_number": "boolean",
         "source": "enum:ADS_LWI",
         "verification_code": "unknown",
         "wa_number": "unknown"
@@ -8202,7 +8274,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "28442456898736645",
+      "docId": "29053797954211922",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8302,7 +8374,7 @@
                               "end_date": "string",
                               "insight": "unknown",
                               "name": "string",
-                              "objective": "string",
+                              "objective": "enum:APP_INSTALLS|BRAND_AWARENESS|CANVAS_APP_ENGAGEMENT|CANVAS_APP_INSTALLS|DEPRECATED_CLICKS|EVENT_RESPONSES|EXTERNAL|IMPRESSIONS|INCOMPATIBLE_CANVAS_APP_ENGAGEMENT|INCOMPATIBLE_CANVAS_APP_INSTALLS|INCOMPATIBLE_EVENT_RESPONSES|INCOMPATIBLE_MOBILE_APP_INSTALLS|INCOMPATIBLE_OFFER_CLAIMS|INCOMPATIBLE_PAGE_ENGAGEMENT|INCOMPATIBLE_PAGE_LIKES|INCOMPATIBLE_POST_ENGAGEMENT|INCOMPATIBLE_WEBSITE_CLICKS|INCOMPATIBLE_WEBSITE_CONVERSIONS|INSTAGRAM_BRAND_AWARENESS|LEAD_GENERATION|LINK_CLICKS|LOCAL_AWARENESS|LOCAL_IMPRESSIONS|MEDIA_DOWNLOADS|MESSAGES|MILLE|MOBILE_APP_ENGAGEMENT|MOBILE_APP_INSTALLS|MULTIPLE|NONE|OFFER_CLAIMS|OUTCOME_ACQUISITION|OUTCOME_AWARENESS|OUTCOME_ENGAGEMENT|OUTCOME_LEADS|OUTCOME_SALES|OUTCOME_TRAFFIC|PAGE_LIKES|POST_ENGAGEMENT|PRODUCT_CATALOG_SALES|PROFILE_FOLLOWERS|REACH|RESEARCH_POLL|STORE_VISITS|VIDEO_VIEWS|WEBSITE_CONVERSIONS|WILDCARD_INTERNAL_ONLY|XPLATFORM_SALES",
                               "phase": "unknown",
                               "placement": "unknown",
                               "section_key": "string",
@@ -8551,7 +8623,7 @@
                           "maiba_recommendation_id": "string",
                           "max_value": "number",
                           "media_layout": "unknown",
-                          "metadata": "unknown",
+                          "metadata": "string",
                           "metric_value": "unknown",
                           "metrics": [
                             {
@@ -8754,6 +8826,7 @@
                           "quarter": "string",
                           "raw_json": "unknown",
                           "raw_value": "string",
+                          "reached_value": "number",
                           "reasoning": "string",
                           "recap": "unknown",
                           "recommendation_id": "string",
@@ -8815,7 +8888,7 @@
                           "server_formatted_text": "string",
                           "show_creative_terms": "boolean",
                           "show_select_all": "boolean",
-                          "signals_action": "enum:ENABLE_AAM|ENABLE_CAPIG|OPEN_PIXEL_HELPER",
+                          "signals_action": "enum:ENABLE_AAM|ENABLE_AUTOMATIC_EVENTS|ENABLE_CAPIG|OPEN_PIXEL_HELPER",
                           "single_apply_uses_template": "boolean",
                           "sparkline_label": "string",
                           "spec_type": "string",
@@ -9000,5 +9073,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1048738070"
+  "waVersion": "2.3000.1049098065"
 }

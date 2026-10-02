@@ -292,6 +292,8 @@
         "SUCCESSFUL": 10,
         "TAPPED": 6,
         "TOKEN_FOUND": 62,
+        "TRUSTED_DEVICE_OPT_IN": 83,
+        "TRUSTED_DEVICE_OPT_OUT": 84,
         "TRY_AGAIN": 29,
         "UNKNOWN": 12,
         "USER_INVITE_CODE_RETRIEVED_FROM_APP_INSTALL": 72,
@@ -367,6 +369,7 @@
         "GROUP_MENTION_PICKER": 13,
         "GROUP_SAVE_CONTACT_FROM_SHARED_NON_CONTACT": 11,
         "GROUP_USER_JOINED_BY_LINK_CONTEXT_CARD": 5,
+        "LINKED_GROUP_CALL": 19,
         "MEMBERSHIP_APPROVAL_REQUESTS": 18
       }
     },
@@ -877,6 +880,7 @@
         "BIZ_INTEGRITY_WARNING_BANNER": 32,
         "BUSINESS_ACCOUNT_SYSTEM_MESSAGE": 14,
         "CF_MIGRATION": 94,
+        "CHANNELS_MIGRATION": 128,
         "CHANNEL_ADMIN_PROFILES_ADOPTION": 122,
         "COLOR_REFRESH_NUX_BANNER": 56,
         "CONVERSATION_STARTER": 93,
@@ -2530,6 +2534,7 @@
       "values": {
         "ADMIN_INVITE_MESSAGE": 11,
         "ARCHIVED_CHATS": 28,
+        "CHANNELS_MIGRATION": 30,
         "CHANNEL_NOTIFICATIONS_SETTINGS": 26,
         "CHAT_LIST": 27,
         "DEEPLINK": 4,
@@ -2603,6 +2608,7 @@
         "ADMIN_PROFILE_SETTING_DISABLE": 17,
         "ADMIN_PROFILE_SETTING_ENABLE": 16,
         "ADMIN_PROFILE_UPDATE": 14,
+        "ARCHIVE": 20,
         "CHANNEL_PREMIUM_CANCEL": 8,
         "CHANNEL_PREMIUM_SETUP": 7,
         "CREATE": 11,
@@ -2610,11 +2616,14 @@
         "FOLLOW": 1,
         "HIDE": 9,
         "MUTE": 3,
+        "PIN": 18,
         "PREMIUM_SUBSCRIBE": 5,
         "PREMIUM_UNSUBSCRIBE": 6,
+        "UNARCHIVE": 21,
         "UNFOLLOW": 2,
         "UNHIDE": 10,
-        "UNMUTE": 4
+        "UNMUTE": 4,
+        "UNPIN": 19
       }
     },
     "CHANNEL_EVENT_UNIT": {
@@ -2678,6 +2687,25 @@
         "FOLLOW_SUCCESS_NOTIFICATION": 3,
         "UNFOLLOW_SUCCESS": 2,
         "UNFOLLOW_SUCCESS_NOTIFICATION": 4
+      }
+    },
+    "CHANNEL_POST_INTERACTION_TYPE": {
+      "export": "CHANNEL_POST_INTERACTION_TYPE",
+      "module": "WAWebWamEnumChannelPostInteractionType",
+      "values": {
+        "EXTERNAL_LINK_COPY_TAP": 2,
+        "EXTERNAL_LINK_OPEN_TAP": 1
+      }
+    },
+    "CHANNEL_POST_LINK_PLACEMENT": {
+      "export": "CHANNEL_POST_LINK_PLACEMENT",
+      "module": "WAWebWamEnumChannelPostLinkPlacement",
+      "values": {
+        "CONTEXT_MENU": 4,
+        "LINK_PREVIEW": 2,
+        "MEDIA_CAPTION": 5,
+        "POST_TEXT": 1,
+        "VIDEO_PREVIEW": 3
       }
     },
     "CHANNEL_PRODUCER_INSIGHTS_ACTION_TYPE": {
@@ -3140,6 +3168,7 @@
         "NEW_ORDER": 6,
         "NONE": 0,
         "NON_CONTACT": 11,
+        "ONE_ON_ONE": 31,
         "ORDER_COMPLETE": 9,
         "OTHER_LABELS": 1,
         "PAID": 8,
@@ -4064,6 +4093,7 @@
         "DEEP_LINK_ACCOUNTS_CENTER_ADD_ACCOUNT": 180,
         "DEEP_LINK_ACCOUNT_TRANSFER": 171,
         "DEEP_LINK_ADS_DATA_SHARING": 101,
+        "DEEP_LINK_ADVANTAGE_PLUS_AUDIENCE": 264,
         "DEEP_LINK_AGE_COLLECTION": 254,
         "DEEP_LINK_AIMEDIAGALLERY": 247,
         "DEEP_LINK_AIMEDIAINPUT": 157,
@@ -4162,6 +4192,7 @@
         "DEEP_LINK_META_AI_IMAGINE_ME_ONBOARDING": 140,
         "DEEP_LINK_META_AI_INCOGNITO": 250,
         "DEEP_LINK_META_VERIFIED": 108,
+        "DEEP_LINK_MIDFLIGHT_DURATION": 265,
         "DEEP_LINK_MSG_FORWARD": 9,
         "DEEP_LINK_NEW_CUSTOM_LIST": 159,
         "DEEP_LINK_NOTIFICATIONS_PERMISSION": 115,
@@ -6117,6 +6148,7 @@
         "IMAGINE_CAROUSEL_PREVIEWED": 26,
         "IMAGINE_CLEAR_BUTTON_TAPPED": 47,
         "IMAGINE_DEFAULT_CAROUSEL_IMAGE_SELECT": 29,
+        "IMAGINE_GENERATION_FAILED": 113,
         "IMAGINE_INVOKE": 22,
         "IMAGINE_ONBOARDING_CHOOSE_DIFFERENT_PHOTO": 98,
         "IMAGINE_ONBOARDING_CLICK": 15,
@@ -6295,6 +6327,18 @@
       "values": {
         "QUOTA_CACHE": 1,
         "QUOTA_SERVER": 2
+      }
+    },
+    "IMAGINE_ERROR_REASON": {
+      "export": "IMAGINE_ERROR_REASON",
+      "module": "WAWebWamEnumImagineErrorReason",
+      "values": {
+        "GRAPHQL_FAILURE": 5,
+        "INVALID_RESPONSE": 3,
+        "NO_MEMU_PROFILE": 4,
+        "QUOTA_EXHAUSTED": 2,
+        "SEND_FAILURE": 6,
+        "UNKNOWN": 1
       }
     },
     "IMAGINE_MEDIA_TYPE": {
@@ -8706,9 +8750,11 @@
         "SCHEDULED_CALL_CANCEL": 52,
         "SCHEDULED_CALL_CREATE": 51,
         "SHOP_STOREFRONT": 33,
+        "SOUND_STICKER": 83,
         "STICKER": 16,
         "STICKER_PACK": 64,
         "STICKER_REACTION": 79,
+        "TEE_TOOL_RESPONSE": 82,
         "TEMPLATE": 19,
         "TEXT": 39,
         "UNDECRYPTED_MEDIA": 44,
@@ -10729,6 +10775,7 @@
         "PMT_DETAILS": 44,
         "PRIVACY_AND_TERM_BUTTON": 95,
         "PSP_TC_PRIVACY_LINK": 31,
+        "QR_CODE_UPI_MEDIA_BUTTON": 404,
         "QR_CODE_UPI_PAY_BUTTON": 235,
         "QR_CODE_UPI_VIEW_BUTTON": 364,
         "QR_SCANNER_ZOOM": 393,
@@ -11202,7 +11249,6 @@
         "WAMETA_REPL": 49,
         "WASG": 68,
         "WAVOIP_CLI": 59,
-        "WEARM": 45,
         "WEAROS": 51,
         "WEB": 17,
         "WEBCLIENT": 8,
@@ -15178,6 +15224,7 @@
         "CATALOG_COLLECTION": 60,
         "CATALOG_HOME": 59,
         "CATALOG_ITEM": 61,
+        "CHANNELS_MIGRATION": 273,
         "CHANNEL_ADMIN_PROFILE": 217,
         "CHANNEL_ADMIN_PROFILE_PICTURE": 247,
         "CHANNEL_ADMIN_PROFILE_VIEWER": 246,
@@ -15204,6 +15251,7 @@
         "CHANNEL_PROFILE": 28,
         "CHANNEL_PROFILE_PICTURE": 216,
         "CHANNEL_QR_CODE": 114,
+        "CHANNEL_RESPONSE_VIEWER": 274,
         "CHANNEL_SCHEDULED_UPDATES": 268,
         "CHANNEL_SETTINGS": 195,
         "CHANNEL_STARRED_POSTS": 134,
@@ -15510,9 +15558,14 @@
       "export": "UI_MESSAGE_YOURSELF_ACTION_TYPE",
       "module": "WAWebWamEnumUiMessageYourselfActionType",
       "values": {
+        "DEFAULT_NTS_CREATED": 10,
+        "DEFAULT_NTS_DELETED": 11,
         "EXISTING_NTS_OPENED": 6,
         "NEW_CHAT_PRESSED": 1,
         "NEW_NTS_CREATED": 5,
+        "NTS_CARD_IMPRESSION": 7,
+        "NTS_CARD_LINK_DEVICES_TAPPED": 9,
+        "NTS_CARD_PIN_CHAT_TAPPED": 8,
         "SEARCH_BAR_PRESSED": 3,
         "SEARCH_FULL_NAME_YOU_SELECTED": 4,
         "YOU_SELECTED": 2
@@ -15523,6 +15576,8 @@
       "module": "WAWebWamEnumUiMessageYourselfFunnelName",
       "values": {
         "CONTACT_AND_GLOBAL_SEARCH": 2,
+        "FORWARD_PICKER": 4,
+        "INBOX": 3,
         "NEW_CHAT": 1
       }
     },
@@ -17078,14 +17133,6 @@
         "WHATSAPP_PLUS": 22
       }
     },
-    "WSUA_BLOCK_SOURCE": {
-      "export": "WSUA_BLOCK_SOURCE",
-      "module": "WAWebWamEnumWsuaBlockSource",
-      "values": {
-        "CACHE": 1,
-        "SERVER": 2
-      }
-    },
     "WSUA_PRODUCT_TYPE": {
       "export": "WSUA_PRODUCT_TYPE",
       "module": "WAWebWamEnumWsuaProductType",
@@ -17159,6 +17206,7 @@
         "BB_CREDITS": 28,
         "BIZ_AI_AGENT_THREAD": 46,
         "BIZ_AI_HOME": 47,
+        "BIZ_SUBS_PAYMENT_ABANDONMENT_NOTIF": 95,
         "BIZ_SUB_VERIFICATION_ELIGIBLE_BUSINESS_ALERT": 94,
         "BIZ_SUB_VERIFICATION_ELIGIBLE_NOTIFICATION": 93,
         "BUSINESS_BROADCAST_HOME": 43,
@@ -19990,6 +20038,11 @@
           "id": 1119,
           "type": "number"
         },
+        "audioBelowSwbDurationMs": {
+          "falcoName": "audio_below_swb_duration_ms",
+          "id": 3214,
+          "type": "timer"
+        },
         "audioCalleeAcceptToDecodeT": {
           "falcoName": "audio_callee_accept_to_decode_t",
           "id": 1565,
@@ -21175,6 +21228,16 @@
           "falcoName": "c50_linked",
           "id": 3001,
           "type": "boolean"
+        },
+        "ca2dAbandonedCount": {
+          "falcoName": "ca2d_abandoned_count",
+          "id": 3211,
+          "type": "integer"
+        },
+        "ca2dActiveDurationT": {
+          "falcoName": "ca2d_active_duration_t",
+          "id": 3212,
+          "type": "timer"
         },
         "ca2dAttemptCount": {
           "falcoName": "ca2d_attempt_count",
@@ -27764,6 +27827,11 @@
           "falcoName": "red_audio_bytes_sent",
           "id": 2394,
           "type": "number"
+        },
+        "redPacketsDecoded": {
+          "falcoName": "red_packets_decoded",
+          "id": 3213,
+          "type": "integer"
         },
         "redPacketsDiscarded": {
           "falcoName": "red_packets_discarded",
@@ -35055,6 +35123,78 @@
       "id": 7134,
       "module": "WAWebChannelOpenFromInviteWamEvent",
       "privateStatsIdInt": 0,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
+    "ChannelPostInteraction": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_channel_post_interaction",
+      "fields": {
+        "channelDirectorySessionId": {
+          "falcoName": "channel_directory_session_id",
+          "id": 1,
+          "type": "integer"
+        },
+        "channelEntryPoint": {
+          "enum": "CHANNEL_ENTRY_POINT",
+          "falcoName": "channel_entry_point",
+          "id": 2,
+          "type": "enum"
+        },
+        "channelPostInteractionType": {
+          "enum": "CHANNEL_POST_INTERACTION_TYPE",
+          "falcoName": "channel_post_interaction_type",
+          "id": 3,
+          "type": "enum"
+        },
+        "channelPostLinkPlacement": {
+          "enum": "CHANNEL_POST_LINK_PLACEMENT",
+          "falcoName": "channel_post_link_placement",
+          "id": 10,
+          "type": "enum"
+        },
+        "channelUserType": {
+          "enum": "CHANNEL_USER_TYPE",
+          "falcoName": "channel_user_type",
+          "id": 4,
+          "type": "enum"
+        },
+        "cid": {
+          "falcoName": "cid",
+          "id": 5,
+          "type": "string"
+        },
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 9,
+          "type": "integer"
+        },
+        "discoverySurface": {
+          "enum": "TS_SURFACE",
+          "falcoName": "discovery_surface",
+          "id": 6,
+          "type": "enum"
+        },
+        "postId": {
+          "falcoName": "post_id",
+          "id": 7,
+          "type": "string"
+        },
+        "updatesTabSessionId": {
+          "falcoName": "updates_tab_session_id",
+          "id": 8,
+          "type": "integer"
+        }
+      },
+      "id": 8458,
+      "module": "WAWebChannelPostInteractionWamEvent",
+      "privateStatsIdInt": null,
       "requiredFields": [],
       "weight": {
         "default": 1,
@@ -43516,6 +43656,22 @@
           "id": 20,
           "type": "enum"
         },
+        "imagineErrorReason": {
+          "enum": "IMAGINE_ERROR_REASON",
+          "falcoName": "imagine_error_reason",
+          "id": 27,
+          "type": "enum"
+        },
+        "imagineImagesRequested": {
+          "falcoName": "imagine_images_requested",
+          "id": 28,
+          "type": "integer"
+        },
+        "imagineImagesSucceeded": {
+          "falcoName": "imagine_images_succeeded",
+          "id": 29,
+          "type": "integer"
+        },
         "imagineMediaType": {
           "enum": "IMAGINE_MEDIA_TYPE",
           "falcoName": "imagine_media_type",
@@ -46169,6 +46325,11 @@
           "id": 3,
           "type": "string"
         },
+        "mdRegAttemptIdPn": {
+          "falcoName": "md_reg_attempt_id_pn",
+          "id": 7,
+          "type": "string"
+        },
         "mdSessionId": {
           "falcoName": "md_session_id",
           "id": 4,
@@ -46258,6 +46419,11 @@
         "mdRegAttemptId": {
           "falcoName": "md_reg_attempt_id",
           "id": 10,
+          "type": "string"
+        },
+        "mdRegAttemptIdPn": {
+          "falcoName": "md_reg_attempt_id_pn",
+          "id": 19,
           "type": "string"
         },
         "mdSessionId": {
@@ -46418,6 +46584,11 @@
           "id": 9,
           "type": "string"
         },
+        "mdRegAttemptIdPn": {
+          "falcoName": "md_reg_attempt_id_pn",
+          "id": 28,
+          "type": "string"
+        },
         "mdSessionId": {
           "falcoName": "md_session_id",
           "id": 1,
@@ -46547,6 +46718,11 @@
         "mdRegAttemptId": {
           "falcoName": "md_reg_attempt_id",
           "id": 12,
+          "type": "string"
+        },
+        "mdRegAttemptIdPn": {
+          "falcoName": "md_reg_attempt_id_pn",
+          "id": 23,
           "type": "string"
         },
         "mdSessionId": {
@@ -47346,6 +47522,11 @@
           "id": 44,
           "type": "string"
         },
+        "mdRegAttemptIdPn": {
+          "falcoName": "md_reg_attempt_id_pn",
+          "id": 53,
+          "type": "string"
+        },
         "patchSnapshotMutationCount": {
           "falcoName": "patch_snapshot_mutation_count",
           "id": 9,
@@ -47595,6 +47776,11 @@
         "mdRegAttemptId": {
           "falcoName": "md_reg_attempt_id",
           "id": 9,
+          "type": "string"
+        },
+        "mdRegAttemptIdPn": {
+          "falcoName": "md_reg_attempt_id_pn",
+          "id": 17,
           "type": "string"
         },
         "mdSessionId": {
@@ -50063,6 +50249,11 @@
           "id": 48,
           "type": "integer"
         },
+        "stickerHasSound": {
+          "falcoName": "sticker_has_sound",
+          "id": 69,
+          "type": "boolean"
+        },
         "stickerIsAi": {
           "falcoName": "sticker_is_ai",
           "id": 29,
@@ -50610,6 +50801,11 @@
           "falcoName": "shared_username_contact_size",
           "id": 79,
           "type": "integer"
+        },
+        "stickerHasSound": {
+          "falcoName": "sticker_has_sound",
+          "id": 99,
+          "type": "boolean"
         },
         "stickerIsAi": {
           "falcoName": "sticker_is_ai",
@@ -62454,6 +62650,11 @@
           "id": 16,
           "type": "integer"
         },
+        "stickerHasSound": {
+          "falcoName": "sticker_has_sound",
+          "id": 17,
+          "type": "boolean"
+        },
         "stickerIsAi": {
           "falcoName": "sticker_is_ai",
           "id": 7,
@@ -62793,12 +62994,6 @@
           "id": 9,
           "type": "string"
         },
-        "wsuaBlockSource": {
-          "enum": "WSUA_BLOCK_SOURCE",
-          "falcoName": "wsua_block_source",
-          "id": 15,
-          "type": "enum"
-        },
         "wsuaEligibleSubscriptions": {
           "falcoName": "wsua_eligible_subscriptions",
           "id": 13,
@@ -62843,11 +63038,6 @@
           "falcoName": "wsua_tier",
           "id": 12,
           "type": "enum"
-        },
-        "wsuaWaffleLinked": {
-          "falcoName": "wsua_waffle_linked",
-          "id": 16,
-          "type": "boolean"
         }
       },
       "id": 7458,
@@ -70466,7 +70656,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1048738070",
+  "waVersion": "2.3000.1049098065",
   "wireFormat": {
     "markers": {
       "event": 1,

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048738070
+// WhatsApp Version: 2.3000.1049098065
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -15,7 +15,7 @@ export declare const WA_XML_OPERATIONS: {
     readonly [K in WaXmlOperationKey]: WaXmlOperationSummary
 }
 
-export type WaXmlOperationKey = 'AbPropsGetExperimentConfig' | 'AbPropsGetGroupExperimentConfig' | 'AbPropsRefresh' | 'AccountSetPaymentsTOSv3' | 'AccountSyncNotification' | 'AppdataDeliverPeer' | 'AppdataPublishPeer' | 'BizAccessTokenRequestSilentNonce' | 'BizCtwaActionBannerSuggestion' | 'BizCtwaAdAccountGetAccessTokenAndSessionCookies' | 'BizCtwaAdAccountNonceNotification' | 'BizCtwaAdAccountSendAccountRecoveryNonce' | 'BizCtwaNativeAdUploadAdMedia' | 'BizLinkingGetAccountNonce' | 'BizLinkingGetLinkedAccounts' | 'BizMarketingMessageGetBusinessEligibility' | 'BizMsgUserFeedbackUpdatePreference' | 'BizSettingsGetPrivacySetting' | 'BizSettingsSetPrivacySetting' | 'BizSettingsSyncPrivacySetting' | 'BlocklistsGetBlockList' | 'BlocklistsGetOptOutList' | 'BlocklistsUpdateBlockList' | 'BlocklistsUpdateOptOutList' | 'BotBotList' | 'BrPaymentCreateCustomPaymentMethod' | 'BrPaymentGetPixBankList' | 'BrPaymentRemoveCustomPaymentMethod' | 'ChatstateClientNotification' | 'ChatstateServerNotification' | 'ClientExpirationClientExpiration' | 'ClientLogLog' | 'CoexistenceOffboardingNotification' | 'CoexistenceOnboardingStatusNotification' | 'CoexistenceSyncNotification' | 'DevicesChangeNotification' | 'DevicesFetch' | 'DevicesFetchSelf' | 'DevicesNotify' | 'DevicesRemove' | 'DirtyBitsClean' | 'DirtyBitsNotify' | 'EdgeEdgeRouting' | 'GroupsAcceptGroupAdd' | 'GroupsAcknowledgeGroup' | 'GroupsAddNotification' | 'GroupsAddParticipants' | 'GroupsBatchGetGroupInfo' | 'GroupsCancelGroupMembershipRequests' | 'GroupsCreate' | 'GroupsCreateSubGroupSuggestion' | 'GroupsDeleteNotification' | 'GroupsDeleteParentGroup' | 'GroupsDemoteNotification' | 'GroupsGetGroupInfo' | 'GroupsGetGroupProfilePictures' | 'GroupsGetInviteGroupInfo' | 'GroupsGetLinkedGroup' | 'GroupsGetLinkedGroupsParticipants' | 'GroupsGetMembershipApprovalRequests' | 'GroupsGetParticipatingGroups' | 'GroupsGetReportedMessages' | 'GroupsGroupsDirtyNotification' | 'GroupsJoinLinkedGroup' | 'GroupsJoinNotification' | 'GroupsLinkSubGroups' | 'GroupsMemberAddModeChangeNotification' | 'GroupsMembershipRequestsAction' | 'GroupsPromoteDemote' | 'GroupsPromoteDemoteAdmin' | 'GroupsPromoteNotification' | 'GroupsRemoveNotification' | 'GroupsRemoveParticipants' | 'GroupsReportMessages' | 'GroupsRevokeRequestCode' | 'GroupsSetDescription' | 'GroupsSetProperty' | 'GroupsSetSubject' | 'GroupsSubGroupSuggestionsAction' | 'GroupsSubjectChangeNotification' | 'GroupsUnlinkGroups' | 'InAppCommsEvent' | 'KeyTransparencyMultiSerializedLookup' | 'LoginFailure' | 'LoginSuccess' | 'MdCompanionFinish' | 'MdCompanionHello' | 'MdGetCountryCode' | 'MdGetPasskeyRequestOptions' | 'MdGetRef' | 'MdPasskeyPrologueRequestNotification' | 'MdPrimaryHelloNotifyCompanion' | 'MdRefreshCodeNotifyCompanion' | 'MdSetCompanionNonce' | 'MdSetEncryptedPairing' | 'MdSetPasskeyPrologue' | 'MdSetPrimaryEphemeralIdentityNotification' | 'MdSetReg' | 'MdSetToCompanion' | 'MessageDeliverNewsletter' | 'MessageDeliverPeer' | 'MessageDeliverRegular' | 'MessageFallbackDeliver' | 'MessagePublishIndividual' | 'MessagePublishNewsletter' | 'MessageRequestSpamMarker' | 'MessageRequestThreadNotification' | 'MultiwaydMultiway' | 'MultiwaydMultiwayNotification' | 'NewslettersGetNewsletterMessageUpdates' | 'NewslettersGetNewsletterMessages' | 'NewslettersGetNewsletterResponses' | 'NewslettersGetNewsletterStatusUpdates' | 'NewslettersGetNewsletterStatuses' | 'NewslettersLiveUpdatesNotification' | 'NewslettersMyAddOns' | 'NewslettersStatusMyAddOns' | 'NewslettersSubscribeToLiveUpdates' | 'NotificationFallbackGenericNotification' | 'OfflineBatch' | 'OfflineCompletion' | 'OfflinePreview' | 'OfflineThreadMetadata' | 'PassiveModeActiveIQ' | 'PassiveModePassiveIQ' | 'PingsClient' | 'PingsServerPing' | 'PreKeysAdd' | 'PreKeysDelete' | 'PreKeysFetchDigest' | 'PreKeysFetchKeyBundles' | 'PreKeysFetchMissingPreKeys' | 'PreKeysNotificationContactIDChanged' | 'PreKeysNotificationDigest' | 'PreKeysNotificationLowCount' | 'PreKeysRotateSigned' | 'PreKeysSet' | 'PresenceAvailability' | 'PresenceServerUpdate' | 'PresenceSubscribe' | 'PrivacyGetContactBlacklist' | 'PrivatestatsSignCredential' | 'ProfilePictureGet' | 'PsaChatBlockGet' | 'PsaChatBlockSet' | 'PsaResetSmbLastQpPrefetchTimestamp' | 'PushConfigSet' | 'QpSurfacesQPNotification' | 'ReceiptDeliver' | 'ReceiptDeliverAppDataPeer' | 'ReceiptDeliverPeer' | 'ReceiptPublishAppDataPeerDelivery' | 'ReceiptPublishDelivery' | 'ReceiptPublishPeerDelivery' | 'ReceiptPublishPeerRead' | 'ReceiptPublishSender' | 'ReceiptPublishView' | 'RtcE2eeCallEventNotifyCallEventNotification' | 'SmaxInvalidError' | 'SmbMeteredMessagesCampaignCampaignStateChangedNotification' | 'SmbMeteredMessagingAccountGetSMBMeteredMessagingCheckout' | 'SpamGroupReport' | 'SpamIndividualReport' | 'SpamNewsletterReport' | 'SpamStatusReport' | 'SpamStatusReportV2' | 'StatsSendBuffer' | 'StatusDeliverIncomingNewsletterStatus' | 'StatusPublishPostBroadcastStatus' | 'StatusPublishPostNewsletterStatus' | 'StreamErrorAckKick' | 'StreamErrorBadMac' | 'StreamErrorCode' | 'StreamErrorConflict' | 'StreamErrorPingKick' | 'StreamErrorXMLNotWellFormed' | 'SyncdNewPatch' | 'UnifiedSessionShare' | 'UserNoticeGetDisclosureStageByIds' | 'UserNoticeGetDisclosures' | 'UserNoticeSet' | 'UserNoticeSetResult' | 'UsyncNotification' | 'VoipLinkCreate' | 'VoipLinkQuery' | 'VoipWaitingRoomToggleCallLink' | 'WaffleEncryptedPayload' | 'WaffleForceDeleteState' | 'WaffleForceSuspendState' | 'WaffleGenerateAccessTokens' | 'WaffleGenerateWAEntACUser' | 'WaffleGetCertificate' | 'WaffleRefreshAccessTokens' | 'WaffleStateExists' | 'WaffleWFPing'
+export type WaXmlOperationKey = 'AbPropsGetExperimentConfig' | 'AbPropsGetGroupExperimentConfig' | 'AbPropsRefresh' | 'AccountSetPaymentsTOSv3' | 'AccountSyncNotification' | 'AppdataDeliverPeer' | 'AppdataPublishPeer' | 'BizAccessTokenRequestSilentNonce' | 'BizCtwaActionBannerSuggestion' | 'BizCtwaAdAccountGetAccessTokenAndSessionCookies' | 'BizCtwaAdAccountNonceNotification' | 'BizCtwaAdAccountSendAccountRecoveryNonce' | 'BizCtwaNativeAdUploadAdMedia' | 'BizLinkingGetAccountNonce' | 'BizLinkingGetLinkedAccounts' | 'BizMarketingMessageGetBusinessEligibility' | 'BizMsgUserFeedbackUpdatePreference' | 'BizSettingsGetPrivacySetting' | 'BizSettingsSetPrivacySetting' | 'BizSettingsSyncPrivacySetting' | 'BizThreadDataNotify' | 'BlocklistsGetBlockList' | 'BlocklistsGetOptOutList' | 'BlocklistsUpdateBlockList' | 'BlocklistsUpdateOptOutList' | 'BotBotList' | 'BrPaymentCreateCustomPaymentMethod' | 'BrPaymentGetPixBankList' | 'BrPaymentRemoveCustomPaymentMethod' | 'ChatstateClientNotification' | 'ChatstateServerNotification' | 'ClientExpirationClientExpiration' | 'ClientLogLog' | 'CoexistenceOffboardingNotification' | 'CoexistenceOnboardingStatusNotification' | 'CoexistenceSyncNotification' | 'DevicesChangeNotification' | 'DevicesFetch' | 'DevicesFetchSelf' | 'DevicesNotify' | 'DevicesRemove' | 'DirtyBitsClean' | 'DirtyBitsNotify' | 'EdgeEdgeRouting' | 'GroupsAcceptGroupAdd' | 'GroupsAcknowledgeGroup' | 'GroupsAddNotification' | 'GroupsAddParticipants' | 'GroupsBatchGetGroupInfo' | 'GroupsCancelGroupMembershipRequests' | 'GroupsCreate' | 'GroupsCreateSubGroupSuggestion' | 'GroupsDeleteNotification' | 'GroupsDeleteParentGroup' | 'GroupsDemoteNotification' | 'GroupsGetGroupInfo' | 'GroupsGetGroupProfilePictures' | 'GroupsGetInviteGroupInfo' | 'GroupsGetLinkedGroup' | 'GroupsGetLinkedGroupsParticipants' | 'GroupsGetMembershipApprovalRequests' | 'GroupsGetParticipatingGroups' | 'GroupsGetReportedMessages' | 'GroupsGroupsDirtyNotification' | 'GroupsJoinLinkedGroup' | 'GroupsJoinNotification' | 'GroupsLinkSubGroups' | 'GroupsMemberAddModeChangeNotification' | 'GroupsMembershipRequestsAction' | 'GroupsPromoteDemote' | 'GroupsPromoteDemoteAdmin' | 'GroupsPromoteNotification' | 'GroupsRemoveNotification' | 'GroupsRemoveParticipants' | 'GroupsReportMessages' | 'GroupsRevokeRequestCode' | 'GroupsSetDescription' | 'GroupsSetProperty' | 'GroupsSetSubject' | 'GroupsSubGroupSuggestionsAction' | 'GroupsSubjectChangeNotification' | 'GroupsUnlinkGroups' | 'InAppCommsEvent' | 'KeyTransparencyMultiSerializedLookup' | 'LoginFailure' | 'LoginSuccess' | 'MdCompanionFinish' | 'MdCompanionHello' | 'MdGetCountryCode' | 'MdGetPasskeyRequestOptions' | 'MdGetRef' | 'MdPasskeyPrologueRequestNotification' | 'MdPrimaryHelloNotifyCompanion' | 'MdRefreshCodeNotifyCompanion' | 'MdSetCompanionNonce' | 'MdSetEncryptedPairing' | 'MdSetPasskeyPrologue' | 'MdSetPrimaryEphemeralIdentityNotification' | 'MdSetReg' | 'MdSetToCompanion' | 'MessageDeliverNewsletter' | 'MessageDeliverPeer' | 'MessageDeliverRegular' | 'MessageFallbackDeliver' | 'MessagePublishIndividual' | 'MessagePublishNewsletter' | 'MessageRequestSpamMarker' | 'MessageRequestThreadNotification' | 'MultiwaydMultiway' | 'MultiwaydMultiwayNotification' | 'NewslettersGetNewsletterMessageUpdates' | 'NewslettersGetNewsletterMessages' | 'NewslettersGetNewsletterResponses' | 'NewslettersGetNewsletterStatusUpdates' | 'NewslettersGetNewsletterStatuses' | 'NewslettersLiveUpdatesNotification' | 'NewslettersMyAddOns' | 'NewslettersStatusMyAddOns' | 'NewslettersSubscribeToLiveUpdates' | 'NotificationFallbackGenericNotification' | 'OfflineBatch' | 'OfflineCompletion' | 'OfflinePreview' | 'OfflineThreadMetadata' | 'PassiveModeActiveIQ' | 'PassiveModePassiveIQ' | 'PingsClient' | 'PingsServerPing' | 'PreKeysAdd' | 'PreKeysDelete' | 'PreKeysFetchDigest' | 'PreKeysFetchKeyBundles' | 'PreKeysFetchMissingPreKeys' | 'PreKeysNotificationContactIDChanged' | 'PreKeysNotificationDigest' | 'PreKeysNotificationLowCount' | 'PreKeysRotateSigned' | 'PreKeysSet' | 'PresenceAvailability' | 'PresenceServerUpdate' | 'PresenceSubscribe' | 'PrivacyGetContactBlacklist' | 'PrivatestatsSignCredential' | 'ProfilePictureGet' | 'PsaChatBlockGet' | 'PsaChatBlockSet' | 'PsaResetSmbLastQpPrefetchTimestamp' | 'PushConfigSet' | 'QpSurfacesQPNotification' | 'ReceiptDeliver' | 'ReceiptDeliverAppDataPeer' | 'ReceiptDeliverPeer' | 'ReceiptPublishAppDataPeerDelivery' | 'ReceiptPublishDelivery' | 'ReceiptPublishPeerDelivery' | 'ReceiptPublishPeerRead' | 'ReceiptPublishSender' | 'ReceiptPublishView' | 'RtcE2eeCallEventNotifyCallEventNotification' | 'SmaxInvalidError' | 'SmbMeteredMessagesCampaignCampaignStateChangedNotification' | 'SmbMeteredMessagingAccountGetSMBMeteredMessagingCheckout' | 'SpamGroupReport' | 'SpamIndividualReport' | 'SpamNewsletterReport' | 'SpamStatusReport' | 'SpamStatusReportV2' | 'StatsSendBuffer' | 'StatusDeliverIncomingNewsletterStatus' | 'StatusPublishPostBroadcastStatus' | 'StatusPublishPostNewsletterStatus' | 'StreamErrorAckKick' | 'StreamErrorBadMac' | 'StreamErrorCode' | 'StreamErrorConflict' | 'StreamErrorPingKick' | 'StreamErrorXMLNotWellFormed' | 'SyncdNewPatch' | 'UnifiedSessionShare' | 'UserNoticeGetDisclosureStageByIds' | 'UserNoticeGetDisclosures' | 'UserNoticeSet' | 'UserNoticeSetResult' | 'UsyncNotification' | 'VoipLinkCreate' | 'VoipLinkQuery' | 'VoipWaitingRoomToggleCallLink' | 'WaffleEncryptedPayload' | 'WaffleForceDeleteState' | 'WaffleForceSuspendState' | 'WaffleGenerateAccessTokens' | 'WaffleGenerateWAEntACUser' | 'WaffleGetCertificate' | 'WaffleRefreshAccessTokens' | 'WaffleStateExists' | 'WaffleWFPing'
 
 // Per-operation request/response shape literals — generated from the static
 // extraction over WASmaxOut*Request + WASmaxIn*Response* modules. Each
@@ -1657,6 +1657,41 @@ export interface WaXmlOperations {
                                 readonly value: 'false' | 'notset' | 'true'
                                 readonly version?: number
                             }
+                        }
+                    }
+                }
+            }
+        } }
+    }
+    readonly BizThreadDataNotify: {
+        readonly module: 'WASmaxBizThreadDataNotifyRPC'
+        readonly opName: 'Notify'
+        readonly xmlns: null
+        readonly type: null
+        readonly request: unknown
+        readonly response:
+        | { readonly variant: 'Request'; readonly value: {
+            readonly tag: 'notification'
+            readonly attrs: {
+                readonly from: 's.whatsapp.net'
+                readonly id: string
+                readonly offline?: number
+                readonly t: number
+                readonly type: 'biz_thread_data'
+            }
+            readonly children: {
+                readonly thread_data: {
+                    readonly tag: 'thread_data'
+                    readonly attrs: {
+                        readonly notif_sub_type: string
+                        readonly origin: 'generated' | 'manual'
+                        readonly thread_lid: string
+                        readonly update_ts: number
+                    }
+                    readonly children: {
+                        readonly payload: {
+                            readonly tag: 'payload'
+                            readonly content: Uint8Array
                         }
                     }
                 }
@@ -10794,6 +10829,17 @@ export interface WaXmlOperations {
                                         readonly plaintext: {
                                             readonly tag: 'plaintext'
                                             readonly content: Uint8Array
+                                        }
+                                    }
+                                }
+                                readonly reactions: {
+                                    readonly tag: 'reactions'
+                                    readonly children: {
+                                        readonly reaction: {
+                                            readonly tag: 'reaction'
+                                            readonly attrs: {
+                                                readonly code: string
+                                            }
                                         }
                                     }
                                 }

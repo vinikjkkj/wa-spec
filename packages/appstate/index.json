@@ -180,6 +180,28 @@
       "valueProtoType": null,
       "version": 7
     },
+    "BBProPendingCustomerBaseAction": {
+      "baseClass": "AccountSyncdActionBase",
+      "chatJidIndex": null,
+      "collection": "regular_low",
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "bb_pro_pending_customer_base_action"
+        },
+        {
+          "name": "action",
+          "type": "string"
+        }
+      ],
+      "module": "WAWebBizBroadcastProPendingActionSync",
+      "name": "bb_pro_pending_customer_base_action",
+      "scope": "account",
+      "valueEnumFields": null,
+      "valueField": "bbProPendingCustomerBaseAction",
+      "valueProtoType": "SyncActionValue.BBProPendingCustomerBaseAction",
+      "version": 7
+    },
     "BizAiSettingsNudge": {
       "baseClass": "AccountSyncdActionBase",
       "chatJidIndex": null,
@@ -1565,5 +1587,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1048738070"
+  "waVersion": "2.3000.1049098065"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1048738070
+// WhatsApp Version: 2.3000.1049098065
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -73,6 +73,7 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly AndroidUnsupportedActions: WaAppstateSchema<'android_unsupported_actions', 'regular_low', 'account', 'androidUnsupportedActions', 'SyncActionValue.AndroidUnsupportedActions', null, readonly [{ readonly type: 'literal'; readonly value: 'android_unsupported_actions' }]>
     readonly Archive: WaAppstateSchema<'archive', 'regular_low', 'chatMessageRange', 'archiveChatAction', 'SyncActionValue.ArchiveChatAction', null, readonly [{ readonly type: 'literal'; readonly value: 'archive' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
     readonly AvatarUpdated: WaAppstateSchema<'avatar_updated_action', 'regular', 'account', null, null, null, readonly [{ readonly type: 'literal'; readonly value: 'avatar_updated_action' }]>
+    readonly BBProPendingCustomerBaseAction: WaAppstateSchema<'bb_pro_pending_customer_base_action', 'regular_low', 'account', 'bbProPendingCustomerBaseAction', 'SyncActionValue.BBProPendingCustomerBaseAction', null, readonly [{ readonly type: 'literal'; readonly value: 'bb_pro_pending_customer_base_action' }, { readonly type: 'string'; readonly name: 'action' }]>
     readonly BizAiSettingsNudge: WaAppstateSchema<'biz_ai_settings_nudge', 'regular_high', 'account', 'bizAiSettingsNudgeAction', 'SyncActionValue.BizAISettingsNudgeAction', { readonly 'category': 'BizAISettingsNudgeAction.BizAISettingsCategory' }, readonly [{ readonly type: 'literal'; readonly value: 'biz_ai_settings_nudge' }]>
     readonly BotWelcomeRequest: WaAppstateSchema<'bot_welcome_request', 'regular_low', 'chat', 'botWelcomeRequestAction', 'SyncActionValue.BotWelcomeRequestAction', null, readonly [{ readonly type: 'literal'; readonly value: 'bot_welcome_request' }, { readonly type: 'jid'; readonly name: 'chatJid' }]>
     readonly BusinessBroadcastCampaign: WaAppstateSchema<'business_broadcast_campaign', 'regular', 'account', 'businessBroadcastCampaignAction', 'SyncActionValue.BusinessBroadcastCampaignAction', { readonly 'bbProStatus': 'BusinessBroadcastCampaignBBProStatus'; readonly 'status': 'BusinessBroadcastCampaignStatus' }, readonly [{ readonly type: 'literal'; readonly value: 'business_broadcast_campaign' }, { readonly type: 'string'; readonly name: 'campaignId' }]>

@@ -1,5 +1,5 @@
 {
-  "groupPropCount": 17,
+  "groupPropCount": 19,
   "groupProps": {
     "ai_group_tee_history_share_group_level_enabled": {
       "code": 32501,
@@ -55,6 +55,18 @@
       "defaultValue": -1,
       "type": "int"
     },
+    "pinned_messages_infinite_sender_group_level_enabled": {
+      "code": 38083,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "pinned_messages_remove_30_day_pins_group_level": {
+      "code": 38082,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "poll_add_option_creator_enabled_group_level": {
       "code": 35772,
       "debugDefaultValue": false,
@@ -104,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2592,
+  "propCount": 2642,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -586,6 +598,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "ai_group_directed_send_agent_legs_enabled": {
+      "code": 37855,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_group_participation_add_tee_enabled": {
       "code": 22236,
       "debugDefaultValue": false,
@@ -634,6 +652,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_3p_bot_enabled": {
+      "code": 37639,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_3p_bot_group_add_companion_enabled": {
       "code": 37791,
       "debugDefaultValue": false,
@@ -664,6 +688,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_browser_enabled": {
+      "code": 37854,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_commands_enabled": {
       "code": 27660,
       "debugDefaultValue": false,
@@ -672,6 +702,12 @@
     },
     "ai_hatch_connectors_enabled": {
       "code": 37227,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_data_controls_enabled": {
+      "code": 37856,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -688,6 +724,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_first_party_connectors_enabled": {
+      "code": 38142,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_forwarding_html_enabled": {
       "code": 27876,
       "debugDefaultValue": false,
@@ -696,6 +738,18 @@
     },
     "ai_hatch_gzip_encoding_enabled": {
       "code": 37777,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_ideas_enabled": {
+      "code": 37223,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_identity_enabled": {
+      "code": 37588,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -766,8 +820,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_scheduled_tasks_enabled": {
+      "code": 37857,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_secret_encrypted_message_enabled": {
       "code": 31040,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_secure_credentials_enabled": {
+      "code": 37852,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -814,11 +880,23 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_vm_auth_enabled": {
+      "code": 37983,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_home_bot_profile_sync_interval_sec": {
       "code": 11168,
       "debugDefaultValue": 86400,
       "defaultValue": 86400,
       "type": "int"
+    },
+    "ai_html_viewer_forward_action_enabled": {
+      "code": 37885,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_imagine_loading_indicator_enabled": {
       "code": 22795,
@@ -912,6 +990,12 @@
     },
     "ai_mode_selector_media_editor_enabled": {
       "code": 30986,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_multimodal_all_languages_enabled": {
+      "code": 37881,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -1294,6 +1378,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_subscriptions_u18_age_gate_required": {
+      "code": 37882,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_tab_unread_badge_recency_window_hours": {
       "code": 29800,
       "debugDefaultValue": -1,
@@ -1548,6 +1638,12 @@
     },
     "attach_transport_rtx": {
       "code": 16201,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "audio_format_verification_enabled": {
+      "code": 37944,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -1974,6 +2070,12 @@
     },
     "biz_ai_agent_ai_editing_secretless_send_enabled": {
       "code": 35457,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "biz_ai_agent_demo_mode_v2_enabled": {
+      "code": 37865,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -2464,6 +2566,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "br_payments_payment_method_weights": {
+      "code": 38135,
+      "debugDefaultValue": " {\"version\":\"v1\",\"signals\":{\"pix_native_connected\":300,\"appswitch_returning\":200,\"last_used\":100}}",
+      "defaultValue": " {\"version\":\"default\"}",
+      "type": "string"
+    },
     "br_payments_payment_request_cta": {
       "code": 25599,
       "debugDefaultValue": false,
@@ -2792,6 +2900,12 @@
       "code": 33504,
       "debugDefaultValue": true,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "capi_messaging_pairs_client_enabled": {
+      "code": 38129,
+      "debugDefaultValue": false,
+      "defaultValue": false,
       "type": "bool"
     },
     "carousel_message_client_enabled": {
@@ -4036,6 +4150,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "contact_manager_sub_gating_enabled": {
+      "code": 38023,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "context_menu_content_fix": {
       "code": 34337,
       "debugDefaultValue": false,
@@ -4393,6 +4513,12 @@
     "ctwa_smb_detected_outcome_lists_enabled": {
       "code": 20220,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_smb_h2_2026_ofs_migration_enabled": {
+      "code": 37876,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -5062,26 +5188,8 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "enable_fmx_redesigned_bcc_for_suspicious_biz": {
-      "code": 35818,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "enable_fmx_redesigned_bcc_for_tier0_biz": {
-      "code": 35814,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "enable_fmx_redesigned_bcc_for_tier1_biz": {
       "code": 35813,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "enable_fmx_redesigned_bcc_for_tier2_biz": {
-      "code": 35817,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -5089,18 +5197,6 @@
     "enable_fmx_redesigned_bcc_for_tier3_biz": {
       "code": 35816,
       "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "enable_fmx_redesigned_bcc_for_unknown_tiered_biz": {
-      "code": 35821,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "enable_fmx_redesigned_bcc_for_untiered_biz": {
-      "code": 35820,
-      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -5466,7 +5562,7 @@
     },
     "enable_uwp_device_switch_banner": {
       "code": 10416,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -5496,6 +5592,18 @@
     },
     "enable_video_thumbnails_in_chat_list": {
       "code": 32841,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_vsr_chat_fullscreen": {
+      "code": 38038,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_vsr_status_fullscreen": {
+      "code": 38037,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -5796,6 +5904,12 @@
     },
     "expand_fmx_mex_should_use_fmx_use_case": {
       "code": 27662,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "expanded_formatting_multiline_quotes": {
+      "code": 38177,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -6319,6 +6433,12 @@
     "group_member_updates_usernames_ui_enabled": {
       "code": 24585,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "group_membership_form_review_enabled": {
+      "code": 38134,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -6910,6 +7030,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ks_allow_av1_video_codec": {
+      "code": 37900,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ks_mp4_strict_validation_enabled": {
+      "code": 38174,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ks_ogg_opus_strict_validation_enabled": {
       "code": 37509,
       "debugDefaultValue": true,
@@ -7132,6 +7264,12 @@
       "defaultValue": 8,
       "type": "int"
     },
+    "max_number_of_recent_contacts_shared_with_device": {
+      "code": 10978,
+      "debugDefaultValue": 30,
+      "defaultValue": 30,
+      "type": "int"
+    },
     "maximum_group_size_for_rcat": {
       "code": 2915,
       "debugDefaultValue": 100,
@@ -7345,6 +7483,12 @@
     "message_partial_selection_m2": {
       "code": 32142,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "message_yourself_edit_window_is_forever_enabled": {
+      "code": 37948,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -8296,6 +8440,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_receipt_and_state_web_state_hide_kill_switch": {
+      "code": 37818,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_row_upr_buyer_logging": {
       "code": 35965,
       "debugDefaultValue": true,
@@ -8668,6 +8818,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "pibx_max_fave_chats_in_imp_list": {
+      "code": 38169,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "pibx_vip_max_fave_list_len": {
+      "code": 38109,
+      "debugDefaultValue": 20,
+      "defaultValue": 20,
+      "type": "int"
+    },
     "pinned_message_banner_notch_animation_enabled": {
       "code": 34369,
       "debugDefaultValue": true,
@@ -8824,6 +8986,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "poll_add_option_revoke_receiving_version": {
+      "code": 37910,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "poll_creation_cag_enabled": {
       "code": 2738,
       "debugDefaultValue": false,
@@ -8904,6 +9072,12 @@
     },
     "poll_receiving_cag_enabled": {
       "code": 2737,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "poll_relaxed_option_count_receiving_enabled": {
+      "code": 37909,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -9338,12 +9512,6 @@
       "code": 36374,
       "debugDefaultValue": true,
       "defaultValue": false,
-      "type": "bool"
-    },
-    "rt_receiver_v3_validation_enabled": {
-      "code": 36371,
-      "debugDefaultValue": true,
-      "defaultValue": true,
       "type": "bool"
     },
     "rt_report_token_from_inclusion_list": {
@@ -9828,7 +9996,7 @@
     },
     "smb_business_broadcast_pro_min_audience_recipients": {
       "code": 37761,
-      "debugDefaultValue": 100,
+      "debugDefaultValue": 5,
       "defaultValue": 100,
       "type": "int"
     },
@@ -10720,8 +10888,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "thread_interactions_channel_reads_aligned_web_enabled": {
+      "code": 38165,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "thread_interactions_falco_native_logging_enabled": {
       "code": 37737,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "thread_interactions_received_excludes_edits_web_enabled": {
+      "code": 38058,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -11284,6 +11464,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "vod_vsr_max_short_edge": {
+      "code": 38039,
+      "debugDefaultValue": 576,
+      "defaultValue": 576,
+      "type": "int"
+    },
     "voice_ai_conversation_starter_latency_tracking": {
       "code": 19624,
       "debugDefaultValue": false,
@@ -11440,6 +11626,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_consumer_subscription_u18_gating_enabled": {
+      "code": 38120,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_ctwa_log_user_journey_enabled": {
       "code": 1681,
       "debugDefaultValue": true,
@@ -11484,6 +11676,12 @@
     },
     "wa_ctwa_web_thread_ad_attribution_enabled": {
       "code": 2898,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_hybrid_collect_new_memory_metrics": {
+      "code": 36574,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -11998,8 +12196,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_subs_mo_consumer_paywall_optimization_enabled": {
+      "code": 38067,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_subs_try_for_zero_enabled": {
       "code": 37616,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_subs_wa_plus_paywall_optimization_enabled": {
+      "code": 38066,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -12508,6 +12718,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_forward_add_message_enabled": {
+      "code": 38175,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_forward_to_small_groups": {
       "code": 27157,
       "debugDefaultValue": false,
@@ -12628,6 +12844,24 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_jm_to_ts_queues": {
+      "code": 37844,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_jm_to_ts_rest": {
+      "code": 37846,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_jm_to_ts_serviced": {
+      "code": 37847,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_jump_to_cart": {
       "code": 27939,
       "debugDefaultValue": false,
@@ -12690,6 +12924,18 @@
     },
     "wa_web_mention_search": {
       "code": 28455,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_meta_one_biz_ai_entry_point_enabled": {
+      "code": 37987,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_meta_one_biz_tools_entry_point_enabled": {
+      "code": 37912,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -12972,6 +13218,12 @@
     },
     "wa_web_status_viewer_side_poster_identifiers_enabled": {
       "code": 25151,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_subscriptions_entry_point_settings_enabled": {
+      "code": 37911,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -13276,6 +13528,12 @@
       "defaultValue": "20610203",
       "type": "string"
     },
+    "wamo_status_sensitive_vertical_disclaimer_enabled": {
+      "code": 38128,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wamo_sub_admin_enabled_v2": {
       "code": 11020,
       "debugDefaultValue": false,
@@ -13311,6 +13569,18 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "wavoip_large_ml_disk_check_enabled": {
+      "code": 37964,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wavoip_large_ml_min_free_disk_headroom_mb": {
+      "code": 37965,
+      "debugDefaultValue": 100,
+      "defaultValue": 100,
+      "type": "int"
     },
     "wavoip_large_uvq_model_download_versions": {
       "code": 36054,
@@ -13548,6 +13818,12 @@
     },
     "waweb_crossposting_attributions": {
       "code": 26138,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "waweb_deprecate_initial_sync_ordering": {
+      "code": 37833,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -14332,6 +14608,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_getters_clear_caches_on_memory_over_mb": {
+      "code": 38036,
+      "debugDefaultValue": 500,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "web_getters_clear_caches_on_memory_pressure": {
+      "code": 38034,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_getters_lazy_slot_allocation": {
       "code": 35688,
       "debugDefaultValue": true,
@@ -14343,6 +14631,12 @@
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
+    },
+    "web_group_admin_console_enabled": {
+      "code": 37816,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "web_group_bulk_add_contact": {
       "code": 30417,
@@ -15142,6 +15436,12 @@
       "defaultValue": true,
       "type": "bool"
     },
+    "web_voip_accept_device_probe_enabled": {
+      "code": 38027,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_adaptive_sctp_prewarm": {
       "code": 32804,
       "debugDefaultValue": false,
@@ -15301,6 +15601,12 @@
     "web_voip_relay_setup_yield_ipv4_first": {
       "code": 36803,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_voip_ringing_lobby_preview_gate_enabled": {
+      "code": 38009,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -15493,6 +15799,12 @@
     "win_enable_ss_button_audio": {
       "code": 9633,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "win_hybrid_background_message_sync": {
+      "code": 37827,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -15690,5 +16002,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1048738070"
+  "waVersion": "2.3000.1049098065"
 }

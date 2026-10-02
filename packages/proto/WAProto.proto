@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1048738070
+/// WhatsApp Version: 2.3000.1049098065
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -498,6 +498,7 @@ enum MutationProps {
     CONTACT_MANAGER_METADATA_ACTION = 95;
     BUSINESS_FOLDER_ACTIVATION_ACTION = 96;
     GROUP_HISTORY_TOGGLE_ACTION = 97;
+    BB_PRO_PENDING_CUSTOMER_BASE_ACTION = 98;
     SHARE_OWN_PN = 10001;
     BUSINESS_BROADCAST_ACTION = 10002;
     AI_THREAD_DELETE_ACTION = 10003;
@@ -1801,6 +1802,10 @@ message CallLogRecord {
     message ParticipantInfo {
         optional string userJid = 1;
         optional CallLogRecord.CallResult callResult = 2;
+        optional CallLogRecord.GuestInfo guestInfo = 3;
+    }
+    message GuestInfo {
+        optional string pushName = 1;
     }
 }
 
@@ -4289,6 +4294,7 @@ message Message {
     optional FutureProofMessage newsletterScheduledMessage = 132;
     optional FutureProofMessage acp2SettingMessage = 133;
     optional FutureProofMessage audioStickerMessage = 134;
+    optional FutureProofMessage botGroupParticipantMessage = 137;
     enum PollType {
         POLL = 0;
         QUIZ = 1;
@@ -7798,6 +7804,7 @@ message SyncActionValue {
     optional ContactManagerMetadataAction contactManagerMetadataAction = 95;
     optional BusinessFolderActivationAction businessFolderActivationAction = 96;
     optional GroupHistoryToggleAction groupHistoryToggleAction = 97;
+    optional BBProPendingCustomerBaseAction bbProPendingCustomerBaseAction = 98;
     enum BusinessBroadcastCampaignBBProStatus {
         BB_PRO_ACTIVE = 1;
         BB_PRO_COMPLETED = 2;
@@ -7816,6 +7823,9 @@ message SyncActionValue {
         PROCESSING = 3;
         FAILED = 4;
         SENT = 5;
+    }
+    message BBProPendingCustomerBaseAction {
+        optional bool pending = 1;
     }
     message GroupHistoryToggleAction {
         optional GroupHistoryToggleMode groupHistoryToggleMode = 1;
