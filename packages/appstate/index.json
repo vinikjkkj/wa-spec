@@ -466,6 +466,28 @@
       "valueProtoType": "SyncActionValue.ContactAction",
       "version": 2
     },
+    "ContactManagerMetadata": {
+      "baseClass": "AccountSyncdActionBase",
+      "chatJidIndex": null,
+      "collection": "regular_low",
+      "indexParts": [
+        {
+          "type": "literal",
+          "value": "contact_manager_metadata"
+        },
+        {
+          "name": "key1",
+          "type": "string"
+        }
+      ],
+      "module": "WAWebContactManagerMetadataSync",
+      "name": "contact_manager_metadata",
+      "scope": "account",
+      "valueEnumFields": null,
+      "valueField": "contactManagerMetadataAction",
+      "valueProtoType": "SyncActionValue.ContactManagerMetadataAction",
+      "version": 1
+    },
     "CustomPaymentMethods": {
       "baseClass": "AccountSyncdActionBase",
       "chatJidIndex": null,
@@ -1587,5 +1609,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1049098065"
+  "waVersion": "2.3000.1049208796"
 }

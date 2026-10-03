@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -17,7 +17,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: Object.freeze({ docId: '28191055560552476', clientDocId: '28191055560552476' }),
     AdsAdAccountSettingsStoreSetMultiMediaStickyStatus: Object.freeze({ docId: '28849732088050420', clientDocId: '28849732088050420' }),
     AdsAdAccountSettingsStoreSetVideoOptimizationStickyStatus: Object.freeze({ docId: '38096061813371664', clientDocId: '38096061813371664' }),
-    AdsAdAccountSettingsStoreSourceServer: Object.freeze({ docId: '27447217501621159', clientDocId: '27447217501621159' }),
+    AdsAdAccountSettingsStoreSourceServer: Object.freeze({ docId: '28895874003341024', clientDocId: '28895874003341024' }),
     AdsBulkEditCampaignGroupAgencyFeeBulkContainer: Object.freeze({ docId: '25592298897124600', clientDocId: '25592298897124600' }),
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '24742643098669903', clientDocId: '24742643098669903' }),
@@ -52,7 +52,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ClientEdgeQuery_AdsBulkEditAgenticCheckoutOptInFieldContentContainer_adgroups_creative__product_set__product_catalog: Object.freeze({ docId: '28909016462037998', clientDocId: '28909016462037998' }),
     ConsumerFetchQuickPromotions: Object.freeze({ docId: '35462584533386409', clientDocId: '35462584533386409' }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
-    ContactManagerCustomerProfile: Object.freeze({ docId: '28687308460925443', clientDocId: '28687308460925443' }),
+    ContactManagerCustomerProfile: Object.freeze({ docId: '38879305098350961', clientDocId: '38879305098350961' }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '39017784967837337', clientDocId: '39017784967837337' }),
     ContactManagerCustomerProfiles: Object.freeze({ docId: '27994011783631250', clientDocId: '27994011783631250' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
@@ -94,8 +94,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchDynamicAIModes: Object.freeze({ docId: '25335662402775799', clientDocId: '25335662402775799' }),
     FetchGroupInfo: Object.freeze({ docId: '27508847222068472', clientDocId: '27508847222068472' }),
     FetchGroupInfoIncludBots: Object.freeze({ docId: '27795062750123057', clientDocId: '27795062750123057' }),
-    FetchGroupInfoIncludBotsJobAcp2: Object.freeze({ docId: '29425004333754440', clientDocId: '29425004333754440' }),
-    FetchGroupInfoJobAcp2: Object.freeze({ docId: '28011005051915725', clientDocId: '28011005051915725' }),
+    FetchGroupInfoIncludBotsJobAcp2: Object.freeze({ docId: '28036426022701940', clientDocId: '28036426022701940' }),
+    FetchGroupInfoJobAcp2: Object.freeze({ docId: '38735621546085739', clientDocId: '38735621546085739' }),
     FetchGroupInviteCode: Object.freeze({ docId: '29247029834912157', clientDocId: '29247029834912157' }),
     FetchGroupIsInternal: Object.freeze({ docId: '34119218944390847', clientDocId: '34119218944390847' }),
     FetchIntegritySignals: Object.freeze({ docId: '26438847999065394', clientDocId: '26438847999065394' }),
@@ -235,8 +235,9 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '29053797954211922', clientDocId: '29053797954211922' }),
-    useWAWebEstimatedDailyReach: Object.freeze({ docId: '26555147174103537', clientDocId: '26555147174103537' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '29100997282818538', clientDocId: '29100997282818538' }),
+    useWAWebEstimatedDailyReach: Object.freeze({ docId: '28449519141342172', clientDocId: '28449519141342172' }),
+    useWAWebEstimatedDailyReachShadow: Object.freeze({ docId: '28286021457733285', clientDocId: '28286021457733285' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
     useWAWebSmartComposerReportThreadEvent: Object.freeze({ docId: '28777618758528424', clientDocId: '28777618758528424' }),
     useWAWebSmartComposerReportUsed: Object.freeze({ docId: '27016039438072594', clientDocId: '27016039438072594' })
@@ -334,8 +335,8 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     FetchDynamicAIModes: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     FetchGroupInfo: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_username', 'participants_phash', 'query_context']) }),
     FetchGroupInfoIncludBots: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_username', 'participants_phash', 'query_context']) }),
-    FetchGroupInfoIncludBotsJobAcp2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_acp2', 'include_username', 'participants_phash', 'query_context']) }),
-    FetchGroupInfoJobAcp2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_acp2', 'include_username', 'participants_phash', 'query_context']) }),
+    FetchGroupInfoIncludBotsJobAcp2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_username', 'participants_phash', 'query_context']) }),
+    FetchGroupInfoJobAcp2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'include_username', 'participants_phash', 'query_context']) }),
     FetchGroupInviteCode: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id', 'query_context']) }),
     FetchGroupIsInternal: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     FetchIntegritySignals: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
@@ -476,7 +477,8 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     useMAIBADraftStatus: Object.freeze({ operationKind: 'query', variables: Object.freeze(['campaignGroupId', 'id']) }),
     useMAIBAMedia: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjectIDs', 'thumbnailSize']) }),
     useMAIBAWidgetState: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    useWAWebEstimatedDailyReach: Object.freeze({ operationKind: 'query', variables: Object.freeze(['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']) }),
+    useWAWebEstimatedDailyReach: Object.freeze({ operationKind: 'query', variables: Object.freeze(['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'fetchOfsForecast', 'flow', 'flowID', 'forecastRequest', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience', 'useOfsForecast']) }),
+    useWAWebEstimatedDailyReachShadow: Object.freeze({ operationKind: 'query', variables: Object.freeze(['forecastRequest']) }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     useWAWebSmartComposerReportThreadEvent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     useWAWebSmartComposerReportUsed: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) })

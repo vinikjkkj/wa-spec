@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 'use strict'
 
 const WA_XML_OPERATIONS = Object.freeze({
@@ -163,6 +163,7 @@ const WA_XML_OPERATIONS = Object.freeze({
     ReceiptPublishView: Object.freeze({ module: 'WASmaxReceiptPublishViewRPC', opName: 'PublishView', rootTag: 'receipt', xmlns: null, type: 'view', requestModule: 'WASmaxOutReceiptPublishViewRequest', responseModules: Object.freeze(['WASmaxInReceiptPublishViewResponseSuccess']) }),
     RtcE2eeCallEventNotifyCallEventNotification: Object.freeze({ module: 'WASmaxRtcE2eeCallEventNotifyCallEventNotificationRPC', opName: 'CallEventNotification', rootTag: 'notification', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxInRtcE2eeCallEventNotifyCallEventNotificationRequest']) }),
     SmaxInvalidError: Object.freeze({ module: 'WASmaxSmaxInvalidErrorRPC', opName: 'Error', rootTag: 'error', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxInSmaxInvalidErrorRequest']) }),
+    SmbMeteredMessagesCampaignBbProCampaignStatusNotification: Object.freeze({ module: 'WASmaxSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRPC', opName: 'BbProCampaignStatusNotification', rootTag: 'notification', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxInSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRequest']) }),
     SmbMeteredMessagesCampaignCampaignStateChangedNotification: Object.freeze({ module: 'WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC', opName: 'CampaignStateChangedNotification', rootTag: 'notification', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxInSmbMeteredMessagesCampaignCampaignStateChangedNotificationRequest']) }),
     SmbMeteredMessagingAccountGetSMBMeteredMessagingCheckout: Object.freeze({ module: 'WASmaxSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRPC', opName: 'GetSMBMeteredMessagingCheckout', rootTag: 'iq', xmlns: 'w:biz', type: 'get', requestModule: 'WASmaxOutSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRequest', responseModules: Object.freeze(['WASmaxInSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutResponseError', 'WASmaxInSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutResponseSuccess']) }),
     SpamGroupReport: Object.freeze({ module: 'WASmaxSpamGroupReportRPC', opName: 'GroupReport', rootTag: 'iq', xmlns: 'spam', type: 'set', requestModule: 'WASmaxOutSpamGroupReportRequest', responseModules: Object.freeze(['WASmaxInSpamGroupReportResponseError', 'WASmaxInSpamGroupReportResponseSuccess']) }),

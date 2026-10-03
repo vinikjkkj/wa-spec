@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -249,6 +249,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly useMAIBAMedia: WaMexPersistId
     readonly useMAIBAWidgetState: WaMexPersistId
     readonly useWAWebEstimatedDailyReach: WaMexPersistId
+    readonly useWAWebEstimatedDailyReachShadow: WaMexPersistId
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexPersistId
     readonly useWAWebSmartComposerReportThreadEvent: WaMexPersistId
     readonly useWAWebSmartComposerReportUsed: WaMexPersistId
@@ -346,8 +347,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchDynamicAIModes: WaMexOperationSchema<'query', readonly []>
     readonly FetchGroupInfo: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
     readonly FetchGroupInfoIncludBots: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
-    readonly FetchGroupInfoIncludBotsJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_acp2', 'include_username', 'participants_phash', 'query_context']>
-    readonly FetchGroupInfoJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_acp2', 'include_username', 'participants_phash', 'query_context']>
+    readonly FetchGroupInfoIncludBotsJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
+    readonly FetchGroupInfoJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
     readonly FetchGroupInviteCode: WaMexOperationSchema<'query', readonly ['id', 'query_context']>
     readonly FetchGroupIsInternal: WaMexOperationSchema<'query', readonly ['id']>
     readonly FetchIntegritySignals: WaMexOperationSchema<'query', readonly ['input']>
@@ -488,7 +489,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly useMAIBADraftStatus: WaMexOperationSchema<'query', readonly ['campaignGroupId', 'id']>
     readonly useMAIBAMedia: WaMexOperationSchema<'query', readonly ['adObjectIDs', 'thumbnailSize']>
     readonly useMAIBAWidgetState: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly useWAWebEstimatedDailyReach: WaMexOperationSchema<'query', readonly ['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'flow', 'flowID', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience']>
+    readonly useWAWebEstimatedDailyReach: WaMexOperationSchema<'query', readonly ['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'fetchOfsForecast', 'flow', 'flowID', 'forecastRequest', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience', 'useOfsForecast']>
+    readonly useWAWebEstimatedDailyReachShadow: WaMexOperationSchema<'query', readonly ['forecastRequest']>
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useWAWebSmartComposerReportThreadEvent: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useWAWebSmartComposerReportUsed: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -763,7 +765,7 @@ export type WaMexContactManagerCustomerProfileVariables = {
 }
 
 export type WaMexContactManagerCustomerProfileUpsertVariables = {
-    readonly input?: ReadonlyArray<unknown>
+    readonly input?: Readonly<Record<string, unknown>>
 }
 
 export type WaMexContactManagerCustomerProfilesVariables = {
@@ -990,7 +992,6 @@ export type WaMexFetchGroupInfoIncludBotsVariables = {
 
 export type WaMexFetchGroupInfoIncludBotsJobAcp2Variables = {
     readonly id?: string
-    readonly include_acp2?: boolean
     readonly include_username?: boolean
     readonly participants_phash?: string
     readonly query_context?: string
@@ -998,7 +999,6 @@ export type WaMexFetchGroupInfoIncludBotsJobAcp2Variables = {
 
 export type WaMexFetchGroupInfoJobAcp2Variables = {
     readonly id?: string
-    readonly include_acp2?: boolean
     readonly include_username?: boolean
     readonly participants_phash?: string
     readonly query_context?: string
@@ -1117,11 +1117,10 @@ export type WaMexFetchNewsletterInsightsVariables = {
             readonly group_by?: {
                 readonly country?: boolean
                 readonly number_of_days?: number
-                readonly role?: boolean
             }
-            readonly id?: number
+            readonly id?: string
             readonly limit?: number
-            readonly type?: 'FOLLOWER' | 'FOLLOWS' | 'NET_FOLLOWS' | 'NEW_UNIQUE_VISITORS' | 'UNFOLLOWS' | 'UNIQUE_VISITORS'
+            readonly type?: 'FOLLOWER' | 'FOLLOWS' | 'NET_FOLLOWS' | 'UNFOLLOWS'
         }>
         readonly newsletter_id?: string
     }
@@ -1362,7 +1361,7 @@ export type WaMexLidChangeNotificationVariables = Readonly<Record<string, never>
 export type WaMexLogNewsletterExposuresVariables = {
     readonly input?: {
         readonly exposures?: ReadonlyArray<{
-            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
+            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_ADMIN_INSIGHTS' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
             readonly newsletter_id?: string
         }>
     }
@@ -1898,12 +1897,19 @@ export type WaMexuseWAWebEstimatedDailyReachVariables = {
     readonly audienceOptionAudience?: Readonly<Record<string, unknown>>
     readonly configuredPlacementSpec?: Readonly<Record<string, unknown>>
     readonly currency?: string
+    readonly fetchOfsForecast?: boolean
     readonly flow?: string
     readonly flowID?: string
+    readonly forecastRequest?: unknown
     readonly legacyAdAccountID?: string
     readonly optimizationGoalInput?: Readonly<Record<string, unknown>>
     readonly postID?: string
-    readonly targetingSpecAudience?: Readonly<Record<string, unknown>>
+    readonly targetingSpecAudience?: string
+    readonly useOfsForecast?: boolean
+}
+
+export type WaMexuseWAWebEstimatedDailyReachShadowVariables = {
+    readonly forecastRequest?: unknown
 }
 
 export type WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables = {
@@ -2153,6 +2159,7 @@ export interface WaMexOperationVariables {
     readonly useMAIBAMedia: WaMexuseMAIBAMediaVariables
     readonly useMAIBAWidgetState: WaMexuseMAIBAWidgetStateVariables
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachVariables
+    readonly useWAWebEstimatedDailyReachShadow: WaMexuseWAWebEstimatedDailyReachShadowVariables
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables
     readonly useWAWebSmartComposerReportThreadEvent: WaMexuseWAWebSmartComposerReportThreadEventVariables
     readonly useWAWebSmartComposerReportUsed: WaMexuseWAWebSmartComposerReportUsedVariables
@@ -2319,6 +2326,7 @@ export type WaMexAdsAdAccountSettingsStoreSourceServerResponse = {
             readonly timestamp?: string
         }>
         readonly id?: string
+        readonly is_genai_adoption_survey_exhausted?: boolean
         readonly is_video_gen_survey_exhausted?: boolean
         readonly l1ae_source_sticky_entries?: ReadonlyArray<{
             readonly container?: unknown
@@ -3101,6 +3109,7 @@ export type WaMexContactManagerCustomerProfileResponse = {
         }>
         readonly lead_stage?: string
         readonly name?: string
+        readonly order_preferences?: unknown
     }
 }
 
@@ -4366,7 +4375,7 @@ export type WaMexFetchNewsletterResponse = {
 
 export type WaMexFetchNewsletterAdminCapabilitiesResponse = {
     readonly xwa2_newsletter_admin?: {
-        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
+        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_ADMIN_INSIGHTS' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
         readonly id?: string
     }
 }
@@ -7422,6 +7431,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly scorecard_shell_tabs?: string
                                 readonly search_filters_json?: string
                                 readonly search_label?: string
+                                readonly secondary_button_label?: string
                                 readonly secondary_cta_label?: string
                                 readonly secondary_label?: string
                                 readonly secondary_message?: string
@@ -7545,6 +7555,18 @@ export type WaMexuseWAWebEstimatedDailyReachResponse = {
                 readonly spend?: number
             }>
         }
+    }
+    readonly whatsapp_ctwa_preflight_forecast?: {
+        readonly estimated_daily_impressions?: {
+            readonly lower_bound?: string
+            readonly upper_bound?: string
+        }
+    }
+}
+
+export type WaMexuseWAWebEstimatedDailyReachShadowResponse = {
+    readonly whatsapp_ctwa_preflight_forecast?: {
+        readonly __typename?: string
     }
 }
 
@@ -7801,6 +7823,7 @@ export interface WaMexOperationResponses {
     readonly useMAIBAMedia: WaMexuseMAIBAMediaResponse
     readonly useMAIBAWidgetState: WaMexuseMAIBAWidgetStateResponse
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachResponse
+    readonly useWAWebEstimatedDailyReachShadow: WaMexuseWAWebEstimatedDailyReachShadowResponse
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyResponse
     readonly useWAWebSmartComposerReportThreadEvent: WaMexuseWAWebSmartComposerReportThreadEventResponse
     readonly useWAWebSmartComposerReportUsed: WaMexuseWAWebSmartComposerReportUsedResponse

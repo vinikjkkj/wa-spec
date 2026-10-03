@@ -116,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2642,
+  "propCount": 2644,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -10306,6 +10306,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "smb_qp_bb_chat_list_banner": {
+      "code": 20172,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "smb_qp_conversion_tracking_infra": {
       "code": 26331,
       "debugDefaultValue": false,
@@ -12942,6 +12948,12 @@
     },
     "wa_web_meta_one_dev": {
       "code": 37481,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_meta_one_subscription_notifications_enabled": {
+      "code": 38221,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -16002,5 +16014,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1049098065"
+  "waVersion": "2.3000.1049208796"
 }

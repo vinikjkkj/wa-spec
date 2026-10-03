@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 
 export type WaAppstateCollection = 'regular' | 'regular_low' | 'regular_high' | 'critical_block' | 'critical_unblock_low'
 
@@ -85,6 +85,7 @@ export declare const WA_APPSTATE_SCHEMAS: {
     readonly ChatLockSettings: WaAppstateSchema<'setting_chatLock', 'regular_low', 'account', 'chatLockSettings', 'ChatLockSettings', null, readonly [{ readonly type: 'literal'; readonly value: 'setting_chatLock' }]>
     readonly ClearChat: WaAppstateSchema<'clearChat', 'regular_high', 'chatMessageRange', 'clearChatAction', 'SyncActionValue.ClearChatAction', null, readonly [{ readonly type: 'literal'; readonly value: 'clearChat' }, { readonly type: 'jid'; readonly name: 'chatJid' }, { readonly type: 'string'; readonly name: 'deleteStarred' }, { readonly type: 'string'; readonly name: 'deleteMedia' }]>
     readonly Contact: WaAppstateSchema<'contact', 'critical_unblock_low', 'account', 'contactAction', 'SyncActionValue.ContactAction', null, readonly [{ readonly type: 'literal'; readonly value: 'contact' }, { readonly type: 'string'; readonly name: 'id' }]>
+    readonly ContactManagerMetadata: WaAppstateSchema<'contact_manager_metadata', 'regular_low', 'account', 'contactManagerMetadataAction', 'SyncActionValue.ContactManagerMetadataAction', null, readonly [{ readonly type: 'literal'; readonly value: 'contact_manager_metadata' }, { readonly type: 'string'; readonly name: 'key1' }]>
     readonly CustomPaymentMethods: WaAppstateSchema<'custom_payment_methods', 'regular_low', 'account', 'customPaymentMethodsAction', 'SyncActionValue.CustomPaymentMethodsAction', null, readonly [{ readonly type: 'literal'; readonly value: 'custom_payment_methods' }]>
     readonly CustomerData: WaAppstateSchema<'customer_data', 'regular_low', 'account', 'customerDataAction', 'SyncActionValue.CustomerDataAction', null, readonly [{ readonly type: 'literal'; readonly value: 'customer_data' }, { readonly type: 'string'; readonly name: 'chatJid' }]>
     readonly DeleteChat: WaAppstateSchema<'deleteChat', 'regular_high', 'chatMessageRange', 'deleteChatAction', 'SyncActionValue.DeleteChatAction', null, readonly [{ readonly type: 'literal'; readonly value: 'deleteChat' }, { readonly type: 'jid'; readonly name: 'chatJid' }, { readonly type: 'string'; readonly name: 'deleteMedia' }]>

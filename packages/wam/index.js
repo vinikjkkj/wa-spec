@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -16597,6 +16597,7 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'CTA_BTN_CLICK': 2,
         'CTA_DISMISS': 3,
+        'CTA_SECONDARY_BTN_CLICK': 4,
         'IMPRESSION': 1
         })
     }),
@@ -16627,6 +16628,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALL_BTN_MODAL_2': 7,
         'CHATLIST_DROPDOWN': 2,
         'INTRO_PANEL': 1,
+        'LINK_DEVICE_ANDROID_TABLET_OVERLAY': 17,
         'LINK_DEVICE_APPLE_TOUCHSCREEN_OVERLAY': 16,
         'MISSED_CALL_MODAL': 8,
         'MISSED_CALL_MODAL_2': 9,

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -1705,6 +1705,7 @@ const WA_ABPROPS = Object.freeze({
     smb_premium_messages_url_cta_alert_dialog_enabled: Object.freeze({ code: 5044, type: "bool", defaultValue: true, debugDefaultValue: true }),
     smb_product_country_of_origin_m1: Object.freeze({ code: 13415, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_project_waldo_set_price_tier_biz_profile_enabled: Object.freeze({ code: 3467, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    smb_qp_bb_chat_list_banner: Object.freeze({ code: 20172, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_qp_conversion_tracking_infra: Object.freeze({ code: 26331, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_qp_emergency_force_fetch_nonce: Object.freeze({ code: 27115, type: "string", defaultValue: "", debugDefaultValue: "" }),
     smb_qp_web_debug_recunit: Object.freeze({ code: 31009, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2145,6 +2146,7 @@ const WA_ABPROPS = Object.freeze({
     wa_web_meta_one_biz_ai_entry_point_enabled: Object.freeze({ code: 37987, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_meta_one_biz_tools_entry_point_enabled: Object.freeze({ code: 37912, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_meta_one_dev: Object.freeze({ code: 37481, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    wa_web_meta_one_subscription_notifications_enabled: Object.freeze({ code: 38221, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_multi_ppl_typing_indicator_for_chatlist_groups_variant: Object.freeze({ code: 24560, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     wa_web_notifications_modal: Object.freeze({ code: 32228, type: "bool", defaultValue: false, debugDefaultValue: false }),
     wa_web_notifications_modal_timer: Object.freeze({ code: 36113, type: "int", defaultValue: 180, debugDefaultValue: 180 }),
@@ -3649,6 +3651,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     20070: "enable_hybrid_video_transcoding_for_valid_mp4",
     20099: "biz_ai_agent_thread_status_history_sync_enabled",
     20161: "noise_pq_mode",
+    20172: "smb_qp_bb_chat_list_banner",
     20182: "channels_sticker_pack_rendering",
     20212: "channel_sticker_pack_forwarding",
     20220: "ctwa_smb_detected_outcome_lists_enabled",
@@ -5318,7 +5321,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     38169: "pibx_max_fave_chats_in_imp_list",
     38174: "ks_mp4_strict_validation_enabled",
     38175: "wa_web_forward_add_message_enabled",
-    38177: "expanded_formatting_multiline_quotes"
+    38177: "expanded_formatting_multiline_quotes",
+    38221: "wa_web_meta_one_subscription_notifications_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

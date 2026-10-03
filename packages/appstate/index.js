@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -267,6 +267,19 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
         indexParts: Object.freeze([
             Object.freeze({ type: 'literal', value: 'contact' }),
             Object.freeze({ type: 'string', name: 'id' })
+        ])
+    }),
+    ContactManagerMetadata: Object.freeze({
+        name: 'contact_manager_metadata',
+        collection: 'regular_low',
+        version: 1,
+        scope: 'account',
+        valueField: 'contactManagerMetadataAction',
+        valueProtoType: 'SyncActionValue.ContactManagerMetadataAction',
+        valueEnumFields: null,
+        indexParts: Object.freeze([
+            Object.freeze({ type: 'literal', value: 'contact_manager_metadata' }),
+            Object.freeze({ type: 'string', name: 'key1' })
         ])
     }),
     CustomPaymentMethods: Object.freeze({

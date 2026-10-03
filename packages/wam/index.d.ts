@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049098065
+// WhatsApp Version: 2.3000.1049208796
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -16706,6 +16706,7 @@ export declare const WA_WAM_ENUMS: {
         readonly values: {
             readonly 'CTA_BTN_CLICK': 2;
             readonly 'CTA_DISMISS': 3;
+            readonly 'CTA_SECONDARY_BTN_CLICK': 4;
             readonly 'IMPRESSION': 1
         }
     }
@@ -16736,6 +16737,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CALL_BTN_MODAL_2': 7;
             readonly 'CHATLIST_DROPDOWN': 2;
             readonly 'INTRO_PANEL': 1;
+            readonly 'LINK_DEVICE_ANDROID_TABLET_OVERLAY': 17;
             readonly 'LINK_DEVICE_APPLE_TOUCHSCREEN_OVERLAY': 16;
             readonly 'MISSED_CALL_MODAL': 8;
             readonly 'MISSED_CALL_MODAL_2': 9;

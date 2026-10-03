@@ -39973,6 +39973,81 @@
       "type": null,
       "xmlns": null
     },
+    "SmbMeteredMessagesCampaignBbProCampaignStatusNotification": {
+      "module": "WASmaxSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRPC",
+      "opName": "BbProCampaignStatusNotification",
+      "request": null,
+      "responses": [
+        {
+          "entryName": "parseBbProCampaignStatusNotificationRequest",
+          "incoming": true,
+          "module": "WASmaxInSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRequest",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "literal",
+                "value": "s.whatsapp.net"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "offline": {
+                "optional": true,
+                "type": "int"
+              },
+              "t": {
+                "max": null,
+                "min": 0,
+                "type": "int"
+              },
+              "to": {
+                "optional": true,
+                "type": "userJid"
+              },
+              "type": {
+                "type": "literal",
+                "value": "business"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "campaign_id": {
+                    "type": "string"
+                  },
+                  "status": {
+                    "enumRef": "o(\"WASmaxInSmbMeteredMessagesCampaignEnums\").ENUM_ACTIVE_COMPLETED_INREVIEW_NOTSENDING_OFF_PROCESSING_REJECTED_SCHEDULED_SENDINGLIMITED",
+                    "enumValues": [
+                      "ACTIVE",
+                      "COMPLETED",
+                      "IN_REVIEW",
+                      "NOT_SENDING",
+                      "OFF",
+                      "PROCESSING",
+                      "REJECTED",
+                      "SCHEDULED",
+                      "SENDING_LIMITED"
+                    ],
+                    "type": "enum"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "bb_pro_campaign"
+              }
+            ],
+            "content": null,
+            "tag": "notification"
+          },
+          "variant": "Request"
+        }
+      ],
+      "rootTag": "notification",
+      "type": null,
+      "xmlns": null
+    },
     "SmbMeteredMessagesCampaignCampaignStateChangedNotification": {
       "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC",
       "opName": "CampaignStateChangedNotification",
@@ -57501,5 +57576,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1049098065"
+  "waVersion": "2.3000.1049208796"
 }

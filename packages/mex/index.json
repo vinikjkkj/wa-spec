@@ -311,7 +311,7 @@
       }
     },
     "AdsAdAccountSettingsStoreSourceServer": {
-      "docId": "27447217501621159",
+      "docId": "28895874003341024",
       "operationKind": "query",
       "originalName": "AdsAdAccountSettingsStoreSourceServerQuery",
       "response": {
@@ -324,6 +324,7 @@
             }
           ],
           "id": "string",
+          "is_genai_adoption_survey_exhausted": "boolean",
           "is_video_gen_survey_exhausted": "boolean",
           "l1ae_source_sticky_entries": [
             {
@@ -1648,7 +1649,7 @@
       }
     },
     "ContactManagerCustomerProfile": {
-      "docId": "28687308460925443",
+      "docId": "38879305098350961",
       "operationKind": "query",
       "originalName": "WAWebContactManagerCustomerProfileQuery",
       "response": {
@@ -1666,7 +1667,8 @@
             }
           ],
           "lead_stage": "string",
-          "name": "string"
+          "name": "string",
+          "order_preferences": "unknown"
         }
       },
       "variables": [
@@ -1698,9 +1700,7 @@
         "input"
       ],
       "variablesShape": {
-        "input": [
-          "unknown"
-        ]
+        "input": {}
       }
     },
     "ContactManagerCustomerProfiles": {
@@ -3195,7 +3195,7 @@
       }
     },
     "FetchGroupInfoIncludBotsJobAcp2": {
-      "docId": "29425004333754440",
+      "docId": "28036426022701940",
       "operationKind": "query",
       "originalName": "WAWebMexFetchGroupInfoIncludBotsJobAcp2Query",
       "response": {
@@ -3302,21 +3302,19 @@
       },
       "variables": [
         "id",
-        "include_acp2",
         "include_username",
         "participants_phash",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
-        "include_acp2": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
       }
     },
     "FetchGroupInfoJobAcp2": {
-      "docId": "28011005051915725",
+      "docId": "38735621546085739",
       "operationKind": "query",
       "originalName": "WAWebMexFetchGroupInfoJobAcp2Query",
       "response": {
@@ -3421,14 +3419,12 @@
       },
       "variables": [
         "id",
-        "include_acp2",
         "include_username",
         "participants_phash",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
-        "include_acp2": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
@@ -3660,7 +3656,7 @@
       "response": {
         "xwa2_newsletter_admin": {
           "capabilities": [
-            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_API|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUESTIONS_STARRING|QUIZ|SCHEDULED_UPDATES|SHARE_STICKER_PACKS|THREAD_MENU"
+            "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_ADMIN_INSIGHTS|CHANNEL_STATUS_API|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUESTIONS_STARRING|QUIZ|SCHEDULED_UPDATES|SHARE_STICKER_PACKS|THREAD_MENU"
           ],
           "id": "string"
         }
@@ -4227,12 +4223,11 @@
             {
               "group_by": {
                 "country": "boolean",
-                "number_of_days": "number",
-                "role": "boolean"
+                "number_of_days": "number"
               },
-              "id": "number",
+              "id": "string",
               "limit": "number",
-              "type": "enum:FOLLOWER|FOLLOWS|NET_FOLLOWS|NEW_UNIQUE_VISITORS|UNFOLLOWS|UNIQUE_VISITORS"
+              "type": "enum:FOLLOWER|FOLLOWS|NET_FOLLOWS|UNFOLLOWS"
             }
           ],
           "newsletter_id": "string"
@@ -5518,7 +5513,7 @@
         "input": {
           "exposures": [
             {
-              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_API|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUESTIONS_STARRING|QUIZ|SCHEDULED_UPDATES|SHARE_STICKER_PACKS|THREAD_MENU",
+              "capability": "enum:ADMIN_CONTEXT_CARD_1|ADMIN_CONTEXT_CARD_2|ADMIN_CONTEXT_CARD_3|ADMIN_NOTIFICATIONS|ADMIN_ONBOARDING|ADMIN_ONBOARDING_2|ADMIN_PROFILE|CHANNEL_STATUS_ADMIN_INSIGHTS|CHANNEL_STATUS_API|CHANNEL_STATUS_MUSIC|CHANNEL_STATUS_PRODUCER|INSIGHTS|INVITE_ADMINS_BUTTON|INVITE_FOLLOWERS|JARVIS_INTEGRATION_ENABLED|MUSIC|NEW_MESSAGE_TYPES_TOOLTIP|PHOTO_POLLS|PINNED_MESSAGES|PINNING_NUDGE|QUESTIONS|QUESTIONS_M2|QUESTIONS_STARRING|QUIZ|SCHEDULED_UPDATES|SHARE_STICKER_PACKS|THREAD_MENU",
               "newsletter_id": "string"
             }
           ]
@@ -8274,7 +8269,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "29053797954211922",
+      "docId": "29100997282818538",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8850,6 +8845,7 @@
                           "scorecard_shell_tabs": "string",
                           "search_filters_json": "string",
                           "search_label": "string",
+                          "secondary_button_label": "string",
                           "secondary_cta_label": "string",
                           "secondary_label": "string",
                           "secondary_message": "string",
@@ -8979,7 +8975,7 @@
       }
     },
     "useWAWebEstimatedDailyReach": {
-      "docId": "26555147174103537",
+      "docId": "28449519141342172",
       "operationKind": "query",
       "originalName": "useWAWebEstimatedDailyReachQuery",
       "response": {
@@ -8999,29 +8995,57 @@
               }
             ]
           }
+        },
+        "whatsapp_ctwa_preflight_forecast": {
+          "estimated_daily_impressions": {
+            "lower_bound": "string",
+            "upper_bound": "string"
+          }
         }
       },
       "variables": [
         "audienceOptionAudience",
         "configuredPlacementSpec",
         "currency",
+        "fetchOfsForecast",
         "flow",
         "flowID",
+        "forecastRequest",
         "legacyAdAccountID",
         "optimizationGoalInput",
         "postID",
-        "targetingSpecAudience"
+        "targetingSpecAudience",
+        "useOfsForecast"
       ],
       "variablesShape": {
         "audienceOptionAudience": {},
         "configuredPlacementSpec": {},
         "currency": "string",
+        "fetchOfsForecast": "boolean",
         "flow": "string",
         "flowID": "string",
+        "forecastRequest": "unknown",
         "legacyAdAccountID": "string",
         "optimizationGoalInput": {},
         "postID": "string",
-        "targetingSpecAudience": {}
+        "targetingSpecAudience": "string",
+        "useOfsForecast": "boolean"
+      }
+    },
+    "useWAWebEstimatedDailyReachShadow": {
+      "docId": "28286021457733285",
+      "operationKind": "query",
+      "originalName": "useWAWebEstimatedDailyReachShadowQuery",
+      "response": {
+        "whatsapp_ctwa_preflight_forecast": {
+          "__typename": "string"
+        }
+      },
+      "variables": [
+        "forecastRequest"
+      ],
+      "variablesShape": {
+        "forecastRequest": "unknown"
       }
     },
     "useWAWebSmartComposerCoachSuggestedReply": {
@@ -9073,5 +9097,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049098065"
+  "waVersion": "2.3000.1049208796"
 }
