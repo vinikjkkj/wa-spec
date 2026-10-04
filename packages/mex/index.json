@@ -5664,23 +5664,6 @@
         "page_id": "string"
       }
     },
-    "MAWVerifyThreadCutover_ContactCapabilities2": {
-      "docId": "9948369021930229",
-      "operationKind": "query",
-      "originalName": "MAWVerifyThreadCutover_ContactCapabilities2Query",
-      "response": {
-        "user": {
-          "id": "string",
-          "message_capabilities2_str": "string"
-        }
-      },
-      "variables": [
-        "id"
-      ],
-      "variablesShape": {
-        "id": "string"
-      }
-    },
     "MetaPayVaultInitialize": {
       "docId": "27977299271866413",
       "operationKind": "mutation",
@@ -6406,95 +6389,6 @@
           "member_tag_options": "unknown",
           "org_id": "string"
         }
-      }
-    },
-    "PageAdminSettingsWhatsAppLinkAccount": {
-      "docId": "38588798504099313",
-      "operationKind": "mutation",
-      "originalName": "PageAdminSettingsWhatsAppLinkAccountMutation",
-      "response": {
-        "verify_page_whatsapp_number": {
-          "biz_link_attempted": "boolean",
-          "error_msg": "string",
-          "link_request_data": {
-            "eligible_for_request_flow": "boolean",
-            "page_name": "string",
-            "target_bp_name": "string",
-            "wa_business_person_id": "string",
-            "wa_phone_number": "string"
-          },
-          "page": {
-            "can_see_page_wa_link_post_phone_verification_ber_sdk_experiment": "boolean",
-            "connected_whatsapp_number": "string",
-            "formatted_primary_whatsapp_number": "string",
-            "id": "string",
-            "if_viewer_can_see_link_confirmation_flow": "boolean",
-            "if_viewer_can_see_mixed_permissions_forward_fix_page_wa_link_invite_modal_comet": {
-              "id": "string"
-            },
-            "is_page_in_mixed_permissions_state": "boolean",
-            "owner_business": {
-              "id": "string"
-            },
-            "page_call_to_action": {
-              "cta_type": "string",
-              "id": "string"
-            },
-            "page_whatsapp_number_id": "string",
-            "pending_request_whatsapp_business_number": "unknown",
-            "primary_whatsapp_number": "string",
-            "should_whatsapp_number_be_business_only": "boolean",
-            "verified_whatsapp_numbers": {
-              "nodes": [
-                {
-                  "formatted_whatsapp_number": "string",
-                  "id": "string",
-                  "raw_whatsapp_number": "string",
-                  "should_show_in_page_profile": "boolean",
-                  "whatsapp_number": "string",
-                  "whatsapp_number_type_slow_and_accurate": "string"
-                }
-              ]
-            },
-            "whatsapp_display_number": "string",
-            "whatsapp_initial_country_code": "string",
-            "whatsapp_number_eligible_for_link_confirmation_flow": {
-              "link_confirmation_eligible_number": "string",
-              "link_confirmation_eligible_number_formatted": "string"
-            }
-          },
-          "result": "string"
-        }
-      },
-      "variables": [
-        "allow_business_override",
-        "business_id_to_claim_assets",
-        "client_params",
-        "disclosure_auth_data",
-        "flow_type",
-        "is_mixed_permissions_flow",
-        "page_id",
-        "register_wa_to_page",
-        "require_business_number",
-        "set_primary_number",
-        "source",
-        "verification_code",
-        "whatsapp_number"
-      ],
-      "variablesShape": {
-        "allow_business_override": "boolean",
-        "business_id_to_claim_assets": "unknown",
-        "client_params": "unknown",
-        "disclosure_auth_data": "unknown",
-        "flow_type": "enum:PAGE_WHATSAPP_LINKING",
-        "is_mixed_permissions_flow": "boolean",
-        "page_id": "string",
-        "register_wa_to_page": "number",
-        "require_business_number": "boolean",
-        "set_primary_number": "boolean",
-        "source": "enum:PAGE_SETTING_PAGE_MULTI_NUMBER",
-        "verification_code": "unknown",
-        "whatsapp_number": "string"
       }
     },
     "PaymentsPasskeyHasCredential": {
@@ -7952,33 +7846,6 @@
         }
       }
     },
-    "VerifyPageWhatsAppAccountForDisclosures": {
-      "docId": "9705996306161471",
-      "operationKind": "mutation",
-      "originalName": "VerifyPageWhatsAppAccountForDisclosuresMutation",
-      "response": {
-        "verify_page_whatsapp_account_for_disclosures": {
-          "error_msg": "string",
-          "wa_nonce": "string"
-        }
-      },
-      "variables": [
-        "disclosure_type",
-        "page_id",
-        "require_business_number",
-        "source",
-        "verification_code",
-        "wa_number"
-      ],
-      "variablesShape": {
-        "disclosure_type": "string",
-        "page_id": "string",
-        "require_business_number": "boolean",
-        "source": "enum:ADS_LWI",
-        "verification_code": "unknown",
-        "wa_number": "unknown"
-      }
-    },
     "WAAOnboarding": {
       "docId": "25173295938976172",
       "operationKind": "mutation",
@@ -9097,5 +8964,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049208796"
+  "waVersion": "2.3000.1049246483"
 }

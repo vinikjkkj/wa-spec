@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049208796
+// WhatsApp Version: 2.3000.1049246483
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -168,7 +168,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly MAIBAMessageSignalsCTARenderer: WaMexPersistId
     readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexPersistId
     readonly MAIBARecordAsyncAuthConsent: WaMexPersistId
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexPersistId
     readonly MetaPayVaultInitialize: WaMexPersistId
     readonly MetaPayVaultLabyrinthDelete: WaMexPersistId
     readonly MetaPayVaultLabyrinthFetchAll: WaMexPersistId
@@ -195,7 +194,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
     readonly OrgAdminGraphQLUpdateOrg: WaMexPersistId
-    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
@@ -236,7 +234,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly UploadLabyrinthMessages: WaMexPersistId
     readonly UsernameAvailability: WaMexPersistId
     readonly Usync: WaMexPersistId
-    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexPersistId
     readonly WAAOnboarding: WaMexPersistId
     readonly WAMFlowsCTWAEditorModal: WaMexPersistId
     readonly WAMFlowsCTWAFlowPreview: WaMexPersistId
@@ -409,7 +406,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly MAIBAMessageSignalsCTARenderer: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexOperationSchema<'mutation', readonly ['enable', 'pixel_id']>
     readonly MAIBARecordAsyncAuthConsent: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'page_id']>
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexOperationSchema<'query', readonly ['id']>
     readonly MetaPayVaultInitialize: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthDelete: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthFetchAll: WaMexOperationSchema<'query', readonly ['input']>
@@ -436,7 +432,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLUpdateOrg: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexOperationSchema<'mutation', readonly ['allow_business_override', 'business_id_to_claim_assets', 'client_params', 'disclosure_auth_data', 'flow_type', 'is_mixed_permissions_flow', 'page_id', 'register_wa_to_page', 'require_business_number', 'set_primary_number', 'source', 'verification_code', 'whatsapp_number']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
@@ -477,7 +472,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
     readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_username', 'input']>
-    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexOperationSchema<'mutation', readonly ['disclosure_type', 'page_id', 'require_business_number', 'source', 'verification_code', 'wa_number']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly WAMFlowsCTWAEditorModal: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'flowId', 'skipRequest']>
     readonly WAMFlowsCTWAFlowPreview: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']>
@@ -1394,10 +1388,6 @@ export type WaMexMAIBARecordAsyncAuthConsentVariables = {
     readonly page_id?: string
 }
 
-export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables = {
-    readonly id?: string
-}
-
 export type WaMexMetaPayVaultInitializeVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -1541,22 +1531,6 @@ export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
         readonly member_tag_options?: unknown
         readonly org_id?: string
     }
-}
-
-export type WaMexPageAdminSettingsWhatsAppLinkAccountVariables = {
-    readonly allow_business_override?: boolean
-    readonly business_id_to_claim_assets?: unknown
-    readonly client_params?: unknown
-    readonly disclosure_auth_data?: unknown
-    readonly flow_type?: 'PAGE_WHATSAPP_LINKING'
-    readonly is_mixed_permissions_flow?: boolean
-    readonly page_id?: string
-    readonly register_wa_to_page?: number
-    readonly require_business_number?: boolean
-    readonly set_primary_number?: boolean
-    readonly source?: 'PAGE_SETTING_PAGE_MULTI_NUMBER'
-    readonly verification_code?: unknown
-    readonly whatsapp_number?: string
 }
 
 export type WaMexPaymentsPasskeyHasCredentialVariables = Readonly<Record<string, never>>
@@ -1830,15 +1804,6 @@ export type WaMexUsyncVariables = {
     }
 }
 
-export type WaMexVerifyPageWhatsAppAccountForDisclosuresVariables = {
-    readonly disclosure_type?: string
-    readonly page_id?: string
-    readonly require_business_number?: boolean
-    readonly source?: 'ADS_LWI'
-    readonly verification_code?: unknown
-    readonly wa_number?: unknown
-}
-
 export type WaMexWAAOnboardingVariables = {
     readonly input?: {
         readonly flow_id?: string
@@ -2078,7 +2043,6 @@ export interface WaMexOperationVariables {
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererVariables
     readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexMAIBAMessageSignalsCTARendererEnableAutomaticEventsVariables
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentVariables
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Variables
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeVariables
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteVariables
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllVariables
@@ -2105,7 +2069,6 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterVariables
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgVariables
-    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexPageAdminSettingsWhatsAppLinkAccountVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
@@ -2146,7 +2109,6 @@ export interface WaMexOperationVariables {
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesVariables
     readonly UsernameAvailability: WaMexUsernameAvailabilityVariables
     readonly Usync: WaMexUsyncVariables
-    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexVerifyPageWhatsAppAccountForDisclosuresVariables
     readonly WAAOnboarding: WaMexWAAOnboardingVariables
     readonly WAMFlowsCTWAEditorModal: WaMexWAMFlowsCTWAEditorModalVariables
     readonly WAMFlowsCTWAFlowPreview: WaMexWAMFlowsCTWAFlowPreviewVariables
@@ -5515,13 +5477,6 @@ export type WaMexMAIBARecordAsyncAuthConsentResponse = {
     }
 }
 
-export type WaMexMAWVerifyThreadCutover_ContactCapabilities2Response = {
-    readonly user?: {
-        readonly id?: string
-        readonly message_capabilities2_str?: string
-    }
-}
-
 export type WaMexMetaPayVaultInitializeResponse = {
     readonly meta_pay_vault_initialize?: {
         readonly error_reason?: string
@@ -5890,59 +5845,6 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             readonly viewer_role?: string
         }
         readonly status?: 'SUCCESS'
-    }
-}
-
-export type WaMexPageAdminSettingsWhatsAppLinkAccountResponse = {
-    readonly verify_page_whatsapp_number?: {
-        readonly biz_link_attempted?: boolean
-        readonly error_msg?: string
-        readonly link_request_data?: {
-            readonly eligible_for_request_flow?: boolean
-            readonly page_name?: string
-            readonly target_bp_name?: string
-            readonly wa_business_person_id?: string
-            readonly wa_phone_number?: string
-        }
-        readonly page?: {
-            readonly can_see_page_wa_link_post_phone_verification_ber_sdk_experiment?: boolean
-            readonly connected_whatsapp_number?: string
-            readonly formatted_primary_whatsapp_number?: string
-            readonly id?: string
-            readonly if_viewer_can_see_link_confirmation_flow?: boolean
-            readonly if_viewer_can_see_mixed_permissions_forward_fix_page_wa_link_invite_modal_comet?: {
-                readonly id?: string
-            }
-            readonly is_page_in_mixed_permissions_state?: boolean
-            readonly owner_business?: {
-                readonly id?: string
-            }
-            readonly page_call_to_action?: {
-                readonly cta_type?: string
-                readonly id?: string
-            }
-            readonly page_whatsapp_number_id?: string
-            readonly pending_request_whatsapp_business_number?: unknown
-            readonly primary_whatsapp_number?: string
-            readonly should_whatsapp_number_be_business_only?: boolean
-            readonly verified_whatsapp_numbers?: {
-                readonly nodes?: ReadonlyArray<{
-                    readonly formatted_whatsapp_number?: string
-                    readonly id?: string
-                    readonly raw_whatsapp_number?: string
-                    readonly should_show_in_page_profile?: boolean
-                    readonly whatsapp_number?: string
-                    readonly whatsapp_number_type_slow_and_accurate?: string
-                }>
-            }
-            readonly whatsapp_display_number?: string
-            readonly whatsapp_initial_country_code?: string
-            readonly whatsapp_number_eligible_for_link_confirmation_flow?: {
-                readonly link_confirmation_eligible_number?: string
-                readonly link_confirmation_eligible_number_formatted?: string
-            }
-        }
-        readonly result?: string
     }
 }
 
@@ -6773,13 +6675,6 @@ export type WaMexUsyncResponse = {
             readonly username?: string
         }
     }>
-}
-
-export type WaMexVerifyPageWhatsAppAccountForDisclosuresResponse = {
-    readonly verify_page_whatsapp_account_for_disclosures?: {
-        readonly error_msg?: string
-        readonly wa_nonce?: string
-    }
 }
 
 export type WaMexWAAOnboardingResponse = {
@@ -7742,7 +7637,6 @@ export interface WaMexOperationResponses {
     readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererResponse
     readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexMAIBAMessageSignalsCTARendererEnableAutomaticEventsResponse
     readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentResponse
-    readonly MAWVerifyThreadCutover_ContactCapabilities2: WaMexMAWVerifyThreadCutover_ContactCapabilities2Response
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeResponse
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteResponse
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllResponse
@@ -7769,7 +7663,6 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterResponse
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgResponse
-    readonly PageAdminSettingsWhatsAppLinkAccount: WaMexPageAdminSettingsWhatsAppLinkAccountResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
@@ -7810,7 +7703,6 @@ export interface WaMexOperationResponses {
     readonly UploadLabyrinthMessages: WaMexUploadLabyrinthMessagesResponse
     readonly UsernameAvailability: WaMexUsernameAvailabilityResponse
     readonly Usync: WaMexUsyncResponse
-    readonly VerifyPageWhatsAppAccountForDisclosures: WaMexVerifyPageWhatsAppAccountForDisclosuresResponse
     readonly WAAOnboarding: WaMexWAAOnboardingResponse
     readonly WAMFlowsCTWAEditorModal: WaMexWAMFlowsCTWAEditorModalResponse
     readonly WAMFlowsCTWAFlowPreview: WaMexWAMFlowsCTWAFlowPreviewResponse

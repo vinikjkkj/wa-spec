@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049208796
+// WhatsApp Version: 2.3000.1049246483
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -156,7 +156,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
     MAIBAMessageSignalsCTARendererEnableAutomaticEvents: Object.freeze({ docId: '38558715557105651', clientDocId: '38558715557105651' }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ docId: '27087116144243008', clientDocId: '27087116144243008' }),
-    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ docId: '9948369021930229', clientDocId: '9948369021930229' }),
     MetaPayVaultInitialize: Object.freeze({ docId: '27977299271866413', clientDocId: '27977299271866413' }),
     MetaPayVaultLabyrinthDelete: Object.freeze({ docId: '27984854301168611', clientDocId: '27984854301168611' }),
     MetaPayVaultLabyrinthFetchAll: Object.freeze({ docId: '27594971176872211', clientDocId: '27594971176872211' }),
@@ -183,7 +182,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     OrgAdminGraphQLReplaceAdminRoster: Object.freeze({ docId: '28419705454357517', clientDocId: '28419705454357517' }),
     OrgAdminGraphQLSetMemberRole: Object.freeze({ docId: '28470063769311553', clientDocId: '28470063769311553' }),
     OrgAdminGraphQLUpdateOrg: Object.freeze({ docId: '28301720222820867', clientDocId: '28301720222820867' }),
-    PageAdminSettingsWhatsAppLinkAccount: Object.freeze({ docId: '38588798504099313', clientDocId: '38588798504099313' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
     QueryCatalog: Object.freeze({ docId: '30445081048424116', clientDocId: '30445081048424116' }),
     QueryCatalogHasCategories: Object.freeze({ docId: '9746549555457302', clientDocId: '9746549555457302' }),
@@ -224,7 +222,6 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     UploadLabyrinthMessages: Object.freeze({ docId: '28023438937253549', clientDocId: '28023438937253549' }),
     UsernameAvailability: Object.freeze({ docId: '26122779627399568', clientDocId: '26122779627399568' }),
     Usync: Object.freeze({ docId: '29829202653362039', clientDocId: '29829202653362039' }),
-    VerifyPageWhatsAppAccountForDisclosures: Object.freeze({ docId: '9705996306161471', clientDocId: '9705996306161471' }),
     WAAOnboarding: Object.freeze({ docId: '25173295938976172', clientDocId: '25173295938976172' }),
     WAMFlowsCTWAEditorModal: Object.freeze({ docId: '8362083050583453', clientDocId: '8362083050583453' }),
     WAMFlowsCTWAFlowPreview: Object.freeze({ docId: '27840918535579934', clientDocId: '27840918535579934' }),
@@ -397,7 +394,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     MAIBAMessageSignalsCTARenderer: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MAIBAMessageSignalsCTARendererEnableAutomaticEvents: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['enable', 'pixel_id']) }),
     MAIBARecordAsyncAuthConsent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['ad_account_id', 'page_id']) }),
-    MAWVerifyThreadCutover_ContactCapabilities2: Object.freeze({ operationKind: 'query', variables: Object.freeze(['id']) }),
     MetaPayVaultInitialize: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MetaPayVaultLabyrinthDelete: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MetaPayVaultLabyrinthFetchAll: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
@@ -424,7 +420,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     OrgAdminGraphQLReplaceAdminRoster: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     OrgAdminGraphQLSetMemberRole: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     OrgAdminGraphQLUpdateOrg: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    PageAdminSettingsWhatsAppLinkAccount: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['allow_business_override', 'business_id_to_claim_assets', 'client_params', 'disclosure_auth_data', 'flow_type', 'is_mixed_permissions_flow', 'page_id', 'register_wa_to_page', 'require_business_number', 'set_primary_number', 'source', 'verification_code', 'whatsapp_number']) }),
     PaymentsPasskeyHasCredential: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     QueryCatalog: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),
     QueryCatalogHasCategories: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),
@@ -465,7 +460,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     UploadLabyrinthMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UsernameAvailability: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input', 'session_id', 'source']) }),
     Usync: Object.freeze({ operationKind: 'query', variables: Object.freeze(['include_about_status', 'include_country_code', 'include_username', 'input']) }),
-    VerifyPageWhatsAppAccountForDisclosures: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['disclosure_type', 'page_id', 'require_business_number', 'source', 'verification_code', 'wa_number']) }),
     WAAOnboarding: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     WAMFlowsCTWAEditorModal: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjective', 'businessName', 'flowId', 'skipRequest']) }),
     WAMFlowsCTWAFlowPreview: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']) }),
