@@ -116,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2644,
+  "propCount": 2665,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -933,6 +933,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_meta_ai_thread_default_profile_pic_type": {
+      "code": 38321,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
     },
     "ai_meta_ai_thread_rendering_enabled": {
       "code": 36759,
@@ -4266,7 +4272,7 @@
     },
     "ctwa_3pd_data_sharing_title_change": {
       "code": 29332,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -4482,6 +4488,12 @@
     },
     "ctwa_show_ads_data_sharing_after_message": {
       "code": 13579,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_smb_ae_companion_onboarding_enabled": {
+      "code": 33883,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -4993,6 +5005,12 @@
     "enable_3p_contacts_share_hybrid": {
       "code": 20849,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_advanced_sticker_testing": {
+      "code": 38292,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -5592,6 +5610,30 @@
     },
     "enable_video_thumbnails_in_chat_list": {
       "code": 32841,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_vod_itm_chat_fullscreen": {
+      "code": 38380,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_vod_itm_status": {
+      "code": 38383,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_vod_sharpen_chat_fullscreen": {
+      "code": 38267,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "enable_vod_sharpen_status": {
+      "code": 38268,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -10894,6 +10936,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "thread_interactions_channel_own_posts_sent_web_enabled": {
+      "code": 38275,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "thread_interactions_channel_reads_aligned_web_enabled": {
       "code": 38165,
       "debugDefaultValue": true,
@@ -11469,6 +11517,42 @@
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
+    },
+    "vod_itm_approach": {
+      "code": 38384,
+      "debugDefaultValue": 1,
+      "defaultValue": 1,
+      "type": "int"
+    },
+    "vod_itm_max_short_edge": {
+      "code": 38382,
+      "debugDefaultValue": 576,
+      "defaultValue": 576,
+      "type": "int"
+    },
+    "vod_itm_min_short_edge": {
+      "code": 38381,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "vod_sharpen_filter_max_short_edge": {
+      "code": 38263,
+      "debugDefaultValue": 576,
+      "defaultValue": 576,
+      "type": "int"
+    },
+    "vod_sharpen_filter_min_short_edge": {
+      "code": 38269,
+      "debugDefaultValue": 576,
+      "defaultValue": 576,
+      "type": "int"
+    },
+    "vod_sharpen_filter_strength": {
+      "code": 38265,
+      "debugDefaultValue": 0.20000000298023224,
+      "defaultValue": 0.20000000298023224,
+      "type": "float"
     },
     "vod_vsr_max_short_edge": {
       "code": 38039,
@@ -12190,6 +12274,12 @@
       "defaultValue": 3,
       "type": "int"
     },
+    "wa_sticker_store_insights_country_threshold": {
+      "code": 38266,
+      "debugDefaultValue": 100,
+      "defaultValue": 100,
+      "type": "int"
+    },
     "wa_subs_benefit_loss_enabled": {
       "code": 37617,
       "debugDefaultValue": false,
@@ -12372,6 +12462,12 @@
     },
     "wa_web_calling_call_user_journey_logging_enabled": {
       "code": 35896,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_calling_call_user_journey_logging_m2_enabled": {
+      "code": 38252,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -14116,6 +14212,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_audience_import_segment_text": {
+      "code": 38294,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_autodownload_stickers": {
       "code": 7422,
       "debugDefaultValue": true,
@@ -15538,6 +15640,12 @@
       "defaultValue": 120000,
       "type": "int"
     },
+    "web_voip_device_access_recovery_enabled": {
+      "code": 38393,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_voip_dtls_cert_cache_mode": {
       "code": 37058,
       "debugDefaultValue": 0,
@@ -15952,6 +16060,24 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wmi_wa_web_message_delivery_qpl_instrumentation": {
+      "code": 38244,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wmi_wa_web_one_queue_adoption": {
+      "code": 38245,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wmi_wa_web_persisted_queue": {
+      "code": 38247,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wmi_worker_scheduler_web": {
       "code": 27237,
       "debugDefaultValue": false,
@@ -16014,5 +16140,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1049246483"
+  "waVersion": "2.3000.1049290928"
 }
