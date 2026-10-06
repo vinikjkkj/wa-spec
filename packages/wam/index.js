@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049290928
+// WhatsApp Version: 2.3000.1049416828
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -812,6 +812,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'AE_OFFBOARDING_NUX_SCREEN': 13,
         'AE_OFFBOARDING_NUX_TURN_OFF': 14,
         'AE_OFFBOARDING_START': 19,
+        'AE_OFFBOARDING_SURVEY_CLOSE': 37,
+        'AE_OFFBOARDING_SURVEY_REASON_CREATE_LISTS_MANUALLY': 42,
+        'AE_OFFBOARDING_SURVEY_REASON_DIDNT_MEAN_TO_TURN_ON': 38,
+        'AE_OFFBOARDING_SURVEY_REASON_LISTS_DONT_FIT': 41,
+        'AE_OFFBOARDING_SURVEY_REASON_NOT_SURE': 39,
+        'AE_OFFBOARDING_SURVEY_REASON_OTHER': 43,
+        'AE_OFFBOARDING_SURVEY_REASON_WRONG_LIST': 40,
+        'AE_OFFBOARDING_SURVEY_SCREEN': 35,
+        'AE_OFFBOARDING_SURVEY_SUBMIT': 36,
         'AE_ONBOARDING_BIOMETRIC_BYPASS': 30,
         'AE_ONBOARDING_BIOMETRIC_CANCELLED': 32,
         'AE_ONBOARDING_BIOMETRIC_ERROR': 33,
@@ -2175,6 +2184,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumCallTrigger',
         export: 'CALL_TRIGGER',
         values: Object.freeze({
+        'ADM_PUSH_PAYLOAD': 4,
         'FBNS_PUSH_PAYLOAD': 3,
         'FCM_PUSH_PAYLOAD': 2,
         'OFFLINE_STANZA': 1,
@@ -6182,6 +6192,23 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumImagineAction',
         export: 'IMAGINE_ACTION',
         values: Object.freeze({
+        'AI_MEDIA_EDITOR_ANIMATE_SEND': 128,
+        'AI_MEDIA_EDITOR_BACKGROUND_CLICKED': 121,
+        'AI_MEDIA_EDITOR_BACKGROUND_SEND': 127,
+        'AI_MEDIA_EDITOR_CAROUSEL_PREVIEWED': 116,
+        'AI_MEDIA_EDITOR_CAROUSEL_SWIPED': 117,
+        'AI_MEDIA_EDITOR_DESCRIBE_CLICKED': 118,
+        'AI_MEDIA_EDITOR_DESCRIBE_SEND': 124,
+        'AI_MEDIA_EDITOR_ENTRY_BANNER_CLICKED': 114,
+        'AI_MEDIA_EDITOR_ENTRY_TOOLBAR_CLICKED': 115,
+        'AI_MEDIA_EDITOR_EXPAND_SEND': 129,
+        'AI_MEDIA_EDITOR_PRESETS_CLICKED': 120,
+        'AI_MEDIA_EDITOR_PRESETS_PREVIEWED': 123,
+        'AI_MEDIA_EDITOR_PRESETS_SEND': 126,
+        'AI_MEDIA_EDITOR_RESTYLE_CLICKED': 119,
+        'AI_MEDIA_EDITOR_RESTYLE_PREVIEWED': 122,
+        'AI_MEDIA_EDITOR_RESTYLE_SEND': 125,
+        'AI_MEDIA_EDITOR_SEND_CANCEL': 130,
         'ANIMATE_BUTTON_CLICK': 7,
         'ATTACHMENT_TRAY_OPEN_CLICK': 99,
         'BACKGROUND_BUTTON_CLICK': 76,
@@ -6347,6 +6374,13 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumImagineActionTarget',
         export: 'IMAGINE_ACTION_TARGET',
         values: Object.freeze({
+        'AI_MEDIA_EDITOR_ANIMATE': 17,
+        'AI_MEDIA_EDITOR_BACKGROUND': 16,
+        'AI_MEDIA_EDITOR_DESCRIBE': 13,
+        'AI_MEDIA_EDITOR_EXPAND': 18,
+        'AI_MEDIA_EDITOR_INPUT': 12,
+        'AI_MEDIA_EDITOR_PRESETS': 15,
+        'AI_MEDIA_EDITOR_RESTYLE': 14,
         'IMAGINE': 4,
         'IMAGINE_EDIT': 1,
         'IMAGINE_FLASH': 3,
@@ -7000,6 +7034,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'FAVORITE': 3,
         'GROUP': 2,
         'NONE': 0,
+        'ONE_ON_ONE': 12,
         'PREDEFINED': 4,
         'SERVER_ASSIGNED': 10,
         'TO_YOU': 11,
@@ -10045,6 +10080,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'COMPLETE': 1,
         'INCOMPLETE_APP_RESTART': 4,
         'INCOMPLETE_DISCONNECT': 3,
+        'INCOMPLETE_SESSION_CHANGED': 5,
         'INCOMPLETE_UNKNOWN_ERROR': 2
         })
     }),
@@ -10538,6 +10574,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'RESUME_MANDATE': 56,
         'RETOKENIZE_CARD': 27,
         'REVOKE_MANDATE': 57,
+        'SEND_P2P': 70,
         'SEND_TO_VPA': 37,
         'SEND_UPI_RAISE_COMPLAINT': 19,
         'SET_PIN': 6,
@@ -11086,8 +11123,11 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'APPLE_WATCH': 1,
         'CARPLAY': 21,
+        'CHROMEBOOKS': 25,
         'COLADA': 11,
         'DIAMOND': 18,
+        'FIRE_TABLETS': 27,
+        'GOOGLEBOOKS': 26,
         'GRAPEVINE': 6,
         'GREATHAMMERHEAD': 9,
         'GREATWHITE': 10,
@@ -11256,7 +11296,6 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'ANDROID': 2,
         'ANDROIDWAMETATEST': 62,
-        'ARDEV': 50,
         'BLOKS': 19,
         'BLUEA': 20,
         'BLUEI': 21,
@@ -11264,16 +11303,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'BLUEW': 53,
         'CAPI': 46,
         'FBLITEA': 22,
-        'GREENA': 23,
-        'GREENI': 24,
-        'IGDA': 25,
-        'IGDI': 26,
-        'IGDM': 44,
-        'IGDSG': 64,
-        'IGDT': 61,
-        'IGDVR': 67,
-        'IGDW': 33,
-        'IGLITEA': 27,
         'INTEROP': 65,
         'INTEROP_MSGR': 66,
         'IPAD': 58,
@@ -11310,28 +11339,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'WORKA': 71,
         'WORKI': 72,
         'XR': 47
-        })
-    }),
-    PLAYBACK_ORIGIN_TYPE: Object.freeze({
-        module: 'WAWebWamEnumPlaybackOriginType',
-        export: 'PLAYBACK_ORIGIN_TYPE',
-        values: Object.freeze({
-        'CHANNELS': 3,
-        'CONVERSATION': 1,
-        'STATUS': 2
-        })
-    }),
-    PLAYBACK_STATE_TYPE: Object.freeze({
-        module: 'WAWebWamEnumPlaybackStateType',
-        export: 'PLAYBACK_STATE_TYPE',
-        values: Object.freeze({
-        'BUFFERING': 4,
-        'ENDED': 6,
-        'ERROR': 7,
-        'IDLE': 1,
-        'OUTSIDE': 5,
-        'READY_PAUSE': 3,
-        'READY_PLAY': 2
         })
     }),
     PM_BUTTON_EVENT_TYPE: Object.freeze({
@@ -13247,6 +13254,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNELS': 2,
         'CHAT_THREAD_BUSINESS': 0,
         'CHAT_THREAD_OTHER': 1,
+        'CTWA_SIGNUP_AGENTIC': 11,
+        'CTWA_SIGNUP_MANUAL': 10,
         'CTWA_THREAD': 9,
         'EXTERNAL': 6,
         'FACEBOOK': 4,
@@ -15579,7 +15588,9 @@ const WA_WAM_ENUMS = Object.freeze({
         'GIF_OPEN': 21,
         'GROUP_INFO_OPEN': 7,
         'IMAGE_OPEN': 4,
+        'IOS_MEDIA_PICKER_PREPARATION': 67,
         'KEYBOARD_SHOWN_LATENCY': 36,
+        'MEDIA_EDITOR_OPEN': 66,
         'MENU_LOGOUT': 49,
         'MENU_OPENED': 46,
         'MENU_OPEN_ON_PHONE': 48,
@@ -16131,39 +16142,6 @@ const WA_WAM_ENUMS = Object.freeze({
         'HAS_ERRORS': 3,
         'NO_ACTION_REQUIRED': 2,
         'UNKNOWN': 1
-        })
-    }),
-    VIDEO_PLAY_ORIGIN: Object.freeze({
-        module: 'WAWebWamEnumVideoPlayOrigin',
-        export: 'VIDEO_PLAY_ORIGIN',
-        values: Object.freeze({
-        'CHANNELS': 6,
-        'CONVERSATION': 1,
-        'GALLERY_PICKER': 2,
-        'MEDIA_VIEW_PAGER': 4,
-        'OTHER_ORIGIN': 5,
-        'STARRED_MESSAGES': 3,
-        'STATUS': 7
-        })
-    }),
-    VIDEO_PLAY_RESULT: Object.freeze({
-        module: 'WAWebWamEnumVideoPlayResult',
-        export: 'VIDEO_PLAY_RESULT',
-        values: Object.freeze({
-        'ERROR_AUDIO_TRACK': 4,
-        'ERROR_DOWNLOAD_FAILED': 5,
-        'ERROR_PLAYER': 2,
-        'ERROR_VIDEO_TRACK': 3,
-        'OK': 1
-        })
-    }),
-    VIDEO_PLAY_TYPE: Object.freeze({
-        module: 'WAWebWamEnumVideoPlayType',
-        export: 'VIDEO_PLAY_TYPE',
-        values: Object.freeze({
-        'FILE': 1,
-        'SENT': 3,
-        'STREAM': 2
         })
     }),
     VIDEO_TRANSCODER_ALGORITHM_TYPE: Object.freeze({
@@ -17802,6 +17780,7 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            aeOffboardingSurveyOtherText: Object.freeze({ id: 6, type: 'string', falcoName: 'ae_offboarding_survey_other_text' }),
             automaticEventsTargetComponent: Object.freeze({ id: 1, type: 'enum', enum: 'AUTOMATIC_EVENTS_TARGET_COMPONENT_ENUM', falcoName: 'automatic_events_target_component' }),
             dedupKey: Object.freeze({ id: 5, type: 'integer', falcoName: 'dedup_key' }),
             extraAttributes: Object.freeze({ id: 4, type: 'string', falcoName: 'extra_attributes' }),
@@ -21477,33 +21456,6 @@ const WA_WAM_EVENTS = Object.freeze({
             updatesTabSessionId: Object.freeze({ id: 12, type: 'integer', falcoName: 'updates_tab_session_id' })
         })
     }),
-    ChannelsVideoPlay: Object.freeze({
-        id: 6556,
-        falcoName: 'wam_channels_video_play',
-        channel: 'regular',
-        privateStatsIdInt: null,
-        emittedByWorker: false,
-        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
-        requiredFields: Object.freeze([]),
-        conditions: Object.freeze([]),
-        fields: Object.freeze({
-            autoPlayT: Object.freeze({ id: 1, type: 'integer', falcoName: 'auto_play_t' }),
-            cid: Object.freeze({ id: 2, type: 'string', falcoName: 'cid' }),
-            dedupKey: Object.freeze({ id: 15, type: 'integer', falcoName: 'dedup_key' }),
-            finishCount: Object.freeze({ id: 13, type: 'integer', falcoName: 'finish_count' }),
-            height: Object.freeze({ id: 3, type: 'integer', falcoName: 'height' }),
-            postId: Object.freeze({ id: 4, type: 'string', falcoName: 'post_id' }),
-            videoDuration: Object.freeze({ id: 5, type: 'integer', falcoName: 'video_duration' }),
-            videoInitialBufferingT: Object.freeze({ id: 6, type: 'timer', falcoName: 'video_initial_buffering_t' }),
-            videoPlayOrigin: Object.freeze({ id: 7, type: 'enum', enum: 'VIDEO_PLAY_ORIGIN', falcoName: 'video_play_origin' }),
-            videoPlayResult: Object.freeze({ id: 8, type: 'enum', enum: 'VIDEO_PLAY_RESULT', falcoName: 'video_play_result' }),
-            videoPlayT: Object.freeze({ id: 9, type: 'integer', falcoName: 'video_play_t' }),
-            videoPlayType: Object.freeze({ id: 10, type: 'enum', enum: 'VIDEO_PLAY_TYPE', falcoName: 'video_play_type' }),
-            videoSize: Object.freeze({ id: 11, type: 'number', falcoName: 'video_size' }),
-            watchingModule: Object.freeze({ id: 14, type: 'string', falcoName: 'watching_module' }),
-            width: Object.freeze({ id: 12, type: 'integer', falcoName: 'width' })
-        })
-    }),
     ChatAction: Object.freeze({
         id: 2312,
         falcoName: 'wam_chat_action',
@@ -25031,6 +24983,7 @@ const WA_WAM_EVENTS = Object.freeze({
         requiredFields: Object.freeze([]),
         conditions: Object.freeze([]),
         fields: Object.freeze({
+            appCampaignDownloadSource: Object.freeze({ id: 18, type: 'string', falcoName: 'app_campaign_download_source' }),
             appContext: Object.freeze({ id: 13, type: 'string', falcoName: 'app_context' }),
             appContextBitfield: Object.freeze({ id: 14, type: 'integer', falcoName: 'app_context_bitfield' }),
             applicationState: Object.freeze({ id: 12, type: 'enum', enum: 'APPLICATION_STATE', falcoName: 'application_state' }),
@@ -25342,39 +25295,6 @@ const WA_WAM_EVENTS = Object.freeze({
             statusRecipients: Object.freeze({ id: 17, type: 'integer', falcoName: 'status_recipients' }),
             transformCount: Object.freeze({ id: 52, type: 'integer', falcoName: 'transform_count' }),
             videoQualitySetting: Object.freeze({ id: 28, type: 'enum', enum: 'MEDIA_QUALITY', falcoName: 'video_quality_setting' })
-        })
-    }),
-    MediaStreamPlayback: Object.freeze({
-        id: 1584,
-        falcoName: 'wam_media_stream_playback',
-        channel: 'regular',
-        privateStatsIdInt: null,
-        emittedByWorker: false,
-        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
-        requiredFields: Object.freeze([]),
-        conditions: Object.freeze([]),
-        fields: Object.freeze({
-            bytesDownloadedStart: Object.freeze({ id: 4, type: 'number', falcoName: 'bytes_downloaded_start' }),
-            bytesTransferred: Object.freeze({ id: 5, type: 'number', falcoName: 'bytes_transferred' }),
-            dedupKey: Object.freeze({ id: 20, type: 'integer', falcoName: 'dedup_key' }),
-            didPlay: Object.freeze({ id: 15, type: 'boolean', falcoName: 'did_play' }),
-            experienceIds: Object.freeze({ id: 19, type: 'string', falcoName: 'experience_ids' }),
-            forcedPlayCount: Object.freeze({ id: 12, type: 'integer', falcoName: 'forced_play_count' }),
-            initialBufferingT: Object.freeze({ id: 7, type: 'timer', falcoName: 'initial_buffering_t' }),
-            mediaSize: Object.freeze({ id: 2, type: 'number', falcoName: 'media_size' }),
-            mediaType: Object.freeze({ id: 3, type: 'enum', enum: 'MEDIA_TYPE', falcoName: 'media_type' }),
-            overallPlayT: Object.freeze({ id: 10, type: 'timer', falcoName: 'overall_play_t' }),
-            overallT: Object.freeze({ id: 1, type: 'timer', falcoName: 'overall_t' }),
-            pairedMediaType: Object.freeze({ id: 21, type: 'enum', enum: 'PAIRED_MEDIA_TYPE', falcoName: 'paired_media_type' }),
-            playbackCount: Object.freeze({ id: 14, type: 'integer', falcoName: 'playback_count' }),
-            playbackError: Object.freeze({ id: 17, type: 'integer', falcoName: 'playback_error' }),
-            playbackOrigin: Object.freeze({ id: 16, type: 'enum', enum: 'PLAYBACK_ORIGIN_TYPE', falcoName: 'playback_origin' }),
-            playbackState: Object.freeze({ id: 11, type: 'enum', enum: 'PLAYBACK_STATE_TYPE', falcoName: 'playback_state' }),
-            seekCount: Object.freeze({ id: 13, type: 'integer', falcoName: 'seek_count' }),
-            statusId: Object.freeze({ id: 18, type: 'string', falcoName: 'status_id' }),
-            totalRebufferingCount: Object.freeze({ id: 9, type: 'integer', falcoName: 'total_rebuffering_count' }),
-            totalRebufferingT: Object.freeze({ id: 8, type: 'timer', falcoName: 'total_rebuffering_t' }),
-            videoDuration: Object.freeze({ id: 6, type: 'integer', falcoName: 'video_duration' })
         })
     }),
     MediaUpload2: Object.freeze({
@@ -26758,6 +26678,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             dedupKey: Object.freeze({ id: 11, type: 'integer', falcoName: 'dedup_key' }),
+            groupId: Object.freeze({ id: 12, type: 'string', falcoName: 'group_id' }),
             groupRole: Object.freeze({ id: 1, type: 'enum', enum: 'GROUP_ROLE_TYPE', falcoName: 'group_role' }),
             groupSize: Object.freeze({ id: 2, type: 'integer', falcoName: 'group_size' }),
             groupTypeClient: Object.freeze({ id: 3, type: 'enum', enum: 'GROUP_TYPE_CLIENT', falcoName: 'group_type_client' }),
@@ -26781,6 +26702,7 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             dedupKey: Object.freeze({ id: 10, type: 'integer', falcoName: 'dedup_key' }),
+            groupId: Object.freeze({ id: 11, type: 'string', falcoName: 'group_id' }),
             groupRole: Object.freeze({ id: 1, type: 'enum', enum: 'GROUP_ROLE_TYPE', falcoName: 'group_role' }),
             groupTypeClient: Object.freeze({ id: 2, type: 'enum', enum: 'GROUP_TYPE_CLIENT', falcoName: 'group_type_client' }),
             isAGroup: Object.freeze({ id: 3, type: 'boolean', falcoName: 'is_a_group' }),

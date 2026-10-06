@@ -116,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2665,
+  "propCount": 2672,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -850,6 +850,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_space_public_in_app_enabled": {
+      "code": 38441,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_subscription_ui_enabled": {
       "code": 37238,
       "debugDefaultValue": true,
@@ -882,6 +888,12 @@
     },
     "ai_hatch_vm_auth_enabled": {
       "code": 37983,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_whatsapp_connector_enabled": {
+      "code": 38409,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -10044,7 +10056,7 @@
     },
     "smb_business_broadcast_pro_web_scheduled_sends_enabled": {
       "code": 33169,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -11770,6 +11782,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_hatch_mweb_onboarding_url": {
+      "code": 38467,
+      "debugDefaultValue": "https://muse.ai/?source=whatsapp_linking",
+      "defaultValue": "https://muse.ai/?source=whatsapp_linking",
+      "type": "string"
+    },
     "wa_hybrid_collect_new_memory_metrics": {
       "code": 36574,
       "debugDefaultValue": false,
@@ -12478,6 +12496,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_calling_calls_tab_new_call_fab_enabled": {
+      "code": 38458,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_calling_calls_tab_notifications_off_banner_enabled": {
       "code": 37282,
       "debugDefaultValue": true,
@@ -13012,9 +13036,21 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_media_fast_forward_same_key_type_enabled": {
+      "code": 38464,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_media_loader_button_uix_improvement": {
       "code": 33245,
       "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_media_thumbnail_key_match_enabled": {
+      "code": 38463,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -13921,6 +13957,12 @@
     "waweb_chatinfo_refresh": {
       "code": 23018,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "waweb_comms_in_backend_worker": {
+      "code": 38414,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -15550,12 +15592,6 @@
       "defaultValue": true,
       "type": "bool"
     },
-    "web_voip_accept_device_probe_enabled": {
-      "code": 38027,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "web_voip_adaptive_sctp_prewarm": {
       "code": 32804,
       "debugDefaultValue": false,
@@ -15904,6 +15940,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "whatsapp_orgs_enabled": {
+      "code": 33809,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "whatsapp_vpv_logging_enabled": {
       "code": 9833,
       "debugDefaultValue": true,
@@ -16140,5 +16182,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1049290928"
+  "waVersion": "2.3000.1049416828"
 }

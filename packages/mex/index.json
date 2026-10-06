@@ -1678,6 +1678,22 @@
         "lid": "string"
       }
     },
+    "ContactManagerCustomerProfileDelete": {
+      "docId": "27993814970320462",
+      "operationKind": "mutation",
+      "originalName": "WAWebContactManagerCustomerProfileDeleteMutation",
+      "response": {
+        "xfb_wa_delete_customer_profile": {
+          "deleted_lid": "string"
+        }
+      },
+      "variables": [
+        "lid"
+      ],
+      "variablesShape": {
+        "lid": "string"
+      }
+    },
     "ContactManagerCustomerProfileUpsert": {
       "docId": "39017784967837337",
       "operationKind": "mutation",
@@ -2141,7 +2157,7 @@
       }
     },
     "DebugLabyrinthRestorePage": {
-      "docId": "28008863005437910",
+      "docId": "27748541024820945",
       "operationKind": "query",
       "originalName": "WAWebDebugLabyrinthRestorePageJobQuery",
       "response": {
@@ -2157,7 +2173,8 @@
                   "__typename": "string",
                   "encrypted_payload": "unknown",
                   "encryption_version": "number",
-                  "id": "string"
+                  "id": "string",
+                  "timestamp_ms": "number"
                 }
               }
             ],
@@ -5520,6 +5537,23 @@
         }
       }
     },
+    "LogServerSentInviteIntent": {
+      "docId": "28486062674347663",
+      "operationKind": "mutation",
+      "originalName": "WAWebMexLogServerSentInviteIntentJobMutation",
+      "response": {
+        "xwa2_growth_log_server_sent_invite_intent": "boolean"
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "entry_point": "string",
+          "receiver": "string"
+        }
+      }
+    },
     "MAIBAInlineAssetSelectorWidgetAssetIDs": {
       "docId": "35972847782361891",
       "operationKind": "query",
@@ -6355,6 +6389,40 @@
           "org_id": "string",
           "role": "string"
         }
+      }
+    },
+    "OrgAdminGraphQLSubmitBulkGroupRequest": {
+      "docId": "27966707869675123",
+      "operationKind": "mutation",
+      "originalName": "WAWebOrgAdminGraphQLSubmitBulkGroupRequestMutation",
+      "response": {
+        "xwa_org_bulk_group_request_submit": {
+          "error_reason": "string",
+          "invalid_group_index": "number",
+          "request_id": "string",
+          "status": "enum:SUCCESS"
+        }
+      },
+      "variables": [
+        "createGroupsPlan",
+        "operation",
+        "orgID"
+      ],
+      "variablesShape": {
+        "createGroupsPlan": [
+          {
+            "announcement": "boolean",
+            "locked": "boolean",
+            "member_add_mode": "enum:ADMIN_ADD|ALL_MEMBER_ADD",
+            "membership_approval": "unknown",
+            "participant_roster_entry_ids": [
+              "string"
+            ],
+            "subject": "string"
+          }
+        ],
+        "operation": "unknown",
+        "orgID": "string"
       }
     },
     "OrgAdminGraphQLUpdateOrg": {
@@ -7803,7 +7871,7 @@
       }
     },
     "Usync": {
-      "docId": "29829202653362039",
+      "docId": "28496738596651319",
       "operationKind": "query",
       "originalName": "WAWebMexUsyncQuery",
       "response": {
@@ -7819,6 +7887,18 @@
             "country_code": "string",
             "id": "string",
             "jid": "string",
+            "orgs_info": {
+              "__typename": "string",
+              "orgs": [
+                {
+                  "display_name": "string",
+                  "member_tag": "string",
+                  "org_id": "string",
+                  "role": "string"
+                }
+              ],
+              "status": "string"
+            },
             "username_info": {
               "__typename": "string",
               "pin": "string",
@@ -7833,12 +7913,14 @@
       "variables": [
         "include_about_status",
         "include_country_code",
+        "include_orgs",
         "include_username",
         "input"
       ],
       "variablesShape": {
         "include_about_status": "boolean",
         "include_country_code": "boolean",
+        "include_orgs": "boolean",
         "include_username": "boolean",
         "input": {
           "query_input": {},
@@ -8964,5 +9046,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049290928"
+  "waVersion": "2.3000.1049416828"
 }

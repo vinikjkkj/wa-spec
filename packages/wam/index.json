@@ -758,6 +758,15 @@
         "AE_OFFBOARDING_NUX_SCREEN": 13,
         "AE_OFFBOARDING_NUX_TURN_OFF": 14,
         "AE_OFFBOARDING_START": 19,
+        "AE_OFFBOARDING_SURVEY_CLOSE": 37,
+        "AE_OFFBOARDING_SURVEY_REASON_CREATE_LISTS_MANUALLY": 42,
+        "AE_OFFBOARDING_SURVEY_REASON_DIDNT_MEAN_TO_TURN_ON": 38,
+        "AE_OFFBOARDING_SURVEY_REASON_LISTS_DONT_FIT": 41,
+        "AE_OFFBOARDING_SURVEY_REASON_NOT_SURE": 39,
+        "AE_OFFBOARDING_SURVEY_REASON_OTHER": 43,
+        "AE_OFFBOARDING_SURVEY_REASON_WRONG_LIST": 40,
+        "AE_OFFBOARDING_SURVEY_SCREEN": 35,
+        "AE_OFFBOARDING_SURVEY_SUBMIT": 36,
         "AE_ONBOARDING_BIOMETRIC_BYPASS": 30,
         "AE_ONBOARDING_BIOMETRIC_CANCELLED": 32,
         "AE_ONBOARDING_BIOMETRIC_ERROR": 33,
@@ -2121,6 +2130,7 @@
       "export": "CALL_TRIGGER",
       "module": "WAWebWamEnumCallTrigger",
       "values": {
+        "ADM_PUSH_PAYLOAD": 4,
         "FBNS_PUSH_PAYLOAD": 3,
         "FCM_PUSH_PAYLOAD": 2,
         "OFFLINE_STANZA": 1,
@@ -6128,6 +6138,23 @@
       "export": "IMAGINE_ACTION",
       "module": "WAWebWamEnumImagineAction",
       "values": {
+        "AI_MEDIA_EDITOR_ANIMATE_SEND": 128,
+        "AI_MEDIA_EDITOR_BACKGROUND_CLICKED": 121,
+        "AI_MEDIA_EDITOR_BACKGROUND_SEND": 127,
+        "AI_MEDIA_EDITOR_CAROUSEL_PREVIEWED": 116,
+        "AI_MEDIA_EDITOR_CAROUSEL_SWIPED": 117,
+        "AI_MEDIA_EDITOR_DESCRIBE_CLICKED": 118,
+        "AI_MEDIA_EDITOR_DESCRIBE_SEND": 124,
+        "AI_MEDIA_EDITOR_ENTRY_BANNER_CLICKED": 114,
+        "AI_MEDIA_EDITOR_ENTRY_TOOLBAR_CLICKED": 115,
+        "AI_MEDIA_EDITOR_EXPAND_SEND": 129,
+        "AI_MEDIA_EDITOR_PRESETS_CLICKED": 120,
+        "AI_MEDIA_EDITOR_PRESETS_PREVIEWED": 123,
+        "AI_MEDIA_EDITOR_PRESETS_SEND": 126,
+        "AI_MEDIA_EDITOR_RESTYLE_CLICKED": 119,
+        "AI_MEDIA_EDITOR_RESTYLE_PREVIEWED": 122,
+        "AI_MEDIA_EDITOR_RESTYLE_SEND": 125,
+        "AI_MEDIA_EDITOR_SEND_CANCEL": 130,
         "ANIMATE_BUTTON_CLICK": 7,
         "ATTACHMENT_TRAY_OPEN_CLICK": 99,
         "BACKGROUND_BUTTON_CLICK": 76,
@@ -6293,6 +6320,13 @@
       "export": "IMAGINE_ACTION_TARGET",
       "module": "WAWebWamEnumImagineActionTarget",
       "values": {
+        "AI_MEDIA_EDITOR_ANIMATE": 17,
+        "AI_MEDIA_EDITOR_BACKGROUND": 16,
+        "AI_MEDIA_EDITOR_DESCRIBE": 13,
+        "AI_MEDIA_EDITOR_EXPAND": 18,
+        "AI_MEDIA_EDITOR_INPUT": 12,
+        "AI_MEDIA_EDITOR_PRESETS": 15,
+        "AI_MEDIA_EDITOR_RESTYLE": 14,
         "IMAGINE": 4,
         "IMAGINE_EDIT": 1,
         "IMAGINE_FLASH": 3,
@@ -6946,6 +6980,7 @@
         "FAVORITE": 3,
         "GROUP": 2,
         "NONE": 0,
+        "ONE_ON_ONE": 12,
         "PREDEFINED": 4,
         "SERVER_ASSIGNED": 10,
         "TO_YOU": 11,
@@ -9991,6 +10026,7 @@
         "COMPLETE": 1,
         "INCOMPLETE_APP_RESTART": 4,
         "INCOMPLETE_DISCONNECT": 3,
+        "INCOMPLETE_SESSION_CHANGED": 5,
         "INCOMPLETE_UNKNOWN_ERROR": 2
       }
     },
@@ -10484,6 +10520,7 @@
         "RESUME_MANDATE": 56,
         "RETOKENIZE_CARD": 27,
         "REVOKE_MANDATE": 57,
+        "SEND_P2P": 70,
         "SEND_TO_VPA": 37,
         "SEND_UPI_RAISE_COMPLAINT": 19,
         "SET_PIN": 6,
@@ -11032,8 +11069,11 @@
       "values": {
         "APPLE_WATCH": 1,
         "CARPLAY": 21,
+        "CHROMEBOOKS": 25,
         "COLADA": 11,
         "DIAMOND": 18,
+        "FIRE_TABLETS": 27,
+        "GOOGLEBOOKS": 26,
         "GRAPEVINE": 6,
         "GREATHAMMERHEAD": 9,
         "GREATWHITE": 10,
@@ -11202,7 +11242,6 @@
       "values": {
         "ANDROID": 2,
         "ANDROIDWAMETATEST": 62,
-        "ARDEV": 50,
         "BLOKS": 19,
         "BLUEA": 20,
         "BLUEI": 21,
@@ -11210,16 +11249,6 @@
         "BLUEW": 53,
         "CAPI": 46,
         "FBLITEA": 22,
-        "GREENA": 23,
-        "GREENI": 24,
-        "IGDA": 25,
-        "IGDI": 26,
-        "IGDM": 44,
-        "IGDSG": 64,
-        "IGDT": 61,
-        "IGDVR": 67,
-        "IGDW": 33,
-        "IGLITEA": 27,
         "INTEROP": 65,
         "INTEROP_MSGR": 66,
         "IPAD": 58,
@@ -11256,28 +11285,6 @@
         "WORKA": 71,
         "WORKI": 72,
         "XR": 47
-      }
-    },
-    "PLAYBACK_ORIGIN_TYPE": {
-      "export": "PLAYBACK_ORIGIN_TYPE",
-      "module": "WAWebWamEnumPlaybackOriginType",
-      "values": {
-        "CHANNELS": 3,
-        "CONVERSATION": 1,
-        "STATUS": 2
-      }
-    },
-    "PLAYBACK_STATE_TYPE": {
-      "export": "PLAYBACK_STATE_TYPE",
-      "module": "WAWebWamEnumPlaybackStateType",
-      "values": {
-        "BUFFERING": 4,
-        "ENDED": 6,
-        "ERROR": 7,
-        "IDLE": 1,
-        "OUTSIDE": 5,
-        "READY_PAUSE": 3,
-        "READY_PLAY": 2
       }
     },
     "PM_BUTTON_EVENT_TYPE": {
@@ -13193,6 +13200,8 @@
         "CHANNELS": 2,
         "CHAT_THREAD_BUSINESS": 0,
         "CHAT_THREAD_OTHER": 1,
+        "CTWA_SIGNUP_AGENTIC": 11,
+        "CTWA_SIGNUP_MANUAL": 10,
         "CTWA_THREAD": 9,
         "EXTERNAL": 6,
         "FACEBOOK": 4,
@@ -15525,7 +15534,9 @@
         "GIF_OPEN": 21,
         "GROUP_INFO_OPEN": 7,
         "IMAGE_OPEN": 4,
+        "IOS_MEDIA_PICKER_PREPARATION": 67,
         "KEYBOARD_SHOWN_LATENCY": 36,
+        "MEDIA_EDITOR_OPEN": 66,
         "MENU_LOGOUT": 49,
         "MENU_OPENED": 46,
         "MENU_OPEN_ON_PHONE": 48,
@@ -16077,39 +16088,6 @@
         "HAS_ERRORS": 3,
         "NO_ACTION_REQUIRED": 2,
         "UNKNOWN": 1
-      }
-    },
-    "VIDEO_PLAY_ORIGIN": {
-      "export": "VIDEO_PLAY_ORIGIN",
-      "module": "WAWebWamEnumVideoPlayOrigin",
-      "values": {
-        "CHANNELS": 6,
-        "CONVERSATION": 1,
-        "GALLERY_PICKER": 2,
-        "MEDIA_VIEW_PAGER": 4,
-        "OTHER_ORIGIN": 5,
-        "STARRED_MESSAGES": 3,
-        "STATUS": 7
-      }
-    },
-    "VIDEO_PLAY_RESULT": {
-      "export": "VIDEO_PLAY_RESULT",
-      "module": "WAWebWamEnumVideoPlayResult",
-      "values": {
-        "ERROR_AUDIO_TRACK": 4,
-        "ERROR_DOWNLOAD_FAILED": 5,
-        "ERROR_PLAYER": 2,
-        "ERROR_VIDEO_TRACK": 3,
-        "OK": 1
-      }
-    },
-    "VIDEO_PLAY_TYPE": {
-      "export": "VIDEO_PLAY_TYPE",
-      "module": "WAWebWamEnumVideoPlayType",
-      "values": {
-        "FILE": 1,
-        "SENT": 3,
-        "STREAM": 2
       }
     },
     "VIDEO_TRANSCODER_ALGORITHM_TYPE": {
@@ -18425,6 +18403,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_automatic_events_user_journey",
       "fields": {
+        "aeOffboardingSurveyOtherText": {
+          "falcoName": "ae_offboarding_survey_other_text",
+          "id": 6,
+          "type": "string"
+        },
         "automaticEventsTargetComponent": {
           "enum": "AUTOMATIC_EVENTS_TARGET_COMPONENT_ENUM",
           "falcoName": "automatic_events_target_component",
@@ -35356,101 +35339,6 @@
         "gkx26259": 1
       }
     },
-    "ChannelsVideoPlay": {
-      "channel": "regular",
-      "conditions": [],
-      "emittedByWorker": false,
-      "falcoName": "wam_channels_video_play",
-      "fields": {
-        "autoPlayT": {
-          "falcoName": "auto_play_t",
-          "id": 1,
-          "type": "integer"
-        },
-        "cid": {
-          "falcoName": "cid",
-          "id": 2,
-          "type": "string"
-        },
-        "dedupKey": {
-          "falcoName": "dedup_key",
-          "id": 15,
-          "type": "integer"
-        },
-        "finishCount": {
-          "falcoName": "finish_count",
-          "id": 13,
-          "type": "integer"
-        },
-        "height": {
-          "falcoName": "height",
-          "id": 3,
-          "type": "integer"
-        },
-        "postId": {
-          "falcoName": "post_id",
-          "id": 4,
-          "type": "string"
-        },
-        "videoDuration": {
-          "falcoName": "video_duration",
-          "id": 5,
-          "type": "integer"
-        },
-        "videoInitialBufferingT": {
-          "falcoName": "video_initial_buffering_t",
-          "id": 6,
-          "type": "timer"
-        },
-        "videoPlayOrigin": {
-          "enum": "VIDEO_PLAY_ORIGIN",
-          "falcoName": "video_play_origin",
-          "id": 7,
-          "type": "enum"
-        },
-        "videoPlayResult": {
-          "enum": "VIDEO_PLAY_RESULT",
-          "falcoName": "video_play_result",
-          "id": 8,
-          "type": "enum"
-        },
-        "videoPlayT": {
-          "falcoName": "video_play_t",
-          "id": 9,
-          "type": "integer"
-        },
-        "videoPlayType": {
-          "enum": "VIDEO_PLAY_TYPE",
-          "falcoName": "video_play_type",
-          "id": 10,
-          "type": "enum"
-        },
-        "videoSize": {
-          "falcoName": "video_size",
-          "id": 11,
-          "type": "number"
-        },
-        "watchingModule": {
-          "falcoName": "watching_module",
-          "id": 14,
-          "type": "string"
-        },
-        "width": {
-          "falcoName": "width",
-          "id": 12,
-          "type": "integer"
-        }
-      },
-      "id": 6556,
-      "module": "WAWebChannelsVideoPlayWamEvent",
-      "privateStatsIdInt": null,
-      "requiredFields": [],
-      "weight": {
-        "default": 1,
-        "gkx26258": 1,
-        "gkx26259": 1
-      }
-    },
     "ChatAction": {
       "channel": "regular",
       "conditions": [],
@@ -47728,6 +47616,11 @@
       "emittedByWorker": false,
       "falcoName": "wam_md_link_device_companion",
       "fields": {
+        "appCampaignDownloadSource": {
+          "falcoName": "app_campaign_download_source",
+          "id": 18,
+          "type": "string"
+        },
         "appContext": {
           "falcoName": "app_context",
           "id": 13,
@@ -48937,132 +48830,6 @@
       },
       "id": 1038,
       "module": "WAWebMediaPickerWamEvent",
-      "privateStatsIdInt": null,
-      "requiredFields": [],
-      "weight": {
-        "default": 1,
-        "gkx26258": 1,
-        "gkx26259": 1
-      }
-    },
-    "MediaStreamPlayback": {
-      "channel": "regular",
-      "conditions": [],
-      "emittedByWorker": false,
-      "falcoName": "wam_media_stream_playback",
-      "fields": {
-        "bytesDownloadedStart": {
-          "falcoName": "bytes_downloaded_start",
-          "id": 4,
-          "type": "number"
-        },
-        "bytesTransferred": {
-          "falcoName": "bytes_transferred",
-          "id": 5,
-          "type": "number"
-        },
-        "dedupKey": {
-          "falcoName": "dedup_key",
-          "id": 20,
-          "type": "integer"
-        },
-        "didPlay": {
-          "falcoName": "did_play",
-          "id": 15,
-          "type": "boolean"
-        },
-        "experienceIds": {
-          "falcoName": "experience_ids",
-          "id": 19,
-          "type": "string"
-        },
-        "forcedPlayCount": {
-          "falcoName": "forced_play_count",
-          "id": 12,
-          "type": "integer"
-        },
-        "initialBufferingT": {
-          "falcoName": "initial_buffering_t",
-          "id": 7,
-          "type": "timer"
-        },
-        "mediaSize": {
-          "falcoName": "media_size",
-          "id": 2,
-          "type": "number"
-        },
-        "mediaType": {
-          "enum": "MEDIA_TYPE",
-          "falcoName": "media_type",
-          "id": 3,
-          "type": "enum"
-        },
-        "overallPlayT": {
-          "falcoName": "overall_play_t",
-          "id": 10,
-          "type": "timer"
-        },
-        "overallT": {
-          "falcoName": "overall_t",
-          "id": 1,
-          "type": "timer"
-        },
-        "pairedMediaType": {
-          "enum": "PAIRED_MEDIA_TYPE",
-          "falcoName": "paired_media_type",
-          "id": 21,
-          "type": "enum"
-        },
-        "playbackCount": {
-          "falcoName": "playback_count",
-          "id": 14,
-          "type": "integer"
-        },
-        "playbackError": {
-          "falcoName": "playback_error",
-          "id": 17,
-          "type": "integer"
-        },
-        "playbackOrigin": {
-          "enum": "PLAYBACK_ORIGIN_TYPE",
-          "falcoName": "playback_origin",
-          "id": 16,
-          "type": "enum"
-        },
-        "playbackState": {
-          "enum": "PLAYBACK_STATE_TYPE",
-          "falcoName": "playback_state",
-          "id": 11,
-          "type": "enum"
-        },
-        "seekCount": {
-          "falcoName": "seek_count",
-          "id": 13,
-          "type": "integer"
-        },
-        "statusId": {
-          "falcoName": "status_id",
-          "id": 18,
-          "type": "string"
-        },
-        "totalRebufferingCount": {
-          "falcoName": "total_rebuffering_count",
-          "id": 9,
-          "type": "integer"
-        },
-        "totalRebufferingT": {
-          "falcoName": "total_rebuffering_t",
-          "id": 8,
-          "type": "timer"
-        },
-        "videoDuration": {
-          "falcoName": "video_duration",
-          "id": 6,
-          "type": "integer"
-        }
-      },
-      "id": 1584,
-      "module": "WAWebMediaStreamPlaybackWamEvent",
       "privateStatsIdInt": null,
       "requiredFields": [],
       "weight": {
@@ -54271,6 +54038,11 @@
           "id": 11,
           "type": "integer"
         },
+        "groupId": {
+          "falcoName": "group_id",
+          "id": 12,
+          "type": "string"
+        },
         "groupRole": {
           "enum": "GROUP_ROLE_TYPE",
           "falcoName": "group_role",
@@ -54347,6 +54119,11 @@
           "falcoName": "dedup_key",
           "id": 10,
           "type": "integer"
+        },
+        "groupId": {
+          "falcoName": "group_id",
+          "id": 11,
+          "type": "string"
         },
         "groupRole": {
           "enum": "GROUP_ROLE_TYPE",
@@ -70658,7 +70435,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1049290928",
+  "waVersion": "2.3000.1049416828",
   "wireFormat": {
     "markers": {
       "event": 1,

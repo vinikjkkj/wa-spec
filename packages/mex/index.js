@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049290928
+// WhatsApp Version: 2.3000.1049416828
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -53,6 +53,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ConsumerFetchQuickPromotions: Object.freeze({ docId: '35462584533386409', clientDocId: '35462584533386409' }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ docId: '25690382143972563', clientDocId: '25690382143972563' }),
     ContactManagerCustomerProfile: Object.freeze({ docId: '38879305098350961', clientDocId: '38879305098350961' }),
+    ContactManagerCustomerProfileDelete: Object.freeze({ docId: '27993814970320462', clientDocId: '27993814970320462' }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '39017784967837337', clientDocId: '39017784967837337' }),
     ContactManagerCustomerProfiles: Object.freeze({ docId: '27994011783631250', clientDocId: '27994011783631250' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
@@ -68,7 +69,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     DebugLabyrinthFetchVirtualDeviceInfo: Object.freeze({ docId: '28155110140821441', clientDocId: '28155110140821441' }),
     DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27948440594820675', clientDocId: '27948440594820675' }),
     DebugLabyrinthRange: Object.freeze({ docId: '27219778391054922', clientDocId: '27219778391054922' }),
-    DebugLabyrinthRestorePage: Object.freeze({ docId: '28008863005437910', clientDocId: '28008863005437910' }),
+    DebugLabyrinthRestorePage: Object.freeze({ docId: '27748541024820945', clientDocId: '27748541024820945' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
     DemoteNewsletterAdmin: Object.freeze({ docId: '9880997548630971', clientDocId: '9880997548630971' }),
     E2EEMetadataMailboxAddGroupParticipants: Object.freeze({ docId: '25006925522305489', clientDocId: '25006925522305489' }),
@@ -150,6 +151,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     LeaveNewsletter: Object.freeze({ docId: '9767147403369991', clientDocId: '9767147403369991' }),
     LidChangeNotification: Object.freeze({ docId: '9892367127524985', clientDocId: '9892367127524985' }),
     LogNewsletterExposures: Object.freeze({ docId: '25260800823586918', clientDocId: '25260800823586918' }),
+    LogServerSentInviteIntent: Object.freeze({ docId: '28486062674347663', clientDocId: '28486062674347663' }),
     MAIBAInlineAssetSelectorWidgetAssetIDs: Object.freeze({ docId: '35972847782361891', clientDocId: '35972847782361891' }),
     MAIBAInlineAssetSelectorWidgetAssets: Object.freeze({ docId: '35544094851905356', clientDocId: '35544094851905356' }),
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '28486209884399157', clientDocId: '28486209884399157' }),
@@ -181,6 +183,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     OrgAdminGraphQLRemoveMember: Object.freeze({ docId: '28130496313288374', clientDocId: '28130496313288374' }),
     OrgAdminGraphQLReplaceAdminRoster: Object.freeze({ docId: '28419705454357517', clientDocId: '28419705454357517' }),
     OrgAdminGraphQLSetMemberRole: Object.freeze({ docId: '28470063769311553', clientDocId: '28470063769311553' }),
+    OrgAdminGraphQLSubmitBulkGroupRequest: Object.freeze({ docId: '27966707869675123', clientDocId: '27966707869675123' }),
     OrgAdminGraphQLUpdateOrg: Object.freeze({ docId: '28301720222820867', clientDocId: '28301720222820867' }),
     PaymentsPasskeyHasCredential: Object.freeze({ docId: '36878915648418618', clientDocId: '36878915648418618' }),
     QueryCatalog: Object.freeze({ docId: '30445081048424116', clientDocId: '30445081048424116' }),
@@ -221,7 +224,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     UpdateTextStatus: Object.freeze({ docId: '9152604461510864', clientDocId: '9152604461510864' }),
     UploadLabyrinthMessages: Object.freeze({ docId: '28023438937253549', clientDocId: '28023438937253549' }),
     UsernameAvailability: Object.freeze({ docId: '26122779627399568', clientDocId: '26122779627399568' }),
-    Usync: Object.freeze({ docId: '29829202653362039', clientDocId: '29829202653362039' }),
+    Usync: Object.freeze({ docId: '28496738596651319', clientDocId: '28496738596651319' }),
     WAAOnboarding: Object.freeze({ docId: '25173295938976172', clientDocId: '25173295938976172' }),
     WAMFlowsCTWAEditorModal: Object.freeze({ docId: '8362083050583453', clientDocId: '8362083050583453' }),
     WAMFlowsCTWAFlowPreview: Object.freeze({ docId: '27840918535579934', clientDocId: '27840918535579934' }),
@@ -291,6 +294,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ConsumerFetchQuickPromotions: Object.freeze({ operationKind: 'query', variables: Object.freeze(['nux_ids', 'trigger_context']) }),
     ConsumerQuickPromotionActionGraphQL: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     ContactManagerCustomerProfile: Object.freeze({ operationKind: 'query', variables: Object.freeze(['lid']) }),
+    ContactManagerCustomerProfileDelete: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['lid']) }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     ContactManagerCustomerProfiles: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     CreateEnforcementAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
@@ -388,6 +392,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     LeaveNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id']) }),
     LidChangeNotification: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     LogNewsletterExposures: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    LogServerSentInviteIntent: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     MAIBAInlineAssetSelectorWidgetAssetIDs: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     MAIBAInlineAssetSelectorWidgetAssets: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ operationKind: 'query', variables: Object.freeze(['brandIgUserID', 'creatorIDs']) }),
@@ -419,6 +424,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     OrgAdminGraphQLRemoveMember: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     OrgAdminGraphQLReplaceAdminRoster: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     OrgAdminGraphQLSetMemberRole: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    OrgAdminGraphQLSubmitBulkGroupRequest: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['createGroupsPlan', 'operation', 'orgID']) }),
     OrgAdminGraphQLUpdateOrg: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     PaymentsPasskeyHasCredential: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     QueryCatalog: Object.freeze({ operationKind: 'query', variables: Object.freeze(['request']) }),
@@ -459,7 +465,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     UpdateTextStatus: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UploadLabyrinthMessages: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     UsernameAvailability: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input', 'session_id', 'source']) }),
-    Usync: Object.freeze({ operationKind: 'query', variables: Object.freeze(['include_about_status', 'include_country_code', 'include_username', 'input']) }),
+    Usync: Object.freeze({ operationKind: 'query', variables: Object.freeze(['include_about_status', 'include_country_code', 'include_orgs', 'include_username', 'input']) }),
     WAAOnboarding: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     WAMFlowsCTWAEditorModal: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjective', 'businessName', 'flowId', 'skipRequest']) }),
     WAMFlowsCTWAFlowPreview: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']) }),

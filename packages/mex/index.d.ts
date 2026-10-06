@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049290928
+// WhatsApp Version: 2.3000.1049416828
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -65,6 +65,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ConsumerFetchQuickPromotions: WaMexPersistId
     readonly ConsumerQuickPromotionActionGraphQL: WaMexPersistId
     readonly ContactManagerCustomerProfile: WaMexPersistId
+    readonly ContactManagerCustomerProfileDelete: WaMexPersistId
     readonly ContactManagerCustomerProfileUpsert: WaMexPersistId
     readonly ContactManagerCustomerProfiles: WaMexPersistId
     readonly CreateEnforcementAppeal: WaMexPersistId
@@ -162,6 +163,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly LeaveNewsletter: WaMexPersistId
     readonly LidChangeNotification: WaMexPersistId
     readonly LogNewsletterExposures: WaMexPersistId
+    readonly LogServerSentInviteIntent: WaMexPersistId
     readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexPersistId
     readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexPersistId
     readonly MAIBAMessageCreatorCardsRenderer: WaMexPersistId
@@ -193,6 +195,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLRemoveMember: WaMexPersistId
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexPersistId
     readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
+    readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexPersistId
     readonly OrgAdminGraphQLUpdateOrg: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
@@ -303,6 +306,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ConsumerFetchQuickPromotions: WaMexOperationSchema<'query', readonly ['nux_ids', 'trigger_context']>
     readonly ConsumerQuickPromotionActionGraphQL: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly ContactManagerCustomerProfile: WaMexOperationSchema<'query', readonly ['lid']>
+    readonly ContactManagerCustomerProfileDelete: WaMexOperationSchema<'mutation', readonly ['lid']>
     readonly ContactManagerCustomerProfileUpsert: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly ContactManagerCustomerProfiles: WaMexOperationSchema<'query', readonly ['input']>
     readonly CreateEnforcementAppeal: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -400,6 +404,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly LeaveNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly LidChangeNotification: WaMexOperationSchema<'query', readonly []>
     readonly LogNewsletterExposures: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly LogServerSentInviteIntent: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexOperationSchema<'query', readonly ['input']>
     readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexOperationSchema<'query', readonly ['input']>
     readonly MAIBAMessageCreatorCardsRenderer: WaMexOperationSchema<'query', readonly ['brandIgUserID', 'creatorIDs']>
@@ -431,6 +436,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLRemoveMember: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexOperationSchema<'mutation', readonly ['createGroupsPlan', 'operation', 'orgID']>
     readonly OrgAdminGraphQLUpdateOrg: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
@@ -471,7 +477,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UpdateTextStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
-    readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_username', 'input']>
+    readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_orgs', 'include_username', 'input']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly WAMFlowsCTWAEditorModal: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'flowId', 'skipRequest']>
     readonly WAMFlowsCTWAFlowPreview: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']>
@@ -755,6 +761,10 @@ export type WaMexConsumerQuickPromotionActionGraphQLVariables = {
 }
 
 export type WaMexContactManagerCustomerProfileVariables = {
+    readonly lid?: string
+}
+
+export type WaMexContactManagerCustomerProfileDeleteVariables = {
     readonly lid?: string
 }
 
@@ -1361,6 +1371,13 @@ export type WaMexLogNewsletterExposuresVariables = {
     }
 }
 
+export type WaMexLogServerSentInviteIntentVariables = {
+    readonly input?: {
+        readonly entry_point?: string
+        readonly receiver?: string
+    }
+}
+
 export type WaMexMAIBAInlineAssetSelectorWidgetAssetIDsVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -1522,6 +1539,19 @@ export type WaMexOrgAdminGraphQLSetMemberRoleVariables = {
         readonly org_id?: string
         readonly role?: string
     }
+}
+
+export type WaMexOrgAdminGraphQLSubmitBulkGroupRequestVariables = {
+    readonly createGroupsPlan?: ReadonlyArray<{
+        readonly announcement?: boolean
+        readonly locked?: boolean
+        readonly member_add_mode?: 'ADMIN_ADD' | 'ALL_MEMBER_ADD'
+        readonly membership_approval?: unknown
+        readonly participant_roster_entry_ids?: ReadonlyArray<string>
+        readonly subject?: string
+    }>
+    readonly operation?: unknown
+    readonly orgID?: string
 }
 
 export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
@@ -1797,6 +1827,7 @@ export type WaMexUsernameAvailabilityVariables = {
 export type WaMexUsyncVariables = {
     readonly include_about_status?: boolean
     readonly include_country_code?: boolean
+    readonly include_orgs?: boolean
     readonly include_username?: boolean
     readonly input?: {
         readonly query_input?: Readonly<Record<string, unknown>>
@@ -1940,6 +1971,7 @@ export interface WaMexOperationVariables {
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsVariables
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLVariables
     readonly ContactManagerCustomerProfile: WaMexContactManagerCustomerProfileVariables
+    readonly ContactManagerCustomerProfileDelete: WaMexContactManagerCustomerProfileDeleteVariables
     readonly ContactManagerCustomerProfileUpsert: WaMexContactManagerCustomerProfileUpsertVariables
     readonly ContactManagerCustomerProfiles: WaMexContactManagerCustomerProfilesVariables
     readonly CreateEnforcementAppeal: WaMexCreateEnforcementAppealVariables
@@ -2037,6 +2069,7 @@ export interface WaMexOperationVariables {
     readonly LeaveNewsletter: WaMexLeaveNewsletterVariables
     readonly LidChangeNotification: WaMexLidChangeNotificationVariables
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresVariables
+    readonly LogServerSentInviteIntent: WaMexLogServerSentInviteIntentVariables
     readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexMAIBAInlineAssetSelectorWidgetAssetIDsVariables
     readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexMAIBAInlineAssetSelectorWidgetAssetsVariables
     readonly MAIBAMessageCreatorCardsRenderer: WaMexMAIBAMessageCreatorCardsRendererVariables
@@ -2068,6 +2101,7 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberVariables
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterVariables
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
+    readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexOrgAdminGraphQLSubmitBulkGroupRequestVariables
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
@@ -3075,6 +3109,12 @@ export type WaMexContactManagerCustomerProfileResponse = {
     }
 }
 
+export type WaMexContactManagerCustomerProfileDeleteResponse = {
+    readonly xfb_wa_delete_customer_profile?: {
+        readonly deleted_lid?: string
+    }
+}
+
 export type WaMexContactManagerCustomerProfileUpsertResponse = {
     readonly xfb_wa_upsert_customer_profiles?: {
         readonly conflicts?: ReadonlyArray<{
@@ -3328,6 +3368,7 @@ export type WaMexDebugLabyrinthRestorePageResponse = {
                     readonly encrypted_payload?: unknown
                     readonly encryption_version?: number
                     readonly id?: string
+                    readonly timestamp_ms?: number
                 }
             }>
             readonly page_info?: {
@@ -5407,6 +5448,10 @@ export type WaMexLogNewsletterExposuresResponse = {
     }
 }
 
+export type WaMexLogServerSentInviteIntentResponse = {
+    readonly xwa2_growth_log_server_sent_invite_intent?: boolean
+}
+
 export type WaMexMAIBAInlineAssetSelectorWidgetAssetIDsResponse = {
     readonly maiba_support_ai_asset_ids?: ReadonlyArray<string>
 }
@@ -5825,6 +5870,15 @@ export type WaMexOrgAdminGraphQLSetMemberRoleResponse = {
             readonly id?: string
             readonly member_count?: number
         }
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLSubmitBulkGroupRequestResponse = {
+    readonly xwa_org_bulk_group_request_submit?: {
+        readonly error_reason?: string
+        readonly invalid_group_index?: number
+        readonly request_id?: string
         readonly status?: 'SUCCESS'
     }
 }
@@ -6666,6 +6720,16 @@ export type WaMexUsyncResponse = {
         readonly country_code?: string
         readonly id?: string
         readonly jid?: string
+        readonly orgs_info?: {
+            readonly __typename?: string
+            readonly orgs?: ReadonlyArray<{
+                readonly display_name?: string
+                readonly member_tag?: string
+                readonly org_id?: string
+                readonly role?: string
+            }>
+            readonly status?: string
+        }
         readonly username_info?: {
             readonly __typename?: string
             readonly pin?: string
@@ -7534,6 +7598,7 @@ export interface WaMexOperationResponses {
     readonly ConsumerFetchQuickPromotions: WaMexConsumerFetchQuickPromotionsResponse
     readonly ConsumerQuickPromotionActionGraphQL: WaMexConsumerQuickPromotionActionGraphQLResponse
     readonly ContactManagerCustomerProfile: WaMexContactManagerCustomerProfileResponse
+    readonly ContactManagerCustomerProfileDelete: WaMexContactManagerCustomerProfileDeleteResponse
     readonly ContactManagerCustomerProfileUpsert: WaMexContactManagerCustomerProfileUpsertResponse
     readonly ContactManagerCustomerProfiles: WaMexContactManagerCustomerProfilesResponse
     readonly CreateEnforcementAppeal: WaMexCreateEnforcementAppealResponse
@@ -7631,6 +7696,7 @@ export interface WaMexOperationResponses {
     readonly LeaveNewsletter: WaMexLeaveNewsletterResponse
     readonly LidChangeNotification: WaMexLidChangeNotificationResponse
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresResponse
+    readonly LogServerSentInviteIntent: WaMexLogServerSentInviteIntentResponse
     readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexMAIBAInlineAssetSelectorWidgetAssetIDsResponse
     readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexMAIBAInlineAssetSelectorWidgetAssetsResponse
     readonly MAIBAMessageCreatorCardsRenderer: WaMexMAIBAMessageCreatorCardsRendererResponse
@@ -7662,6 +7728,7 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberResponse
     readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterResponse
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
+    readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexOrgAdminGraphQLSubmitBulkGroupRequestResponse
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse

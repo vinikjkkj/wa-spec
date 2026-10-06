@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049290928
+// WhatsApp Version: 2.3000.1049416828
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -14683,6 +14683,7 @@ export interface WaXmlOperations {
                     readonly source?: string
                     readonly spam_flow: '1_1_old_spam_banner_block' | '1_1_spam_banner_report' | 'account_info_report' | 'account_info_report_as_guest_user' | 'biz_spam_banner_block' | 'block_dialog' | 'chat_fmx_card_report_as_guest_user' | 'chat_fmx_card_safety_tools_report' | 'chat_fmx_card_safety_tools_report_suspicious' | 'chat_list_block' | 'chat_list_noinsub_block' | 'comment_actions_bottom_sheet' | 'community_home' | 'extension_menu_report' | 'group_chatlist_leave_report_upsell' | 'group_fmx_card_leave' | 'group_fmx_card_leave_non_suspicious' | 'group_info_leave_report_upsell' | 'group_info_report' | 'group_overflow_menu_leave_report_upsell' | 'group_safety_check_bottom_sheet' | 'group_spam_banner_report' | 'media_viewer' | 'message_menu' | 'newsletter_info_report' | 'newsletter_question_response_report' | 'notification_block' | 'overflow_menu_block' | 'overflow_menu_report' | 'status_post_report'
                     readonly subject: string
+                    readonly wi_trace_id?: string
                 }
                 readonly children: {
                     readonly call: ReadonlyArray<{
@@ -14906,6 +14907,7 @@ export interface WaXmlOperations {
                     readonly reportee: string
                     readonly spam_flow: '1_1_old_spam_banner_block' | '1_1_spam_banner_report' | 'account_info_report' | 'account_info_report_as_guest_user' | 'biz_spam_banner_block' | 'block_dialog' | 'chat_fmx_card_report_as_guest_user' | 'chat_fmx_card_safety_tools_report' | 'chat_fmx_card_safety_tools_report_suspicious' | 'chat_list_block' | 'chat_list_noinsub_block' | 'comment_actions_bottom_sheet' | 'community_home' | 'extension_menu_report' | 'group_chatlist_leave_report_upsell' | 'group_fmx_card_leave' | 'group_fmx_card_leave_non_suspicious' | 'group_info_leave_report_upsell' | 'group_info_report' | 'group_overflow_menu_leave_report_upsell' | 'group_safety_check_bottom_sheet' | 'group_spam_banner_report' | 'media_viewer' | 'message_menu' | 'newsletter_info_report' | 'newsletter_question_response_report' | 'notification_block' | 'overflow_menu_block' | 'overflow_menu_report' | 'status_post_report'
                     readonly value: 'spam_banner'
+                    readonly wi_trace_id?: string
                 }
                 readonly children: {
                     readonly biz_api_report: {
@@ -15129,6 +15131,7 @@ export interface WaXmlOperations {
                     readonly jid: string
                     readonly spam_flow: '1_1_old_spam_banner_block' | '1_1_spam_banner_report' | 'account_info_report' | 'account_info_report_as_guest_user' | 'biz_spam_banner_block' | 'block_dialog' | 'chat_fmx_card_report_as_guest_user' | 'chat_fmx_card_safety_tools_report' | 'chat_fmx_card_safety_tools_report_suspicious' | 'chat_list_block' | 'chat_list_noinsub_block' | 'comment_actions_bottom_sheet' | 'community_home' | 'extension_menu_report' | 'group_chatlist_leave_report_upsell' | 'group_fmx_card_leave' | 'group_fmx_card_leave_non_suspicious' | 'group_info_leave_report_upsell' | 'group_info_report' | 'group_overflow_menu_leave_report_upsell' | 'group_safety_check_bottom_sheet' | 'group_spam_banner_report' | 'media_viewer' | 'message_menu' | 'newsletter_info_report' | 'newsletter_question_response_report' | 'notification_block' | 'overflow_menu_block' | 'overflow_menu_report' | 'status_post_report'
                     readonly subject: string
+                    readonly wi_trace_id?: string
                 }
                 readonly children: {
                     readonly message: ReadonlyArray<{
@@ -15327,6 +15330,7 @@ export interface WaXmlOperations {
                     readonly reason?: string
                     readonly reportee: string
                     readonly spam_flow: '1_1_old_spam_banner_block' | '1_1_spam_banner_report' | 'account_info_report' | 'account_info_report_as_guest_user' | 'biz_spam_banner_block' | 'block_dialog' | 'chat_fmx_card_report_as_guest_user' | 'chat_fmx_card_safety_tools_report' | 'chat_fmx_card_safety_tools_report_suspicious' | 'chat_list_block' | 'chat_list_noinsub_block' | 'comment_actions_bottom_sheet' | 'community_home' | 'extension_menu_report' | 'group_chatlist_leave_report_upsell' | 'group_fmx_card_leave' | 'group_fmx_card_leave_non_suspicious' | 'group_info_leave_report_upsell' | 'group_info_report' | 'group_overflow_menu_leave_report_upsell' | 'group_safety_check_bottom_sheet' | 'group_spam_banner_report' | 'media_viewer' | 'message_menu' | 'newsletter_info_report' | 'newsletter_question_response_report' | 'notification_block' | 'overflow_menu_block' | 'overflow_menu_report' | 'status_post_report'
+                    readonly wi_trace_id?: string
                 }
                 readonly children: {
                     readonly biz_api_report: {
@@ -15336,7 +15340,7 @@ export interface WaXmlOperations {
                             readonly message_report: string
                         }
                     }
-                    readonly message: {
+                    readonly message: ReadonlyArray<{
                         readonly tag: 'message'
                         readonly attrs: {
                             readonly edit: '1'
@@ -15445,7 +15449,7 @@ export interface WaXmlOperations {
                                 readonly tag: 'url_text'
                             }
                         }
-                    }
+                    }>
                 }
             }
         }
@@ -15505,6 +15509,7 @@ export interface WaXmlOperations {
                     readonly jid: string
                     readonly spam_flow: '1_1_old_spam_banner_block' | '1_1_spam_banner_report' | 'account_info_report' | 'account_info_report_as_guest_user' | 'biz_spam_banner_block' | 'block_dialog' | 'chat_fmx_card_report_as_guest_user' | 'chat_fmx_card_safety_tools_report' | 'chat_fmx_card_safety_tools_report_suspicious' | 'chat_list_block' | 'chat_list_noinsub_block' | 'comment_actions_bottom_sheet' | 'community_home' | 'extension_menu_report' | 'group_chatlist_leave_report_upsell' | 'group_fmx_card_leave' | 'group_fmx_card_leave_non_suspicious' | 'group_info_leave_report_upsell' | 'group_info_report' | 'group_overflow_menu_leave_report_upsell' | 'group_safety_check_bottom_sheet' | 'group_spam_banner_report' | 'media_viewer' | 'message_menu' | 'newsletter_info_report' | 'newsletter_question_response_report' | 'notification_block' | 'overflow_menu_block' | 'overflow_menu_report' | 'status_post_report'
                     readonly subject: string
+                    readonly wi_trace_id?: string
                 }
                 readonly children: {
                     readonly status: {
@@ -17757,19 +17762,6 @@ export interface WaXmlStanzas {
                                 readonly t: number
                             }
                         }>
-                        readonly watermark: {
-                            readonly tag: 'watermark'
-                            readonly children: {
-                                readonly item: ReadonlyArray<{
-                                    readonly tag: 'item'
-                                    readonly attrs: {
-                                        readonly from: string
-                                        readonly sts?: number
-                                        readonly t: number
-                                    }
-                                }>
-                            }
-                        } | undefined
                     }
                 }
                 readonly tos: {
@@ -19210,6 +19202,7 @@ export interface WaXmlStanzas {
                 readonly attrs: {
                     readonly from: string
                     readonly id: string
+                    readonly t: number
                     readonly type: 'digital_commerce_subscription'
                 }
                 readonly children: {

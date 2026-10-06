@@ -40630,6 +40630,11 @@
                 "subject": {
                   "arg": "t",
                   "type": "string"
+                },
+                "wi_trace_id": {
+                  "arg": "n",
+                  "optional": true,
+                  "type": "string"
                 }
               },
               "children": [
@@ -41244,6 +41249,11 @@
                 "value": {
                   "type": "literal",
                   "value": "spam_banner"
+                },
+                "wi_trace_id": {
+                  "arg": "n",
+                  "optional": true,
+                  "type": "string"
                 }
               },
               "children": [
@@ -41841,6 +41851,11 @@
                 "subject": {
                   "arg": "t",
                   "type": "string"
+                },
+                "wi_trace_id": {
+                  "arg": "n",
+                  "optional": true,
+                  "type": "string"
                 }
               },
               "children": [
@@ -42216,7 +42231,7 @@
       "opName": "StatusReport",
       "request": {
         "argShape": {
-          "e": true
+          "t": true
         },
         "module": "WASmaxOutSpamStatusReportRequest",
         "node": {
@@ -42324,7 +42339,7 @@
                   "type": "bool"
                 },
                 "jid": {
-                  "arg": "a",
+                  "arg": "l",
                   "type": "jid"
                 },
                 "reason": {
@@ -42371,6 +42386,11 @@
                     "status_post_report"
                   ],
                   "type": "enum"
+                },
+                "wi_trace_id": {
+                  "arg": "n",
+                  "optional": true,
+                  "type": "string"
                 }
               },
               "children": [
@@ -42391,6 +42411,7 @@
                   "tag": "biz_api_report"
                 },
                 {
+                  "__helper": "REPEATED_CHILD",
                   "appliedMixin": [
                     "WASmaxOutSpamMessageMixin",
                     "WASmaxMixins",
@@ -42411,7 +42432,7 @@
                       "type": "string"
                     },
                     "from": {
-                      "arg": "s",
+                      "arg": "t",
                       "type": "jid"
                     },
                     "local_message_type": {
@@ -42659,7 +42680,7 @@
                       "tag": "url_text"
                     }
                   ],
-                  "max": 1,
+                  "max": 2,
                   "min": 1,
                   "tag": "message"
                 }
@@ -42842,6 +42863,11 @@
                 },
                 "subject": {
                   "arg": "t",
+                  "type": "string"
+                },
+                "wi_trace_id": {
+                  "arg": "n",
+                  "optional": true,
                   "type": "string"
                 }
               },
@@ -48786,37 +48812,6 @@
                 "max": null,
                 "min": 0,
                 "tag": "item"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {
-                      "from": {
-                        "direction": "both",
-                        "type": "jid"
-                      },
-                      "sts": {
-                        "optional": true,
-                        "type": "int"
-                      },
-                      "t": {
-                        "arg": "n[e]",
-                        "direction": "out",
-                        "type": "int"
-                      }
-                    },
-                    "children": [],
-                    "content": null,
-                    "max": null,
-                    "min": 0,
-                    "tag": "item"
-                  }
-                ],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "watermark"
               }
             ],
             "content": null,
@@ -50944,7 +50939,7 @@
               {
                 "attrs": {
                   "agent_engagement_type": {
-                    "arg": "T",
+                    "arg": "D",
                     "direction": "both",
                     "optional": true,
                     "type": "string"
@@ -53230,6 +53225,9 @@
               },
               "id": {
                 "type": "stanzaId"
+              },
+              "t": {
+                "type": "int"
               },
               "type": {
                 "type": "literal",
@@ -57576,5 +57574,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1049290928"
+  "waVersion": "2.3000.1049416828"
 }
