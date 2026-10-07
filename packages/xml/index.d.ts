@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049416828
+// WhatsApp Version: 2.3000.1049549980
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -18579,6 +18579,9 @@ export interface WaXmlStanzas {
                     }
                     readonly reporting: {
                         readonly tag: 'reporting'
+                        readonly attrs: {
+                            readonly validation_policy?: string
+                        }
                         readonly children: {
                             readonly reporting_tag: {
                                 readonly tag: 'reporting_tag'

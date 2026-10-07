@@ -1591,6 +1591,17 @@
         "SUCCESS": 1
       }
     },
+    "CALLER_DISPLAY_NAME_TYPE": {
+      "export": "CALLER_DISPLAY_NAME_TYPE",
+      "module": "WAWebWamEnumCallerDisplayNameType",
+      "values": {
+        "PHONE_NUMBER": 4,
+        "PUSH_NAME": 2,
+        "SAVED_NAME": 1,
+        "UNKNOWN": 5,
+        "USERNAME": 3
+      }
+    },
     "CALLS_TAB_SOURCE": {
       "export": "CALLS_TAB_SOURCE",
       "module": "WAWebWamEnumCallsTabSource",
@@ -3543,6 +3554,7 @@
       "module": "WAWebWamEnumCompanionInviteActionType",
       "values": {
         "IMPRESSION": 0,
+        "INVITE_INTENT": 2,
         "INVITE_SEND": 1
       }
     },
@@ -3609,6 +3621,26 @@
         "HOSTNAME": 0,
         "IP4": 1,
         "IP6": 2
+      }
+    },
+    "CONNECTOR_PERMISSION_FLOW": {
+      "export": "CONNECTOR_PERMISSION_FLOW",
+      "module": "WAWebWamEnumConnectorPermissionFlow",
+      "values": {
+        "DEVICE": 2,
+        "NEW_AUTH_NEEDED": 1,
+        "UNKNOWN": 0
+      }
+    },
+    "CONNECTOR_TYPE": {
+      "export": "CONNECTOR_TYPE",
+      "module": "WAWebWamEnumConnectorType",
+      "values": {
+        "CUSTOM": 4,
+        "DEVICE": 3,
+        "NATIVE": 2,
+        "UNKNOWN": 0,
+        "WEB": 1
       }
     },
     "CONSENT_SOURCE": {
@@ -6057,6 +6089,40 @@
       "export": "HATCH_ACTION_TYPE",
       "module": "WAWebWamEnumHatchActionType",
       "values": {
+        "CONNECTORS_TAP": 27,
+        "CONNECTOR_ADD_ACCOUNT_ERROR": 32,
+        "CONNECTOR_ADD_ACCOUNT_SUCCESS": 31,
+        "CONNECTOR_ADD_ACCOUNT_TAP": 29,
+        "CONNECTOR_ADD_ACCOUNT_WEB_START": 30,
+        "CONNECTOR_AUTH_ERROR": 26,
+        "CONNECTOR_AUTH_SUCCESS": 25,
+        "CONNECTOR_AUTH_WEB_START": 24,
+        "CONNECTOR_BOTTOM_SHEET_CONNECT_TAP": 22,
+        "CONNECTOR_BOTTOM_SHEET_IMPRESSION": 21,
+        "CONNECTOR_CANCEL_TAP": 23,
+        "CONNECTOR_CONNECT_MESSAGE_IMPRESSION": 19,
+        "CONNECTOR_CONNECT_MESSAGE_TAPPED": 20,
+        "CONNECTOR_DISCONNECT_BOTTOM_SHEET_IMPRESSION": 47,
+        "CONNECTOR_DISCONNECT_CANCEL_TAP": 49,
+        "CONNECTOR_DISCONNECT_CONFIRM_TAP": 48,
+        "CONNECTOR_DISCONNECT_ERROR": 44,
+        "CONNECTOR_DISCONNECT_MESSAGE_IMPRESSION": 45,
+        "CONNECTOR_DISCONNECT_MESSAGE_TAPPED": 46,
+        "CONNECTOR_DISCONNECT_SUCCESS": 43,
+        "CONNECTOR_DISCONNECT_TAP": 42,
+        "CONNECTOR_LEGAL_LINK_TAP": 41,
+        "CONNECTOR_PERMISSION_DECISION_TAP": 39,
+        "CONNECTOR_PERMISSION_ERROR": 38,
+        "CONNECTOR_PERMISSION_IMPRESSION": 40,
+        "CONNECTOR_PERMISSION_SUCCESS": 37,
+        "CONNECTOR_PERMISSION_TAP": 35,
+        "CONNECTOR_PERMISSION_WEB_START": 36,
+        "CONNECTOR_SEARCH_SUCCESS": 34,
+        "CONNECTOR_SEARCH_TAP": 33,
+        "CONNECTOR_SECURE_CREDENTIAL_MESSAGE_IMPRESSION": 50,
+        "CONNECTOR_SECURE_CREDENTIAL_MESSAGE_TAPPED": 51,
+        "CONNECTOR_SECURE_CREDENTIAL_SUCCESS": 52,
+        "CONNECT_TAP": 28,
         "HITL_BOTTOM_SHEET_IMPRESSION": 7,
         "HITL_CART_DETAILS_IMPRESSION": 13,
         "HITL_DECISION_TAP": 12,
@@ -6146,6 +6212,7 @@
         "AI_MEDIA_EDITOR_DESCRIBE_CLICKED": 118,
         "AI_MEDIA_EDITOR_DESCRIBE_SEND": 124,
         "AI_MEDIA_EDITOR_ENTRY_BANNER_CLICKED": 114,
+        "AI_MEDIA_EDITOR_ENTRY_CLICKED": 131,
         "AI_MEDIA_EDITOR_ENTRY_TOOLBAR_CLICKED": 115,
         "AI_MEDIA_EDITOR_EXPAND_SEND": 129,
         "AI_MEDIA_EDITOR_PRESETS_CLICKED": 120,
@@ -15283,6 +15350,8 @@
         "COMMUNITY_TAB": 3,
         "COMPANION_LOADING": 254,
         "COMPANION_REGISTRATION": 255,
+        "CONNECTORS_HATCH": 275,
+        "CONNECTOR_DETAIL_HATCH": 276,
         "CONTACT_CREATION": 167,
         "CONTACT_INFO": 111,
         "CONTACT_MESSAGE_INFO": 220,
@@ -22611,6 +22680,12 @@
           "id": 1596,
           "type": "timer"
         },
+        "callerDisplayNameType": {
+          "enum": "CALLER_DISPLAY_NAME_TYPE",
+          "falcoName": "caller_display_name_type",
+          "id": 3215,
+          "type": "enum"
+        },
         "callerInContact": {
           "falcoName": "caller_in_contact",
           "id": 476,
@@ -22620,6 +22695,16 @@
           "falcoName": "caller_offer_to_decode_t",
           "id": 445,
           "type": "timer"
+        },
+        "callerPnPresent": {
+          "falcoName": "caller_pn_present",
+          "id": 3216,
+          "type": "boolean"
+        },
+        "callerUsernamePresent": {
+          "falcoName": "caller_username_present",
+          "id": 3217,
+          "type": "boolean"
         },
         "callerVidRtpToDecodeT": {
           "falcoName": "caller_vid_rtp_to_decode_t",
@@ -30956,6 +31041,11 @@
           "id": 1687,
           "type": "integer"
         },
+        "videoAv1TimePerSegment": {
+          "falcoName": "video_av1_time_per_segment",
+          "id": 3218,
+          "type": "integer"
+        },
         "videoAveDelayLtrp": {
           "falcoName": "video_ave_delay_ltrp",
           "id": 484,
@@ -31816,9 +31906,19 @@
           "id": 334,
           "type": "integer"
         },
+        "videoH264TimePerSegment": {
+          "falcoName": "video_h264_time_per_segment",
+          "id": 3219,
+          "type": "integer"
+        },
         "videoH265Time": {
           "falcoName": "video_h265_time",
           "id": 335,
+          "type": "integer"
+        },
+        "videoH265TimePerSegment": {
+          "falcoName": "video_h265_time_per_segment",
+          "id": 3220,
           "type": "integer"
         },
         "videoHeight": {
@@ -43398,6 +43498,33 @@
           "falcoName": "ai_session_id",
           "id": 1,
           "type": "string"
+        },
+        "connectorId": {
+          "falcoName": "connector_id",
+          "id": 12,
+          "type": "string"
+        },
+        "connectorPermissionDecisionType": {
+          "falcoName": "connector_permission_decision_type",
+          "id": 13,
+          "type": "string"
+        },
+        "connectorPermissionFlow": {
+          "enum": "CONNECTOR_PERMISSION_FLOW",
+          "falcoName": "connector_permission_flow",
+          "id": 14,
+          "type": "enum"
+        },
+        "connectorPermissionType": {
+          "falcoName": "connector_permission_type",
+          "id": 15,
+          "type": "string"
+        },
+        "connectorType": {
+          "enum": "CONNECTOR_TYPE",
+          "falcoName": "connector_type",
+          "id": 16,
+          "type": "enum"
         },
         "dedupKey": {
           "falcoName": "dedup_key",
@@ -70435,7 +70562,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1049416828",
+  "waVersion": "2.3000.1049549980",
   "wireFormat": {
     "markers": {
       "event": 1,

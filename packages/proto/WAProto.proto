@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1049416828
+/// WhatsApp Version: 2.3000.1049549980
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -791,6 +791,7 @@ message AIThreadInfo {
             DEFAULT = 1;
             INCOGNITO = 2;
             SIDE_CHAT = 3;
+            PRIVATE_SEARCH_CHAT = 4;
         }
     }
     message AIThreadServerInfo {
@@ -1255,7 +1256,14 @@ message BotCapabilityMetadata {
         AI_STOP_GENERATION_ENABLED = 70;
         AI_RICH_RESPONSE_3P_LINKING_CARD_ENABLED = 71;
         HATCH_NOTIFICATION_METADATA_EVENT_ENABLED = 72;
+        AI_SUGGESTED_REPLIES_ENABLED = 73;
+        RICH_RESPONSE_IN_APP_SURVEY_BLOKS = 74;
+        RICH_RESPONSE_IMAGE_SOURCE_ATTRIBUTION = 75;
         HATCH_CONNECTOR_ACTION_CARD_ENABLED = 76;
+        HATCH_SECURE_CREDENTIAL_CARD_ENABLED = 77;
+        HATCH_BROWSER_TASK_CARD_ENABLED = 78;
+        HATCH_ARTIFACT_CARD_ENABLED = 79;
+        AI_STUDY_CENTER_ENABLED = 80;
     }
 }
 
@@ -2471,6 +2479,8 @@ message ContextInfo {
         MOTION_PHOTO_CHILD = 6;
         HEVC_VIDEO_PARENT = 7;
         HEVC_VIDEO_CHILD = 8;
+        AV1_VIDEO_PARENT = 9;
+        AV1_VIDEO_CHILD = 10;
     }
     enum StatusAttributionType {
         NONE = 0;
@@ -2620,6 +2630,13 @@ message ContextInfo {
         optional int32 agmHeaderInteractionStrategy = 32;
         optional bool containsCtwaFlowsAutoLabel = 33;
         optional string productId = 34;
+        optional bool containsCtwaPromo = 35;
+        optional string ctwaPromoResponseId = 36;
+        optional string ctwaPromoOfferId = 37;
+        optional string ctwaPromoAdEntryId = 38;
+        optional uint64 ctwaPromoResponseExpiresAtSeconds = 39;
+        optional uint32 ctwaPromoSchemaVersion = 40;
+        optional string ctwaPromoAdgroupId = 41;
         enum AdType {
             CTWA = 0;
             CAWC = 1;
@@ -2711,6 +2728,7 @@ message Conversation {
     optional string authAgentObaPhoneNumber = 62;
     optional IdentityVerificationState identityVerification = 63;
     optional ACP2Setting acp2Setting = 64;
+    optional bool acp2HistoryWithheld = 65;
     enum GroupAppealStatus {
         NO_APPEAL = 0;
         APPEAL_IN_REVIEW = 1;
@@ -3117,6 +3135,8 @@ message DeviceProps {
         WAIL = 25;
         WASS = 26;
         BUSINESS_BACK_OFFICE = 27;
+        WAIL_WAI = 28;
+        WAIL_ALEXA = 29;
     }
     message HistorySyncConfig {
         optional uint32 fullSyncDaysLimit = 1;
@@ -3144,6 +3164,8 @@ message DeviceProps {
         repeated string supportedBotChannelFbids = 23;
         optional bool supportInlineContacts = 24;
         optional bool supportNewsletter = 25;
+        optional bool supportUniversalReachChat = 26;
+        optional bool supportOmittedConversationIndex = 27;
     }
     message AppVersion {
         optional uint32 primary = 1;
@@ -3394,6 +3416,10 @@ message EpochSignatures {
 
 message EventAdditionalMetadata {
     optional bool isStale = 1;
+}
+
+message EventInviteAdditionalMetadata {
+    optional bool isUpdated = 1;
 }
 
 message EventResponse {
@@ -3685,6 +3711,9 @@ message HistorySync {
     optional bytes nctSalt = 19;
     repeated InlineContact inlineContacts = 20;
     optional bool inlineContactsProvided = 21;
+    repeated StickerMetadata favoriteStickers = 22;
+    repeated RecoverableHistoryConversation omittedConversations = 23;
+    optional bool omittedConversationsProvided = 24;
     enum BotAIWaitListState {
         IN_WAITLIST = 0;
         AI_AVAILABLE = 1;
@@ -4333,6 +4362,8 @@ message Message {
     optional FutureProofMessage newsletterScheduledMessage = 132;
     optional FutureProofMessage acp2SettingMessage = 133;
     optional FutureProofMessage audioStickerMessage = 134;
+    optional ImageMessage instantImageMessage = 135;
+    optional RequestLocationMessage requestLocationMessage = 136;
     optional FutureProofMessage botGroupParticipantMessage = 137;
     enum PollType {
         POLL = 0;
@@ -4745,6 +4776,9 @@ message Message {
         optional Message message = 2;
         optional string phash = 3;
     }
+    message RequestLocationMessage {
+        optional ContextInfo contextInfo = 1;
+    }
     message RequestPhoneNumberMessage {
         optional ContextInfo contextInfo = 1;
     }
@@ -4758,6 +4792,19 @@ message Message {
         optional bool isCanceled = 7;
         optional int64 endTime = 8;
         optional string callLink = 9;
+        optional string coverImageHandle = 10;
+        optional string locationName = 11;
+        optional int64 lastUpdatedTsUsec = 12;
+        optional EventStatus status = 13;
+        enum EventStatus {
+            UNKNOWN = 0;
+            ACTIVE = 1;
+            CANCELED = 2;
+            SUSPENDED = 3;
+            DELETED = 4;
+            LEFT_EVENT = 5;
+            REMOVED_FROM_INVITE_LIST = 6;
+        }
     }
     message NewsletterFollowerInviteMessage {
         optional string newsletterJid = 1;
@@ -5429,6 +5476,11 @@ message Message {
         optional string requestId = 1;
         optional string businessProduct = 2;
         optional bytes opaqueClientData = 3;
+        optional Message.CoexConnectionDescriptor connection = 4;
+    }
+    message CoexConnectionDescriptor {
+        optional int64 providerId = 1;
+        optional string product = 2;
     }
     message AppStateFatalExceptionNotification {
         repeated string collectionNames = 1;
@@ -5515,9 +5567,11 @@ message Message {
         optional float dimLevel = 2;
     }
     message ChatSolidColorWallpaper {
-        optional string colorLight = 1;
-        optional string colorDark = 2;
+        optional fixed32 backgroundLightArgb = 1;
+        optional fixed32 backgroundDarkArgb = 2;
         optional bool isDoodleEnabled = 3;
+        optional fixed32 doodleLightArgb = 4;
+        optional fixed32 doodleDarkArgb = 5;
     }
     message ChatDefaultWallpaper {
         optional bool isDoodleEnabled = 1;
@@ -5581,6 +5635,7 @@ message Message {
         optional ACP2Setting acp2Setting = 35;
         optional Message.SharedDeviceContactHashKeyShare sharedDeviceContactHashKeyShare = 36;
         optional Message.SharedDeviceContactHashKeyRequest sharedDeviceContactHashKeyRequest = 37;
+        repeated string additionalPromptIds = 38;
         enum Type {
             REVOKE = 0;
             EPHEMERAL_SETTING = 3;
@@ -6080,6 +6135,7 @@ message MessageAssociation {
         STATUS_REACTION = 18;
         HEVC_VIDEO_DUAL_UPLOAD = 19;
         POLL_ADD_OPTION = 20;
+        AV1_VIDEO_DUAL_UPLOAD = 21;
     }
 }
 
@@ -7174,6 +7230,7 @@ message Point {
 message PollAdditionalMetadata {
     optional bool pollInvalidated = 1;
     repeated PollNameHashHistoryEntry pollNameHashHistory = 2;
+    repeated Message.PollCreationMessage.Option originalOptions = 3;
     message PollNameHashHistoryEntry {
         optional string editStanzaId = 1;
         optional bytes pollNameHash = 2;
@@ -7403,6 +7460,11 @@ message RecentEmojiWeight {
 message RecordStructure {
     optional SessionStructure currentSession = 1;
     repeated SessionStructure previousSessions = 2;
+}
+
+message RecoverableHistoryConversation {
+    optional string historyChatId = 1;
+    optional string accountLid = 2;
 }
 
 message Reportable {
@@ -8144,6 +8206,7 @@ message SyncActionValue {
         optional string fullName = 1;
         optional string firstName = 2;
         optional string username = 3;
+        optional string birthday = 4;
     }
     message NotificationActivitySettingAction {
         optional NotificationActivitySetting notificationActivitySetting = 1;
@@ -8460,6 +8523,7 @@ message SyncActionValue {
         optional bool saveOnPrimaryAddressbook = 4;
         optional string pnJid = 5;
         optional string username = 6;
+        optional string birthday = 7;
     }
     message StarAction {
         optional bool starred = 1;
@@ -9044,6 +9108,7 @@ message WebMessageInfo {
     optional ScheduledMessageMetadata scheduledMessageMetadata = 81;
     optional string decisionId = 82;
     repeated string decisionSources = 83;
+    optional EventInviteAdditionalMetadata eventInviteAdditionalMetadata = 84;
     enum BizPrivacyStatus {
         E2EE = 0;
         BSP = 1;
@@ -9287,9 +9352,25 @@ message WebMessageInfo {
         EPHEMERAL_CHANGED_FOR_COEX = 248;
         UGC_BOT_PROFILE_UPDATED = 249;
         ORDER_EPHEMERAL_EXEMPTION = 250;
+        GROUP_DEFAULT_SUB_GROUP_DEMOTE = 251;
+        BIZ_BUSINESS_BROADCAST_ENTRY_POINT = 252;
+        BOT_INLINE_TOS_CHAT = 253;
         CAMEO_CHAT_CREATED = 254;
         SENDER_SIDE_CONTACT_INFO = 255;
         CAMEO_TRANSITIONED = 256;
+        CAMEO_REGISTERED_WITH_NEW_CHAT = 257;
+        PRIVACY_SYSTEM_MESSAGE = 258;
+        BIZ_AI_LEARNING_ENABLED_DISCLOSURE = 259;
+        BIZ_AI_LEARNING_DISABLED_DISCLOSURE = 260;
+        BIZ_AI_REPLIES_MUTED_HISTORICAL_CHAT = 261;
+        INVITE_FROM_IG = 262;
+        GROUP_ADMIN_FIRST_JOIN_VIA_LINK = 263;
+        GROUP_ADMIN_FLOOD_JOIN_VIA_LINK = 264;
+        BIZ_AI_REPLIES_MUTED_IRRELEVANT_HISTORICAL_CHAT = 265;
+        PENDING_INVITE_CREATED = 266;
+        CAMEO_CHAT_EXPIRED = 267;
+        GROUP_PUSHNAME_SHARED = 270;
+        BIZ_POST_SEND_OPT_OUT = 271;
     }
     enum Status {
         ERROR = 0;

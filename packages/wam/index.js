@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049416828
+// WhatsApp Version: 2.3000.1049549980
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1643,6 +1643,17 @@ const WA_WAM_ENUMS = Object.freeze({
         'RETRY_FAILURE': 5,
         'RETRY_SUCCESS': 4,
         'SUCCESS': 1
+        })
+    }),
+    CALLER_DISPLAY_NAME_TYPE: Object.freeze({
+        module: 'WAWebWamEnumCallerDisplayNameType',
+        export: 'CALLER_DISPLAY_NAME_TYPE',
+        values: Object.freeze({
+        'PHONE_NUMBER': 4,
+        'PUSH_NAME': 2,
+        'SAVED_NAME': 1,
+        'UNKNOWN': 5,
+        'USERNAME': 3
         })
     }),
     CALLS_TAB_SOURCE: Object.freeze({
@@ -3597,6 +3608,7 @@ const WA_WAM_ENUMS = Object.freeze({
         export: 'COMPANION_INVITE_ACTION_TYPE',
         values: Object.freeze({
         'IMPRESSION': 0,
+        'INVITE_INTENT': 2,
         'INVITE_SEND': 1
         })
     }),
@@ -3663,6 +3675,26 @@ const WA_WAM_ENUMS = Object.freeze({
         'HOSTNAME': 0,
         'IP4': 1,
         'IP6': 2
+        })
+    }),
+    CONNECTOR_PERMISSION_FLOW: Object.freeze({
+        module: 'WAWebWamEnumConnectorPermissionFlow',
+        export: 'CONNECTOR_PERMISSION_FLOW',
+        values: Object.freeze({
+        'DEVICE': 2,
+        'NEW_AUTH_NEEDED': 1,
+        'UNKNOWN': 0
+        })
+    }),
+    CONNECTOR_TYPE: Object.freeze({
+        module: 'WAWebWamEnumConnectorType',
+        export: 'CONNECTOR_TYPE',
+        values: Object.freeze({
+        'CUSTOM': 4,
+        'DEVICE': 3,
+        'NATIVE': 2,
+        'UNKNOWN': 0,
+        'WEB': 1
         })
     }),
     CONSENT_SOURCE: Object.freeze({
@@ -6111,6 +6143,40 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumHatchActionType',
         export: 'HATCH_ACTION_TYPE',
         values: Object.freeze({
+        'CONNECTORS_TAP': 27,
+        'CONNECTOR_ADD_ACCOUNT_ERROR': 32,
+        'CONNECTOR_ADD_ACCOUNT_SUCCESS': 31,
+        'CONNECTOR_ADD_ACCOUNT_TAP': 29,
+        'CONNECTOR_ADD_ACCOUNT_WEB_START': 30,
+        'CONNECTOR_AUTH_ERROR': 26,
+        'CONNECTOR_AUTH_SUCCESS': 25,
+        'CONNECTOR_AUTH_WEB_START': 24,
+        'CONNECTOR_BOTTOM_SHEET_CONNECT_TAP': 22,
+        'CONNECTOR_BOTTOM_SHEET_IMPRESSION': 21,
+        'CONNECTOR_CANCEL_TAP': 23,
+        'CONNECTOR_CONNECT_MESSAGE_IMPRESSION': 19,
+        'CONNECTOR_CONNECT_MESSAGE_TAPPED': 20,
+        'CONNECTOR_DISCONNECT_BOTTOM_SHEET_IMPRESSION': 47,
+        'CONNECTOR_DISCONNECT_CANCEL_TAP': 49,
+        'CONNECTOR_DISCONNECT_CONFIRM_TAP': 48,
+        'CONNECTOR_DISCONNECT_ERROR': 44,
+        'CONNECTOR_DISCONNECT_MESSAGE_IMPRESSION': 45,
+        'CONNECTOR_DISCONNECT_MESSAGE_TAPPED': 46,
+        'CONNECTOR_DISCONNECT_SUCCESS': 43,
+        'CONNECTOR_DISCONNECT_TAP': 42,
+        'CONNECTOR_LEGAL_LINK_TAP': 41,
+        'CONNECTOR_PERMISSION_DECISION_TAP': 39,
+        'CONNECTOR_PERMISSION_ERROR': 38,
+        'CONNECTOR_PERMISSION_IMPRESSION': 40,
+        'CONNECTOR_PERMISSION_SUCCESS': 37,
+        'CONNECTOR_PERMISSION_TAP': 35,
+        'CONNECTOR_PERMISSION_WEB_START': 36,
+        'CONNECTOR_SEARCH_SUCCESS': 34,
+        'CONNECTOR_SEARCH_TAP': 33,
+        'CONNECTOR_SECURE_CREDENTIAL_MESSAGE_IMPRESSION': 50,
+        'CONNECTOR_SECURE_CREDENTIAL_MESSAGE_TAPPED': 51,
+        'CONNECTOR_SECURE_CREDENTIAL_SUCCESS': 52,
+        'CONNECT_TAP': 28,
         'HITL_BOTTOM_SHEET_IMPRESSION': 7,
         'HITL_CART_DETAILS_IMPRESSION': 13,
         'HITL_DECISION_TAP': 12,
@@ -6200,6 +6266,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'AI_MEDIA_EDITOR_DESCRIBE_CLICKED': 118,
         'AI_MEDIA_EDITOR_DESCRIBE_SEND': 124,
         'AI_MEDIA_EDITOR_ENTRY_BANNER_CLICKED': 114,
+        'AI_MEDIA_EDITOR_ENTRY_CLICKED': 131,
         'AI_MEDIA_EDITOR_ENTRY_TOOLBAR_CLICKED': 115,
         'AI_MEDIA_EDITOR_EXPAND_SEND': 129,
         'AI_MEDIA_EDITOR_PRESETS_CLICKED': 120,
@@ -15337,6 +15404,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'COMMUNITY_TAB': 3,
         'COMPANION_LOADING': 254,
         'COMPANION_REGISTRATION': 255,
+        'CONNECTORS_HATCH': 275,
+        'CONNECTOR_DETAIL_HATCH': 276,
         'CONTACT_CREATION': 167,
         'CONTACT_INFO': 111,
         'CONTACT_MESSAGE_INFO': 220,
@@ -18761,8 +18830,11 @@ const WA_WAM_EVENTS = Object.freeze({
             calleeAcceptToDecodeT: Object.freeze({ id: 447, type: 'timer', falcoName: 'callee_accept_to_decode_t' }),
             calleeOfferToRingT: Object.freeze({ id: 1384, type: 'timer', falcoName: 'callee_offer_to_ring_t' }),
             calleePushLatencyMs: Object.freeze({ id: 1596, type: 'timer', falcoName: 'callee_push_latency_ms' }),
+            callerDisplayNameType: Object.freeze({ id: 3215, type: 'enum', enum: 'CALLER_DISPLAY_NAME_TYPE', falcoName: 'caller_display_name_type' }),
             callerInContact: Object.freeze({ id: 476, type: 'boolean', falcoName: 'caller_in_contact' }),
             callerOfferToDecodeT: Object.freeze({ id: 445, type: 'timer', falcoName: 'caller_offer_to_decode_t' }),
+            callerPnPresent: Object.freeze({ id: 3216, type: 'boolean', falcoName: 'caller_pn_present' }),
+            callerUsernamePresent: Object.freeze({ id: 3217, type: 'boolean', falcoName: 'caller_username_present' }),
             callerVidRtpToDecodeT: Object.freeze({ id: 446, type: 'timer', falcoName: 'caller_vid_rtp_to_decode_t' }),
             callingHistoryQuickhdUsedBitrate: Object.freeze({ id: 2488, type: 'integer', falcoName: 'calling_history_quickhd_used_bitrate' }),
             callingHistoryTpRecordBothMatchCount: Object.freeze({ id: 2489, type: 'integer', falcoName: 'calling_history_tp_record_both_match_count' }),
@@ -20422,6 +20494,7 @@ const WA_WAM_EVENTS = Object.freeze({
             videoActiveTime: Object.freeze({ id: 276, type: 'timer', falcoName: 'video_active_time' }),
             videoAheadNumAvSyncDiscardFrames: Object.freeze({ id: 1039, type: 'integer', falcoName: 'video_ahead_num_av_sync_discard_frames' }),
             videoAv1Time: Object.freeze({ id: 1687, type: 'integer', falcoName: 'video_av1_time' }),
+            videoAv1TimePerSegment: Object.freeze({ id: 3218, type: 'integer', falcoName: 'video_av1_time_per_segment' }),
             videoAveDelayLtrp: Object.freeze({ id: 484, type: 'timer', falcoName: 'video_ave_delay_ltrp' }),
             videoAverageBitrateDiffSbwaToClientBwa: Object.freeze({ id: 1816, type: 'integer', falcoName: 'video_average_bitrate_diff_sbwa_to_client_bwa' }),
             videoAverageLqBitrateFromSbwa: Object.freeze({ id: 1817, type: 'integer', falcoName: 'video_average_lq_bitrate_from_sbwa' }),
@@ -20594,7 +20667,9 @@ const WA_WAM_EVENTS = Object.freeze({
             videoEncoderWidthSs: Object.freeze({ id: 1482, type: 'integer', falcoName: 'video_encoder_width_ss' }),
             videoFecRecovered: Object.freeze({ id: 183, type: 'integer', falcoName: 'video_fec_recovered' }),
             videoH264Time: Object.freeze({ id: 334, type: 'integer', falcoName: 'video_h264_time' }),
+            videoH264TimePerSegment: Object.freeze({ id: 3219, type: 'integer', falcoName: 'video_h264_time_per_segment' }),
             videoH265Time: Object.freeze({ id: 335, type: 'integer', falcoName: 'video_h265_time' }),
+            videoH265TimePerSegment: Object.freeze({ id: 3220, type: 'integer', falcoName: 'video_h265_time_per_segment' }),
             videoHeight: Object.freeze({ id: 189, type: 'integer', falcoName: 'video_height' }),
             videoInitRxBitrate16s: Object.freeze({ id: 904, type: 'number', falcoName: 'video_init_rx_bitrate16s' }),
             videoInitRxBitrate2s: Object.freeze({ id: 901, type: 'number', falcoName: 'video_init_rx_bitrate2s' }),
@@ -23787,6 +23862,11 @@ const WA_WAM_EVENTS = Object.freeze({
         conditions: Object.freeze([]),
         fields: Object.freeze({
             aiSessionId: Object.freeze({ id: 1, type: 'string', falcoName: 'ai_session_id' }),
+            connectorId: Object.freeze({ id: 12, type: 'string', falcoName: 'connector_id' }),
+            connectorPermissionDecisionType: Object.freeze({ id: 13, type: 'string', falcoName: 'connector_permission_decision_type' }),
+            connectorPermissionFlow: Object.freeze({ id: 14, type: 'enum', enum: 'CONNECTOR_PERMISSION_FLOW', falcoName: 'connector_permission_flow' }),
+            connectorPermissionType: Object.freeze({ id: 15, type: 'string', falcoName: 'connector_permission_type' }),
+            connectorType: Object.freeze({ id: 16, type: 'enum', enum: 'CONNECTOR_TYPE', falcoName: 'connector_type' }),
             dedupKey: Object.freeze({ id: 11, type: 'integer', falcoName: 'dedup_key' }),
             hatchActionType: Object.freeze({ id: 3, type: 'enum', enum: 'HATCH_ACTION_TYPE', falcoName: 'hatch_action_type' }),
             hitlIsMulti: Object.freeze({ id: 6, type: 'boolean', falcoName: 'hitl_is_multi' }),

@@ -116,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2672,
+  "propCount": 2689,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -694,6 +694,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_chat_avatar_animated_collapse_enabled": {
+      "code": 38651,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_commands_enabled": {
       "code": 27660,
       "debugDefaultValue": false,
@@ -705,6 +711,12 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
+    },
+    "ai_hatch_connectors_supported_types": {
+      "code": 38542,
+      "debugDefaultValue": "oauth, foa_auth, none, consent_only",
+      "defaultValue": "oauth, foa_auth, none, consent_only",
+      "type": "string"
     },
     "ai_hatch_data_controls_enabled": {
       "code": 37856,
@@ -721,6 +733,18 @@
     "ai_hatch_encrypted_media_enabled": {
       "code": 32496,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_fab_animation_variant": {
+      "code": 38617,
+      "debugDefaultValue": 1,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "ai_hatch_fab_enabled": {
+      "code": 38618,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -814,6 +838,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ai_hatch_noise_teardown_interval_ms": {
+      "code": 38514,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
+    "ai_hatch_options_card_enabled": {
+      "code": 38676,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_revoke_enabled": {
       "code": 36027,
       "debugDefaultValue": true,
@@ -859,6 +895,12 @@
     "ai_hatch_subscription_ui_enabled": {
       "code": 37238,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_theme_enabled": {
+      "code": 38652,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -952,6 +994,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "ai_meta_ai_thread_profile_pic_badge_enabled": {
+      "code": 38658,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_meta_ai_thread_rendering_enabled": {
       "code": 36759,
       "debugDefaultValue": false,
@@ -1030,10 +1078,22 @@
       "defaultValue": " ",
       "type": "string"
     },
+    "ai_pdfn_nux_ai_group_notice_id": {
+      "code": 22298,
+      "debugDefaultValue": " ",
+      "defaultValue": " ",
+      "type": "string"
+    },
     "ai_pdfn_nux_ai_group_tee_discover_notice_id": {
       "code": 26171,
       "debugDefaultValue": "20260212",
       "defaultValue": "20260212",
+      "type": "string"
+    },
+    "ai_pdfn_nux_ai_group_tee_notice_id": {
+      "code": 22773,
+      "debugDefaultValue": " ",
+      "defaultValue": " ",
       "type": "string"
     },
     "ai_pdfn_nux_ai_side_chat_notice_id": {
@@ -1230,6 +1290,12 @@
     },
     "ai_rich_response_side_by_side_survey_enabled": {
       "code": 17408,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_rich_response_source_reporting_long_press_enabled": {
+      "code": 38644,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -2854,6 +2920,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "calling_rust_migration_scope1_bitmap": {
+      "code": 38516,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "calling_screen_share_milestone_version": {
       "code": 30350,
       "debugDefaultValue": 2,
@@ -2922,7 +2994,7 @@
     },
     "capi_messaging_pairs_client_enabled": {
       "code": 38129,
-      "debugDefaultValue": false,
+      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -6930,12 +7002,6 @@
     },
     "interactive_response_message_killswitch": {
       "code": 1435,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "interactive_response_message_native_flow_killswitch": {
-      "code": 1436,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -12508,6 +12574,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_calling_calls_tab_overflow_menu_enabled": {
+      "code": 38616,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_calling_chat_empty_state_update_enabled": {
       "code": 33153,
       "debugDefaultValue": false,
@@ -12524,6 +12596,24 @@
       "code": 10051,
       "debugDefaultValue": true,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "wa_web_calling_incoming_call_tab_indicator_enabled": {
+      "code": 38675,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_calling_new_call_drawer_actions_enabled": {
+      "code": 38611,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_web_calling_notification_icons_enabled": {
+      "code": 38669,
+      "debugDefaultValue": true,
+      "defaultValue": false,
       "type": "bool"
     },
     "wa_web_calling_push_notification_on_call_end_enabled": {
@@ -13036,6 +13126,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "wa_web_media_download_rmr_on_hash_mismatch_enabled": {
+      "code": 38672,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "wa_web_media_fast_forward_same_key_type_enabled": {
       "code": 38464,
       "debugDefaultValue": true,
@@ -13539,6 +13635,12 @@
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
+    },
+    "wa_webtp_skip_sharer_confirmation_variant": {
+      "code": 38578,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
     },
     "wa_webtp_thumbnail_renderer_mode": {
       "code": 27535,
@@ -16182,5 +16284,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1049416828"
+  "waVersion": "2.3000.1049549980"
 }

@@ -4983,7 +4983,7 @@
       "variablesShape": {}
     },
     "FetchWassBotProfileGQL": {
-      "docId": "38799514653026858",
+      "docId": "29491894843744434",
       "operationKind": "query",
       "originalName": "WAWebFetchWassBotProfileGQLQuery",
       "response": {
@@ -6001,7 +6001,7 @@
           "error_reason": "string",
           "group": {
             "creation_timestamp_s": "number",
-            "gid": "string",
+            "gid": "unknown",
             "participant_count": "number",
             "subject": "string"
           },
@@ -6013,7 +6013,7 @@
         "orgID"
       ],
       "variablesShape": {
-        "gid": "string",
+        "gid": "unknown",
         "orgID": "string"
       }
     },
@@ -6114,7 +6114,7 @@
       }
     },
     "OrgAdminGraphQLGroup": {
-      "docId": "39383855724546026",
+      "docId": "28395729336786789",
       "operationKind": "query",
       "originalName": "WAWebOrgAdminGraphQLGroupQuery",
       "response": {
@@ -6124,7 +6124,8 @@
             "id": "string",
             "managed_group": {
               "creation_timestamp_s": "number",
-              "gid": "string",
+              "description": "string",
+              "gid": "unknown",
               "participant_count": "number",
               "participants": [
                 {
@@ -6132,6 +6133,9 @@
                   "role": "enum:ADMIN|CREATOR"
                 }
               ],
+              "picture": {
+                "uri": "string"
+              },
               "roster_partial": "boolean",
               "subject": "string"
             }
@@ -6144,7 +6148,7 @@
         "orgID"
       ],
       "variablesShape": {
-        "gid": "string",
+        "gid": "unknown",
         "orgID": "string"
       }
     },
@@ -6215,7 +6219,7 @@
               "nodes": [
                 {
                   "creation_timestamp_s": "number",
-                  "gid": "string",
+                  "gid": "unknown",
                   "participant_count": "number",
                   "participants": [
                     {
@@ -6294,7 +6298,7 @@
               "id": "string",
               "is_member_directory_enabled": "boolean",
               "member_count": "number",
-              "member_tag_options": "unknown",
+              "member_tag_options": "string",
               "name": "string",
               "viewer_role": "string"
             }
@@ -6440,7 +6444,7 @@
             "id": "string",
             "is_member_directory_enabled": "boolean",
             "member_count": "number",
-            "member_tag_options": "unknown",
+            "member_tag_options": "string",
             "name": "string",
             "viewer_role": "string"
           },
@@ -6454,7 +6458,7 @@
         "input": {
           "description": "string",
           "icon_blob": "unknown",
-          "member_tag_options": "unknown",
+          "member_tag_options": "string",
           "org_id": "string"
         }
       }
@@ -8218,7 +8222,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "29100997282818538",
+      "docId": "27945653371779116",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8288,7 +8292,6 @@
                           "branch_condition": "unknown",
                           "branch_description": "string",
                           "brand_ig_user_id": "string",
-                          "browser_action": "unknown",
                           "budget_and_duration_description": "string",
                           "budget_recommendation_source": "string",
                           "business_asset_ig_user_id": "string",
@@ -8531,7 +8534,6 @@
                           "image_urls": "unknown",
                           "initial_description": "string",
                           "initial_title": "string",
-                          "initial_url": "string",
                           "input_role": "string",
                           "insights": [
                             {
@@ -8567,6 +8569,7 @@
                           "maiba_recommendation_id": "string",
                           "max_value": "number",
                           "media_layout": "unknown",
+                          "media_type": "string",
                           "metadata": "string",
                           "metric_value": "unknown",
                           "metrics": [
@@ -8683,6 +8686,7 @@
                             }
                           ],
                           "period_basis": "unknown",
+                          "photo_id": "string",
                           "placement_description": "string",
                           "platform": "enum:facebook|instagram",
                           "ple_text": "string",
@@ -8854,7 +8858,6 @@
                           "target_asset": "string",
                           "target_value": "number",
                           "target_value_formatted": "unknown",
-                          "task": "unknown",
                           "thumbnail_uri": "string",
                           "thumbnails": "unknown",
                           "title": "string",
@@ -9046,5 +9049,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049416828"
+  "waVersion": "2.3000.1049549980"
 }

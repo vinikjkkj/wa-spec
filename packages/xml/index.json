@@ -50939,7 +50939,7 @@
               {
                 "attrs": {
                   "agent_engagement_type": {
-                    "arg": "D",
+                    "arg": "k",
                     "direction": "both",
                     "optional": true,
                     "type": "string"
@@ -51762,7 +51762,12 @@
                 "tag": "reaction"
               },
               {
-                "attrs": {},
+                "attrs": {
+                  "validation_policy": {
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
                 "children": [
                   {
                     "attrs": {},
@@ -57574,5 +57579,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1049416828"
+  "waVersion": "2.3000.1049549980"
 }

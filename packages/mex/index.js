@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049416828
+// WhatsApp Version: 2.3000.1049549980
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -129,7 +129,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     FetchSubscriptions: Object.freeze({ docId: '35324254123840149', clientDocId: '35324254123840149' }),
     FetchTextStatusList: Object.freeze({ docId: '24072923595647473', clientDocId: '24072923595647473' }),
     FetchWassBotListProfilesGQL: Object.freeze({ docId: '28390809103933079', clientDocId: '28390809103933079' }),
-    FetchWassBotProfileGQL: Object.freeze({ docId: '38799514653026858', clientDocId: '38799514653026858' }),
+    FetchWassBotProfileGQL: Object.freeze({ docId: '29491894843744434', clientDocId: '29491894843744434' }),
     GetAccessTokenFromOIDCCode: Object.freeze({ docId: '25278212845117908', clientDocId: '25278212845117908' }),
     GetAccountNonce: Object.freeze({ docId: '25091178200467555', clientDocId: '25091178200467555' }),
     GetDsbInfo: Object.freeze({ docId: '9982897848413251', clientDocId: '9982897848413251' }),
@@ -174,7 +174,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     OrgAdminGraphQLAdminRoster: Object.freeze({ docId: '28588811080804291', clientDocId: '28588811080804291' }),
     OrgAdminGraphQLAppendAdminRoster: Object.freeze({ docId: '28096717049979269', clientDocId: '28096717049979269' }),
     OrgAdminGraphQLDirectoryPage: Object.freeze({ docId: '28428616673445598', clientDocId: '28428616673445598' }),
-    OrgAdminGraphQLGroup: Object.freeze({ docId: '39383855724546026', clientDocId: '39383855724546026' }),
+    OrgAdminGraphQLGroup: Object.freeze({ docId: '28395729336786789', clientDocId: '28395729336786789' }),
     OrgAdminGraphQLInviteMembers: Object.freeze({ docId: '27941953275465289', clientDocId: '27941953275465289' }),
     OrgAdminGraphQLManagedChannels: Object.freeze({ docId: '28671299149132484', clientDocId: '28671299149132484' }),
     OrgAdminGraphQLManagedGroups: Object.freeze({ docId: '28885446151060025', clientDocId: '28885446151060025' }),
@@ -235,7 +235,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '29100997282818538', clientDocId: '29100997282818538' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '27945653371779116', clientDocId: '27945653371779116' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '28449519141342172', clientDocId: '28449519141342172' }),
     useWAWebEstimatedDailyReachShadow: Object.freeze({ docId: '28286021457733285', clientDocId: '28286021457733285' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),

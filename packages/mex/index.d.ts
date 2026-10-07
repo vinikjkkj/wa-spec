@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049416828
+// WhatsApp Version: 2.3000.1049549980
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -1471,7 +1471,7 @@ export type WaMexOrgAdminGraphQLAddChannelVariables = {
 }
 
 export type WaMexOrgAdminGraphQLAddGroupVariables = {
-    readonly gid?: string
+    readonly gid?: unknown
     readonly orgID?: string
 }
 
@@ -1492,7 +1492,7 @@ export type WaMexOrgAdminGraphQLDirectoryPageVariables = {
 }
 
 export type WaMexOrgAdminGraphQLGroupVariables = {
-    readonly gid?: string
+    readonly gid?: unknown
     readonly orgID?: string
 }
 
@@ -1558,7 +1558,7 @@ export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
     readonly input?: {
         readonly description?: string
         readonly icon_blob?: unknown
-        readonly member_tag_options?: unknown
+        readonly member_tag_options?: string
         readonly org_id?: string
     }
 }
@@ -5655,7 +5655,7 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
         readonly error_reason?: string
         readonly group?: {
             readonly creation_timestamp_s?: number
-            readonly gid?: string
+            readonly gid?: unknown
             readonly participant_count?: number
             readonly subject?: string
         }
@@ -5727,12 +5727,16 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
             readonly id?: string
             readonly managed_group?: {
                 readonly creation_timestamp_s?: number
-                readonly gid?: string
+                readonly description?: string
+                readonly gid?: unknown
                 readonly participant_count?: number
                 readonly participants?: ReadonlyArray<{
                     readonly lid?: string
                     readonly role?: 'ADMIN' | 'CREATOR'
                 }>
+                readonly picture?: {
+                    readonly uri?: string
+                }
                 readonly roster_partial?: boolean
                 readonly subject?: string
             }
@@ -5777,7 +5781,7 @@ export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
             readonly managed_groups?: {
                 readonly nodes?: ReadonlyArray<{
                     readonly creation_timestamp_s?: number
-                    readonly gid?: string
+                    readonly gid?: unknown
                     readonly participant_count?: number
                     readonly participants?: ReadonlyArray<{
                         readonly lid?: string
@@ -5822,7 +5826,7 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
             readonly id?: string
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
-            readonly member_tag_options?: unknown
+            readonly member_tag_options?: string
             readonly name?: string
             readonly viewer_role?: string
         }>
@@ -5894,7 +5898,7 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             readonly id?: string
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
-            readonly member_tag_options?: unknown
+            readonly member_tag_options?: string
             readonly name?: string
             readonly viewer_role?: string
         }
@@ -6952,7 +6956,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly branch_condition?: unknown
                                 readonly branch_description?: string
                                 readonly brand_ig_user_id?: string
-                                readonly browser_action?: unknown
                                 readonly budget_and_duration_description?: string
                                 readonly budget_recommendation_source?: string
                                 readonly business_asset_ig_user_id?: string
@@ -7159,7 +7162,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly image_urls?: unknown
                                 readonly initial_description?: string
                                 readonly initial_title?: string
-                                readonly initial_url?: string
                                 readonly input_role?: string
                                 readonly insights?: ReadonlyArray<{
                                     readonly category?: string
@@ -7193,6 +7195,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly maiba_recommendation_id?: string
                                 readonly max_value?: number
                                 readonly media_layout?: unknown
+                                readonly media_type?: string
                                 readonly metadata?: string
                                 readonly metric_value?: unknown
                                 readonly metrics?: ReadonlyArray<{
@@ -7291,6 +7294,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly platform?: 'facebook' | 'instagram'
                                 }>
                                 readonly period_basis?: unknown
+                                readonly photo_id?: string
                                 readonly placement_description?: string
                                 readonly platform?: 'facebook' | 'instagram'
                                 readonly ple_text?: string
@@ -7442,7 +7446,6 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly target_asset?: string
                                 readonly target_value?: number
                                 readonly target_value_formatted?: unknown
-                                readonly task?: unknown
                                 readonly thumbnail_uri?: string
                                 readonly thumbnails?: unknown
                                 readonly title?: string
