@@ -50939,7 +50939,7 @@
               {
                 "attrs": {
                   "agent_engagement_type": {
-                    "arg": "k",
+                    "arg": "x",
                     "direction": "both",
                     "optional": true,
                     "type": "string"
@@ -56065,12 +56065,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "m",
+                "arg": "p",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56134,7 +56134,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(C)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56144,7 +56144,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "p",
+                "arg": "_",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56326,7 +56326,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "h",
+                    "arg": "y",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -56336,7 +56336,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "m",
+                    "arg": "_",
                     "direction": "out",
                     "type": "int"
                   },
@@ -56366,12 +56366,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "m",
+                "arg": "p",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56429,7 +56429,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(C)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56441,7 +56441,7 @@
                 "type": "int"
               },
               "to": {
-                "arg": "p",
+                "arg": "_",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56549,12 +56549,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "m",
+                "arg": "p",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56626,7 +56626,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(C)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56636,7 +56636,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "p",
+                "arg": "_",
                 "direction": "both",
                 "type": "jid"
               },
@@ -56816,12 +56816,12 @@
           "node": {
             "attrs": {
               "category": {
-                "arg": "I",
+                "arg": "T",
                 "direction": "both",
                 "type": "string"
               },
               "class": {
-                "arg": "m",
+                "arg": "p",
                 "direction": "both",
                 "enumValues": [
                   "call",
@@ -56885,7 +56885,7 @@
                 "type": "int"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(C)",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
@@ -56895,7 +56895,7 @@
                 "type": "time"
               },
               "to": {
-                "arg": "p",
+                "arg": "_",
                 "direction": "both",
                 "type": "jid"
               },
@@ -57077,7 +57077,7 @@
                     "type": "int"
                   },
                   "error": {
-                    "arg": "h",
+                    "arg": "y",
                     "direction": "out",
                     "optional": true,
                     "type": "int"
@@ -57087,7 +57087,7 @@
                     "type": "string"
                   },
                   "t": {
-                    "arg": "m",
+                    "arg": "_",
                     "direction": "out",
                     "type": "int"
                   },
@@ -57579,5 +57579,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1049549980"
+  "waVersion": "2.3000.1049688916"
 }

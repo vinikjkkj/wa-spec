@@ -3083,6 +3083,10 @@
         "FIRST_PROMPT_SENT": 251,
         "GALLERY_TAP": 266,
         "GROUP_DISCOVERY": 11,
+        "GROUP_INVITE_ROW_CLICK": 287,
+        "GROUP_INVITE_ROW_DECLINE_TAP": 290,
+        "GROUP_INVITE_SHEET_DISMISSED": 289,
+        "GROUP_INVITE_SHEET_JOIN_TAP": 288,
         "GROUP_JOIN": 12,
         "GROUP_JOIN_REQUEST": 20,
         "GROUP_NAVIGATION": 10,
@@ -3638,6 +3642,7 @@
       "values": {
         "CUSTOM": 4,
         "DEVICE": 3,
+        "FIRST_PARTY": 5,
         "NATIVE": 2,
         "UNKNOWN": 0,
         "WEB": 1
@@ -5423,6 +5428,15 @@
         "MESSAGE_FAVORITES_CONTACT_PICKER": 5
       }
     },
+    "FEATURE_ENTRY_POINT": {
+      "export": "FEATURE_ENTRY_POINT",
+      "module": "WAWebWamEnumFeatureEntryPoint",
+      "values": {
+        "CHAT": 1,
+        "SETTINGS": 2,
+        "UNKNOWN": 0
+      }
+    },
     "FETCH_MECHANISM_ENUM": {
       "export": "FETCH_MECHANISM_ENUM",
       "module": "WAWebWamEnumFetchMechanismEnum",
@@ -6080,6 +6094,7 @@
         "ENCRYPTED_SHA256_MISMATCH": 2,
         "ENCRYPTED_SHA256_NULL": 4,
         "HMAC_CHUNK": 1,
+        "NO_SIDECAR": 8,
         "PLAINTEXT_SHA256_MISMATCH": 3,
         "PLAINTEXT_SHA256_NULL": 5,
         "TRUNCATED_HMAC_VERIFICATION_FAILED": 7
@@ -6089,6 +6104,40 @@
       "export": "HATCH_ACTION_TYPE",
       "module": "WAWebWamEnumHatchActionType",
       "values": {
+        "ARTIFACT_CREATED": 69,
+        "ARTIFACT_DELETED": 85,
+        "ARTIFACT_DELETE_CANCEL_TAP": 84,
+        "ARTIFACT_DELETE_CONFIRM_TAP": 83,
+        "ARTIFACT_DELETE_TAP": 81,
+        "ARTIFACT_DOWNLOADED": 97,
+        "ARTIFACT_DOWNLOAD_TAP": 78,
+        "ARTIFACT_EDITED": 70,
+        "ARTIFACT_FORWARD_SHEET_IMPRESSION": 94,
+        "ARTIFACT_IMPRESSION": 76,
+        "ARTIFACT_OVERFLOW_MENU_TAP": 77,
+        "ARTIFACT_PINNED": 99,
+        "ARTIFACT_PIN_TAP": 80,
+        "ARTIFACT_PUBLISH_CONSENT_CANCEL": 90,
+        "ARTIFACT_PUBLISH_CONSENT_IMPRESSION": 88,
+        "ARTIFACT_PUBLISH_CONSENT_TAP": 89,
+        "ARTIFACT_PUBLISH_SHEET_IMPRESSION": 86,
+        "ARTIFACT_PUBLISH_TAP": 87,
+        "ARTIFACT_RENAMED": 98,
+        "ARTIFACT_RENAME_TAP": 79,
+        "ARTIFACT_SHARED": 95,
+        "ARTIFACT_SHARE_SHEET_IMPRESSION": 91,
+        "ARTIFACT_SHARE_SHEET_TAP": 92,
+        "ARTIFACT_SHARE_SHEET_UNPUBLISH": 93,
+        "ARTIFACT_SHARE_TAP": 82,
+        "ARTIFACT_TAP": 75,
+        "BROWSER_CARD_IMPRESSION": 100,
+        "BROWSER_CARD_IMPRESSION_ERROR": 107,
+        "BROWSER_CARD_TAP": 101,
+        "BROWSER_RETURN_CONTROL_TAP": 103,
+        "BROWSER_STOP_TASK_CONFIRM": 105,
+        "BROWSER_STOP_TASK_CONFIRM_CANCEL": 106,
+        "BROWSER_STOP_TASK_TAP": 104,
+        "BROWSER_TAKE_CONTROL_TAP": 102,
         "CONNECTORS_TAP": 27,
         "CONNECTOR_ADD_ACCOUNT_ERROR": 32,
         "CONNECTOR_ADD_ACCOUNT_SUCCESS": 31,
@@ -6119,9 +6168,6 @@
         "CONNECTOR_PERMISSION_WEB_START": 36,
         "CONNECTOR_SEARCH_SUCCESS": 34,
         "CONNECTOR_SEARCH_TAP": 33,
-        "CONNECTOR_SECURE_CREDENTIAL_MESSAGE_IMPRESSION": 50,
-        "CONNECTOR_SECURE_CREDENTIAL_MESSAGE_TAPPED": 51,
-        "CONNECTOR_SECURE_CREDENTIAL_SUCCESS": 52,
         "CONNECT_TAP": 28,
         "HITL_BOTTOM_SHEET_IMPRESSION": 7,
         "HITL_CART_DETAILS_IMPRESSION": 13,
@@ -6132,7 +6178,28 @@
         "HITL_PAYMENT_DETAILS_IMPRESSION": 14,
         "HITL_WALLET_CARD_SELECTED": 17,
         "HITL_WALLET_PICKER_IMPRESSION": 16,
+        "MUSE_LIBRARY_ARTIFACT_TAB_IMPRESSION": 74,
+        "MUSE_LIBRARY_ARTIFACT_TAB_TAP": 73,
+        "MUSE_LIBRARY_MEDIA_TAB_IMPRESSION": 72,
+        "MUSE_LIBRARY_TAP": 71,
         "REQUEST_WELCOME_MSG_SENT": 1,
+        "SECURE_CREDENTIAL_CANCEL_TAP": 57,
+        "SECURE_CREDENTIAL_CARD_IMPRESSION": 53,
+        "SECURE_CREDENTIAL_CARD_TAP": 54,
+        "SECURE_CREDENTIAL_DELETE_CANCEL_TAP": 67,
+        "SECURE_CREDENTIAL_DELETE_CONFIRM": 66,
+        "SECURE_CREDENTIAL_DELETE_SUCCESS": 68,
+        "SECURE_CREDENTIAL_DELETE_TAP": 65,
+        "SECURE_CREDENTIAL_DETAIL_IMPRESSION": 63,
+        "SECURE_CREDENTIAL_EDIT_SAVE_TAP": 64,
+        "SECURE_CREDENTIAL_LIST_IMPRESSION": 61,
+        "SECURE_CREDENTIAL_NULL_STATE_IMPRESSION": 62,
+        "SECURE_CREDENTIAL_SAVE_ERROR": 59,
+        "SECURE_CREDENTIAL_SAVE_SUCCESS": 58,
+        "SECURE_CREDENTIAL_SAVE_TAP": 56,
+        "SECURE_CREDENTIAL_SHEET_IMPRESSION": 55,
+        "SETTING_PAGE_SECURE_CREDENTIAL_TAP": 60,
+        "SHARED_ARTIFACT_IMPRESSION": 96,
         "TAP_UNLINK_BUTTON": 2,
         "TAP_WA_READ_WRITE_ACCESS": 5,
         "UNLINK_SUCCESS": 3,
@@ -6204,23 +6271,37 @@
       "export": "IMAGINE_ACTION",
       "module": "WAWebWamEnumImagineAction",
       "values": {
+        "AI_MEDIA_EDITOR_ANIMATE_APPLIED": 137,
+        "AI_MEDIA_EDITOR_ANIMATE_CLICKED": 136,
         "AI_MEDIA_EDITOR_ANIMATE_SEND": 128,
+        "AI_MEDIA_EDITOR_BACKGROUND_APPLIED": 135,
         "AI_MEDIA_EDITOR_BACKGROUND_CLICKED": 121,
         "AI_MEDIA_EDITOR_BACKGROUND_SEND": 127,
         "AI_MEDIA_EDITOR_CAROUSEL_PREVIEWED": 116,
         "AI_MEDIA_EDITOR_CAROUSEL_SWIPED": 117,
+        "AI_MEDIA_EDITOR_DESCRIBE_APPLIED": 132,
         "AI_MEDIA_EDITOR_DESCRIBE_CLICKED": 118,
         "AI_MEDIA_EDITOR_DESCRIBE_SEND": 124,
+        "AI_MEDIA_EDITOR_DONE": 145,
         "AI_MEDIA_EDITOR_ENTRY_BANNER_CLICKED": 114,
         "AI_MEDIA_EDITOR_ENTRY_CLICKED": 131,
         "AI_MEDIA_EDITOR_ENTRY_TOOLBAR_CLICKED": 115,
+        "AI_MEDIA_EDITOR_EXPAND_APPLIED": 139,
+        "AI_MEDIA_EDITOR_EXPAND_CLICKED": 138,
         "AI_MEDIA_EDITOR_EXPAND_SEND": 129,
+        "AI_MEDIA_EDITOR_FILTERS_APPLIED": 142,
+        "AI_MEDIA_EDITOR_FILTERS_CLICKED": 140,
+        "AI_MEDIA_EDITOR_FILTERS_PREVIEWED": 141,
+        "AI_MEDIA_EDITOR_PRESETS_APPLIED": 134,
         "AI_MEDIA_EDITOR_PRESETS_CLICKED": 120,
         "AI_MEDIA_EDITOR_PRESETS_PREVIEWED": 123,
         "AI_MEDIA_EDITOR_PRESETS_SEND": 126,
+        "AI_MEDIA_EDITOR_REGENERATE": 143,
+        "AI_MEDIA_EDITOR_RESTYLE_APPLIED": 133,
         "AI_MEDIA_EDITOR_RESTYLE_CLICKED": 119,
         "AI_MEDIA_EDITOR_RESTYLE_PREVIEWED": 122,
         "AI_MEDIA_EDITOR_RESTYLE_SEND": 125,
+        "AI_MEDIA_EDITOR_SEND": 144,
         "AI_MEDIA_EDITOR_SEND_CANCEL": 130,
         "ANIMATE_BUTTON_CLICK": 7,
         "ATTACHMENT_TRAY_OPEN_CLICK": 99,
@@ -6391,6 +6472,7 @@
         "AI_MEDIA_EDITOR_BACKGROUND": 16,
         "AI_MEDIA_EDITOR_DESCRIBE": 13,
         "AI_MEDIA_EDITOR_EXPAND": 18,
+        "AI_MEDIA_EDITOR_FILTERS": 19,
         "AI_MEDIA_EDITOR_INPUT": 12,
         "AI_MEDIA_EDITOR_PRESETS": 15,
         "AI_MEDIA_EDITOR_RESTYLE": 14,
@@ -7409,6 +7491,7 @@
         "SMB_ADVERTISE_FROM_AD_DETAILS_RECREATE_OVERFLOW_MENU_ITEM": 101,
         "SMB_ADVERTISE_FROM_BANNER": 13,
         "SMB_ADVERTISE_FROM_DEEP_LINK": 14,
+        "SMB_ADVERTISE_FROM_FORM_RESPONSES_CREATE_AD_BUTTON": 119,
         "SMB_ADVERTISE_FROM_FORWARD_SCREEN_BROADCAST": 49,
         "SMB_ADVERTISE_FROM_FORWARD_SCREEN_GROUP": 48,
         "SMB_ADVERTISE_FROM_FORWARD_SCREEN_INDIVIDUAL": 47,
@@ -11322,11 +11405,7 @@
         "IPHONE": 1,
         "IPHONEWAMETATEST": 54,
         "MACOS": 48,
-        "MLITEA": 28,
         "MSGRA": 29,
-        "MSGRAR": 57,
-        "MSGRDM": 35,
-        "MSGRDW": 36,
         "MSGRI": 30,
         "MSGRM": 43,
         "MSGROC": 38,
@@ -12146,6 +12225,43 @@
         "WIDGET_TAP": 11
       }
     },
+    "PTT_MESSAGE_USER_JOURNEY_CANCEL_REASON": {
+      "export": "PTT_MESSAGE_USER_JOURNEY_CANCEL_REASON",
+      "module": "WAWebWamEnumPttMessageUserJourneyCancelReason",
+      "values": {
+        "BACKGROUNDED": 15,
+        "BELOW_MIN_DURATION": 4,
+        "BELOW_MIN_FILE_SIZE": 5,
+        "CANCEL_BUTTON": 2,
+        "CELLULAR_CALL": 6,
+        "COMPOSER_BLOCKED": 9,
+        "CONTACT_BLOCKED": 8,
+        "DPAD_LEFT": 3,
+        "DRAFT_DELETED": 10,
+        "INSUFFICIENT_STORAGE": 7,
+        "NEW_VOICEMAIL_RECORDING": 11,
+        "NON_VOICE_STATUS_REPLY": 12,
+        "OTHER": 19,
+        "POPUP_NOTIFICATION_CLOSED": 13,
+        "RECORDER_PREPARE_ERROR": 17,
+        "RECORDER_RESUME_ERROR": 18,
+        "RECORDER_START_ERROR": 16,
+        "SCREEN_DESTROYED": 14,
+        "SLIDE_TO_CANCEL": 1
+      }
+    },
+    "PTT_MESSAGE_USER_JOURNEY_DRAFT_SAVED_REASON": {
+      "export": "PTT_MESSAGE_USER_JOURNEY_DRAFT_SAVED_REASON",
+      "module": "WAWebWamEnumPttMessageUserJourneyDraftSavedReason",
+      "values": {
+        "CHAT_BACKGROUNDED": 1,
+        "CHAT_CLOSED": 2,
+        "OTHER": 6,
+        "SCREEN_DESTROYED": 5,
+        "STATUS_REPLY_BACKGROUNDED": 3,
+        "WA_CALL": 4
+      }
+    },
     "PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON": {
       "export": "PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON",
       "module": "WAWebWamEnumPttMessageUserJourneyFailureReason",
@@ -12165,6 +12281,23 @@
         "FAIL_START_RECORDER": 4,
         "FAIL_STORAGE_READ_WRITE_PERMISSION": 7,
         "FAIL_STORE_PTT_FILE_IN_DRAFT_CACHE": 11
+      }
+    },
+    "PTT_MESSAGE_USER_JOURNEY_PAUSE_REASON": {
+      "export": "PTT_MESSAGE_USER_JOURNEY_PAUSE_REASON",
+      "module": "WAWebWamEnumPttMessageUserJourneyPauseReason",
+      "values": {
+        "CELLULAR_CALL": 3,
+        "COMPOSER_DISABLED": 6,
+        "CONFIGURATION_CHANGE": 9,
+        "CONVERSATION_UI": 5,
+        "DRAFT_REINIT": 10,
+        "MEDIA_PLAYBACK": 4,
+        "MEDIA_REPLY_BACKGROUNDED": 8,
+        "NEW_VOICEMAIL_RECORDING": 7,
+        "OTHER": 11,
+        "PAUSE_BUTTON": 1,
+        "WA_CALL": 2
       }
     },
     "PTT_MESSAGE_USER_JOURNEY_STAGE": {
@@ -43531,11 +43664,34 @@
           "id": 11,
           "type": "integer"
         },
+        "featureEntryPoint": {
+          "enum": "FEATURE_ENTRY_POINT",
+          "falcoName": "feature_entry_point",
+          "id": 17,
+          "type": "enum"
+        },
         "hatchActionType": {
           "enum": "HATCH_ACTION_TYPE",
           "falcoName": "hatch_action_type",
           "id": 3,
           "type": "enum"
+        },
+        "hatchSubSurface": {
+          "enum": "TS_SURFACE",
+          "falcoName": "hatch_sub_surface",
+          "id": 18,
+          "type": "enum"
+        },
+        "hatchSurface": {
+          "enum": "TS_SURFACE",
+          "falcoName": "hatch_surface",
+          "id": 19,
+          "type": "enum"
+        },
+        "hatchUserJourneyMetadata": {
+          "falcoName": "hatch_user_journey_metadata",
+          "id": 20,
+          "type": "string"
         },
         "hitlIsMulti": {
           "falcoName": "hitl_is_multi",
@@ -48461,6 +48617,12 @@
           "id": 30,
           "type": "enum"
         },
+        "nonStreamingFallbackReason": {
+          "enum": "HASH_VERIFICATION_FAILURE_TYPE",
+          "falcoName": "non_streaming_fallback_reason",
+          "id": 74,
+          "type": "enum"
+        },
         "overallAttemptCount": {
           "falcoName": "overall_attempt_count",
           "id": 4,
@@ -52911,6 +53073,11 @@
           "id": 42,
           "type": "integer"
         },
+        "dbOperationCountsByDatabase": {
+          "falcoName": "db_operation_counts_by_database",
+          "id": 59,
+          "type": "string"
+        },
         "dbReadsCount": {
           "falcoName": "db_reads_count",
           "id": 43,
@@ -56507,15 +56674,33 @@
           "id": 2,
           "type": "enum"
         },
+        "pttMessageUserJourneyCancelReason": {
+          "enum": "PTT_MESSAGE_USER_JOURNEY_CANCEL_REASON",
+          "falcoName": "ptt_message_user_journey_cancel_reason",
+          "id": 16,
+          "type": "enum"
+        },
         "pttMessageUserJourneyContainsQuotedItem": {
           "falcoName": "ptt_message_user_journey_contains_quoted_item",
           "id": 11,
           "type": "boolean"
         },
+        "pttMessageUserJourneyDraftSavedReason": {
+          "enum": "PTT_MESSAGE_USER_JOURNEY_DRAFT_SAVED_REASON",
+          "falcoName": "ptt_message_user_journey_draft_saved_reason",
+          "id": 17,
+          "type": "enum"
+        },
         "pttMessageUserJourneyFailureReason": {
           "enum": "PTT_MESSAGE_USER_JOURNEY_FAILURE_REASON",
           "falcoName": "ptt_message_user_journey_failure_reason",
           "id": 9,
+          "type": "enum"
+        },
+        "pttMessageUserJourneyPauseReason": {
+          "enum": "PTT_MESSAGE_USER_JOURNEY_PAUSE_REASON",
+          "falcoName": "ptt_message_user_journey_pause_reason",
+          "id": 18,
           "type": "enum"
         },
         "pttMessageUserJourneyStage": {
@@ -57314,6 +57499,12 @@
           "falcoName": "button_value_json_array",
           "id": 16,
           "type": "string"
+        },
+        "chatsFolderType": {
+          "enum": "CHATS_FOLDER_TYPE",
+          "falcoName": "chats_folder_type",
+          "id": 40,
+          "type": "enum"
         },
         "contactType": {
           "enum": "CONTACT_TYPE",
@@ -70562,7 +70753,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1049549980",
+  "waVersion": "2.3000.1049688916",
   "wireFormat": {
     "markers": {
       "event": 1,

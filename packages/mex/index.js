@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049549980
+// WhatsApp Version: 2.3000.1049688916
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -55,7 +55,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     ContactManagerCustomerProfile: Object.freeze({ docId: '38879305098350961', clientDocId: '38879305098350961' }),
     ContactManagerCustomerProfileDelete: Object.freeze({ docId: '27993814970320462', clientDocId: '27993814970320462' }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ docId: '39017784967837337', clientDocId: '39017784967837337' }),
-    ContactManagerCustomerProfiles: Object.freeze({ docId: '27994011783631250', clientDocId: '27994011783631250' }),
+    ContactManagerCustomerProfiles: Object.freeze({ docId: '29115570798129904', clientDocId: '29115570798129904' }),
     CreateEnforcementAppeal: Object.freeze({ docId: '9848815108513025', clientDocId: '9848815108513025' }),
     CreateInviteCode: Object.freeze({ docId: '28250338504572715', clientDocId: '28250338504572715' }),
     CreateLabyrinthBackup: Object.freeze({ docId: '27515507191403198', clientDocId: '27515507191403198' }),
@@ -235,7 +235,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '27945653371779116', clientDocId: '27945653371779116' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '38877288891915880', clientDocId: '38877288891915880' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '28449519141342172', clientDocId: '28449519141342172' }),
     useWAWebEstimatedDailyReachShadow: Object.freeze({ docId: '28286021457733285', clientDocId: '28286021457733285' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
@@ -296,7 +296,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     ContactManagerCustomerProfile: Object.freeze({ operationKind: 'query', variables: Object.freeze(['lid']) }),
     ContactManagerCustomerProfileDelete: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['lid']) }),
     ContactManagerCustomerProfileUpsert: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
-    ContactManagerCustomerProfiles: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
+    ContactManagerCustomerProfiles: Object.freeze({ operationKind: 'query', variables: Object.freeze(['includeCustomFields', 'input']) }),
     CreateEnforcementAppeal: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateInviteCode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     CreateLabyrinthBackup: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

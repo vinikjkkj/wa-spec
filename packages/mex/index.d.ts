@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049549980
+// WhatsApp Version: 2.3000.1049688916
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -308,7 +308,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ContactManagerCustomerProfile: WaMexOperationSchema<'query', readonly ['lid']>
     readonly ContactManagerCustomerProfileDelete: WaMexOperationSchema<'mutation', readonly ['lid']>
     readonly ContactManagerCustomerProfileUpsert: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly ContactManagerCustomerProfiles: WaMexOperationSchema<'query', readonly ['input']>
+    readonly ContactManagerCustomerProfiles: WaMexOperationSchema<'query', readonly ['includeCustomFields', 'input']>
     readonly CreateEnforcementAppeal: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateInviteCode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateLabyrinthBackup: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -773,6 +773,7 @@ export type WaMexContactManagerCustomerProfileUpsertVariables = {
 }
 
 export type WaMexContactManagerCustomerProfilesVariables = {
+    readonly includeCustomFields?: boolean
     readonly input?: {
         readonly candidate_lids?: ReadonlyArray<string>
         readonly cursor?: string
@@ -936,6 +937,7 @@ export type WaMexEditBizProfileVariables = {
 export type WaMexEmailInviteSendGroupVariables = {
     readonly input?: {
         readonly emails?: ReadonlyArray<string>
+        readonly inviter_name?: string
         readonly source?: 'GROUP_INFO_PANEL'
         readonly target_id?: string
         readonly target_type?: 'GROUP'
@@ -1558,7 +1560,7 @@ export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
     readonly input?: {
         readonly description?: string
         readonly icon_blob?: unknown
-        readonly member_tag_options?: string
+        readonly member_tag_options?: number
         readonly org_id?: string
     }
 }
@@ -3132,6 +3134,23 @@ export type WaMexContactManagerCustomerProfilesResponse = {
         readonly profiles?: ReadonlyArray<{
             readonly acquisition_source?: string
             readonly address?: string
+            readonly custom_field_values?: ReadonlyArray<{
+                readonly custom_field_definition?: {
+                    readonly currency?: string
+                    readonly currency_decimal_places?: unknown
+                    readonly enum_option_keys?: ReadonlyArray<string>
+                    readonly enum_values?: ReadonlyArray<string>
+                    readonly field_type?: string
+                    readonly id?: string
+                    readonly name?: string
+                }
+                readonly date_value?: string
+                readonly enum_option_key?: string
+                readonly id?: string
+                readonly money_amount?: number
+                readonly numeric_value?: unknown
+                readonly text_value?: string
+            }>
             readonly dob?: unknown
             readonly email?: string
             readonly last_order_date?: string
@@ -5708,7 +5727,7 @@ export type WaMexOrgAdminGraphQLDirectoryPageResponse = {
                     readonly lid?: string
                     readonly member_tag?: string
                     readonly phone_number?: string
-                    readonly role?: 'ADMIN' | 'CREATOR'
+                    readonly role?: string
                     readonly username?: string
                 }>
                 readonly page_info?: {
@@ -5732,7 +5751,7 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
                 readonly participant_count?: number
                 readonly participants?: ReadonlyArray<{
                     readonly lid?: string
-                    readonly role?: 'ADMIN' | 'CREATOR'
+                    readonly role?: string
                 }>
                 readonly picture?: {
                     readonly uri?: string
@@ -5785,7 +5804,7 @@ export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
                     readonly participant_count?: number
                     readonly participants?: ReadonlyArray<{
                         readonly lid?: string
-                        readonly role?: 'ADMIN' | 'CREATOR'
+                        readonly role?: string
                     }>
                     readonly roster_partial?: boolean
                     readonly subject?: string
@@ -5805,7 +5824,7 @@ export type WaMexOrgAdminGraphQLMemberSearchResponse = {
                 readonly lid?: string
                 readonly member_tag?: string
                 readonly phone_number?: string
-                readonly role?: 'ADMIN' | 'CREATOR'
+                readonly role?: string
                 readonly username?: string
             }
         }>
@@ -5826,7 +5845,7 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
             readonly id?: string
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
-            readonly member_tag_options?: string
+            readonly member_tag_options?: number
             readonly name?: string
             readonly viewer_role?: string
         }>
@@ -5898,7 +5917,7 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             readonly id?: string
             readonly is_member_directory_enabled?: boolean
             readonly member_count?: number
-            readonly member_tag_options?: string
+            readonly member_tag_options?: number
             readonly name?: string
             readonly viewer_role?: string
         }
@@ -7190,6 +7209,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly label?: string
                                 readonly limit?: number
                                 readonly link_description?: string
+                                readonly log_source?: string
                                 readonly lower_limit?: number
                                 readonly maiba_interviewer_rec_key?: string
                                 readonly maiba_recommendation_id?: string

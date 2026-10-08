@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1049549980
+/// WhatsApp Version: 2.3000.1049688916
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -3393,8 +3393,6 @@ message EphemeralSyncResponseBackoffInfo {
 message Epoch0Output {
     optional uint64 epochFbid = 1;
     optional bytes epochAnonId = 2;
-    optional bytes epochData = 3;
-    optional bytes wrappedRootKeyForSelf = 4;
     optional bytes epochSignature = 5;
     optional bytes epochRootKeyFingerprint = 6;
     optional bytes epochRootKey = 7;
@@ -8481,6 +8479,7 @@ message SyncActionValue {
             MENTIONS_AND_REPLIES = 17;
             REQUESTS = 18;
             BUSINESS = 19;
+            ONE_ON_ONE = 20;
         }
     }
     message LabelSublistAction {

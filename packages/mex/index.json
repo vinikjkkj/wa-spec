@@ -1720,7 +1720,7 @@
       }
     },
     "ContactManagerCustomerProfiles": {
-      "docId": "27994011783631250",
+      "docId": "29115570798129904",
       "operationKind": "query",
       "originalName": "WAWebContactManagerCustomerProfilesQuery",
       "response": {
@@ -1730,6 +1730,29 @@
             {
               "acquisition_source": "string",
               "address": "string",
+              "custom_field_values": [
+                {
+                  "custom_field_definition": {
+                    "currency": "string",
+                    "currency_decimal_places": "unknown",
+                    "enum_option_keys": [
+                      "string"
+                    ],
+                    "enum_values": [
+                      "string"
+                    ],
+                    "field_type": "string",
+                    "id": "string",
+                    "name": "string"
+                  },
+                  "date_value": "string",
+                  "enum_option_key": "string",
+                  "id": "string",
+                  "money_amount": "number",
+                  "numeric_value": "unknown",
+                  "text_value": "string"
+                }
+              ],
               "dob": "unknown",
               "email": "string",
               "last_order_date": "string",
@@ -1746,9 +1769,11 @@
         }
       },
       "variables": [
+        "includeCustomFields",
         "input"
       ],
       "variablesShape": {
+        "includeCustomFields": "boolean",
         "input": {
           "candidate_lids": [
             "string"
@@ -2692,6 +2717,7 @@
           "emails": [
             "string"
           ],
+          "inviter_name": "string",
           "source": "enum:GROUP_INFO_PANEL",
           "target_id": "string",
           "target_type": "enum:GROUP"
@@ -6092,7 +6118,7 @@
                   "lid": "string",
                   "member_tag": "string",
                   "phone_number": "string",
-                  "role": "enum:ADMIN|CREATOR",
+                  "role": "string",
                   "username": "string"
                 }
               ],
@@ -6130,7 +6156,7 @@
               "participants": [
                 {
                   "lid": "string",
-                  "role": "enum:ADMIN|CREATOR"
+                  "role": "string"
                 }
               ],
               "picture": {
@@ -6224,7 +6250,7 @@
                   "participants": [
                     {
                       "lid": "string",
-                      "role": "enum:ADMIN|CREATOR"
+                      "role": "string"
                     }
                   ],
                   "roster_partial": "boolean",
@@ -6257,7 +6283,7 @@
                 "lid": "string",
                 "member_tag": "string",
                 "phone_number": "string",
-                "role": "enum:ADMIN|CREATOR",
+                "role": "string",
                 "username": "string"
               }
             }
@@ -6298,7 +6324,7 @@
               "id": "string",
               "is_member_directory_enabled": "boolean",
               "member_count": "number",
-              "member_tag_options": "string",
+              "member_tag_options": "number",
               "name": "string",
               "viewer_role": "string"
             }
@@ -6444,7 +6470,7 @@
             "id": "string",
             "is_member_directory_enabled": "boolean",
             "member_count": "number",
-            "member_tag_options": "string",
+            "member_tag_options": "number",
             "name": "string",
             "viewer_role": "string"
           },
@@ -6458,7 +6484,7 @@
         "input": {
           "description": "string",
           "icon_blob": "unknown",
-          "member_tag_options": "string",
+          "member_tag_options": "number",
           "org_id": "string"
         }
       }
@@ -8222,7 +8248,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "27945653371779116",
+      "docId": "38877288891915880",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8564,6 +8590,7 @@
                           "label": "string",
                           "limit": "number",
                           "link_description": "string",
+                          "log_source": "string",
                           "lower_limit": "number",
                           "maiba_interviewer_rec_key": "string",
                           "maiba_recommendation_id": "string",
@@ -9049,5 +9076,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049549980"
+  "waVersion": "2.3000.1049688916"
 }
