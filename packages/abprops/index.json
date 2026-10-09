@@ -116,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2689,
+  "propCount": 2696,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -718,6 +718,12 @@
       "defaultValue": "oauth, foa_auth, none, consent_only",
       "type": "string"
     },
+    "ai_hatch_custom_connectors_enabled": {
+      "code": 38808,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_hatch_data_controls_enabled": {
       "code": 37856,
       "debugDefaultValue": false,
@@ -888,8 +894,8 @@
     },
     "ai_hatch_space_public_in_app_enabled": {
       "code": 38441,
-      "debugDefaultValue": false,
-      "defaultValue": false,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "ai_hatch_subscription_ui_enabled": {
@@ -2530,12 +2536,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "booking_confirmation_enabled_wa_web": {
-      "code": 23559,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "bot_3p_status": {
       "code": 5985,
       "debugDefaultValue": 0,
@@ -3574,6 +3574,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "channels_migration_banner_hca_link_is_visible": {
+      "code": 38695,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channels_multi_admin_max_admin_count": {
       "code": 6461,
       "debugDefaultValue": 16,
@@ -4438,6 +4444,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "ctwa_coex_state_sync_enabled": {
+      "code": 33676,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ctwa_conversion_creation_from_delay_enabled": {
       "code": 32777,
       "debugDefaultValue": true,
@@ -4578,6 +4590,18 @@
     },
     "ctwa_smb_ae_companion_onboarding_enabled": {
       "code": 33883,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_smb_ae_onboarding_enabled": {
+      "code": 21259,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_smb_ae_onboarding_nux_auto_trigger_on_list_home": {
+      "code": 23677,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -5590,6 +5614,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "enable_spam_reporting_pre_logging": {
+      "code": 14573,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "enable_sticker_thumbnails_creation": {
       "code": 34116,
       "debugDefaultValue": false,
@@ -6468,7 +6498,7 @@
     },
     "group_history_send_default_on": {
       "code": 36498,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -7136,6 +7166,12 @@
       "code": 6215,
       "debugDefaultValue": false,
       "defaultValue": true,
+      "type": "bool"
+    },
+    "klipy_memes_enabled": {
+      "code": 38720,
+      "debugDefaultValue": false,
+      "defaultValue": false,
       "type": "bool"
     },
     "kmp_syncd_engine_crypto_enabled": {
@@ -8610,8 +8646,8 @@
     },
     "payments_upr_bubble_countries": {
       "code": 29342,
-      "debugDefaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ",
-      "defaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ",
+      "debugDefaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ, BO, CL, DO, EC, HN, NI, PY, UY, LB, LY, ML",
+      "defaultValue": "MX, ID, HK, TW, AE, EG, TR, AR, CA, CO, PE, SA, ZA, GH, ET, TZ, CI, DZ, AO, BH, BJ, BF, CM, CR, CD, DJ, SV, JO, KW, MR, MA, MZ, OM, PA, QA, SN, SL, TG, TN, GT, IQ, BO, CL, DO, EC, HN, NI, PY, UY, LB, LY, ML",
       "type": "string"
     },
     "payments_upr_burkina_faso_enabled": {
@@ -14626,6 +14662,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_channel_video_dash_enabled": {
+      "code": 38790,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_channel_video_server_transcode_upload": {
       "code": 19920,
       "debugDefaultValue": false,
@@ -16284,5 +16326,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1049688916"
+  "waVersion": "2.3000.1049825515"
 }

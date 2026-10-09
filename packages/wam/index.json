@@ -6303,6 +6303,7 @@
         "AI_MEDIA_EDITOR_RESTYLE_SEND": 125,
         "AI_MEDIA_EDITOR_SEND": 144,
         "AI_MEDIA_EDITOR_SEND_CANCEL": 130,
+        "AI_MEDIA_EDITOR_UNDO_CLICKED": 146,
         "ANIMATE_BUTTON_CLICK": 7,
         "ATTACHMENT_TRAY_OPEN_CLICK": 99,
         "BACKGROUND_BUTTON_CLICK": 76,
@@ -8644,6 +8645,14 @@
         "SD_QUALITY": 1
       }
     },
+    "MEDIA_CONTAINER_TYPE": {
+      "export": "MEDIA_CONTAINER_TYPE",
+      "module": "WAWebWamEnumMediaContainerType",
+      "values": {
+        "FLAT_MP4": 1,
+        "FRAGMENTED_MP4": 2
+      }
+    },
     "MEDIA_DOWNLOAD_MODE_TYPE": {
       "export": "MEDIA_DOWNLOAD_MODE_TYPE",
       "module": "WAWebWamEnumMediaDownloadModeType",
@@ -9102,6 +9111,7 @@
       "export": "MESSAGE_CONTEXT_MENU_OPTION_TYPE",
       "module": "WAWebWamEnumMessageContextMenuOptionType",
       "values": {
+        "ADD_STICKER_TO_FAVORITES": 42,
         "ADD_TO_CALENDAR": 16,
         "ADD_TO_NOTE": 34,
         "ASK_META_AI": 28,
@@ -9126,6 +9136,7 @@
         "PAID_PARTNERSHIP": 32,
         "PIN_OR_UNPIN": 27,
         "REACT": 18,
+        "REMOVE_STICKER_FROM_FAVORITES": 43,
         "REMOVE_TRANSLATION": 38,
         "REPLY": 5,
         "REPLY_PRIVATELY": 6,
@@ -9140,6 +9151,7 @@
         "TRANSLATE": 35,
         "UNKNOWN": 1,
         "VERIFY_SECURITY_CODE": 33,
+        "VIEW_STICKER": 41,
         "VIEW_STICKER_PACK": 23,
         "VIEW_TRANSLATION": 37
       }
@@ -10548,7 +10560,11 @@
         "MOTION_PHOTO_CHILD": 5,
         "MOTION_PHOTO_PARENT": 4,
         "SD_PHOTO": 0,
-        "SD_VIDEO": 2
+        "SD_VIDEO": 2,
+        "STREAMED_HEVC_VIDEO_CHILD": 13,
+        "STREAMED_HEVC_VIDEO_PARENT": 12,
+        "STREAMED_VIDEO_CHILD": 11,
+        "STREAMED_VIDEO_PARENT": 10
       }
     },
     "PARTICIPANT_ACTION_SOURCE": {
@@ -12807,6 +12823,15 @@
         "UNSUPPORTED_VERSION": 3
       }
     },
+    "REPORT_STATUS": {
+      "export": "REPORT_STATUS",
+      "module": "WAWebWamEnumReportStatus",
+      "values": {
+        "FAILURE": 1,
+        "STARTED": 2,
+        "SUCCESS": 0
+      }
+    },
     "REPORT_TO_ADMIN_INTERACTION": {
       "export": "REPORT_TO_ADMIN_INTERACTION",
       "module": "WAWebWamEnumReportToAdminInteraction",
@@ -14500,7 +14525,11 @@
       "values": {
         "DISCOVERY_PACK": 7,
         "MEDIA_HUB": 9,
+        "MESSAGE_MENU": 11,
+        "MULTI_DEVICE_SYNC": 10,
         "STICKER_AI_CREATE": 6,
+        "STICKER_DETAILS_FROM_MENU": 12,
+        "STICKER_DETAILS_FROM_TAP": 13,
         "STICKER_MAKER": 8,
         "STICKER_PICKER": 3,
         "STICKER_RECEIVED": 1,
@@ -14609,6 +14638,26 @@
         "STATUS_API": 15,
         "THINKING_BUBBLE": 4,
         "UNKNOWN": 0
+      }
+    },
+    "STREAMING_ABANDON_REASON_TYPE": {
+      "export": "STREAMING_ABANDON_REASON_TYPE",
+      "module": "WAWebWamEnumStreamingAbandonReasonType",
+      "values": {
+        "OUTPUT_INVALIDATED": 3,
+        "PROCESSING_FAILED": 2,
+        "UPLOAD_FAILED": 1
+      }
+    },
+    "STREAMING_UPLOAD_OUTCOME_TYPE": {
+      "export": "STREAMING_UPLOAD_OUTCOME_TYPE",
+      "module": "WAWebWamEnumStreamingUploadOutcomeType",
+      "values": {
+        "ABANDONED_AFTER_CONNECT": 5,
+        "ABANDONED_BEFORE_CONNECT": 4,
+        "FAILED_AFTER_CLAIM": 3,
+        "NOT_ATTEMPTED": 1,
+        "STREAMED": 2
       }
     },
     "STREAM_SOCKET_PROVIDER_TYPE": {
@@ -16413,6 +16462,8 @@
         "NOT_APPLICABLE": 0,
         "PAUSE": 4,
         "PURGE": 3,
+        "REFETCH_CERTS": 7,
+        "REFRESH_TOKEN": 6,
         "REQUEST_NONCE": 2,
         "RETRY": 1
       }
@@ -16424,6 +16475,7 @@
         "INVALID_PASSWORD": 4,
         "NOT_APPLICABLE": 0,
         "NOT_AUTHORIZED": 3,
+        "PAYLOAD_ENC_DEC": 9,
         "RATE_OVERLIMIT": 2,
         "TIMEOUT": 1,
         "UNKNOWN": 8,
@@ -16440,6 +16492,15 @@
         "NOT_APPLICABLE": 0,
         "PAUSED": 2,
         "UNLINKED": 3
+      }
+    },
+    "WAFFLE_LIFECYCLE_PKI_VERSION_TYPE": {
+      "export": "WAFFLE_LIFECYCLE_PKI_VERSION_TYPE",
+      "module": "WAWebWamEnumWaffleLifecyclePkiVersionType",
+      "values": {
+        "NOT_APPLICABLE": 0,
+        "V1": 1,
+        "V2": 2
       }
     },
     "WAFFLE_LIFECYCLE_TRACE_ACTION_TYPE": {
@@ -48447,6 +48508,12 @@
           "id": 31,
           "type": "enum"
         },
+        "containerType": {
+          "enum": "MEDIA_CONTAINER_TYPE",
+          "falcoName": "container_type",
+          "id": 75,
+          "type": "enum"
+        },
         "daysSinceReceive": {
           "falcoName": "days_since_receive",
           "id": 46,
@@ -49154,6 +49221,12 @@
           "id": 43,
           "type": "enum"
         },
+        "containerType": {
+          "enum": "MEDIA_CONTAINER_TYPE",
+          "falcoName": "container_type",
+          "id": 66,
+          "type": "enum"
+        },
         "debugMediaException": {
           "falcoName": "debug_media_exception",
           "id": 34,
@@ -49409,6 +49482,18 @@
           "falcoName": "resume_network_t",
           "id": 18,
           "type": "timer"
+        },
+        "streamingAbandonReason": {
+          "enum": "STREAMING_ABANDON_REASON_TYPE",
+          "falcoName": "streaming_abandon_reason",
+          "id": 67,
+          "type": "enum"
+        },
+        "streamingUploadOutcome": {
+          "enum": "STREAMING_UPLOAD_OUTCOME_TYPE",
+          "falcoName": "streaming_upload_outcome",
+          "id": 68,
+          "type": "enum"
         },
         "uploadBytesTransferred": {
           "falcoName": "upload_bytes_transferred",
@@ -60429,6 +60514,59 @@
         "gkx26259": 1
       }
     },
+    "SpamReportPerf": {
+      "channel": "regular",
+      "conditions": [],
+      "emittedByWorker": false,
+      "falcoName": "wam_spam_report_perf",
+      "fields": {
+        "dedupKey": {
+          "falcoName": "dedup_key",
+          "id": 6,
+          "type": "integer"
+        },
+        "reportAttemptCount": {
+          "falcoName": "report_attempt_count",
+          "id": 3,
+          "type": "integer"
+        },
+        "reportDurationMs": {
+          "falcoName": "report_duration_ms",
+          "id": 1,
+          "type": "timer"
+        },
+        "reportErrorCode": {
+          "falcoName": "report_error_code",
+          "id": 4,
+          "type": "integer"
+        },
+        "reportSpamFlow": {
+          "falcoName": "report_spam_flow",
+          "id": 5,
+          "type": "string"
+        },
+        "reportStatus": {
+          "enum": "REPORT_STATUS",
+          "falcoName": "report_status",
+          "id": 2,
+          "type": "enum"
+        },
+        "wiTraceId": {
+          "falcoName": "wi_trace_id",
+          "id": 7,
+          "type": "string"
+        }
+      },
+      "id": 6310,
+      "module": "WAWebSpamReportPerfWamEvent",
+      "privateStatsIdInt": null,
+      "requiredFields": [],
+      "weight": {
+        "default": 1,
+        "gkx26258": 1,
+        "gkx26259": 1
+      }
+    },
     "StatusCrosspostRequest": {
       "channel": "regular",
       "conditions": [],
@@ -66912,6 +67050,12 @@
           "id": 6,
           "type": "enum"
         },
+        "waffleLifecyclePkiVersion": {
+          "enum": "WAFFLE_LIFECYCLE_PKI_VERSION_TYPE",
+          "falcoName": "waffle_lifecycle_pki_version",
+          "id": 12,
+          "type": "enum"
+        },
         "waffleLifecycleRetryCount": {
           "falcoName": "waffle_lifecycle_retry_count",
           "id": 7,
@@ -70753,7 +70897,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1049688916",
+  "waVersion": "2.3000.1049825515",
   "wireFormat": {
     "markers": {
       "event": 1,

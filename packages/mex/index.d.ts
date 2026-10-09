@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049688916
+// WhatsApp Version: 2.3000.1049825515
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -3103,6 +3103,8 @@ export type WaMexContactManagerCustomerProfileResponse = {
         readonly etag?: string
         readonly last_order_date?: string
         readonly last_updates?: ReadonlyArray<{
+            readonly field_name?: string
+            readonly source?: boolean
             readonly ts?: unknown
         }>
         readonly lead_stage?: string
@@ -3319,6 +3321,7 @@ export type WaMexDebugLabyrinthFetchVirtualDeviceInfoResponse = {
         readonly active_epoch_id?: string
         readonly encrypted_secret_values?: ReadonlyArray<string>
         readonly error_code?: string
+        readonly mailbox_id?: string
         readonly message?: string
         readonly vd_base_epoch_id?: string
     }
@@ -7470,6 +7473,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly thumbnails?: unknown
                                 readonly title?: string
                                 readonly tool_call_args?: string
+                                readonly tool_call_batch_id?: string
                                 readonly tool_call_id?: string
                                 readonly tool_name?: string
                                 readonly tool_result?: string

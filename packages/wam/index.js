@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049688916
+// WhatsApp Version: 2.3000.1049825515
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -6357,6 +6357,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'AI_MEDIA_EDITOR_RESTYLE_SEND': 125,
         'AI_MEDIA_EDITOR_SEND': 144,
         'AI_MEDIA_EDITOR_SEND_CANCEL': 130,
+        'AI_MEDIA_EDITOR_UNDO_CLICKED': 146,
         'ANIMATE_BUTTON_CLICK': 7,
         'ATTACHMENT_TRAY_OPEN_CLICK': 99,
         'BACKGROUND_BUTTON_CLICK': 76,
@@ -8698,6 +8699,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'SD_QUALITY': 1
         })
     }),
+    MEDIA_CONTAINER_TYPE: Object.freeze({
+        module: 'WAWebWamEnumMediaContainerType',
+        export: 'MEDIA_CONTAINER_TYPE',
+        values: Object.freeze({
+        'FLAT_MP4': 1,
+        'FRAGMENTED_MP4': 2
+        })
+    }),
     MEDIA_DOWNLOAD_MODE_TYPE: Object.freeze({
         module: 'WAWebWamEnumMediaDownloadModeType',
         export: 'MEDIA_DOWNLOAD_MODE_TYPE',
@@ -9156,6 +9165,7 @@ const WA_WAM_ENUMS = Object.freeze({
         module: 'WAWebWamEnumMessageContextMenuOptionType',
         export: 'MESSAGE_CONTEXT_MENU_OPTION_TYPE',
         values: Object.freeze({
+        'ADD_STICKER_TO_FAVORITES': 42,
         'ADD_TO_CALENDAR': 16,
         'ADD_TO_NOTE': 34,
         'ASK_META_AI': 28,
@@ -9180,6 +9190,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PAID_PARTNERSHIP': 32,
         'PIN_OR_UNPIN': 27,
         'REACT': 18,
+        'REMOVE_STICKER_FROM_FAVORITES': 43,
         'REMOVE_TRANSLATION': 38,
         'REPLY': 5,
         'REPLY_PRIVATELY': 6,
@@ -9194,6 +9205,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'TRANSLATE': 35,
         'UNKNOWN': 1,
         'VERIFY_SECURITY_CODE': 33,
+        'VIEW_STICKER': 41,
         'VIEW_STICKER_PACK': 23,
         'VIEW_TRANSLATION': 37
         })
@@ -10602,7 +10614,11 @@ const WA_WAM_ENUMS = Object.freeze({
         'MOTION_PHOTO_CHILD': 5,
         'MOTION_PHOTO_PARENT': 4,
         'SD_PHOTO': 0,
-        'SD_VIDEO': 2
+        'SD_VIDEO': 2,
+        'STREAMED_HEVC_VIDEO_CHILD': 13,
+        'STREAMED_HEVC_VIDEO_PARENT': 12,
+        'STREAMED_VIDEO_CHILD': 11,
+        'STREAMED_VIDEO_PARENT': 10
         })
     }),
     PARTICIPANT_ACTION_SOURCE: Object.freeze({
@@ -12861,6 +12877,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'UNSUPPORTED_VERSION': 3
         })
     }),
+    REPORT_STATUS: Object.freeze({
+        module: 'WAWebWamEnumReportStatus',
+        export: 'REPORT_STATUS',
+        values: Object.freeze({
+        'FAILURE': 1,
+        'STARTED': 2,
+        'SUCCESS': 0
+        })
+    }),
     REPORT_TO_ADMIN_INTERACTION: Object.freeze({
         module: 'WAWebWamEnumReportToAdminInteraction',
         export: 'REPORT_TO_ADMIN_INTERACTION',
@@ -14554,7 +14579,11 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'DISCOVERY_PACK': 7,
         'MEDIA_HUB': 9,
+        'MESSAGE_MENU': 11,
+        'MULTI_DEVICE_SYNC': 10,
         'STICKER_AI_CREATE': 6,
+        'STICKER_DETAILS_FROM_MENU': 12,
+        'STICKER_DETAILS_FROM_TAP': 13,
         'STICKER_MAKER': 8,
         'STICKER_PICKER': 3,
         'STICKER_RECEIVED': 1,
@@ -14663,6 +14692,26 @@ const WA_WAM_ENUMS = Object.freeze({
         'STATUS_API': 15,
         'THINKING_BUBBLE': 4,
         'UNKNOWN': 0
+        })
+    }),
+    STREAMING_ABANDON_REASON_TYPE: Object.freeze({
+        module: 'WAWebWamEnumStreamingAbandonReasonType',
+        export: 'STREAMING_ABANDON_REASON_TYPE',
+        values: Object.freeze({
+        'OUTPUT_INVALIDATED': 3,
+        'PROCESSING_FAILED': 2,
+        'UPLOAD_FAILED': 1
+        })
+    }),
+    STREAMING_UPLOAD_OUTCOME_TYPE: Object.freeze({
+        module: 'WAWebWamEnumStreamingUploadOutcomeType',
+        export: 'STREAMING_UPLOAD_OUTCOME_TYPE',
+        values: Object.freeze({
+        'ABANDONED_AFTER_CONNECT': 5,
+        'ABANDONED_BEFORE_CONNECT': 4,
+        'FAILED_AFTER_CLAIM': 3,
+        'NOT_ATTEMPTED': 1,
+        'STREAMED': 2
         })
     }),
     STREAM_SOCKET_PROVIDER_TYPE: Object.freeze({
@@ -16467,6 +16516,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'NOT_APPLICABLE': 0,
         'PAUSE': 4,
         'PURGE': 3,
+        'REFETCH_CERTS': 7,
+        'REFRESH_TOKEN': 6,
         'REQUEST_NONCE': 2,
         'RETRY': 1
         })
@@ -16478,6 +16529,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'INVALID_PASSWORD': 4,
         'NOT_APPLICABLE': 0,
         'NOT_AUTHORIZED': 3,
+        'PAYLOAD_ENC_DEC': 9,
         'RATE_OVERLIMIT': 2,
         'TIMEOUT': 1,
         'UNKNOWN': 8,
@@ -16494,6 +16546,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'NOT_APPLICABLE': 0,
         'PAUSED': 2,
         'UNLINKED': 3
+        })
+    }),
+    WAFFLE_LIFECYCLE_PKI_VERSION_TYPE: Object.freeze({
+        module: 'WAWebWamEnumWaffleLifecyclePkiVersionType',
+        export: 'WAFFLE_LIFECYCLE_PKI_VERSION_TYPE',
+        values: Object.freeze({
+        'NOT_APPLICABLE': 0,
+        'V1': 1,
+        'V2': 2
         })
     }),
     WAFFLE_LIFECYCLE_TRACE_ACTION_TYPE: Object.freeze({
@@ -25366,6 +25427,7 @@ const WA_WAM_EVENTS = Object.freeze({
             appContextBitfield: Object.freeze({ id: 65, type: 'integer', falcoName: 'app_context_bitfield' }),
             clientMessageId: Object.freeze({ id: 50, type: 'string', falcoName: 'client_message_id' }),
             connectionType: Object.freeze({ id: 31, type: 'enum', enum: 'CONNECTION_TYPE', falcoName: 'connection_type' }),
+            containerType: Object.freeze({ id: 75, type: 'enum', enum: 'MEDIA_CONTAINER_TYPE', falcoName: 'container_type' }),
             daysSinceReceive: Object.freeze({ id: 46, type: 'integer', falcoName: 'days_since_receive' }),
             debugMediaException: Object.freeze({ id: 24, type: 'string', falcoName: 'debug_media_exception' }),
             debugMediaIp: Object.freeze({ id: 22, type: 'string', falcoName: 'debug_media_ip' }),
@@ -25529,6 +25591,7 @@ const WA_WAM_EVENTS = Object.freeze({
             appContextBitfield: Object.freeze({ id: 64, type: 'integer', falcoName: 'app_context_bitfield' }),
             batchSize: Object.freeze({ id: 57, type: 'integer', falcoName: 'batch_size' }),
             connectionType: Object.freeze({ id: 43, type: 'enum', enum: 'CONNECTION_TYPE', falcoName: 'connection_type' }),
+            containerType: Object.freeze({ id: 66, type: 'enum', enum: 'MEDIA_CONTAINER_TYPE', falcoName: 'container_type' }),
             debugMediaException: Object.freeze({ id: 34, type: 'string', falcoName: 'debug_media_exception' }),
             debugMediaIp: Object.freeze({ id: 32, type: 'string', falcoName: 'debug_media_ip' }),
             debugUrl: Object.freeze({ id: 33, type: 'string', falcoName: 'debug_url' }),
@@ -25578,6 +25641,8 @@ const WA_WAM_EVENTS = Object.freeze({
             resumeHttpCode: Object.freeze({ id: 20, type: 'integer', falcoName: 'resume_http_code' }),
             resumeIsReuse: Object.freeze({ id: 19, type: 'boolean', falcoName: 'resume_is_reuse' }),
             resumeNetworkT: Object.freeze({ id: 18, type: 'timer', falcoName: 'resume_network_t' }),
+            streamingAbandonReason: Object.freeze({ id: 67, type: 'enum', enum: 'STREAMING_ABANDON_REASON_TYPE', falcoName: 'streaming_abandon_reason' }),
+            streamingUploadOutcome: Object.freeze({ id: 68, type: 'enum', enum: 'STREAMING_UPLOAD_OUTCOME_TYPE', falcoName: 'streaming_upload_outcome' }),
             uploadBytesTransferred: Object.freeze({ id: 27, type: 'number', falcoName: 'upload_bytes_transferred' }),
             uploadConnectT: Object.freeze({ id: 22, type: 'timer', falcoName: 'upload_connect_t' }),
             uploadHttpCode: Object.freeze({ id: 25, type: 'integer', falcoName: 'upload_http_code' }),
@@ -28685,6 +28750,25 @@ const WA_WAM_EVENTS = Object.freeze({
             threadId: Object.freeze({ id: 4, type: 'string', falcoName: 'thread_id' })
         })
     }),
+    SpamReportPerf: Object.freeze({
+        id: 6310,
+        falcoName: 'wam_spam_report_perf',
+        channel: 'regular',
+        privateStatsIdInt: null,
+        emittedByWorker: false,
+        weight: Object.freeze({ default: 1, gkx26259: 1, gkx26258: 1 }),
+        requiredFields: Object.freeze([]),
+        conditions: Object.freeze([]),
+        fields: Object.freeze({
+            dedupKey: Object.freeze({ id: 6, type: 'integer', falcoName: 'dedup_key' }),
+            reportAttemptCount: Object.freeze({ id: 3, type: 'integer', falcoName: 'report_attempt_count' }),
+            reportDurationMs: Object.freeze({ id: 1, type: 'timer', falcoName: 'report_duration_ms' }),
+            reportErrorCode: Object.freeze({ id: 4, type: 'integer', falcoName: 'report_error_code' }),
+            reportSpamFlow: Object.freeze({ id: 5, type: 'string', falcoName: 'report_spam_flow' }),
+            reportStatus: Object.freeze({ id: 2, type: 'enum', enum: 'REPORT_STATUS', falcoName: 'report_status' }),
+            wiTraceId: Object.freeze({ id: 7, type: 'string', falcoName: 'wi_trace_id' })
+        })
+    }),
     StatusCrosspostRequest: Object.freeze({
         id: 4994,
         falcoName: 'wam_status_crosspost_request',
@@ -30500,6 +30584,7 @@ const WA_WAM_EVENTS = Object.freeze({
             waffleLifecycleHasAccessToken: Object.freeze({ id: 4, type: 'boolean', falcoName: 'waffle_lifecycle_has_access_token' }),
             waffleLifecycleHasExistingRow: Object.freeze({ id: 5, type: 'boolean', falcoName: 'waffle_lifecycle_has_existing_row' }),
             waffleLifecycleLinkState: Object.freeze({ id: 6, type: 'enum', enum: 'WAFFLE_LIFECYCLE_LINK_STATE_TYPE', falcoName: 'waffle_lifecycle_link_state' }),
+            waffleLifecyclePkiVersion: Object.freeze({ id: 12, type: 'enum', enum: 'WAFFLE_LIFECYCLE_PKI_VERSION_TYPE', falcoName: 'waffle_lifecycle_pki_version' }),
             waffleLifecycleRetryCount: Object.freeze({ id: 7, type: 'integer', falcoName: 'waffle_lifecycle_retry_count' }),
             waffleLifecycleTraceAction: Object.freeze({ id: 8, type: 'enum', enum: 'WAFFLE_LIFECYCLE_TRACE_ACTION_TYPE', falcoName: 'waffle_lifecycle_trace_action' }),
             waffleLifecycleTraceSource: Object.freeze({ id: 9, type: 'enum', enum: 'WAFFLE_LIFECYCLE_TRACE_SOURCE_TYPE', falcoName: 'waffle_lifecycle_trace_source' }),

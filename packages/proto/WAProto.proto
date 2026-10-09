@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1049688916
+/// WhatsApp Version: 2.3000.1049825515
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -499,6 +499,7 @@ enum MutationProps {
     BUSINESS_FOLDER_ACTIVATION_ACTION = 96;
     GROUP_HISTORY_TOGGLE_ACTION = 97;
     BB_PRO_PENDING_CUSTOMER_BASE_ACTION = 98;
+    COMMUNITY_NESTING_STATE_ACTION = 99;
     SHARE_OWN_PN = 10001;
     BUSINESS_BROADCAST_ACTION = 10002;
     AI_THREAD_DELETE_ACTION = 10003;
@@ -2481,6 +2482,8 @@ message ContextInfo {
         HEVC_VIDEO_CHILD = 8;
         AV1_VIDEO_PARENT = 9;
         AV1_VIDEO_CHILD = 10;
+        STREAMED_VIDEO_PARENT = 11;
+        STREAMED_VIDEO_CHILD = 12;
     }
     enum StatusAttributionType {
         NONE = 0;
@@ -3393,7 +3396,6 @@ message EphemeralSyncResponseBackoffInfo {
 message Epoch0Output {
     optional uint64 epochFbid = 1;
     optional bytes epochAnonId = 2;
-    optional bytes epochSignature = 5;
     optional bytes epochRootKeyFingerprint = 6;
     optional bytes epochRootKey = 7;
 }
@@ -4363,6 +4365,7 @@ message Message {
     optional ImageMessage instantImageMessage = 135;
     optional RequestLocationMessage requestLocationMessage = 136;
     optional FutureProofMessage botGroupParticipantMessage = 137;
+    optional RequestLocationUpdateMessage requestLocationUpdateMessage = 138;
     enum PollType {
         POLL = 0;
         QUIZ = 1;
@@ -4773,6 +4776,15 @@ message Message {
         optional string destinationJid = 1;
         optional Message message = 2;
         optional string phash = 3;
+    }
+    message RequestLocationUpdateMessage {
+        optional MessageKey key = 1;
+        optional UpdateType updateType = 2;
+        optional int64 senderTimestampMs = 3;
+        enum UpdateType {
+            UNKNOWN = 0;
+            CANCEL = 1;
+        }
     }
     message RequestLocationMessage {
         optional ContextInfo contextInfo = 1;
@@ -6032,6 +6044,7 @@ message MessageAddOn {
         EVENT_RESPONSE = 2;
         POLL_UPDATE = 3;
         PIN_IN_CHAT = 4;
+        REQUEST_LOCATION_UPDATE = 5;
     }
 }
 
@@ -6134,6 +6147,7 @@ message MessageAssociation {
         HEVC_VIDEO_DUAL_UPLOAD = 19;
         POLL_ADD_OPTION = 20;
         AV1_VIDEO_DUAL_UPLOAD = 21;
+        STREAMED_HD_VIDEO_DUAL_UPLOAD = 22;
     }
 }
 
@@ -7905,6 +7919,7 @@ message SyncActionValue {
     optional BusinessFolderActivationAction businessFolderActivationAction = 96;
     optional GroupHistoryToggleAction groupHistoryToggleAction = 97;
     optional BBProPendingCustomerBaseAction bbProPendingCustomerBaseAction = 98;
+    optional CommunityNestingStateAction communityNestingStateAction = 99;
     enum BusinessBroadcastCampaignBBProStatus {
         BB_PRO_ACTIVE = 1;
         BB_PRO_COMPLETED = 2;
@@ -7923,6 +7938,14 @@ message SyncActionValue {
         PROCESSING = 3;
         FAILED = 4;
         SENT = 5;
+    }
+    message CommunityNestingStateAction {
+        optional NestingState nestingState = 1;
+        enum NestingState {
+            NESTING_STATE_UNKNOWN = 0;
+            NESTING_STATE_NESTED = 1;
+            NESTING_STATE_UNNESTED = 2;
+        }
     }
     message BBProPendingCustomerBaseAction {
         optional bool pending = 1;

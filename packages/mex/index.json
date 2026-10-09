@@ -406,7 +406,7 @@
       }
     },
     "AdsBulkEditCampaignGroupBudgetFieldContainer_": {
-      "docId": "24742643098669903",
+      "docId": "39013094771667143",
       "operationKind": "query",
       "originalName": "AdsBulkEditCampaignGroupBudgetFieldContainer_Query",
       "response": {
@@ -1649,7 +1649,7 @@
       }
     },
     "ContactManagerCustomerProfile": {
-      "docId": "38879305098350961",
+      "docId": "28155766940789531",
       "operationKind": "query",
       "originalName": "WAWebContactManagerCustomerProfileQuery",
       "response": {
@@ -1663,6 +1663,8 @@
           "last_order_date": "string",
           "last_updates": [
             {
+              "field_name": "string",
+              "source": "boolean",
               "ts": "unknown"
             }
           ],
@@ -2075,7 +2077,7 @@
       }
     },
     "DebugLabyrinthFetchVirtualDeviceInfo": {
-      "docId": "28155110140821441",
+      "docId": "28440450835596404",
       "operationKind": "query",
       "originalName": "WAWebDebugLabyrinthFetchVirtualDeviceInfoJobQuery",
       "response": {
@@ -2086,6 +2088,7 @@
             "string"
           ],
           "error_code": "string",
+          "mailbox_id": "string",
           "message": "string",
           "vd_base_epoch_id": "string"
         }
@@ -8248,7 +8251,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "38877288891915880",
+      "docId": "27049395018092037",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8889,6 +8892,7 @@
                           "thumbnails": "unknown",
                           "title": "string",
                           "tool_call_args": "string",
+                          "tool_call_batch_id": "string",
                           "tool_call_id": "string",
                           "tool_name": "string",
                           "tool_result": "string",
@@ -9076,5 +9080,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049688916"
+  "waVersion": "2.3000.1049825515"
 }
