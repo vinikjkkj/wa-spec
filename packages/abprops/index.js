@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049825515
+// WhatsApp Version: 2.3000.1049946321
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -1420,6 +1420,9 @@ const WA_ABPROPS = Object.freeze({
     payments_br_pix_web_attachment_tray: Object.freeze({ code: 19276, type: "bool", defaultValue: false, debugDefaultValue: false }),
     payments_link_to_lite_consumer_enabled: Object.freeze({ code: 3051, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_merchant_global_orders_value_props_banner_enabled: Object.freeze({ code: 3744, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    payments_receipt_and_state_copy_pix_key_p2m: Object.freeze({ code: 36796, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    payments_receipt_and_state_copy_pix_key_p2p: Object.freeze({ code: 36791, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    payments_receipt_and_state_details_kill_switch: Object.freeze({ code: 37686, type: "bool", defaultValue: false, debugDefaultValue: false }),
     payments_receipt_and_state_web_state_hide_kill_switch: Object.freeze({ code: 37818, type: "bool", defaultValue: false, debugDefaultValue: false }),
     payments_row_upr_buyer_logging: Object.freeze({ code: 35965, type: "bool", defaultValue: false, debugDefaultValue: true }),
     payments_upr_algeria_enabled: Object.freeze({ code: 35026, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -5208,6 +5211,8 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     36716: "wa_webtp_print_pdf_enabled",
     36759: "ai_meta_ai_thread_rendering_enabled",
     36763: "acp2_group_chats_enabled",
+    36791: "payments_receipt_and_state_copy_pix_key_p2p",
+    36796: "payments_receipt_and_state_copy_pix_key_p2m",
     36801: "web_status_likes_poster_counter_enabled",
     36803: "web_voip_relay_setup_yield_ipv4_first",
     36804: "web_voip_low_core_ipv6_relay_delay_ms",
@@ -5308,6 +5313,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     37639: "ai_hatch_3p_bot_enabled",
     37650: "document_format_verification_enforcement_enabled",
     37665: "ai_hatch_upsell_in_agents_screen_variant",
+    37686: "payments_receipt_and_state_details_kill_switch",
     37690: "wa_web_search_highlight_offset_normalization_enabled",
     37731: "poll_creator_edit_option_removal_enabled",
     37732: "poll_creator_remove_added_option_enabled",

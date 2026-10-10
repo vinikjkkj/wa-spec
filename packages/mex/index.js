@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049825515
+// WhatsApp Version: 2.3000.1049946321
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -21,11 +21,10 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsBulkEditCampaignGroupAgencyFeeBulkContainer: Object.freeze({ docId: '25592298897124600', clientDocId: '25592298897124600' }),
     AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: Object.freeze({ docId: '25393377113690464', clientDocId: '25393377113690464' }),
     AdsBulkEditCampaignGroupBudgetFieldContainer_: Object.freeze({ docId: '39013094771667143', clientDocId: '39013094771667143' }),
-    AdsManagerLiveDataCampaign: Object.freeze({ docId: '28195694260131286', clientDocId: '28195694260131286' }),
-    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '29340711762196284', clientDocId: '29340711762196284' }),
+    AdsManagerLiveDataCampaign: Object.freeze({ docId: '27983899064622696', clientDocId: '27983899064622696' }),
+    AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ docId: '28864090736520598', clientDocId: '28864090736520598' }),
     AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ docId: '28581644508193043', clientDocId: '28581644508193043' }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ docId: '27132375929736175', clientDocId: '27132375929736175' }),
-    AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: Object.freeze({ docId: '39157849030468989', clientDocId: '39157849030468989' }),
     AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ docId: '28312488775011145', clientDocId: '28312488775011145' }),
     AiAgentAutoReplyControl: Object.freeze({ docId: '27338647792432014', clientDocId: '27338647792432014' }),
     AuthAgentFeaturePolicy: Object.freeze({ docId: '26467789126176720', clientDocId: '26467789126176720' }),
@@ -66,8 +65,8 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     CreateWhatsAppAdsIdentity: Object.freeze({ docId: '24393949203623093', clientDocId: '24393949203623093' }),
     CustomLabel3pdEvent: Object.freeze({ docId: '24247439618185103', clientDocId: '24247439618185103' }),
     DebugLabyrinthAddDevice: Object.freeze({ docId: '38487370967576807', clientDocId: '38487370967576807' }),
-    DebugLabyrinthFetchVirtualDeviceInfo: Object.freeze({ docId: '28440450835596404', clientDocId: '28440450835596404' }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '27948440594820675', clientDocId: '27948440594820675' }),
+    DebugLabyrinthFetchVirtualDeviceInfo: Object.freeze({ docId: '28519588807706310', clientDocId: '28519588807706310' }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ docId: '29079538964986699', clientDocId: '29079538964986699' }),
     DebugLabyrinthRange: Object.freeze({ docId: '27219778391054922', clientDocId: '27219778391054922' }),
     DebugLabyrinthRestorePage: Object.freeze({ docId: '27748541024820945', clientDocId: '27748541024820945' }),
     DeleteNewsletter: Object.freeze({ docId: '30062808666639665', clientDocId: '30062808666639665' }),
@@ -235,7 +234,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useIsMessengerPlatformBot: Object.freeze({ docId: '26663378016650457', clientDocId: '26663378016650457' }),
     useMAIBADraftStatus: Object.freeze({ docId: '26506130052414973', clientDocId: '26506130052414973' }),
     useMAIBAMedia: Object.freeze({ docId: '36788578160740597', clientDocId: '36788578160740597' }),
-    useMAIBAWidgetState: Object.freeze({ docId: '27049395018092037', clientDocId: '27049395018092037' }),
+    useMAIBAWidgetState: Object.freeze({ docId: '28828421550103824', clientDocId: '28828421550103824' }),
     useWAWebEstimatedDailyReach: Object.freeze({ docId: '28449519141342172', clientDocId: '28449519141342172' }),
     useWAWebEstimatedDailyReachShadow: Object.freeze({ docId: '28286021457733285', clientDocId: '28286021457733285' }),
     useWAWebSmartComposerCoachSuggestedReply: Object.freeze({ docId: '29123261517274723', clientDocId: '29123261517274723' }),
@@ -266,7 +265,6 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
     AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']) }),
     AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountID', 'skipRequest']) }),
-    AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountId', 'pageWhatsAppNumberId']) }),
     AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: Object.freeze({ operationKind: 'query', variables: Object.freeze(['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']) }),
     AiAgentAutoReplyControl: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['consumer_lid', 'phone_number', 'thread_status']) }),
     AuthAgentFeaturePolicy: Object.freeze({ operationKind: 'query', variables: Object.freeze([]) }),
@@ -308,7 +306,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     CustomLabel3pdEvent: Object.freeze({ operationKind: 'query', variables: Object.freeze(['custom_labels', 'expt_group']) }),
     DebugLabyrinthAddDevice: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     DebugLabyrinthFetchVirtualDeviceInfo: Object.freeze({ operationKind: 'query', variables: Object.freeze(['input']) }),
-    DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['messageFirst', 'threadFirst']) }),
+    DebugLabyrinthInboxSnapshot: Object.freeze({ operationKind: 'query', variables: Object.freeze(['clientSealToken', 'deviceId', 'locallyAvailableEpochIds', 'messageFirst', 'threadFirst']) }),
     DebugLabyrinthRange: Object.freeze({ operationKind: 'query', variables: Object.freeze(['device_id', 'message_count', 'partial_thread_id']) }),
     DebugLabyrinthRestorePage: Object.freeze({ operationKind: 'query', variables: Object.freeze(['after', 'device_id', 'message_count', 'partial_thread_id']) }),
     DeleteNewsletter: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['newsletter_id']) }),

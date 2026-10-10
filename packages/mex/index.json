@@ -430,7 +430,7 @@
       }
     },
     "AdsManagerLiveDataCampaign": {
-      "docId": "28195694260131286",
+      "docId": "27983899064622696",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQuery",
       "response": {
@@ -453,7 +453,7 @@
       }
     },
     "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs": {
-      "docId": "29340711762196284",
+      "docId": "28864090736520598",
       "operationKind": "query",
       "originalName": "AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsQuery",
       "response": {
@@ -622,25 +622,6 @@
       "variablesShape": {
         "adAccountID": "string",
         "skipRequest": "boolean"
-      }
-    },
-    "AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_": {
-      "docId": "39157849030468989",
-      "operationKind": "query",
-      "originalName": "AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Query",
-      "response": {
-        "xfb_wamo_advertiser_profile_information_from_pwan": {
-          "business_name": "string",
-          "business_profile_image": "string"
-        }
-      },
-      "variables": [
-        "adAccountId",
-        "pageWhatsAppNumberId"
-      ],
-      "variablesShape": {
-        "adAccountId": "string",
-        "pageWhatsAppNumberId": "string"
       }
     },
     "AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_": {
@@ -2077,7 +2058,7 @@
       }
     },
     "DebugLabyrinthFetchVirtualDeviceInfo": {
-      "docId": "28440450835596404",
+      "docId": "28519588807706310",
       "operationKind": "query",
       "originalName": "WAWebDebugLabyrinthFetchVirtualDeviceInfoJobQuery",
       "response": {
@@ -2090,6 +2071,15 @@
           "error_code": "string",
           "mailbox_id": "string",
           "message": "string",
+          "sync_epochs": [
+            {
+              "encrypted_epoch_key": "string",
+              "epoch_anon_id": "string",
+              "epoch_id": "string",
+              "next_epoch_id": "string",
+              "sender_auth_pub_key": "string"
+            }
+          ],
           "vd_base_epoch_id": "string"
         }
       },
@@ -2103,7 +2093,7 @@
       }
     },
     "DebugLabyrinthInboxSnapshot": {
-      "docId": "27948440594820675",
+      "docId": "29079538964986699",
       "operationKind": "query",
       "originalName": "WAWebDebugLabyrinthInboxSnapshotQuery",
       "response": {
@@ -2129,6 +2119,9 @@
                       }
                     }
                   ]
+                },
+                "thread_id_seal": {
+                  "sealed_thread_id": "string"
                 }
               }
             ]
@@ -2136,10 +2129,18 @@
         }
       },
       "variables": [
+        "clientSealToken",
+        "deviceId",
+        "locallyAvailableEpochIds",
         "messageFirst",
         "threadFirst"
       ],
       "variablesShape": {
+        "clientSealToken": "string",
+        "deviceId": "string",
+        "locallyAvailableEpochIds": [
+          "unknown"
+        ],
         "messageFirst": "number",
         "threadFirst": "number"
       }
@@ -7867,7 +7868,7 @@
             {
               "error": "string",
               "offline_threading_id": "string",
-              "success": "string"
+              "success": "boolean"
             }
           ],
           "status": "string"
@@ -8251,7 +8252,7 @@
       }
     },
     "useMAIBAWidgetState": {
-      "docId": "27049395018092037",
+      "docId": "28828421550103824",
       "operationKind": "mutation",
       "originalName": "useMAIBAWidgetStateMutation",
       "response": {
@@ -8361,6 +8362,7 @@
                           ],
                           "caption": "string",
                           "card_data": "unknown",
+                          "card_state_json": "unknown",
                           "card_variant": "string",
                           "case_id": "string",
                           "cdn_url": "string",
@@ -8369,7 +8371,7 @@
                           "condition_matched": "unknown",
                           "content_id": "string",
                           "created_time": "string",
-                          "creation_lifecycle_identity": "unknown",
+                          "creation_lifecycle_identity": "string",
                           "creation_time": "string",
                           "creative_description": "string",
                           "creators": [
@@ -8527,7 +8529,7 @@
                           "format": "string",
                           "format_type": "string",
                           "funnel_chart_data": "string",
-                          "gender": "unknown",
+                          "gender": "string",
                           "goal_context": "string",
                           "goal_description": "string",
                           "goal_detail": "string",
@@ -8573,7 +8575,7 @@
                               "source": "string"
                             }
                           ],
-                          "interests": "unknown",
+                          "interests": "string",
                           "invited_people": "unknown",
                           "is_action": "boolean",
                           "is_completed": "boolean",
@@ -8655,9 +8657,9 @@
                               "age_max": "number",
                               "age_min": "number",
                               "description": "string",
-                              "gender": "unknown",
+                              "gender": "string",
                               "id": "string",
-                              "interests": "unknown",
+                              "interests": "string",
                               "is_recommended": "boolean",
                               "subtitle": "string",
                               "subtitle_value": "number",
@@ -9080,5 +9082,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1049825515"
+  "waVersion": "2.3000.1049946321"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049825515
+// WhatsApp Version: 2.3000.1049946321
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -1439,6 +1439,9 @@ export declare const WA_ABPROPS: {
     readonly payments_br_pix_web_attachment_tray: { readonly code: 19276; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_link_to_lite_consumer_enabled: { readonly code: 3051; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_merchant_global_orders_value_props_banner_enabled: { readonly code: 3744; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly payments_receipt_and_state_copy_pix_key_p2m: { readonly code: 36796; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly payments_receipt_and_state_copy_pix_key_p2p: { readonly code: 36791; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly payments_receipt_and_state_details_kill_switch: { readonly code: 37686; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_receipt_and_state_web_state_hide_kill_switch: { readonly code: 37818; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_row_upr_buyer_logging: { readonly code: 35965; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_upr_algeria_enabled: { readonly code: 35026; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -5224,6 +5227,8 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 36716: "wa_webtp_print_pdf_enabled"
     readonly 36759: "ai_meta_ai_thread_rendering_enabled"
     readonly 36763: "acp2_group_chats_enabled"
+    readonly 36791: "payments_receipt_and_state_copy_pix_key_p2p"
+    readonly 36796: "payments_receipt_and_state_copy_pix_key_p2m"
     readonly 36801: "web_status_likes_poster_counter_enabled"
     readonly 36803: "web_voip_relay_setup_yield_ipv4_first"
     readonly 36804: "web_voip_low_core_ipv6_relay_delay_ms"
@@ -5324,6 +5329,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37639: "ai_hatch_3p_bot_enabled"
     readonly 37650: "document_format_verification_enforcement_enabled"
     readonly 37665: "ai_hatch_upsell_in_agents_screen_variant"
+    readonly 37686: "payments_receipt_and_state_details_kill_switch"
     readonly 37690: "wa_web_search_highlight_offset_normalization_enabled"
     readonly 37731: "poll_creator_edit_option_removal_enabled"
     readonly 37732: "poll_creator_remove_added_option_enabled"

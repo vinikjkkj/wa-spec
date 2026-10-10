@@ -116,7 +116,7 @@
       "type": "bool"
     }
   },
-  "propCount": 2696,
+  "propCount": 2699,
   "props": {
     "a2ui_supported_elements": {
       "code": 32276,
@@ -8596,6 +8596,24 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "payments_receipt_and_state_copy_pix_key_p2m": {
+      "code": 36796,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_receipt_and_state_copy_pix_key_p2p": {
+      "code": 36791,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "payments_receipt_and_state_details_kill_switch": {
+      "code": 37686,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "payments_receipt_and_state_web_state_hide_kill_switch": {
       "code": 37818,
       "debugDefaultValue": false,
@@ -16326,5 +16344,5 @@
     "web_socket_parallel_connection_enabled",
     "web_store_quota_manager_enabled"
   ],
-  "waVersion": "2.3000.1049825515"
+  "waVersion": "2.3000.1049946321"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049825515
+// WhatsApp Version: 2.3000.1049946321
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -37,7 +37,6 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
-    readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexPersistId
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexPersistId
     readonly AiAgentAutoReplyControl: WaMexPersistId
     readonly AuthAgentFeaturePolicy: WaMexPersistId
@@ -278,7 +277,6 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexOperationSchema<'query', readonly ['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
-    readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexOperationSchema<'query', readonly ['adAccountId', 'pageWhatsAppNumberId']>
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexOperationSchema<'query', readonly ['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']>
     readonly AiAgentAutoReplyControl: WaMexOperationSchema<'mutation', readonly ['consumer_lid', 'phone_number', 'thread_status']>
     readonly AuthAgentFeaturePolicy: WaMexOperationSchema<'query', readonly []>
@@ -320,7 +318,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
     readonly DebugLabyrinthAddDevice: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexOperationSchema<'query', readonly ['input']>
-    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['messageFirst', 'threadFirst']>
+    readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['clientSealToken', 'deviceId', 'locallyAvailableEpochIds', 'messageFirst', 'threadFirst']>
     readonly DebugLabyrinthRange: WaMexOperationSchema<'query', readonly ['device_id', 'message_count', 'partial_thread_id']>
     readonly DebugLabyrinthRestorePage: WaMexOperationSchema<'query', readonly ['after', 'device_id', 'message_count', 'partial_thread_id']>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
@@ -598,11 +596,6 @@ export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVari
     readonly skipRequest?: boolean
 }
 
-export type WaMexAdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Variables = {
-    readonly adAccountId?: string
-    readonly pageWhatsAppNumberId?: string
-}
-
 export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables = {
     readonly hasPrimaryPage?: boolean
     readonly hasSecondaryPage?: boolean
@@ -856,6 +849,9 @@ export type WaMexDebugLabyrinthFetchVirtualDeviceInfoVariables = {
 }
 
 export type WaMexDebugLabyrinthInboxSnapshotVariables = {
+    readonly clientSealToken?: string
+    readonly deviceId?: string
+    readonly locallyAvailableEpochIds?: ReadonlyArray<unknown>
     readonly messageFirst?: number
     readonly threadFirst?: number
 }
@@ -1945,7 +1941,6 @@ export interface WaMexOperationVariables {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
-    readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexAdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Variables
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlVariables
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyVariables
@@ -2495,13 +2490,6 @@ export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response = {
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse = {
     readonly xfb_ctwa_flows_waba_for_ad_account?: {
         readonly waba_id?: string
-    }
-}
-
-export type WaMexAdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Response = {
-    readonly xfb_wamo_advertiser_profile_information_from_pwan?: {
-        readonly business_name?: string
-        readonly business_profile_image?: string
     }
 }
 
@@ -3323,6 +3311,13 @@ export type WaMexDebugLabyrinthFetchVirtualDeviceInfoResponse = {
         readonly error_code?: string
         readonly mailbox_id?: string
         readonly message?: string
+        readonly sync_epochs?: ReadonlyArray<{
+            readonly encrypted_epoch_key?: string
+            readonly epoch_anon_id?: string
+            readonly epoch_id?: string
+            readonly next_epoch_id?: string
+            readonly sender_auth_pub_key?: string
+        }>
         readonly vd_base_epoch_id?: string
     }
 }
@@ -3347,6 +3342,9 @@ export type WaMexDebugLabyrinthInboxSnapshotResponse = {
                             readonly id?: string
                         }
                     }>
+                }
+                readonly thread_id_seal?: {
+                    readonly sealed_thread_id?: string
                 }
             }>
         }
@@ -6721,7 +6719,7 @@ export type WaMexUploadLabyrinthMessagesResponse = {
         readonly results?: ReadonlyArray<{
             readonly error?: string
             readonly offline_threading_id?: string
-            readonly success?: string
+            readonly success?: boolean
         }>
         readonly status?: string
     }
@@ -7016,6 +7014,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 }>
                                 readonly caption?: string
                                 readonly card_data?: unknown
+                                readonly card_state_json?: unknown
                                 readonly card_variant?: string
                                 readonly case_id?: string
                                 readonly cdn_url?: string
@@ -7024,7 +7023,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly condition_matched?: unknown
                                 readonly content_id?: string
                                 readonly created_time?: string
-                                readonly creation_lifecycle_identity?: unknown
+                                readonly creation_lifecycle_identity?: string
                                 readonly creation_time?: string
                                 readonly creative_description?: string
                                 readonly creators?: ReadonlyArray<{
@@ -7152,7 +7151,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                 readonly format?: string
                                 readonly format_type?: string
                                 readonly funnel_chart_data?: string
-                                readonly gender?: unknown
+                                readonly gender?: string
                                 readonly goal_context?: string
                                 readonly goal_description?: string
                                 readonly goal_detail?: string
@@ -7192,7 +7191,7 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly icon?: 'error' | 'info' | 'success' | 'warning'
                                     readonly source?: string
                                 }>
-                                readonly interests?: unknown
+                                readonly interests?: string
                                 readonly invited_people?: unknown
                                 readonly is_action?: boolean
                                 readonly is_completed?: boolean
@@ -7263,9 +7262,9 @@ export type WaMexuseMAIBAWidgetStateResponse = {
                                     readonly age_max?: number
                                     readonly age_min?: number
                                     readonly description?: string
-                                    readonly gender?: unknown
+                                    readonly gender?: string
                                     readonly id?: string
-                                    readonly interests?: unknown
+                                    readonly interests?: string
                                     readonly is_recommended?: boolean
                                     readonly subtitle?: string
                                     readonly subtitle_value?: number
@@ -7597,7 +7596,6 @@ export interface WaMexOperationResponses {
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
-    readonly AdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_: WaMexAdsUEditorAdgroupPartnershipAdsCtwaPwanAccount_Response
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlResponse
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyResponse

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1049825515
+/// WhatsApp Version: 2.3000.1049946321
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -819,12 +819,6 @@ message ActionLink {
     optional string buttonTitle = 2;
 }
 
-message AddDeviceEpochOutput {
-    optional uint64 serverEpochId = 1;
-    optional bytes epochAnonId = 2;
-    optional bytes epochRootKey = 3;
-}
-
 message AddDeviceKeysOutput {
     optional bytes devicePublicKey = 1;
     optional bytes epochAuthPublicKey = 2;
@@ -833,6 +827,14 @@ message AddDeviceKeysOutput {
     optional bytes epochStoragePublicKeySig = 5;
     optional bytes epochStoragePrivateKey = 6;
     optional bytes orfClientState = 7;
+}
+
+message AddDeviceSyncEpochInput {
+    optional uint64 epochId = 1;
+    optional bytes epochAnonId = 2;
+    optional bytes encryptedEpochKey = 3;
+    optional bytes senderAuthPubKey = 4;
+    optional uint64 nextEpochId = 5;
 }
 
 message AppDataProto {
@@ -1265,6 +1267,7 @@ message BotCapabilityMetadata {
         HATCH_BROWSER_TASK_CARD_ENABLED = 78;
         HATCH_ARTIFACT_CARD_ENABLED = 79;
         AI_STUDY_CENTER_ENABLED = 80;
+        AI_MUSE_JARVIS_SCHEMA_ENABLED = 81;
     }
 }
 
@@ -2184,6 +2187,16 @@ message CompanionEphemeralIdentity {
     optional string ref = 3;
 }
 
+message ComputeClientSealTokenInput {
+    optional bytes orfClientState = 1;
+    optional uint64 backupId = 2;
+}
+
+message ComputeClientSealTokenOutput {
+    optional bytes clientSealToken = 1;
+    optional string error = 2;
+}
+
 message Config {
     map<uint32, Field> field = 1;
     optional uint32 version = 2;
@@ -2902,6 +2915,17 @@ message DeriveAttachmentPrimaryKeySecretResult {
     optional bytes attachmentPrimaryKeySecret = 1;
 }
 
+message DeriveEpochsInput {
+    optional bytes epochStoragePrivateKey = 1;
+    repeated EpochKey epochs = 2;
+    repeated EpochDerivationEdge edges = 3;
+}
+
+message DeriveEpochsOutput {
+    repeated EpochKey epochs = 1;
+    optional string error = 2;
+}
+
 message DeriveMailboxAuthKeypairInput {
     optional bytes exportRootKey = 1;
     optional uint64 epochNumber = 2;
@@ -3400,6 +3424,24 @@ message Epoch0Output {
     optional bytes epochRootKey = 7;
 }
 
+message EpochDerivationEdge {
+    optional EpochIds fromEpoch = 1;
+    optional EpochIds toEpoch = 2;
+    optional ForwardEdgeInput forwardEdge = 3;
+    optional bytes backwardEdge = 4;
+}
+
+message EpochIds {
+    optional uint64 serverEpochId = 1;
+    optional bytes epochAnonId = 2;
+}
+
+message EpochKey {
+    optional uint64 serverEpochId = 1;
+    optional bytes epochAnonId = 2;
+    optional bytes epochRootKey = 3;
+}
+
 message EpochPublicData {
     optional uint64 epochNumber = 1;
     optional string userFbid = 2;
@@ -3504,6 +3546,11 @@ message FingerprintProto {
     optional uint32 currentIndex = 1;
     repeated uint32 deviceIndexes = 2;
     optional uint32 rawId = 3;
+}
+
+message ForwardEdgeInput {
+    optional bytes encryptedEntropy = 1;
+    optional bytes authPublicKey = 2;
 }
 
 message ForwardedAIBotMessageInfo {
@@ -3914,6 +3961,10 @@ message LabyrinthWaCommand {
         RotateEpochInput rotateEpochInput = 6;
         DeriveVirtualDeviceIdInput deriveVirtualDeviceIdInput = 7;
         PrepareAddDeviceInput prepareAddDeviceInput = 8;
+        ComputeClientSealTokenInput computeClientSealTokenInput = 9;
+        OpenSealedThreadIdInput openSealedThreadIdInput = 10;
+        DeriveEpochsInput deriveEpochsInput = 11;
+        SealThreadIdInput sealThreadIdInput = 12;
     }
 }
 
@@ -7017,6 +7068,18 @@ message NotificationSettings {
     optional string callVibrate = 6;
 }
 
+message OpenSealedThreadIdInput {
+    optional uint64 backupId = 1;
+    optional bytes sealedThreadId = 2;
+    repeated EpochKey epochs = 3;
+}
+
+message OpenSealedThreadIdOutput {
+    optional string threadId = 1;
+    optional uint32 sealEpochAnonId = 2;
+    optional string error = 3;
+}
+
 message OrfThreadIdInput {
     optional bytes orfClientState = 1;
     optional string threadId = 2;
@@ -7313,11 +7376,12 @@ message PrepareAddDeviceInput {
     optional string encryptedSecretValuesJson = 3;
     optional uint64 virtualDeviceBaseEpochId = 4;
     optional uint64 activeEpochId = 5;
+    repeated AddDeviceSyncEpochInput syncEpochs = 6;
 }
 
 message PrepareAddDeviceOutput {
     optional AddDeviceKeysOutput deviceKeys = 1;
-    optional AddDeviceEpochOutput currentEpoch = 2;
+    optional EpochKey currentEpoch = 2;
     optional bytes mailboxRootSalt = 3;
     optional bytes orfRotationToken = 4;
     optional bytes deviceEpochHmac = 5;
@@ -7549,6 +7613,18 @@ message ScheduledMessageMetadata {
     optional string revealKeyId = 1;
     optional bytes revealKey = 2;
     optional uint64 scheduledTime = 3;
+}
+
+message SealThreadIdInput {
+    optional bytes epochRootKey = 1;
+    optional bytes epochAnonId = 2;
+    optional uint64 backupId = 3;
+    optional string threadId = 4;
+}
+
+message SealThreadIdOutput {
+    optional bytes sealedThreadId = 1;
+    optional string error = 2;
 }
 
 message SenderKeyDistributionMessage {

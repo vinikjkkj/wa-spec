@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1049825515
+// WhatsApp Version: 2.3000.1049946321
 'use strict'
 
 const WA_XML_OPERATIONS = Object.freeze({
