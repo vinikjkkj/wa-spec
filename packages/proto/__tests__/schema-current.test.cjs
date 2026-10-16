@@ -177,3 +177,27 @@ test('historical newsletter admin profile messages retain their typed field at t
     assert.equal(decoded.newsletterAdminProfileMessageV2.message.conversation, 'hi')
     assert.deepEqual(Uint8Array.from(waproto.Message.encode(decoded).finish()), expected)
 })
+
+test('historical encrypted message keys retain their bytes field at tag 6', () => {
+    const expected = Uint8Array.from([0x32, 0x01, 0x6b])
+    const input = { messageKey: Uint8Array.from([0x6b]) }
+    assert.deepEqual(Uint8Array.from(waproto.EncryptMessageOutput.encode(input).finish()), expected)
+    const decoded = waproto.EncryptMessageOutput.decode(expected)
+    assert.deepEqual(Uint8Array.from(decoded.messageKey), input.messageKey)
+    assert.deepEqual(Uint8Array.from(waproto.EncryptMessageOutput.encode(decoded).finish()), expected)
+})
+
+test('historical epoch output fields retain their bytes at tags 3, 4 and 5', () => {
+    const expected = Uint8Array.from([0x1a, 0x01, 0x61, 0x22, 0x01, 0x62, 0x2a, 0x01, 0x63])
+    const input = {
+        epochData: Uint8Array.from([0x61]),
+        wrappedRootKeyForSelf: Uint8Array.from([0x62]),
+        epochSignature: Uint8Array.from([0x63])
+    }
+    assert.deepEqual(Uint8Array.from(waproto.Epoch0Output.encode(input).finish()), expected)
+    const decoded = waproto.Epoch0Output.decode(expected)
+    assert.deepEqual(Uint8Array.from(decoded.epochData), input.epochData)
+    assert.deepEqual(Uint8Array.from(decoded.wrappedRootKeyForSelf), input.wrappedRootKeyForSelf)
+    assert.deepEqual(Uint8Array.from(decoded.epochSignature), input.epochSignature)
+    assert.deepEqual(Uint8Array.from(waproto.Epoch0Output.encode(decoded).finish()), expected)
+})
