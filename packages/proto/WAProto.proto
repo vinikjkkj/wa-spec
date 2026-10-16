@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1050302056
+/// WhatsApp Version: 2.3000.1050588369
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -161,6 +161,7 @@ enum BotMetricsEntryPoint {
     NEW_CHAT_LIST = 56;
     CONTACTS_TAB = 57;
     NEW_3P_AGENT_CREATION = 58;
+    SHARE = 59;
 }
 
 enum BotMetricsThreadEntryPoint {
@@ -1192,7 +1193,7 @@ message BotAgentMetadata {
 }
 
 message BotCapabilityMetadata {
-    repeated BotCapabilityType capabilities = 1;
+    repeated BotCapabilityType capabilities = 1 [packed=false];
     enum BotCapabilityType {
         UNKNOWN = 0;
         PROGRESS_INDICATOR = 1;
@@ -1276,6 +1277,7 @@ message BotCapabilityMetadata {
         HATCH_ARTIFACT_CARD_ENABLED = 79;
         AI_STUDY_CENTER_ENABLED = 80;
         AI_MUSE_JARVIS_SCHEMA_ENABLED = 81;
+        AI_STUDY_QUIZ_ENABLED = 82;
     }
 }
 
@@ -1462,6 +1464,7 @@ message BotMessageOrigin {
     optional BotMessageOriginType type = 1;
     enum BotMessageOriginType {
         BOT_MESSAGE_ORIGIN_TYPE_AI_INITIATED = 0;
+        BOT_MESSAGE_ORIGIN_TYPE_META_AI_THREAD_WELCOME = 1;
     }
 }
 
@@ -1528,8 +1531,8 @@ message BotMetricsMetadata {
 }
 
 message BotModeSelectionMetadata {
-    repeated BotUserSelectionMode mode = 1;
-    repeated uint32 overrideMode = 2;
+    repeated BotUserSelectionMode mode = 1 [packed=false];
+    repeated uint32 overrideMode = 2 [packed=false];
     enum BotUserSelectionMode {
         DEFAULT_MODE = 0;
         THINK_HARD_MODE = 1;
@@ -1921,7 +1924,7 @@ message ClientPayload {
     optional bool shortConnect = 10;
     optional ConnectType connectType = 12;
     optional ConnectReason connectReason = 13;
-    repeated int32 shards = 14;
+    repeated int32 shards = 14 [packed=false];
     optional DNSSource dnsSource = 15;
     optional uint32 connectAttemptCount = 16;
     optional uint32 device = 18;
@@ -2132,6 +2135,7 @@ message ClientPayload {
             WAIL = 38;
             WORK_ANDROID = 39;
             WORK_IOS = 40;
+            AUTOMOTIVE = 41;
         }
         message AppVersion {
             optional uint32 primary = 1;
@@ -3031,6 +3035,7 @@ message DeviceCapabilities {
     optional ContactRefresh contactRefresh = 9;
     optional ReverseHistorySync reverseHistorySync = 10;
     optional NewsletterChatsMigration newsletterChatsMigration = 11;
+    optional HostWriteMutationSupport hostWriteMutationSupport = 12;
     enum MemberNameTagPrimarySupport {
         DISABLED = 0;
         RECEIVER_ENABLED = 1;
@@ -3046,8 +3051,11 @@ message DeviceCapabilities {
         optional int64 countdownEndsAt = 2;
         optional bool rolledBack = 3;
     }
+    message HostWriteMutationSupport {
+        repeated string mutationNames = 1;
+    }
     message ReverseHistorySync {
-        repeated Product enabledProducts = 1;
+        repeated Product enabledProducts = 1 [packed=false];
         enum Product {
             PRODUCT_UNSPECIFIED = 0;
             HATCH = 1;
@@ -3376,6 +3384,8 @@ message EncryptMessageOutput {
     optional string valueSecretRef = 3;
     optional uint64 offlineThreadingId = 4;
     optional uint64 timestampMs = 5;
+    // Legacy field retained for consumers of the 2.3000.1043028647 schema.
+    optional bytes messageKey = 6 [deprecated=true];
     optional string error = 7;
 }
 
@@ -3429,6 +3439,10 @@ message EphemeralSyncResponseBackoffInfo {
 message Epoch0Output {
     optional uint64 epochFbid = 1;
     optional bytes epochAnonId = 2;
+    // Legacy fields retained for consumers of the 2.3000.1043028647 schema.
+    optional bytes epochData = 3 [deprecated=true];
+    optional bytes wrappedRootKeyForSelf = 4 [deprecated=true];
+    optional bytes epochSignature = 5 [deprecated=true];
     optional bytes epochRootKeyFingerprint = 6;
     optional bytes epochRootKey = 7;
 }
@@ -4247,7 +4261,7 @@ message MediaEntry {
     optional int64 size = 16;
     optional int64 lastDownloadAttemptTimestamp = 17;
     message ProgressiveJpegDetails {
-        repeated uint32 scanLengths = 1;
+        repeated uint32 scanLengths = 1 [packed=false];
         optional bytes sidecar = 2;
     }
     message DownloadableThumbnail {
@@ -4421,6 +4435,8 @@ message Message {
     optional NewsletterFollowerInviteMessage newsletterFollowerInviteMessageV2 = 113;
     optional PollResultSnapshotMessage pollResultSnapshotMessageV3 = 115;
     optional FutureProofMessage newsletterAdminProfileMessage = 116;
+    // Legacy field retained for consumers of the 2.3000.1043028647 schema.
+    optional FutureProofMessage newsletterAdminProfileMessageV2 = 117 [deprecated=true];
     optional FutureProofMessage spoilerMessage = 118;
     optional PollCreationMessage pollCreationMessageV6 = 119;
     optional ConditionalRevealMessage conditionalRevealMessage = 120;
@@ -6073,7 +6089,7 @@ message Message {
         optional uint32 firstScanLength = 19;
         optional uint32 experimentGroupId = 20;
         optional bytes scansSidecar = 21;
-        repeated uint32 scanLengths = 22;
+        repeated uint32 scanLengths = 22 [packed=false];
         optional bytes midQualityFileSha256 = 23;
         optional bytes midQualityFileEncSha256 = 24;
         optional bool viewOnce = 25;
@@ -8409,7 +8425,7 @@ message SyncActionValue {
         optional string cpi = 1;
     }
     message LabelReorderingAction {
-        repeated int32 sortedLabelIds = 1;
+        repeated int32 sortedLabelIds = 1 [packed=false];
     }
     message DeleteIndividualCallLogAction {
         optional string peerJid = 1;
@@ -8431,7 +8447,7 @@ message SyncActionValue {
         optional bool shareToFb = 3;
         optional bool shareToIg = 4;
         repeated CustomList customLists = 5;
-        repeated StatusDistributionMode modes = 6;
+        repeated StatusDistributionMode modes = 6 [packed=false];
         enum StatusDistributionMode {
             ALLOW_LIST = 0;
             DENY_LIST = 1;
@@ -9498,6 +9514,11 @@ message WebMessageInfo {
         GROUP_PUSHNAME_SHARED = 270;
         BIZ_POST_SEND_OPT_OUT = 271;
         BB_PRO_BROADCAST_CHAT_CARD = 272;
+        BOT_PROACTIVE_MESSAGE_ENABLED = 273;
+        BOT_PROACTIVE_MESSAGE_DISABLED = 274;
+        BOT_PROACTIVE_MESSAGE_FIRST_TIME = 275;
+        DYNAMIC_AUDIENCE_LIST_CREATE = 276;
+        DYNAMIC_AUDIENCE_LIST_UPDATE_LINK = 277;
         CHAT_WITH_BUSINESS_IN_DIRECTORY = 283;
         META_AI_THREAD_CREATED = 284;
         META_AI_CONNECTOR_LINKED = 285;
