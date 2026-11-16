@@ -1232,7 +1232,7 @@ message BotAgentMetadata {
 }
 
 message BotCapabilityMetadata {
-    repeated BotCapabilityType capabilities = 1;
+    repeated BotCapabilityType capabilities = 1 [packed=false];
     enum BotCapabilityType {
         UNKNOWN = 0;
         PROGRESS_INDICATOR = 1;
@@ -1585,8 +1585,8 @@ message BotMetricsMetadata {
 }
 
 message BotModeSelectionMetadata {
-    repeated BotUserSelectionMode mode = 1;
-    repeated uint32 overrideMode = 2;
+    repeated BotUserSelectionMode mode = 1 [packed=false];
+    repeated uint32 overrideMode = 2 [packed=false];
     enum BotUserSelectionMode {
         DEFAULT_MODE = 0;
         THINK_HARD_MODE = 1;
@@ -1981,7 +1981,7 @@ message ClientPayload {
     optional bool shortConnect = 10;
     optional ConnectType connectType = 12;
     optional ConnectReason connectReason = 13;
-    repeated int32 shards = 14;
+    repeated int32 shards = 14 [packed=false];
     optional DNSSource dnsSource = 15;
     optional uint32 connectAttemptCount = 16;
     optional uint32 device = 18;
@@ -3049,7 +3049,7 @@ message DeviceCapabilities {
         optional bool rolledBack = 3;
     }
     message ReverseHistorySync {
-        repeated Product enabledProducts = 1;
+        repeated Product enabledProducts = 1 [packed=false];
         enum Product {
             PRODUCT_UNSPECIFIED = 0;
             HATCH = 1;
@@ -3128,7 +3128,7 @@ message DeviceOutput {
     optional bytes epochAuthPublicKeySig = 3;
     optional bytes epochStoragePublicKey = 4;
     optional bytes epochStoragePublicKeySig = 5;
-    repeated int32 supportedEncryptionVersions = 6;
+    repeated int32 supportedEncryptionVersions = 6 [packed=false];
     optional bytes encryptionVersionSignature = 7;
     optional int32 clientVersion = 8;
     optional bytes ocmfClientState = 9;
@@ -3529,7 +3529,7 @@ message FingerprintData {
 
 message FingerprintProto {
     optional uint32 currentIndex = 1;
-    repeated uint32 deviceIndexes = 2;
+    repeated uint32 deviceIndexes = 2 [packed=false];
     optional uint32 rawId = 3;
 }
 
@@ -3848,7 +3848,7 @@ message ImageTransport {
         optional uint32 height = 1;
         optional uint32 width = 2;
         optional bytes scansSidecar = 3;
-        repeated uint32 scanLengths = 4;
+        repeated uint32 scanLengths = 4 [packed=false];
         optional bytes midQualityFileSha256 = 5;
         optional IMAGE_TRANSPORT_ANCILLARY_HD_TYPE hdType = 6;
         repeated float memoriesConceptScores = 7 [packed=true];
@@ -4064,7 +4064,7 @@ message MediaEntry {
     optional int64 size = 16;
     optional int64 lastDownloadAttemptTimestamp = 17;
     message ProgressiveJpegDetails {
-        repeated uint32 scanLengths = 1;
+        repeated uint32 scanLengths = 1 [packed=false];
         optional bytes sidecar = 2;
     }
     message DownloadableThumbnail {
@@ -5954,7 +5954,7 @@ message Message {
         optional uint32 firstScanLength = 19;
         optional uint32 experimentGroupId = 20;
         optional bytes scansSidecar = 21;
-        repeated uint32 scanLengths = 22;
+        repeated uint32 scanLengths = 22 [packed=false];
         optional bytes midQualityFileSha256 = 23;
         optional bytes midQualityFileEncSha256 = 24;
         optional bool viewOnce = 25;
@@ -6189,7 +6189,7 @@ message MessageTransport {
                     optional int32 seq = 1;
                     optional bytes signingDevice = 2;
                     repeated bytes unknownDevices = 3;
-                    repeated int32 unknownDeviceIds = 4;
+                    repeated int32 unknownDeviceIds = 4 [packed=false];
                 }
             }
             message SenderKeyDistributionMessage {
@@ -7227,7 +7227,7 @@ message PrepareAddDeviceSuccess {
     optional bytes orfRotationToken = 4;
     optional bytes deviceEpochHmac = 5;
     optional bytes epochRootKeyFingerprint = 6;
-    repeated int32 supportedEncryptionVersions = 7;
+    repeated int32 supportedEncryptionVersions = 7 [packed=false];
     optional bytes encryptionVersionSignature = 8;
     optional int32 clientVersion = 9;
 }
@@ -7463,8 +7463,8 @@ message RotateEpochSuccess {
 }
 
 message RoutingInfo {
-    repeated int32 regionId = 1;
-    repeated int32 clusterId = 2;
+    repeated int32 regionId = 1 [packed=false];
+    repeated int32 clusterId = 2 [packed=false];
     optional int32 taskId = 3;
     optional bool debug = 4;
     optional bool tcpBbr = 5;
@@ -8293,7 +8293,7 @@ message SyncActionValue {
         optional string cpi = 1;
     }
     message LabelReorderingAction {
-        repeated int32 sortedLabelIds = 1;
+        repeated int32 sortedLabelIds = 1 [packed=false];
     }
     message DeleteIndividualCallLogAction {
         optional string peerJid = 1;
@@ -8315,7 +8315,7 @@ message SyncActionValue {
         optional bool shareToFb = 3;
         optional bool shareToIg = 4;
         repeated CustomList customLists = 5;
-        repeated StatusDistributionMode modes = 6;
+        repeated StatusDistributionMode modes = 6 [packed=false];
         enum StatusDistributionMode {
             ALLOW_LIST = 0;
             DENY_LIST = 1;
@@ -8569,7 +8569,7 @@ message SyncKeyDataProto {
 
 message SyncKeyFingerprint {
     optional int32 currentIndex = 1;
-    repeated int32 deviceIndexes = 2;
+    repeated int32 deviceIndexes = 2 [packed=false];
     optional int64 rawId = 3;
 }
 
@@ -8982,7 +8982,7 @@ message WAMediaTransport {
                 optional int64 mediaKeyTimestamp = 5;
                 optional string objectId = 6;
                 optional bytes thumbnailScansSidecar = 7;
-                repeated uint32 thumbnailScanLengths = 8;
+                repeated uint32 thumbnailScanLengths = 8 [packed=false];
             }
         }
     }
@@ -9445,7 +9445,7 @@ message XMATableSchemaProto {
     optional string overlayDescription = 14;
     optional int32 overlayIconGlyph = 15;
     optional string overlayTitle = 16;
-    repeated int32 previewMediaIds = 17;
+    repeated int32 previewMediaIds = 17 [packed=false];
     optional string subtitleText = 18;
     optional int64 targetExpiringAtSec = 19;
     optional string targetId = 20;
