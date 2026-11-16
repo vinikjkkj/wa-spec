@@ -29,8 +29,8 @@
  *
  *   Nested messages and enums are emitted inside their parent (qualified
  *   names like "Parent.Nested" → `message Nested {}` inside `message Parent`).
- *   All scalar fields are `optional`; arrays are `repeated` with `[packed=true]`
- *   when the runtime flag was set.
+ *   All scalar fields are `optional`; packable arrays explicitly preserve the
+ *   runtime PACKED flag with `[packed=true]` or `[packed=false]`.
  */
 
 const { skipExpr, skipWs, iterModuleHeaders } = require('./parser.cjs')
@@ -834,6 +834,8 @@ function extractProto(bundles, options = {}) {
                 type: resolvedTypeName,
                 repeated: isRepeated,
                 packed: isPacked,
+                packable: primitive >= 1 && primitive <= 17 &&
+                    primitive !== 12 && primitive !== 13 && primitive !== 14,
                 required: isRequired
             }
         }
@@ -971,7 +973,9 @@ function emitField(name, field, scope = [], inOneof = false) {
     if (field.isMap) {
         return `${type} ${name} = ${field.tag};`
     }
-    const opts = field.packed ? ' [packed=true]' : ''
+    // Proto3 packs numeric/enum arrays by default. Omitting this option for an
+    // unpacked runtime field silently changes its wire encoding on compilation.
+    const opts = field.repeated && field.packable ? ` [packed=${field.packed}]` : ''
     if (inOneof) {
         return `${type} ${name} = ${field.tag}${opts};`
     }
