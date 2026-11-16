@@ -630,6 +630,184 @@ function decodeSmaxCall(body, args, ctx) {
     return node
 }
 
+// The RHS text of the LAST `name = <expr>` assignment to `name` in
+// `scopeBody` (optionally restricted to before `beforeIndex`), or null.
+// Used to resolve a bare local-var reference back to what it was built
+// from — `var t = base()`, `var e = o("WASmaxJsx").smax(...)`, etc.
+function lastLocalAssignment(scopeBody, name, beforeIndex) {
+    const declRe = new RegExp(`${LB}${reId(name)}\\s*=\\s*`, 'g')
+    const limit = beforeIndex == null ? scopeBody.length : beforeIndex
+    let dm
+    let last = null
+    while ((dm = declRe.exec(scopeBody))) {
+        if (dm.index >= limit) break
+        last = dm
+    }
+    if (!last) return null
+    const s = last.index + last[0].length
+    const e = skipExpr(scopeBody, s, [',', ';', '}'])
+    return scopeBody.slice(s, e).trim()
+}
+
+// Peel local-wrapper indirection off `exprText` (living in `frame.scopeBody`)
+// until it bottoms out at something the rest of the decoder already
+// understands directly — tracked as a small result tree instead of text, so
+// each function's own locals never leak into another function's locals
+// (two unrelated helpers both naming their param `e` is the norm here, not
+// the exception):
+//
+//   { tag: '__leaf', text }            — decode this text fresh (a smax /
+//                                         mixin / optionalMerge call, or an
+//                                         unresolvable bare name to keep as
+//                                         a raw `__ref`)
+//   { tag: '__merge', base, extra }    — `WASmaxMixins.mergeStanzas(base,
+//                                         extra)` with BOTH operands already
+//                                         local, inline nodes: merge them
+//                                         directly rather than going through
+//                                         the external-mixin-module lookup
+//                                         the generic mixin branch assumes
+//                                         (that lookup doesn't apply here —
+//                                         there is no separate contributor
+//                                         module to resolve)
+//
+// `frame` is `{ scopeBody, moduleBody, paramBindings }`. A bare name
+// resolves against `paramBindings` first (a formal parameter — its bound
+// value lives in the CALLER's frame, carried alongside the text), then
+// against a `var name = <expr>` local in `scopeBody` (same frame). A call
+// to another local function builds a FRESH frame for that function's own
+// params — the caller's bindings are never visible inside the callee.
+function resolveThroughLocals(exprText, frame, depth) {
+    if (depth > 10) return { tag: '__leaf', text: exprText }
+    let text = exprText.trim()
+    while (text[0] === '(' && skipExpr(text, 1, [')']) === text.length) {
+        text = text.slice(1, -1).trim()
+    }
+
+    if (/^[A-Za-z_$][\w$]*$/.test(text)) {
+        if (frame.paramBindings && frame.paramBindings.has(text)) {
+            const bound = frame.paramBindings.get(text)
+            return resolveThroughLocals(bound.text, bound.frame, depth + 1)
+        }
+        const assigned = lastLocalAssignment(frame.scopeBody, text)
+        if (assigned && assigned !== text) return resolveThroughLocals(assigned, frame, depth + 1)
+        return { tag: '__leaf', text }
+    }
+
+    const msMatch = text.match(/^[A-Za-z_$][\w$]*\("WASmaxMixins"\)\.mergeStanzas\s*\(/)
+    if (msMatch) {
+        const open = text.indexOf('(', text.indexOf('mergeStanzas'))
+        const close = skipExpr(text, open + 1, [')'])
+        const args = splitTopLevelCommas(text, open + 1, close)
+        if (args.length === 2) {
+            const baseText = text.slice(args[0][0], args[0][1]).trim()
+            const extraText = text.slice(args[1][0], args[1][1]).trim()
+            return {
+                tag: '__merge',
+                base: resolveThroughLocals(baseText, frame, depth + 1),
+                extra: resolveThroughLocals(extraText, frame, depth + 1)
+            }
+        }
+    }
+
+    const callM = text.match(/^([A-Za-z_$][\w$]*)\(/)
+    if (callM) {
+        const fnDecl = frame.moduleBody.match(new RegExp(`function\\s+${reId(callM[1])}\\s*\\(([^)]*)\\)\\s*\\{`))
+        if (fnDecl) {
+            const params = fnDecl[1].split(',').map((p) => p.trim()).filter(Boolean)
+            const open = text.indexOf('(')
+            const close = skipExpr(text, open + 1, [')'])
+            const callArgs = splitTopLevelCommas(text, open + 1, close)
+            if (callArgs.length === params.length) {
+                const fnBodyStart = fnDecl.index + fnDecl[0].length
+                const fnBodyEnd = skipExpr(frame.moduleBody, fnBodyStart, ['}'])
+                const fnBody = frame.moduleBody.slice(fnBodyStart, fnBodyEnd)
+                const retRe = /\breturn\s+/g
+                let rm
+                let last = null
+                while ((rm = retRe.exec(fnBody))) last = rm
+                if (last) {
+                    const rs = last.index + last[0].length
+                    const re_ = skipExpr(fnBody, rs, [';', '}', '\n'])
+                    const retExpr = fnBody.slice(rs, re_).trim()
+                    const calleeBindings = new Map()
+                    params.forEach((p, i) => {
+                        calleeBindings.set(p, {
+                            text: text.slice(callArgs[i][0], callArgs[i][1]).trim(),
+                            frame
+                        })
+                    })
+                    const calleeFrame = { scopeBody: fnBody, moduleBody: frame.moduleBody, paramBindings: calleeBindings }
+                    return resolveThroughLocals(retExpr, calleeFrame, depth + 1)
+                }
+            }
+        }
+    }
+
+    // Bottoming out at a call to an external mixin (`<ld>("XxxMixin").
+    // mergeXxx(base, …)`, or the `WASmaxMixins.optionalMerge(mergeFn, base,
+    // cond)` form which puts `base` at args[1] instead) — decodeChildExpression's
+    // own mixinModuleRe branch already knows how to recognise and resolve
+    // this (deferred, via `extractMixin`), but a bare param left inside
+    // `base` (common: a whole stanza tree built several local-wrapper
+    // indirections up, same as `R`'s own `e` above) would resolve to
+    // nothing there — that branch has no visibility into the frame just
+    // walked through. Pre-resolve `base` through this same walk instead of
+    // leaving it as text, and carry the result as its own tag so
+    // `materializeResolved` can attach the deferred `__mixin` marker onto
+    // whatever node `base` turns out to be (including one built from a
+    // further `__merge`, which plain text-splicing could never express).
+    const extMixinMatch = text.match(/^[A-Za-z_$][\w$]*\("(WASmax[^"]+)"\)\.(merge[A-Za-z0-9_]*|optionalMerge)\s*\(/)
+    if (extMixinMatch) {
+        const open = text.indexOf('(', text.indexOf(extMixinMatch[2]) + extMixinMatch[2].length - 1)
+        const close = skipExpr(text, open + 1, [')'])
+        const args = splitTopLevelCommas(text, open + 1, close)
+        const basePos = extMixinMatch[1] === 'WASmaxMixins' && extMixinMatch[2] === 'optionalMerge' ? 1 : 0
+        if (args.length > basePos) {
+            const argText = text.slice(args[basePos][0], args[basePos][1]).trim()
+            return {
+                tag: '__extMixin',
+                module: extMixinMatch[1],
+                method: extMixinMatch[2],
+                base: resolveThroughLocals(argText, frame, depth + 1)
+            }
+        }
+    }
+
+    return { tag: '__leaf', text }
+}
+
+// Decode a `resolveThroughLocals` result tree into an actual node: a leaf
+// gets handed to `decodeChildExpression` as its own fresh standalone
+// expression (same trick the alias-rewrite branch above uses — body and
+// text become the same self-consistent string), a merge decodes both
+// operands and unions them directly.
+function materializeResolved(resolved, ctx) {
+    if (!resolved) return null
+    if (resolved.tag === '__merge') {
+        const baseNode = materializeResolved(resolved.base, ctx)
+        const extraNode = materializeResolved(resolved.extra, ctx)
+        if (baseNode && extraNode) {
+            mergeMixinAttrsInto(baseNode, extraNode)
+            return baseNode
+        }
+        return baseNode || extraNode || null
+    }
+    if (resolved.tag === '__extMixin') {
+        const baseNode = materializeResolved(resolved.base, ctx)
+        if (!baseNode) return null
+        if (!baseNode.__mixin) {
+            baseNode.__mixin = { module: resolved.module, method: resolved.method }
+        } else {
+            baseNode.__additionalMixins = baseNode.__additionalMixins || []
+            baseNode.__additionalMixins.push({ module: resolved.module, method: resolved.method })
+        }
+        return baseNode
+    }
+    const t = resolved.text
+    if (!t) return null
+    return decodeChildExpression(t, [0, t.length], t, ctx)
+}
+
 // Decode a single child expression which can be:
 //   - `<loader>("WASmaxJsx").smax(...)` — nested element via direct loader
 //   - `<alias>.smax(...)` — nested element via a hoisted alias (`(n=o("WASmaxJsx")).smax(...)`)
@@ -820,6 +998,30 @@ function decodeChildExpression(body, range, text, ctx) {
         return { __unresolvedMixin: mm[2], __mixinMethod: mm[3] }
     }
 
+    // Generic local wrapper call. Newer builds split request/ack builders
+    // into several thin local helpers instead of exporting each piece as a
+    // named external module (`*BaseIQGetRequestMixin`, `*ResponseAck`, …):
+    // a bare call to a local identifier not recognised by any form above is
+    // almost always one of those helpers — an ack builder carrying the
+    // request context, a `var t = base()` id/type injector, a doubly-nested
+    // wrapper. None of this is new WIRE vocabulary, it is the same
+    // smax/mixin grammar one (or several) indirections away.
+    // `resolveThroughLocals` peels the indirection off with proper
+    // per-function scoping (so two unrelated helpers both naming their
+    // param `e` never collide), and `materializeResolved` decodes the
+    // result. Recursion is capped inside `resolveThroughLocals` itself.
+    {
+        const callM = text.match(/^([A-Za-z_$][\w$]*)\(/)
+        if (callM && ctx && ctx.moduleBody) {
+            const rootFrame = { scopeBody: body, moduleBody: ctx.moduleBody, paramBindings: null }
+            const resolved = resolveThroughLocals(text, rootFrame, 0)
+            if (resolved && !(resolved.tag === '__leaf' && resolved.text === text)) {
+                const result = materializeResolved(resolved, ctx)
+                if (result) return result
+            }
+        }
+    }
+
     // `[arr1].concat(arr2, arr3)` — splat-style child composition used by the
     // minified Create/Report/etc. builders. Decode each arg as either a
     // child expression OR an inner array literal, then flatten everything
@@ -894,7 +1096,7 @@ function resolveBuilder(builderText, ctx, body) {
     const idMatch = builderText.match(/^([A-Za-z_$][\w$]*)$/)
     if (!idMatch) return null
     const fnName = idMatch[1]
-    const fnRe = new RegExp(`function\\s+${fnName}\\s*\\(([^)]*)\\)\\s*\\{`)
+    const fnRe = new RegExp(`function\\s+${reId(fnName)}\\s*\\(([^)]*)\\)\\s*\\{`)
     const m = ctx.moduleBody.match(fnRe)
     if (!m) return null
     const fnBodyStart = m.index + m[0].length
@@ -1111,7 +1313,7 @@ function traceMixinSmaxRoot(body, ctx) {
     const walk = (fnName) => {
         if (visited.has(fnName)) return null
         visited.add(fnName)
-        const fnRe = new RegExp(`function\\s+${fnName}\\s*\\(([^)]*)\\)\\s*\\{`)
+        const fnRe = new RegExp(`function\\s+${reId(fnName)}\\s*\\(([^)]*)\\)\\s*\\{`)
         const fm = body.match(fnRe)
         if (!fm) return null
         const fnBodyStart = fm.index + fm[0].length
@@ -1142,7 +1344,7 @@ function traceMixinSmaxRoot(body, ctx) {
                 // For (b), trace the var's RHS and recurse on the called fn.
                 if (/^[A-Za-z_$][\w$]*$/.test(inner)) {
                     // Try as function first.
-                    const fnRe = new RegExp(`function\\s+${inner}\\s*\\(`)
+                    const fnRe = new RegExp(`function\\s+${reId(inner)}\\s*\\(`)
                     if (fnRe.test(body)) return walk(inner)
                     // Otherwise trace var assignment in fnBody.
                     const declRe = new RegExp(`${LB}${reId(inner)}\\s*=\\s*([A-Za-z_$][\\w$]*)\\s*\\(`, 'g')
@@ -1302,7 +1504,7 @@ function extractMixin(moduleName, moduleIndex, memo) {
 
 // Walk a request module. We pick the FIRST exported `make<X>Request` function,
 // scan its body for the outermost expression, and resolve any mixin wrappers.
-function extractRequestModule(moduleName, moduleIndex, mixinMemo) {
+function extractRequestModule(moduleName, moduleIndex, mixinMemo, preferredEntry) {
     const m = findModule(moduleName, moduleIndex)
     if (!m) return { error: 'module-not-found' }
     const body = m.factoryBody
@@ -1324,22 +1526,29 @@ function extractRequestModule(moduleName, moduleIndex, mixinMemo) {
     // reliably the main entry; longer names are helpers used to construct
     // sub-elements. Picking the first match by source order would otherwise
     // grab a helper and lose the wrapping `<iq>` stanza.
-    const requestExports = Object.entries(exports_).filter(([k]) => /Request$/.test(k))
-    const makeRequestExports = requestExports.filter(([k]) => /^make/.test(k))
-    let entryFnId = null
-    if (makeRequestExports.length > 0) {
-        makeRequestExports.sort(([a], [b]) => a.length - b.length)
-        entryFnId = makeRequestExports[0][1]
-    } else if (requestExports.length > 0) {
-        requestExports.sort(([a], [b]) => a.length - b.length)
-        entryFnId = requestExports[0][1]
-    } else {
-        entryFnId = Object.values(exports_)[0]
+    //
+    // `preferredEntry` overrides this when the caller already knows the exact
+    // export — used for outgoing-response ack/nack builders inlined on a
+    // receive-RPC module (`make<Op>Response<Suffix>`), which don't end in
+    // `Request` and so would never win the heuristic below.
+    let entryFnId = preferredEntry && preferredEntry in exports_ ? exports_[preferredEntry] : null
+    if (!entryFnId) {
+        const requestExports = Object.entries(exports_).filter(([k]) => /Request$/.test(k))
+        const makeRequestExports = requestExports.filter(([k]) => /^make/.test(k))
+        if (makeRequestExports.length > 0) {
+            makeRequestExports.sort(([a], [b]) => a.length - b.length)
+            entryFnId = makeRequestExports[0][1]
+        } else if (requestExports.length > 0) {
+            requestExports.sort(([a], [b]) => a.length - b.length)
+            entryFnId = requestExports[0][1]
+        } else {
+            entryFnId = Object.values(exports_)[0]
+        }
     }
     if (!entryFnId) return { error: 'no-export' }
 
     // Find `function <id>(<args>){...}`
-    const fnRe = new RegExp(`function\\s+${entryFnId}\\s*\\(([^)]*)\\)\\s*\\{`, 'g')
+    const fnRe = new RegExp(`function\\s+${reId(entryFnId)}\\s*\\(([^)]*)\\)\\s*\\{`, 'g')
     const fnMatch = fnRe.exec(body)
     if (!fnMatch) return { error: 'entry-function-not-found' }
     const fnBodyStart = fnMatch.index + fnMatch[0].length
@@ -1988,7 +2197,7 @@ function recurseIntoParser(parseFnText, moduleIndex, parseFnTraced, fnsByName, e
         }
         // Fallback — entry exists but wasn't walked (rare; e.g. its body
         // doesn't contain any recognised parse primitive). Walk it directly.
-        const decl = new RegExp(`function\\s+${entryFnId}\\s*\\(([^)]*)\\)\\s*\\{`).exec(body)
+        const decl = new RegExp(`function\\s+${reId(entryFnId)}\\s*\\(([^)]*)\\)\\s*\\{`).exec(body)
         if (!decl) {
             parseFnTraced.set(key, null)
             return null
@@ -2112,6 +2321,18 @@ function classifyDep(name) {
     return 'other'
 }
 
+// Map `l.<exportedName> = <localFunctionId>` pairs on a module's own factory
+// body. Same shape extractRequestModule/extractResponseModule use to find
+// their entry function in an external module — reused here to look for that
+// entry INSIDE the RPC module itself (see below).
+function scanLocalExports(body) {
+    const exportRe = /\bl\.([A-Za-z_$][\w$]*)\s*=\s*([A-Za-z_$][\w$]*)\s*(?:[,;}]|$)/g
+    const exports_ = {}
+    let em
+    while ((em = exportRe.exec(body))) exports_[em[1]] = em[2]
+    return exports_
+}
+
 function extractRpc(moduleName, moduleIndex, mixinMemo, parseFnTraced, diagnostics) {
     const mod = findModule(moduleName, moduleIndex)
     if (!mod) return { module: moduleName, error: 'rpc-module-not-found' }
@@ -2123,11 +2344,38 @@ function extractRpc(moduleName, moduleIndex, mixinMemo, parseFnTraced, diagnosti
     const incomingDeps = mod.deps.filter((d) => classifyDep(d) === 'incoming')
     const outgoingResponseDeps = mod.deps.filter((d) => classifyDep(d) === 'outgoing-response')
 
+    // Newer builds inline the request builder and response parsers directly
+    // into the RPC module as local functions — only the truly generic IQ
+    // boilerplate (base attrs, error disjunctions) stays split into `*Mixin`
+    // deps, so `requestDeps`/`responseDeps` come up empty or Mixin-only even
+    // though the op-specific schema is right there in `body`. Detect that
+    // shape from the RPC module's OWN exports (`l.make<Op>Request`, `l.parse
+    // <Op>Response<Variant>`) and walk those local function bodies with the
+    // exact same tree builders used for an external module — they only look
+    // at the body text handed to them, so pointing them at the RPC module's
+    // own body (instead of a separate module) needs no changes there.
+    const localExports = scanLocalExports(body)
+    const localRequestNames = Object.keys(localExports).filter((k) => /^make/.test(k) && /Request$/.test(k))
+    const localResponseNames = Object.keys(localExports).filter((k) => /^parse.*Response/.test(k))
+    // Same inlining on receive-RPCs: the inbound stanza parser is exported
+    // locally as `parse<Op>Request` (WA's own misnomer — see classifyDep),
+    // and a hybrid receive-RPC's outgoing ack/nack builder as
+    // `make<Op>Response<Suffix>`.
+    const localIncomingNames = Object.keys(localExports).filter(
+        (k) => /^parse/.test(k) && /Request$/.test(k) && !/Response/.test(k)
+    )
+    const localOutgoingResponseNames = Object.keys(localExports).filter((k) =>
+        /^make.*Response[A-Z][A-Za-z0-9_]*$/.test(k)
+    )
+
     let request = null
     if (requestDeps.length > 0) {
         const reqMod = requestDeps[0]
         const r = extractRequestModule(reqMod, moduleIndex, mixinMemo)
         request = { module: reqMod, ...r }
+    } else if (localRequestNames.length > 0) {
+        const r = extractRequestModule(moduleName, moduleIndex, mixinMemo)
+        request = { module: moduleName, local: true, ...r }
     } else {
         diagnostics.rpcWithoutRequest++
     }
@@ -2146,45 +2394,83 @@ function extractRpc(moduleName, moduleIndex, mixinMemo, parseFnTraced, diagnosti
         }
     }
 
+    // Same inlining as the request side, on the response end: when every
+    // 'response' dep is a generic `*Mixin` (no per-variant dedicated module
+    // survives), the real per-variant parsers are local functions exported
+    // straight off the RPC module (`l.parse<Op>Response<Variant> = <local>`).
+    // Prefer those — they carry the full op-specific tree, where the Mixin
+    // deps alone only give the shared base attrs (from/id/type).
+    const responseDepsAreGenericMixinsOnly = responseDeps.length > 0 && responseDeps.every((d) => /Mixin$/.test(d))
+    const useLocalResponses = localResponseNames.length > 0 && (responseDeps.length === 0 || responseDepsAreGenericMixinsOnly)
+
     const responses = []
-    for (const respMod of responseDeps) {
-        const preferred = rpcEntryByModule[respMod] || null
-        const r = extractResponseModule(respMod, moduleIndex, parseFnTraced, preferred)
-        // Pull the variant tail off the module name. There are TWO pathological
-        // shapes the strip has to survive:
-        //   - op name embeds `Response` (e.g. `GetNewsletterResponses…`) — a
-        //     non-greedy match grabs only the first occurrence and leaves an
-        //     `s` + the actual `Response<Variant>` behind
-        //   - variant name itself ends in `Response`
-        //     (e.g. `…GetCountryCodeResponseGetCountryCodeResponse`) — a
-        //     fully greedy match eats both occurrences and leaves nothing
-        // Try greedy first; if that empties the string, fall back to non-greedy
-        // so the variant-as-`Response`-name case still yields a usable label.
-        let variantName = respMod
-            .replace(/^WASmaxIn.*Response/, '')
-            .replace(/^WASmaxIn/, '')
-        if (!variantName) {
-            variantName = respMod
-                .replace(/^WASmaxIn.*?Response/, '')
-                .replace(/^WASmaxIn/, '')
+    if (useLocalResponses) {
+        for (const entryName of localResponseNames) {
+            const r = extractResponseModule(moduleName, moduleIndex, parseFnTraced, entryName)
+            // `parseGetExperimentConfigResponseErrorNoRetry` → strip `parse`,
+            // then the op name, then a leftover leading `Response` → `ErrorNoRetry`.
+            let variantName = entryName.replace(/^parse/, '')
+            if (opName && variantName.startsWith(opName)) variantName = variantName.slice(opName.length)
+            variantName = variantName.replace(/^Response/, '')
+            if (!variantName) variantName = entryName.replace(/^parse.*?Response/, '') || entryName
+            responses.push({ module: moduleName, variant: variantName, local: true, ...r })
         }
-        responses.push({ module: respMod, variant: variantName || respMod, ...r })
+    } else {
+        for (const respMod of responseDeps) {
+            const preferred = rpcEntryByModule[respMod] || null
+            const r = extractResponseModule(respMod, moduleIndex, parseFnTraced, preferred)
+            // Pull the variant tail off the module name. There are TWO pathological
+            // shapes the strip has to survive:
+            //   - op name embeds `Response` (e.g. `GetNewsletterResponses…`) — a
+            //     non-greedy match grabs only the first occurrence and leaves an
+            //     `s` + the actual `Response<Variant>` behind
+            //   - variant name itself ends in `Response`
+            //     (e.g. `…GetCountryCodeResponseGetCountryCodeResponse`) — a
+            //     fully greedy match eats both occurrences and leaves nothing
+            // Try greedy first; if that empties the string, fall back to non-greedy
+            // so the variant-as-`Response`-name case still yields a usable label.
+            let variantName = respMod
+                .replace(/^WASmaxIn.*Response/, '')
+                .replace(/^WASmaxIn/, '')
+            if (!variantName) {
+                variantName = respMod
+                    .replace(/^WASmaxIn.*?Response/, '')
+                    .replace(/^WASmaxIn/, '')
+            }
+            responses.push({ module: respMod, variant: variantName || respMod, ...r })
+        }
     }
 
     // Receive RPCs surface their inbound parser as `incoming`. Treat each as
     // a sole response variant (named `Request` to mirror the `WASmaxIn*Request`
     // module convention) so the consuming end of the IR has one schema per op
     // regardless of direction.
-    for (const inMod of incomingDeps) {
-        const preferred = rpcEntryByModule[inMod] || null
-        const r = extractResponseModule(inMod, moduleIndex, parseFnTraced, preferred)
-        const variantName = inMod.replace(/^WASmaxIn.*?Request$/, '') || 'Request'
-        responses.push({
-            module: inMod,
-            variant: variantName === '' ? 'Request' : variantName,
-            incoming: true,
-            ...r
-        })
+    if (incomingDeps.length === 0 && localIncomingNames.length > 0) {
+        for (const entryName of localIncomingNames) {
+            const r = extractResponseModule(moduleName, moduleIndex, parseFnTraced, entryName)
+            let variantName = entryName.replace(/^parse/, '')
+            if (opName && variantName.startsWith(opName)) variantName = variantName.slice(opName.length)
+            variantName = variantName.replace(/^Request$/, '') || 'Request'
+            responses.push({
+                module: moduleName,
+                variant: variantName,
+                incoming: true,
+                local: true,
+                ...r
+            })
+        }
+    } else {
+        for (const inMod of incomingDeps) {
+            const preferred = rpcEntryByModule[inMod] || null
+            const r = extractResponseModule(inMod, moduleIndex, parseFnTraced, preferred)
+            const variantName = inMod.replace(/^WASmaxIn.*?Request$/, '') || 'Request'
+            responses.push({
+                module: inMod,
+                variant: variantName === '' ? 'Request' : variantName,
+                incoming: true,
+                ...r
+            })
+        }
     }
 
     // Hybrid receive-RPCs also carry outgoing-response builders that the
@@ -2192,17 +2478,33 @@ function extractRpc(moduleName, moduleIndex, mixinMemo, parseFnTraced, diagnosti
     // additional outgoing schemas under the same op so consumers know what
     // the client may emit in response.
     const outgoingResponses = []
-    for (const outMod of outgoingResponseDeps) {
-        const r = extractRequestModule(outMod, moduleIndex, mixinMemo)
-        // Variant name = the trailing `Response<Suffix>` portion (e.g.
-        // `Success` / `Error` / `Negative`).
-        const variantName = outMod.replace(/^WASmaxOut.*?Response/, '') || outMod
-        outgoingResponses.push({
-            module: outMod,
-            variant: variantName,
-            outgoing: true,
-            ...r
-        })
+    if (outgoingResponseDeps.length === 0 && localOutgoingResponseNames.length > 0) {
+        for (const entryName of localOutgoingResponseNames) {
+            const r = extractRequestModule(moduleName, moduleIndex, mixinMemo, entryName)
+            let variantName = entryName.replace(/^make/, '')
+            if (opName && variantName.startsWith(opName)) variantName = variantName.slice(opName.length)
+            variantName = variantName.replace(/^Response/, '') || entryName
+            outgoingResponses.push({
+                module: moduleName,
+                variant: variantName,
+                outgoing: true,
+                local: true,
+                ...r
+            })
+        }
+    } else {
+        for (const outMod of outgoingResponseDeps) {
+            const r = extractRequestModule(outMod, moduleIndex, mixinMemo)
+            // Variant name = the trailing `Response<Suffix>` portion (e.g.
+            // `Success` / `Error` / `Negative`).
+            const variantName = outMod.replace(/^WASmaxOut.*?Response/, '') || outMod
+            outgoingResponses.push({
+                module: outMod,
+                variant: variantName,
+                outgoing: true,
+                ...r
+            })
+        }
     }
 
     // IQ summary attrs derived from the request's xmlns + type literal (if any).

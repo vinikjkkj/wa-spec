@@ -9,6 +9,10 @@ on:
                 description: 'Publish updated packages to npm (uses trusted publishing — no token needed)'
                 required: false
                 default: 'false'
+            allow_xml_shrink:
+                description: 'Accept a sharp drop in the xml package (one-time use once a real upstream change is confirmed, e.g. a WA Web codegen shift — see apply.cjs guardAgainstShrink)'
+                required: false
+                default: 'false'
 
 permissions:
     contents: write
@@ -82,7 +86,12 @@ jobs:
               run: npm run extract:appstate
 
             - name: Extract XML stanza schemas
-              run: npm run extract:xml
+              run: |
+                  if [ "${{ inputs.allow_xml_shrink }}" = "true" ]; then
+                      node packages/xml/scripts/apply.cjs --manifest dump/manifest.json --allow-shrink
+                  else
+                      npm run extract:xml
+                  fi
 
             - name: Extract WAM (analytics/metrics) schemas
               run: npm run extract:wam
