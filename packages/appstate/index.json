@@ -1379,6 +1379,7 @@
       "scope": "account",
       "valueEnumFields": {
         "bannerNotificationDisplayMode": "SettingsSyncAction.DisplayMode",
+        "mediaAutoDownloadQuality": "SettingsSyncAction.MediaAutoDownloadQualitySetting",
         "mediaUploadQuality": "SettingsSyncAction.MediaQualitySetting",
         "unreadCounterBadgeDisplayMode": "SettingsSyncAction.DisplayMode"
       },
@@ -1609,5 +1610,5 @@
     "critical_block",
     "critical_unblock_low"
   ],
-  "waVersion": "2.3000.1050302056"
+  "waVersion": "2.3000.1054794655"
 }

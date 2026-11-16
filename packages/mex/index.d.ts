@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1050302056
+// WhatsApp Version: 2.3000.1054794655
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -17,14 +17,19 @@ export interface WaMexOperationSchema<
 export declare const WA_MEX_PERSIST_IDS: {
     readonly ACSServerProviderConfig: WaMexPersistId
     readonly ACSServerProviderIssuance: WaMexPersistId
+    readonly AECompanionOffboard: WaMexPersistId
+    readonly AECompanionOnboard: WaMexPersistId
     readonly AcceptNewsletterAdminInvite: WaMexPersistId
     readonly AccountLinkingAPIGetCerts: WaMexPersistId
-    readonly AdAccountReviewBaseCard: WaMexPersistId
-    readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexPersistId
+    readonly AdAccountDpaEligibleProductCatalogListStoreSource: WaMexPersistId
     readonly AdPreferencesDFCABusinessOptOut: WaMexPersistId
     readonly AdPreferencesDemographicCategoryOptOut: WaMexPersistId
     readonly AdPreferencesHideAdvertiser: WaMexPersistId
     readonly AdPreferencesInterestCategoryOptOut: WaMexPersistId
+    readonly AddLabyrinthPeerDevice: WaMexPersistId
+    readonly AdsAccountDataDispatcher: WaMexPersistId
+    readonly AdsAccountDataDispatcherViewerPermissions: WaMexPersistId
+    readonly AdsAccountStoreNewSourceServer: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexPersistId
     readonly AdsAdAccountSettingsStoreSetMultiMediaStickyStatus: WaMexPersistId
@@ -33,16 +38,23 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexPersistId
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexPersistId
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexPersistId
+    readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexPersistId
+    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexPersistId
+    readonly AdsFocusFrameworkStickinessDataManager: WaMexPersistId
+    readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexPersistId
     readonly AdsManagerLiveDataCampaign: WaMexPersistId
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
+    readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexPersistId
+    readonly AdsSmartDefaultStoreSourceServer: WaMexPersistId
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexPersistId
+    readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexPersistId
+    readonly AdvertiserProfileMessageMarketingDataStoreLoader: WaMexPersistId
     readonly AiAgentAutoReplyControl: WaMexPersistId
     readonly AuthAgentFeaturePolicy: WaMexPersistId
     readonly BPAccessTokenAndSessionCookies: WaMexPersistId
     readonly BizCreateOrder: WaMexPersistId
-    readonly BizCustomUrlGetUserGraphql: WaMexPersistId
     readonly BizGetCategories: WaMexPersistId
     readonly BizGetCategoriesV2: WaMexPersistId
     readonly BizGetCustomUrlUserGraphql: WaMexPersistId
@@ -54,6 +66,8 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly BizProfileRoot: WaMexPersistId
     readonly BizQueryOrder: WaMexPersistId
     readonly BizSetMerchantCompliance: WaMexPersistId
+    readonly BrResolvePaymentAccountLink: WaMexPersistId
+    readonly CTXChatBuilderDialogContainerUtils: WaMexPersistId
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexPersistId
     readonly CachedToken: WaMexPersistId
     readonly CanonicalUserValid: WaMexPersistId
@@ -77,6 +91,9 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly CreateReportAppeal: WaMexPersistId
     readonly CreateWhatsAppAdsIdentity: WaMexPersistId
     readonly CustomLabel3pdEvent: WaMexPersistId
+    readonly CustomerManagerAccessState: WaMexPersistId
+    readonly CustomerManagerCustomerProfileCustomFieldCreate: WaMexPersistId
+    readonly CustomerManagerStartTrial: WaMexPersistId
     readonly DebugLabyrinthAddDevice: WaMexPersistId
     readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexPersistId
     readonly DebugLabyrinthInboxSnapshot: WaMexPersistId
@@ -84,20 +101,11 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly DebugLabyrinthRestorePage: WaMexPersistId
     readonly DeleteNewsletter: WaMexPersistId
     readonly DemoteNewsletterAdmin: WaMexPersistId
-    readonly E2EEMetadataMailboxAddGroupParticipants: WaMexPersistId
-    readonly E2EEMetadataMailboxCreateGroupThread: WaMexPersistId
-    readonly E2EEMetadataMailboxDemoteGroupParticipants: WaMexPersistId
     readonly E2EEMetadataMailboxFetchGroupInfoV4: WaMexPersistId
-    readonly E2EEMetadataMailboxLeaveGroup: WaMexPersistId
-    readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexPersistId
-    readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexPersistId
-    readonly E2EEMetadataMailboxSetGroupSubject: WaMexPersistId
-    readonly EBMessageMetadataQuery: WaMexPersistId
     readonly EBMessageRangeQueryForThreads: WaMexPersistId
     readonly EditBizProfile: WaMexPersistId
     readonly EmailInviteSendGroup: WaMexPersistId
     readonly ExternalCtxAuthoriseWAChat: WaMexPersistId
-    readonly FetchAboutStatus: WaMexPersistId
     readonly FetchAllNewslettersMetadata: WaMexPersistId
     readonly FetchAllSubgroups: WaMexPersistId
     readonly FetchBotCertificateRevocationList: WaMexPersistId
@@ -109,9 +117,18 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchGroupInfoIncludBotsJobAcp2: WaMexPersistId
     readonly FetchGroupInfoJobAcp2: WaMexPersistId
     readonly FetchGroupInviteCode: WaMexPersistId
+    readonly FetchGroupInviteInfo: WaMexPersistId
+    readonly FetchGroupInviteInfoJobAddRequest: WaMexPersistId
     readonly FetchGroupIsInternal: WaMexPersistId
+    readonly FetchGroupMembershipFormForJoinJobAddRequest: WaMexPersistId
+    readonly FetchGroupMembershipFormForJoinJobInvite: WaMexPersistId
+    readonly FetchGroupMembershipFormForJoinJobLinked: WaMexPersistId
     readonly FetchIntegritySignals: WaMexPersistId
+    readonly FetchLabyrinthEpochChain: WaMexPersistId
     readonly FetchLabyrinthEpochDevices: WaMexPersistId
+    readonly FetchLinkedGroupInfo: WaMexPersistId
+    readonly FetchMembershipApprovalRequests: WaMexPersistId
+    readonly FetchMetaOnePromoEligibility: WaMexPersistId
     readonly FetchNewChatMessageCappingInfo: WaMexPersistId
     readonly FetchNewsletter: WaMexPersistId
     readonly FetchNewsletterAdminCapabilities: WaMexPersistId
@@ -130,6 +147,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly FetchNewsletterReports: WaMexPersistId
     readonly FetchOHAIKeyConfig: WaMexPersistId
     readonly FetchOIDCState: WaMexPersistId
+    readonly FetchPhoneNumberSharingSettings: WaMexPersistId
     readonly FetchPlaintextLinkPreview: WaMexPersistId
     readonly FetchQuickPromotions: WaMexPersistId
     readonly FetchReachoutTimelock: WaMexPersistId
@@ -153,22 +171,25 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly GetWoasAgeSignal: WaMexPersistId
     readonly GraphQLProductCatalogGetPublicKey: WaMexPersistId
     readonly GraphQLVerifyPostcode: WaMexPersistId
+    readonly GroupJoin: WaMexPersistId
     readonly GroupStoreAndSendInviteSms: WaMexPersistId
     readonly GroupStoreInviteSms: WaMexPersistId
     readonly GroupSuspensionAppeal: WaMexPersistId
     readonly IntegrityChallengeResponse: WaMexPersistId
+    readonly InternalDirectoryFetchMembers: WaMexPersistId
     readonly JoinNewsletter: WaMexPersistId
     readonly KeyTransparencyGraphQLClient_: WaMexPersistId
     readonly LeaveNewsletter: WaMexPersistId
     readonly LidChangeNotification: WaMexPersistId
     readonly LogNewsletterExposures: WaMexPersistId
     readonly LogServerSentInviteIntent: WaMexPersistId
-    readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexPersistId
-    readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexPersistId
-    readonly MAIBAMessageCreatorCardsRenderer: WaMexPersistId
-    readonly MAIBAMessageSignalsCTARenderer: WaMexPersistId
-    readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexPersistId
-    readonly MAIBARecordAsyncAuthConsent: WaMexPersistId
+    readonly MAIBAAdObjectReference_StoryMetadata: WaMexPersistId
+    readonly MAIBAChatThread: WaMexPersistId
+    readonly MAIBAGraphQLSendMessageV2Query: WaMexPersistId
+    readonly MAIBAGraphQLSendMessageV3Query: WaMexPersistId
+    readonly MAIBAGraphQLSendMessageV4Query: WaMexPersistId
+    readonly MAIBAPageReference: WaMexPersistId
+    readonly MAIBAUpdateAdsAIConsent: WaMexPersistId
     readonly MetaPayVaultInitialize: WaMexPersistId
     readonly MetaPayVaultLabyrinthDelete: WaMexPersistId
     readonly MetaPayVaultLabyrinthFetchAll: WaMexPersistId
@@ -183,18 +204,24 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly OrgAdminGraphQLAddChannel: WaMexPersistId
     readonly OrgAdminGraphQLAddGroup: WaMexPersistId
     readonly OrgAdminGraphQLAdminRoster: WaMexPersistId
+    readonly OrgAdminGraphQLApplyAdminRosterChanges: WaMexPersistId
     readonly OrgAdminGraphQLDirectoryPage: WaMexPersistId
+    readonly OrgAdminGraphQLEventRsvpCounts: WaMexPersistId
     readonly OrgAdminGraphQLGroup: WaMexPersistId
     readonly OrgAdminGraphQLInviteMembers: WaMexPersistId
+    readonly OrgAdminGraphQLLeave: WaMexPersistId
+    readonly OrgAdminGraphQLManagedChannelAdmins: WaMexPersistId
     readonly OrgAdminGraphQLManagedChannels: WaMexPersistId
+    readonly OrgAdminGraphQLManagedEvents: WaMexPersistId
     readonly OrgAdminGraphQLManagedGroups: WaMexPersistId
     readonly OrgAdminGraphQLMemberSearch: WaMexPersistId
     readonly OrgAdminGraphQLOrgs: WaMexPersistId
     readonly OrgAdminGraphQLRemoveMember: WaMexPersistId
-    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexPersistId
+    readonly OrgAdminGraphQLSendManagedGroupEmailInvites: WaMexPersistId
     readonly OrgAdminGraphQLSetMemberRole: WaMexPersistId
     readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexPersistId
     readonly OrgAdminGraphQLUpdateOrg: WaMexPersistId
+    readonly OrgMemberUpdateNotificationHandler: WaMexPersistId
     readonly PaymentsPasskeyHasCredential: WaMexPersistId
     readonly QueryCatalog: WaMexPersistId
     readonly QueryCatalogHasCategories: WaMexPersistId
@@ -211,15 +238,33 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexPersistId
     readonly RevokeNewsletterAdminInvite: WaMexPersistId
     readonly RotateLabyrinthEpoch: WaMexPersistId
+    readonly SaveResponseTonePreference: WaMexPersistId
     readonly SetUsername: WaMexPersistId
     readonly SetUsernameKey: WaMexPersistId
+    readonly SharableEventAddInvitations: WaMexPersistId
+    readonly SharableEventCreate: WaMexPersistId
+    readonly SharableEventDelete: WaMexPersistId
+    readonly SharableEventGet: WaMexPersistId
+    readonly SharableEventGuestJoinedWaNotifications: WaMexPersistId
+    readonly SharableEventJoinViaLink: WaMexPersistId
+    readonly SharableEventLinkPreview: WaMexPersistId
+    readonly SharableEventList: WaMexPersistId
+    readonly SharableEventPlaceSearch: WaMexPersistId
+    readonly SharableEventPresetCovers: WaMexPersistId
+    readonly SharableEventReconcile: WaMexPersistId
+    readonly SharableEventRemoveInvitations: WaMexPersistId
+    readonly SharableEventUpdate: WaMexPersistId
+    readonly SharableEventUpdateRsvp: WaMexPersistId
     readonly SignupMetadata: WaMexPersistId
+    readonly SkipStoppedMessages: WaMexPersistId
     readonly StartConversationTemplateReengagementWithCatalogSection: WaMexPersistId
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexPersistId
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexPersistId
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexPersistId
     readonly SubscriptionWaffleAgeCheck: WaMexPersistId
+    readonly SupportBugReportCreateDogfoodingTask: WaMexPersistId
     readonly SupportBugReportSubmit: WaMexPersistId
+    readonly SupportChatAuthRefresh: WaMexPersistId
     readonly SupportContactFormSubmit: WaMexPersistId
     readonly SupportMessageFeedbackSubmit: WaMexPersistId
     readonly TeamLinkCreateInvitation: WaMexPersistId
@@ -238,14 +283,19 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly WAAOnboarding: WaMexPersistId
     readonly WAMFlowsCTWAEditorModal: WaMexPersistId
     readonly WAMFlowsCTWAFlowPreview: WaMexPersistId
+    readonly WODirectoryFetchCompanyName: WaMexPersistId
     readonly WaffleFXServiceDataQueryV2: WaMexPersistId
     readonly WaffleFXWAMOUpdateUOOM: WaMexPersistId
     readonly WaffleXE: WaMexPersistId
+    readonly WhatsAppMarketingCampaignCustomerListPickerLists: WaMexPersistId
+    readonly fetchWebsiteMediaImageURLs: WaMexPersistId
+    readonly navigateToProductInsightsWithDefaultTab: WaMexPersistId
+    readonly useFetchAdAccountsForL4Context: WaMexPersistId
+    readonly useFetchAdAccountsNameById: WaMexPersistId
     readonly useFlowJSONValidationLibrary: WaMexPersistId
     readonly useIsMessengerPlatformBot: WaMexPersistId
-    readonly useMAIBADraftStatus: WaMexPersistId
+    readonly useMAIBAAsyncNotification: WaMexPersistId
     readonly useMAIBAMedia: WaMexPersistId
-    readonly useMAIBAWidgetState: WaMexPersistId
     readonly useWAWebEstimatedDailyReach: WaMexPersistId
     readonly useWAWebEstimatedDailyReachShadow: WaMexPersistId
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexPersistId
@@ -256,14 +306,19 @@ export declare const WA_MEX_PERSIST_IDS: {
 export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ACSServerProviderConfig: WaMexOperationSchema<'query', readonly ['project_name']>
     readonly ACSServerProviderIssuance: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly AECompanionOffboard: WaMexOperationSchema<'mutation', readonly ['phoneNumber']>
+    readonly AECompanionOnboard: WaMexOperationSchema<'mutation', readonly ['phoneNumber']>
     readonly AcceptNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly AccountLinkingAPIGetCerts: WaMexOperationSchema<'query', readonly []>
-    readonly AdAccountReviewBaseCard: WaMexOperationSchema<'query', readonly ['adAccountID']>
-    readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexOperationSchema<'query', readonly ['accountReviewTrackerId']>
+    readonly AdAccountDpaEligibleProductCatalogListStoreSource: WaMexOperationSchema<'query', readonly ['filters', 'include_product_count_issues', 'is_additional_cms_fields_enabled', 'is_optimisation_enabled', 'legacy_account_id', 'limit', 'skip_unused_catalog_fields', 'skip_user_tasks']>
     readonly AdPreferencesDFCABusinessOptOut: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdPreferencesDemographicCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['bctID', 'isUndo']>
     readonly AdPreferencesHideAdvertiser: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdPreferencesInterestCategoryOptOut: WaMexOperationSchema<'mutation', readonly ['interestID', 'isUndo']>
+    readonly AddLabyrinthPeerDevice: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly AdsAccountDataDispatcher: WaMexOperationSchema<'query', readonly ['adAccountID']>
+    readonly AdsAccountDataDispatcherViewerPermissions: WaMexOperationSchema<'query', readonly ['ad_account_id']>
+    readonly AdsAccountStoreNewSourceServer: WaMexOperationSchema<'query', readonly ['adAccountID', 'is_pending_numbers_exposure_flag_enabled', 'useAdAccountRef']>
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly AdsAdAccountSettingsStoreSetMultiMediaStickyStatus: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -272,16 +327,23 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexOperationSchema<'query', readonly ['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']>
+    readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexOperationSchema<'query', readonly ['wabaIds']>
+    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexOperationSchema<'query', readonly ['passCountryCodeGK', 'selectedPageID']>
+    readonly AdsFocusFrameworkStickinessDataManager: WaMexOperationSchema<'query', readonly ['ad_account_id']>
+    readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexOperationSchema<'query', readonly ['after', 'caption_text', 'fbidv2', 'first', 'is_ad', 'is_threads', 'media_type', 'order_by']>
     readonly AdsManagerLiveDataCampaign: WaMexOperationSchema<'query', readonly ['ids', 'skip_data_transform']>
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
+    readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'requires_full_report', 'surface']>
+    readonly AdsSmartDefaultStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id']>
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexOperationSchema<'query', readonly ['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']>
+    readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexOperationSchema<'query', readonly ['pageID']>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexOperationSchema<'query', readonly ['hasPrimaryPage', 'hasSecondaryPage', 'primaryPageID', 'secondaryPageID']>
+    readonly AdvertiserProfileMessageMarketingDataStoreLoader: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AiAgentAutoReplyControl: WaMexOperationSchema<'mutation', readonly ['consumer_lid', 'phone_number', 'thread_status']>
     readonly AuthAgentFeaturePolicy: WaMexOperationSchema<'query', readonly []>
     readonly BPAccessTokenAndSessionCookies: WaMexOperationSchema<'mutation', readonly ['application_id', 'code']>
     readonly BizCreateOrder: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly BizCustomUrlGetUserGraphql: WaMexOperationSchema<'query', readonly ['data']>
     readonly BizGetCategories: WaMexOperationSchema<'query', readonly ['query_params']>
     readonly BizGetCategoriesV2: WaMexOperationSchema<'query', readonly ['query_params']>
     readonly BizGetCustomUrlUserGraphql: WaMexOperationSchema<'query', readonly ['data']>
@@ -293,6 +355,8 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly BizProfileRoot: WaMexOperationSchema<'query', readonly []>
     readonly BizQueryOrder: WaMexOperationSchema<'query', readonly ['request']>
     readonly BizSetMerchantCompliance: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly BrResolvePaymentAccountLink: WaMexOperationSchema<'query', readonly ['request']>
+    readonly CTXChatBuilderDialogContainerUtils: WaMexOperationSchema<'query', readonly ['input']>
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CachedToken: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CanonicalUserValid: WaMexOperationSchema<'query', readonly []>
@@ -314,8 +378,11 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly CreateNewsletter: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly CreateNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly CreateReportAppeal: WaMexOperationSchema<'mutation', readonly ['reason', 'report_id']>
-    readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'phone_number']>
+    readonly CreateWhatsAppAdsIdentity: WaMexOperationSchema<'mutation', readonly ['code', 'lid', 'phone_number']>
     readonly CustomLabel3pdEvent: WaMexOperationSchema<'query', readonly ['custom_labels', 'expt_group']>
+    readonly CustomerManagerAccessState: WaMexOperationSchema<'query', readonly []>
+    readonly CustomerManagerCustomerProfileCustomFieldCreate: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly CustomerManagerStartTrial: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly DebugLabyrinthAddDevice: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly DebugLabyrinthInboxSnapshot: WaMexOperationSchema<'query', readonly ['clientSealToken', 'deviceId', 'locallyAvailableEpochIds', 'messageFirst', 'threadFirst']>
@@ -323,20 +390,11 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly DebugLabyrinthRestorePage: WaMexOperationSchema<'query', readonly ['after', 'device_id', 'locally_available_epoch_ids', 'message_count', 'partial_thread_id']>
     readonly DeleteNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly DemoteNewsletterAdmin: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
-    readonly E2EEMetadataMailboxAddGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxCreateGroupThread: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxDemoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly E2EEMetadataMailboxFetchGroupInfoV4: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxLeaveGroup: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly E2EEMetadataMailboxSetGroupSubject: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly EBMessageMetadataQuery: WaMexOperationSchema<'query', readonly ['data']>
     readonly EBMessageRangeQueryForThreads: WaMexOperationSchema<'query', readonly ['app_id', 'includeAttachmentData', 'restore_payload_strings', 'restore_type']>
     readonly EditBizProfile: WaMexOperationSchema<'mutation', readonly ['input', 'lid']>
     readonly EmailInviteSendGroup: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly ExternalCtxAuthoriseWAChat: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly FetchAboutStatus: WaMexOperationSchema<'query', readonly ['user']>
     readonly FetchAllNewslettersMetadata: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'fetch_wamo_sub']>
     readonly FetchAllSubgroups: WaMexOperationSchema<'query', readonly ['group_id', 'query_context', 'sub_group_hint_id']>
     readonly FetchBotCertificateRevocationList: WaMexOperationSchema<'query', readonly ['crl_name']>
@@ -348,9 +406,18 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchGroupInfoIncludBotsJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
     readonly FetchGroupInfoJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
     readonly FetchGroupInviteCode: WaMexOperationSchema<'query', readonly ['id', 'query_context']>
+    readonly FetchGroupInviteInfo: WaMexOperationSchema<'query', readonly ['include_username', 'invite_code']>
+    readonly FetchGroupInviteInfoJobAddRequest: WaMexOperationSchema<'query', readonly ['add_request', 'group_jid', 'include_username']>
     readonly FetchGroupIsInternal: WaMexOperationSchema<'query', readonly ['id']>
+    readonly FetchGroupMembershipFormForJoinJobAddRequest: WaMexOperationSchema<'query', readonly ['add_request', 'group_jid']>
+    readonly FetchGroupMembershipFormForJoinJobInvite: WaMexOperationSchema<'query', readonly ['invite_code']>
+    readonly FetchGroupMembershipFormForJoinJobLinked: WaMexOperationSchema<'query', readonly ['group_jid', 'sub_group_jid_hint']>
     readonly FetchIntegritySignals: WaMexOperationSchema<'query', readonly ['input']>
+    readonly FetchLabyrinthEpochChain: WaMexOperationSchema<'query', readonly []>
     readonly FetchLabyrinthEpochDevices: WaMexOperationSchema<'query', readonly []>
+    readonly FetchLinkedGroupInfo: WaMexOperationSchema<'query', readonly ['group_jid', 'include_username', 'sub_group_jid_hint']>
+    readonly FetchMembershipApprovalRequests: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'query_context']>
+    readonly FetchMetaOnePromoEligibility: WaMexOperationSchema<'query', readonly ['request']>
     readonly FetchNewChatMessageCappingInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_pinned_messages', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
     readonly FetchNewsletterAdminCapabilities: WaMexOperationSchema<'query', readonly ['newsletter_id']>
@@ -369,13 +436,14 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchNewsletterReports: WaMexOperationSchema<'query', readonly ['locale']>
     readonly FetchOHAIKeyConfig: WaMexOperationSchema<'query', readonly []>
     readonly FetchOIDCState: WaMexOperationSchema<'query', readonly []>
+    readonly FetchPhoneNumberSharingSettings: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchPlaintextLinkPreview: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchQuickPromotions: WaMexOperationSchema<'query', readonly ['nux_ids', 'trigger_context']>
     readonly FetchReachoutTimelock: WaMexOperationSchema<'query', readonly []>
     readonly FetchRecommendedNewsletters: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'input']>
     readonly FetchSimilarNewsletters: WaMexOperationSchema<'query', readonly ['fetch_status_metadata', 'input']>
     readonly FetchSubgroupSuggestions: WaMexOperationSchema<'query', readonly ['group_id', 'query_context', 'sub_group_hint_id']>
-    readonly FetchSubscriptionEntryPoints: WaMexOperationSchema<'query', readonly []>
+    readonly FetchSubscriptionEntryPoints: WaMexOperationSchema<'query', readonly ['subscriptionTypes']>
     readonly FetchSubscriptions: WaMexOperationSchema<'query', readonly ['data']>
     readonly FetchTextStatusList: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchWassBotListProfilesGQL: WaMexOperationSchema<'query', readonly []>
@@ -392,22 +460,25 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly GetWoasAgeSignal: WaMexOperationSchema<'query', readonly ['input']>
     readonly GraphQLProductCatalogGetPublicKey: WaMexOperationSchema<'query', readonly ['request']>
     readonly GraphQLVerifyPostcode: WaMexOperationSchema<'query', readonly ['request']>
+    readonly GroupJoin: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly GroupStoreAndSendInviteSms: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly GroupStoreInviteSms: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly GroupSuspensionAppeal: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly IntegrityChallengeResponse: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly InternalDirectoryFetchMembers: WaMexOperationSchema<'query', readonly ['after', 'first']>
     readonly JoinNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly KeyTransparencyGraphQLClient_: WaMexOperationSchema<'query', readonly ['auditor_ids', 'requested_accounts', 'serfmt']>
     readonly LeaveNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id']>
     readonly LidChangeNotification: WaMexOperationSchema<'query', readonly []>
     readonly LogNewsletterExposures: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly LogServerSentInviteIntent: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexOperationSchema<'query', readonly ['input']>
-    readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexOperationSchema<'query', readonly ['input']>
-    readonly MAIBAMessageCreatorCardsRenderer: WaMexOperationSchema<'query', readonly ['brandIgUserID', 'creatorIDs']>
-    readonly MAIBAMessageSignalsCTARenderer: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexOperationSchema<'mutation', readonly ['enable', 'pixel_id']>
-    readonly MAIBARecordAsyncAuthConsent: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'page_id']>
+    readonly MAIBAAdObjectReference_StoryMetadata: WaMexOperationSchema<'query', readonly ['storyId']>
+    readonly MAIBAChatThread: WaMexOperationSchema<'query', readonly ['externalConversationId', 'shouldFetchMessageDebugInfo']>
+    readonly MAIBAGraphQLSendMessageV2Query: WaMexOperationSchema<'mutation', readonly ['adminText', 'clientContext', 'connections', 'contextChips', 'displayMessage', 'entrypoint', 'externalConversationId', 'hideUserMessage', 'includeEntryPointClaimState', 'isInsituPregeneration', 'isNewConversation', 'isSentFromOutOfChat', 'message', 'messageType', 'offlineThreadingId', 'postbackPayload', 'requestedReasoningEffort', 'requestedReasoningMode', 'selectedAssets', 'selectedSuggestedPrompt', 'selectedText', 'shouldFetchMessageDebugInfo', 'userMediaAttachments']>
+    readonly MAIBAGraphQLSendMessageV3Query: WaMexOperationSchema<'mutation', readonly ['adminText', 'clientContext', 'contextChips', 'displayMessage', 'entrypoint', 'externalConversationId', 'hideUserMessage', 'includeEntryPointClaimState', 'isInsituPregeneration', 'isNewConversation', 'isSentFromOutOfChat', 'message', 'messageType', 'offlineThreadingId', 'postbackPayload', 'requestedReasoningEffort', 'requestedReasoningMode', 'selectedAssets', 'selectedSuggestedPrompt', 'selectedText', 'userMediaAttachments']>
+    readonly MAIBAGraphQLSendMessageV4Query: WaMexOperationSchema<'mutation', readonly ['adminText', 'clientContext', 'contextChips', 'displayMessage', 'entrypoint', 'externalConversationId', 'hideUserMessage', 'includeEntryPointClaimState', 'isNewConversation', 'isSentFromOutOfChat', 'message', 'messageType', 'offlineThreadingId', 'postbackPayload', 'requestedReasoningEffort', 'requestedReasoningMode', 'selectedAssets', 'selectedSuggestedPrompt', 'selectedText', 'streamSessionId', 'userMediaAttachments']>
+    readonly MAIBAPageReference: WaMexOperationSchema<'query', readonly ['id']>
+    readonly MAIBAUpdateAdsAIConsent: WaMexOperationSchema<'mutation', readonly []>
     readonly MetaPayVaultInitialize: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthDelete: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly MetaPayVaultLabyrinthFetchAll: WaMexOperationSchema<'query', readonly ['input']>
@@ -422,18 +493,24 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly OrgAdminGraphQLAddChannel: WaMexOperationSchema<'mutation', readonly ['channelID', 'orgID']>
     readonly OrgAdminGraphQLAddGroup: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID']>
     readonly OrgAdminGraphQLAdminRoster: WaMexOperationSchema<'query', readonly ['orgID']>
+    readonly OrgAdminGraphQLApplyAdminRosterChanges: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLDirectoryPage: WaMexOperationSchema<'query', readonly ['first', 'orgID']>
+    readonly OrgAdminGraphQLEventRsvpCounts: WaMexOperationSchema<'query', readonly ['eventID']>
     readonly OrgAdminGraphQLGroup: WaMexOperationSchema<'query', readonly ['gid', 'orgID']>
-    readonly OrgAdminGraphQLInviteMembers: WaMexOperationSchema<'mutation', readonly ['emails', 'orgID']>
+    readonly OrgAdminGraphQLInviteMembers: WaMexOperationSchema<'mutation', readonly ['orgID', 'resend', 'rosterEntryIDs']>
+    readonly OrgAdminGraphQLLeave: WaMexOperationSchema<'mutation', readonly ['orgID']>
+    readonly OrgAdminGraphQLManagedChannelAdmins: WaMexOperationSchema<'query', readonly ['channelID', 'orgID']>
     readonly OrgAdminGraphQLManagedChannels: WaMexOperationSchema<'query', readonly ['orgID']>
+    readonly OrgAdminGraphQLManagedEvents: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLManagedGroups: WaMexOperationSchema<'query', readonly ['orgID']>
     readonly OrgAdminGraphQLMemberSearch: WaMexOperationSchema<'query', readonly ['after', 'first', 'memberTag', 'orgID', 'query']>
     readonly OrgAdminGraphQLOrgs: WaMexOperationSchema<'query', readonly []>
     readonly OrgAdminGraphQLRemoveMember: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly OrgAdminGraphQLSendManagedGroupEmailInvites: WaMexOperationSchema<'mutation', readonly ['gid', 'orgID', 'rosterEntryIDs', 'utmCampaign']>
     readonly OrgAdminGraphQLSetMemberRole: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexOperationSchema<'mutation', readonly ['createGroupsPlan', 'operation', 'orgID']>
     readonly OrgAdminGraphQLUpdateOrg: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly OrgMemberUpdateNotificationHandler: WaMexOperationSchema<'query', readonly []>
     readonly PaymentsPasskeyHasCredential: WaMexOperationSchema<'query', readonly []>
     readonly QueryCatalog: WaMexOperationSchema<'query', readonly ['request']>
     readonly QueryCatalogHasCategories: WaMexOperationSchema<'query', readonly ['request']>
@@ -450,15 +527,33 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexOperationSchema<'query', readonly ['pageId']>
     readonly RevokeNewsletterAdminInvite: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'user_id']>
     readonly RotateLabyrinthEpoch: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SaveResponseTonePreference: WaMexOperationSchema<'mutation', readonly ['comparison_conversation_id', 'external_conversation_id', 'preference']>
     readonly SetUsername: WaMexOperationSchema<'mutation', readonly ['input', 'reserved', 'session_id', 'source']>
     readonly SetUsernameKey: WaMexOperationSchema<'mutation', readonly ['pin']>
+    readonly SharableEventAddInvitations: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventCreate: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventDelete: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventGet: WaMexOperationSchema<'query', readonly ['input']>
+    readonly SharableEventGuestJoinedWaNotifications: WaMexOperationSchema<'query', readonly []>
+    readonly SharableEventJoinViaLink: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventLinkPreview: WaMexOperationSchema<'query', readonly ['input']>
+    readonly SharableEventList: WaMexOperationSchema<'query', readonly ['input']>
+    readonly SharableEventPlaceSearch: WaMexOperationSchema<'query', readonly ['input']>
+    readonly SharableEventPresetCovers: WaMexOperationSchema<'query', readonly ['input']>
+    readonly SharableEventReconcile: WaMexOperationSchema<'query', readonly ['input']>
+    readonly SharableEventRemoveInvitations: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventUpdate: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventUpdateRsvp: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SignupMetadata: WaMexOperationSchema<'query', readonly ['phone_number', 'signup_id']>
+    readonly SkipStoppedMessages: WaMexOperationSchema<'mutation', readonly ['external_conversation_id', 'linked_ad_account_id', 'offline_threading_id', 'surface']>
     readonly StartConversationTemplateReengagementWithCatalogSection: WaMexOperationSchema<'query', readonly ['page_id']>
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexOperationSchema<'query', readonly ['ad_account_id', 'ad_caption', 'destination_type', 'page_id', 'post_id', 'skip']>
-    readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexOperationSchema<'query', readonly ['input']>
+    readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexOperationSchema<'query', readonly ['input', 'tooltipPageIDs']>
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'ad_caption', 'ad_id', 'current_icebreaker', 'destination_type', 'ent_id', 'page_id', 'post_id']>
     readonly SubscriptionWaffleAgeCheck: WaMexOperationSchema<'query', readonly []>
+    readonly SupportBugReportCreateDogfoodingTask: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportBugReportSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SupportChatAuthRefresh: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportContactFormSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportMessageFeedbackSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly TeamLinkCreateInvitation: WaMexOperationSchema<'mutation', readonly ['employeeName', 'lid']>
@@ -473,18 +568,23 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly UpdateTextStatus: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UploadLabyrinthMessages: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UsernameAvailability: WaMexOperationSchema<'query', readonly ['input', 'session_id', 'source']>
-    readonly Usync: WaMexOperationSchema<'query', readonly ['include_about_status', 'include_country_code', 'include_orgs', 'include_username', 'input']>
+    readonly Usync: WaMexOperationSchema<'query', readonly ['include_country_code', 'include_orgs', 'include_username', 'input']>
     readonly WAAOnboarding: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly WAMFlowsCTWAEditorModal: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'flowId', 'skipRequest']>
     readonly WAMFlowsCTWAFlowPreview: WaMexOperationSchema<'query', readonly ['adObjective', 'businessName', 'defaultCtaToGetStarted', 'flowId', 'skipRequest']>
+    readonly WODirectoryFetchCompanyName: WaMexOperationSchema<'query', readonly ['lid']>
     readonly WaffleFXServiceDataQueryV2: WaMexOperationSchema<'mutation', readonly []>
     readonly WaffleFXWAMOUpdateUOOM: WaMexOperationSchema<'mutation', readonly []>
     readonly WaffleXE: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly WhatsAppMarketingCampaignCustomerListPickerLists: WaMexOperationSchema<'query', readonly ['wabaId']>
+    readonly fetchWebsiteMediaImageURLs: WaMexOperationSchema<'query', readonly ['adAccountId', 'caller', 'url']>
+    readonly navigateToProductInsightsWithDefaultTab: WaMexOperationSchema<'query', readonly ['ad_account_id']>
+    readonly useFetchAdAccountsForL4Context: WaMexOperationSchema<'query', readonly ['customAnalyticsBusinessID', 'isCustomAnalyticsPage', 'skip', 'skipLwiDefaultAdAccount']>
+    readonly useFetchAdAccountsNameById: WaMexOperationSchema<'query', readonly ['adAccountID', 'skip']>
     readonly useFlowJSONValidationLibrary: WaMexOperationSchema<'query', readonly ['skipRequest', 'version', 'wabaID']>
     readonly useIsMessengerPlatformBot: WaMexOperationSchema<'query', readonly ['page_id']>
-    readonly useMAIBADraftStatus: WaMexOperationSchema<'query', readonly ['campaignGroupId', 'id']>
+    readonly useMAIBAAsyncNotification: WaMexOperationSchema<'mutation', readonly ['external_conversation_id']>
     readonly useMAIBAMedia: WaMexOperationSchema<'query', readonly ['adObjectIDs', 'thumbnailSize']>
-    readonly useMAIBAWidgetState: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useWAWebEstimatedDailyReach: WaMexOperationSchema<'query', readonly ['audienceOptionAudience', 'configuredPlacementSpec', 'currency', 'fetchOfsForecast', 'flow', 'flowID', 'forecastRequest', 'legacyAdAccountID', 'optimizationGoalInput', 'postID', 'targetingSpecAudience', 'useOfsForecast']>
     readonly useWAWebEstimatedDailyReachShadow: WaMexOperationSchema<'query', readonly ['forecastRequest']>
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -505,18 +605,29 @@ export type WaMexACSServerProviderIssuanceVariables = {
     }
 }
 
+export type WaMexAECompanionOffboardVariables = {
+    readonly phoneNumber?: number
+}
+
+export type WaMexAECompanionOnboardVariables = {
+    readonly phoneNumber?: number
+}
+
 export type WaMexAcceptNewsletterAdminInviteVariables = {
     readonly newsletter_id?: string
 }
 
 export type WaMexAccountLinkingAPIGetCertsVariables = Readonly<Record<string, never>>
 
-export type WaMexAdAccountReviewBaseCardVariables = {
-    readonly adAccountID?: string
-}
-
-export type WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusVariables = {
-    readonly accountReviewTrackerId?: string
+export type WaMexAdAccountDpaEligibleProductCatalogListStoreSourceVariables = {
+    readonly filters?: Readonly<Record<string, unknown>>
+    readonly include_product_count_issues?: boolean
+    readonly is_additional_cms_fields_enabled?: boolean
+    readonly is_optimisation_enabled?: boolean
+    readonly legacy_account_id?: string
+    readonly limit?: number
+    readonly skip_unused_catalog_fields?: boolean
+    readonly skip_user_tasks?: boolean
 }
 
 export type WaMexAdPreferencesDFCABusinessOptOutVariables = {
@@ -535,6 +646,24 @@ export type WaMexAdPreferencesHideAdvertiserVariables = {
 export type WaMexAdPreferencesInterestCategoryOptOutVariables = {
     readonly interestID?: string
     readonly isUndo?: unknown
+}
+
+export type WaMexAddLabyrinthPeerDeviceVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexAdsAccountDataDispatcherVariables = {
+    readonly adAccountID?: string
+}
+
+export type WaMexAdsAccountDataDispatcherViewerPermissionsVariables = {
+    readonly ad_account_id?: string
+}
+
+export type WaMexAdsAccountStoreNewSourceServerVariables = {
+    readonly adAccountID?: string
+    readonly is_pending_numbers_exposure_flag_enabled?: boolean
+    readonly useAdAccountRef?: unknown
 }
 
 export type WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables = {
@@ -572,12 +701,46 @@ export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables = {
     readonly contextKey?: unknown
 }
 
+export type WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPVariables = {
+    readonly wabaIds?: ReadonlyArray<string>
+}
+
+export type WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerVariables = {
+    readonly passCountryCodeGK?: boolean
+    readonly selectedPageID?: string
+}
+
+export type WaMexAdsFocusFrameworkStickinessDataManagerVariables = {
+    readonly ad_account_id?: string
+}
+
+export type WaMexAdsInstagramAccountMediaListRIStoreSourceServerVariables = {
+    readonly after?: string
+    readonly caption_text?: string
+    readonly fbidv2?: string
+    readonly first?: number
+    readonly is_ad?: boolean
+    readonly is_threads?: boolean
+    readonly media_type?: string
+    readonly order_by?: unknown
+}
+
 export type WaMexAdsManagerLiveDataCampaignVariables = {
     readonly ids?: ReadonlyArray<string>
     readonly skip_data_transform?: boolean
 }
 
 export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables = Readonly<Record<string, never>>
+
+export type WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureVariables = {
+    readonly ad_account_id?: string
+    readonly requires_full_report?: unknown
+    readonly surface?: unknown
+}
+
+export type WaMexAdsSmartDefaultStoreSourceServerVariables = {
+    readonly ad_account_id?: string
+}
 
 export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables = {
     readonly accountID?: string
@@ -587,6 +750,10 @@ export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables = {
     readonly campaignRelayIDs?: ReadonlyArray<string>
     readonly skip_business_query?: boolean
     readonly use_waac?: boolean
+}
+
+export type WaMexAdsUEditorAdgroupMessageDestinationPageCategoryVariables = {
+    readonly pageID?: string
 }
 
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables = {
@@ -599,6 +766,10 @@ export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variabl
     readonly hasSecondaryPage?: boolean
     readonly primaryPageID?: string
     readonly secondaryPageID?: string
+}
+
+export type WaMexAdvertiserProfileMessageMarketingDataStoreLoaderVariables = {
+    readonly adAccountID?: string
 }
 
 export type WaMexAiAgentAutoReplyControlVariables = {
@@ -619,14 +790,6 @@ export type WaMexBizCreateOrderVariables = {
         readonly order?: {
             readonly jid?: string
             readonly products?: ReadonlyArray<Readonly<Record<string, unknown>>>
-        }
-    }
-}
-
-export type WaMexBizCustomUrlGetUserGraphqlVariables = {
-    readonly data?: {
-        readonly custom_url?: {
-            readonly path?: string
         }
     }
 }
@@ -703,6 +866,18 @@ export type WaMexBizQueryOrderVariables = {
 
 export type WaMexBizSetMerchantComplianceVariables = {
     readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexBrResolvePaymentAccountLinkVariables = {
+    readonly request?: {
+        readonly code?: {
+            readonly sensitive_string_value?: string
+        }
+    }
+}
+
+export type WaMexCTXChatBuilderDialogContainerUtilsVariables = {
+    readonly input?: string
 }
 
 export type WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalVariables = {
@@ -832,6 +1007,7 @@ export type WaMexCreateWhatsAppAdsIdentityVariables = {
     readonly code?: {
         readonly sensitive_string_value?: string
     }
+    readonly lid?: string
     readonly phone_number?: {
         readonly sensitive_string_value?: string
     }
@@ -840,6 +1016,16 @@ export type WaMexCreateWhatsAppAdsIdentityVariables = {
 export type WaMexCustomLabel3pdEventVariables = {
     readonly custom_labels?: ReadonlyArray<string>
     readonly expt_group?: string
+}
+
+export type WaMexCustomerManagerAccessStateVariables = Readonly<Record<string, never>>
+
+export type WaMexCustomerManagerCustomerProfileCustomFieldCreateVariables = {
+    readonly input?: string
+}
+
+export type WaMexCustomerManagerStartTrialVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
 }
 
 export type WaMexDebugLabyrinthAddDeviceVariables = {
@@ -883,40 +1069,8 @@ export type WaMexDemoteNewsletterAdminVariables = {
     readonly user_id?: string
 }
 
-export type WaMexE2EEMetadataMailboxAddGroupParticipantsVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexE2EEMetadataMailboxCreateGroupThreadVariables = {
-    readonly input?: string
-}
-
-export type WaMexE2EEMetadataMailboxDemoteGroupParticipantsVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
 export type WaMexE2EEMetadataMailboxFetchGroupInfoV4Variables = {
     readonly input?: string
-}
-
-export type WaMexE2EEMetadataMailboxLeaveGroupVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexE2EEMetadataMailboxSetGroupSubjectVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexEBMessageMetadataQueryVariables = {
-    readonly data?: string
 }
 
 export type WaMexEBMessageRangeQueryForThreadsVariables = {
@@ -938,17 +1092,12 @@ export type WaMexEmailInviteSendGroupVariables = {
         readonly source?: 'GROUP_INFO_PANEL'
         readonly target_id?: string
         readonly target_type?: 'GROUP'
+        readonly utm_campaign?: unknown
     }
 }
 
 export type WaMexExternalCtxAuthoriseWAChatVariables = {
     readonly input?: Readonly<Record<string, unknown>>
-}
-
-export type WaMexFetchAboutStatusVariables = {
-    readonly user?: {
-        readonly user_id?: string
-    }
 }
 
 export type WaMexFetchAllNewslettersMetadataVariables = {
@@ -1012,15 +1161,48 @@ export type WaMexFetchGroupInviteCodeVariables = {
     readonly query_context?: 'INVITE_CODE'
 }
 
+export type WaMexFetchGroupInviteInfoVariables = {
+    readonly include_username?: boolean
+    readonly invite_code?: string
+}
+
+export type WaMexFetchGroupInviteInfoJobAddRequestVariables = {
+    readonly add_request?: {
+        readonly admin?: unknown
+        readonly code?: string
+        readonly expiration?: unknown
+    }
+    readonly group_jid?: string
+    readonly include_username?: boolean
+}
+
 export type WaMexFetchGroupIsInternalVariables = {
     readonly id?: string
+}
+
+export type WaMexFetchGroupMembershipFormForJoinJobAddRequestVariables = {
+    readonly add_request?: {
+        readonly admin?: string
+        readonly code?: string
+        readonly expiration?: unknown
+    }
+    readonly group_jid?: string
+}
+
+export type WaMexFetchGroupMembershipFormForJoinJobInviteVariables = {
+    readonly invite_code?: string
+}
+
+export type WaMexFetchGroupMembershipFormForJoinJobLinkedVariables = {
+    readonly group_jid?: string
+    readonly sub_group_jid_hint?: unknown
 }
 
 export type WaMexFetchIntegritySignalsVariables = {
     readonly input?: {
         readonly query_input?: ReadonlyArray<{
             readonly integrity_signals?: {
-                readonly use_case?: 'CHAT_FMX'
+                readonly use_case?: boolean
             }
             readonly jid?: string
         }>
@@ -1030,7 +1212,27 @@ export type WaMexFetchIntegritySignalsVariables = {
     }
 }
 
+export type WaMexFetchLabyrinthEpochChainVariables = Readonly<Record<string, never>>
+
 export type WaMexFetchLabyrinthEpochDevicesVariables = Readonly<Record<string, never>>
+
+export type WaMexFetchLinkedGroupInfoVariables = {
+    readonly group_jid?: string
+    readonly include_username?: boolean
+    readonly sub_group_jid_hint?: string
+}
+
+export type WaMexFetchMembershipApprovalRequestsVariables = {
+    readonly id?: string
+    readonly include_username?: boolean
+    readonly query_context?: 'INTERACTIVE'
+}
+
+export type WaMexFetchMetaOnePromoEligibilityVariables = {
+    readonly request?: {
+        readonly promo_platforms?: ReadonlyArray<unknown>
+    }
+}
 
 export type WaMexFetchNewChatMessageCappingInfoVariables = {
     readonly input?: {
@@ -1161,6 +1363,14 @@ export type WaMexFetchOHAIKeyConfigVariables = Readonly<Record<string, never>>
 
 export type WaMexFetchOIDCStateVariables = Readonly<Record<string, never>>
 
+export type WaMexFetchPhoneNumberSharingSettingsVariables = {
+    readonly input?: {
+        readonly deny_list?: {
+            readonly dhash?: string
+        }
+    }
+}
+
 export type WaMexFetchPlaintextLinkPreviewVariables = {
     readonly input?: {
         readonly url?: string
@@ -1204,7 +1414,9 @@ export type WaMexFetchSubgroupSuggestionsVariables = {
     readonly sub_group_hint_id?: string
 }
 
-export type WaMexFetchSubscriptionEntryPointsVariables = Readonly<Record<string, never>>
+export type WaMexFetchSubscriptionEntryPointsVariables = {
+    readonly subscriptionTypes?: unknown
+}
 
 export type WaMexFetchSubscriptionsVariables = {
     readonly data?: {
@@ -1309,6 +1521,10 @@ export type WaMexGraphQLVerifyPostcodeVariables = {
     }
 }
 
+export type WaMexGroupJoinVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexGroupStoreAndSendInviteSmsVariables = {
     readonly input?: {
         readonly entry_point?: string
@@ -1345,6 +1561,11 @@ export type WaMexIntegrityChallengeResponseVariables = {
     }
 }
 
+export type WaMexInternalDirectoryFetchMembersVariables = {
+    readonly after?: string
+    readonly first?: number
+}
+
 export type WaMexJoinNewsletterVariables = {
     readonly newsletter_id?: string
 }
@@ -1364,7 +1585,7 @@ export type WaMexLidChangeNotificationVariables = Readonly<Record<string, never>
 export type WaMexLogNewsletterExposuresVariables = {
     readonly input?: {
         readonly exposures?: ReadonlyArray<{
-            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_ADMIN_INSIGHTS' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
+            readonly capability?: 'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_ADMIN_INSIGHTS' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUESTION_RESPONSE_LIKES' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'
             readonly newsletter_id?: string
         }>
     }
@@ -1377,32 +1598,94 @@ export type WaMexLogServerSentInviteIntentVariables = {
     }
 }
 
-export type WaMexMAIBAInlineAssetSelectorWidgetAssetIDsVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+export type WaMexMAIBAAdObjectReference_StoryMetadataVariables = {
+    readonly storyId?: string
 }
 
-export type WaMexMAIBAInlineAssetSelectorWidgetAssetsVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
+export type WaMexMAIBAChatThreadVariables = {
+    readonly externalConversationId?: string
+    readonly shouldFetchMessageDebugInfo?: boolean
 }
 
-export type WaMexMAIBAMessageCreatorCardsRendererVariables = {
-    readonly brandIgUserID?: string
-    readonly creatorIDs?: ReadonlyArray<string>
+export type WaMexMAIBAGraphQLSendMessageV2QueryVariables = {
+    readonly adminText?: unknown
+    readonly clientContext?: unknown
+    readonly connections?: unknown
+    readonly contextChips?: unknown
+    readonly displayMessage?: unknown
+    readonly entrypoint?: string
+    readonly externalConversationId?: string
+    readonly hideUserMessage?: boolean
+    readonly includeEntryPointClaimState?: boolean
+    readonly isInsituPregeneration?: boolean
+    readonly isNewConversation?: boolean
+    readonly isSentFromOutOfChat?: boolean
+    readonly message?: string
+    readonly messageType?: 'COMPARISON' | 'SHADOW'
+    readonly offlineThreadingId?: string
+    readonly postbackPayload?: string
+    readonly requestedReasoningEffort?: unknown
+    readonly requestedReasoningMode?: unknown
+    readonly selectedAssets?: unknown
+    readonly selectedSuggestedPrompt?: unknown
+    readonly selectedText?: unknown
+    readonly shouldFetchMessageDebugInfo?: boolean
+    readonly userMediaAttachments?: unknown
 }
 
-export type WaMexMAIBAMessageSignalsCTARendererVariables = {
-    readonly input?: string
+export type WaMexMAIBAGraphQLSendMessageV3QueryVariables = {
+    readonly adminText?: unknown
+    readonly clientContext?: unknown
+    readonly contextChips?: unknown
+    readonly displayMessage?: unknown
+    readonly entrypoint?: string
+    readonly externalConversationId?: string
+    readonly hideUserMessage?: boolean
+    readonly includeEntryPointClaimState?: boolean
+    readonly isInsituPregeneration?: unknown
+    readonly isNewConversation?: boolean
+    readonly isSentFromOutOfChat?: boolean
+    readonly message?: string
+    readonly messageType?: 'COMPARISON' | 'SHADOW'
+    readonly offlineThreadingId?: string
+    readonly postbackPayload?: string
+    readonly requestedReasoningEffort?: unknown
+    readonly requestedReasoningMode?: unknown
+    readonly selectedAssets?: unknown
+    readonly selectedSuggestedPrompt?: unknown
+    readonly selectedText?: unknown
+    readonly userMediaAttachments?: unknown
 }
 
-export type WaMexMAIBAMessageSignalsCTARendererEnableAutomaticEventsVariables = {
-    readonly enable?: boolean
-    readonly pixel_id?: string
+export type WaMexMAIBAGraphQLSendMessageV4QueryVariables = {
+    readonly adminText?: unknown
+    readonly clientContext?: unknown
+    readonly contextChips?: unknown
+    readonly displayMessage?: unknown
+    readonly entrypoint?: unknown
+    readonly externalConversationId?: string
+    readonly hideUserMessage?: unknown
+    readonly includeEntryPointClaimState?: unknown
+    readonly isNewConversation?: unknown
+    readonly isSentFromOutOfChat?: unknown
+    readonly message?: string
+    readonly messageType?: unknown
+    readonly offlineThreadingId?: string
+    readonly postbackPayload?: unknown
+    readonly requestedReasoningEffort?: unknown
+    readonly requestedReasoningMode?: unknown
+    readonly selectedAssets?: unknown
+    readonly selectedSuggestedPrompt?: unknown
+    readonly selectedText?: unknown
+    readonly streamSessionId?: string
+    readonly userMediaAttachments?: unknown
 }
 
-export type WaMexMAIBARecordAsyncAuthConsentVariables = {
-    readonly ad_account_id?: string
-    readonly page_id?: string
+export type WaMexMAIBAPageReferenceVariables = {
+    readonly id?: string
 }
+
+export type WaMexMAIBAUpdateAdsAIConsentVariables = Readonly<Record<string, never>>
 
 export type WaMexMetaPayVaultInitializeVariables = {
     readonly input?: Readonly<Record<string, unknown>>
@@ -1470,7 +1753,7 @@ export type WaMexOrgAdminGraphQLAddChannelVariables = {
 }
 
 export type WaMexOrgAdminGraphQLAddGroupVariables = {
-    readonly gid?: unknown
+    readonly gid?: string
     readonly orgID?: string
 }
 
@@ -1478,22 +1761,49 @@ export type WaMexOrgAdminGraphQLAdminRosterVariables = {
     readonly orgID?: string
 }
 
+export type WaMexOrgAdminGraphQLApplyAdminRosterChangesVariables = {
+    readonly input?: {
+        readonly adds?: ReadonlyArray<unknown>
+        readonly changes?: ReadonlyArray<unknown>
+        readonly expected_version?: number
+        readonly org_id?: string
+    }
+}
+
 export type WaMexOrgAdminGraphQLDirectoryPageVariables = {
     readonly first?: number
     readonly orgID?: string
 }
 
+export type WaMexOrgAdminGraphQLEventRsvpCountsVariables = {
+    readonly eventID?: unknown
+}
+
 export type WaMexOrgAdminGraphQLGroupVariables = {
-    readonly gid?: unknown
+    readonly gid?: string
     readonly orgID?: string
 }
 
 export type WaMexOrgAdminGraphQLInviteMembersVariables = {
-    readonly emails?: ReadonlyArray<string>
+    readonly orgID?: string
+    readonly resend?: boolean
+    readonly rosterEntryIDs?: ReadonlyArray<string>
+}
+
+export type WaMexOrgAdminGraphQLLeaveVariables = {
+    readonly orgID?: string
+}
+
+export type WaMexOrgAdminGraphQLManagedChannelAdminsVariables = {
+    readonly channelID?: string
     readonly orgID?: string
 }
 
 export type WaMexOrgAdminGraphQLManagedChannelsVariables = {
+    readonly orgID?: string
+}
+
+export type WaMexOrgAdminGraphQLManagedEventsVariables = {
     readonly orgID?: string
 }
 
@@ -1518,11 +1828,11 @@ export type WaMexOrgAdminGraphQLRemoveMemberVariables = {
     }
 }
 
-export type WaMexOrgAdminGraphQLReplaceAdminRosterVariables = {
-    readonly input?: {
-        readonly entries?: unknown
-        readonly org_id?: string
-    }
+export type WaMexOrgAdminGraphQLSendManagedGroupEmailInvitesVariables = {
+    readonly gid?: string
+    readonly orgID?: string
+    readonly rosterEntryIDs?: ReadonlyArray<string>
+    readonly utmCampaign?: unknown
 }
 
 export type WaMexOrgAdminGraphQLSetMemberRoleVariables = {
@@ -1550,10 +1860,14 @@ export type WaMexOrgAdminGraphQLUpdateOrgVariables = {
     readonly input?: {
         readonly description?: string
         readonly icon_blob?: unknown
-        readonly member_tag_options?: number
+        readonly member_tag_name?: string
+        readonly member_tag_options?: string
         readonly org_id?: string
+        readonly secondary_member_tag_name?: string
     }
 }
+
+export type WaMexOrgMemberUpdateNotificationHandlerVariables = Readonly<Record<string, never>>
 
 export type WaMexPaymentsPasskeyHasCredentialVariables = Readonly<Record<string, never>>
 
@@ -1696,6 +2010,12 @@ export type WaMexRotateLabyrinthEpochVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexSaveResponseTonePreferenceVariables = {
+    readonly comparison_conversation_id?: string
+    readonly external_conversation_id?: string
+    readonly preference?: unknown
+}
+
 export type WaMexSetUsernameVariables = {
     readonly input?: string
     readonly reserved?: boolean
@@ -1707,9 +2027,81 @@ export type WaMexSetUsernameKeyVariables = {
     readonly pin?: string
 }
 
+export type WaMexSharableEventAddInvitationsVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventCreateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventDeleteVariables = {
+    readonly input?: {
+        readonly event_id?: string
+    }
+}
+
+export type WaMexSharableEventGetVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventGuestJoinedWaNotificationsVariables = Readonly<Record<string, never>>
+
+export type WaMexSharableEventJoinViaLinkVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventLinkPreviewVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventListVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventPlaceSearchVariables = {
+    readonly input?: {
+        readonly center?: {
+            readonly latitude?: number
+            readonly longitude?: number
+        }
+        readonly query?: string
+        readonly use_case_id?: 'WHATSAPP_MESSAGE'
+    }
+}
+
+export type WaMexSharableEventPresetCoversVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventReconcileVariables = {
+    readonly input?: {
+        readonly event_ids?: ReadonlyArray<string>
+    }
+}
+
+export type WaMexSharableEventRemoveInvitationsVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventUpdateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventUpdateRsvpVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexSignupMetadataVariables = {
     readonly phone_number?: string
     readonly signup_id?: string
+}
+
+export type WaMexSkipStoppedMessagesVariables = {
+    readonly external_conversation_id?: string
+    readonly linked_ad_account_id?: string
+    readonly offline_threading_id?: string
+    readonly surface?: unknown
 }
 
 export type WaMexStartConversationTemplateReengagementWithCatalogSectionVariables = {
@@ -1727,6 +2119,7 @@ export type WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAI
 
 export type WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlowsVariables = {
     readonly input?: string
+    readonly tooltipPageIDs?: ReadonlyArray<string>
 }
 
 export type WaMexStartConversationsTemplateFAQGenAIRegenerationVariables = {
@@ -1742,7 +2135,17 @@ export type WaMexStartConversationsTemplateFAQGenAIRegenerationVariables = {
 
 export type WaMexSubscriptionWaffleAgeCheckVariables = Readonly<Record<string, never>>
 
+export type WaMexSupportBugReportCreateDogfoodingTaskVariables = {
+    readonly input?: {
+        readonly category?: string
+    }
+}
+
 export type WaMexSupportBugReportSubmitVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSupportChatAuthRefreshVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
@@ -1817,7 +2220,6 @@ export type WaMexUsernameAvailabilityVariables = {
 }
 
 export type WaMexUsyncVariables = {
-    readonly include_about_status?: boolean
     readonly include_country_code?: boolean
     readonly include_orgs?: boolean
     readonly include_username?: boolean
@@ -1849,12 +2251,42 @@ export type WaMexWAMFlowsCTWAFlowPreviewVariables = {
     readonly skipRequest?: boolean
 }
 
+export type WaMexWODirectoryFetchCompanyNameVariables = {
+    readonly lid?: string
+}
+
 export type WaMexWaffleFXServiceDataQueryV2Variables = Readonly<Record<string, never>>
 
 export type WaMexWaffleFXWAMOUpdateUOOMVariables = Readonly<Record<string, never>>
 
 export type WaMexWaffleXEVariables = {
     readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexWhatsAppMarketingCampaignCustomerListPickerListsVariables = {
+    readonly wabaId?: string
+}
+
+export type WaMexfetchWebsiteMediaImageURLsVariables = {
+    readonly adAccountId?: string
+    readonly caller?: unknown
+    readonly url?: string
+}
+
+export type WaMexnavigateToProductInsightsWithDefaultTabVariables = {
+    readonly ad_account_id?: string
+}
+
+export type WaMexuseFetchAdAccountsForL4ContextVariables = {
+    readonly customAnalyticsBusinessID?: string
+    readonly isCustomAnalyticsPage?: boolean
+    readonly skip?: boolean
+    readonly skipLwiDefaultAdAccount?: boolean
+}
+
+export type WaMexuseFetchAdAccountsNameByIdVariables = {
+    readonly adAccountID?: string
+    readonly skip?: boolean
 }
 
 export type WaMexuseFlowJSONValidationLibraryVariables = {
@@ -1867,18 +2299,13 @@ export type WaMexuseIsMessengerPlatformBotVariables = {
     readonly page_id?: string
 }
 
-export type WaMexuseMAIBADraftStatusVariables = {
-    readonly campaignGroupId?: string
-    readonly id?: string
+export type WaMexuseMAIBAAsyncNotificationVariables = {
+    readonly external_conversation_id?: string
 }
 
 export type WaMexuseMAIBAMediaVariables = {
     readonly adObjectIDs?: ReadonlyArray<string>
     readonly thumbnailSize?: number
-}
-
-export type WaMexuseMAIBAWidgetStateVariables = {
-    readonly input?: Readonly<Record<string, unknown>>
 }
 
 export type WaMexuseWAWebEstimatedDailyReachVariables = {
@@ -1915,14 +2342,19 @@ export type WaMexuseWAWebSmartComposerReportUsedVariables = {
 export interface WaMexOperationVariables {
     readonly ACSServerProviderConfig: WaMexACSServerProviderConfigVariables
     readonly ACSServerProviderIssuance: WaMexACSServerProviderIssuanceVariables
+    readonly AECompanionOffboard: WaMexAECompanionOffboardVariables
+    readonly AECompanionOnboard: WaMexAECompanionOnboardVariables
     readonly AcceptNewsletterAdminInvite: WaMexAcceptNewsletterAdminInviteVariables
     readonly AccountLinkingAPIGetCerts: WaMexAccountLinkingAPIGetCertsVariables
-    readonly AdAccountReviewBaseCard: WaMexAdAccountReviewBaseCardVariables
-    readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusVariables
+    readonly AdAccountDpaEligibleProductCatalogListStoreSource: WaMexAdAccountDpaEligibleProductCatalogListStoreSourceVariables
     readonly AdPreferencesDFCABusinessOptOut: WaMexAdPreferencesDFCABusinessOptOutVariables
     readonly AdPreferencesDemographicCategoryOptOut: WaMexAdPreferencesDemographicCategoryOptOutVariables
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserVariables
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutVariables
+    readonly AddLabyrinthPeerDevice: WaMexAddLabyrinthPeerDeviceVariables
+    readonly AdsAccountDataDispatcher: WaMexAdsAccountDataDispatcherVariables
+    readonly AdsAccountDataDispatcherViewerPermissions: WaMexAdsAccountDataDispatcherViewerPermissionsVariables
+    readonly AdsAccountStoreNewSourceServer: WaMexAdsAccountStoreNewSourceServerVariables
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexAdsAdAccountSettingsStoreSetL1AESourceStickyStatusVariables
     readonly AdsAdAccountSettingsStoreSetMultiMediaStickyStatus: WaMexAdsAdAccountSettingsStoreSetMultiMediaStickyStatusVariables
@@ -1931,16 +2363,23 @@ export interface WaMexOperationVariables {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerVariables
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeVariables
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables
+    readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPVariables
+    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerVariables
+    readonly AdsFocusFrameworkStickinessDataManager: WaMexAdsFocusFrameworkStickinessDataManagerVariables
+    readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexAdsInstagramAccountMediaListRIStoreSourceServerVariables
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignVariables
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
+    readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureVariables
+    readonly AdsSmartDefaultStoreSourceServer: WaMexAdsSmartDefaultStoreSourceServerVariables
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables
+    readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexAdsUEditorAdgroupMessageDestinationPageCategoryVariables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Variables
+    readonly AdvertiserProfileMessageMarketingDataStoreLoader: WaMexAdvertiserProfileMessageMarketingDataStoreLoaderVariables
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlVariables
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyVariables
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesVariables
     readonly BizCreateOrder: WaMexBizCreateOrderVariables
-    readonly BizCustomUrlGetUserGraphql: WaMexBizCustomUrlGetUserGraphqlVariables
     readonly BizGetCategories: WaMexBizGetCategoriesVariables
     readonly BizGetCategoriesV2: WaMexBizGetCategoriesV2Variables
     readonly BizGetCustomUrlUserGraphql: WaMexBizGetCustomUrlUserGraphqlVariables
@@ -1952,6 +2391,8 @@ export interface WaMexOperationVariables {
     readonly BizProfileRoot: WaMexBizProfileRootVariables
     readonly BizQueryOrder: WaMexBizQueryOrderVariables
     readonly BizSetMerchantCompliance: WaMexBizSetMerchantComplianceVariables
+    readonly BrResolvePaymentAccountLink: WaMexBrResolvePaymentAccountLinkVariables
+    readonly CTXChatBuilderDialogContainerUtils: WaMexCTXChatBuilderDialogContainerUtilsVariables
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalVariables
     readonly CachedToken: WaMexCachedTokenVariables
     readonly CanonicalUserValid: WaMexCanonicalUserValidVariables
@@ -1975,6 +2416,9 @@ export interface WaMexOperationVariables {
     readonly CreateReportAppeal: WaMexCreateReportAppealVariables
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityVariables
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventVariables
+    readonly CustomerManagerAccessState: WaMexCustomerManagerAccessStateVariables
+    readonly CustomerManagerCustomerProfileCustomFieldCreate: WaMexCustomerManagerCustomerProfileCustomFieldCreateVariables
+    readonly CustomerManagerStartTrial: WaMexCustomerManagerStartTrialVariables
     readonly DebugLabyrinthAddDevice: WaMexDebugLabyrinthAddDeviceVariables
     readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexDebugLabyrinthFetchVirtualDeviceInfoVariables
     readonly DebugLabyrinthInboxSnapshot: WaMexDebugLabyrinthInboxSnapshotVariables
@@ -1982,20 +2426,11 @@ export interface WaMexOperationVariables {
     readonly DebugLabyrinthRestorePage: WaMexDebugLabyrinthRestorePageVariables
     readonly DeleteNewsletter: WaMexDeleteNewsletterVariables
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminVariables
-    readonly E2EEMetadataMailboxAddGroupParticipants: WaMexE2EEMetadataMailboxAddGroupParticipantsVariables
-    readonly E2EEMetadataMailboxCreateGroupThread: WaMexE2EEMetadataMailboxCreateGroupThreadVariables
-    readonly E2EEMetadataMailboxDemoteGroupParticipants: WaMexE2EEMetadataMailboxDemoteGroupParticipantsVariables
     readonly E2EEMetadataMailboxFetchGroupInfoV4: WaMexE2EEMetadataMailboxFetchGroupInfoV4Variables
-    readonly E2EEMetadataMailboxLeaveGroup: WaMexE2EEMetadataMailboxLeaveGroupVariables
-    readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsVariables
-    readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsVariables
-    readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectVariables
-    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryVariables
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsVariables
     readonly EditBizProfile: WaMexEditBizProfileVariables
     readonly EmailInviteSendGroup: WaMexEmailInviteSendGroupVariables
     readonly ExternalCtxAuthoriseWAChat: WaMexExternalCtxAuthoriseWAChatVariables
-    readonly FetchAboutStatus: WaMexFetchAboutStatusVariables
     readonly FetchAllNewslettersMetadata: WaMexFetchAllNewslettersMetadataVariables
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsVariables
     readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListVariables
@@ -2007,9 +2442,18 @@ export interface WaMexOperationVariables {
     readonly FetchGroupInfoIncludBotsJobAcp2: WaMexFetchGroupInfoIncludBotsJobAcp2Variables
     readonly FetchGroupInfoJobAcp2: WaMexFetchGroupInfoJobAcp2Variables
     readonly FetchGroupInviteCode: WaMexFetchGroupInviteCodeVariables
+    readonly FetchGroupInviteInfo: WaMexFetchGroupInviteInfoVariables
+    readonly FetchGroupInviteInfoJobAddRequest: WaMexFetchGroupInviteInfoJobAddRequestVariables
     readonly FetchGroupIsInternal: WaMexFetchGroupIsInternalVariables
+    readonly FetchGroupMembershipFormForJoinJobAddRequest: WaMexFetchGroupMembershipFormForJoinJobAddRequestVariables
+    readonly FetchGroupMembershipFormForJoinJobInvite: WaMexFetchGroupMembershipFormForJoinJobInviteVariables
+    readonly FetchGroupMembershipFormForJoinJobLinked: WaMexFetchGroupMembershipFormForJoinJobLinkedVariables
     readonly FetchIntegritySignals: WaMexFetchIntegritySignalsVariables
+    readonly FetchLabyrinthEpochChain: WaMexFetchLabyrinthEpochChainVariables
     readonly FetchLabyrinthEpochDevices: WaMexFetchLabyrinthEpochDevicesVariables
+    readonly FetchLinkedGroupInfo: WaMexFetchLinkedGroupInfoVariables
+    readonly FetchMembershipApprovalRequests: WaMexFetchMembershipApprovalRequestsVariables
+    readonly FetchMetaOnePromoEligibility: WaMexFetchMetaOnePromoEligibilityVariables
     readonly FetchNewChatMessageCappingInfo: WaMexFetchNewChatMessageCappingInfoVariables
     readonly FetchNewsletter: WaMexFetchNewsletterVariables
     readonly FetchNewsletterAdminCapabilities: WaMexFetchNewsletterAdminCapabilitiesVariables
@@ -2028,6 +2472,7 @@ export interface WaMexOperationVariables {
     readonly FetchNewsletterReports: WaMexFetchNewsletterReportsVariables
     readonly FetchOHAIKeyConfig: WaMexFetchOHAIKeyConfigVariables
     readonly FetchOIDCState: WaMexFetchOIDCStateVariables
+    readonly FetchPhoneNumberSharingSettings: WaMexFetchPhoneNumberSharingSettingsVariables
     readonly FetchPlaintextLinkPreview: WaMexFetchPlaintextLinkPreviewVariables
     readonly FetchQuickPromotions: WaMexFetchQuickPromotionsVariables
     readonly FetchReachoutTimelock: WaMexFetchReachoutTimelockVariables
@@ -2051,22 +2496,25 @@ export interface WaMexOperationVariables {
     readonly GetWoasAgeSignal: WaMexGetWoasAgeSignalVariables
     readonly GraphQLProductCatalogGetPublicKey: WaMexGraphQLProductCatalogGetPublicKeyVariables
     readonly GraphQLVerifyPostcode: WaMexGraphQLVerifyPostcodeVariables
+    readonly GroupJoin: WaMexGroupJoinVariables
     readonly GroupStoreAndSendInviteSms: WaMexGroupStoreAndSendInviteSmsVariables
     readonly GroupStoreInviteSms: WaMexGroupStoreInviteSmsVariables
     readonly GroupSuspensionAppeal: WaMexGroupSuspensionAppealVariables
     readonly IntegrityChallengeResponse: WaMexIntegrityChallengeResponseVariables
+    readonly InternalDirectoryFetchMembers: WaMexInternalDirectoryFetchMembersVariables
     readonly JoinNewsletter: WaMexJoinNewsletterVariables
     readonly KeyTransparencyGraphQLClient_: WaMexKeyTransparencyGraphQLClient_Variables
     readonly LeaveNewsletter: WaMexLeaveNewsletterVariables
     readonly LidChangeNotification: WaMexLidChangeNotificationVariables
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresVariables
     readonly LogServerSentInviteIntent: WaMexLogServerSentInviteIntentVariables
-    readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexMAIBAInlineAssetSelectorWidgetAssetIDsVariables
-    readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexMAIBAInlineAssetSelectorWidgetAssetsVariables
-    readonly MAIBAMessageCreatorCardsRenderer: WaMexMAIBAMessageCreatorCardsRendererVariables
-    readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererVariables
-    readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexMAIBAMessageSignalsCTARendererEnableAutomaticEventsVariables
-    readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentVariables
+    readonly MAIBAAdObjectReference_StoryMetadata: WaMexMAIBAAdObjectReference_StoryMetadataVariables
+    readonly MAIBAChatThread: WaMexMAIBAChatThreadVariables
+    readonly MAIBAGraphQLSendMessageV2Query: WaMexMAIBAGraphQLSendMessageV2QueryVariables
+    readonly MAIBAGraphQLSendMessageV3Query: WaMexMAIBAGraphQLSendMessageV3QueryVariables
+    readonly MAIBAGraphQLSendMessageV4Query: WaMexMAIBAGraphQLSendMessageV4QueryVariables
+    readonly MAIBAPageReference: WaMexMAIBAPageReferenceVariables
+    readonly MAIBAUpdateAdsAIConsent: WaMexMAIBAUpdateAdsAIConsentVariables
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeVariables
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteVariables
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllVariables
@@ -2081,18 +2529,24 @@ export interface WaMexOperationVariables {
     readonly OrgAdminGraphQLAddChannel: WaMexOrgAdminGraphQLAddChannelVariables
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupVariables
     readonly OrgAdminGraphQLAdminRoster: WaMexOrgAdminGraphQLAdminRosterVariables
+    readonly OrgAdminGraphQLApplyAdminRosterChanges: WaMexOrgAdminGraphQLApplyAdminRosterChangesVariables
     readonly OrgAdminGraphQLDirectoryPage: WaMexOrgAdminGraphQLDirectoryPageVariables
+    readonly OrgAdminGraphQLEventRsvpCounts: WaMexOrgAdminGraphQLEventRsvpCountsVariables
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupVariables
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersVariables
+    readonly OrgAdminGraphQLLeave: WaMexOrgAdminGraphQLLeaveVariables
+    readonly OrgAdminGraphQLManagedChannelAdmins: WaMexOrgAdminGraphQLManagedChannelAdminsVariables
     readonly OrgAdminGraphQLManagedChannels: WaMexOrgAdminGraphQLManagedChannelsVariables
+    readonly OrgAdminGraphQLManagedEvents: WaMexOrgAdminGraphQLManagedEventsVariables
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsVariables
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchVariables
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsVariables
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberVariables
-    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterVariables
+    readonly OrgAdminGraphQLSendManagedGroupEmailInvites: WaMexOrgAdminGraphQLSendManagedGroupEmailInvitesVariables
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleVariables
     readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexOrgAdminGraphQLSubmitBulkGroupRequestVariables
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgVariables
+    readonly OrgMemberUpdateNotificationHandler: WaMexOrgMemberUpdateNotificationHandlerVariables
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialVariables
     readonly QueryCatalog: WaMexQueryCatalogVariables
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesVariables
@@ -2109,15 +2563,33 @@ export interface WaMexOperationVariables {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexResolveAccountTypeAndAdPageQueryVariables
     readonly RevokeNewsletterAdminInvite: WaMexRevokeNewsletterAdminInviteVariables
     readonly RotateLabyrinthEpoch: WaMexRotateLabyrinthEpochVariables
+    readonly SaveResponseTonePreference: WaMexSaveResponseTonePreferenceVariables
     readonly SetUsername: WaMexSetUsernameVariables
     readonly SetUsernameKey: WaMexSetUsernameKeyVariables
+    readonly SharableEventAddInvitations: WaMexSharableEventAddInvitationsVariables
+    readonly SharableEventCreate: WaMexSharableEventCreateVariables
+    readonly SharableEventDelete: WaMexSharableEventDeleteVariables
+    readonly SharableEventGet: WaMexSharableEventGetVariables
+    readonly SharableEventGuestJoinedWaNotifications: WaMexSharableEventGuestJoinedWaNotificationsVariables
+    readonly SharableEventJoinViaLink: WaMexSharableEventJoinViaLinkVariables
+    readonly SharableEventLinkPreview: WaMexSharableEventLinkPreviewVariables
+    readonly SharableEventList: WaMexSharableEventListVariables
+    readonly SharableEventPlaceSearch: WaMexSharableEventPlaceSearchVariables
+    readonly SharableEventPresetCovers: WaMexSharableEventPresetCoversVariables
+    readonly SharableEventReconcile: WaMexSharableEventReconcileVariables
+    readonly SharableEventRemoveInvitations: WaMexSharableEventRemoveInvitationsVariables
+    readonly SharableEventUpdate: WaMexSharableEventUpdateVariables
+    readonly SharableEventUpdateRsvp: WaMexSharableEventUpdateRsvpVariables
     readonly SignupMetadata: WaMexSignupMetadataVariables
+    readonly SkipStoppedMessages: WaMexSkipStoppedMessagesVariables
     readonly StartConversationTemplateReengagementWithCatalogSection: WaMexStartConversationTemplateReengagementWithCatalogSectionVariables
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegenerationVariables
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlowsVariables
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexStartConversationsTemplateFAQGenAIRegenerationVariables
     readonly SubscriptionWaffleAgeCheck: WaMexSubscriptionWaffleAgeCheckVariables
+    readonly SupportBugReportCreateDogfoodingTask: WaMexSupportBugReportCreateDogfoodingTaskVariables
     readonly SupportBugReportSubmit: WaMexSupportBugReportSubmitVariables
+    readonly SupportChatAuthRefresh: WaMexSupportChatAuthRefreshVariables
     readonly SupportContactFormSubmit: WaMexSupportContactFormSubmitVariables
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitVariables
     readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationVariables
@@ -2136,14 +2608,19 @@ export interface WaMexOperationVariables {
     readonly WAAOnboarding: WaMexWAAOnboardingVariables
     readonly WAMFlowsCTWAEditorModal: WaMexWAMFlowsCTWAEditorModalVariables
     readonly WAMFlowsCTWAFlowPreview: WaMexWAMFlowsCTWAFlowPreviewVariables
+    readonly WODirectoryFetchCompanyName: WaMexWODirectoryFetchCompanyNameVariables
     readonly WaffleFXServiceDataQueryV2: WaMexWaffleFXServiceDataQueryV2Variables
     readonly WaffleFXWAMOUpdateUOOM: WaMexWaffleFXWAMOUpdateUOOMVariables
     readonly WaffleXE: WaMexWaffleXEVariables
+    readonly WhatsAppMarketingCampaignCustomerListPickerLists: WaMexWhatsAppMarketingCampaignCustomerListPickerListsVariables
+    readonly fetchWebsiteMediaImageURLs: WaMexfetchWebsiteMediaImageURLsVariables
+    readonly navigateToProductInsightsWithDefaultTab: WaMexnavigateToProductInsightsWithDefaultTabVariables
+    readonly useFetchAdAccountsForL4Context: WaMexuseFetchAdAccountsForL4ContextVariables
+    readonly useFetchAdAccountsNameById: WaMexuseFetchAdAccountsNameByIdVariables
     readonly useFlowJSONValidationLibrary: WaMexuseFlowJSONValidationLibraryVariables
     readonly useIsMessengerPlatformBot: WaMexuseIsMessengerPlatformBotVariables
-    readonly useMAIBADraftStatus: WaMexuseMAIBADraftStatusVariables
+    readonly useMAIBAAsyncNotification: WaMexuseMAIBAAsyncNotificationVariables
     readonly useMAIBAMedia: WaMexuseMAIBAMediaVariables
-    readonly useMAIBAWidgetState: WaMexuseMAIBAWidgetStateVariables
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachVariables
     readonly useWAWebEstimatedDailyReachShadow: WaMexuseWAWebEstimatedDailyReachShadowVariables
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyVariables
@@ -2154,7 +2631,7 @@ export interface WaMexOperationVariables {
 export type WaMexACSServerProviderConfigResponse = {
     readonly xwa_wa_acs_config?: {
         readonly cipher_suite?: string
-        readonly expire_time?: string
+        readonly expire_time?: number
         readonly id?: string
         readonly max_evals?: number
         readonly public_key?: string
@@ -2175,6 +2652,18 @@ export type WaMexACSServerProviderIssuanceResponse = {
             }>
         }
         readonly error_message?: string
+        readonly success?: boolean
+    }
+}
+
+export type WaMexAECompanionOffboardResponse = {
+    readonly xfb_whatsapp_coexistence_offboard_product?: {
+        readonly success?: boolean
+    }
+}
+
+export type WaMexAECompanionOnboardResponse = {
+    readonly xfb_whatsapp_coexistence_process_native_onboarding?: {
         readonly success?: boolean
     }
 }
@@ -2201,21 +2690,12 @@ export type WaMexAccountLinkingAPIGetCertsResponse = {
     }
 }
 
-export type WaMexAdAccountReviewBaseCardResponse = {
-    readonly maiba_ad_account?: {
-        readonly account_dsl?: {
-            readonly formatted_amount?: number
-        }
-        readonly account_status?: 'ACTIVE'
-        readonly dsl_eligibility_status?: string
-        readonly name?: string
-    }
-}
-
-export type WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusResponse = {
-    readonly xfb_maiba_account_status_review?: {
+export type WaMexAdAccountDpaEligibleProductCatalogListStoreSourceResponse = {
+    readonly ad_account?: {
+        readonly dpa_eligible_product_catalogs?: ReadonlyArray<{
+            readonly id?: string
+        }>
         readonly id?: string
-        readonly review_status?: string
     }
 }
 
@@ -2247,6 +2727,41 @@ export type WaMexAdPreferencesHideAdvertiserResponse = {
 export type WaMexAdPreferencesInterestCategoryOptOutResponse = {
     readonly tc_remove_user_interest?: {
         readonly __typename?: string
+        readonly id?: string
+    }
+}
+
+export type WaMexAddLabyrinthPeerDeviceResponse = {
+    readonly wa_labyrinth_add_peer_device?: {
+        readonly __typename?: string
+        readonly backup_id?: string
+        readonly device_id?: string
+        readonly error_code?: string
+        readonly message?: string
+    }
+}
+
+export type WaMexAdsAccountDataDispatcherResponse = {
+    readonly ad_account?: {
+        readonly id?: string
+        readonly legacy_account_id?: string
+    }
+}
+
+export type WaMexAdsAccountDataDispatcherViewerPermissionsResponse = {
+    readonly xfb_andromeda_XAdsAccountViewerPermissionsGetController?: {
+        readonly permissions?: unknown
+    }
+}
+
+export type WaMexAdsAccountStoreNewSourceServerResponse = {
+    readonly ad_account?: {
+        readonly id?: string
+    }
+    readonly ad_account_ref?: {
+        readonly ad_account?: {
+            readonly id?: string
+        }
         readonly id?: string
     }
 }
@@ -2367,6 +2882,64 @@ export type WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response = {
     }
 }
 
+export type WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPResponse = {
+    readonly nodes?: ReadonlyArray<{
+        readonly __typename?: string
+        readonly bsp_partner_business?: {
+            readonly id?: string
+            readonly name?: string
+            readonly profile_picture_url?: string
+        }
+        readonly id?: string
+    }>
+}
+
+export type WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerResponse = {
+    readonly page?: {
+        readonly ctwa_business_account_daisy_chain_from_ig?: {
+            readonly id?: string
+            readonly phone_number_status?: {
+                readonly country_code?: string
+                readonly formatted_phone_number?: string
+                readonly id?: string
+                readonly national_phone_number?: string
+            }
+        }
+        readonly id?: string
+    }
+}
+
+export type WaMexAdsFocusFrameworkStickinessDataManagerResponse = {
+    readonly xfb_andromeda_XAdsFocusFrameworkStickyFieldsController?: {
+        readonly sticky_fields?: ReadonlyArray<string>
+    }
+}
+
+export type WaMexAdsInstagramAccountMediaListRIStoreSourceServerResponse = {
+    readonly fetch__InstagramUserV2?: {
+        readonly id?: string
+        readonly instagram_media_v2?: {
+            readonly nodes?: ReadonlyArray<{
+                readonly creation_time?: string
+                readonly id?: string
+                readonly instagram_media_type?: string
+                readonly is_sub_media?: boolean
+                readonly media_url?: string
+                readonly media_v1_id?: string
+                readonly thumbnail_url?: string
+                readonly video_metadata?: {
+                    readonly duration?: number
+                    readonly height?: number
+                    readonly width?: number
+                }
+            }>
+            readonly page_info?: {
+                readonly end_cursor?: string
+            }
+        }
+    }
+}
+
 export type WaMexAdsManagerLiveDataCampaignResponse = {
     readonly nodes?: ReadonlyArray<{
         readonly __typename?: string
@@ -2384,6 +2957,57 @@ export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse 
                 }>
             }
         }
+    }
+}
+
+export type WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureResponse = {
+    readonly log_plr_entry_point_exposure?: {
+        readonly success?: boolean
+    }
+}
+
+export type WaMexAdsSmartDefaultStoreSourceServerResponse = {
+    readonly xfb_andromeda_XAdsSmartDefaultControllerUpdated?: {
+        readonly ad_account_id?: string
+        readonly attribution_model_default?: unknown
+        readonly conversions?: ReadonlyArray<{
+            readonly conversion_location?: string
+            readonly default_commerce_product_set_id?: string
+            readonly default_page_id?: string
+            readonly source?: string
+        }>
+        readonly engagement?: ReadonlyArray<{
+            readonly conversion_location?: string
+            readonly default_commerce_product_set_id?: string
+            readonly default_page_id?: string
+            readonly source?: string
+        }>
+        readonly last_used_buying_type?: string
+        readonly last_used_objective?: unknown
+        readonly lead_gen?: ReadonlyArray<{
+            readonly conversion_location?: string
+            readonly default_commerce_product_set_id?: string
+            readonly default_page_id?: string
+            readonly source?: string
+        }>
+        readonly leads?: ReadonlyArray<{
+            readonly conversion_location?: string
+            readonly default_commerce_product_set_id?: string
+            readonly default_page_id?: string
+            readonly source?: string
+        }>
+        readonly sales?: ReadonlyArray<{
+            readonly conversion_location?: string
+            readonly default_commerce_product_set_id?: string
+            readonly default_page_id?: string
+            readonly source?: string
+        }>
+        readonly traffic?: ReadonlyArray<{
+            readonly conversion_location?: string
+            readonly default_commerce_product_set_id?: string
+            readonly default_page_id?: string
+            readonly source?: string
+        }>
     }
 }
 
@@ -2480,6 +3104,13 @@ export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response = {
     }
 }
 
+export type WaMexAdsUEditorAdgroupMessageDestinationPageCategoryResponse = {
+    readonly local_page?: {
+        readonly category_name?: string
+        readonly id?: string
+    }
+}
+
 export type WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse = {
     readonly xfb_ctwa_flows_waba_for_ad_account?: {
         readonly waba_id?: string
@@ -2496,6 +3127,53 @@ export type WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Respons
         readonly __typename?: string
         readonly id?: string
         readonly is_verified?: boolean
+    }
+}
+
+export type WaMexAdvertiserProfileMessageMarketingDataStoreLoaderResponse = {
+    readonly ad_account?: {
+        readonly id?: string
+        readonly marketing_messages_account_settings?: {
+            readonly dfca_automatic_upload_consent_status?: string
+            readonly has_created_whatsapp_liquidity_campaign?: boolean
+            readonly id?: string
+            readonly messenger_activation_status?: string
+            readonly messenger_subscriber_pool?: {
+                readonly dfca_automatic_upload_consent_status?: string
+                readonly id?: string
+                readonly is_custom_audience_populating?: boolean
+                readonly name?: string
+                readonly subscriber_pool_audience_size?: {
+                    readonly upper_bound?: number
+                }
+            }
+            readonly whatsapp_activation_status?: string
+            readonly whatsapp_phone_number_current_status?: {
+                readonly id?: string
+                readonly status?: string
+            }
+            readonly whatsapp_subscriber_pool?: {
+                readonly id?: string
+                readonly is_agency_subscriber_upload_enabled?: boolean
+                readonly name?: string
+                readonly owning_business?: {
+                    readonly id?: string
+                }
+                readonly viewer_permissions?: {
+                    readonly can_update_automations?: boolean
+                    readonly can_upload_to_pool?: boolean
+                }
+            }
+        }
+        readonly mm_advertiser_profile_editable_attributes?: ReadonlyArray<{
+            readonly __typename?: string
+            readonly id?: string
+            readonly value?: {
+                readonly __typename?: string
+                readonly as_boolean?: boolean
+                readonly as_string?: string
+            }
+        }>
     }
 }
 
@@ -2535,15 +3213,6 @@ export type WaMexBizCreateOrderResponse = {
             }
             readonly token?: string
         }
-    }
-}
-
-export type WaMexBizCustomUrlGetUserGraphqlResponse = {
-    readonly xwa_custom_url_get_user?: {
-        readonly error_code?: number
-        readonly error_text?: string
-        readonly lid?: string
-        readonly success?: boolean
     }
 }
 
@@ -2846,6 +3515,25 @@ export type WaMexBizSetMerchantComplianceResponse = {
     }
 }
 
+export type WaMexBrResolvePaymentAccountLinkResponse = {
+    readonly xwa_resolve_payment_account_link?: {
+        readonly business_jid?: string
+        readonly payment_account?: {
+            readonly account_type?: 'PIX'
+            readonly holder_name?: string
+            readonly identifier_type?: string
+            readonly identifier_value?: unknown
+        }
+        readonly verified_name?: string
+    }
+}
+
+export type WaMexCTXChatBuilderDialogContainerUtilsResponse = {
+    readonly welcome_message_flows?: {
+        readonly has_welcome_message_flows?: boolean
+    }
+}
+
 export type WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalResponse = {
     readonly xfb_wa_flows_hsm_save_flow?: {
         readonly id?: string
@@ -2904,7 +3592,7 @@ export type WaMexCoexCanonicalStateResponse = {
         readonly product_states?: {
             readonly states?: ReadonlyArray<{
                 readonly coex_connection_descriptor?: {
-                    readonly product?: unknown
+                    readonly product?: string
                     readonly provider_id?: string
                 }
                 readonly onboarding_status?: string
@@ -3093,10 +3781,12 @@ export type WaMexContactManagerCustomerProfileResponse = {
         readonly acquisition_date?: string
         readonly acquisition_source?: string
         readonly address?: string
+        readonly ai_summary?: string
+        readonly confirmed_appointment_date?: string
         readonly dob?: unknown
         readonly email?: string
         readonly etag?: string
-        readonly last_order_date?: string
+        readonly last_order?: string
         readonly last_updates?: ReadonlyArray<{
             readonly field_name?: string
             readonly source?: boolean
@@ -3117,10 +3807,10 @@ export type WaMexContactManagerCustomerProfileDeleteResponse = {
 export type WaMexContactManagerCustomerProfileUpsertResponse = {
     readonly xfb_wa_upsert_customer_profiles?: {
         readonly conflicts?: ReadonlyArray<{
-            readonly lid?: string
+            readonly lid_jid?: string
         }>
         readonly profiles?: ReadonlyArray<{
-            readonly lid?: string
+            readonly lid_jid?: string
         }>
         readonly unresolved_lids?: ReadonlyArray<string>
     }
@@ -3128,14 +3818,14 @@ export type WaMexContactManagerCustomerProfileUpsertResponse = {
 
 export type WaMexContactManagerCustomerProfilesResponse = {
     readonly xfb_wa_customer_profiles?: {
-        readonly cursor?: string
+        readonly cursor?: boolean
         readonly profiles?: ReadonlyArray<{
             readonly acquisition_source?: string
             readonly address?: string
             readonly custom_field_values?: ReadonlyArray<{
                 readonly custom_field_definition?: {
                     readonly currency?: string
-                    readonly currency_decimal_places?: unknown
+                    readonly currency_decimal_places?: number
                     readonly enum_option_keys?: ReadonlyArray<string>
                     readonly enum_values?: ReadonlyArray<string>
                     readonly field_type?: string
@@ -3151,12 +3841,12 @@ export type WaMexContactManagerCustomerProfilesResponse = {
             }>
             readonly dob?: unknown
             readonly email?: string
-            readonly last_order_date?: string
+            readonly last_order?: string
             readonly last_updates?: ReadonlyArray<{
                 readonly ts?: unknown
             }>
             readonly lead_stage?: string
-            readonly lid?: string
+            readonly lid_jid?: string
             readonly name?: string
         }>
     }
@@ -3299,6 +3989,36 @@ export type WaMexCustomLabel3pdEventResponse = {
         readonly ctwa_3pd_conversion_type?: string
         readonly custom_label?: string
     }>
+}
+
+export type WaMexCustomerManagerAccessStateResponse = {
+    readonly xfb_wa_contact_manager_access_state?: {
+        readonly state?: 'TRIAL_ACTIVE'
+        readonly trial_end_time?: string
+    }
+}
+
+export type WaMexCustomerManagerCustomerProfileCustomFieldCreateResponse = {
+    readonly xfb_wa_create_customer_profile_custom_field?: {
+        readonly wa_customer_profile_custom_field?: {
+            readonly currency?: string
+            readonly currency_decimal_places?: number
+            readonly enum_option_keys?: ReadonlyArray<string>
+            readonly enum_values?: ReadonlyArray<string>
+            readonly field_type?: string
+            readonly id?: string
+            readonly name?: string
+        }
+    }
+}
+
+export type WaMexCustomerManagerStartTrialResponse = {
+    readonly xfb_wa_start_contact_manager_trial?: {
+        readonly access_state?: {
+            readonly state?: 'TRIAL_ACTIVE'
+            readonly trial_end_time?: string
+        }
+    }
 }
 
 export type WaMexDebugLabyrinthAddDeviceResponse = {
@@ -3470,33 +4190,6 @@ export type WaMexDemoteNewsletterAdminResponse = {
     }
 }
 
-export type WaMexE2EEMetadataMailboxAddGroupParticipantsResponse = {
-    readonly xfb_e2ee_metadata_mailbox_add_group_participants?: {
-        readonly is_dma_interop?: boolean
-    }
-}
-
-export type WaMexE2EEMetadataMailboxCreateGroupThreadResponse = {
-    readonly xfb_create_group_thread_through_mi?: {
-        readonly exception_error_code?: unknown
-        readonly gid?: unknown
-        readonly participants?: ReadonlyArray<{
-            readonly contact_id?: string
-            readonly is_addressable?: boolean
-            readonly status?: string
-            readonly type?: 'COMMUNITY' | 'DEFAULT' | 'LINKED_ANNOUNCEMENT_GROUP' | 'LINKED_GENERAL_GROUP' | 'LINKED_SUBGROUP'
-        }>
-        readonly success?: boolean
-        readonly thread_already_exists?: unknown
-    }
-}
-
-export type WaMexE2EEMetadataMailboxDemoteGroupParticipantsResponse = {
-    readonly xfb_e2ee_metadata_mailbox_demote_group_participants?: {
-        readonly success?: boolean
-    }
-}
-
 export type WaMexE2EEMetadataMailboxFetchGroupInfoV4Response = {
     readonly xfb_fetch_group_info_from_mi_v4?: {
         readonly creation_ts_ms?: string
@@ -3531,47 +4224,6 @@ export type WaMexE2EEMetadataMailboxFetchGroupInfoV4Response = {
             readonly ttl_sec?: number
         }
         readonly transport_thread_fbid?: string
-    }
-}
-
-export type WaMexE2EEMetadataMailboxLeaveGroupResponse = {
-    readonly xfb_e2ee_metadata_mailbox_leave_group?: {
-        readonly is_dma_interop?: boolean
-    }
-}
-
-export type WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse = {
-    readonly xfb_e2ee_metadata_mailbox_promote_group_participants?: {
-        readonly success?: boolean
-    }
-}
-
-export type WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse = {
-    readonly xfb_e2ee_metadata_mailbox_remove_group_participants?: {
-        readonly success?: boolean
-    }
-}
-
-export type WaMexE2EEMetadataMailboxSetGroupSubjectResponse = {
-    readonly xfb_e2ee_metadata_mailbox_set_group_subject?: {
-        readonly success?: boolean
-    }
-}
-
-export type WaMexEBMessageMetadataQueryResponse = {
-    readonly viewer?: {
-        readonly encrypted_backup?: {
-            readonly id?: string
-            readonly mailbox?: {
-                readonly deanon_messages_metadata?: ReadonlyArray<{
-                    readonly admin_message?: string
-                    readonly is_admin_message?: boolean
-                    readonly offline_threading_id?: string
-                    readonly sender_id?: string
-                    readonly sort_order_ms?: number
-                }>
-            }
-        }
     }
 }
 
@@ -3731,6 +4383,7 @@ export type WaMexEBMessageRangeQueryForThreadsResponse = {
                     }>
                     readonly should_delete_mailbox?: boolean
                     readonly thread_not_found?: unknown
+                    readonly thread_type?: string
                 }>
             }
         }
@@ -3757,15 +4410,6 @@ export type WaMexExternalCtxAuthoriseWAChatResponse = {
         readonly partner_name?: string
         readonly success?: boolean
     }
-}
-
-export type WaMexFetchAboutStatusResponse = {
-    readonly xwa2_users_updates_since?: ReadonlyArray<{
-        readonly updates?: ReadonlyArray<{
-            readonly __typename?: string
-            readonly text?: string
-        }>
-    }>
 }
 
 export type WaMexFetchAllNewslettersMetadataResponse = {
@@ -3980,6 +4624,9 @@ export type WaMexFetchGroupInfoResponse = {
                 readonly expiration_time_in_sec?: number
             }
             readonly general_chat?: boolean
+            readonly group_custom_reactions?: {
+                readonly default_reactions?: unknown
+            }
             readonly group_safety_check?: boolean
             readonly growth_locked2?: {
                 readonly locked?: boolean
@@ -4080,6 +4727,9 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
                 readonly expiration_time_in_sec?: number
             }
             readonly general_chat?: boolean
+            readonly group_custom_reactions?: {
+                readonly default_reactions?: unknown
+            }
             readonly group_safety_check?: boolean
             readonly growth_locked2?: {
                 readonly locked?: boolean
@@ -4177,16 +4827,19 @@ export type WaMexFetchGroupInfoIncludBotsJobAcp2Response = {
             readonly capi?: boolean
             readonly closed_by_membership_approval_mode?: boolean
             readonly ephemeral?: {
-                readonly expiration_time_in_sec?: number
+                readonly expiration_time_in_sec?: boolean
             }
             readonly general_chat?: boolean
+            readonly group_custom_reactions?: {
+                readonly default_reactions?: unknown
+            }
             readonly group_safety_check?: boolean
             readonly growth_locked2?: {
                 readonly locked?: boolean
             }
             readonly hidden_group?: boolean
             readonly lid_migration_state?: {
-                readonly addressing_mode?: boolean
+                readonly addressing_mode?: 'LID'
             }
             readonly limit_sharing?: {
                 readonly limit_companion_sharing_enabled?: boolean
@@ -4276,16 +4929,19 @@ export type WaMexFetchGroupInfoJobAcp2Response = {
             readonly capi?: boolean
             readonly closed_by_membership_approval_mode?: boolean
             readonly ephemeral?: {
-                readonly expiration_time_in_sec?: number
+                readonly expiration_time_in_sec?: boolean
             }
             readonly general_chat?: boolean
+            readonly group_custom_reactions?: {
+                readonly default_reactions?: unknown
+            }
             readonly group_safety_check?: boolean
             readonly growth_locked2?: {
                 readonly locked?: boolean
             }
             readonly hidden_group?: boolean
             readonly lid_migration_state?: {
-                readonly addressing_mode?: boolean
+                readonly addressing_mode?: 'LID'
             }
             readonly limit_sharing?: {
                 readonly limit_companion_sharing_enabled?: boolean
@@ -4325,12 +4981,229 @@ export type WaMexFetchGroupInviteCodeResponse = {
     }
 }
 
+export type WaMexFetchGroupInviteInfoResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly creation_time?: string
+        readonly creator?: {
+            readonly id?: string
+            readonly pn?: string
+            readonly username_info?: {
+                readonly __typename?: string
+                readonly username?: string
+            }
+        }
+        readonly description?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly id?: string
+            readonly value?: string
+        }
+        readonly id?: string
+        readonly membership_approval_request?: boolean
+        readonly membership_approval_requests?: {
+            readonly edges?: ReadonlyArray<{
+                readonly node?: {
+                    readonly __typename?: string
+                }
+            }>
+        }
+        readonly missing_participant_identification?: boolean
+        readonly num_sub_groups?: number
+        readonly participants?: {
+            readonly edges?: ReadonlyArray<{
+                readonly join_time?: string
+                readonly node?: {
+                    readonly display_name?: string
+                    readonly id?: string
+                    readonly lid?: string
+                    readonly pn?: string
+                    readonly username_info?: {
+                        readonly __typename?: string
+                        readonly username?: string
+                    }
+                }
+                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+            }>
+        }
+        readonly properties?: {
+            readonly capi?: boolean
+            readonly closed_by_membership_approval_mode?: boolean
+            readonly ephemeral?: {
+                readonly expiration_time_in_sec?: number
+            }
+            readonly general_chat?: boolean
+            readonly lid_migration_state?: {
+                readonly addressing_mode?: string
+            }
+            readonly membership_approval_mode_enabled?: boolean
+            readonly parent_group_jid?: string
+            readonly parent_group_subject?: {
+                readonly value?: string
+            }
+        }
+        readonly subject?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly pn?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly value?: string
+        }
+        readonly total_participants_count?: number
+    }
+}
+
+export type WaMexFetchGroupInviteInfoJobAddRequestResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly creation_time?: string
+        readonly creator?: {
+            readonly id?: string
+            readonly pn?: string
+            readonly username_info?: {
+                readonly __typename?: string
+                readonly username?: string
+            }
+        }
+        readonly description?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly id?: string
+            readonly value?: string
+        }
+        readonly id?: string
+        readonly membership_approval_request?: boolean
+        readonly membership_approval_requests?: {
+            readonly edges?: ReadonlyArray<{
+                readonly node?: {
+                    readonly __typename?: string
+                }
+            }>
+        }
+        readonly missing_participant_identification?: boolean
+        readonly num_sub_groups?: number
+        readonly participants?: {
+            readonly edges?: ReadonlyArray<{
+                readonly join_time?: string
+                readonly node?: {
+                    readonly display_name?: string
+                    readonly id?: string
+                    readonly lid?: string
+                    readonly pn?: string
+                    readonly username_info?: {
+                        readonly __typename?: string
+                        readonly username?: string
+                    }
+                }
+                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+            }>
+        }
+        readonly properties?: {
+            readonly capi?: boolean
+            readonly closed_by_membership_approval_mode?: boolean
+            readonly ephemeral?: {
+                readonly expiration_time_in_sec?: number
+            }
+            readonly general_chat?: boolean
+            readonly lid_migration_state?: {
+                readonly addressing_mode?: string
+            }
+            readonly membership_approval_mode_enabled?: boolean
+            readonly parent_group_jid?: string
+            readonly parent_group_subject?: {
+                readonly value?: string
+            }
+        }
+        readonly subject?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly pn?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly value?: string
+        }
+        readonly total_participants_count?: number
+    }
+}
+
 export type WaMexFetchGroupIsInternalResponse = {
     readonly xwa2_group_query_by_id?: {
         readonly __typename?: string
         readonly id?: string
         readonly properties?: {
             readonly internal?: boolean
+        }
+    }
+}
+
+export type WaMexFetchGroupMembershipFormForJoinJobAddRequestResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly membership_form_key?: {
+            readonly key_id?: string
+            readonly public_key_payload?: unknown
+        }
+        readonly properties?: {
+            readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
+        }
+    }
+}
+
+export type WaMexFetchGroupMembershipFormForJoinJobInviteResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly membership_form_key?: {
+            readonly key_id?: string
+            readonly public_key_payload?: unknown
+        }
+        readonly properties?: {
+            readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
+        }
+    }
+}
+
+export type WaMexFetchGroupMembershipFormForJoinJobLinkedResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly membership_form_key?: {
+            readonly key_id?: string
+            readonly public_key_payload?: unknown
+        }
+        readonly properties?: {
+            readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
         }
     }
 }
@@ -4343,8 +5216,19 @@ export type WaMexFetchIntegritySignalsResponse = {
             readonly __typename?: string
             readonly is_new_account?: boolean
             readonly is_suspicious_start_chat?: boolean
+            readonly join_date_ms?: number
         }
     }>
+}
+
+export type WaMexFetchLabyrinthEpochChainResponse = {
+    readonly wa_labyrinth_fetch_epoch_chain?: {
+        readonly __typename?: string
+        readonly active_epoch_id?: string
+        readonly backup_id?: string
+        readonly error_code?: string
+        readonly message?: string
+    }
 }
 
 export type WaMexFetchLabyrinthEpochDevicesResponse = {
@@ -4360,6 +5244,114 @@ export type WaMexFetchLabyrinthEpochDevicesResponse = {
         readonly epoch_id?: string
         readonly error_code?: number
         readonly message?: string
+    }
+}
+
+export type WaMexFetchLinkedGroupInfoResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly creation_time?: string
+        readonly creator?: {
+            readonly id?: string
+            readonly pn?: string
+            readonly username_info?: {
+                readonly __typename?: string
+                readonly username?: string
+            }
+        }
+        readonly description?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly pn?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly id?: string
+            readonly value?: string
+        }
+        readonly id?: string
+        readonly membership_approval_request?: boolean
+        readonly participants?: {
+            readonly edges?: ReadonlyArray<{
+                readonly join_time?: string
+                readonly node?: {
+                    readonly display_name?: string
+                    readonly id?: string
+                    readonly lid?: string
+                    readonly pn?: string
+                    readonly username_info?: {
+                        readonly __typename?: string
+                        readonly username?: string
+                    }
+                }
+                readonly role?: 'ADMIN_MEMBER' | 'MEMBER' | 'SUPERADMIN_MEMBER'
+            }>
+        }
+        readonly properties?: {
+            readonly admin_request_required?: boolean
+            readonly hidden_group?: boolean
+            readonly membership_approval_mode_enabled?: boolean
+        }
+        readonly state?: 'ACTIVE' | 'NON_EXISTENT' | 'SUSPENDED'
+        readonly subject?: {
+            readonly creation_time?: string
+            readonly creator?: {
+                readonly id?: string
+                readonly pn?: string
+                readonly username_info?: {
+                    readonly __typename?: string
+                    readonly username?: string
+                }
+            }
+            readonly value?: string
+        }
+        readonly total_participants_count?: number
+    }
+}
+
+export type WaMexFetchMembershipApprovalRequestsResponse = {
+    readonly xwa2_group_query_by_id?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly membership_approval_requests?: {
+            readonly edges?: ReadonlyArray<{
+                readonly node?: {
+                    readonly request_method?: string
+                    readonly request_time?: string
+                    readonly requestor?: {
+                        readonly id?: string
+                        readonly jid?: string
+                        readonly pn?: string
+                        readonly username_info?: {
+                            readonly __typename?: string
+                            readonly username?: string
+                        }
+                    }
+                    readonly user?: {
+                        readonly id?: string
+                        readonly jid?: string
+                        readonly pn?: string
+                        readonly username_info?: {
+                            readonly __typename?: string
+                            readonly username?: string
+                        }
+                    }
+                }
+            }>
+        }
+    }
+}
+
+export type WaMexFetchMetaOnePromoEligibilityResponse = {
+    readonly eligibility?: {
+        readonly subscriptionPromos?: ReadonlyArray<{
+            readonly isEligible?: boolean
+            readonly platform?: unknown
+            readonly promoType?: unknown
+        }>
     }
 }
 
@@ -4442,7 +5434,7 @@ export type WaMexFetchNewsletterResponse = {
 
 export type WaMexFetchNewsletterAdminCapabilitiesResponse = {
     readonly xwa2_newsletter_admin?: {
-        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_ADMIN_INSIGHTS' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
+        readonly capabilities?: ReadonlyArray<'ADMIN_CONTEXT_CARD_1' | 'ADMIN_CONTEXT_CARD_2' | 'ADMIN_CONTEXT_CARD_3' | 'ADMIN_NOTIFICATIONS' | 'ADMIN_ONBOARDING' | 'ADMIN_ONBOARDING_2' | 'ADMIN_PROFILE' | 'CHANNEL_STATUS_ADMIN_INSIGHTS' | 'CHANNEL_STATUS_API' | 'CHANNEL_STATUS_MUSIC' | 'CHANNEL_STATUS_PRODUCER' | 'INSIGHTS' | 'INVITE_ADMINS_BUTTON' | 'INVITE_FOLLOWERS' | 'JARVIS_INTEGRATION_ENABLED' | 'MUSIC' | 'NEW_MESSAGE_TYPES_TOOLTIP' | 'PHOTO_POLLS' | 'PINNED_MESSAGES' | 'PINNING_NUDGE' | 'QUESTIONS' | 'QUESTIONS_M2' | 'QUESTIONS_STARRING' | 'QUESTION_RESPONSE_LIKES' | 'QUIZ' | 'SCHEDULED_UPDATES' | 'SHARE_STICKER_PACKS' | 'THREAD_MENU'>
         readonly id?: string
     }
 }
@@ -4943,6 +5935,21 @@ export type WaMexFetchOIDCStateResponse = {
     readonly xfb_wa_biz_get_oidc_state?: string
 }
 
+export type WaMexFetchPhoneNumberSharingSettingsResponse = {
+    readonly xwa2_privacy_phone_number_sharing_get?: {
+        readonly deny_list?: {
+            readonly dhash?: string
+            readonly entries?: ReadonlyArray<{
+                readonly __typename?: string
+                readonly group_jid?: string
+                readonly pn_jid?: string
+                readonly user_jid?: string
+            }>
+        }
+        readonly setting?: unknown
+    }
+}
+
 export type WaMexFetchPlaintextLinkPreviewResponse = {
     readonly xwa2_newsletter_link_preview?: {
         readonly description?: string
@@ -5245,7 +6252,6 @@ export type WaMexFetchSubscriptionsResponse = {
     readonly xwa_get_subscriptions?: {
         readonly feature_flags?: ReadonlyArray<{
             readonly enabled?: boolean
-            readonly expiration_time?: string
             readonly limit?: number
             readonly name?: string
         }>
@@ -5253,7 +6259,6 @@ export type WaMexFetchSubscriptionsResponse = {
             readonly creation_time?: string
             readonly end_time?: string
             readonly id?: string
-            readonly is_platform_changed?: boolean
             readonly source?: string
             readonly start_time?: string
             readonly status?: 'ACTIVE' | 'CANCELED'
@@ -5278,6 +6283,7 @@ export type WaMexFetchWassBotListProfilesGQLResponse = {
     readonly wass_account_list_profiles?: ReadonlyArray<{
         readonly bot_fbid?: string
         readonly creator_lid?: string
+        readonly generated_emoji?: string
         readonly hca_entrypoint_id?: string
         readonly is_deprecated?: boolean
         readonly name?: string
@@ -5290,6 +6296,7 @@ export type WaMexFetchWassBotListProfilesGQLResponse = {
 export type WaMexFetchWassBotProfileGQLResponse = {
     readonly get_wass_account_profile?: {
         readonly creator_lid?: string
+        readonly generated_emoji?: string
         readonly hca_entrypoint_id?: string
         readonly is_deprecated?: boolean
         readonly name?: string
@@ -5436,6 +6443,14 @@ export type WaMexGraphQLVerifyPostcodeResponse = {
     }
 }
 
+export type WaMexGroupJoinResponse = {
+    readonly xwa2_group_join?: {
+        readonly __typename?: string
+        readonly error_code?: number
+        readonly response_code?: string
+    }
+}
+
 export type WaMexGroupStoreAndSendInviteSmsResponse = {
     readonly xwa2_group_store_and_send_invites_sms?: {
         readonly group_jid?: string
@@ -5468,6 +6483,26 @@ export type WaMexIntegrityChallengeResponseResponse = {
     readonly xwa2_submit_integrity_challenge_response?: {
         readonly error_message?: string
         readonly success?: boolean
+    }
+}
+
+export type WaMexInternalDirectoryFetchMembersResponse = {
+    readonly xwa_whatsapp_for_work_employee_directory?: {
+        readonly edges?: ReadonlyArray<{
+            readonly node?: {
+                readonly designation?: unknown
+                readonly enrollment_status?: string
+                readonly id?: string
+                readonly lid?: string
+                readonly member_id?: string
+                readonly name?: string
+                readonly team?: unknown
+            }
+        }>
+        readonly page_info?: {
+            readonly end_cursor?: string
+            readonly has_next_page?: boolean
+        }
     }
 }
 
@@ -5516,73 +6551,851 @@ export type WaMexLogServerSentInviteIntentResponse = {
     readonly xwa2_growth_log_server_sent_invite_intent?: boolean
 }
 
-export type WaMexMAIBAInlineAssetSelectorWidgetAssetIDsResponse = {
-    readonly maiba_support_ai_asset_ids?: ReadonlyArray<string>
-}
-
-export type WaMexMAIBAInlineAssetSelectorWidgetAssetsResponse = {
-    readonly xfb_maiba_support_ai_asset_api?: ReadonlyArray<{
-        readonly asset_id?: string
-        readonly id?: string
-        readonly image_url?: string
-        readonly name?: string
-        readonly pill_label?: string
-        readonly pill_status?: string
-        readonly platform?: 'facebook' | 'instagram'
-        readonly type?: string
-    }>
-}
-
-export type WaMexMAIBAMessageCreatorCardsRendererResponse = {
-    readonly cam_ai_search_brand_ig_asset_id?: string
-    readonly cam_ai_search_creators_by_ids?: ReadonlyArray<{
-        readonly creator_igid?: unknown
-        readonly creator_profile_materialized?: {
-            readonly followers_number?: unknown
-            readonly profile_pic_uri_without_fallback?: unknown
-        }
-        readonly creator_user_id?: string
-        readonly cross_platform_insights?: {
-            readonly fb_insights?: {
-                readonly __typename?: string
-                readonly followers_count?: {
-                    readonly value?: string
-                }
-                readonly id?: string
-            }
-            readonly ig_insights?: {
-                readonly __typename?: string
-                readonly followers_count?: {
-                    readonly value?: string
-                }
-                readonly id?: string
-            }
-        }
-        readonly id?: string
-    }>
-}
-
-export type WaMexMAIBAMessageSignalsCTARendererResponse = {
-    readonly set_automatic_advanced_matching_ads_pixel?: {
-        readonly ads_pixel?: {
-            readonly enable_automatic_matching?: boolean
+export type WaMexMAIBAAdObjectReference_StoryMetadataResponse = {
+    readonly tofu_entity?: {
+        readonly entity_info?: {
+            readonly __typename?: string
             readonly id?: string
-            readonly name?: string
+            readonly media_type?: string
+            readonly story_duration_in_sec?: number
         }
+        readonly id?: string
     }
 }
 
-export type WaMexMAIBAMessageSignalsCTARendererEnableAutomaticEventsResponse = {
-    readonly xfb_pixel_set_enable_automatic_events_setup?: {
-        readonly auto_accepted_count?: number
-        readonly enabled?: boolean
+export type WaMexMAIBAChatThreadResponse = {
+    readonly node?: {
+        readonly __typename?: string
+        readonly async_support_lobby_state?: string
+        readonly async_task_execution?: {
+            readonly action_needed?: unknown
+            readonly id?: string
+        }
+        readonly entry_point?: string
+        readonly external_conversation_id?: string
+        readonly fetch_id?: string
+        readonly human_handover_lobby_case_closed_timestamp?: string
+        readonly human_handover_lobby_case_created_timestamp?: string
+        readonly human_handover_lobby_state?: string
+        readonly human_handover_lobby_wait_time?: string
+        readonly id?: string
+        readonly is_conversation_eligible_for_csat?: boolean
+        readonly is_handover_active?: boolean
+        readonly is_unread?: boolean
+        readonly last_send_timestamp_ms?: number
+        readonly messages?: {
+            readonly __typename?: string
+            readonly edges?: ReadonlyArray<{
+                readonly __typename?: string
+                readonly cursor?: string
+                readonly node?: {
+                    readonly __typename?: string
+                    readonly admin_text?: {
+                        readonly __typename?: string
+                        readonly render_payload?: {
+                            readonly cta?: {
+                                readonly __typename?: string
+                                readonly action_url?: string
+                                readonly postback_action_text?: string
+                                readonly postback_payload?: string
+                                readonly title?: string
+                            }
+                            readonly text?: string
+                        }
+                    }
+                    readonly bot_invocation_message_otid?: unknown
+                    readonly bot_request_id?: string
+                    readonly bot_response_id?: string
+                    readonly composed_text_v2?: {
+                        readonly nodes_js?: ReadonlyArray<{
+                            readonly __typename?: string
+                            readonly node?: {
+                                readonly alt?: unknown
+                                readonly background_color?: string
+                                readonly checked?: unknown
+                                readonly children?: ReadonlyArray<{
+                                    readonly __typename?: string
+                                    readonly key?: string
+                                }>
+                                readonly col_span?: unknown
+                                readonly col_widths?: unknown
+                                readonly content?: string
+                                readonly custom_type?: string
+                                readonly expression?: unknown
+                                readonly format?: string
+                                readonly frozen_column_count?: number
+                                readonly frozen_row_count?: number
+                                readonly header_state?: string
+                                readonly height?: number
+                                readonly key?: string
+                                readonly language?: string
+                                readonly list_type?: string
+                                readonly rel?: unknown
+                                readonly row_span?: unknown
+                                readonly row_striping?: unknown
+                                readonly src?: unknown
+                                readonly start?: string
+                                readonly state?: string
+                                readonly tag?: string
+                                readonly target?: unknown
+                                readonly text?: string
+                                readonly title?: string
+                                readonly url?: string
+                                readonly value?: string
+                                readonly vertical_align?: unknown
+                                readonly width?: number
+                            }
+                        }>
+                    }
+                    readonly content?: {
+                        readonly __typename?: string
+                        readonly composed_text?: {
+                            readonly content?: ReadonlyArray<{
+                                readonly __typename?: string
+                                readonly block_type?: string
+                                readonly data?: string
+                                readonly depth?: number
+                                readonly entity_ranges?: ReadonlyArray<{
+                                    readonly entity?: {
+                                        readonly __typename?: string
+                                        readonly action?: unknown
+                                        readonly action_button_caption?: string
+                                        readonly action_button_label?: string
+                                        readonly action_label?: string
+                                        readonly action_type?: string
+                                        readonly ad_account?: unknown
+                                        readonly ad_account_id?: string
+                                        readonly ad_id?: string
+                                        readonly ad_ids?: ReadonlyArray<string>
+                                        readonly ad_image_alt_text?: string
+                                        readonly ad_image_hash?: string
+                                        readonly ad_image_postback_message?: string
+                                        readonly ad_image_source_type?: string
+                                        readonly ad_image_url?: string
+                                        readonly ad_library_url?: string
+                                        readonly ad_object_ids?: ReadonlyArray<string>
+                                        readonly ad_object_type?: string
+                                        readonly adgroup_id?: string
+                                        readonly adgroup_or_fragment_id?: string
+                                        readonly ads_checker_action?: unknown
+                                        readonly age_max?: number
+                                        readonly age_min?: number
+                                        readonly apply_button_label?: string
+                                        readonly apply_message_template?: unknown
+                                        readonly asset_id?: string
+                                        readonly asset_ids?: ReadonlyArray<string>
+                                        readonly asset_type?: string
+                                        readonly asset_types?: unknown
+                                        readonly attributes_json?: unknown
+                                        readonly audience_description?: string
+                                        readonly auth_cta_label?: string
+                                        readonly author?: {
+                                            readonly display_name?: string
+                                            readonly profile_picture_uri?: string
+                                        }
+                                        readonly auto_advance?: unknown
+                                        readonly banner_label?: string
+                                        readonly banner_status?: string
+                                        readonly benchmark?: unknown
+                                        readonly blocks_json?: unknown
+                                        readonly body?: string
+                                        readonly boost_message?: string
+                                        readonly branch_condition?: unknown
+                                        readonly branch_description?: string
+                                        readonly brand_ig_user_id?: string
+                                        readonly budget_and_duration_description?: string
+                                        readonly budget_recommendation_source?: string
+                                        readonly business_asset_ig_user_id?: string
+                                        readonly business_asset_page_id?: string
+                                        readonly business_avatar_uri?: string
+                                        readonly business_id?: string
+                                        readonly business_name?: string
+                                        readonly business_portfolio?: unknown
+                                        readonly business_user_id?: string
+                                        readonly call_to_action?: {
+                                            readonly destination?: unknown
+                                            readonly label?: string
+                                            readonly type?: string
+                                        }
+                                        readonly callout?: unknown
+                                        readonly campaign_group_draft_id?: string
+                                        readonly campaign_group_id?: string
+                                        readonly campaign_id?: string
+                                        readonly campaign_name?: string
+                                        readonly campaigns?: ReadonlyArray<{
+                                            readonly audience?: unknown
+                                            readonly budget?: unknown
+                                            readonly budget_pct?: unknown
+                                            readonly budget_rationale?: unknown
+                                            readonly creative?: unknown
+                                            readonly end_date?: string
+                                            readonly insight?: unknown
+                                            readonly name?: string
+                                            readonly objective?: unknown
+                                            readonly phase?: unknown
+                                            readonly placement?: unknown
+                                            readonly section_key?: string
+                                            readonly start_date?: string
+                                            readonly timeline_end?: unknown
+                                            readonly timeline_start?: unknown
+                                        }>
+                                        readonly caption?: string
+                                        readonly card_data?: unknown
+                                        readonly card_state_json?: unknown
+                                        readonly card_variant?: unknown
+                                        readonly case_id?: string
+                                        readonly cdn_url?: string
+                                        readonly challenge_id?: string
+                                        readonly compass_insight_unit_id?: string
+                                        readonly condition_matched?: unknown
+                                        readonly content_id?: string
+                                        readonly created_time?: string
+                                        readonly creation_lifecycle_identity?: unknown
+                                        readonly creation_time?: string
+                                        readonly creative_description?: string
+                                        readonly creators?: ReadonlyArray<{
+                                            readonly explanation?: string
+                                            readonly fbid?: unknown
+                                            readonly name?: string
+                                            readonly profile_pic_url?: string
+                                            readonly username?: string
+                                        }>
+                                        readonly cta_action?: unknown
+                                        readonly cta_text?: string
+                                        readonly cta_type?: string
+                                        readonly current_value?: unknown
+                                        readonly current_value_formatted?: unknown
+                                        readonly dag_conclusion?: unknown
+                                        readonly dag_description?: string
+                                        readonly dag_name?: string
+                                        readonly dag_root?: unknown
+                                        readonly dag_root_id?: string
+                                        readonly data_config?: ReadonlyArray<{
+                                            readonly composed_text_label?: {
+                                                readonly content?: ReadonlyArray<{
+                                                    readonly __typename?: string
+                                                    readonly block_type?: string
+                                                    readonly data?: string
+                                                    readonly depth?: number
+                                                    readonly entity_ranges?: ReadonlyArray<{
+                                                        readonly entity?: {
+                                                            readonly __typename?: string
+                                                            readonly ad_object_ids?: ReadonlyArray<string>
+                                                            readonly ad_object_type?: string
+                                                            readonly display_text?: string
+                                                            readonly id?: string
+                                                            readonly request_id?: string
+                                                        }
+                                                        readonly entity_type?: string
+                                                        readonly length?: number
+                                                        readonly offset?: number
+                                                    }>
+                                                    readonly inline_style_ranges?: ReadonlyArray<{
+                                                        readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
+                                                        readonly length?: number
+                                                        readonly offset?: number
+                                                    }>
+                                                    readonly text?: string
+                                                }>
+                                            }
+                                            readonly description?: string
+                                            readonly label?: string
+                                            readonly metric_name?: string
+                                            readonly type?: string
+                                        }>
+                                        readonly data_entries?: ReadonlyArray<{
+                                            readonly composed_text_values?: ReadonlyArray<{
+                                                readonly content?: ReadonlyArray<{
+                                                    readonly __typename?: string
+                                                    readonly block_type?: string
+                                                    readonly data?: string
+                                                    readonly depth?: number
+                                                    readonly entity_ranges?: ReadonlyArray<{
+                                                        readonly entity?: {
+                                                            readonly __typename?: string
+                                                            readonly ad_object_ids?: ReadonlyArray<string>
+                                                            readonly ad_object_type?: string
+                                                            readonly display_text?: string
+                                                            readonly id?: string
+                                                            readonly request_id?: string
+                                                        }
+                                                        readonly entity_type?: string
+                                                        readonly length?: number
+                                                        readonly offset?: number
+                                                    }>
+                                                    readonly inline_style_ranges?: ReadonlyArray<{
+                                                        readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
+                                                        readonly length?: number
+                                                        readonly offset?: number
+                                                    }>
+                                                    readonly text?: string
+                                                }>
+                                            }>
+                                            readonly values?: unknown
+                                        }>
+                                        readonly data_set_id?: string
+                                        readonly data_viz_type?: string
+                                        readonly date_range?: unknown
+                                        readonly dates?: unknown
+                                        readonly delta?: number
+                                        readonly dependencies_met?: ReadonlyArray<{
+                                            readonly ref?: unknown
+                                            readonly status?: string
+                                        }>
+                                        readonly description?: string
+                                        readonly diagnosis_title?: string
+                                        readonly digital_creation_disclosure?: unknown
+                                        readonly disclosure_kind?: string
+                                        readonly display_name?: string
+                                        readonly display_text?: string
+                                        readonly draft_id?: string
+                                        readonly echo_override?: unknown
+                                        readonly edited?: unknown
+                                        readonly enrollment_context_enc?: unknown
+                                        readonly error?: boolean
+                                        readonly error_message?: string
+                                        readonly error_phase?: unknown
+                                        readonly evaluation?: unknown
+                                        readonly expression?: unknown
+                                        readonly external_url?: string
+                                        readonly eyebrow_image_url?: string
+                                        readonly eyebrow_text?: string
+                                        readonly fallback_text?: string
+                                        readonly fill_value?: unknown
+                                        readonly forecasted_results?: ReadonlyArray<{
+                                            readonly label?: string
+                                            readonly subtitle?: string
+                                            readonly value?: string
+                                        }>
+                                        readonly form_fields?: ReadonlyArray<{
+                                            readonly is_required?: boolean
+                                            readonly label?: string
+                                            readonly name?: string
+                                            readonly placeholder?: unknown
+                                            readonly prefilled_value?: unknown
+                                            readonly react_component?: unknown
+                                        }>
+                                        readonly format?: string
+                                        readonly format_type?: string
+                                        readonly funnel_chart_data?: unknown
+                                        readonly gender?: unknown
+                                        readonly goal_context?: unknown
+                                        readonly goal_description?: string
+                                        readonly goal_detail?: unknown
+                                        readonly has_payment_method?: boolean
+                                        readonly heading?: unknown
+                                        readonly heading_subtitle?: string
+                                        readonly heat_bar_label?: string
+                                        readonly icon?: unknown
+                                        readonly id?: string
+                                        readonly idea_creatives?: ReadonlyArray<{
+                                            readonly adgroup_id?: string
+                                            readonly concept_id?: string
+                                            readonly creative_id?: string
+                                            readonly image_url?: string
+                                            readonly media_type?: string
+                                            readonly video_url?: string
+                                        }>
+                                        readonly idea_id?: string
+                                        readonly ideas?: ReadonlyArray<{
+                                            readonly concept_id?: string
+                                            readonly cover_image_url?: string
+                                            readonly cover_video_url?: string
+                                            readonly rationale?: unknown
+                                            readonly reasoning?: unknown
+                                            readonly title?: string
+                                            readonly type?: string
+                                        }>
+                                        readonly image_url?: string
+                                        readonly image_urls?: unknown
+                                        readonly initial_description?: string
+                                        readonly initial_title?: string
+                                        readonly input_role?: string
+                                        readonly insights?: ReadonlyArray<{
+                                            readonly category?: string
+                                            readonly detail?: unknown
+                                            readonly headline?: string
+                                            readonly icon?: unknown
+                                            readonly source?: string
+                                        }>
+                                        readonly interests?: unknown
+                                        readonly invited_people?: unknown
+                                        readonly is_action?: boolean
+                                        readonly is_completed?: boolean
+                                        readonly is_continuous_duration?: boolean
+                                        readonly is_ctx_ad?: boolean
+                                        readonly is_decision?: boolean
+                                        readonly is_error?: boolean
+                                        readonly is_join?: boolean
+                                        readonly is_loading?: boolean
+                                        readonly is_parallel?: boolean
+                                        readonly is_pill_hidden?: boolean
+                                        readonly is_skipped?: boolean
+                                        readonly is_streaming?: boolean
+                                        readonly is_success?: boolean
+                                        readonly issue_cards_data?: unknown
+                                        readonly kpi_tiles_data?: unknown
+                                        readonly label?: string
+                                        readonly limit?: number
+                                        readonly link_description?: string
+                                        readonly log_source?: string
+                                        readonly lower_limit?: number
+                                        readonly maiba_interviewer_rec_key?: string
+                                        readonly maiba_recommendation_id?: string
+                                        readonly max_value?: number
+                                        readonly media_layout?: unknown
+                                        readonly media_type?: string
+                                        readonly metadata?: unknown
+                                        readonly metric_value?: unknown
+                                        readonly metrics?: ReadonlyArray<{
+                                            readonly benchmark?: unknown
+                                            readonly dates?: unknown
+                                            readonly delta?: number
+                                            readonly label?: string
+                                            readonly metric_value?: unknown
+                                            readonly note?: string
+                                            readonly sentiment?: unknown
+                                            readonly series?: unknown
+                                            readonly sparkline_label?: string
+                                            readonly trend?: unknown
+                                            readonly value?: string
+                                        }>
+                                        readonly mime_type?: string
+                                        readonly min_value?: number
+                                        readonly next_node?: unknown
+                                        readonly node_id?: string
+                                        readonly node_type?: string
+                                        readonly nodes?: ReadonlyArray<{
+                                            readonly __typename?: string
+                                            readonly branches?: ReadonlyArray<{
+                                                readonly condition?: unknown
+                                                readonly description?: string
+                                                readonly target?: unknown
+                                            }>
+                                            readonly depends_on?: unknown
+                                            readonly description?: string
+                                            readonly evaluate?: unknown
+                                            readonly next?: unknown
+                                            readonly node_id?: string
+                                            readonly on_complete?: unknown
+                                            readonly parallel_paths?: ReadonlyArray<{
+                                                readonly target?: unknown
+                                            }>
+                                            readonly request?: unknown
+                                            readonly type?: string
+                                        }>
+                                        readonly option_label?: string
+                                        readonly options?: ReadonlyArray<{
+                                            readonly age_max?: number
+                                            readonly age_min?: number
+                                            readonly description?: string
+                                            readonly gender?: unknown
+                                            readonly id?: string
+                                            readonly interests?: unknown
+                                            readonly is_recommended?: boolean
+                                            readonly subtitle?: string
+                                            readonly subtitle_value?: unknown
+                                            readonly thumbnail_url?: string
+                                            readonly title?: string
+                                        }>
+                                        readonly options_json?: unknown
+                                        readonly organic_insights?: {
+                                            readonly comments?: unknown
+                                            readonly likes?: unknown
+                                            readonly shares?: unknown
+                                            readonly views?: unknown
+                                        }
+                                        readonly outcome_predictions?: {
+                                            readonly impressions?: number
+                                            readonly optimization_goal?: unknown
+                                            readonly outcome_label?: string
+                                            readonly outcomes?: unknown
+                                        }
+                                        readonly page_id?: string
+                                        readonly page_name?: string
+                                        readonly page_profile_pic_url?: string
+                                        readonly partner?: unknown
+                                        readonly paths_completed?: ReadonlyArray<{
+                                            readonly id?: string
+                                            readonly status?: string
+                                            readonly summary?: string
+                                        }>
+                                        readonly payment_summary?: {
+                                            readonly billing_wizard_name?: string
+                                            readonly billing_wizard_props_json?: unknown
+                                            readonly currency?: string
+                                            readonly daily_budget?: string
+                                            readonly duration_days?: number
+                                            readonly payment_account_id?: string
+                                            readonly payment_method_label?: string
+                                            readonly payment_method_logo_url?: string
+                                            readonly payment_method_type?: string
+                                            readonly taxes?: ReadonlyArray<{
+                                                readonly amount?: number
+                                                readonly label?: string
+                                            }>
+                                            readonly total_amount?: number
+                                            readonly total_budget?: unknown
+                                        }
+                                        readonly per_platform?: ReadonlyArray<{
+                                            readonly caption?: string
+                                            readonly image_url?: string
+                                            readonly platform?: unknown
+                                        }>
+                                        readonly period_basis?: unknown
+                                        readonly photo_id?: string
+                                        readonly placement_description?: string
+                                        readonly platform?: unknown
+                                        readonly ple_text?: string
+                                        readonly points?: unknown
+                                        readonly post_confirm_description?: string
+                                        readonly post_confirm_title?: string
+                                        readonly post_id?: string
+                                        readonly post_metadata?: {
+                                            readonly caption?: string
+                                            readonly content_type?: string
+                                            readonly creation_time?: string
+                                            readonly id?: string
+                                            readonly image_url?: string
+                                            readonly lwi_product?: unknown
+                                            readonly page_id?: string
+                                        }
+                                        readonly postback_message?: string
+                                        readonly previews?: ReadonlyArray<{
+                                            readonly ad_id?: string
+                                            readonly ad_library_url?: string
+                                            readonly body?: string
+                                            readonly caption?: string
+                                            readonly cta_text?: string
+                                            readonly cta_type?: string
+                                            readonly id?: string
+                                            readonly image_url?: string
+                                            readonly link_description?: string
+                                            readonly page_id?: string
+                                            readonly page_name?: string
+                                            readonly page_profile_pic_url?: string
+                                            readonly platform?: unknown
+                                            readonly title?: string
+                                        }>
+                                        readonly primary_cta_label?: string
+                                        readonly profiles?: unknown
+                                        readonly progress_phase?: unknown
+                                        readonly progress_subscription_id?: string
+                                        readonly progress_summary?: string
+                                        readonly progress_title?: string
+                                        readonly prompt?: unknown
+                                        readonly prompt_composed_text?: {
+                                            readonly content?: ReadonlyArray<{
+                                                readonly __typename?: string
+                                                readonly block_type?: string
+                                                readonly data?: string
+                                                readonly depth?: number
+                                                readonly entity_ranges?: ReadonlyArray<{
+                                                    readonly entity?: {
+                                                        readonly __typename?: string
+                                                        readonly ad_object_ids?: ReadonlyArray<string>
+                                                        readonly ad_object_type?: string
+                                                        readonly display_text?: string
+                                                        readonly id?: string
+                                                        readonly request_id?: string
+                                                    }
+                                                    readonly entity_type?: string
+                                                    readonly length?: number
+                                                    readonly offset?: number
+                                                }>
+                                                readonly inline_style_ranges?: ReadonlyArray<{
+                                                    readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
+                                                    readonly length?: number
+                                                    readonly offset?: number
+                                                }>
+                                                readonly text?: string
+                                            }>
+                                        }
+                                        readonly publish_metadata?: {
+                                            readonly fragment_ids?: ReadonlyArray<string>
+                                            readonly state?: string
+                                            readonly tooltip?: unknown
+                                        }
+                                        readonly publish_status?: string
+                                        readonly quarter?: unknown
+                                        readonly raw_json?: unknown
+                                        readonly raw_value?: string
+                                        readonly reached_value?: unknown
+                                        readonly reasoning?: unknown
+                                        readonly recap?: unknown
+                                        readonly recommendation_id?: string
+                                        readonly recommendation_reason?: string
+                                        readonly recommendation_reason_audience?: unknown
+                                        readonly recommendation_reason_budget_and_duration?: number
+                                        readonly recommendation_reason_creative?: unknown
+                                        readonly recommendation_reason_goal?: unknown
+                                        readonly recommendation_reason_placement?: unknown
+                                        readonly recommended_post_variant?: unknown
+                                        readonly redirect_url?: string
+                                        readonly region?: string
+                                        readonly request_id?: string
+                                        readonly review_header?: unknown
+                                        readonly scheduled_time?: string
+                                        readonly scorecard_cta_label?: string
+                                        readonly scorecard_cta_prompt?: unknown
+                                        readonly scorecard_report_description?: string
+                                        readonly scorecard_report_summary?: string
+                                        readonly scorecard_report_title?: string
+                                        readonly scorecard_shell_tabs?: unknown
+                                        readonly search_filters_json?: unknown
+                                        readonly search_label?: string
+                                        readonly secondary_button_label?: string
+                                        readonly secondary_cta_label?: string
+                                        readonly secondary_label?: string
+                                        readonly secondary_message?: string
+                                        readonly section?: unknown
+                                        readonly sections?: ReadonlyArray<{
+                                            readonly body?: string
+                                            readonly data_viz?: {
+                                                readonly data_config?: ReadonlyArray<{
+                                                    readonly description?: string
+                                                    readonly label?: string
+                                                    readonly metric_name?: string
+                                                    readonly type?: string
+                                                }>
+                                                readonly data_entries?: ReadonlyArray<{
+                                                    readonly values?: unknown
+                                                }>
+                                                readonly data_viz_type?: string
+                                                readonly description?: string
+                                                readonly id?: string
+                                                readonly title?: string
+                                            }
+                                            readonly icon?: unknown
+                                            readonly section_key?: string
+                                            readonly title?: string
+                                        }>
+                                        readonly seed_image_uri?: string
+                                        readonly selection_mode?: string
+                                        readonly sentiment?: unknown
+                                        readonly series?: unknown
+                                        readonly server_formatted_text?: string
+                                        readonly show_creative_terms?: unknown
+                                        readonly show_select_all?: unknown
+                                        readonly signals_action?: unknown
+                                        readonly single_apply_uses_template?: unknown
+                                        readonly sparkline_label?: string
+                                        readonly spec_type?: string
+                                        readonly special_ad_categories_description?: string
+                                        readonly specs?: ReadonlyArray<{
+                                            readonly description?: string
+                                            readonly name?: string
+                                        }>
+                                        readonly status?: string
+                                        readonly subtitle?: string
+                                        readonly summary?: string
+                                        readonly surface?: unknown
+                                        readonly surface_id?: string
+                                        readonly symptom?: unknown
+                                        readonly target?: unknown
+                                        readonly target_asset?: unknown
+                                        readonly target_value?: unknown
+                                        readonly target_value_formatted?: unknown
+                                        readonly thumbnail_uri?: string
+                                        readonly thumbnails?: unknown
+                                        readonly title?: string
+                                        readonly tool_call_args?: unknown
+                                        readonly tool_call_batch_id?: string
+                                        readonly tool_call_id?: string
+                                        readonly tool_name?: string
+                                        readonly tool_result?: unknown
+                                        readonly tool_status?: string
+                                        readonly tooltip?: unknown
+                                        readonly tooltip_text?: string
+                                        readonly tooltip_variant?: 'ESTIMATED_COST_PER_RESULT' | 'ESTIMATED_RESULTS_RANGE' | 'SIMILAR_ADVERTISER_BUDGET_RECOMMENDATION'
+                                        readonly total_budget?: unknown
+                                        readonly total_count?: number
+                                        readonly type?: string
+                                        readonly unit_id?: string
+                                        readonly upper_limit?: number
+                                        readonly url?: string
+                                        readonly variant?: unknown
+                                        readonly version?: number
+                                        readonly video_aspect_ratio?: unknown
+                                        readonly video_id?: string
+                                        readonly video_permalink?: unknown
+                                        readonly video_url?: string
+                                        readonly was_approved?: boolean
+                                        readonly welcome_message_template?: {
+                                            readonly greeting?: unknown
+                                            readonly icebreakers?: unknown
+                                        }
+                                        readonly why_bullets?: unknown
+                                        readonly widget_data?: unknown
+                                        readonly widget_status?: string
+                                        readonly widget_variant?: unknown
+                                        readonly workspace_creators?: ReadonlyArray<{
+                                            readonly explanation?: string
+                                            readonly fbid?: unknown
+                                        }>
+                                        readonly workspace_id?: string
+                                        readonly workspace_type?: string
+                                    }
+                                    readonly entity_type?: string
+                                    readonly length?: number
+                                    readonly offset?: number
+                                }>
+                                readonly inline_style_ranges?: ReadonlyArray<{
+                                    readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
+                                    readonly length?: number
+                                    readonly offset?: number
+                                }>
+                                readonly media_alignment?: unknown
+                                readonly media_caption?: string
+                                readonly text?: string
+                            }>
+                        }
+                        readonly message?: {
+                            readonly id?: string
+                            readonly snippet?: unknown
+                        }
+                        readonly parsed_composed_text?: {
+                            readonly __typename?: string
+                        }
+                        readonly snippet?: unknown
+                        readonly widget_states?: unknown
+                    }
+                    readonly context_chips?: ReadonlyArray<{
+                        readonly display_name?: string
+                        readonly entity_id?: string
+                        readonly entity_type?: string
+                        readonly matched_text?: string
+                    }>
+                    readonly conversation?: {
+                        readonly __typename?: string
+                        readonly external_conversation_id?: string
+                        readonly human_handover_lobby_state?: string
+                        readonly id?: string
+                        readonly is_handover_active?: boolean
+                    }
+                    readonly created_timestamp?: string
+                    readonly external_conversation_id?: string
+                    readonly feedback_response?: unknown
+                    readonly fetch_id?: string
+                    readonly follow_up_prompts?: ReadonlyArray<{
+                        readonly __typename?: string
+                        readonly text?: string
+                        readonly type?: string
+                    }>
+                    readonly id?: string
+                    readonly loading_states?: unknown
+                    readonly message_id?: string
+                    readonly message_origin?: unknown
+                    readonly metadata?: {
+                        readonly entrypoint_qe_universes?: unknown
+                        readonly is_axon_routed?: boolean
+                        readonly is_maiba_unchained?: boolean
+                        readonly reach_planner_skill?: unknown
+                    }
+                    readonly offline_threading_id?: string
+                    readonly relay_refetch_hints?: ReadonlyArray<{
+                        readonly entity_ids?: ReadonlyArray<string>
+                        readonly entity_type?: string
+                        readonly scope?: unknown
+                        readonly source_tool_name?: string
+                    }>
+                    readonly role?: string
+                    readonly selected_assets?: ReadonlyArray<{
+                        readonly asset_id?: string
+                        readonly asset_name?: string
+                        readonly asset_type?: string
+                    }>
+                    readonly selected_text?: {
+                        readonly selected_text?: string
+                    }
+                    readonly sender_name?: string
+                    readonly snippet?: unknown
+                    readonly streaming_state?: string
+                    readonly thought?: unknown
+                    readonly tool_calls?: ReadonlyArray<{
+                        readonly __typename?: string
+                        readonly governed_action_json?: unknown
+                        readonly id?: string
+                        readonly is_completed?: boolean
+                        readonly progress_phase?: unknown
+                        readonly progress_summary?: string
+                        readonly progress_title?: string
+                        readonly tool_call_args?: unknown
+                        readonly tool_call_id?: string
+                        readonly tool_name?: string
+                        readonly tool_result?: unknown
+                        readonly tool_status?: string
+                    }>
+                    readonly user_media_attachments?: ReadonlyArray<{
+                        readonly account_id?: string
+                        readonly attachment_id?: string
+                        readonly file_metadata?: {
+                            readonly file_size?: number
+                            readonly filename?: string
+                            readonly upload_blocked_reason?: string
+                        }
+                        readonly image_hash?: string
+                        readonly maiba_internal_kind?: string
+                        readonly media_id?: string
+                        readonly media_type?: string
+                        readonly media_url?: string
+                        readonly mime_type?: string
+                    }>
+                    readonly user_type?: string
+                }
+            }>
+            readonly page_info?: {
+                readonly end_cursor?: string
+                readonly has_next_page?: boolean
+                readonly has_previous_page?: boolean
+                readonly start_cursor?: string
+            }
+        }
+        readonly proactive_task_origin?: {
+            readonly template_key?: string
+        }
+        readonly thread_status?: string
     }
 }
 
-export type WaMexMAIBARecordAsyncAuthConsentResponse = {
-    readonly maiba_record_async_auth_consent?: {
-        readonly error_message?: string
-        readonly success?: boolean
+export type WaMexMAIBAGraphQLSendMessageV2QueryResponse = Readonly<Record<string, unknown>>
+
+export type WaMexMAIBAGraphQLSendMessageV3QueryResponse = {
+    readonly xfb_maiba_send_message_v3?: {
+        readonly conversation?: {
+            readonly __typename?: string
+            readonly display_title?: string
+            readonly id?: string
+            readonly is_conversation_eligible_for_csat?: boolean
+        }
+        readonly entry_point_claim_state?: string
+    }
+}
+
+export type WaMexMAIBAGraphQLSendMessageV4QueryResponse = {
+    readonly maiba_send_message_v4?: {
+        readonly conversation?: {
+            readonly __typename?: string
+            readonly display_title?: string
+            readonly id?: string
+            readonly is_conversation_eligible_for_csat?: boolean
+        }
+        readonly entry_point_claim_state?: string
+    }
+}
+
+export type WaMexMAIBAPageReferenceResponse = {
+    readonly node?: {
+        readonly __typename?: string
+        readonly id?: string
+        readonly page_url?: string
+        readonly user_url?: string
+    }
+}
+
+export type WaMexMAIBAUpdateAdsAIConsentResponse = {
+    readonly update_maiba_consent_status?: {
+        readonly is_ads_ai_consented?: boolean
     }
 }
 
@@ -5701,7 +7514,9 @@ export type WaMexNewsletterUnpinMessagesResponse = {
 export type WaMexOrgAdminGraphQLAddChannelResponse = {
     readonly xwa_org_managed_channel_add?: {
         readonly channel?: {
+            readonly creation_timestamp_s?: number
             readonly description?: string
+            readonly follower_count?: number
             readonly id?: string
             readonly invite_code?: string
             readonly name?: string
@@ -5719,7 +7534,7 @@ export type WaMexOrgAdminGraphQLAddGroupResponse = {
         readonly error_reason?: string
         readonly group?: {
             readonly creation_timestamp_s?: number
-            readonly gid?: unknown
+            readonly gid?: string
             readonly participant_count?: number
             readonly subject?: string
         }
@@ -5735,17 +7550,37 @@ export type WaMexOrgAdminGraphQLAdminRosterResponse = {
                 readonly entries?: ReadonlyArray<{
                     readonly email_address?: string
                     readonly id?: string
+                    readonly invite_expiry?: number
+                    readonly last_name?: string
                     readonly member_lid?: string
                     readonly member_tag?: string
                     readonly name?: string
                     readonly phone_number?: string
+                    readonly secondary_member_tag?: string
+                    readonly status?: string
                 }>
                 readonly is_truncated?: boolean
                 readonly total_count?: number
+                readonly version?: number
             }
             readonly id?: string
+            readonly member_tag_name?: number
+            readonly secondary_member_tag_name?: number
         }
         readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLApplyAdminRosterChangesResponse = {
+    readonly xwa_org_admin_roster_apply_changes?: {
+        readonly added_entry_ids?: ReadonlyArray<string>
+        readonly error_reason?: 'INVALID_EMAIL_BATCH' | 'STALE_ROSTER_VERSION'
+        readonly invalid_change?: {
+            readonly index?: number
+            readonly kind?: string
+        }
+        readonly status?: 'SUCCESS'
+        readonly version?: number
     }
 }
 
@@ -5757,6 +7592,7 @@ export type WaMexOrgAdminGraphQLDirectoryPageResponse = {
             readonly members?: {
                 readonly count?: number
                 readonly nodes?: ReadonlyArray<{
+                    readonly display_last_name?: string
                     readonly display_name?: string
                     readonly lid?: string
                     readonly member_tag?: string
@@ -5768,8 +7604,21 @@ export type WaMexOrgAdminGraphQLDirectoryPageResponse = {
                     readonly has_next_page?: boolean
                 }
             }
+            readonly org_member_updated_ts_usec?: unknown
         }
         readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLEventRsvpCountsResponse = {
+    readonly xwa_event_get?: {
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: number
+                readonly maybe?: number
+                readonly no_response?: number
+            }
+        }
     }
 }
 
@@ -5781,7 +7630,7 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
             readonly managed_group?: {
                 readonly creation_timestamp_s?: number
                 readonly description?: string
-                readonly gid?: unknown
+                readonly gid?: string
                 readonly participant_count?: number
                 readonly participants?: ReadonlyArray<{
                     readonly lid?: string
@@ -5800,7 +7649,34 @@ export type WaMexOrgAdminGraphQLGroupResponse = {
 
 export type WaMexOrgAdminGraphQLInviteMembersResponse = {
     readonly xwa_org_invite_members?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: 'INVALID_EMAIL_BATCH' | 'STALE_ROSTER_VERSION'
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLLeaveResponse = {
+    readonly xwa_org_leave?: {
+        readonly error_reason?: string
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLManagedChannelAdminsResponse = {
+    readonly xwa_org_get?: {
+        readonly error_reason?: string
+        readonly org_info?: {
+            readonly id?: string
+            readonly managed_channel?: {
+                readonly admins?: {
+                    readonly members?: ReadonlyArray<{
+                        readonly lid?: string
+                        readonly role?: string
+                    }>
+                    readonly outside_organization_count?: number
+                }
+                readonly id?: string
+            }
+        }
         readonly status?: 'SUCCESS'
     }
 }
@@ -5812,13 +7688,34 @@ export type WaMexOrgAdminGraphQLManagedChannelsResponse = {
             readonly id?: string
             readonly managed_channels?: {
                 readonly nodes?: ReadonlyArray<{
+                    readonly creation_timestamp_s?: number
                     readonly description?: string
+                    readonly follower_count?: number
                     readonly id?: string
                     readonly invite_code?: string
                     readonly name?: string
                     readonly picture?: {
                         readonly uri?: string
                     }
+                }>
+            }
+        }
+        readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgAdminGraphQLManagedEventsResponse = {
+    readonly xwa_org_get?: {
+        readonly error_reason?: string
+        readonly org_info?: {
+            readonly id?: string
+            readonly managed_events?: {
+                readonly nodes?: ReadonlyArray<{
+                    readonly end_timestamp_s?: unknown
+                    readonly id?: string
+                    readonly name?: string
+                    readonly start_timestamp_s?: unknown
+                    readonly status?: string
                 }>
             }
         }
@@ -5834,7 +7731,7 @@ export type WaMexOrgAdminGraphQLManagedGroupsResponse = {
             readonly managed_groups?: {
                 readonly nodes?: ReadonlyArray<{
                     readonly creation_timestamp_s?: number
-                    readonly gid?: unknown
+                    readonly gid?: string
                     readonly participant_count?: number
                     readonly participants?: ReadonlyArray<{
                         readonly lid?: string
@@ -5854,6 +7751,7 @@ export type WaMexOrgAdminGraphQLMemberSearchResponse = {
         readonly count?: number
         readonly nodes?: ReadonlyArray<{
             readonly member?: {
+                readonly display_last_name?: string
                 readonly display_name?: string
                 readonly lid?: string
                 readonly member_tag?: string
@@ -5882,7 +7780,7 @@ export type WaMexOrgAdminGraphQLOrgsResponse = {
             }
             readonly id?: string
             readonly is_member_directory_enabled?: boolean
-            readonly member_tag_options?: number
+            readonly member_tag_options?: string
             readonly members?: {
                 readonly count?: number
             }
@@ -5907,25 +7805,12 @@ export type WaMexOrgAdminGraphQLRemoveMemberResponse = {
     }
 }
 
-export type WaMexOrgAdminGraphQLReplaceAdminRosterResponse = {
-    readonly xwa_org_admin_roster_replace?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
-        readonly invalid_row_number?: unknown
-        readonly org?: {
-            readonly admin_roster?: {
-                readonly entries?: ReadonlyArray<{
-                    readonly email_address?: string
-                    readonly id?: string
-                    readonly member_lid?: string
-                    readonly member_tag?: string
-                    readonly name?: string
-                    readonly phone_number?: string
-                }>
-                readonly is_truncated?: boolean
-                readonly total_count?: number
-            }
-            readonly id?: string
-        }
+export type WaMexOrgAdminGraphQLSendManagedGroupEmailInvitesResponse = {
+    readonly xwa_org_managed_group_send_email_invites?: {
+        readonly error_reason?: 'INVALID_EMAIL_BATCH' | 'STALE_ROSTER_VERSION'
+        readonly results?: ReadonlyArray<{
+            readonly status?: 'SENT'
+        }>
         readonly status?: 'SUCCESS'
     }
 }
@@ -5948,13 +7833,13 @@ export type WaMexOrgAdminGraphQLSubmitBulkGroupRequestResponse = {
         readonly error_reason?: string
         readonly invalid_group_index?: number
         readonly request_id?: string
-        readonly status?: 'SUCCESS'
+        readonly status?: 'SENT' | 'SUCCESS'
     }
 }
 
 export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
     readonly xwa_org_update?: {
-        readonly error_reason?: 'INVALID_EMAIL_BATCH'
+        readonly error_reason?: 'INVALID_EMAIL_BATCH' | 'STALE_ROSTER_VERSION'
         readonly org?: {
             readonly description?: string
             readonly icon_large?: {
@@ -5966,7 +7851,7 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             }
             readonly id?: string
             readonly is_member_directory_enabled?: boolean
-            readonly member_tag_options?: number
+            readonly member_tag_options?: string
             readonly members?: {
                 readonly count?: number
             }
@@ -5976,6 +7861,23 @@ export type WaMexOrgAdminGraphQLUpdateOrgResponse = {
             readonly viewer_role?: string
         }
         readonly status?: 'SUCCESS'
+    }
+}
+
+export type WaMexOrgMemberUpdateNotificationHandlerResponse = {
+    readonly xwa2_notify_org_on_member_update?: {
+        readonly members?: ReadonlyArray<{
+            readonly display_last_name?: string
+            readonly display_name?: string
+            readonly member_action?: 'ADD' | 'REMOVE' | 'UPDATE'
+            readonly member_lid?: string
+            readonly member_tag?: string
+            readonly role?: string
+            readonly username?: string
+        }>
+        readonly org_id?: string
+        readonly org_member_updated_ts_usec?: unknown
+        readonly phash?: string
     }
 }
 
@@ -6554,6 +8456,14 @@ export type WaMexRotateLabyrinthEpochResponse = {
     }
 }
 
+export type WaMexSaveResponseTonePreferenceResponse = {
+    readonly xfb_maiba_save_response_tone_preference?: {
+        readonly __typename?: string
+        readonly external_conversation_id?: string
+        readonly id?: string
+    }
+}
+
 export type WaMexSetUsernameResponse = {
     readonly xwa2_username_set?: {
         readonly result?: 'SUCCESS'
@@ -6566,11 +8476,575 @@ export type WaMexSetUsernameKeyResponse = {
     }
 }
 
+export type WaMexSharableEventAddInvitationsResponse = {
+    readonly event_add_invitations?: {
+        readonly invitation_add_outcome?: {
+            readonly failed_count?: number
+            readonly invalid_count?: number
+            readonly is_retryable?: boolean
+            readonly newly_added_lids?: ReadonlyArray<string>
+            readonly successful_count?: number
+        }
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+    }
+}
+
+export type WaMexSharableEventCreateResponse = {
+    readonly xwa_event_create?: {
+        readonly privacy_aware_event?: {
+            readonly call_link?: {
+                readonly is_waiting_room_enabled?: boolean
+                readonly media_type?: string
+                readonly token?: string
+            }
+            readonly cover_image?: {
+                readonly is_preset_image?: boolean
+                readonly uri?: string
+            }
+            readonly cover_image_handle?: unknown
+            readonly created_ts_sec?: number
+            readonly creator_lid?: string
+            readonly description?: string
+            readonly end_ts_sec?: number
+            readonly id?: string
+            readonly last_updated_ts_usec?: unknown
+            readonly location?: {
+                readonly address?: string
+                readonly coordinates?: {
+                    readonly latitude?: number
+                    readonly longitude?: number
+                }
+                readonly name?: string
+                readonly web_url?: string
+            }
+            readonly max_additional_guests?: number
+            readonly name?: string
+            readonly reminder_ts_sec?: number
+            readonly start_ts_sec?: number
+            readonly status?: string
+        }
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+    }
+}
+
+export type WaMexSharableEventDeleteResponse = {
+    readonly xwa_event_delete?: {
+        readonly success?: boolean
+    }
+}
+
+export type WaMexSharableEventGetResponse = {
+    readonly xwa_event_get?: {
+        readonly is_event_metadata_unchanged?: boolean
+        readonly is_invitation_metadata_unchanged?: boolean
+        readonly privacy_aware_event?: {
+            readonly call_link?: {
+                readonly is_waiting_room_enabled?: boolean
+                readonly media_type?: string
+                readonly token?: string
+            }
+            readonly cover_image?: {
+                readonly is_preset_image?: boolean
+                readonly uri?: string
+            }
+            readonly cover_image_handle?: unknown
+            readonly created_ts_sec?: number
+            readonly creator_lid?: string
+            readonly description?: string
+            readonly end_ts_sec?: number
+            readonly id?: string
+            readonly last_updated_ts_usec?: unknown
+            readonly location?: {
+                readonly address?: string
+                readonly coordinates?: {
+                    readonly latitude?: number
+                    readonly longitude?: number
+                }
+                readonly name?: string
+                readonly web_url?: string
+            }
+            readonly max_additional_guests?: number
+            readonly name?: string
+            readonly reminder_ts_sec?: number
+            readonly start_ts_sec?: number
+            readonly status?: string
+        }
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+    }
+}
+
+export type WaMexSharableEventGuestJoinedWaNotificationsResponse = {
+    readonly xwa2_notify_event_on_guest_joined_wa?: {
+        readonly event_id?: string
+        readonly event_name?: string
+        readonly guest_lid?: string
+        readonly is_user_visible?: boolean
+        readonly pn?: string
+        readonly username?: string
+    }
+}
+
+export type WaMexSharableEventJoinViaLinkResponse = {
+    readonly xwa_event_join_via_link?: {
+        readonly privacy_aware_event?: {
+            readonly call_link?: {
+                readonly is_waiting_room_enabled?: boolean
+                readonly media_type?: string
+                readonly token?: string
+            }
+            readonly cover_image?: {
+                readonly is_preset_image?: boolean
+                readonly uri?: string
+            }
+            readonly cover_image_handle?: unknown
+            readonly created_ts_sec?: number
+            readonly creator_lid?: string
+            readonly description?: string
+            readonly end_ts_sec?: number
+            readonly id?: string
+            readonly last_updated_ts_usec?: unknown
+            readonly location?: {
+                readonly address?: string
+                readonly coordinates?: {
+                    readonly latitude?: number
+                    readonly longitude?: number
+                }
+                readonly name?: string
+                readonly web_url?: string
+            }
+            readonly max_additional_guests?: number
+            readonly name?: string
+            readonly reminder_ts_sec?: number
+            readonly start_ts_sec?: number
+            readonly status?: string
+        }
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+    }
+}
+
+export type WaMexSharableEventLinkPreviewResponse = {
+    readonly xwa_event_get_link_preview?: {
+        readonly creator_pushname?: string
+        readonly privacy_aware_event?: {
+            readonly call_link?: {
+                readonly is_waiting_room_enabled?: boolean
+                readonly media_type?: string
+                readonly token?: string
+            }
+            readonly cover_image?: {
+                readonly is_preset_image?: boolean
+                readonly uri?: string
+            }
+            readonly cover_image_handle?: unknown
+            readonly created_ts_sec?: number
+            readonly creator_lid?: string
+            readonly description?: string
+            readonly end_ts_sec?: number
+            readonly id?: string
+            readonly last_updated_ts_usec?: unknown
+            readonly location?: {
+                readonly address?: string
+                readonly coordinates?: {
+                    readonly latitude?: number
+                    readonly longitude?: number
+                }
+                readonly name?: string
+                readonly web_url?: string
+            }
+            readonly max_additional_guests?: number
+            readonly name?: string
+            readonly region?: string
+            readonly reminder_ts_sec?: number
+            readonly start_ts_sec?: number
+            readonly status?: string
+        }
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+        readonly privacy_aware_my_invitation?: {
+            readonly __typename?: string
+        }
+    }
+}
+
+export type WaMexSharableEventListResponse = {
+    readonly xwa_event_list?: {
+        readonly past?: ReadonlyArray<{
+            readonly privacy_aware_event?: {
+                readonly call_link?: {
+                    readonly is_waiting_room_enabled?: boolean
+                    readonly media_type?: string
+                    readonly token?: string
+                }
+                readonly cover_image?: {
+                    readonly is_preset_image?: boolean
+                    readonly uri?: string
+                }
+                readonly cover_image_handle?: unknown
+                readonly created_ts_sec?: number
+                readonly creator_lid?: string
+                readonly description?: string
+                readonly end_ts_sec?: number
+                readonly id?: string
+                readonly last_updated_ts_usec?: unknown
+                readonly location?: {
+                    readonly address?: string
+                    readonly coordinates?: {
+                        readonly latitude?: number
+                        readonly longitude?: number
+                    }
+                    readonly name?: string
+                    readonly web_url?: string
+                }
+                readonly max_additional_guests?: number
+                readonly name?: string
+                readonly reminder_ts_sec?: number
+                readonly start_ts_sec?: number
+                readonly status?: string
+            }
+            readonly privacy_aware_my_invitation?: {
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }
+        }>
+        readonly scheduled_calls?: ReadonlyArray<{
+            readonly privacy_aware_event?: {
+                readonly call_link?: {
+                    readonly is_waiting_room_enabled?: boolean
+                    readonly media_type?: string
+                    readonly token?: string
+                }
+                readonly cover_image?: {
+                    readonly is_preset_image?: boolean
+                    readonly uri?: string
+                }
+                readonly cover_image_handle?: unknown
+                readonly created_ts_sec?: number
+                readonly creator_lid?: string
+                readonly description?: string
+                readonly end_ts_sec?: number
+                readonly id?: string
+                readonly last_updated_ts_usec?: unknown
+                readonly location?: {
+                    readonly address?: string
+                    readonly coordinates?: {
+                        readonly latitude?: number
+                        readonly longitude?: number
+                    }
+                    readonly name?: string
+                    readonly web_url?: string
+                }
+                readonly max_additional_guests?: number
+                readonly name?: string
+                readonly reminder_ts_sec?: number
+                readonly start_ts_sec?: number
+                readonly status?: string
+            }
+            readonly privacy_aware_my_invitation?: {
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }
+        }>
+        readonly upcoming?: ReadonlyArray<{
+            readonly privacy_aware_event?: {
+                readonly call_link?: {
+                    readonly is_waiting_room_enabled?: boolean
+                    readonly media_type?: string
+                    readonly token?: string
+                }
+                readonly cover_image?: {
+                    readonly is_preset_image?: boolean
+                    readonly uri?: string
+                }
+                readonly cover_image_handle?: unknown
+                readonly created_ts_sec?: number
+                readonly creator_lid?: string
+                readonly description?: string
+                readonly end_ts_sec?: number
+                readonly id?: string
+                readonly last_updated_ts_usec?: unknown
+                readonly location?: {
+                    readonly address?: string
+                    readonly coordinates?: {
+                        readonly latitude?: number
+                        readonly longitude?: number
+                    }
+                    readonly name?: string
+                    readonly web_url?: string
+                }
+                readonly max_additional_guests?: number
+                readonly name?: string
+                readonly reminder_ts_sec?: number
+                readonly start_ts_sec?: number
+                readonly status?: string
+            }
+            readonly privacy_aware_my_invitation?: {
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }
+        }>
+    }
+}
+
+export type WaMexSharableEventPlaceSearchResponse = {
+    readonly whatsapp_maps_typeahead?: {
+        readonly items?: ReadonlyArray<{
+            readonly address?: {
+                readonly city?: string
+                readonly stateprovince?: string
+                readonly streetaddress?: string
+            }
+            readonly id?: string
+            readonly location?: {
+                readonly latitude?: number
+                readonly longitude?: number
+            }
+            readonly title?: string
+        }>
+    }
+}
+
+export type WaMexSharableEventPresetCoversResponse = {
+    readonly xwa_event_list_preset_cover_images?: {
+        readonly preset_images?: ReadonlyArray<{
+            readonly category?: string
+            readonly cover_image?: {
+                readonly uri?: string
+            }
+            readonly cover_image_handle?: unknown
+            readonly display_order?: number
+        }>
+    }
+}
+
+export type WaMexSharableEventReconcileResponse = {
+    readonly xwa_event_validate_cached_event_ids?: {
+        readonly retained_event_ids?: ReadonlyArray<string>
+    }
+}
+
+export type WaMexSharableEventRemoveInvitationsResponse = {
+    readonly xwa_event_remove_invitations?: {
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+    }
+}
+
+export type WaMexSharableEventUpdateResponse = {
+    readonly xwa_event_update?: {
+        readonly privacy_aware_event?: {
+            readonly call_link?: {
+                readonly is_waiting_room_enabled?: boolean
+                readonly media_type?: string
+                readonly token?: string
+            }
+            readonly cover_image?: {
+                readonly is_preset_image?: boolean
+                readonly uri?: string
+            }
+            readonly cover_image_handle?: unknown
+            readonly created_ts_sec?: number
+            readonly creator_lid?: string
+            readonly description?: string
+            readonly end_ts_sec?: number
+            readonly id?: string
+            readonly last_updated_ts_usec?: unknown
+            readonly location?: {
+                readonly address?: string
+                readonly coordinates?: {
+                    readonly latitude?: number
+                    readonly longitude?: number
+                }
+                readonly name?: string
+                readonly web_url?: string
+            }
+            readonly max_additional_guests?: number
+            readonly name?: string
+            readonly reminder_ts_sec?: number
+            readonly start_ts_sec?: number
+            readonly status?: string
+        }
+    }
+}
+
+export type WaMexSharableEventUpdateRsvpResponse = {
+    readonly event_update_rsvp?: {
+        readonly privacy_aware_invitation?: {
+            readonly count_by_rsvp_status?: {
+                readonly going?: unknown
+                readonly maybe?: unknown
+                readonly no_response?: unknown
+                readonly not_going?: unknown
+            }
+            readonly invitation_list?: ReadonlyArray<{
+                readonly created_ts_sec?: number
+                readonly extra_guest_count?: number
+                readonly guest_name?: string
+                readonly invitee_lid?: string
+                readonly is_wa_user?: boolean
+                readonly last_updated_ts_sec?: number
+                readonly phone_number?: string
+                readonly rsvp_status?: string
+                readonly username?: string
+            }>
+            readonly last_updated_ts_usec?: unknown
+            readonly total_invited_count?: number
+        }
+    }
+}
+
 export type WaMexSignupMetadataResponse = {
     readonly wa_signup_metadata?: {
         readonly id?: string
         readonly privacy_policy_url?: string
         readonly signup_message?: string
+    }
+}
+
+export type WaMexSkipStoppedMessagesResponse = {
+    readonly xfb_maiba_exclude_stopped_messages?: {
+        readonly __typename?: string
+        readonly external_conversation_id?: string
+        readonly id?: string
+        readonly stopped_response_ids?: ReadonlyArray<string>
     }
 }
 
@@ -6594,6 +9068,18 @@ export type WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAI
 }
 
 export type WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlowsResponse = {
+    readonly tooltipPages?: ReadonlyArray<{
+        readonly __typename?: string
+        readonly id?: string
+        readonly inbox_faq_automation?: {
+            readonly automation_id?: string
+            readonly eligible_faq_response_pairs?: ReadonlyArray<{
+                readonly __typename?: string
+            }>
+            readonly skipped_faq_with_media_or_button?: boolean
+        }
+        readonly messenger_ads_default_icebreakers?: unknown
+    }>
     readonly welcome_message_flows?: {
         readonly has_welcome_message_flows?: boolean
     }
@@ -6613,6 +9099,15 @@ export type WaMexSubscriptionWaffleAgeCheckResponse = {
     readonly pass_age_check_for_wa_meta_one_v2?: string
 }
 
+export type WaMexSupportBugReportCreateDogfoodingTaskResponse = {
+    readonly wa_support_bug_report_create_dogfooding_task?: {
+        readonly error_code?: number
+        readonly error_message?: string
+        readonly success?: boolean
+        readonly task_id?: string
+    }
+}
+
 export type WaMexSupportBugReportSubmitResponse = {
     readonly xwa_wa_support_bug_report_submit?: {
         readonly bug_report_id?: string
@@ -6620,6 +9115,12 @@ export type WaMexSupportBugReportSubmitResponse = {
         readonly error_message?: string
         readonly success?: boolean
         readonly task_id?: string
+    }
+}
+
+export type WaMexSupportChatAuthRefreshResponse = {
+    readonly xwa_wa_support_chat_auth_refresh?: {
+        readonly status?: string
     }
 }
 
@@ -6788,18 +9289,13 @@ export type WaMexUsernameAvailabilityResponse = {
 export type WaMexUsyncResponse = {
     readonly xwa2_fetch_wa_users?: ReadonlyArray<{
         readonly __typename?: string
-        readonly about_status_info?: {
-            readonly __typename?: string
-            readonly status?: string
-            readonly text?: string
-            readonly timestamp?: string
-        }
         readonly country_code?: string
         readonly id?: string
         readonly jid?: string
         readonly orgs_info?: {
             readonly __typename?: string
             readonly orgs?: ReadonlyArray<{
+                readonly display_last_name?: string
                 readonly display_name?: string
                 readonly member_tag?: string
                 readonly org_id?: string
@@ -6811,7 +9307,7 @@ export type WaMexUsyncResponse = {
             readonly __typename?: string
             readonly pin?: string
             readonly state?: string
-            readonly status?: string
+            readonly status?: 'NO_CHANGE'
             readonly timestamp?: string
             readonly username?: string
         }
@@ -6840,6 +9336,13 @@ export type WaMexWAMFlowsCTWAFlowPreviewResponse = {
         readonly welj?: string
     }
     readonly flowJSON?: unknown
+}
+
+export type WaMexWODirectoryFetchCompanyNameResponse = {
+    readonly xwa_whatsapp_for_work_employee_directory_member?: {
+        readonly company_name?: string
+        readonly id?: string
+    }
 }
 
 export type WaMexWaffleFXServiceDataQueryV2Response = {
@@ -6900,6 +9403,113 @@ export type WaMexWaffleXEResponse = {
     }
 }
 
+export type WaMexWhatsAppMarketingCampaignCustomerListPickerListsResponse = {
+    readonly whatsAppBusinessAccount?: {
+        readonly default_subscriber_pool_subscriber_lists?: {
+            readonly nodes?: ReadonlyArray<{
+                readonly approximate_count?: number
+                readonly audience_size_range?: {
+                    readonly lower_bound?: number
+                    readonly upper_bound?: number
+                }
+                readonly id?: string
+                readonly name?: string
+                readonly operation_status?: {
+                    readonly status_code?: 'CA_INTEGRITY_SENSITIVE_DATA_RESTRICTION'
+                }
+            }>
+        }
+        readonly id?: string
+    }
+}
+
+export type WaMexfetchWebsiteMediaImageURLsResponse = {
+    readonly xfb_creative_metadata_website_media_fields?: {
+        readonly media?: ReadonlyArray<{
+            readonly background_clean?: unknown
+            readonly background_color?: string
+            readonly cluster_index?: number
+            readonly fanout_link?: unknown
+            readonly has_human_face?: boolean
+            readonly image_asset_fbid?: string
+            readonly image_blurry?: unknown
+            readonly image_description?: string
+            readonly image_hash?: string
+            readonly image_height?: number
+            readonly image_phash?: string
+            readonly image_sources?: unknown
+            readonly image_title?: string
+            readonly image_url?: string
+            readonly image_width?: number
+            readonly is_guardrail_pass?: boolean
+            readonly is_human_and_product?: boolean
+            readonly is_human_and_service?: boolean
+            readonly is_icon?: boolean
+            readonly is_illustration?: boolean
+            readonly is_immersive_product?: boolean
+            readonly is_landscape?: boolean
+            readonly is_logo?: boolean
+            readonly is_og_image?: boolean
+            readonly is_photo_collage?: boolean
+            readonly is_poster?: boolean
+            readonly is_product_focus?: boolean
+            readonly is_text_wall?: boolean
+            readonly text_heavy?: unknown
+            readonly user_sentiment?: unknown
+        }>
+    }
+}
+
+export type WaMexnavigateToProductInsightsWithDefaultTabResponse = {
+    readonly default_tab?: unknown
+}
+
+export type WaMexuseFetchAdAccountsForL4ContextResponse = {
+    readonly custom_analytics_business?: {
+        readonly custom_analytics_onboarding?: {
+            readonly ad_accounts?: ReadonlyArray<{
+                readonly currency?: string
+                readonly id?: string
+                readonly legacy_account_id?: string
+                readonly name?: string
+            }>
+            readonly id?: string
+        }
+        readonly id?: string
+    }
+    readonly lwi?: {
+        readonly default_ad_account?: {
+            readonly currency?: string
+            readonly id?: string
+            readonly legacy_account_id?: string
+            readonly name?: string
+        }
+    }
+    readonly maiba_ad_accounts?: {
+        readonly edges?: ReadonlyArray<{
+            readonly node?: {
+                readonly account_status?: string
+                readonly currency?: string
+                readonly legacy_account_id?: string
+                readonly name?: string
+            }
+        }>
+    }
+    readonly maiba_viewer?: {
+        readonly maiba_thread_linked_account_ids?: {
+            readonly nodes?: unknown
+        }
+    }
+}
+
+export type WaMexuseFetchAdAccountsNameByIdResponse = {
+    readonly maiba_ad_account?: {
+        readonly account_status?: string
+        readonly currency?: string
+        readonly name?: string
+    }
+}
+
 export type WaMexuseFlowJSONValidationLibraryResponse = {
     readonly xfb_wa_flows_is_json_version_accessible?: unknown
 }
@@ -6912,27 +9522,12 @@ export type WaMexuseIsMessengerPlatformBotResponse = {
     }
 }
 
-export type WaMexuseMAIBADraftStatusResponse = {
-    readonly campaignGroup?: {
-        readonly __typename?: string
-        readonly effective_status?: string
-        readonly id?: string
-    }
-    readonly node?: {
-        readonly __typename?: string
-        readonly fragments?: {
-            readonly edges?: ReadonlyArray<{
-                readonly node?: {
-                    readonly action?: 'ADD'
-                    readonly ad_market_id?: string
-                    readonly ad_object_type?: string
-                    readonly draft_fragment_status?: 'DELETED'
-                    readonly id?: string
-                    readonly publish_status?: 'SUCCESS'
-                }
-            }>
+export type WaMexuseMAIBAAsyncNotificationResponse = {
+    readonly xfb_maiba_update_thread_unread_status?: {
+        readonly conversation?: {
+            readonly __typename?: string
+            readonly id?: string
         }
-        readonly id?: string
     }
 }
 
@@ -6970,614 +9565,6 @@ export type WaMexuseMAIBAMediaResponse = {
     }>
 }
 
-export type WaMexuseMAIBAWidgetStateResponse = {
-    readonly maiba_persist_widget_state?: {
-        readonly message?: {
-            readonly content?: {
-                readonly __typename?: string
-                readonly composed_text?: {
-                    readonly content?: ReadonlyArray<{
-                        readonly __typename?: string
-                        readonly block_type?: string
-                        readonly data?: string
-                        readonly depth?: number
-                        readonly entity_ranges?: ReadonlyArray<{
-                            readonly entity?: {
-                                readonly __typename?: string
-                                readonly action?: string
-                                readonly action_button_caption?: string
-                                readonly action_button_label?: string
-                                readonly action_label?: string
-                                readonly action_type?: string
-                                readonly ad_account?: unknown
-                                readonly ad_account_id?: string
-                                readonly ad_id?: string
-                                readonly ad_ids?: ReadonlyArray<string>
-                                readonly ad_image_alt_text?: string
-                                readonly ad_image_hash?: string
-                                readonly ad_image_postback_message?: string
-                                readonly ad_image_source_type?: string
-                                readonly ad_image_url?: string
-                                readonly ad_library_url?: string
-                                readonly ad_object_ids?: ReadonlyArray<string>
-                                readonly ad_object_type?: string
-                                readonly adgroup_id?: string
-                                readonly adgroup_or_fragment_id?: string
-                                readonly ads_checker_action?: string
-                                readonly age_max?: number
-                                readonly age_min?: number
-                                readonly apply_button_label?: string
-                                readonly apply_message_template?: string
-                                readonly asset_id?: string
-                                readonly asset_ids?: ReadonlyArray<string>
-                                readonly asset_type?: string
-                                readonly asset_types?: unknown
-                                readonly attributes_json?: string
-                                readonly audience_description?: string
-                                readonly auth_cta_label?: string
-                                readonly author?: {
-                                    readonly display_name?: string
-                                    readonly profile_picture_uri?: string
-                                }
-                                readonly auto_advance?: boolean
-                                readonly banner_label?: string
-                                readonly banner_status?: string
-                                readonly benchmark?: unknown
-                                readonly blocks_json?: string
-                                readonly body?: string
-                                readonly boost_message?: string
-                                readonly branch_condition?: unknown
-                                readonly branch_description?: string
-                                readonly brand_ig_user_id?: string
-                                readonly budget_and_duration_description?: string
-                                readonly budget_recommendation_source?: string
-                                readonly business_asset_ig_user_id?: string
-                                readonly business_asset_page_id?: string
-                                readonly business_avatar_uri?: string
-                                readonly business_id?: string
-                                readonly business_name?: string
-                                readonly business_portfolio?: unknown
-                                readonly business_user_id?: string
-                                readonly call_to_action?: {
-                                    readonly destination?: unknown
-                                    readonly label?: string
-                                    readonly type?: string
-                                }
-                                readonly callout?: unknown
-                                readonly campaign_group_draft_id?: string
-                                readonly campaign_group_id?: string
-                                readonly campaign_id?: string
-                                readonly campaign_name?: string
-                                readonly campaigns?: ReadonlyArray<{
-                                    readonly audience?: unknown
-                                    readonly budget?: unknown
-                                    readonly budget_pct?: string
-                                    readonly budget_rationale?: unknown
-                                    readonly creative?: unknown
-                                    readonly end_date?: string
-                                    readonly insight?: unknown
-                                    readonly name?: string
-                                    readonly objective?: 'APP_INSTALLS' | 'BRAND_AWARENESS' | 'CANVAS_APP_ENGAGEMENT' | 'CANVAS_APP_INSTALLS' | 'DEPRECATED_CLICKS' | 'EVENT_RESPONSES' | 'EXTERNAL' | 'IMPRESSIONS' | 'INCOMPATIBLE_CANVAS_APP_ENGAGEMENT' | 'INCOMPATIBLE_CANVAS_APP_INSTALLS' | 'INCOMPATIBLE_EVENT_RESPONSES' | 'INCOMPATIBLE_MOBILE_APP_INSTALLS' | 'INCOMPATIBLE_OFFER_CLAIMS' | 'INCOMPATIBLE_PAGE_ENGAGEMENT' | 'INCOMPATIBLE_PAGE_LIKES' | 'INCOMPATIBLE_POST_ENGAGEMENT' | 'INCOMPATIBLE_WEBSITE_CLICKS' | 'INCOMPATIBLE_WEBSITE_CONVERSIONS' | 'INSTAGRAM_BRAND_AWARENESS' | 'LEAD_GENERATION' | 'LINK_CLICKS' | 'LOCAL_AWARENESS' | 'LOCAL_IMPRESSIONS' | 'MEDIA_DOWNLOADS' | 'MESSAGES' | 'MILLE' | 'MOBILE_APP_ENGAGEMENT' | 'MOBILE_APP_INSTALLS' | 'MULTIPLE' | 'NONE' | 'OFFER_CLAIMS' | 'OUTCOME_ACQUISITION' | 'OUTCOME_AWARENESS' | 'OUTCOME_ENGAGEMENT' | 'OUTCOME_LEADS' | 'OUTCOME_SALES' | 'OUTCOME_TRAFFIC' | 'PAGE_LIKES' | 'POST_ENGAGEMENT' | 'PRODUCT_CATALOG_SALES' | 'PROFILE_FOLLOWERS' | 'REACH' | 'RESEARCH_POLL' | 'STORE_VISITS' | 'VIDEO_VIEWS' | 'WEBSITE_CONVERSIONS' | 'WILDCARD_INTERNAL_ONLY' | 'XPLATFORM_SALES'
-                                    readonly phase?: unknown
-                                    readonly placement?: unknown
-                                    readonly section_key?: string
-                                    readonly start_date?: string
-                                    readonly timeline_end?: unknown
-                                    readonly timeline_start?: unknown
-                                }>
-                                readonly caption?: string
-                                readonly card_data?: unknown
-                                readonly card_state_json?: unknown
-                                readonly card_variant?: string
-                                readonly case_id?: string
-                                readonly cdn_url?: string
-                                readonly challenge_id?: string
-                                readonly compass_insight_unit_id?: string
-                                readonly condition_matched?: unknown
-                                readonly content_id?: string
-                                readonly created_time?: string
-                                readonly creation_lifecycle_identity?: string
-                                readonly creation_time?: string
-                                readonly creative_description?: string
-                                readonly creators?: ReadonlyArray<{
-                                    readonly explanation?: string
-                                    readonly fbid?: unknown
-                                    readonly name?: string
-                                    readonly profile_pic_url?: string
-                                    readonly username?: string
-                                }>
-                                readonly cta_action?: unknown
-                                readonly cta_text?: string
-                                readonly cta_type?: string
-                                readonly current_value?: unknown
-                                readonly current_value_formatted?: unknown
-                                readonly dag_conclusion?: unknown
-                                readonly dag_description?: string
-                                readonly dag_name?: string
-                                readonly dag_root?: unknown
-                                readonly dag_root_id?: string
-                                readonly data_config?: ReadonlyArray<{
-                                    readonly composed_text_label?: {
-                                        readonly content?: ReadonlyArray<{
-                                            readonly __typename?: string
-                                            readonly block_type?: string
-                                            readonly data?: string
-                                            readonly depth?: number
-                                            readonly entity_ranges?: ReadonlyArray<{
-                                                readonly entity?: {
-                                                    readonly __typename?: string
-                                                    readonly ad_object_ids?: ReadonlyArray<string>
-                                                    readonly ad_object_type?: string
-                                                    readonly display_text?: string
-                                                    readonly id?: string
-                                                    readonly request_id?: string
-                                                }
-                                                readonly entity_type?: string
-                                                readonly length?: string
-                                                readonly offset?: number
-                                            }>
-                                            readonly inline_style_ranges?: ReadonlyArray<{
-                                                readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
-                                                readonly length?: string
-                                                readonly offset?: number
-                                            }>
-                                            readonly text?: string
-                                        }>
-                                    }
-                                    readonly description?: string
-                                    readonly label?: string
-                                    readonly metric_name?: string
-                                    readonly type?: string
-                                }>
-                                readonly data_entries?: ReadonlyArray<{
-                                    readonly composed_text_values?: ReadonlyArray<{
-                                        readonly content?: ReadonlyArray<{
-                                            readonly __typename?: string
-                                            readonly block_type?: string
-                                            readonly data?: string
-                                            readonly depth?: number
-                                            readonly entity_ranges?: ReadonlyArray<{
-                                                readonly entity?: {
-                                                    readonly __typename?: string
-                                                    readonly ad_object_ids?: ReadonlyArray<string>
-                                                    readonly ad_object_type?: string
-                                                    readonly display_text?: string
-                                                    readonly id?: string
-                                                    readonly request_id?: string
-                                                }
-                                                readonly entity_type?: string
-                                                readonly length?: string
-                                                readonly offset?: number
-                                            }>
-                                            readonly inline_style_ranges?: ReadonlyArray<{
-                                                readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
-                                                readonly length?: string
-                                                readonly offset?: number
-                                            }>
-                                            readonly text?: string
-                                        }>
-                                    }>
-                                    readonly values?: unknown
-                                }>
-                                readonly data_set_id?: string
-                                readonly data_viz_type?: string
-                                readonly date_range?: string
-                                readonly dates?: unknown
-                                readonly delta?: number
-                                readonly dependencies_met?: ReadonlyArray<{
-                                    readonly ref?: unknown
-                                    readonly status?: string
-                                }>
-                                readonly description?: string
-                                readonly diagnosis_title?: string
-                                readonly digital_creation_disclosure?: string
-                                readonly disclosure_kind?: string
-                                readonly display_name?: string
-                                readonly display_text?: string
-                                readonly draft_id?: string
-                                readonly echo_override?: string
-                                readonly edited?: unknown
-                                readonly enrollment_context_enc?: unknown
-                                readonly error?: boolean
-                                readonly error_message?: string
-                                readonly error_phase?: unknown
-                                readonly evaluation?: string
-                                readonly expression?: unknown
-                                readonly external_url?: string
-                                readonly eyebrow_image_url?: string
-                                readonly eyebrow_text?: string
-                                readonly fallback_text?: string
-                                readonly fill_value?: string
-                                readonly forecasted_results?: ReadonlyArray<{
-                                    readonly label?: string
-                                    readonly subtitle?: string
-                                    readonly value?: string
-                                }>
-                                readonly form_fields?: ReadonlyArray<{
-                                    readonly is_required?: boolean
-                                    readonly label?: string
-                                    readonly name?: string
-                                    readonly placeholder?: unknown
-                                    readonly prefilled_value?: string
-                                    readonly react_component?: 'EMAIL' | 'PHONE_NUMBER'
-                                }>
-                                readonly format?: string
-                                readonly format_type?: string
-                                readonly funnel_chart_data?: string
-                                readonly gender?: string
-                                readonly goal_context?: string
-                                readonly goal_description?: string
-                                readonly goal_detail?: string
-                                readonly has_payment_method?: boolean
-                                readonly heading?: string
-                                readonly heading_subtitle?: string
-                                readonly heat_bar_label?: string
-                                readonly icon?: 'error' | 'info' | 'success' | 'warning'
-                                readonly id?: string
-                                readonly idea_creatives?: ReadonlyArray<{
-                                    readonly adgroup_id?: string
-                                    readonly concept_id?: string
-                                    readonly creative_id?: string
-                                    readonly image_url?: string
-                                    readonly media_type?: string
-                                    readonly video_url?: string
-                                }>
-                                readonly idea_id?: string
-                                readonly ideas?: ReadonlyArray<{
-                                    readonly concept_id?: string
-                                    readonly cover_image_url?: string
-                                    readonly cover_video_url?: string
-                                    readonly rationale?: unknown
-                                    readonly reasoning?: string
-                                    readonly title?: string
-                                    readonly type?: string
-                                }>
-                                readonly image_url?: string
-                                readonly image_urls?: unknown
-                                readonly initial_description?: string
-                                readonly initial_title?: string
-                                readonly input_role?: string
-                                readonly insights?: ReadonlyArray<{
-                                    readonly category?: string
-                                    readonly detail?: unknown
-                                    readonly headline?: string
-                                    readonly icon?: 'error' | 'info' | 'success' | 'warning'
-                                    readonly source?: string
-                                }>
-                                readonly interests?: string
-                                readonly invited_people?: unknown
-                                readonly is_action?: boolean
-                                readonly is_completed?: boolean
-                                readonly is_continuous_duration?: boolean
-                                readonly is_ctx_ad?: boolean
-                                readonly is_decision?: boolean
-                                readonly is_error?: boolean
-                                readonly is_join?: boolean
-                                readonly is_loading?: boolean
-                                readonly is_parallel?: boolean
-                                readonly is_pill_hidden?: boolean
-                                readonly is_skipped?: boolean
-                                readonly is_streaming?: boolean
-                                readonly is_success?: boolean
-                                readonly issue_cards_data?: string
-                                readonly kpi_tiles_data?: string
-                                readonly label?: string
-                                readonly limit?: number
-                                readonly link_description?: string
-                                readonly log_source?: string
-                                readonly lower_limit?: number
-                                readonly maiba_interviewer_rec_key?: string
-                                readonly maiba_recommendation_id?: string
-                                readonly max_value?: number
-                                readonly media_layout?: unknown
-                                readonly media_type?: string
-                                readonly metadata?: string
-                                readonly metric_value?: unknown
-                                readonly metrics?: ReadonlyArray<{
-                                    readonly benchmark?: unknown
-                                    readonly dates?: unknown
-                                    readonly delta?: number
-                                    readonly label?: string
-                                    readonly metric_value?: unknown
-                                    readonly note?: string
-                                    readonly sentiment?: string
-                                    readonly series?: unknown
-                                    readonly sparkline_label?: string
-                                    readonly trend?: unknown
-                                    readonly value?: string
-                                }>
-                                readonly mime_type?: string
-                                readonly min_value?: number
-                                readonly next_node?: unknown
-                                readonly node_id?: string
-                                readonly node_type?: string
-                                readonly nodes?: ReadonlyArray<{
-                                    readonly __typename?: string
-                                    readonly branches?: ReadonlyArray<{
-                                        readonly condition?: unknown
-                                        readonly description?: string
-                                        readonly target?: unknown
-                                    }>
-                                    readonly depends_on?: ReadonlyArray<string>
-                                    readonly description?: string
-                                    readonly evaluate?: unknown
-                                    readonly next?: unknown
-                                    readonly node_id?: string
-                                    readonly on_complete?: unknown
-                                    readonly parallel_paths?: ReadonlyArray<{
-                                        readonly target?: unknown
-                                    }>
-                                    readonly request?: unknown
-                                    readonly type?: string
-                                }>
-                                readonly option_label?: string
-                                readonly options?: ReadonlyArray<{
-                                    readonly age_max?: number
-                                    readonly age_min?: number
-                                    readonly description?: string
-                                    readonly gender?: string
-                                    readonly id?: string
-                                    readonly interests?: string
-                                    readonly is_recommended?: boolean
-                                    readonly subtitle?: string
-                                    readonly subtitle_value?: number
-                                    readonly thumbnail_url?: string
-                                    readonly title?: string
-                                }>
-                                readonly options_json?: string
-                                readonly organic_insights?: {
-                                    readonly comments?: unknown
-                                    readonly likes?: unknown
-                                    readonly shares?: unknown
-                                    readonly views?: unknown
-                                }
-                                readonly outcome_predictions?: {
-                                    readonly impressions?: number
-                                    readonly optimization_goal?: unknown
-                                    readonly outcome_label?: string
-                                    readonly outcomes?: unknown
-                                }
-                                readonly page_id?: string
-                                readonly page_name?: string
-                                readonly page_profile_pic_url?: string
-                                readonly partner?: unknown
-                                readonly paths_completed?: ReadonlyArray<{
-                                    readonly id?: string
-                                    readonly status?: string
-                                    readonly summary?: string
-                                }>
-                                readonly payment_summary?: {
-                                    readonly billing_wizard_name?: string
-                                    readonly billing_wizard_props_json?: unknown
-                                    readonly currency?: string
-                                    readonly daily_budget?: string
-                                    readonly duration_days?: number
-                                    readonly payment_account_id?: string
-                                    readonly payment_method_label?: string
-                                    readonly payment_method_logo_url?: string
-                                    readonly payment_method_type?: string
-                                    readonly taxes?: ReadonlyArray<{
-                                        readonly amount?: number
-                                        readonly label?: string
-                                    }>
-                                    readonly total_amount?: number
-                                    readonly total_budget?: unknown
-                                }
-                                readonly per_platform?: ReadonlyArray<{
-                                    readonly caption?: string
-                                    readonly image_url?: string
-                                    readonly platform?: 'facebook' | 'instagram'
-                                }>
-                                readonly period_basis?: unknown
-                                readonly photo_id?: string
-                                readonly placement_description?: string
-                                readonly platform?: 'facebook' | 'instagram'
-                                readonly ple_text?: string
-                                readonly points?: unknown
-                                readonly post_confirm_description?: string
-                                readonly post_confirm_title?: string
-                                readonly post_id?: string
-                                readonly post_metadata?: {
-                                    readonly caption?: string
-                                    readonly content_type?: string
-                                    readonly creation_time?: string
-                                    readonly id?: string
-                                    readonly image_url?: string
-                                    readonly lwi_product?: unknown
-                                    readonly page_id?: string
-                                }
-                                readonly postback_message?: string
-                                readonly previews?: ReadonlyArray<{
-                                    readonly ad_id?: string
-                                    readonly ad_library_url?: string
-                                    readonly body?: string
-                                    readonly caption?: string
-                                    readonly cta_text?: string
-                                    readonly cta_type?: string
-                                    readonly id?: string
-                                    readonly image_url?: string
-                                    readonly link_description?: string
-                                    readonly page_id?: string
-                                    readonly page_name?: string
-                                    readonly page_profile_pic_url?: string
-                                    readonly platform?: 'facebook' | 'instagram'
-                                    readonly title?: string
-                                }>
-                                readonly primary_cta_label?: string
-                                readonly profiles?: unknown
-                                readonly progress_subscription_id?: string
-                                readonly progress_summary?: string
-                                readonly progress_title?: string
-                                readonly prompt?: string
-                                readonly prompt_composed_text?: {
-                                    readonly content?: ReadonlyArray<{
-                                        readonly __typename?: string
-                                        readonly block_type?: string
-                                        readonly data?: string
-                                        readonly depth?: number
-                                        readonly entity_ranges?: ReadonlyArray<{
-                                            readonly entity?: {
-                                                readonly __typename?: string
-                                                readonly ad_object_ids?: ReadonlyArray<string>
-                                                readonly ad_object_type?: string
-                                                readonly display_text?: string
-                                                readonly id?: string
-                                                readonly request_id?: string
-                                            }
-                                            readonly entity_type?: string
-                                            readonly length?: string
-                                            readonly offset?: number
-                                        }>
-                                        readonly inline_style_ranges?: ReadonlyArray<{
-                                            readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
-                                            readonly length?: string
-                                            readonly offset?: number
-                                        }>
-                                        readonly text?: string
-                                    }>
-                                }
-                                readonly publish_metadata?: {
-                                    readonly fragment_ids?: ReadonlyArray<string>
-                                    readonly state?: string
-                                    readonly tooltip?: string
-                                }
-                                readonly publish_status?: string
-                                readonly quarter?: string
-                                readonly raw_json?: unknown
-                                readonly raw_value?: string
-                                readonly reached_value?: number
-                                readonly reasoning?: string
-                                readonly recap?: unknown
-                                readonly recommendation_id?: string
-                                readonly recommendation_reason?: string
-                                readonly recommendation_reason_audience?: string
-                                readonly recommendation_reason_budget_and_duration?: number
-                                readonly recommendation_reason_creative?: string
-                                readonly recommendation_reason_goal?: string
-                                readonly recommendation_reason_placement?: string
-                                readonly recommended_post_variant?: unknown
-                                readonly redirect_url?: string
-                                readonly region?: string
-                                readonly request_id?: string
-                                readonly review_header?: unknown
-                                readonly scheduled_time?: string
-                                readonly scorecard_cta_label?: string
-                                readonly scorecard_cta_prompt?: unknown
-                                readonly scorecard_report_description?: string
-                                readonly scorecard_report_summary?: string
-                                readonly scorecard_report_title?: string
-                                readonly scorecard_shell_tabs?: string
-                                readonly search_filters_json?: string
-                                readonly search_label?: string
-                                readonly secondary_button_label?: string
-                                readonly secondary_cta_label?: string
-                                readonly secondary_label?: string
-                                readonly secondary_message?: string
-                                readonly section?: string
-                                readonly sections?: ReadonlyArray<{
-                                    readonly body?: string
-                                    readonly data_viz?: {
-                                        readonly data_config?: ReadonlyArray<{
-                                            readonly description?: string
-                                            readonly label?: string
-                                            readonly metric_name?: string
-                                            readonly type?: string
-                                        }>
-                                        readonly data_entries?: ReadonlyArray<{
-                                            readonly values?: unknown
-                                        }>
-                                        readonly data_viz_type?: string
-                                        readonly description?: string
-                                        readonly id?: string
-                                        readonly title?: string
-                                    }
-                                    readonly icon?: 'error' | 'info' | 'success' | 'warning'
-                                    readonly section_key?: string
-                                    readonly title?: string
-                                }>
-                                readonly seed_image_uri?: string
-                                readonly selection_mode?: string
-                                readonly sentiment?: string
-                                readonly series?: unknown
-                                readonly server_formatted_text?: string
-                                readonly show_creative_terms?: boolean
-                                readonly show_select_all?: boolean
-                                readonly signals_action?: 'COPY_PIXEL_CODE' | 'ENABLE_AAM' | 'ENABLE_AUTOMATIC_EVENTS' | 'ENABLE_CAPIG' | 'OPEN_PIXEL_HELPER'
-                                readonly single_apply_uses_template?: boolean
-                                readonly sparkline_label?: string
-                                readonly spec_type?: string
-                                readonly special_ad_categories_description?: string
-                                readonly specs?: ReadonlyArray<{
-                                    readonly description?: string
-                                    readonly name?: string
-                                }>
-                                readonly status?: string
-                                readonly subtitle?: string
-                                readonly summary?: string
-                                readonly surface?: unknown
-                                readonly surface_id?: string
-                                readonly symptom?: unknown
-                                readonly target?: unknown
-                                readonly target_asset?: string
-                                readonly target_value?: number
-                                readonly target_value_formatted?: unknown
-                                readonly thumbnail_uri?: string
-                                readonly thumbnails?: unknown
-                                readonly title?: string
-                                readonly tool_call_args?: string
-                                readonly tool_call_batch_id?: string
-                                readonly tool_call_id?: string
-                                readonly tool_name?: string
-                                readonly tool_result?: string
-                                readonly tool_status?: string
-                                readonly tooltip?: string
-                                readonly tooltip_text?: string
-                                readonly tooltip_variant?: 'ESTIMATED_COST_PER_RESULT' | 'ESTIMATED_RESULTS_RANGE' | 'SIMILAR_ADVERTISER_BUDGET_RECOMMENDATION'
-                                readonly total_budget?: unknown
-                                readonly total_count?: number
-                                readonly type?: string
-                                readonly unit_id?: string
-                                readonly upper_limit?: number
-                                readonly url?: string
-                                readonly variant?: string
-                                readonly version?: number
-                                readonly video_permalink?: unknown
-                                readonly was_approved?: boolean
-                                readonly welcome_message_template?: {
-                                    readonly greeting?: unknown
-                                    readonly icebreakers?: unknown
-                                }
-                                readonly why_bullets?: string
-                                readonly widget_data?: string
-                                readonly widget_status?: 'CONFIRMED'
-                                readonly widget_variant?: 'DECISION_REVIEW' | 'IMAGE_GRID' | 'TEXT' | 'TEXT_WITH_FREEFORM'
-                                readonly workspace_creators?: ReadonlyArray<{
-                                    readonly explanation?: string
-                                    readonly fbid?: unknown
-                                }>
-                                readonly workspace_id?: string
-                                readonly workspace_type?: string
-                            }
-                            readonly entity_type?: string
-                            readonly length?: string
-                            readonly offset?: number
-                        }>
-                        readonly inline_style_ranges?: ReadonlyArray<{
-                            readonly inline_style?: 'BOLD' | 'CODE' | 'ITALIC' | 'LIGHTSTRIKETHROUGH' | 'LINEBREAK' | 'STRIKETHROUGH' | 'SUBSCRIPT' | 'SUPERSCRIPT' | 'UNDERLINE'
-                            readonly length?: string
-                            readonly offset?: number
-                        }>
-                        readonly media_alignment?: unknown
-                        readonly media_caption?: string
-                        readonly text?: string
-                    }>
-                }
-            }
-            readonly id?: string
-        }
-    }
-}
-
 export type WaMexuseWAWebEstimatedDailyReachResponse = {
     readonly lwi?: {
         readonly budget_estimate_data_v2?: {
@@ -7596,8 +9583,8 @@ export type WaMexuseWAWebEstimatedDailyReachResponse = {
     }
     readonly whatsapp_ctwa_preflight_forecast?: {
         readonly estimated_daily_impressions?: {
-            readonly lower_bound?: string
-            readonly upper_bound?: string
+            readonly lower_bound?: number
+            readonly upper_bound?: number
         }
     }
 }
@@ -7629,14 +9616,19 @@ export type WaMexuseWAWebSmartComposerReportUsedResponse = {
 export interface WaMexOperationResponses {
     readonly ACSServerProviderConfig: WaMexACSServerProviderConfigResponse
     readonly ACSServerProviderIssuance: WaMexACSServerProviderIssuanceResponse
+    readonly AECompanionOffboard: WaMexAECompanionOffboardResponse
+    readonly AECompanionOnboard: WaMexAECompanionOnboardResponse
     readonly AcceptNewsletterAdminInvite: WaMexAcceptNewsletterAdminInviteResponse
     readonly AccountLinkingAPIGetCerts: WaMexAccountLinkingAPIGetCertsResponse
-    readonly AdAccountReviewBaseCard: WaMexAdAccountReviewBaseCardResponse
-    readonly AdAccountReviewUtilsFetchMAIBAAccountReviewStatus: WaMexAdAccountReviewUtilsFetchMAIBAAccountReviewStatusResponse
+    readonly AdAccountDpaEligibleProductCatalogListStoreSource: WaMexAdAccountDpaEligibleProductCatalogListStoreSourceResponse
     readonly AdPreferencesDFCABusinessOptOut: WaMexAdPreferencesDFCABusinessOptOutResponse
     readonly AdPreferencesDemographicCategoryOptOut: WaMexAdPreferencesDemographicCategoryOptOutResponse
     readonly AdPreferencesHideAdvertiser: WaMexAdPreferencesHideAdvertiserResponse
     readonly AdPreferencesInterestCategoryOptOut: WaMexAdPreferencesInterestCategoryOptOutResponse
+    readonly AddLabyrinthPeerDevice: WaMexAddLabyrinthPeerDeviceResponse
+    readonly AdsAccountDataDispatcher: WaMexAdsAccountDataDispatcherResponse
+    readonly AdsAccountDataDispatcherViewerPermissions: WaMexAdsAccountDataDispatcherViewerPermissionsResponse
+    readonly AdsAccountStoreNewSourceServer: WaMexAdsAccountStoreNewSourceServerResponse
     readonly AdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatus: WaMexAdsAdAccountSettingsStoreSetAPlusCFeatureStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSetL1AESourceStickyStatus: WaMexAdsAdAccountSettingsStoreSetL1AESourceStickyStatusResponse
     readonly AdsAdAccountSettingsStoreSetMultiMediaStickyStatus: WaMexAdsAdAccountSettingsStoreSetMultiMediaStickyStatusResponse
@@ -7645,16 +9637,23 @@ export interface WaMexOperationResponses {
     readonly AdsBulkEditCampaignGroupAgencyFeeBulkContainer: WaMexAdsBulkEditCampaignGroupAgencyFeeBulkContainerResponse
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeResponse
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response
+    readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPResponse
+    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerResponse
+    readonly AdsFocusFrameworkStickinessDataManager: WaMexAdsFocusFrameworkStickinessDataManagerResponse
+    readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexAdsInstagramAccountMediaListRIStoreSourceServerResponse
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignResponse
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
+    readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureResponse
+    readonly AdsSmartDefaultStoreSourceServer: WaMexAdsSmartDefaultStoreSourceServerResponse
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response
+    readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexAdsUEditorAdgroupMessageDestinationPageCategoryResponse
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
     readonly AdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_: WaMexAdsUEditorAdgroupPartnershipAdsStatusVerifiedIdentities_Response
+    readonly AdvertiserProfileMessageMarketingDataStoreLoader: WaMexAdvertiserProfileMessageMarketingDataStoreLoaderResponse
     readonly AiAgentAutoReplyControl: WaMexAiAgentAutoReplyControlResponse
     readonly AuthAgentFeaturePolicy: WaMexAuthAgentFeaturePolicyResponse
     readonly BPAccessTokenAndSessionCookies: WaMexBPAccessTokenAndSessionCookiesResponse
     readonly BizCreateOrder: WaMexBizCreateOrderResponse
-    readonly BizCustomUrlGetUserGraphql: WaMexBizCustomUrlGetUserGraphqlResponse
     readonly BizGetCategories: WaMexBizGetCategoriesResponse
     readonly BizGetCategoriesV2: WaMexBizGetCategoriesV2Response
     readonly BizGetCustomUrlUserGraphql: WaMexBizGetCustomUrlUserGraphqlResponse
@@ -7666,6 +9665,8 @@ export interface WaMexOperationResponses {
     readonly BizProfileRoot: WaMexBizProfileRootResponse
     readonly BizQueryOrder: WaMexBizQueryOrderResponse
     readonly BizSetMerchantCompliance: WaMexBizSetMerchantComplianceResponse
+    readonly BrResolvePaymentAccountLink: WaMexBrResolvePaymentAccountLinkResponse
+    readonly CTXChatBuilderDialogContainerUtils: WaMexCTXChatBuilderDialogContainerUtilsResponse
     readonly CTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModal: WaMexCTXChatBuilderWAFlowsUtilsWAMFlowsCTWAEditorModalResponse
     readonly CachedToken: WaMexCachedTokenResponse
     readonly CanonicalUserValid: WaMexCanonicalUserValidResponse
@@ -7689,6 +9690,9 @@ export interface WaMexOperationResponses {
     readonly CreateReportAppeal: WaMexCreateReportAppealResponse
     readonly CreateWhatsAppAdsIdentity: WaMexCreateWhatsAppAdsIdentityResponse
     readonly CustomLabel3pdEvent: WaMexCustomLabel3pdEventResponse
+    readonly CustomerManagerAccessState: WaMexCustomerManagerAccessStateResponse
+    readonly CustomerManagerCustomerProfileCustomFieldCreate: WaMexCustomerManagerCustomerProfileCustomFieldCreateResponse
+    readonly CustomerManagerStartTrial: WaMexCustomerManagerStartTrialResponse
     readonly DebugLabyrinthAddDevice: WaMexDebugLabyrinthAddDeviceResponse
     readonly DebugLabyrinthFetchVirtualDeviceInfo: WaMexDebugLabyrinthFetchVirtualDeviceInfoResponse
     readonly DebugLabyrinthInboxSnapshot: WaMexDebugLabyrinthInboxSnapshotResponse
@@ -7696,20 +9700,11 @@ export interface WaMexOperationResponses {
     readonly DebugLabyrinthRestorePage: WaMexDebugLabyrinthRestorePageResponse
     readonly DeleteNewsletter: WaMexDeleteNewsletterResponse
     readonly DemoteNewsletterAdmin: WaMexDemoteNewsletterAdminResponse
-    readonly E2EEMetadataMailboxAddGroupParticipants: WaMexE2EEMetadataMailboxAddGroupParticipantsResponse
-    readonly E2EEMetadataMailboxCreateGroupThread: WaMexE2EEMetadataMailboxCreateGroupThreadResponse
-    readonly E2EEMetadataMailboxDemoteGroupParticipants: WaMexE2EEMetadataMailboxDemoteGroupParticipantsResponse
     readonly E2EEMetadataMailboxFetchGroupInfoV4: WaMexE2EEMetadataMailboxFetchGroupInfoV4Response
-    readonly E2EEMetadataMailboxLeaveGroup: WaMexE2EEMetadataMailboxLeaveGroupResponse
-    readonly E2EEMetadataMailboxPromoteGroupParticipants: WaMexE2EEMetadataMailboxPromoteGroupParticipantsResponse
-    readonly E2EEMetadataMailboxRemoveGroupParticipants: WaMexE2EEMetadataMailboxRemoveGroupParticipantsResponse
-    readonly E2EEMetadataMailboxSetGroupSubject: WaMexE2EEMetadataMailboxSetGroupSubjectResponse
-    readonly EBMessageMetadataQuery: WaMexEBMessageMetadataQueryResponse
     readonly EBMessageRangeQueryForThreads: WaMexEBMessageRangeQueryForThreadsResponse
     readonly EditBizProfile: WaMexEditBizProfileResponse
     readonly EmailInviteSendGroup: WaMexEmailInviteSendGroupResponse
     readonly ExternalCtxAuthoriseWAChat: WaMexExternalCtxAuthoriseWAChatResponse
-    readonly FetchAboutStatus: WaMexFetchAboutStatusResponse
     readonly FetchAllNewslettersMetadata: WaMexFetchAllNewslettersMetadataResponse
     readonly FetchAllSubgroups: WaMexFetchAllSubgroupsResponse
     readonly FetchBotCertificateRevocationList: WaMexFetchBotCertificateRevocationListResponse
@@ -7721,9 +9716,18 @@ export interface WaMexOperationResponses {
     readonly FetchGroupInfoIncludBotsJobAcp2: WaMexFetchGroupInfoIncludBotsJobAcp2Response
     readonly FetchGroupInfoJobAcp2: WaMexFetchGroupInfoJobAcp2Response
     readonly FetchGroupInviteCode: WaMexFetchGroupInviteCodeResponse
+    readonly FetchGroupInviteInfo: WaMexFetchGroupInviteInfoResponse
+    readonly FetchGroupInviteInfoJobAddRequest: WaMexFetchGroupInviteInfoJobAddRequestResponse
     readonly FetchGroupIsInternal: WaMexFetchGroupIsInternalResponse
+    readonly FetchGroupMembershipFormForJoinJobAddRequest: WaMexFetchGroupMembershipFormForJoinJobAddRequestResponse
+    readonly FetchGroupMembershipFormForJoinJobInvite: WaMexFetchGroupMembershipFormForJoinJobInviteResponse
+    readonly FetchGroupMembershipFormForJoinJobLinked: WaMexFetchGroupMembershipFormForJoinJobLinkedResponse
     readonly FetchIntegritySignals: WaMexFetchIntegritySignalsResponse
+    readonly FetchLabyrinthEpochChain: WaMexFetchLabyrinthEpochChainResponse
     readonly FetchLabyrinthEpochDevices: WaMexFetchLabyrinthEpochDevicesResponse
+    readonly FetchLinkedGroupInfo: WaMexFetchLinkedGroupInfoResponse
+    readonly FetchMembershipApprovalRequests: WaMexFetchMembershipApprovalRequestsResponse
+    readonly FetchMetaOnePromoEligibility: WaMexFetchMetaOnePromoEligibilityResponse
     readonly FetchNewChatMessageCappingInfo: WaMexFetchNewChatMessageCappingInfoResponse
     readonly FetchNewsletter: WaMexFetchNewsletterResponse
     readonly FetchNewsletterAdminCapabilities: WaMexFetchNewsletterAdminCapabilitiesResponse
@@ -7742,6 +9746,7 @@ export interface WaMexOperationResponses {
     readonly FetchNewsletterReports: WaMexFetchNewsletterReportsResponse
     readonly FetchOHAIKeyConfig: WaMexFetchOHAIKeyConfigResponse
     readonly FetchOIDCState: WaMexFetchOIDCStateResponse
+    readonly FetchPhoneNumberSharingSettings: WaMexFetchPhoneNumberSharingSettingsResponse
     readonly FetchPlaintextLinkPreview: WaMexFetchPlaintextLinkPreviewResponse
     readonly FetchQuickPromotions: WaMexFetchQuickPromotionsResponse
     readonly FetchReachoutTimelock: WaMexFetchReachoutTimelockResponse
@@ -7765,22 +9770,25 @@ export interface WaMexOperationResponses {
     readonly GetWoasAgeSignal: WaMexGetWoasAgeSignalResponse
     readonly GraphQLProductCatalogGetPublicKey: WaMexGraphQLProductCatalogGetPublicKeyResponse
     readonly GraphQLVerifyPostcode: WaMexGraphQLVerifyPostcodeResponse
+    readonly GroupJoin: WaMexGroupJoinResponse
     readonly GroupStoreAndSendInviteSms: WaMexGroupStoreAndSendInviteSmsResponse
     readonly GroupStoreInviteSms: WaMexGroupStoreInviteSmsResponse
     readonly GroupSuspensionAppeal: WaMexGroupSuspensionAppealResponse
     readonly IntegrityChallengeResponse: WaMexIntegrityChallengeResponseResponse
+    readonly InternalDirectoryFetchMembers: WaMexInternalDirectoryFetchMembersResponse
     readonly JoinNewsletter: WaMexJoinNewsletterResponse
     readonly KeyTransparencyGraphQLClient_: WaMexKeyTransparencyGraphQLClient_Response
     readonly LeaveNewsletter: WaMexLeaveNewsletterResponse
     readonly LidChangeNotification: WaMexLidChangeNotificationResponse
     readonly LogNewsletterExposures: WaMexLogNewsletterExposuresResponse
     readonly LogServerSentInviteIntent: WaMexLogServerSentInviteIntentResponse
-    readonly MAIBAInlineAssetSelectorWidgetAssetIDs: WaMexMAIBAInlineAssetSelectorWidgetAssetIDsResponse
-    readonly MAIBAInlineAssetSelectorWidgetAssets: WaMexMAIBAInlineAssetSelectorWidgetAssetsResponse
-    readonly MAIBAMessageCreatorCardsRenderer: WaMexMAIBAMessageCreatorCardsRendererResponse
-    readonly MAIBAMessageSignalsCTARenderer: WaMexMAIBAMessageSignalsCTARendererResponse
-    readonly MAIBAMessageSignalsCTARendererEnableAutomaticEvents: WaMexMAIBAMessageSignalsCTARendererEnableAutomaticEventsResponse
-    readonly MAIBARecordAsyncAuthConsent: WaMexMAIBARecordAsyncAuthConsentResponse
+    readonly MAIBAAdObjectReference_StoryMetadata: WaMexMAIBAAdObjectReference_StoryMetadataResponse
+    readonly MAIBAChatThread: WaMexMAIBAChatThreadResponse
+    readonly MAIBAGraphQLSendMessageV2Query: WaMexMAIBAGraphQLSendMessageV2QueryResponse
+    readonly MAIBAGraphQLSendMessageV3Query: WaMexMAIBAGraphQLSendMessageV3QueryResponse
+    readonly MAIBAGraphQLSendMessageV4Query: WaMexMAIBAGraphQLSendMessageV4QueryResponse
+    readonly MAIBAPageReference: WaMexMAIBAPageReferenceResponse
+    readonly MAIBAUpdateAdsAIConsent: WaMexMAIBAUpdateAdsAIConsentResponse
     readonly MetaPayVaultInitialize: WaMexMetaPayVaultInitializeResponse
     readonly MetaPayVaultLabyrinthDelete: WaMexMetaPayVaultLabyrinthDeleteResponse
     readonly MetaPayVaultLabyrinthFetchAll: WaMexMetaPayVaultLabyrinthFetchAllResponse
@@ -7795,18 +9803,24 @@ export interface WaMexOperationResponses {
     readonly OrgAdminGraphQLAddChannel: WaMexOrgAdminGraphQLAddChannelResponse
     readonly OrgAdminGraphQLAddGroup: WaMexOrgAdminGraphQLAddGroupResponse
     readonly OrgAdminGraphQLAdminRoster: WaMexOrgAdminGraphQLAdminRosterResponse
+    readonly OrgAdminGraphQLApplyAdminRosterChanges: WaMexOrgAdminGraphQLApplyAdminRosterChangesResponse
     readonly OrgAdminGraphQLDirectoryPage: WaMexOrgAdminGraphQLDirectoryPageResponse
+    readonly OrgAdminGraphQLEventRsvpCounts: WaMexOrgAdminGraphQLEventRsvpCountsResponse
     readonly OrgAdminGraphQLGroup: WaMexOrgAdminGraphQLGroupResponse
     readonly OrgAdminGraphQLInviteMembers: WaMexOrgAdminGraphQLInviteMembersResponse
+    readonly OrgAdminGraphQLLeave: WaMexOrgAdminGraphQLLeaveResponse
+    readonly OrgAdminGraphQLManagedChannelAdmins: WaMexOrgAdminGraphQLManagedChannelAdminsResponse
     readonly OrgAdminGraphQLManagedChannels: WaMexOrgAdminGraphQLManagedChannelsResponse
+    readonly OrgAdminGraphQLManagedEvents: WaMexOrgAdminGraphQLManagedEventsResponse
     readonly OrgAdminGraphQLManagedGroups: WaMexOrgAdminGraphQLManagedGroupsResponse
     readonly OrgAdminGraphQLMemberSearch: WaMexOrgAdminGraphQLMemberSearchResponse
     readonly OrgAdminGraphQLOrgs: WaMexOrgAdminGraphQLOrgsResponse
     readonly OrgAdminGraphQLRemoveMember: WaMexOrgAdminGraphQLRemoveMemberResponse
-    readonly OrgAdminGraphQLReplaceAdminRoster: WaMexOrgAdminGraphQLReplaceAdminRosterResponse
+    readonly OrgAdminGraphQLSendManagedGroupEmailInvites: WaMexOrgAdminGraphQLSendManagedGroupEmailInvitesResponse
     readonly OrgAdminGraphQLSetMemberRole: WaMexOrgAdminGraphQLSetMemberRoleResponse
     readonly OrgAdminGraphQLSubmitBulkGroupRequest: WaMexOrgAdminGraphQLSubmitBulkGroupRequestResponse
     readonly OrgAdminGraphQLUpdateOrg: WaMexOrgAdminGraphQLUpdateOrgResponse
+    readonly OrgMemberUpdateNotificationHandler: WaMexOrgMemberUpdateNotificationHandlerResponse
     readonly PaymentsPasskeyHasCredential: WaMexPaymentsPasskeyHasCredentialResponse
     readonly QueryCatalog: WaMexQueryCatalogResponse
     readonly QueryCatalogHasCategories: WaMexQueryCatalogHasCategoriesResponse
@@ -7823,15 +9837,33 @@ export interface WaMexOperationResponses {
     readonly ResolveAccountTypeAndAdPageQuery: WaMexResolveAccountTypeAndAdPageQueryResponse
     readonly RevokeNewsletterAdminInvite: WaMexRevokeNewsletterAdminInviteResponse
     readonly RotateLabyrinthEpoch: WaMexRotateLabyrinthEpochResponse
+    readonly SaveResponseTonePreference: WaMexSaveResponseTonePreferenceResponse
     readonly SetUsername: WaMexSetUsernameResponse
     readonly SetUsernameKey: WaMexSetUsernameKeyResponse
+    readonly SharableEventAddInvitations: WaMexSharableEventAddInvitationsResponse
+    readonly SharableEventCreate: WaMexSharableEventCreateResponse
+    readonly SharableEventDelete: WaMexSharableEventDeleteResponse
+    readonly SharableEventGet: WaMexSharableEventGetResponse
+    readonly SharableEventGuestJoinedWaNotifications: WaMexSharableEventGuestJoinedWaNotificationsResponse
+    readonly SharableEventJoinViaLink: WaMexSharableEventJoinViaLinkResponse
+    readonly SharableEventLinkPreview: WaMexSharableEventLinkPreviewResponse
+    readonly SharableEventList: WaMexSharableEventListResponse
+    readonly SharableEventPlaceSearch: WaMexSharableEventPlaceSearchResponse
+    readonly SharableEventPresetCovers: WaMexSharableEventPresetCoversResponse
+    readonly SharableEventReconcile: WaMexSharableEventReconcileResponse
+    readonly SharableEventRemoveInvitations: WaMexSharableEventRemoveInvitationsResponse
+    readonly SharableEventUpdate: WaMexSharableEventUpdateResponse
+    readonly SharableEventUpdateRsvp: WaMexSharableEventUpdateRsvpResponse
     readonly SignupMetadata: WaMexSignupMetadataResponse
+    readonly SkipStoppedMessages: WaMexSkipStoppedMessagesResponse
     readonly StartConversationTemplateReengagementWithCatalogSection: WaMexStartConversationTemplateReengagementWithCatalogSectionResponse
     readonly StartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegeneration: WaMexStartConversationsTemplateCustomerActionsSectionIsEligibleForAIRegenerationResponse
     readonly StartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlows: WaMexStartConversationsTemplateDialogContainerBodyGraphQLWelcomeMessageFlowsResponse
     readonly StartConversationsTemplateFAQGenAIRegeneration: WaMexStartConversationsTemplateFAQGenAIRegenerationResponse
     readonly SubscriptionWaffleAgeCheck: WaMexSubscriptionWaffleAgeCheckResponse
+    readonly SupportBugReportCreateDogfoodingTask: WaMexSupportBugReportCreateDogfoodingTaskResponse
     readonly SupportBugReportSubmit: WaMexSupportBugReportSubmitResponse
+    readonly SupportChatAuthRefresh: WaMexSupportChatAuthRefreshResponse
     readonly SupportContactFormSubmit: WaMexSupportContactFormSubmitResponse
     readonly SupportMessageFeedbackSubmit: WaMexSupportMessageFeedbackSubmitResponse
     readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationResponse
@@ -7850,14 +9882,19 @@ export interface WaMexOperationResponses {
     readonly WAAOnboarding: WaMexWAAOnboardingResponse
     readonly WAMFlowsCTWAEditorModal: WaMexWAMFlowsCTWAEditorModalResponse
     readonly WAMFlowsCTWAFlowPreview: WaMexWAMFlowsCTWAFlowPreviewResponse
+    readonly WODirectoryFetchCompanyName: WaMexWODirectoryFetchCompanyNameResponse
     readonly WaffleFXServiceDataQueryV2: WaMexWaffleFXServiceDataQueryV2Response
     readonly WaffleFXWAMOUpdateUOOM: WaMexWaffleFXWAMOUpdateUOOMResponse
     readonly WaffleXE: WaMexWaffleXEResponse
+    readonly WhatsAppMarketingCampaignCustomerListPickerLists: WaMexWhatsAppMarketingCampaignCustomerListPickerListsResponse
+    readonly fetchWebsiteMediaImageURLs: WaMexfetchWebsiteMediaImageURLsResponse
+    readonly navigateToProductInsightsWithDefaultTab: WaMexnavigateToProductInsightsWithDefaultTabResponse
+    readonly useFetchAdAccountsForL4Context: WaMexuseFetchAdAccountsForL4ContextResponse
+    readonly useFetchAdAccountsNameById: WaMexuseFetchAdAccountsNameByIdResponse
     readonly useFlowJSONValidationLibrary: WaMexuseFlowJSONValidationLibraryResponse
     readonly useIsMessengerPlatformBot: WaMexuseIsMessengerPlatformBotResponse
-    readonly useMAIBADraftStatus: WaMexuseMAIBADraftStatusResponse
+    readonly useMAIBAAsyncNotification: WaMexuseMAIBAAsyncNotificationResponse
     readonly useMAIBAMedia: WaMexuseMAIBAMediaResponse
-    readonly useMAIBAWidgetState: WaMexuseMAIBAWidgetStateResponse
     readonly useWAWebEstimatedDailyReach: WaMexuseWAWebEstimatedDailyReachResponse
     readonly useWAWebEstimatedDailyReachShadow: WaMexuseWAWebEstimatedDailyReachShadowResponse
     readonly useWAWebSmartComposerCoachSuggestedReply: WaMexuseWAWebSmartComposerCoachSuggestedReplyResponse
