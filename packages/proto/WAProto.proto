@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1054794655
+/// WhatsApp Version: 2.3000.1054953954
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -3366,6 +3366,13 @@ message EncryptedBackupsSecretsProto {
     optional bytes obliviousValidationToken = 6;
 }
 
+message EncryptedJoinRequestPayload {
+    optional bytes encryptedAnswers = 1;
+    optional bytes encIv = 2;
+    optional bytes signalIdentityPublicKey = 3;
+    optional bytes kemCiphertext = 4;
+}
+
 message EncryptedPairingRequest {
     optional bytes encryptedPayload = 1;
     optional bytes iv = 2;
@@ -4126,6 +4133,11 @@ message MembershipFormKeyFingerprintVerification {
     optional string requestId = 1;
     optional string keyId = 2;
     optional bytes keyFingerprint = 3;
+}
+
+message MembershipFormPublicKeys {
+    optional bytes mlKemPublicKey = 1;
+    optional bytes x25519PublicKey = 2;
 }
 
 message Mention {

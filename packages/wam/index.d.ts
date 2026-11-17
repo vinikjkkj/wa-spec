@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054794655
+// WhatsApp Version: 2.3000.1054953954
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1349,6 +1349,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CALL_DETAIL_OVERFLOW_REPORT': 57;
             readonly 'CALL_DETAIL_SAFETY_TOOLS_BLOCK': 55;
             readonly 'CALL_DETAIL_SAFETY_TOOLS_REPORT': 56;
+            readonly 'CALL_HISTORY_LIKELY_SPAM_INTERVENTION_BLOCK': 67;
+            readonly 'CALL_INFO_LIKELY_SPAM_EDUCATION_BLOCK': 66;
             readonly 'CALL_LOG': 6;
             readonly 'CALL_LOG_BLOCK': 38;
             readonly 'CALL_SPAM_DIALOG_BLOCK': 44;
@@ -1388,6 +1390,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'OVERFLOW_MENU_BLOCK': 12;
             readonly 'OVERFLOW_MENU_REPORT': 17;
             readonly 'PAYMENT_TRANSACTION_REPORT': 54;
+            readonly 'POST_SPAM_CALL_FEEDBACK_INSIDE_APP_BLOCK': 65;
+            readonly 'POST_SPAM_CALL_FEEDBACK_OUTSIDE_APP_BLOCK': 64;
             readonly 'PROFILE': 2;
             readonly 'PSA_BANNER_BLOCK': 41;
             readonly 'STATUS_OVERFLOW_MENU_REPORT': 27;
@@ -10896,6 +10900,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'APP_CTA_CLICK': 24;
             readonly 'BODY_URL_CLICK': 25;
             readonly 'BODY_URL_LONG_PRESS': 29;
+            readonly 'DELIVERED': 34;
             readonly 'FIRST_BIZ_REPLY': 4;
             readonly 'FIRST_BIZ_REPLY_CONTINUATION': 5;
             readonly 'FIRST_CUSTOMER_MESSAGE': 2;
@@ -10904,6 +10909,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'IAB_LPV_BODY': 32;
             readonly 'MESSAGE': 27;
             readonly 'PAYMENT_CTA_CLICK': 33;
+            readonly 'READ': 35;
             readonly 'SECOND_BIZ_REPLY': 8;
             readonly 'SECOND_BIZ_REPLY_CONTINUATION': 9;
             readonly 'SECOND_CUSTOMER_MESSAGE': 6;
@@ -10926,7 +10932,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'USER_MUTE': 22;
             readonly 'USER_NOT_INTERESTED': 14;
             readonly 'USER_REPORT': 1;
-            readonly 'USER_STOP_OFFERS': 15
+            readonly 'USER_STOP_OFFERS': 15;
+            readonly 'VIDEO_PLAYBACK': 36
         }
     }
     readonly MM_USER_CONTROLS_ACTION: {

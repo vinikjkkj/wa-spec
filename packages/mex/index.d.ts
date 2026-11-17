@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054794655
+// WhatsApp Version: 2.3000.1054953954
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -246,6 +246,9 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly SharableEventDelete: WaMexPersistId
     readonly SharableEventGet: WaMexPersistId
     readonly SharableEventGuestJoinedWaNotifications: WaMexPersistId
+    readonly SharableEventInviteLinkJobGetOrCreate: WaMexPersistId
+    readonly SharableEventInviteLinkJobInvalidate: WaMexPersistId
+    readonly SharableEventInviteLinkJobRotate: WaMexPersistId
     readonly SharableEventJoinViaLink: WaMexPersistId
     readonly SharableEventLinkPreview: WaMexPersistId
     readonly SharableEventList: WaMexPersistId
@@ -401,10 +404,10 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchBotProfilesGQL: WaMexOperationSchema<'query', readonly ['ids']>
     readonly FetchBotTasks: WaMexOperationSchema<'query', readonly ['first', 'statuses', 'suggestedLimit', 'surface']>
     readonly FetchDynamicAIModes: WaMexOperationSchema<'query', readonly []>
-    readonly FetchGroupInfo: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
-    readonly FetchGroupInfoIncludBots: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
-    readonly FetchGroupInfoIncludBotsJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
-    readonly FetchGroupInfoJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'participants_phash', 'query_context']>
+    readonly FetchGroupInfo: WaMexOperationSchema<'query', readonly ['id', 'include_membership_form', 'include_username', 'participants_phash', 'query_context']>
+    readonly FetchGroupInfoIncludBots: WaMexOperationSchema<'query', readonly ['id', 'include_membership_form', 'include_username', 'participants_phash', 'query_context']>
+    readonly FetchGroupInfoIncludBotsJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_membership_form', 'include_username', 'participants_phash', 'query_context']>
+    readonly FetchGroupInfoJobAcp2: WaMexOperationSchema<'query', readonly ['id', 'include_membership_form', 'include_username', 'participants_phash', 'query_context']>
     readonly FetchGroupInviteCode: WaMexOperationSchema<'query', readonly ['id', 'query_context']>
     readonly FetchGroupInviteInfo: WaMexOperationSchema<'query', readonly ['include_username', 'invite_code']>
     readonly FetchGroupInviteInfoJobAddRequest: WaMexOperationSchema<'query', readonly ['add_request', 'group_jid', 'include_username']>
@@ -416,7 +419,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly FetchLabyrinthEpochChain: WaMexOperationSchema<'query', readonly []>
     readonly FetchLabyrinthEpochDevices: WaMexOperationSchema<'query', readonly []>
     readonly FetchLinkedGroupInfo: WaMexOperationSchema<'query', readonly ['group_jid', 'include_username', 'sub_group_jid_hint']>
-    readonly FetchMembershipApprovalRequests: WaMexOperationSchema<'query', readonly ['id', 'include_username', 'query_context']>
+    readonly FetchMembershipApprovalRequests: WaMexOperationSchema<'query', readonly ['id', 'include_membership_form', 'include_username', 'query_context']>
     readonly FetchMetaOnePromoEligibility: WaMexOperationSchema<'query', readonly ['request']>
     readonly FetchNewChatMessageCappingInfo: WaMexOperationSchema<'query', readonly ['input']>
     readonly FetchNewsletter: WaMexOperationSchema<'query', readonly ['fetch_creation_time', 'fetch_full_image', 'fetch_pinned_messages', 'fetch_status_metadata', 'fetch_viewer_metadata', 'fetch_wamo_sub', 'input']>
@@ -535,6 +538,9 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly SharableEventDelete: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SharableEventGet: WaMexOperationSchema<'query', readonly ['input']>
     readonly SharableEventGuestJoinedWaNotifications: WaMexOperationSchema<'query', readonly []>
+    readonly SharableEventInviteLinkJobGetOrCreate: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventInviteLinkJobInvalidate: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventInviteLinkJobRotate: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SharableEventJoinViaLink: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SharableEventLinkPreview: WaMexOperationSchema<'query', readonly ['input']>
     readonly SharableEventList: WaMexOperationSchema<'query', readonly ['input']>
@@ -1130,6 +1136,7 @@ export type WaMexFetchDynamicAIModesVariables = Readonly<Record<string, never>>
 
 export type WaMexFetchGroupInfoVariables = {
     readonly id?: string
+    readonly include_membership_form?: boolean
     readonly include_username?: boolean
     readonly participants_phash?: string
     readonly query_context?: string
@@ -1137,6 +1144,7 @@ export type WaMexFetchGroupInfoVariables = {
 
 export type WaMexFetchGroupInfoIncludBotsVariables = {
     readonly id?: string
+    readonly include_membership_form?: boolean
     readonly include_username?: boolean
     readonly participants_phash?: string
     readonly query_context?: string
@@ -1144,6 +1152,7 @@ export type WaMexFetchGroupInfoIncludBotsVariables = {
 
 export type WaMexFetchGroupInfoIncludBotsJobAcp2Variables = {
     readonly id?: string
+    readonly include_membership_form?: boolean
     readonly include_username?: boolean
     readonly participants_phash?: string
     readonly query_context?: string
@@ -1151,6 +1160,7 @@ export type WaMexFetchGroupInfoIncludBotsJobAcp2Variables = {
 
 export type WaMexFetchGroupInfoJobAcp2Variables = {
     readonly id?: string
+    readonly include_membership_form?: boolean
     readonly include_username?: boolean
     readonly participants_phash?: string
     readonly query_context?: string
@@ -1224,6 +1234,7 @@ export type WaMexFetchLinkedGroupInfoVariables = {
 
 export type WaMexFetchMembershipApprovalRequestsVariables = {
     readonly id?: string
+    readonly include_membership_form?: boolean
     readonly include_username?: boolean
     readonly query_context?: 'INTERACTIVE'
 }
@@ -1365,6 +1376,12 @@ export type WaMexFetchOIDCStateVariables = Readonly<Record<string, never>>
 
 export type WaMexFetchPhoneNumberSharingSettingsVariables = {
     readonly input?: {
+        readonly allow_list?: {
+            readonly dhash?: string
+        }
+        readonly contact_exclude_list?: {
+            readonly dhash?: string
+        }
         readonly deny_list?: {
             readonly dhash?: string
         }
@@ -2047,6 +2064,18 @@ export type WaMexSharableEventGetVariables = {
 
 export type WaMexSharableEventGuestJoinedWaNotificationsVariables = Readonly<Record<string, never>>
 
+export type WaMexSharableEventInviteLinkJobGetOrCreateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventInviteLinkJobInvalidateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
+export type WaMexSharableEventInviteLinkJobRotateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexSharableEventJoinViaLinkVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -2571,6 +2600,9 @@ export interface WaMexOperationVariables {
     readonly SharableEventDelete: WaMexSharableEventDeleteVariables
     readonly SharableEventGet: WaMexSharableEventGetVariables
     readonly SharableEventGuestJoinedWaNotifications: WaMexSharableEventGuestJoinedWaNotificationsVariables
+    readonly SharableEventInviteLinkJobGetOrCreate: WaMexSharableEventInviteLinkJobGetOrCreateVariables
+    readonly SharableEventInviteLinkJobInvalidate: WaMexSharableEventInviteLinkJobInvalidateVariables
+    readonly SharableEventInviteLinkJobRotate: WaMexSharableEventInviteLinkJobRotateVariables
     readonly SharableEventJoinViaLink: WaMexSharableEventJoinViaLinkVariables
     readonly SharableEventLinkPreview: WaMexSharableEventLinkPreviewVariables
     readonly SharableEventList: WaMexSharableEventListVariables
@@ -4592,6 +4624,9 @@ export type WaMexFetchGroupInfoResponse = {
         }
         readonly id?: string
         readonly membership_approval_request?: boolean
+        readonly membership_form_key?: {
+            readonly key_id?: string
+        }
         readonly missing_participant_identification?: boolean
         readonly participants?: {
             readonly edges?: ReadonlyArray<{
@@ -4643,6 +4678,9 @@ export type WaMexFetchGroupInfoResponse = {
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: 'ALL_MEMBER_SHARE'
             readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
             readonly parent_group_jid?: string
             readonly support?: boolean
         }
@@ -4693,6 +4731,9 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
         }
         readonly id?: string
         readonly membership_approval_request?: boolean
+        readonly membership_form_key?: {
+            readonly key_id?: string
+        }
         readonly missing_participant_identification?: boolean
         readonly participants?: {
             readonly edges?: ReadonlyArray<{
@@ -4746,6 +4787,9 @@ export type WaMexFetchGroupInfoIncludBotsResponse = {
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: 'ALL_MEMBER_SHARE'
             readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
             readonly parent_group_jid?: string
             readonly support?: boolean
         }
@@ -4796,6 +4840,9 @@ export type WaMexFetchGroupInfoIncludBotsJobAcp2Response = {
         }
         readonly id?: string
         readonly membership_approval_request?: boolean
+        readonly membership_form_key?: {
+            readonly key_id?: string
+        }
         readonly missing_participant_identification?: boolean
         readonly participants?: {
             readonly edges?: ReadonlyArray<{
@@ -4850,6 +4897,9 @@ export type WaMexFetchGroupInfoIncludBotsJobAcp2Response = {
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: string
             readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
             readonly parent_group_jid?: string
             readonly support?: boolean
         }
@@ -4900,6 +4950,9 @@ export type WaMexFetchGroupInfoJobAcp2Response = {
         }
         readonly id?: string
         readonly membership_approval_request?: boolean
+        readonly membership_form_key?: {
+            readonly key_id?: string
+        }
         readonly missing_participant_identification?: boolean
         readonly participants?: {
             readonly edges?: ReadonlyArray<{
@@ -4952,6 +5005,9 @@ export type WaMexFetchGroupInfoJobAcp2Response = {
             readonly member_link_mode?: 'ADMIN_LINK' | 'ALL_MEMBER_LINK'
             readonly member_share_group_history_mode?: string
             readonly membership_approval_mode_enabled?: boolean
+            readonly membership_form?: {
+                readonly questions?: unknown
+            }
             readonly parent_group_jid?: string
             readonly support?: boolean
         }
@@ -5319,6 +5375,11 @@ export type WaMexFetchMembershipApprovalRequestsResponse = {
         readonly membership_approval_requests?: {
             readonly edges?: ReadonlyArray<{
                 readonly node?: {
+                    readonly membership_form?: {
+                        readonly encrypted_payload?: unknown
+                        readonly key_id?: string
+                        readonly request_id?: string
+                    }
                     readonly request_method?: string
                     readonly request_time?: string
                     readonly requestor?: {
@@ -5937,6 +5998,24 @@ export type WaMexFetchOIDCStateResponse = {
 
 export type WaMexFetchPhoneNumberSharingSettingsResponse = {
     readonly xwa2_privacy_phone_number_sharing_get?: {
+        readonly allow_list?: {
+            readonly dhash?: string
+            readonly entries?: ReadonlyArray<{
+                readonly __typename?: string
+                readonly group_jid?: string
+                readonly pn_jid?: string
+                readonly user_jid?: string
+            }>
+        }
+        readonly contact_exclude_list?: {
+            readonly dhash?: string
+            readonly entries?: ReadonlyArray<{
+                readonly __typename?: string
+                readonly group_jid?: string
+                readonly pn_jid?: string
+                readonly user_jid?: string
+            }>
+        }
         readonly deny_list?: {
             readonly dhash?: string
             readonly entries?: ReadonlyArray<{
@@ -8644,6 +8723,24 @@ export type WaMexSharableEventGuestJoinedWaNotificationsResponse = {
     }
 }
 
+export type WaMexSharableEventInviteLinkJobGetOrCreateResponse = {
+    readonly xwa_event_get_or_create_invite_link?: {
+        readonly link_token?: string
+    }
+}
+
+export type WaMexSharableEventInviteLinkJobInvalidateResponse = {
+    readonly xwa_event_invalidate_invite_link?: {
+        readonly success?: boolean
+    }
+}
+
+export type WaMexSharableEventInviteLinkJobRotateResponse = {
+    readonly xwa_event_rotate_invite_link?: {
+        readonly link_token?: string
+    }
+}
+
 export type WaMexSharableEventJoinViaLinkResponse = {
     readonly xwa_event_join_via_link?: {
         readonly privacy_aware_event?: {
@@ -9845,6 +9942,9 @@ export interface WaMexOperationResponses {
     readonly SharableEventDelete: WaMexSharableEventDeleteResponse
     readonly SharableEventGet: WaMexSharableEventGetResponse
     readonly SharableEventGuestJoinedWaNotifications: WaMexSharableEventGuestJoinedWaNotificationsResponse
+    readonly SharableEventInviteLinkJobGetOrCreate: WaMexSharableEventInviteLinkJobGetOrCreateResponse
+    readonly SharableEventInviteLinkJobInvalidate: WaMexSharableEventInviteLinkJobInvalidateResponse
+    readonly SharableEventInviteLinkJobRotate: WaMexSharableEventInviteLinkJobRotateResponse
     readonly SharableEventJoinViaLink: WaMexSharableEventJoinViaLinkResponse
     readonly SharableEventLinkPreview: WaMexSharableEventLinkPreviewResponse
     readonly SharableEventList: WaMexSharableEventListResponse

@@ -3377,7 +3377,7 @@
       "variablesShape": {}
     },
     "FetchGroupInfo": {
-      "docId": "29024140840540682",
+      "docId": "28997152336593340",
       "operationKind": "query",
       "originalName": "WAWebMexFetchGroupInfoJobQuery",
       "response": {
@@ -3409,6 +3409,9 @@
           },
           "id": "string",
           "membership_approval_request": "boolean",
+          "membership_form_key": {
+            "key_id": "string"
+          },
           "missing_participant_identification": "boolean",
           "participants": {
             "edges": [
@@ -3462,6 +3465,9 @@
             "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
             "member_share_group_history_mode": "enum:ALL_MEMBER_SHARE",
             "membership_approval_mode_enabled": "boolean",
+            "membership_form": {
+              "questions": "unknown"
+            },
             "parent_group_jid": "string",
             "support": "boolean"
           },
@@ -3484,19 +3490,21 @@
       },
       "variables": [
         "id",
+        "include_membership_form",
         "include_username",
         "participants_phash",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
+        "include_membership_form": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
       }
     },
     "FetchGroupInfoIncludBots": {
-      "docId": "28713479051667101",
+      "docId": "29271059362564039",
       "operationKind": "query",
       "originalName": "WAWebMexFetchGroupInfoIncludBotsJobQuery",
       "response": {
@@ -3528,6 +3536,9 @@
           },
           "id": "string",
           "membership_approval_request": "boolean",
+          "membership_form_key": {
+            "key_id": "string"
+          },
           "missing_participant_identification": "boolean",
           "participants": {
             "edges": [
@@ -3583,6 +3594,9 @@
             "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
             "member_share_group_history_mode": "enum:ALL_MEMBER_SHARE",
             "membership_approval_mode_enabled": "boolean",
+            "membership_form": {
+              "questions": "unknown"
+            },
             "parent_group_jid": "string",
             "support": "boolean"
           },
@@ -3605,19 +3619,21 @@
       },
       "variables": [
         "id",
+        "include_membership_form",
         "include_username",
         "participants_phash",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
+        "include_membership_form": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
       }
     },
     "FetchGroupInfoIncludBotsJobAcp2": {
-      "docId": "29507325772288344",
+      "docId": "40388198997445170",
       "operationKind": "query",
       "originalName": "WAWebMexFetchGroupInfoIncludBotsJobAcp2Query",
       "response": {
@@ -3649,6 +3665,9 @@
           },
           "id": "string",
           "membership_approval_request": "boolean",
+          "membership_form_key": {
+            "key_id": "string"
+          },
           "missing_participant_identification": "boolean",
           "participants": {
             "edges": [
@@ -3705,6 +3724,9 @@
             "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
             "member_share_group_history_mode": "string",
             "membership_approval_mode_enabled": "boolean",
+            "membership_form": {
+              "questions": "unknown"
+            },
             "parent_group_jid": "string",
             "support": "boolean"
           },
@@ -3727,19 +3749,21 @@
       },
       "variables": [
         "id",
+        "include_membership_form",
         "include_username",
         "participants_phash",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
+        "include_membership_form": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
       }
     },
     "FetchGroupInfoJobAcp2": {
-      "docId": "29680065408278914",
+      "docId": "29587405674282945",
       "operationKind": "query",
       "originalName": "WAWebMexFetchGroupInfoJobAcp2Query",
       "response": {
@@ -3771,6 +3795,9 @@
           },
           "id": "string",
           "membership_approval_request": "boolean",
+          "membership_form_key": {
+            "key_id": "string"
+          },
           "missing_participant_identification": "boolean",
           "participants": {
             "edges": [
@@ -3825,6 +3852,9 @@
             "member_link_mode": "enum:ADMIN_LINK|ALL_MEMBER_LINK",
             "member_share_group_history_mode": "string",
             "membership_approval_mode_enabled": "boolean",
+            "membership_form": {
+              "questions": "unknown"
+            },
             "parent_group_jid": "string",
             "support": "boolean"
           },
@@ -3847,12 +3877,14 @@
       },
       "variables": [
         "id",
+        "include_membership_form",
         "include_username",
         "participants_phash",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
+        "include_membership_form": "boolean",
         "include_username": "boolean",
         "participants_phash": "string",
         "query_context": "string"
@@ -4350,7 +4382,7 @@
       }
     },
     "FetchMembershipApprovalRequests": {
-      "docId": "40086730520941352",
+      "docId": "41213668101565839",
       "operationKind": "query",
       "originalName": "WAWebMexFetchMembershipApprovalRequestsJobQuery",
       "response": {
@@ -4361,6 +4393,11 @@
             "edges": [
               {
                 "node": {
+                  "membership_form": {
+                    "encrypted_payload": "unknown",
+                    "key_id": "string",
+                    "request_id": "string"
+                  },
                   "request_method": "string",
                   "request_time": "string",
                   "requestor": {
@@ -4389,11 +4426,13 @@
       },
       "variables": [
         "id",
+        "include_membership_form",
         "include_username",
         "query_context"
       ],
       "variablesShape": {
         "id": "string",
+        "include_membership_form": "boolean",
         "include_username": "boolean",
         "query_context": "enum:INTERACTIVE"
       }
@@ -5324,11 +5363,33 @@
       "variablesShape": {}
     },
     "FetchPhoneNumberSharingSettings": {
-      "docId": "29271621015855816",
+      "docId": "39968776652767233",
       "operationKind": "query",
       "originalName": "WAWebFetchPhoneNumberSharingSettingsQuery",
       "response": {
         "xwa2_privacy_phone_number_sharing_get": {
+          "allow_list": {
+            "dhash": "string",
+            "entries": [
+              {
+                "__typename": "string",
+                "group_jid": "string",
+                "pn_jid": "string",
+                "user_jid": "string"
+              }
+            ]
+          },
+          "contact_exclude_list": {
+            "dhash": "string",
+            "entries": [
+              {
+                "__typename": "string",
+                "group_jid": "string",
+                "pn_jid": "string",
+                "user_jid": "string"
+              }
+            ]
+          },
           "deny_list": {
             "dhash": "string",
             "entries": [
@@ -5348,6 +5409,12 @@
       ],
       "variablesShape": {
         "input": {
+          "allow_list": {
+            "dhash": "string"
+          },
+          "contact_exclude_list": {
+            "dhash": "string"
+          },
           "deny_list": {
             "dhash": "string"
           }
@@ -9781,6 +9848,54 @@
       "variables": [],
       "variablesShape": {}
     },
+    "SharableEventInviteLinkJobGetOrCreate": {
+      "docId": "29279192645010802",
+      "operationKind": "mutation",
+      "originalName": "WAWebSharableEventInviteLinkJobGetOrCreateMutation",
+      "response": {
+        "xwa_event_get_or_create_invite_link": {
+          "link_token": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
+    "SharableEventInviteLinkJobInvalidate": {
+      "docId": "40073877888927531",
+      "operationKind": "mutation",
+      "originalName": "WAWebSharableEventInviteLinkJobInvalidateMutation",
+      "response": {
+        "xwa_event_invalidate_invite_link": {
+          "success": "boolean"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
+    "SharableEventInviteLinkJobRotate": {
+      "docId": "29967378199535556",
+      "operationKind": "mutation",
+      "originalName": "WAWebSharableEventInviteLinkJobRotateMutation",
+      "response": {
+        "xwa_event_rotate_invite_link": {
+          "link_token": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
     "SharableEventJoinViaLink": {
       "docId": "29149501904676456",
       "operationKind": "mutation",
@@ -11487,5 +11602,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1054794655"
+  "waVersion": "2.3000.1054953954"
 }

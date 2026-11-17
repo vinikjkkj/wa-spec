@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 3028,
+  "propCount": 3031,
   "props": {
     "a2ui_fallback_show_timestamp": {
       "code": 40437,
@@ -942,12 +942,6 @@
     },
     "ai_hatch_permission_enable": {
       "code": 39327,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "ai_hatch_reply_linkify_enabled": {
-      "code": 42354,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -3430,24 +3424,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "camera_error_banners_version": {
-      "code": 10584,
-      "debugDefaultValue": 1,
-      "defaultValue": 0,
-      "type": "int"
-    },
-    "camera_health_check_delay": {
-      "code": 8739,
-      "debugDefaultValue": 5000,
-      "defaultValue": 5000,
-      "type": "int"
-    },
-    "camera_health_check_period": {
-      "code": 8740,
-      "debugDefaultValue": 2000,
-      "defaultValue": 2000,
-      "type": "int"
-    },
     "canonical_ent_companion_server_cached_nonce_enabled": {
       "code": 28399,
       "debugDefaultValue": false,
@@ -3982,6 +3958,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "channels_forward_to_my_status_web_enabled": {
+      "code": 43192,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channels_hide_news_url_preview": {
       "code": 5287,
       "debugDefaultValue": true,
@@ -4086,7 +4068,7 @@
     },
     "channels_open_qpl_improvements_enabled": {
       "code": 15754,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -4200,7 +4182,7 @@
     },
     "channels_qpl_improvements_supported_types": {
       "code": 19589,
-      "debugDefaultValue": "1,2",
+      "debugDefaultValue": "",
       "defaultValue": "",
       "type": "string"
     },
@@ -4635,6 +4617,12 @@
       "debugDefaultValue": 2,
       "defaultValue": 0,
       "type": "int"
+    },
+    "coex_business_broadcast_enabled": {
+      "code": 20480,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
     },
     "coex_calling_enabled": {
       "code": 18047,
@@ -5215,6 +5203,12 @@
     "ctwa_smb_detected_outcome_lists_enabled": {
       "code": 20220,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ctwa_smb_h2_2026_ofs_migration_dummy_enabled": {
+      "code": 43254,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -8158,6 +8152,12 @@
       "defaultValue": 10,
       "type": "int"
     },
+    "md_logout_trigger_enabled": {
+      "code": 43274,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "md_offline_v2_m2_enabled": {
       "code": 1517,
       "debugDefaultValue": 10,
@@ -8680,6 +8680,12 @@
       "defaultValue": 256,
       "type": "int"
     },
+    "music_on_chats_catalog_promo_banner_enabled": {
+      "code": 43199,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "music_on_chats_geogating_enabled": {
       "code": 36018,
       "debugDefaultValue": true,
@@ -8868,7 +8874,7 @@
     },
     "newsletters_video_playback_wabba_logging_enabled": {
       "code": 13954,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -12118,6 +12124,12 @@
       "defaultValue": "{\"fields\": [\"iptc-digital-source-type\"]}",
       "type": "string"
     },
+    "system_provenance_allowed_values": {
+      "code": 43258,
+      "debugDefaultValue": "{\"version\":1,\"make\":[],\"ai_system_used\":[{\"written_value\":\"Meta    AI\",\"input_match_values\":[]},{\"written_value\":\"Gemini\",\"input_match_values\":[\"Google    Gemini\"]}],\"publisher\":[{\"written_value\":\"Meta\",\"input_match_values\":[\"Meta Platforms,    Inc.\"]},{\"written_value\":\"Google\",\"input_match_values\":[\"Google LLC\",\"Google Media Processing    Services\"]}]}",
+      "defaultValue": "",
+      "type": "string"
+    },
     "system_provenance_destinations": {
       "code": 41649,
       "debugDefaultValue": "{\"destinations\": []}",
@@ -14098,18 +14110,6 @@
       "defaultValue": 0.30000001192092896,
       "type": "float"
     },
-    "wa_web_contact_and_chat_fuzzy_search_enabled": {
-      "code": 26728,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "wa_web_contact_and_chat_fuzzy_search_similarity_optimization_enabled": {
-      "code": 26729,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "wa_web_contact_and_chat_fuzzy_search_timeout_threshold": {
       "code": 26733,
       "debugDefaultValue": 5,
@@ -14124,12 +14124,6 @@
     },
     "wa_web_copy_link_url_enabled": {
       "code": 25820,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "wa_web_create_group_in_filter": {
-      "code": 22617,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -14289,18 +14283,6 @@
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
-    },
-    "wa_web_global_search_prefix_based": {
-      "code": 24559,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "wa_web_group_discard_dialog_contact_threshold": {
-      "code": 25682,
-      "debugDefaultValue": 2,
-      "defaultValue": -1,
-      "type": "int"
     },
     "wa_web_group_info_notification_row": {
       "code": 25292,
@@ -14524,12 +14506,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "wa_web_multi_ppl_typing_indicator_for_chatlist_groups_variant": {
-      "code": 24560,
-      "debugDefaultValue": 0,
-      "defaultValue": 0,
-      "type": "int"
-    },
     "wa_web_not_receiving_notifications_banner_enabled": {
       "code": 41056,
       "debugDefaultValue": true,
@@ -14593,12 +14569,6 @@
     "wa_web_quick_reactions": {
       "code": 28621,
       "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
-    "wa_web_reactions_2": {
-      "code": 22469,
-      "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
     },
@@ -15634,6 +15604,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_admin_hub": {
+      "code": 43224,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_adv_logout_on_self_device_list_expired": {
       "code": 11011,
       "debugDefaultValue": false,
@@ -16492,8 +16468,38 @@
       "defaultValue": true,
       "type": "bool"
     },
+    "web_group_status_attribution_contact_info_enabled": {
+      "code": 43201,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_group_status_floating_like_heads_dismiss_enabled": {
+      "code": 43204,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_group_status_floating_like_heads_enabled": {
+      "code": 43203,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_group_status_own_unread_ring_enabled": {
+      "code": 43200,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_group_status_posting_enabled": {
       "code": 42424,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_group_status_reply_privately_enabled": {
+      "code": 43202,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -16881,6 +16887,12 @@
       "debugDefaultValue": 0,
       "defaultValue": 0,
       "type": "int"
+    },
+    "web_offline_resume_primary_snapshot_enabled": {
+      "code": 43273,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "web_offline_resume_qpl_enabled": {
       "code": 1773,
@@ -17914,6 +17926,12 @@
       "defaultValue": true,
       "type": "bool"
     },
+    "win_hybrid_bg_task_class_mta_registration_enabled": {
+      "code": 43226,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "win_hybrid_bridge_ui_thread_completion_enabled": {
       "code": 39187,
       "debugDefaultValue": false,
@@ -18311,5 +18329,5 @@
     "web_store_quota_manager_enabled",
     "web_vc_css_bg_scan_children_first"
   ],
-  "waVersion": "2.3000.1054794655"
+  "waVersion": "2.3000.1054953954"
 }

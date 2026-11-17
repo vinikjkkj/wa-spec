@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054794655
+// WhatsApp Version: 2.3000.1054953954
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1240,6 +1240,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CALL_DETAIL_OVERFLOW_REPORT': 57,
         'CALL_DETAIL_SAFETY_TOOLS_BLOCK': 55,
         'CALL_DETAIL_SAFETY_TOOLS_REPORT': 56,
+        'CALL_HISTORY_LIKELY_SPAM_INTERVENTION_BLOCK': 67,
+        'CALL_INFO_LIKELY_SPAM_EDUCATION_BLOCK': 66,
         'CALL_LOG': 6,
         'CALL_LOG_BLOCK': 38,
         'CALL_SPAM_DIALOG_BLOCK': 44,
@@ -1279,6 +1281,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'OVERFLOW_MENU_BLOCK': 12,
         'OVERFLOW_MENU_REPORT': 17,
         'PAYMENT_TRANSACTION_REPORT': 54,
+        'POST_SPAM_CALL_FEEDBACK_INSIDE_APP_BLOCK': 65,
+        'POST_SPAM_CALL_FEEDBACK_OUTSIDE_APP_BLOCK': 64,
         'PROFILE': 2,
         'PSA_BANNER_BLOCK': 41,
         'STATUS_OVERFLOW_MENU_REPORT': 27,
@@ -10787,6 +10791,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'APP_CTA_CLICK': 24,
         'BODY_URL_CLICK': 25,
         'BODY_URL_LONG_PRESS': 29,
+        'DELIVERED': 34,
         'FIRST_BIZ_REPLY': 4,
         'FIRST_BIZ_REPLY_CONTINUATION': 5,
         'FIRST_CUSTOMER_MESSAGE': 2,
@@ -10795,6 +10800,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'IAB_LPV_BODY': 32,
         'MESSAGE': 27,
         'PAYMENT_CTA_CLICK': 33,
+        'READ': 35,
         'SECOND_BIZ_REPLY': 8,
         'SECOND_BIZ_REPLY_CONTINUATION': 9,
         'SECOND_CUSTOMER_MESSAGE': 6,
@@ -10817,7 +10823,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'USER_MUTE': 22,
         'USER_NOT_INTERESTED': 14,
         'USER_REPORT': 1,
-        'USER_STOP_OFFERS': 15
+        'USER_STOP_OFFERS': 15,
+        'VIDEO_PLAYBACK': 36
         })
     }),
     MM_USER_CONTROLS_ACTION: Object.freeze({
