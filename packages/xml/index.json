@@ -30341,6 +30341,163 @@
       "type": "get",
       "xmlns": "w:biz"
     },
+    "SpamEventReport": {
+      "module": "WASmaxSpamEventReportRPC",
+      "opName": "EventReport",
+      "request": {
+        "argShape": {
+          "e": true
+        },
+        "local": true,
+        "module": "WASmaxSpamEventReportRPC",
+        "node": {
+          "appliedMixin": [
+            "WASmaxOutSpamBaseIQSetRequestMixin",
+            "WASmaxOutSpamBaseReportMixin"
+          ],
+          "attrs": {
+            "id": {
+              "generated": true,
+              "type": "stanzaId"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "type": {
+              "type": "literal",
+              "value": "set"
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "spam"
+            }
+          },
+          "children": [
+            {
+              "attrs": {
+                "event_id": {
+                  "arg": "t",
+                  "type": "string"
+                },
+                "spam_flow": {
+                  "arg": "t",
+                  "enumValues": [
+                    "1_1_old_spam_banner_block",
+                    "1_1_spam_banner_report",
+                    "account_info_report",
+                    "account_info_report_as_guest_user",
+                    "biz_spam_banner_block",
+                    "block_dialog",
+                    "chat_fmx_card_report_as_guest_user",
+                    "chat_fmx_card_safety_tools_report",
+                    "chat_fmx_card_safety_tools_report_suspicious",
+                    "chat_list_block",
+                    "chat_list_noinsub_block",
+                    "comment_actions_bottom_sheet",
+                    "community_home",
+                    "extension_menu_report",
+                    "group_chatlist_leave_report_upsell",
+                    "group_fmx_card_leave",
+                    "group_fmx_card_leave_non_suspicious",
+                    "group_info_leave_report_upsell",
+                    "group_info_report",
+                    "group_overflow_menu_leave_report_upsell",
+                    "group_safety_check_bottom_sheet",
+                    "group_spam_banner_report",
+                    "media_viewer",
+                    "message_menu",
+                    "newsletter_info_report",
+                    "newsletter_question_response_report",
+                    "notification_block",
+                    "overflow_menu_block",
+                    "overflow_menu_report",
+                    "status_post_report"
+                  ],
+                  "type": "enum"
+                },
+                "wi_trace_id": {
+                  "arg": "n",
+                  "optional": true,
+                  "type": "string"
+                }
+              },
+              "children": [],
+              "max": 1,
+              "min": 1,
+              "tag": "spam_list"
+            }
+          ],
+          "tag": "iq"
+        }
+      },
+      "responses": [
+        {
+          "entryName": "parseEventReportResponseError",
+          "local": true,
+          "module": "WASmaxSpamEventReportRPC",
+          "node": {
+            "attrs": {
+              "from": {
+                "optional": true,
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Error"
+        },
+        {
+          "entryName": "parseEventReportResponseSuccess",
+          "local": true,
+          "module": "WASmaxSpamEventReportRPC",
+          "node": {
+            "attrs": {
+              "from": {
+                "optional": true,
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "report"
+              }
+            ],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Success"
+        }
+      ],
+      "rootTag": "iq",
+      "type": "set",
+      "xmlns": "spam"
+    },
     "SpamGroupReport": {
       "module": "WASmaxSpamGroupReportRPC",
       "opName": "GroupReport",
@@ -44383,5 +44540,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1054953954"
+  "waVersion": "2.3000.1055156383"
 }

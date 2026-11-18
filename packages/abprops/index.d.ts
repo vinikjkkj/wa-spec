@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054953954
+// WhatsApp Version: 2.3000.1055156383
 
 // Wire type of a config value. The server always sends `configValue` as a
 // string; the client decodes it with this type
@@ -104,6 +104,7 @@ export declare const WA_ABPROPS: {
     readonly ai_group_call_start_call_notice_id: { readonly code: 31736; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly ai_group_call_version: { readonly code: 24652; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly ai_group_directed_send_agent_legs_enabled: { readonly code: 37855; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ai_group_muse_add_enabled: { readonly code: 43366; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_group_muse_enabled: { readonly code: 43108; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_group_muse_soak_enabled: { readonly code: 42753; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ai_group_participation_add_tee_enabled: { readonly code: 22236; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -236,6 +237,7 @@ export declare const WA_ABPROPS: {
     readonly ai_rewrite_stack_undo_enabled: { readonly code: 16943; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_rewrite_supported_languages: { readonly code: 14220; readonly type: "string"; readonly defaultValue: " "; readonly debugDefaultValue: "en" }
     readonly ai_rewrite_tone_modifiers: { readonly code: 14743; readonly type: "string"; readonly defaultValue: "rephrase,professional,funny,supportive"; readonly debugDefaultValue: "rephrase,professional,funny,supportive" }
+    readonly ai_rich_response_content_types_logging_mode: { readonly code: 37056; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 1 }
     readonly ai_rich_response_forward_media_receiving_enabled: { readonly code: 21363; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_rich_response_forward_media_sending_enabled: { readonly code: 20747; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ai_rich_response_forward_receiving_enabled: { readonly code: 16682; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -438,7 +440,7 @@ export declare const WA_ABPROPS: {
     readonly biz_ai_fab_confirm_modal_enabled: { readonly code: 32846; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly biz_ai_fab_enabled: { readonly code: 33531; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly biz_ai_handoff_timing_sync_enabled: { readonly code: 33602; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
-    readonly biz_ai_in_thread_unmute_v2: { readonly code: 15523; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly biz_ai_in_thread_unmute_v2: { readonly code: 15523; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly biz_ai_large_screens_gate_fetch_enabled: { readonly code: 31880; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly biz_ai_meta_one_integration: { readonly code: 31231; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly biz_ai_priority_list_enabled: { readonly code: 16420; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -468,6 +470,7 @@ export declare const WA_ABPROPS: {
     readonly biz_ai_web_onboarding_notification_dispatch_enabled: { readonly code: 35223; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly biz_ai_web_sc_failure_cache_enabled: { readonly code: 42168; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly biz_ai_web_smart_composer_enabled: { readonly code: 34003; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly biz_integrity_query_lid_enabled: { readonly code: 43301; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly biz_message_tap_logging_enabled: { readonly code: 41059; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly biz_message_tap_logging_unstructured_enabled: { readonly code: 41114; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly biz_vpv_coverage_logging_enabled: { readonly code: 41210; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -530,7 +533,7 @@ export declare const WA_ABPROPS: {
     readonly bug_reporting_abprops_uploaded_on_submissoin: { readonly code: 24850; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly bug_reporting_async_attachments_enabled: { readonly code: 23978; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly bug_reporting_attach_pathfinder_pre_bug_creation: { readonly code: 26311; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: false }
-    readonly bug_reporting_attach_view_dump_pre_bug_creation: { readonly code: 26307; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: false }
+    readonly bug_reporting_attach_view_dump_pre_bug_creation: { readonly code: 26307; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly bug_reporting_pre_uploaded_attachments_on_bug_creation_enabled: { readonly code: 24422; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly bug_reporting_request_call_peer_log: { readonly code: 36539; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly bug_reporting_rid_in_flytrap: { readonly code: 24421; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -690,8 +693,8 @@ export declare const WA_ABPROPS: {
     readonly channels_open_qpl_user_rid_logging_enabled: { readonly code: 17712; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_photo_polls_genai_enabled: { readonly code: 26392; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_pinning_nudge_enabled: { readonly code: 20551; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly channels_poll_receive_enabled: { readonly code: 6191; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
-    readonly channels_poll_voter_list_enabled: { readonly code: 6382; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly channels_poll_receive_enabled: { readonly code: 6191; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly channels_poll_voter_list_enabled: { readonly code: 6382; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_poll_voters_details_cache_ttl_ms: { readonly code: 7920; readonly type: "int"; readonly defaultValue: 300000; readonly debugDefaultValue: 300000 }
     readonly channels_poll_voters_summary_cache_ttl_ms: { readonly code: 7919; readonly type: "int"; readonly defaultValue: 120000; readonly debugDefaultValue: 120000 }
     readonly channels_post_status_card_web_enabled: { readonly code: 42263; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -768,9 +771,9 @@ export declare const WA_ABPROPS: {
     readonly channels_verified_badge_in_compact_inbox_enabled: { readonly code: 8059; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_video_play_logging_enabled: { readonly code: 16491; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly channels_view_counts_sender_admin_exclusion_mode: { readonly code: 31729; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
-    readonly channels_view_counts_vpv_logging_enabled: { readonly code: 12295; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly channels_view_counts_vpv_logging_enabled: { readonly code: 12295; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly channels_visibility_logging_fullscreen_media_enabled: { readonly code: 28148; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly channels_vpv_logging_enabled: { readonly code: 9834; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly channels_vpv_logging_enabled: { readonly code: 9834; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly chat_interactive_preview_enabled: { readonly code: 37775; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly chat_psa_normal_blocklist_enabled: { readonly code: 40159; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly chat_vsr_model: { readonly code: 39803; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
@@ -844,6 +847,7 @@ export declare const WA_ABPROPS: {
     readonly ctwa_ae_signal_3pd_field_policy: { readonly code: 34665; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly ctwa_block_ib_ar_for_wabai: { readonly code: 26302; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_coex_state_sync_enabled: { readonly code: 33676; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly ctwa_conversation_counter_message_types: { readonly code: 43485; readonly type: "string"; readonly defaultValue: "text,image,video,audio,ptv,document,sticker,album,location,contact,interactive,list,interactiveResponse,buttonsResponse,templateButtonReply"; readonly debugDefaultValue: "text,image,video,audio,ptv,document,sticker,album,location,contact,interactive,list,interactiveResponse,buttonsResponse,templateButtonReply" }
     readonly ctwa_conversion_creation_from_delay_enabled: { readonly code: 32777; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_conversion_creation_skip_agm: { readonly code: 41995; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_ctx_disclosure_update_enabled: { readonly code: 35558; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -864,7 +868,7 @@ export declare const WA_ABPROPS: {
     readonly ctwa_native_ads_creation_web_enabled: { readonly code: 18857; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ctwa_native_ads_creation_web_hawk_tool_enabled: { readonly code: 20442; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ctwa_native_ads_creation_web_targeting_modal_hawk_tool_enabled: { readonly code: 20731; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly ctwa_native_ads_inline_notice_modules: { readonly code: 32701; readonly type: "string"; readonly defaultValue: "AdsLWICTWAZeroOutcomeAdValidationModule,AdsLWICTWASimilarAdvertiserBudgetRecommendationValidationModule"; readonly debugDefaultValue: "AdsLWICTWAZeroOutcomeAdValidationModule,AdsLWICTWASimilarAdvertiserBudgetRecommendationValidationModule" }
+    readonly ctwa_native_ads_inline_notice_modules: { readonly code: 32701; readonly type: "string"; readonly defaultValue: "AdsLWICTWAZeroOutcomeAdValidationModule,AdsLWICTWASimilarAdvertiserBudgetRecommendationValidationModule,AdsWaCtwaZeroOutcomeModelValidationModule"; readonly debugDefaultValue: "AdsLWICTWAZeroOutcomeAdValidationModule,AdsLWICTWASimilarAdvertiserBudgetRecommendationValidationModule,AdsWaCtwaZeroOutcomeModelValidationModule" }
     readonly ctwa_per_customer_data_sharing_controls_do_not_show_msg_until_chosen: { readonly code: 19763; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly ctwa_show_ads_data_sharing_after_message: { readonly code: 13579; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_smb_ae_companion_onboarding_enabled: { readonly code: 33883; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -893,6 +897,8 @@ export declare const WA_ABPROPS: {
     readonly ctwa_web_native_ads_continuous_duration_default: { readonly code: 35282; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_web_native_ads_continuous_duration_default_dummy: { readonly code: 35283; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly ctwa_web_native_ads_sabr_enabled: { readonly code: 32007; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly ctwa_web_native_ads_status_boost_enabled: { readonly code: 43449; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly ctwa_web_native_ads_status_boost_enabled_dummy: { readonly code: 43448; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly custom_notification_tones: { readonly code: 18884; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly custom_racing_emoji: { readonly code: 7463; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly custom_racing_emoji_feb2025: { readonly code: 13322; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -903,9 +909,9 @@ export declare const WA_ABPROPS: {
     readonly dedupe_lid_pn_identity_key_stores: { readonly code: 33083; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly default_audio_limit_mb: { readonly code: 3657; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 64 }
     readonly default_endpoint_thread_poll_timeout: { readonly code: 11129; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
-    readonly default_media_limit_mb: { readonly code: 3660; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 64 }
-    readonly default_status_media_limit_mb: { readonly code: 3659; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 64 }
-    readonly default_video_limit_mb: { readonly code: 3185; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 64 }
+    readonly default_media_limit_mb: { readonly code: 3660; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 16 }
+    readonly default_status_media_limit_mb: { readonly code: 3659; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 16 }
+    readonly default_video_limit_mb: { readonly code: 3185; readonly type: "int"; readonly defaultValue: 16; readonly debugDefaultValue: 16 }
     readonly defense_mode_available: { readonly code: 13874; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 1 }
     readonly defense_mode_quarantine: { readonly code: 24959; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly defense_mode_quarantine_bulk_unblock_limit: { readonly code: 21921; readonly type: "int"; readonly defaultValue: 50; readonly debugDefaultValue: 50 }
@@ -953,7 +959,6 @@ export declare const WA_ABPROPS: {
     readonly early_audio_driver_capture_at_native: { readonly code: 13166; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly early_audio_driver_pre_buffering: { readonly code: 13168; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly early_bot_connect_event_bitmap: { readonly code: 14200; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
-    readonly educational_dialogs_button_enabled: { readonly code: 14676; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly elevated_push_names_v2_m2_enabled: { readonly code: 2904; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly emoji_search_cldr: { readonly code: 13323; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly empty_unread_filter_cta_variant: { readonly code: 22962; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
@@ -1269,7 +1274,6 @@ export declare const WA_ABPROPS: {
     readonly imp_send_signal_post_connect_delay: { readonly code: 23323; readonly type: "int"; readonly defaultValue: 500; readonly debugDefaultValue: 500 }
     readonly imp_send_signal_post_connect_webc_enabled: { readonly code: 23322; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly improve_group_reporting: { readonly code: 26114; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
-    readonly improve_subgroup_activation_subgroup_poll_interval: { readonly code: 8542; readonly type: "int"; readonly defaultValue: 43200; readonly debugDefaultValue: 43200 }
     readonly in_app_bug_reporting_description_good_quality_chars: { readonly code: 22361; readonly type: "int"; readonly defaultValue: 50; readonly debugDefaultValue: 50 }
     readonly in_app_bug_reporting_show_quality_hints_v1: { readonly code: 22363; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly in_app_comms_manage_ads_web_banner_campaign_enabled: { readonly code: 4542; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1392,7 +1396,6 @@ export declare const WA_ABPROPS: {
     readonly member_name_tag_web_receiver_enabled: { readonly code: 22655; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly member_name_tag_web_sender_enabled: { readonly code: 22654; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly message_association_infra_enabled: { readonly code: 8783; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
-    readonly message_capping_upsell_version: { readonly code: 19781; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly message_count_logging_md_enabled: { readonly code: 1135; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly message_edit_client_entry_point_limit_seconds: { readonly code: 3272; readonly type: "int"; readonly defaultValue: 900; readonly debugDefaultValue: 900 }
     readonly message_edit_to_message_secret_receiver_enabled: { readonly code: 17811; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1456,6 +1459,7 @@ export declare const WA_ABPROPS: {
     readonly music_ohai_proxy_url: { readonly code: 10975; readonly type: "string"; readonly defaultValue: "https://meta-ohttp-relay-prod.fastly-edge.com/"; readonly debugDefaultValue: "https://meta-ohttp-relay-prod.fastly-edge.com/" }
     readonly music_on_chats_artwork_pixel_side_size: { readonly code: 36559; readonly type: "int"; readonly defaultValue: 256; readonly debugDefaultValue: 256 }
     readonly music_on_chats_catalog_promo_banner_enabled: { readonly code: 43199; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly music_on_chats_clear_storage_row_enabled: { readonly code: 43359; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly music_on_chats_geogating_enabled: { readonly code: 36018; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly music_on_chats_internal_acs_enabled: { readonly code: 39208; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly music_on_chats_lyrics_word_by_word_offsets_enabled: { readonly code: 40360; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1503,7 +1507,6 @@ export declare const WA_ABPROPS: {
     readonly opus_admin: { readonly code: 30454; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly opus_enabled: { readonly code: 27278; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly opus_t: { readonly code: 27803; readonly type: "int"; readonly defaultValue: 2147483647; readonly debugDefaultValue: 2147483647 }
-    readonly opus_time: { readonly code: 27277; readonly type: "int"; readonly defaultValue: 1784516400; readonly debugDefaultValue: 1784516400 }
     readonly order_details_custom_item_enabled: { readonly code: 1176; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly order_details_from_cart_enabled: { readonly code: 1107; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly order_details_from_catalog_enabled: { readonly code: 1212; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1554,6 +1557,7 @@ export declare const WA_ABPROPS: {
     readonly payment_integrity_friction_p2m_upr_enabled: { readonly code: 35286; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payment_link_trace_id_logging_enabled: { readonly code: 19440; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payment_links_psp_logo_allowlist: { readonly code: 40482; readonly type: "string"; readonly defaultValue: "{}"; readonly debugDefaultValue: "{\"mercadopago\":[\"og_image\",\"resource\"],\"stone\":[\"og_image\",\"resource\"]}" }
+    readonly payment_links_psp_logo_urls: { readonly code: 43405; readonly type: "string"; readonly defaultValue: "{}"; readonly debugDefaultValue: "{}" }
     readonly payment_links_trust_signals_metatag_enabled: { readonly code: 16866; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payment_links_trust_signals_metatag_psp_list: { readonly code: 17162; readonly type: "string"; readonly defaultValue: "{\"psp\":[\"mercadopago\"]} "; readonly debugDefaultValue: "{\"psp\":[\"mercadopago\"]} " }
     readonly payment_links_trust_signals_other_metatag_kill_switch_enabled: { readonly code: 24662; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1562,7 +1566,6 @@ export declare const WA_ABPROPS: {
     readonly payments_br_content_optimization_variant: { readonly code: 4248; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly payments_br_copy_pix_code_api_merchant_enabled: { readonly code: 9017; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_br_force_copy_pix_cta_enabled: { readonly code: 8953; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly payments_br_merchant_psp_account_status_sync: { readonly code: 9076; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_br_p2m_boleto_enabled: { readonly code: 11671; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_br_p2m_buyer_logging_phase_2: { readonly code: 29803; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly payments_br_p2m_completed_payment_intent_buyer_logging: { readonly code: 27095; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1571,7 +1574,6 @@ export declare const WA_ABPROPS: {
     readonly payments_br_p2m_pay_now_buyer_logging: { readonly code: 27092; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_br_p2m_pix_copy_code_buyer_logging: { readonly code: 27028; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_br_p2m_pix_copy_key_buyer_logging: { readonly code: 27026; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
-    readonly payments_br_p2m_pix_in_groups_buyer_logging: { readonly code: 27029; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_br_p2m_pix_more_ways_to_pay_buyer_logging: { readonly code: 27094; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_br_p2m_view_order_buyer_logging: { readonly code: 27093; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly payments_br_p2p_pix_copy_code_buyer_logging: { readonly code: 27114; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1671,7 +1673,6 @@ export declare const WA_ABPROPS: {
     readonly pinned_messages_remove_30_day_pins: { readonly code: 37344; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly pinned_messages_sender_short_expiry_durations_enabled: { readonly code: 4432; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pix_onboarding_new_content_enabled: { readonly code: 23953; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly pix_payment_request_update_status_enabled: { readonly code: 27006; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly pix_payment_request_web_enabled: { readonly code: 34199; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly placeholder_message_key_hash_logging: { readonly code: 2639; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly placeholder_message_resend: { readonly code: 3579; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1835,7 +1836,6 @@ export declare const WA_ABPROPS: {
     readonly show_fishfooding_toggle_in_bug_reporting_form: { readonly code: 33156; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly show_integrity_screensharing_friction_ui: { readonly code: 16411; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly show_username_non_linking_rejection_reason_enabled: { readonly code: 32920; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly silent_group_username_activities_enabled: { readonly code: 24269; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly similar_channels_in_channel_details_enabled: { readonly code: 7473; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly similar_channels_in_thread_on_follow_enabled: { readonly code: 7472; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly similar_channels_max_limit: { readonly code: 7559; readonly type: "int"; readonly defaultValue: 10; readonly debugDefaultValue: 10 }
@@ -1851,7 +1851,6 @@ export declare const WA_ABPROPS: {
     readonly smb_auth_agents_feature_control_enabled: { readonly code: 27585; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_bb_in_thread_insight_metrics_enabled: { readonly code: 31676; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_bb_pro_business_verification: { readonly code: 34341; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
-    readonly smb_bb_web_audience_expression_sync_read: { readonly code: 26894; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly smb_billing_enabled: { readonly code: 1583; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_biz_ai_lists_pills: { readonly code: 28470; readonly type: "string"; readonly defaultValue: "None"; readonly debugDefaultValue: "None" }
     readonly smb_biz_ai_suggested_reply_no_action_threshold: { readonly code: 35652; readonly type: "int"; readonly defaultValue: 5; readonly debugDefaultValue: 5 }
@@ -1912,15 +1911,12 @@ export declare const WA_ABPROPS: {
     readonly smb_payment_links_logging_enabled: { readonly code: 9213; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_payment_links_seller_logging_enabled: { readonly code: 10389; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_payment_links_url_regex_list: { readonly code: 8969; readonly type: "string"; readonly defaultValue: "{}"; readonly debugDefaultValue: "{}" }
-    readonly smb_payment_request_status_update: { readonly code: 27077; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly smb_phase_out_not_a_business_V2: { readonly code: 1771; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_premium_messages_click_logging_enabled: { readonly code: 4657; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_premium_messages_url_cta_alert_dialog_enabled: { readonly code: 5044; readonly type: "bool"; readonly defaultValue: true; readonly debugDefaultValue: true }
     readonly smb_product_country_of_origin_m1: { readonly code: 13415; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_project_waldo_set_price_tier_biz_profile_enabled: { readonly code: 3467; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_qp_bb_chat_list_banner: { readonly code: 20172; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_qp_bb_chat_list_banner_no_dismiss_cap: { readonly code: 41447; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly smb_qp_conversion_tracking_infra: { readonly code: 26331; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_qp_emergency_force_fetch_nonce: { readonly code: 27115; readonly type: "string"; readonly defaultValue: ""; readonly debugDefaultValue: "" }
     readonly smb_qp_web_debug_recunit: { readonly code: 31009; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_rambutan_enabled: { readonly code: 3124; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -1939,10 +1935,10 @@ export declare const WA_ABPROPS: {
     readonly smb_web_customer_management_import_export: { readonly code: 36497; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_customer_manager_bulk_edit_enabled: { readonly code: 32550; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_customer_manager_date_range_filter_enabled: { readonly code: 32096; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly smb_web_customer_manager_dob_filter_enabled: { readonly code: 32229; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_web_customer_manager_export_enabled: { readonly code: 32287; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_customer_manager_header_menu_enabled: { readonly code: 33086; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly smb_web_customer_manager_nux_debug_tools_enabled: { readonly code: 40896; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly smb_web_fb_linking: { readonly code: 43576; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_meta_ai_assistant_enabled: { readonly code: 34828; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly smb_web_meta_ai_image_input_languages: { readonly code: 34829; readonly type: "string"; readonly defaultValue: " "; readonly debugDefaultValue: "en" }
     readonly smb_web_show_quick_reply_option_in_composer: { readonly code: 31700; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -1982,7 +1978,6 @@ export declare const WA_ABPROPS: {
     readonly status_future_proofing: { readonly code: 9522; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly status_infra_1_1_session_split: { readonly code: 25034; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly status_likes_fifa_lottie_full_screen_animation_enabled: { readonly code: 27054; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly status_likes_sending_enabled: { readonly code: 31665; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly status_mentions_group_mention_receiver: { readonly code: 12254; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly status_mentions_receiver: { readonly code: 7869; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly status_notify_broadcast_addressing_enabled: { readonly code: 40773; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2139,7 +2134,6 @@ export declare const WA_ABPROPS: {
     readonly utility_payment_reminder_m1_logging_enabled: { readonly code: 22785; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly utm_tracking_enabled: { readonly code: 2895; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly utm_tracking_expiration_hours: { readonly code: 2896; readonly type: "int"; readonly defaultValue: 24; readonly debugDefaultValue: 24 }
-    readonly uwp_voip_incoming_call_notification_version: { readonly code: 7541; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly verified_badge_in_chats_list_enabled: { readonly code: 9292; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly vid_port_enable_capture_fps_median_filter: { readonly code: 29214; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly vid_port_frm_buf_mutex_fixes: { readonly code: 22525; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2183,10 +2177,8 @@ export declare const WA_ABPROPS: {
     readonly wa_biz_gap_enforcement_rules_sync_to_meta_enabled_ac_linked_user: { readonly code: 34290; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_biz_payment_template_click_signals: { readonly code: 33170; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_biz_url_cta_click_signals: { readonly code: 34726; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly wa_capping_local_data_logic_update: { readonly code: 21348; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_catalog_graphql_use_lid_enabled: { readonly code: 30797; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_coex_biz_ai_capping_eligible: { readonly code: 34276; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
-    readonly wa_consumer_entry_point_enabled: { readonly code: 24380; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_consumer_nova_eligibility_subscription_status_check_enabled: { readonly code: 25388; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_consumer_nova_entry_point_settings_enabled: { readonly code: 24495; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_consumer_nova_settings_green_dot_enabled: { readonly code: 24955; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2415,6 +2407,7 @@ export declare const WA_ABPROPS: {
     readonly wa_web_match_primary_icons: { readonly code: 29293; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_me_tab: { readonly code: 24944; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_media_download_rmr_on_hash_mismatch_enabled: { readonly code: 38672; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
+    readonly wa_web_media_editor_quality_for_all_photos_enabled: { readonly code: 43484; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_web_media_fast_forward_same_key_type_enabled: { readonly code: 38464; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly wa_web_media_loader_button_uix_improvement: { readonly code: 33245; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_media_thumbnail_key_match_enabled: { readonly code: 38463; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
@@ -2472,6 +2465,7 @@ export declare const WA_ABPROPS: {
     readonly wa_web_status_first_upload_fix_enabled: { readonly code: 25015; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_status_hover_prefetch: { readonly code: 42779; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_status_hover_prefetch_dwell_ms: { readonly code: 42816; readonly type: "int"; readonly defaultValue: 200; readonly debugDefaultValue: 200 }
+    readonly wa_web_status_list_open_prefetch_depth: { readonly code: 43376; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
     readonly wa_web_status_list_prefetch: { readonly code: 42287; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly wa_web_status_list_prefetch_depth: { readonly code: 42288; readonly type: "int"; readonly defaultValue: 2; readonly debugDefaultValue: 2 }
     readonly wa_web_status_playable_before_thumbnail: { readonly code: 42284; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2722,6 +2716,7 @@ export declare const WA_ABPROPS: {
     readonly web_edit_group_permissions_inline_in_modal: { readonly code: 40769; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_email_invites_group_info: { readonly code: 33556; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_email_invites_server_send_enabled: { readonly code: 37284; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
+    readonly web_emoji_17: { readonly code: 43328; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: true }
     readonly web_employee_commands_prod_enabled: { readonly code: 42155; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_employee_commands_zero_click_enabled: { readonly code: 41095; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_employee_slash_commands_enabled: { readonly code: 40656; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
@@ -2746,7 +2741,6 @@ export declare const WA_ABPROPS: {
     readonly web_gif_search_compact_preview_enabled: { readonly code: 42003; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_gif_search_preview_commit_enabled: { readonly code: 42002; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_giphy_sticker_search_enabled: { readonly code: 41098; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
-    readonly web_group_admin_console_enabled: { readonly code: 37816; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_group_bulk_add_contact: { readonly code: 30417; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_group_experimentation_enable: { readonly code: 25414; readonly type: "bool"; readonly defaultValue: false; readonly debugDefaultValue: false }
     readonly web_group_hover_card_variant: { readonly code: 30260; readonly type: "int"; readonly defaultValue: 0; readonly debugDefaultValue: 0 }
@@ -3160,7 +3154,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 1719: "order_details_total_order_minimum_value"
     readonly 1745: "web_group_profile_editor"
     readonly 1753: "web_abprop_core_wam_runtime"
-    readonly 1771: "smb_phase_out_not_a_business_V2"
     readonly 1773: "web_offline_resume_qpl_enabled"
     readonly 1777: "is_meta_employee_or_internal_tester"
     readonly 1783: "syncd_lthash_consistency_check_on_snapshot_mac_mismatch"
@@ -3505,7 +3498,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 7473: "similar_channels_in_channel_details_enabled"
     readonly 7510: "events_m3_cover_image_send"
     readonly 7511: "events_m3_cover_image_receive"
-    readonly 7541: "uwp_voip_incoming_call_notification_version"
     readonly 7546: "web_payment_notifications_ack_kick_fix_enabled"
     readonly 7559: "similar_channels_max_limit"
     readonly 7560: "similar_channels_min_limit"
@@ -3571,7 +3563,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 8524: "enable_call_control_m5"
     readonly 8528: "album_v2_receiving_enabled"
     readonly 8529: "album_v2_sender_enabled"
-    readonly 8542: "improve_subgroup_activation_subgroup_poll_interval"
     readonly 8580: "web_communities_general_chat_v_2"
     readonly 8582: "unified_session_log_call_event"
     readonly 8627: "text_user_journey_logging_wam_enabled"
@@ -3593,7 +3584,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 8969: "smb_payment_links_url_regex_list"
     readonly 9017: "payments_br_copy_pix_code_api_merchant_enabled"
     readonly 9069: "enable_chat_list_sticker_emojis"
-    readonly 9076: "payments_br_merchant_psp_account_status_sync"
     readonly 9077: "lazy_system_message_insertion_enabled"
     readonly 9157: "flows_termination_message_v2_sending_enabled"
     readonly 9163: "ai_metabot_image_input_languages"
@@ -3818,7 +3808,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 14664: "web_chat_info_action_buttons_refresh"
     readonly 14674: "hybrid_educational_dialogs_enabled"
     readonly 14675: "hybrid_educational_dialog_start_at"
-    readonly 14676: "educational_dialogs_button_enabled"
     readonly 14682: "search_user_journey_logging_wam_enabled"
     readonly 14743: "ai_rewrite_tone_modifiers"
     readonly 14772: "mex_group_get_linked_group_info_enabled"
@@ -4026,7 +4015,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 19763: "ctwa_per_customer_data_sharing_controls_do_not_show_msg_until_chosen"
     readonly 19777: "channels_quiz_sending_enabled"
     readonly 19778: "channels_quiz_receiving_enabled"
-    readonly 19781: "message_capping_upsell_version"
     readonly 19811: "group_history_message_count_receiver_upper_limit"
     readonly 19819: "enable_waiting_room_ui"
     readonly 19823: "ai_metabot_document_upload_size_limit_mb"
@@ -4110,7 +4098,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 21261: "group_history_settings"
     readonly 21288: "mm_data_sharing_disclosure_enabled_companion_history_sync"
     readonly 21313: "group_history_messages_time_limit_receiver_enforcement_secs"
-    readonly 21348: "wa_capping_local_data_logic_update"
     readonly 21350: "web_voip_video_capture_impl"
     readonly 21363: "ai_rich_response_forward_media_receiving_enabled"
     readonly 21410: "wa_individual_new_chat_msg_fci_staleness_ttl_in_seconds"
@@ -4283,14 +4270,12 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 24216: "flows_wa_web_responses_download"
     readonly 24244: "enable_mention_everyone_syncd_sender"
     readonly 24268: "hide_silent_system_message_enabled"
-    readonly 24269: "silent_group_username_activities_enabled"
     readonly 24280: "web_display_lid_contacts"
     readonly 24311: "smb_label_sync_critical_event_logging"
     readonly 24343: "web_force_lid_chats_in_history"
     readonly 24347: "channels_admin_profiles_settings_enabled"
     readonly 24361: "ai_group_send_mentioned_pushname_enabled"
     readonly 24363: "web_log_capacity_override"
-    readonly 24380: "wa_consumer_entry_point_enabled"
     readonly 24388: "br_smb_pix_payment_request_variant"
     readonly 24405: "poll_end_time_enabled"
     readonly 24421: "bug_reporting_rid_in_flytrap"
@@ -4466,7 +4451,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 26302: "ctwa_block_ib_ar_for_wabai"
     readonly 26307: "bug_reporting_attach_view_dump_pre_bug_creation"
     readonly 26311: "bug_reporting_attach_pathfinder_pre_bug_creation"
-    readonly 26331: "smb_qp_conversion_tracking_infra"
     readonly 26346: "aura_status_search_enabled"
     readonly 26347: "scheduled_messages_window_duration_max_seconds"
     readonly 26348: "scheduled_messages_window_duration_min_seconds"
@@ -4515,7 +4499,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 26876: "calling_rust_migration_incoming_stanza_bitmap"
     readonly 26888: "remove_pn_dependencies"
     readonly 26892: "web_add_contact"
-    readonly 26894: "smb_bb_web_audience_expression_sync_read"
     readonly 26910: "channels_question_admin_m2_enabled"
     readonly 26911: "channels_question_follower_m2_enabled"
     readonly 26924: "channels_reply_forward_message_types_status_m2_enabled"
@@ -4530,17 +4513,14 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 26966: "ks_use_component_model"
     readonly 26974: "enable_wds_calling_dropdown"
     readonly 26996: "wa_asteria_rollout_enabled"
-    readonly 27006: "pix_payment_request_update_status_enabled"
     readonly 27008: "payments_br_p2m_order_details_buyer_logging"
     readonly 27011: "status_chain_from_my_interaction_limit"
     readonly 27026: "payments_br_p2m_pix_copy_key_buyer_logging"
     readonly 27027: "payments_br_payment_links_buyer_logging"
     readonly 27028: "payments_br_p2m_pix_copy_code_buyer_logging"
-    readonly 27029: "payments_br_p2m_pix_in_groups_buyer_logging"
     readonly 27054: "status_likes_fifa_lottie_full_screen_animation_enabled"
     readonly 27068: "wa_consumer_nova_subscription_notifications_enabled"
     readonly 27069: "wa_web_enable_syncd_key_persistence_only_after_server_ack"
-    readonly 27077: "smb_payment_request_status_update"
     readonly 27082: "business_broadcast_insights_sync_past_x_days"
     readonly 27083: "ai_maiba_wass_migration_receiving"
     readonly 27084: "ai_maiba_wass_migration_sending"
@@ -4572,7 +4552,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 27249: "web_anr_async_msg_send_handler"
     readonly 27264: "wds_web_rich_text_field"
     readonly 27268: "enable_web_voip_anr_optimizations"
-    readonly 27277: "opus_time"
     readonly 27278: "opus_enabled"
     readonly 27309: "br_payments_payment_detection_enhancement"
     readonly 27343: "status_chain_from_cl_mode"
@@ -4909,7 +4888,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 31606: "wa_meta_one_eligibility_check_enabled"
     readonly 31614: "group_member_updates_past_participant_migration_enabled"
     readonly 31664: "channel_web_embedding_enabled"
-    readonly 31665: "status_likes_sending_enabled"
     readonly 31676: "smb_bb_in_thread_insight_metrics_enabled"
     readonly 31682: "wa_web_biz_broadcast_collection_based_campaigns_enabled"
     readonly 31683: "web_status_ranking"
@@ -4986,7 +4964,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 32216: "bb_chat_list_banner_9"
     readonly 32217: "bb_chat_list_banner_10"
     readonly 32228: "wa_web_notifications_modal"
-    readonly 32229: "smb_web_customer_manager_dob_filter_enabled"
     readonly 32231: "web_top_level_message_secret_enforcement_enabled"
     readonly 32239: "snapl_newsletter_logging_encrypted_rid_enabled"
     readonly 32245: "ai_group_call_meta_ai_animation_version"
@@ -5502,6 +5479,7 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37003: "wa_web_show_motion_photo"
     readonly 37004: "wa_web_send_motion_photo"
     readonly 37054: "ai_hatch_space_enabled"
+    readonly 37056: "ai_rich_response_content_types_logging_mode"
     readonly 37058: "web_voip_dtls_cert_cache_mode"
     readonly 37062: "wa_thumbnail_gen_in_worker_enabled"
     readonly 37076: "br_payments_add_pix_key_message_enabled"
@@ -5604,7 +5582,6 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 37789: "smb_web_create_ad_chatlist_qp_filter_dummy_enabled"
     readonly 37791: "ai_hatch_3p_bot_group_add_companion_enabled"
     readonly 37793: "ai_hatch_3p_bot_group_add_tee_removal_enabled"
-    readonly 37816: "web_group_admin_console_enabled"
     readonly 37818: "payments_receipt_and_state_web_state_hide_kill_switch"
     readonly 37827: "win_hybrid_background_message_sync"
     readonly 37833: "waweb_deprecate_initial_sync_ordering"
@@ -6111,6 +6088,17 @@ export declare const WA_ABPROPS_BY_CODE: {
     readonly 43258: "system_provenance_allowed_values"
     readonly 43273: "web_offline_resume_primary_snapshot_enabled"
     readonly 43274: "md_logout_trigger_enabled"
+    readonly 43301: "biz_integrity_query_lid_enabled"
+    readonly 43328: "web_emoji_17"
+    readonly 43359: "music_on_chats_clear_storage_row_enabled"
+    readonly 43366: "ai_group_muse_add_enabled"
+    readonly 43376: "wa_web_status_list_open_prefetch_depth"
+    readonly 43405: "payment_links_psp_logo_urls"
+    readonly 43448: "ctwa_web_native_ads_status_boost_enabled_dummy"
+    readonly 43449: "ctwa_web_native_ads_status_boost_enabled"
+    readonly 43484: "wa_web_media_editor_quality_for_all_photos_enabled"
+    readonly 43485: "ctwa_conversation_counter_message_types"
+    readonly 43576: "smb_web_fb_linking"
 }
 
 export declare const WA_GROUP_ABPROPS_BY_CODE: {

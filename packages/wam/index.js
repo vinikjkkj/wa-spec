@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054953954
+// WhatsApp Version: 2.3000.1055156383
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -1254,6 +1254,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHAT_FMX_CARD_SAFETY_TOOLS_BLOCK_SUSPICIOUS': 34,
         'CHAT_FMX_CARD_SAFETY_TOOLS_REPORT': 35,
         'CHAT_FMX_CARD_SAFETY_TOOLS_REPORT_SUSPICIOUS': 36,
+        'CHAT_FMX_CARD_V2_BLOCK': 68,
+        'CHAT_FMX_CARD_V2_BLOCK_SUSPICIOUS': 69,
         'CHAT_LIST_BLOCK': 20,
         'CHAT_LIST_CONTEXT_MENU_BLOCK': 22,
         'CHAT_LIST_NOINSUB_BLOCK': 21,
@@ -10960,6 +10962,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHANNELS': 2,
         'CHANNEL_STATUS': 3,
         'CHATS': 4,
+        'SOUND_STICKERS': 5,
         'STATUS': 1
         })
     }),
@@ -20183,6 +20186,14 @@ const WA_WAM_EVENTS = Object.freeze({
             autoeqAlgorithmUsed: Object.freeze({ id: 2559, type: 'integer', falcoName: 'autoeq_algorithm_used' }),
             automosReceiverModelDownloadFailureCount: Object.freeze({ id: 2875, type: 'integer', falcoName: 'automos_receiver_model_download_failure_count' }),
             automosSenderModelDownloadFailureCount: Object.freeze({ id: 2876, type: 'integer', falcoName: 'automos_sender_model_download_failure_count' }),
+            auxVideoDecErrorFrames: Object.freeze({ id: 3331, type: 'integer', falcoName: 'aux_video_dec_error_frames' }),
+            auxVideoDecFatalErrorNum: Object.freeze({ id: 3332, type: 'integer', falcoName: 'aux_video_dec_fatal_error_num' }),
+            auxVideoDecLatency: Object.freeze({ id: 3333, type: 'timer', falcoName: 'aux_video_dec_latency' }),
+            auxVideoEncAvgFps: Object.freeze({ id: 3334, type: 'number', falcoName: 'aux_video_enc_avg_fps' }),
+            auxVideoEncErrorFrames: Object.freeze({ id: 3335, type: 'integer', falcoName: 'aux_video_enc_error_frames' }),
+            auxVideoEncFatalErrorNum: Object.freeze({ id: 3336, type: 'integer', falcoName: 'aux_video_enc_fatal_error_num' }),
+            auxVideoEncLatency: Object.freeze({ id: 3337, type: 'timer', falcoName: 'aux_video_enc_latency' }),
+            auxVideoFecRecovered: Object.freeze({ id: 3338, type: 'integer', falcoName: 'aux_video_fec_recovered' }),
             auxVideoNackRtpRetransmitRecvdCount: Object.freeze({ id: 3094, type: 'integer', falcoName: 'aux_video_nack_rtp_retransmit_recvd_count' }),
             auxVideoNackRtpRetransmitReqCount: Object.freeze({ id: 3095, type: 'integer', falcoName: 'aux_video_nack_rtp_retransmit_req_count' }),
             auxVideoNackRtpRetransmitRetryCount: Object.freeze({ id: 3096, type: 'integer', falcoName: 'aux_video_nack_rtp_retransmit_retry_count' }),
@@ -20190,8 +20201,20 @@ const WA_WAM_EVENTS = Object.freeze({
             auxVideoRenderFreeze4xT: Object.freeze({ id: 3098, type: 'timer', falcoName: 'aux_video_render_freeze4x_t' }),
             auxVideoRenderFreeze8xT: Object.freeze({ id: 3099, type: 'timer', falcoName: 'aux_video_render_freeze8x_t' }),
             auxVideoRenderFreezeT: Object.freeze({ id: 3100, type: 'timer', falcoName: 'aux_video_render_freeze_t' }),
+            auxVideoRtcpNackProcessed: Object.freeze({ id: 3339, type: 'integer', falcoName: 'aux_video_rtcp_nack_processed' }),
             auxVideoRxFecBitrate: Object.freeze({ id: 3101, type: 'number', falcoName: 'aux_video_rx_fec_bitrate' }),
+            auxVideoRxFecFrames: Object.freeze({ id: 3340, type: 'integer', falcoName: 'aux_video_rx_fec_frames' }),
+            auxVideoRxPackets: Object.freeze({ id: 3341, type: 'integer', falcoName: 'aux_video_rx_packets' }),
+            auxVideoRxRsFecPkts: Object.freeze({ id: 3342, type: 'integer', falcoName: 'aux_video_rx_rs_fec_pkts' }),
             auxVideoRxRtcpPli: Object.freeze({ id: 3102, type: 'integer', falcoName: 'aux_video_rx_rtcp_pli' }),
+            auxVideoTxFecFrames: Object.freeze({ id: 3343, type: 'integer', falcoName: 'aux_video_tx_fec_frames' }),
+            auxVideoTxPackets: Object.freeze({ id: 3344, type: 'integer', falcoName: 'aux_video_tx_packets' }),
+            auxVideoTxPktErrorPct: Object.freeze({ id: 3345, type: 'number', falcoName: 'aux_video_tx_pkt_error_pct' }),
+            auxVideoTxResendFailures: Object.freeze({ id: 3346, type: 'integer', falcoName: 'aux_video_tx_resend_failures' }),
+            auxVideoTxResendLimitedPackets: Object.freeze({ id: 3347, type: 'integer', falcoName: 'aux_video_tx_resend_limited_packets' }),
+            auxVideoTxResendPackets: Object.freeze({ id: 3348, type: 'integer', falcoName: 'aux_video_tx_resend_packets' }),
+            auxVideoTxRsFecPkts: Object.freeze({ id: 3349, type: 'integer', falcoName: 'aux_video_tx_rs_fec_pkts' }),
+            auxVideoTxRtcpNack: Object.freeze({ id: 3350, type: 'integer', falcoName: 'aux_video_tx_rtcp_nack' }),
             avAvgDelta: Object.freeze({ id: 192, type: 'number', falcoName: 'av_avg_delta' }),
             avMaxDelta: Object.freeze({ id: 193, type: 'number', falcoName: 'av_max_delta' }),
             avatarAttempted: Object.freeze({ id: 1412, type: 'boolean', falcoName: 'avatar_attempted' }),
@@ -22105,6 +22128,7 @@ const WA_WAM_EVENTS = Object.freeze({
             totalFramesRenderedSs: Object.freeze({ id: 1464, type: 'integer', falcoName: 'total_frames_rendered_ss' }),
             totalMemoryGb: Object.freeze({ id: 2011, type: 'integer', falcoName: 'total_memory_gb' }),
             totalTimeVidUlAutoPause: Object.freeze({ id: 573, type: 'timer', falcoName: 'total_time_vid_ul_auto_pause' }),
+            traceIdInt: Object.freeze({ id: 3330, type: 'integer', falcoName: 'trace_id_int' }),
             trafficShaperAvgAudioQueueMs: Object.freeze({ id: 898, type: 'timer', falcoName: 'traffic_shaper_avg_audio_queue_ms' }),
             trafficShaperAvgQueueMs: Object.freeze({ id: 242, type: 'timer', falcoName: 'traffic_shaper_avg_queue_ms' }),
             trafficShaperAvgVideoQueueMs: Object.freeze({ id: 899, type: 'timer', falcoName: 'traffic_shaper_avg_video_queue_ms' }),
@@ -24548,6 +24572,7 @@ const WA_WAM_EVENTS = Object.freeze({
             interopContactsSizePerIntegrator: Object.freeze({ id: 261, type: 'string', falcoName: 'interop_contacts_size_per_integrator' }),
             isCanonicalEntPresent: Object.freeze({ id: 234, type: 'boolean', falcoName: 'is_canonical_ent_present' }),
             isContactSyncToOsDefaultOn: Object.freeze({ id: 202, type: 'boolean', falcoName: 'is_contact_sync_to_os_default_on' }),
+            isCoverPhotoSet: Object.freeze({ id: 365, type: 'boolean', falcoName: 'is_cover_photo_set' }),
             isDefaultDisappearingMessagingUser: Object.freeze({ id: 183, type: 'boolean', falcoName: 'is_default_disappearing_messaging_user' }),
             isEphemeralMessagingUser: Object.freeze({ id: 184, type: 'boolean', falcoName: 'is_ephemeral_messaging_user' }),
             isProfilePhotoSet: Object.freeze({ id: 195, type: 'boolean', falcoName: 'is_profile_photo_set' }),

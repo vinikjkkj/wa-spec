@@ -292,7 +292,7 @@
       }
     },
     "AdsAccountStoreNewSourceServer": {
-      "docId": "28770753749259515",
+      "docId": "29643014135294057",
       "operationKind": "query",
       "originalName": "AdsAccountStoreNewSourceServerQuery",
       "response": {
@@ -563,33 +563,6 @@
         ]
       }
     },
-    "AdsDaisyChainWhatsAppFromInstagramStoreSourceServer": {
-      "docId": "28213633418323547",
-      "operationKind": "query",
-      "originalName": "AdsDaisyChainWhatsAppFromInstagramStoreSourceServerQuery",
-      "response": {
-        "page": {
-          "ctwa_business_account_daisy_chain_from_ig": {
-            "id": "string",
-            "phone_number_status": {
-              "country_code": "string",
-              "formatted_phone_number": "string",
-              "id": "string",
-              "national_phone_number": "string"
-            }
-          },
-          "id": "string"
-        }
-      },
-      "variables": [
-        "passCountryCodeGK",
-        "selectedPageID"
-      ],
-      "variablesShape": {
-        "passCountryCodeGK": "boolean",
-        "selectedPageID": "string"
-      }
-    },
     "AdsFocusFrameworkStickinessDataManager": {
       "docId": "9593850350702942",
       "operationKind": "query",
@@ -723,73 +696,6 @@
         "ad_account_id": "string",
         "requires_full_report": "unknown",
         "surface": "unknown"
-      }
-    },
-    "AdsSmartDefaultStoreSourceServer": {
-      "docId": "29462856136671043",
-      "operationKind": "query",
-      "originalName": "AdsSmartDefaultStoreSourceServerQuery",
-      "response": {
-        "xfb_andromeda_XAdsSmartDefaultControllerUpdated": {
-          "ad_account_id": "string",
-          "attribution_model_default": "unknown",
-          "conversions": [
-            {
-              "conversion_location": "string",
-              "default_commerce_product_set_id": "string",
-              "default_page_id": "string",
-              "source": "string"
-            }
-          ],
-          "engagement": [
-            {
-              "conversion_location": "string",
-              "default_commerce_product_set_id": "string",
-              "default_page_id": "string",
-              "source": "string"
-            }
-          ],
-          "last_used_buying_type": "string",
-          "last_used_objective": "unknown",
-          "lead_gen": [
-            {
-              "conversion_location": "string",
-              "default_commerce_product_set_id": "string",
-              "default_page_id": "string",
-              "source": "string"
-            }
-          ],
-          "leads": [
-            {
-              "conversion_location": "string",
-              "default_commerce_product_set_id": "string",
-              "default_page_id": "string",
-              "source": "string"
-            }
-          ],
-          "sales": [
-            {
-              "conversion_location": "string",
-              "default_commerce_product_set_id": "string",
-              "default_page_id": "string",
-              "source": "string"
-            }
-          ],
-          "traffic": [
-            {
-              "conversion_location": "string",
-              "default_commerce_product_set_id": "string",
-              "default_page_id": "string",
-              "source": "string"
-            }
-          ]
-        }
-      },
-      "variables": [
-        "ad_account_id"
-      ],
-      "variablesShape": {
-        "ad_account_id": "string"
       }
     },
     "AdsUEditorAdgroupBrandedContentWAPreviewWrapper_": {
@@ -1811,7 +1717,7 @@
       }
     },
     "ConsumerFetchQuickPromotions": {
-      "docId": "35462584533386409",
+      "docId": "29186487034341514",
       "operationKind": "query",
       "originalName": "WAWebConsumerFetchQuickPromotionsQuery",
       "response": {
@@ -2016,6 +1922,7 @@
                     "is_server_force_pass": "boolean",
                     "max_impressions": "number",
                     "promotion_id": "string",
+                    "should_expose_on_client": "boolean",
                     "surface_delay_in_seconds": "number",
                     "wa_qp_content_attributes_do_not_use": [
                       {
@@ -5447,7 +5354,7 @@
       }
     },
     "FetchQuickPromotions": {
-      "docId": "27262639366727460",
+      "docId": "29351183524512654",
       "operationKind": "query",
       "originalName": "WAWebFetchQuickPromotionsQuery",
       "response": {
@@ -5643,6 +5550,7 @@
                     "id": "string",
                     "is_server_force_pass": "boolean",
                     "promotion_id": "string",
+                    "should_expose_on_client": "boolean",
                     "surface_delay_in_seconds": "number",
                     "user_interaction_info": {
                       "dismiss_click_count_for_user": "number",
@@ -6608,7 +6516,7 @@
       }
     },
     "MAIBAChatThread": {
-      "docId": "29491761400511930",
+      "docId": "28779050238463238",
       "operationKind": "query",
       "originalName": "MAIBAChatThreadQuery",
       "response": {
@@ -6812,6 +6720,7 @@
                                 "compass_insight_unit_id": "string",
                                 "condition_matched": "unknown",
                                 "content_id": "string",
+                                "content_version": "number",
                                 "created_time": "string",
                                 "creation_lifecycle_identity": "unknown",
                                 "creation_time": "string",
@@ -7037,6 +6946,7 @@
                                 "label": "string",
                                 "limit": "number",
                                 "link_description": "string",
+                                "links": "unknown",
                                 "log_source": "string",
                                 "lower_limit": "number",
                                 "maiba_interviewer_rec_key": "string",
@@ -7523,7 +7433,7 @@
       }
     },
     "MAIBAGraphQLSendMessageV2Query": {
-      "docId": "29814438118154047",
+      "docId": "29514008878235644",
       "operationKind": "mutation",
       "originalName": "MAIBAGraphQLSendMessageV2QueryMutation",
       "response": {},
@@ -9966,6 +9876,24 @@
         "input": {}
       }
     },
+    "SharableEventLeave": {
+      "docId": "40086372971011214",
+      "operationKind": "mutation",
+      "originalName": "WAWebSharableEventLeaveJobMutation",
+      "response": {
+        "xwa_event_remove_self_invitation": {
+          "success": "boolean"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {
+          "event_id": "string"
+        }
+      }
+    },
     "SharableEventLinkPreview": {
       "docId": "29420835400939876",
       "operationKind": "query",
@@ -10676,7 +10604,7 @@
       }
     },
     "TeamLinkCreateInvitation": {
-      "docId": "27693700016951648",
+      "docId": "29163920696593650",
       "operationKind": "mutation",
       "originalName": "WAWebTeamLinkCreateInvitationMutation",
       "response": {
@@ -10685,20 +10613,23 @@
           "employee_name": "string",
           "expires_at": "string",
           "invitation_status": "string",
-          "nonce_code": "string"
+          "nonce_code": "string",
+          "team_role": "string"
         }
       },
       "variables": [
         "employeeName",
-        "lid"
+        "lid",
+        "teamRole"
       ],
       "variablesShape": {
         "employeeName": "string",
-        "lid": "string"
+        "lid": "string",
+        "teamRole": "string"
       }
     },
     "TeamLinkListInvitations": {
-      "docId": "27966540672965115",
+      "docId": "29034981139492951",
       "operationKind": "query",
       "originalName": "WAWebTeamLinkListInvitationsQuery",
       "response": {
@@ -10708,7 +10639,8 @@
             "employee_name": "string",
             "expires_at": "string",
             "invitation_status": "string",
-            "nonce_code": "string"
+            "nonce_code": "string",
+            "team_role": "string"
           }
         ]
       },
@@ -10730,6 +10662,28 @@
       ],
       "variablesShape": {
         "lid": "string"
+      }
+    },
+    "TeamLinkUpdateAgentRole": {
+      "docId": "29145759951753354",
+      "operationKind": "mutation",
+      "originalName": "WAWebTeamLinkUpdateAgentRoleMutation",
+      "response": {
+        "whatsapp_teamlink_update_agent_role": {
+          "employee": {
+            "employee_lid": "string"
+          }
+        }
+      },
+      "variables": [
+        "employeeName",
+        "lid",
+        "teamRole"
+      ],
+      "variablesShape": {
+        "employeeName": "string",
+        "lid": "string",
+        "teamRole": "string"
       }
     },
     "TransferCommunityOwnership": {
@@ -11602,5 +11556,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1054953954"
+  "waVersion": "2.3000.1055156383"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054953954
+// WhatsApp Version: 2.3000.1055156383
 
 export type WaWamChannel = 'private' | 'realtime' | 'regular'
 
@@ -1363,6 +1363,8 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CHAT_FMX_CARD_SAFETY_TOOLS_BLOCK_SUSPICIOUS': 34;
             readonly 'CHAT_FMX_CARD_SAFETY_TOOLS_REPORT': 35;
             readonly 'CHAT_FMX_CARD_SAFETY_TOOLS_REPORT_SUSPICIOUS': 36;
+            readonly 'CHAT_FMX_CARD_V2_BLOCK': 68;
+            readonly 'CHAT_FMX_CARD_V2_BLOCK_SUSPICIOUS': 69;
             readonly 'CHAT_LIST_BLOCK': 20;
             readonly 'CHAT_LIST_CONTEXT_MENU_BLOCK': 22;
             readonly 'CHAT_LIST_NOINSUB_BLOCK': 21;
@@ -11069,6 +11071,7 @@ export declare const WA_WAM_ENUMS: {
             readonly 'CHANNELS': 2;
             readonly 'CHANNEL_STATUS': 3;
             readonly 'CHATS': 4;
+            readonly 'SOUND_STICKERS': 5;
             readonly 'STATUS': 1
         }
     }
@@ -20440,6 +20443,14 @@ export declare const WA_WAM_EVENTS: {
             readonly autoeqAlgorithmUsed: { readonly id: 2559; readonly type: 'integer'; readonly falcoName: 'autoeq_algorithm_used' }
             readonly automosReceiverModelDownloadFailureCount: { readonly id: 2875; readonly type: 'integer'; readonly falcoName: 'automos_receiver_model_download_failure_count' }
             readonly automosSenderModelDownloadFailureCount: { readonly id: 2876; readonly type: 'integer'; readonly falcoName: 'automos_sender_model_download_failure_count' }
+            readonly auxVideoDecErrorFrames: { readonly id: 3331; readonly type: 'integer'; readonly falcoName: 'aux_video_dec_error_frames' }
+            readonly auxVideoDecFatalErrorNum: { readonly id: 3332; readonly type: 'integer'; readonly falcoName: 'aux_video_dec_fatal_error_num' }
+            readonly auxVideoDecLatency: { readonly id: 3333; readonly type: 'timer'; readonly falcoName: 'aux_video_dec_latency' }
+            readonly auxVideoEncAvgFps: { readonly id: 3334; readonly type: 'number'; readonly falcoName: 'aux_video_enc_avg_fps' }
+            readonly auxVideoEncErrorFrames: { readonly id: 3335; readonly type: 'integer'; readonly falcoName: 'aux_video_enc_error_frames' }
+            readonly auxVideoEncFatalErrorNum: { readonly id: 3336; readonly type: 'integer'; readonly falcoName: 'aux_video_enc_fatal_error_num' }
+            readonly auxVideoEncLatency: { readonly id: 3337; readonly type: 'timer'; readonly falcoName: 'aux_video_enc_latency' }
+            readonly auxVideoFecRecovered: { readonly id: 3338; readonly type: 'integer'; readonly falcoName: 'aux_video_fec_recovered' }
             readonly auxVideoNackRtpRetransmitRecvdCount: { readonly id: 3094; readonly type: 'integer'; readonly falcoName: 'aux_video_nack_rtp_retransmit_recvd_count' }
             readonly auxVideoNackRtpRetransmitReqCount: { readonly id: 3095; readonly type: 'integer'; readonly falcoName: 'aux_video_nack_rtp_retransmit_req_count' }
             readonly auxVideoNackRtpRetransmitRetryCount: { readonly id: 3096; readonly type: 'integer'; readonly falcoName: 'aux_video_nack_rtp_retransmit_retry_count' }
@@ -20447,8 +20458,20 @@ export declare const WA_WAM_EVENTS: {
             readonly auxVideoRenderFreeze4xT: { readonly id: 3098; readonly type: 'timer'; readonly falcoName: 'aux_video_render_freeze4x_t' }
             readonly auxVideoRenderFreeze8xT: { readonly id: 3099; readonly type: 'timer'; readonly falcoName: 'aux_video_render_freeze8x_t' }
             readonly auxVideoRenderFreezeT: { readonly id: 3100; readonly type: 'timer'; readonly falcoName: 'aux_video_render_freeze_t' }
+            readonly auxVideoRtcpNackProcessed: { readonly id: 3339; readonly type: 'integer'; readonly falcoName: 'aux_video_rtcp_nack_processed' }
             readonly auxVideoRxFecBitrate: { readonly id: 3101; readonly type: 'number'; readonly falcoName: 'aux_video_rx_fec_bitrate' }
+            readonly auxVideoRxFecFrames: { readonly id: 3340; readonly type: 'integer'; readonly falcoName: 'aux_video_rx_fec_frames' }
+            readonly auxVideoRxPackets: { readonly id: 3341; readonly type: 'integer'; readonly falcoName: 'aux_video_rx_packets' }
+            readonly auxVideoRxRsFecPkts: { readonly id: 3342; readonly type: 'integer'; readonly falcoName: 'aux_video_rx_rs_fec_pkts' }
             readonly auxVideoRxRtcpPli: { readonly id: 3102; readonly type: 'integer'; readonly falcoName: 'aux_video_rx_rtcp_pli' }
+            readonly auxVideoTxFecFrames: { readonly id: 3343; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_fec_frames' }
+            readonly auxVideoTxPackets: { readonly id: 3344; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_packets' }
+            readonly auxVideoTxPktErrorPct: { readonly id: 3345; readonly type: 'number'; readonly falcoName: 'aux_video_tx_pkt_error_pct' }
+            readonly auxVideoTxResendFailures: { readonly id: 3346; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_resend_failures' }
+            readonly auxVideoTxResendLimitedPackets: { readonly id: 3347; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_resend_limited_packets' }
+            readonly auxVideoTxResendPackets: { readonly id: 3348; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_resend_packets' }
+            readonly auxVideoTxRsFecPkts: { readonly id: 3349; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_rs_fec_pkts' }
+            readonly auxVideoTxRtcpNack: { readonly id: 3350; readonly type: 'integer'; readonly falcoName: 'aux_video_tx_rtcp_nack' }
             readonly avAvgDelta: { readonly id: 192; readonly type: 'number'; readonly falcoName: 'av_avg_delta' }
             readonly avMaxDelta: { readonly id: 193; readonly type: 'number'; readonly falcoName: 'av_max_delta' }
             readonly avatarAttempted: { readonly id: 1412; readonly type: 'boolean'; readonly falcoName: 'avatar_attempted' }
@@ -22362,6 +22385,7 @@ export declare const WA_WAM_EVENTS: {
             readonly totalFramesRenderedSs: { readonly id: 1464; readonly type: 'integer'; readonly falcoName: 'total_frames_rendered_ss' }
             readonly totalMemoryGb: { readonly id: 2011; readonly type: 'integer'; readonly falcoName: 'total_memory_gb' }
             readonly totalTimeVidUlAutoPause: { readonly id: 573; readonly type: 'timer'; readonly falcoName: 'total_time_vid_ul_auto_pause' }
+            readonly traceIdInt: { readonly id: 3330; readonly type: 'integer'; readonly falcoName: 'trace_id_int' }
             readonly trafficShaperAvgAudioQueueMs: { readonly id: 898; readonly type: 'timer'; readonly falcoName: 'traffic_shaper_avg_audio_queue_ms' }
             readonly trafficShaperAvgQueueMs: { readonly id: 242; readonly type: 'timer'; readonly falcoName: 'traffic_shaper_avg_queue_ms' }
             readonly trafficShaperAvgVideoQueueMs: { readonly id: 899; readonly type: 'timer'; readonly falcoName: 'traffic_shaper_avg_video_queue_ms' }
@@ -25053,6 +25077,7 @@ export declare const WA_WAM_EVENTS: {
             readonly interopContactsSizePerIntegrator: { readonly id: 261; readonly type: 'string'; readonly falcoName: 'interop_contacts_size_per_integrator' }
             readonly isCanonicalEntPresent: { readonly id: 234; readonly type: 'boolean'; readonly falcoName: 'is_canonical_ent_present' }
             readonly isContactSyncToOsDefaultOn: { readonly id: 202; readonly type: 'boolean'; readonly falcoName: 'is_contact_sync_to_os_default_on' }
+            readonly isCoverPhotoSet: { readonly id: 365; readonly type: 'boolean'; readonly falcoName: 'is_cover_photo_set' }
             readonly isDefaultDisappearingMessagingUser: { readonly id: 183; readonly type: 'boolean'; readonly falcoName: 'is_default_disappearing_messaging_user' }
             readonly isEphemeralMessagingUser: { readonly id: 184; readonly type: 'boolean'; readonly falcoName: 'is_ephemeral_messaging_user' }
             readonly isProfilePhotoSet: { readonly id: 195; readonly type: 'boolean'; readonly falcoName: 'is_profile_photo_set' }

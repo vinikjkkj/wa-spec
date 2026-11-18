@@ -1200,6 +1200,8 @@
         "CHAT_FMX_CARD_SAFETY_TOOLS_BLOCK_SUSPICIOUS": 34,
         "CHAT_FMX_CARD_SAFETY_TOOLS_REPORT": 35,
         "CHAT_FMX_CARD_SAFETY_TOOLS_REPORT_SUSPICIOUS": 36,
+        "CHAT_FMX_CARD_V2_BLOCK": 68,
+        "CHAT_FMX_CARD_V2_BLOCK_SUSPICIOUS": 69,
         "CHAT_LIST_BLOCK": 20,
         "CHAT_LIST_CONTEXT_MENU_BLOCK": 22,
         "CHAT_LIST_NOINSUB_BLOCK": 21,
@@ -10906,6 +10908,7 @@
         "CHANNELS": 2,
         "CHANNEL_STATUS": 3,
         "CHATS": 4,
+        "SOUND_STICKERS": 5,
         "STATUS": 1
       }
     },
@@ -22674,6 +22677,46 @@
           "id": 2876,
           "type": "integer"
         },
+        "auxVideoDecErrorFrames": {
+          "falcoName": "aux_video_dec_error_frames",
+          "id": 3331,
+          "type": "integer"
+        },
+        "auxVideoDecFatalErrorNum": {
+          "falcoName": "aux_video_dec_fatal_error_num",
+          "id": 3332,
+          "type": "integer"
+        },
+        "auxVideoDecLatency": {
+          "falcoName": "aux_video_dec_latency",
+          "id": 3333,
+          "type": "timer"
+        },
+        "auxVideoEncAvgFps": {
+          "falcoName": "aux_video_enc_avg_fps",
+          "id": 3334,
+          "type": "number"
+        },
+        "auxVideoEncErrorFrames": {
+          "falcoName": "aux_video_enc_error_frames",
+          "id": 3335,
+          "type": "integer"
+        },
+        "auxVideoEncFatalErrorNum": {
+          "falcoName": "aux_video_enc_fatal_error_num",
+          "id": 3336,
+          "type": "integer"
+        },
+        "auxVideoEncLatency": {
+          "falcoName": "aux_video_enc_latency",
+          "id": 3337,
+          "type": "timer"
+        },
+        "auxVideoFecRecovered": {
+          "falcoName": "aux_video_fec_recovered",
+          "id": 3338,
+          "type": "integer"
+        },
         "auxVideoNackRtpRetransmitRecvdCount": {
           "falcoName": "aux_video_nack_rtp_retransmit_recvd_count",
           "id": 3094,
@@ -22709,14 +22752,74 @@
           "id": 3100,
           "type": "timer"
         },
+        "auxVideoRtcpNackProcessed": {
+          "falcoName": "aux_video_rtcp_nack_processed",
+          "id": 3339,
+          "type": "integer"
+        },
         "auxVideoRxFecBitrate": {
           "falcoName": "aux_video_rx_fec_bitrate",
           "id": 3101,
           "type": "number"
         },
+        "auxVideoRxFecFrames": {
+          "falcoName": "aux_video_rx_fec_frames",
+          "id": 3340,
+          "type": "integer"
+        },
+        "auxVideoRxPackets": {
+          "falcoName": "aux_video_rx_packets",
+          "id": 3341,
+          "type": "integer"
+        },
+        "auxVideoRxRsFecPkts": {
+          "falcoName": "aux_video_rx_rs_fec_pkts",
+          "id": 3342,
+          "type": "integer"
+        },
         "auxVideoRxRtcpPli": {
           "falcoName": "aux_video_rx_rtcp_pli",
           "id": 3102,
+          "type": "integer"
+        },
+        "auxVideoTxFecFrames": {
+          "falcoName": "aux_video_tx_fec_frames",
+          "id": 3343,
+          "type": "integer"
+        },
+        "auxVideoTxPackets": {
+          "falcoName": "aux_video_tx_packets",
+          "id": 3344,
+          "type": "integer"
+        },
+        "auxVideoTxPktErrorPct": {
+          "falcoName": "aux_video_tx_pkt_error_pct",
+          "id": 3345,
+          "type": "number"
+        },
+        "auxVideoTxResendFailures": {
+          "falcoName": "aux_video_tx_resend_failures",
+          "id": 3346,
+          "type": "integer"
+        },
+        "auxVideoTxResendLimitedPackets": {
+          "falcoName": "aux_video_tx_resend_limited_packets",
+          "id": 3347,
+          "type": "integer"
+        },
+        "auxVideoTxResendPackets": {
+          "falcoName": "aux_video_tx_resend_packets",
+          "id": 3348,
+          "type": "integer"
+        },
+        "auxVideoTxRsFecPkts": {
+          "falcoName": "aux_video_tx_rs_fec_pkts",
+          "id": 3349,
+          "type": "integer"
+        },
+        "auxVideoTxRtcpNack": {
+          "falcoName": "aux_video_tx_rtcp_nack",
+          "id": 3350,
           "type": "integer"
         },
         "avAvgDelta": {
@@ -32354,6 +32457,11 @@
           "falcoName": "total_time_vid_ul_auto_pause",
           "id": 573,
           "type": "timer"
+        },
+        "traceIdInt": {
+          "falcoName": "trace_id_int",
+          "id": 3330,
+          "type": "integer"
         },
         "trafficShaperAvgAudioQueueMs": {
           "falcoName": "traffic_shaper_avg_audio_queue_ms",
@@ -42109,6 +42217,11 @@
         "isContactSyncToOsDefaultOn": {
           "falcoName": "is_contact_sync_to_os_default_on",
           "id": 202,
+          "type": "boolean"
+        },
+        "isCoverPhotoSet": {
+          "falcoName": "is_cover_photo_set",
+          "id": 365,
           "type": "boolean"
         },
         "isDefaultDisappearingMessagingUser": {
@@ -75870,7 +75983,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1054953954",
+  "waVersion": "2.3000.1055156383",
   "wireFormat": {
     "markers": {
       "event": 1,

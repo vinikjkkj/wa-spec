@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054953954
+// WhatsApp Version: 2.3000.1055156383
 'use strict'
 
 const WA_XML_OPERATIONS = Object.freeze({
@@ -169,6 +169,7 @@ const WA_XML_OPERATIONS = Object.freeze({
     SmbMeteredMessagesCampaignBbProCampaignStatusNotification: Object.freeze({ module: 'WASmaxSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRPC', opName: 'BbProCampaignStatusNotification', rootTag: 'notification', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRPC']) }),
     SmbMeteredMessagesCampaignCampaignStateChangedNotification: Object.freeze({ module: 'WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC', opName: 'CampaignStateChangedNotification', rootTag: 'notification', xmlns: null, type: null, requestModule: null, responseModules: Object.freeze(['WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC']) }),
     SmbMeteredMessagingAccountGetSMBMeteredMessagingCheckout: Object.freeze({ module: 'WASmaxSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRPC', opName: 'GetSMBMeteredMessagingCheckout', rootTag: 'iq', xmlns: 'w:biz', type: 'get', requestModule: 'WASmaxSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRPC', responseModules: Object.freeze(['WASmaxSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRPC', 'WASmaxSmbMeteredMessagingAccountGetSMBMeteredMessagingCheckoutRPC']) }),
+    SpamEventReport: Object.freeze({ module: 'WASmaxSpamEventReportRPC', opName: 'EventReport', rootTag: 'iq', xmlns: 'spam', type: 'set', requestModule: 'WASmaxSpamEventReportRPC', responseModules: Object.freeze(['WASmaxSpamEventReportRPC', 'WASmaxSpamEventReportRPC']) }),
     SpamGroupReport: Object.freeze({ module: 'WASmaxSpamGroupReportRPC', opName: 'GroupReport', rootTag: 'iq', xmlns: 'spam', type: 'set', requestModule: 'WASmaxSpamGroupReportRPC', responseModules: Object.freeze(['WASmaxSpamGroupReportRPC', 'WASmaxSpamGroupReportRPC']) }),
     SpamIndividualReport: Object.freeze({ module: 'WASmaxSpamIndividualReportRPC', opName: 'IndividualReport', rootTag: 'iq', xmlns: 'spam', type: 'set', requestModule: 'WASmaxSpamIndividualReportRPC', responseModules: Object.freeze(['WASmaxSpamIndividualReportRPC', 'WASmaxSpamIndividualReportRPC']) }),
     SpamNewsletterReport: Object.freeze({ module: 'WASmaxSpamNewsletterReportRPC', opName: 'NewsletterReport', rootTag: 'iq', xmlns: 'spam', type: 'set', requestModule: 'WASmaxSpamNewsletterReportRPC', responseModules: Object.freeze(['WASmaxSpamNewsletterReportRPC', 'WASmaxSpamNewsletterReportRPC']) }),

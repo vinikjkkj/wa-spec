@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1054953954
+/// WhatsApp Version: 2.3000.1055156383
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -3024,6 +3024,7 @@ message DeviceCapabilities {
     optional HostWriteMutationSupport hostWriteMutationSupport = 12;
     optional BizAiWebOnboarding bizAiWebOnboarding = 13;
     optional PhoneNumberSharing phoneNumberSharing = 14;
+    optional RecentConversationsOnDemand recentConversationsOnDemand = 15;
     enum MemberNameTagPrimarySupport {
         DISABLED = 0;
         RECEIVER_ENABLED = 1;
@@ -3033,6 +3034,9 @@ message DeviceCapabilities {
         NONE = 0;
         MINIMAL = 1;
         FULL = 2;
+    }
+    message RecentConversationsOnDemand {
+        optional bool supported = 1;
     }
     message PhoneNumberSharing {
         optional bool phoneSharingSupported = 1;
@@ -7545,6 +7549,7 @@ message SenderKeyStateStructure {
 
 message ServerErrorReceipt {
     optional string stanzaId = 1;
+    optional bool keepMediaKey = 2;
 }
 
 message SessionStructure {

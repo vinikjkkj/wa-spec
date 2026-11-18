@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1054953954
+// WhatsApp Version: 2.3000.1055156383
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -39,13 +39,11 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexPersistId
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexPersistId
     readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexPersistId
-    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexPersistId
     readonly AdsFocusFrameworkStickinessDataManager: WaMexPersistId
     readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexPersistId
     readonly AdsManagerLiveDataCampaign: WaMexPersistId
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexPersistId
     readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexPersistId
-    readonly AdsSmartDefaultStoreSourceServer: WaMexPersistId
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexPersistId
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexPersistId
@@ -250,6 +248,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly SharableEventInviteLinkJobInvalidate: WaMexPersistId
     readonly SharableEventInviteLinkJobRotate: WaMexPersistId
     readonly SharableEventJoinViaLink: WaMexPersistId
+    readonly SharableEventLeave: WaMexPersistId
     readonly SharableEventLinkPreview: WaMexPersistId
     readonly SharableEventList: WaMexPersistId
     readonly SharableEventPlaceSearch: WaMexPersistId
@@ -273,6 +272,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly TeamLinkCreateInvitation: WaMexPersistId
     readonly TeamLinkListInvitations: WaMexPersistId
     readonly TeamLinkRemoveInvitation: WaMexPersistId
+    readonly TeamLinkUpdateAgentRole: WaMexPersistId
     readonly TransferCommunityOwnership: WaMexPersistId
     readonly UpdateGroupProperty: WaMexPersistId
     readonly UpdateNewsletter: WaMexPersistId
@@ -331,13 +331,11 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexOperationSchema<'query', readonly ['adAccountID']>
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexOperationSchema<'query', readonly ['accountID', 'ads_andromeda_bulk_edit_campaign_group_budget', 'campaignGroupRelayIDs', 'contextKey']>
     readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexOperationSchema<'query', readonly ['wabaIds']>
-    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexOperationSchema<'query', readonly ['passCountryCodeGK', 'selectedPageID']>
     readonly AdsFocusFrameworkStickinessDataManager: WaMexOperationSchema<'query', readonly ['ad_account_id']>
     readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexOperationSchema<'query', readonly ['after', 'caption_text', 'fbidv2', 'first', 'is_ad', 'is_threads', 'media_type', 'order_by']>
     readonly AdsManagerLiveDataCampaign: WaMexOperationSchema<'query', readonly ['ids', 'skip_data_transform']>
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexOperationSchema<'query', readonly []>
     readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexOperationSchema<'mutation', readonly ['ad_account_id', 'requires_full_report', 'surface']>
-    readonly AdsSmartDefaultStoreSourceServer: WaMexOperationSchema<'query', readonly ['ad_account_id']>
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexOperationSchema<'query', readonly ['accountID', 'adgroupRelayIDs', 'businessID', 'campaignGroupRelayIDs', 'campaignRelayIDs', 'skip_business_query', 'use_waac']>
     readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexOperationSchema<'query', readonly ['pageID']>
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexOperationSchema<'query', readonly ['adAccountID', 'skipRequest']>
@@ -542,6 +540,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly SharableEventInviteLinkJobInvalidate: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SharableEventInviteLinkJobRotate: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SharableEventJoinViaLink: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly SharableEventLeave: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SharableEventLinkPreview: WaMexOperationSchema<'query', readonly ['input']>
     readonly SharableEventList: WaMexOperationSchema<'query', readonly ['input']>
     readonly SharableEventPlaceSearch: WaMexOperationSchema<'query', readonly ['input']>
@@ -562,9 +561,10 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly SupportChatAuthRefresh: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportContactFormSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly SupportMessageFeedbackSubmit: WaMexOperationSchema<'mutation', readonly ['input']>
-    readonly TeamLinkCreateInvitation: WaMexOperationSchema<'mutation', readonly ['employeeName', 'lid']>
+    readonly TeamLinkCreateInvitation: WaMexOperationSchema<'mutation', readonly ['employeeName', 'lid', 'teamRole']>
     readonly TeamLinkListInvitations: WaMexOperationSchema<'query', readonly []>
     readonly TeamLinkRemoveInvitation: WaMexOperationSchema<'mutation', readonly ['lid']>
+    readonly TeamLinkUpdateAgentRole: WaMexOperationSchema<'mutation', readonly ['employeeName', 'lid', 'teamRole']>
     readonly TransferCommunityOwnership: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly UpdateGroupProperty: WaMexOperationSchema<'mutation', readonly ['group_id', 'update']>
     readonly UpdateNewsletter: WaMexOperationSchema<'mutation', readonly ['newsletter_id', 'updates']>
@@ -711,11 +711,6 @@ export type WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPVariables = 
     readonly wabaIds?: ReadonlyArray<string>
 }
 
-export type WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerVariables = {
-    readonly passCountryCodeGK?: boolean
-    readonly selectedPageID?: string
-}
-
 export type WaMexAdsFocusFrameworkStickinessDataManagerVariables = {
     readonly ad_account_id?: string
 }
@@ -742,10 +737,6 @@ export type WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureVariables = {
     readonly ad_account_id?: string
     readonly requires_full_report?: unknown
     readonly surface?: unknown
-}
-
-export type WaMexAdsSmartDefaultStoreSourceServerVariables = {
-    readonly ad_account_id?: string
 }
 
 export type WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables = {
@@ -2080,6 +2071,12 @@ export type WaMexSharableEventJoinViaLinkVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexSharableEventLeaveVariables = {
+    readonly input?: {
+        readonly event_id?: string
+    }
+}
+
 export type WaMexSharableEventLinkPreviewVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
@@ -2189,12 +2186,19 @@ export type WaMexSupportMessageFeedbackSubmitVariables = {
 export type WaMexTeamLinkCreateInvitationVariables = {
     readonly employeeName?: string
     readonly lid?: string
+    readonly teamRole?: string
 }
 
 export type WaMexTeamLinkListInvitationsVariables = Readonly<Record<string, never>>
 
 export type WaMexTeamLinkRemoveInvitationVariables = {
     readonly lid?: string
+}
+
+export type WaMexTeamLinkUpdateAgentRoleVariables = {
+    readonly employeeName?: string
+    readonly lid?: string
+    readonly teamRole?: string
 }
 
 export type WaMexTransferCommunityOwnershipVariables = {
@@ -2393,13 +2397,11 @@ export interface WaMexOperationVariables {
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeVariables
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Variables
     readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPVariables
-    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerVariables
     readonly AdsFocusFrameworkStickinessDataManager: WaMexAdsFocusFrameworkStickinessDataManagerVariables
     readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexAdsInstagramAccountMediaListRIStoreSourceServerVariables
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignVariables
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsVariables
     readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureVariables
-    readonly AdsSmartDefaultStoreSourceServer: WaMexAdsSmartDefaultStoreSourceServerVariables
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Variables
     readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexAdsUEditorAdgroupMessageDestinationPageCategoryVariables
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaVariables
@@ -2604,6 +2606,7 @@ export interface WaMexOperationVariables {
     readonly SharableEventInviteLinkJobInvalidate: WaMexSharableEventInviteLinkJobInvalidateVariables
     readonly SharableEventInviteLinkJobRotate: WaMexSharableEventInviteLinkJobRotateVariables
     readonly SharableEventJoinViaLink: WaMexSharableEventJoinViaLinkVariables
+    readonly SharableEventLeave: WaMexSharableEventLeaveVariables
     readonly SharableEventLinkPreview: WaMexSharableEventLinkPreviewVariables
     readonly SharableEventList: WaMexSharableEventListVariables
     readonly SharableEventPlaceSearch: WaMexSharableEventPlaceSearchVariables
@@ -2627,6 +2630,7 @@ export interface WaMexOperationVariables {
     readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationVariables
     readonly TeamLinkListInvitations: WaMexTeamLinkListInvitationsVariables
     readonly TeamLinkRemoveInvitation: WaMexTeamLinkRemoveInvitationVariables
+    readonly TeamLinkUpdateAgentRole: WaMexTeamLinkUpdateAgentRoleVariables
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipVariables
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyVariables
     readonly UpdateNewsletter: WaMexUpdateNewsletterVariables
@@ -2926,21 +2930,6 @@ export type WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPResponse = {
     }>
 }
 
-export type WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerResponse = {
-    readonly page?: {
-        readonly ctwa_business_account_daisy_chain_from_ig?: {
-            readonly id?: string
-            readonly phone_number_status?: {
-                readonly country_code?: string
-                readonly formatted_phone_number?: string
-                readonly id?: string
-                readonly national_phone_number?: string
-            }
-        }
-        readonly id?: string
-    }
-}
-
 export type WaMexAdsFocusFrameworkStickinessDataManagerResponse = {
     readonly xfb_andromeda_XAdsFocusFrameworkStickyFieldsController?: {
         readonly sticky_fields?: ReadonlyArray<string>
@@ -2995,51 +2984,6 @@ export type WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse 
 export type WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureResponse = {
     readonly log_plr_entry_point_exposure?: {
         readonly success?: boolean
-    }
-}
-
-export type WaMexAdsSmartDefaultStoreSourceServerResponse = {
-    readonly xfb_andromeda_XAdsSmartDefaultControllerUpdated?: {
-        readonly ad_account_id?: string
-        readonly attribution_model_default?: unknown
-        readonly conversions?: ReadonlyArray<{
-            readonly conversion_location?: string
-            readonly default_commerce_product_set_id?: string
-            readonly default_page_id?: string
-            readonly source?: string
-        }>
-        readonly engagement?: ReadonlyArray<{
-            readonly conversion_location?: string
-            readonly default_commerce_product_set_id?: string
-            readonly default_page_id?: string
-            readonly source?: string
-        }>
-        readonly last_used_buying_type?: string
-        readonly last_used_objective?: unknown
-        readonly lead_gen?: ReadonlyArray<{
-            readonly conversion_location?: string
-            readonly default_commerce_product_set_id?: string
-            readonly default_page_id?: string
-            readonly source?: string
-        }>
-        readonly leads?: ReadonlyArray<{
-            readonly conversion_location?: string
-            readonly default_commerce_product_set_id?: string
-            readonly default_page_id?: string
-            readonly source?: string
-        }>
-        readonly sales?: ReadonlyArray<{
-            readonly conversion_location?: string
-            readonly default_commerce_product_set_id?: string
-            readonly default_page_id?: string
-            readonly source?: string
-        }>
-        readonly traffic?: ReadonlyArray<{
-            readonly conversion_location?: string
-            readonly default_commerce_product_set_id?: string
-            readonly default_page_id?: string
-            readonly source?: string
-        }>
     }
 }
 
@@ -3785,6 +3729,7 @@ export type WaMexConsumerFetchQuickPromotionsResponse = {
                     readonly is_server_force_pass?: boolean
                     readonly max_impressions?: number
                     readonly promotion_id?: string
+                    readonly should_expose_on_client?: boolean
                     readonly surface_delay_in_seconds?: number
                     readonly wa_qp_content_attributes_do_not_use?: ReadonlyArray<{
                         readonly name?: string
@@ -6185,6 +6130,7 @@ export type WaMexFetchQuickPromotionsResponse = {
                     readonly id?: string
                     readonly is_server_force_pass?: boolean
                     readonly promotion_id?: string
+                    readonly should_expose_on_client?: boolean
                     readonly surface_delay_in_seconds?: number
                     readonly user_interaction_info?: {
                         readonly dismiss_click_count_for_user?: number
@@ -6828,6 +6774,7 @@ export type WaMexMAIBAChatThreadResponse = {
                                         readonly compass_insight_unit_id?: string
                                         readonly condition_matched?: unknown
                                         readonly content_id?: string
+                                        readonly content_version?: number
                                         readonly created_time?: string
                                         readonly creation_lifecycle_identity?: unknown
                                         readonly creation_time?: string
@@ -7017,6 +6964,7 @@ export type WaMexMAIBAChatThreadResponse = {
                                         readonly label?: string
                                         readonly limit?: number
                                         readonly link_description?: string
+                                        readonly links?: unknown
                                         readonly log_source?: string
                                         readonly lower_limit?: number
                                         readonly maiba_interviewer_rec_key?: string
@@ -8799,6 +8747,12 @@ export type WaMexSharableEventJoinViaLinkResponse = {
     }
 }
 
+export type WaMexSharableEventLeaveResponse = {
+    readonly xwa_event_remove_self_invitation?: {
+        readonly success?: boolean
+    }
+}
+
 export type WaMexSharableEventLinkPreviewResponse = {
     readonly xwa_event_get_link_preview?: {
         readonly creator_pushname?: string
@@ -9246,6 +9200,7 @@ export type WaMexTeamLinkCreateInvitationResponse = {
         readonly expires_at?: string
         readonly invitation_status?: string
         readonly nonce_code?: string
+        readonly team_role?: string
     }
 }
 
@@ -9256,6 +9211,7 @@ export type WaMexTeamLinkListInvitationsResponse = {
         readonly expires_at?: string
         readonly invitation_status?: string
         readonly nonce_code?: string
+        readonly team_role?: string
     }>
 }
 
@@ -9263,6 +9219,14 @@ export type WaMexTeamLinkRemoveInvitationResponse = {
     readonly whatsapp_teamlink_remove_agent_invitation?: {
         readonly removed?: boolean
         readonly was_onboarded?: boolean
+    }
+}
+
+export type WaMexTeamLinkUpdateAgentRoleResponse = {
+    readonly whatsapp_teamlink_update_agent_role?: {
+        readonly employee?: {
+            readonly employee_lid?: string
+        }
     }
 }
 
@@ -9735,13 +9699,11 @@ export interface WaMexOperationResponses {
     readonly AdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFee: WaMexAdsBulkEditCampaignGroupAgencyFeeContainerAdAccountAgencyFeeResponse
     readonly AdsBulkEditCampaignGroupBudgetFieldContainer_: WaMexAdsBulkEditCampaignGroupBudgetFieldContainer_Response
     readonly AdsBusinessWhatsAppBusinessAccountProviderPluginBSP: WaMexAdsBusinessWhatsAppBusinessAccountProviderPluginBSPResponse
-    readonly AdsDaisyChainWhatsAppFromInstagramStoreSourceServer: WaMexAdsDaisyChainWhatsAppFromInstagramStoreSourceServerResponse
     readonly AdsFocusFrameworkStickinessDataManager: WaMexAdsFocusFrameworkStickinessDataManagerResponse
     readonly AdsInstagramAccountMediaListRIStoreSourceServer: WaMexAdsInstagramAccountMediaListRIStoreSourceServerResponse
     readonly AdsManagerLiveDataCampaign: WaMexAdsManagerLiveDataCampaignResponse
     readonly AdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecs: WaMexAdsManagerLiveDataCampaignQueryPreloadingConfigNoSpecsResponse
     readonly AdsPLRAlphaBetaCheckUtilLogEntryPointExposure: WaMexAdsPLRAlphaBetaCheckUtilLogEntryPointExposureResponse
-    readonly AdsSmartDefaultStoreSourceServer: WaMexAdsSmartDefaultStoreSourceServerResponse
     readonly AdsUEditorAdgroupBrandedContentWAPreviewWrapper_: WaMexAdsUEditorAdgroupBrandedContentWAPreviewWrapper_Response
     readonly AdsUEditorAdgroupMessageDestinationPageCategory: WaMexAdsUEditorAdgroupMessageDestinationPageCategoryResponse
     readonly AdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWaba: WaMexAdsUEditorAdgroupMessageDestinationPreviewContainerCTWAWabaResponse
@@ -9946,6 +9908,7 @@ export interface WaMexOperationResponses {
     readonly SharableEventInviteLinkJobInvalidate: WaMexSharableEventInviteLinkJobInvalidateResponse
     readonly SharableEventInviteLinkJobRotate: WaMexSharableEventInviteLinkJobRotateResponse
     readonly SharableEventJoinViaLink: WaMexSharableEventJoinViaLinkResponse
+    readonly SharableEventLeave: WaMexSharableEventLeaveResponse
     readonly SharableEventLinkPreview: WaMexSharableEventLinkPreviewResponse
     readonly SharableEventList: WaMexSharableEventListResponse
     readonly SharableEventPlaceSearch: WaMexSharableEventPlaceSearchResponse
@@ -9969,6 +9932,7 @@ export interface WaMexOperationResponses {
     readonly TeamLinkCreateInvitation: WaMexTeamLinkCreateInvitationResponse
     readonly TeamLinkListInvitations: WaMexTeamLinkListInvitationsResponse
     readonly TeamLinkRemoveInvitation: WaMexTeamLinkRemoveInvitationResponse
+    readonly TeamLinkUpdateAgentRole: WaMexTeamLinkUpdateAgentRoleResponse
     readonly TransferCommunityOwnership: WaMexTransferCommunityOwnershipResponse
     readonly UpdateGroupProperty: WaMexUpdateGroupPropertyResponse
     readonly UpdateNewsletter: WaMexUpdateNewsletterResponse
