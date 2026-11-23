@@ -1,0 +1,134 @@
+name: publish
+
+# Manual publish for the packages the daily workflow does not version
+# (today only @vinikjkkj/wa-fetcher). The daily packages are bumped and
+# published by daily.yml, which is their registered trusted publisher.
+#
+# npm trusted publishing (OIDC), no NPM_TOKEN. Each package listed in
+# `package` must have this workflow registered on npmjs.com:
+# package settings -> Trusted Publisher -> GitHub Actions,
+# repository vinikjkkj/wa-spec, workflow file publish.yml.
+
+on:
+    workflow_dispatch:
+        inputs:
+            package:
+                description: 'Package folder under packages/'
+                type: choice
+                options:
+                    - fetcher
+            bump:
+                description: 'Version bump before publishing (none = publish the version already in package.json)'
+                type: choice
+                default: none
+                options:
+                    - none
+                    - patch
+                    - minor
+                    - major
+            dry_run:
+                description: 'Pack, smoke-test and run npm publish --dry-run; push nothing'
+                type: boolean
+                default: false
+
+permissions: {}
+
+concurrency:
+    group: publish-${{ inputs.package }}
+    cancel-in-progress: false
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        permissions:
+            contents: write
+            id-token: write
+        env:
+            PKG_DIR: packages/${{ inputs.package }}
+            BUMP: ${{ inputs.bump }}
+            DRY_RUN: ${{ inputs.dry_run }}
+        steps:
+            - uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            # Trusted publishing needs npm 11.5.1+, which ships with Node 24.
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 24
+                  registry-url: 'https://registry.npmjs.org'
+                  cache: npm
+
+            - name: Install
+              run: npm ci
+
+            - name: Bump version
+              id: version
+              run: |
+                  NAME=$(node -p "require('./$PKG_DIR/package.json').name")
+                  if [ "$BUMP" != "none" ]; then
+                      npm version "$BUMP" --no-git-tag-version --workspace "$NAME"
+                  fi
+                  VERSION=$(node -p "require('./$PKG_DIR/package.json').version")
+                  echo "name=$NAME" >> "$GITHUB_OUTPUT"
+                  echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+                  echo "Publishing $NAME@$VERSION"
+
+            - name: Refuse a version already on npm
+              env:
+                  NAME: ${{ steps.version.outputs.name }}
+                  VERSION: ${{ steps.version.outputs.version }}
+              run: |
+                  if [ -n "$(npm view "$NAME@$VERSION" version 2>/dev/null)" ]; then
+                      echo "::error::$NAME@$VERSION is already on npm; run again with a bump"
+                      exit 1
+                  fi
+
+            # Installs the packed tarball in an empty project, so a missing
+            # entry in "files" or a broken bin fails here instead of on npm.
+            - name: Smoke-test the packed tarball
+              env:
+                  NAME: ${{ steps.version.outputs.name }}
+              run: |
+                  TARBALL=$(npm pack --workspace "$NAME" --pack-destination "$RUNNER_TEMP" --silent | tail -n 1)
+                  SMOKE="$RUNNER_TEMP/smoke"
+                  mkdir -p "$SMOKE"
+                  cd "$SMOKE"
+                  npm init -y > /dev/null
+                  npm install "$RUNNER_TEMP/$TARBALL"
+                  node -e "require(process.argv[1])" "$NAME"
+                  for bin in $(node -p "Object.keys(require('$NAME/package.json').bin ?? {}).join(' ')"); do
+                      "./node_modules/.bin/$bin" --help
+                  done
+
+            - name: Commit bump
+              if: inputs.bump != 'none' && !inputs.dry_run
+              env:
+                  NAME: ${{ steps.version.outputs.name }}
+                  VERSION: ${{ steps.version.outputs.version }}
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git add "$PKG_DIR/package.json" package-lock.json
+                  git commit -m "chore(release): $NAME@$VERSION"
+                  # The daily run may have pushed meanwhile.
+                  git pull --rebase
+                  git push
+
+            - name: Publish to npm (trusted publishing, OIDC)
+              working-directory: ${{ env.PKG_DIR }}
+              run: |
+                  if [ "$DRY_RUN" = "true" ]; then
+                      npm publish --access public --dry-run
+                  else
+                      npm publish --access public --provenance
+                  fi
+
+            - name: Tag
+              if: ${{ !inputs.dry_run }}
+              env:
+                  TAG: ${{ inputs.package }}-v${{ steps.version.outputs.version }}
+              run: |
+                  git tag "$TAG"
+                  git push origin "$TAG"

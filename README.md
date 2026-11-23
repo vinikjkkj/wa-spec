@@ -81,6 +81,12 @@ GitHub Actions cron fires once a day:
 2. Each extractor regenerates its outputs
 3. Diff against previous commit; if anything changed, bump version and publish
 
+Packages the daily run does not version (today only `@vinikjkkj/wa-fetcher`)
+are published by hand from Actions → `publish` → Run workflow. Pick the bump
+(`none` publishes the version already in `package.json`) and, optionally, a dry
+run. It uses npm trusted publishing, so each of these packages must list
+`publish.yml` as its trusted publisher on npmjs.com.
+
 ## Local dev
 
 ```sh
