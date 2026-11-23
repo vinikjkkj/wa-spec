@@ -65,7 +65,9 @@ const { createHash } = require('node:crypto')
 const WHATSAPP_URL = 'https://web.whatsapp.com/'
 const ARCHIVE_URL_ENV = 'WA_ARCHIVE_URL'
 const REVISION_RE = /"client_revision"\s*:\s*(\d{6,})/
-const WA_MODULE_RE = /__d\("(?:WA|MAIBA)[A-Za-z0-9_.$]*"/
+// `-` is for locale modules such as `WAWebMoment-pt-br` and
+// `WAWebCountriesLocaleZH-CN`, whose chunks hold no other WA module.
+const WA_MODULE_RE = /__d\("(?:WA|MAIBA)[A-Za-z0-9_.$-]*"/
 const VERSION_PREFIX = '2.3000.'
 
 // A plain fetch of web.whatsapp.com is rejected without a browser-shaped
