@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1055156383
+// WhatsApp Version: 2.3000.1055857453
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -2788,6 +2788,7 @@ export interface WaXmlOperations {
                             readonly tag: 'participant'
                             readonly attrs: {
                                 readonly addressable: 'false'
+                                readonly bot_product?: '1p_Caravan' | '1p_CoExV2' | '1p_GroupMuse' | '1p_MAIBAHubChat' | '1p_MetaAI' | '1p_MetaAIThread' | '1p_Muse' | '1p_TEE' | '1p_WAForWork' | '1p_WAIAS' | '3p_Agent'
                                 readonly display_name?: string
                                 readonly group_history_sent?: 'false' | 'true'
                                 readonly jid?: string
@@ -3106,9 +3107,6 @@ export interface WaXmlOperations {
                     } | undefined
                     readonly hidden_group: {
                         readonly tag: 'hidden_group'
-                    } | undefined
-                    readonly light_e2ee: {
-                        readonly tag: 'light_e2ee'
                     } | undefined
                     readonly linked_parent: {
                         readonly tag: 'linked_parent'
@@ -3649,6 +3647,27 @@ export interface WaXmlOperations {
                                 }
                             }
                         } | undefined
+                        readonly encryption_keys: {
+                            readonly tag: 'encryption_keys'
+                            readonly children: {
+                                readonly group_encryption_key: {
+                                    readonly tag: 'group_encryption_key'
+                                    readonly attrs: {
+                                        readonly key_id: number
+                                        readonly key_update_time: number
+                                    }
+                                    readonly content: Uint8Array
+                                }
+                                readonly membership_form_key: {
+                                    readonly tag: 'membership_form_key'
+                                    readonly attrs: {
+                                        readonly key_id: number
+                                        readonly key_update_time: number
+                                    }
+                                    readonly content: Uint8Array
+                                } | undefined
+                            }
+                        } | undefined
                         readonly ephemeral: {
                             readonly tag: 'ephemeral'
                             readonly attrs: {
@@ -3723,6 +3742,7 @@ export interface WaXmlOperations {
                             readonly tag: 'participant'
                             readonly attrs: {
                                 readonly addressable: 'false'
+                                readonly bot_product?: '1p_Caravan' | '1p_CoExV2' | '1p_GroupMuse' | '1p_MAIBAHubChat' | '1p_MetaAI' | '1p_MetaAIThread' | '1p_Muse' | '1p_TEE' | '1p_WAForWork' | '1p_WAIAS' | '3p_Agent'
                                 readonly display_name?: string
                                 readonly group_history_sent?: 'false' | 'true'
                                 readonly jid?: string
@@ -4405,6 +4425,27 @@ export interface WaXmlOperations {
                                         }
                                     }
                                 } | undefined
+                                readonly encryption_keys: {
+                                    readonly tag: 'encryption_keys'
+                                    readonly children: {
+                                        readonly group_encryption_key: {
+                                            readonly tag: 'group_encryption_key'
+                                            readonly attrs: {
+                                                readonly key_id: number
+                                                readonly key_update_time: number
+                                            }
+                                            readonly content: Uint8Array
+                                        }
+                                        readonly membership_form_key: {
+                                            readonly tag: 'membership_form_key'
+                                            readonly attrs: {
+                                                readonly key_id: number
+                                                readonly key_update_time: number
+                                            }
+                                            readonly content: Uint8Array
+                                        } | undefined
+                                    }
+                                } | undefined
                                 readonly ephemeral: {
                                     readonly tag: 'ephemeral'
                                     readonly attrs: {
@@ -4479,6 +4520,7 @@ export interface WaXmlOperations {
                                     readonly tag: 'participant'
                                     readonly attrs: {
                                         readonly addressable: 'false'
+                                        readonly bot_product?: '1p_Caravan' | '1p_CoExV2' | '1p_GroupMuse' | '1p_MAIBAHubChat' | '1p_MetaAI' | '1p_MetaAIThread' | '1p_Muse' | '1p_TEE' | '1p_WAForWork' | '1p_WAIAS' | '3p_Agent'
                                         readonly display_name?: string
                                         readonly group_history_sent?: 'false' | 'true'
                                         readonly jid?: string
@@ -4859,7 +4901,7 @@ export interface WaXmlOperations {
                         readonly participant: ReadonlyArray<{
                             readonly tag: 'participant'
                             readonly attrs: {
-                                readonly error?: '404' | '419'
+                                readonly error?: '403' | '404' | '419'
                                 readonly jid: string
                                 readonly phone_number?: string
                                 readonly type?: 'admin'
@@ -6559,10 +6601,27 @@ export interface WaXmlOperations {
                 }
                 readonly biz: {
                     readonly tag: 'biz'
+                    readonly attrs: {
+                        readonly campaign_id: string
+                        readonly native_flow_name: string
+                    }
                     readonly children: {
                         readonly buttons: {
                             readonly tag: 'buttons'
                         }
+                    }
+                }
+                readonly bot: {
+                    readonly tag: 'bot'
+                    readonly attrs: {
+                        readonly agent_engagement_type?: string
+                        readonly client_thread_id: string
+                        readonly is_lid?: 'true'
+                        readonly local_automated_type: '1p_partial' | '3p_full' | 'unknown'
+                        readonly mode_selected: string
+                        readonly mode_selection: string
+                        readonly persona_type?: '1p' | 'default' | 'ugc'
+                        readonly type?: 'feedback'
                     }
                 }
                 readonly capability: ReadonlyArray<{
@@ -6571,14 +6630,34 @@ export interface WaXmlOperations {
                         readonly name: string
                     }
                 }>
+                readonly content_binding: {
+                    readonly tag: 'content_binding'
+                }
                 readonly conversion: {
                     readonly tag: 'conversion'
                     readonly attrs: {
                         readonly recipient_status: string
                     }
                 }
+                readonly cstoken: {
+                    readonly tag: 'cstoken'
+                }
                 readonly 'device-identity': {
                     readonly tag: 'device-identity'
+                    readonly content: Uint8Array
+                }
+                readonly enc: {
+                    readonly tag: 'enc'
+                    readonly attrs: {
+                        readonly count?: number
+                        readonly 'decrypt-fail'?: 'hide'
+                        readonly mediatype?: string
+                        readonly native_flow_name?: string
+                        readonly session_type?: 'pq'
+                        readonly state?: 'false'
+                        readonly type: 'msg' | 'msmsg' | 'pkmsg' | 'skmsg'
+                        readonly v: '2'
+                    }
                     readonly content: Uint8Array
                 }
                 readonly franking: {
@@ -6612,20 +6691,46 @@ export interface WaXmlOperations {
                         }
                     }
                 }
+                readonly interactive: {
+                    readonly tag: 'interactive'
+                    readonly attrs: {
+                        readonly type: 'native_flow'
+                        readonly v: '1'
+                    }
+                }
+                readonly key: {
+                    readonly tag: 'key'
+                    readonly attrs: {
+                        readonly rkid: string
+                    }
+                }
                 readonly meta: {
                     readonly tag: 'meta'
                     readonly attrs: {
-                        readonly appdata: 'default' | 'group_history' | 'member_tag'
+                        readonly appdata?: 'default' | 'group_history' | 'member_tag'
                         readonly collection_type: string
-                        readonly context_source: string
-                        readonly conversation_thread_id: string
-                        readonly destination_id: string
+                        readonly content_type?: string
+                        readonly context_source?: string
+                        readonly conversation_thread_id?: string
+                        readonly destination_id?: string
+                        readonly event_type?: 'creation' | 'edit' | 'response'
+                        readonly is_group_status?: 'true'
+                        readonly message_association_type?: string
+                        readonly metering_type: 'smb_mm'
+                        readonly origin?: 'ctwa'
                         readonly peripheral: string
+                        readonly polltype?: 'creation' | 'edit' | 'quiz_creation' | 'result_snapshot' | 'vote'
                         readonly premium_type: string
+                        readonly sender_intent?: 'hosted'
+                        readonly session_scope?: 'status'
                         readonly sg_capture: '1'
-                        readonly st: number
-                        readonly type: 'scheduled_message'
-                        readonly view_once: 'true'
+                        readonly st?: string
+                        readonly status_setting?: string
+                        readonly tag_reason?: string
+                        readonly thread_msg_id?: string
+                        readonly thread_msg_sender_jid?: string
+                        readonly type?: 'scheduled_message'
+                        readonly view_once?: 'true'
                     }
                     readonly children: {
                         readonly key: {
@@ -6737,20 +6842,35 @@ export interface WaXmlOperations {
                 readonly reporting_token: {
                     readonly tag: 'reporting_token'
                     readonly attrs: {
-                        readonly v?: number
+                        readonly v: string
                     }
                     readonly content: Uint8Array
                 }
                 readonly request_id: {
                     readonly tag: 'request_id'
                 }
+                readonly sender_content_binding: {
+                    readonly tag: 'sender_content_binding'
+                }
                 readonly ta_pad: {
                     readonly tag: 'ta_pad'
+                }
+                readonly tctoken: {
+                    readonly tag: 'tctoken'
                 }
                 readonly test: {
                     readonly tag: 'test'
                     readonly attrs: {
                         readonly config?: string
+                    }
+                }
+                readonly to: {
+                    readonly tag: 'to'
+                    readonly attrs: {
+                        readonly eph_setting?: string
+                        readonly jid: string
+                        readonly peer_recipient_pn?: string
+                        readonly peer_recipient_username?: string
                     }
                 }
                 readonly trace: {
@@ -13873,7 +13993,7 @@ export interface WaXmlStanzas {
         readonly discriminator: 'firstChildTag'
         readonly variants: {
             readonly 'pair-device': {
-                readonly handler: { readonly module: 'WAWebHandlePairDevice'; readonly method: 'default' }
+                readonly handler: { readonly module: 'WAWebHandlePairDevice'; readonly method: 'handlePairDevice' }
                 readonly node: {
                 readonly tag: 'iq'
                 readonly attrs: {
@@ -13960,660 +14080,334 @@ export interface WaXmlStanzas {
     }
     readonly message: {
         readonly tag: 'message'
-        readonly discriminator: 'condition'
-        readonly variants: {
-            readonly 'from-is-newsletter': {
-                readonly handler: { readonly module: 'WAWebHandleNewsletterMsg'; readonly method: 'default' }
-                readonly node: {
-                readonly tag: 'message'
-                readonly attrs: {
-                    readonly addressing_mode?: 'lid' | 'pn'
-                    readonly category?: 'peer'
-                    readonly device_fanout?: 'false'
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
-                    readonly eph_setting?: string
-                    readonly from: string
-                    readonly id: string
-                    readonly is_template_from_library_edited?: boolean
-                    readonly library_template_id?: string
-                    readonly name: 'full_catalog'
-                    readonly notify?: string
-                    readonly offline: number
-                    readonly participant?: string
-                    readonly peer_recipient_lid?: string
-                    readonly peer_recipient_pn?: string
-                    readonly peer_recipient_username?: string
-                    readonly phash?: string
-                    readonly privacy_sensitive?: boolean
-                    readonly push_priority: string
-                    readonly recipient?: string
-                    readonly recipient_pn?: string
-                    readonly sender_lid?: string
-                    readonly sub_tag?: string
-                    readonly t: number
-                    readonly tag?: string
-                    readonly to: string
-                    readonly ttl?: number
-                    readonly type: 'text' | 'native_flow'
-                    readonly v?: '1'
-                    readonly value: string
-                    readonly verified_name: string
-                }
-                readonly children: {
-                    readonly automated: {
-                        readonly tag: 'automated'
-                    }
-                    readonly biz: {
-                        readonly tag: 'biz'
-                        readonly children: {
-                            readonly buttons: {
-                                readonly tag: 'buttons'
-                            }
-                        }
-                    }
-                    readonly capability: ReadonlyArray<{
-                        readonly tag: 'capability'
-                        readonly attrs: {
-                            readonly name: string
-                        }
-                    }>
-                    readonly conversion: {
-                        readonly tag: 'conversion'
-                        readonly attrs: {
-                            readonly recipient_status: string
-                        }
-                    }
-                    readonly 'device-identity': {
-                        readonly tag: 'device-identity'
-                        readonly content: Uint8Array
-                    }
-                    readonly franking: {
-                        readonly tag: 'franking'
-                        readonly children: {
-                            readonly franking_tag: {
-                                readonly tag: 'franking_tag'
-                            }
-                        }
-                    }
-                    readonly hsm: {
-                        readonly tag: 'hsm'
-                        readonly attrs: {
-                            readonly buttons?: '1'
-                            readonly category?: string
-                            readonly id?: string
-                            readonly is_template_from_library_edited?: boolean
-                            readonly library_template_id?: string
-                            readonly name: 'full_catalog'
-                            readonly objective?: string
-                            readonly sub_tag?: string
-                            readonly tag?: string
-                            readonly v?: '1'
-                        }
-                        readonly children: {
-                            readonly quality_token: {
-                                readonly tag: 'quality_token'
-                                readonly attrs: {
-                                    readonly v?: '1'
-                                }
-                            }
-                        }
-                    }
-                    readonly meta: {
-                        readonly tag: 'meta'
-                        readonly attrs: {
-                            readonly appdata: 'default' | 'group_history' | 'member_tag'
-                            readonly collection_type: string
-                            readonly context_source: string
-                            readonly conversation_thread_id: string
-                            readonly destination_id: string
-                            readonly peripheral: string
-                            readonly premium_type: string
-                            readonly sg_capture: '1'
-                            readonly st: number
-                            readonly type: 'scheduled_message'
-                            readonly view_once: 'true'
-                        }
-                        readonly children: {
-                            readonly key: {
-                                readonly tag: 'key'
-                                readonly attrs: {
-                                    readonly rkid: string
-                                }
-                                readonly content: Uint8Array
-                            }
-                        }
-                    }
-                    readonly mixed_metadata: {
-                        readonly tag: 'mixed_metadata'
-                        readonly children: {
-                            readonly payments_metadata: {
-                                readonly tag: 'payments_metadata'
-                                readonly attrs: {
-                                    readonly version: number
-                                }
-                            }
-                        }
-                    }
-                    readonly multicast: {
-                        readonly tag: 'multicast'
-                    }
-                    readonly native_flow: {
-                        readonly tag: 'native_flow'
-                        readonly attrs: {
-                            readonly name: string
-                            readonly v?: number
-                        }
-                        readonly children: {
-                            readonly capability: ReadonlyArray<{
-                                readonly tag: 'capability'
-                                readonly attrs: {
-                                    readonly name: string
-                                }
-                            }>
-                            readonly mixed_metadata: {
-                                readonly tag: 'mixed_metadata'
-                                readonly children: {
-                                    readonly payments_metadata: {
-                                        readonly tag: 'payments_metadata'
-                                        readonly attrs: {
-                                            readonly version: number
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    readonly padding: {
-                        readonly tag: 'padding'
-                        readonly content: Uint8Array
-                    }
-                    readonly participants: {
-                        readonly tag: 'participants'
-                        readonly children: {
-                            readonly to: ReadonlyArray<{
-                                readonly tag: 'to'
-                                readonly attrs: {
-                                    readonly jid: string
-                                    readonly mediatype?: string
-                                    readonly native_flow_name?: string
-                                    readonly session_type: 'pq'
-                                    readonly state: string
-                                    readonly sticker_type: 'avatar'
-                                    readonly type: string
-                                }
-                                readonly children: {
-                                    readonly content_binding: {
-                                        readonly tag: 'content_binding'
-                                    }
-                                    readonly enc: {
-                                        readonly tag: 'enc'
-                                        readonly attrs: {
-                                            readonly mediatype: string
-                                            readonly native_flow_name?: string
-                                            readonly session_type: 'pq'
-                                            readonly state: 'false' | 'true'
-                                            readonly sticker_type: 'avatar'
-                                            readonly type: 'msg' | 'msmsg' | 'pkmsg' | 'skmsg'
-                                            readonly v: '2'
-                                        }
-                                        readonly content: Uint8Array
-                                    }
-                                }
-                            }>
-                        }
-                    }
-                    readonly quality_token: {
-                        readonly tag: 'quality_token'
-                        readonly attrs: {
-                            readonly v?: '1'
-                        }
-                    }
-                    readonly reporting: {
-                        readonly tag: 'reporting'
-                        readonly children: {
-                            readonly reporting_token: {
-                                readonly tag: 'reporting_token'
-                                readonly attrs: {
-                                    readonly v?: number
-                                }
-                                readonly content: Uint8Array
-                            }
-                        }
-                    }
-                    readonly reporting_token: {
-                        readonly tag: 'reporting_token'
-                        readonly attrs: {
-                            readonly v?: number
-                        }
-                        readonly content: Uint8Array
-                    }
-                    readonly request_id: {
-                        readonly tag: 'request_id'
-                    }
-                    readonly ta_pad: {
-                        readonly tag: 'ta_pad'
-                    }
-                    readonly test: {
-                        readonly tag: 'test'
-                        readonly attrs: {
-                            readonly config?: string
-                        }
-                    }
-                    readonly trace: {
-                        readonly tag: 'trace'
-                        readonly children: {
-                            readonly request_id: {
-                                readonly tag: 'request_id'
-                            }
-                        }
-                    }
-                    readonly url_number: {
-                        readonly tag: 'url_number'
-                    }
-                    readonly url_text: {
-                        readonly tag: 'url_text'
-                    }
-                }
+        readonly handler: { readonly module: 'WAWebHandleNewsletterMsg'; readonly method: 'default' }
+        readonly node: {
+            readonly tag: 'message'
+            readonly attrs: {
+                readonly addressing_mode?: 'lid' | 'pn'
+                readonly category?: 'peer'
+                readonly device_fanout?: 'false'
+                readonly edit?: '1' | '2' | '3' | '7' | '8'
+                readonly eph_setting?: string
+                readonly from: string
+                readonly id: string
+                readonly is_template_from_library_edited?: boolean
+                readonly library_template_id?: string
+                readonly name: 'full_catalog'
+                readonly notify?: string
+                readonly offline: number
+                readonly participant?: string
+                readonly peer_recipient_lid?: string
+                readonly peer_recipient_pn?: string
+                readonly peer_recipient_username?: string
+                readonly phash?: string
+                readonly privacy_sensitive?: boolean
+                readonly push_priority: string
+                readonly recipient?: string
+                readonly recipient_pn?: string
+                readonly sender_lid?: string
+                readonly sub_tag?: string
+                readonly t: number
+                readonly tag?: string
+                readonly to: string
+                readonly ttl?: number
+                readonly type: 'text' | 'native_flow'
+                readonly v?: '1'
+                readonly value: string
+                readonly verified_name: string
             }
-            }
-            readonly 'from-is-not-newsletter': {
-                readonly handler: { readonly module: 'WAWebHandleMsg'; readonly method: 'default' }
-                readonly node: {
-                readonly tag: 'message'
-                readonly attrs: {
-                    readonly addressing_mode?: 'lid' | 'pn'
-                    readonly category?: 'peer'
-                    readonly device_fanout?: 'false'
-                    readonly edit?: '1' | '2' | '3' | '7' | '8'
-                    readonly eph_setting?: string
-                    readonly from: string
-                    readonly id: string
-                    readonly is_template_from_library_edited?: boolean
-                    readonly library_template_id?: string
-                    readonly name: 'full_catalog'
-                    readonly notify?: string
-                    readonly offline: number
-                    readonly participant?: string
-                    readonly peer_recipient_lid?: string
-                    readonly peer_recipient_pn?: string
-                    readonly peer_recipient_username?: string
-                    readonly phash?: string
-                    readonly privacy_sensitive?: boolean
-                    readonly push_priority: string
-                    readonly recipient: string
-                    readonly recipient_pn?: string
-                    readonly sender_lid?: string
-                    readonly sub_tag?: string
-                    readonly t: number
-                    readonly tag?: string
-                    readonly to: string
-                    readonly ttl?: number
-                    readonly type: 'text' | 'media' | 'medianotify' | 'pay' | 'poll' | 'reaction' | 'event'
-                    readonly v?: '1'
-                    readonly value: string
-                    readonly verified_level?: 'high' | 'low' | 'unknown'
-                    readonly verified_name?: string
+            readonly children: {
+                readonly automated: {
+                    readonly tag: 'automated'
                 }
-                readonly children: {
-                    readonly automated: {
-                        readonly tag: 'automated'
+                readonly biz: {
+                    readonly tag: 'biz'
+                    readonly attrs: {
+                        readonly campaign_id: string
+                        readonly native_flow_name: string
                     }
-                    readonly biz: {
-                        readonly tag: 'biz'
-                        readonly attrs: {
-                            readonly actual_actors?: number
-                            readonly campaign_id?: string
-                            readonly host_storage?: number
-                            readonly native_flow_name?: string
-                            readonly privacy_mode_ts?: number
-                        }
-                        readonly children: {
-                            readonly buttons: {
-                                readonly tag: 'buttons'
-                            } | undefined
-                            readonly delivery_context: {
-                                readonly tag: 'delivery_context'
-                                readonly attrs: {
-                                    readonly source_type?: string
-                                }
-                            } | undefined
-                            readonly interactive: {
-                                readonly tag: 'interactive'
-                                readonly attrs: {
-                                    readonly name?: string
-                                    readonly type: 'native_flow'
-                                    readonly v: '1'
-                                }
-                                readonly children: {
-                                    readonly native_flow: {
-                                        readonly tag: 'native_flow'
-                                        readonly attrs: {
-                                            readonly name?: string
-                                        }
-                                    } | undefined
-                                }
-                            } | undefined
-                            readonly list: {
-                                readonly tag: 'list'
-                            } | undefined
-                            readonly quality_control: {
-                                readonly tag: 'quality_control'
-                                readonly attrs: {
-                                    readonly decision_id?: string
-                                    readonly source_type?: string
-                                }
-                                readonly children: {
-                                    readonly decision_source: ReadonlyArray<{
-                                        readonly tag: 'decision_source'
-                                        readonly attrs: {
-                                            readonly value?: string
-                                        }
-                                    }>
-                                }
-                            } | undefined
-                        }
-                    } | undefined
-                    readonly bot: {
-                        readonly tag: 'bot'
-                        readonly attrs: {
-                            readonly agent_engagement_type?: string
-                            readonly biz_bot?: '1' | '3'
-                            readonly client_thread_id: string
-                            readonly edit?: 'first' | 'full' | 'inner' | 'last'
-                            readonly edit_target_id?: string
-                            readonly is_lid?: 'true'
-                            readonly local_automated_type: '1p_partial' | '3p_full' | 'unknown'
-                            readonly mode_selected: string
-                            readonly mode_selection: string
-                            readonly persona_type?: '1p' | 'default' | 'ugc'
-                            readonly sender_timestamp_ms?: string
-                            readonly type?: 'command' | 'prompt' | 'voice'
-                        }
-                    } | undefined
-                    readonly capability: ReadonlyArray<{
-                        readonly tag: 'capability'
-                        readonly attrs: {
-                            readonly name: string
-                        }
-                    }>
-                    readonly conversion: {
-                        readonly tag: 'conversion'
-                        readonly attrs: {
-                            readonly recipient_status: string
+                    readonly children: {
+                        readonly buttons: {
+                            readonly tag: 'buttons'
                         }
                     }
-                    readonly 'device-identity': {
-                        readonly tag: 'device-identity'
-                        readonly content: Uint8Array
-                    } | undefined
-                    readonly enc: ReadonlyArray<{
-                        readonly tag: 'enc'
-                        readonly attrs: {
-                            readonly count?: number
-                            readonly 'decrypt-fail'?: 'hide'
-                            readonly mediatype?: string
-                            readonly native_flow_name?: string
-                            readonly session_type?: string
-                            readonly state?: 'false' | 'true'
-                            readonly type: 'skmsg' | 'pkmsg' | 'msg' | 'msmsg'
-                            readonly v: '2'
-                        }
-                        readonly content: Uint8Array
-                    }>
-                    readonly franking: {
-                        readonly tag: 'franking'
-                        readonly children: {
-                            readonly franking_tag: {
-                                readonly tag: 'franking_tag'
-                            }
-                        }
-                    }
-                    readonly hsm: {
-                        readonly tag: 'hsm'
-                        readonly attrs: {
-                            readonly buttons?: '1'
-                            readonly category?: string
-                            readonly id?: string
-                            readonly is_template_from_library_edited?: boolean
-                            readonly library_template_id?: string
-                            readonly name: 'full_catalog'
-                            readonly objective?: string
-                            readonly sub_tag?: string
-                            readonly tag?: string
-                            readonly v?: '1'
-                        }
-                        readonly children: {
-                            readonly quality_token: {
-                                readonly tag: 'quality_token'
-                                readonly attrs: {
-                                    readonly v?: '1'
-                                }
-                            }
-                        }
-                    } | undefined
-                    readonly meta: {
-                        readonly tag: 'meta'
-                        readonly attrs: {
-                            readonly appdata?: 'default' | 'member_tag' | 'group_history'
-                            readonly capi?: boolean
-                            readonly collection_type: string
-                            readonly content_type?: string
-                            readonly context_source?: string
-                            readonly conversation_thread_id?: string
-                            readonly destination_id?: string
-                            readonly event_type?: 'creation' | 'edit' | 'response'
-                            readonly from?: string
-                            readonly is_group_status?: boolean
-                            readonly message_association_type?: string
-                            readonly metering_type: 'smb_mm'
-                            readonly origin?: 'ctwa'
-                            readonly peripheral: string
-                            readonly polltype?: 'creation' | 'quiz_creation' | 'vote' | 'result_snapshot' | 'edit'
-                            readonly premium_type: string
-                            readonly read?: boolean
-                            readonly sender_intent?: 'hosted'
-                            readonly session_scope?: 'default' | 'status'
-                            readonly sg_capture: '1'
-                            readonly st?: number
-                            readonly status_mentioned?: boolean
-                            readonly status_setting?: string
-                            readonly tag_reason?: string
-                            readonly target_chat_jid?: string
-                            readonly target_chat_jid_lid?: string
-                            readonly target_id?: string
-                            readonly target_sender_jid?: string
-                            readonly thread_msg_id?: string
-                            readonly thread_msg_sender_jid?: string
-                            readonly type?: string
-                            readonly view_once?: 'true'
-                        }
-                        readonly children: {
-                            readonly key: {
-                                readonly tag: 'key'
-                                readonly attrs: {
-                                    readonly rkid?: string
-                                }
-                                readonly content: Uint8Array
-                            } | undefined
-                        }
-                    } | undefined
-                    readonly mixed_metadata: {
-                        readonly tag: 'mixed_metadata'
-                        readonly children: {
-                            readonly payments_metadata: {
-                                readonly tag: 'payments_metadata'
-                                readonly attrs: {
-                                    readonly version: number
-                                }
-                            }
-                        }
-                    }
-                    readonly multicast: {
-                        readonly tag: 'multicast'
-                    }
-                    readonly native_flow: {
-                        readonly tag: 'native_flow'
-                        readonly attrs: {
-                            readonly name: string
-                            readonly v?: number
-                        }
-                        readonly children: {
-                            readonly capability: ReadonlyArray<{
-                                readonly tag: 'capability'
-                                readonly attrs: {
-                                    readonly name: string
-                                }
-                            }>
-                            readonly mixed_metadata: {
-                                readonly tag: 'mixed_metadata'
-                                readonly children: {
-                                    readonly payments_metadata: {
-                                        readonly tag: 'payments_metadata'
-                                        readonly attrs: {
-                                            readonly version: number
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    readonly padding: {
-                        readonly tag: 'padding'
-                        readonly content: Uint8Array
-                    }
-                    readonly participants: {
-                        readonly tag: 'participants'
-                        readonly children: {
-                            readonly to: ReadonlyArray<{
-                                readonly tag: 'to'
-                                readonly attrs: {
-                                    readonly jid: string
-                                    readonly mediatype?: string
-                                    readonly native_flow_name?: string
-                                    readonly session_type: 'pq'
-                                    readonly state: string
-                                    readonly sticker_type: 'avatar'
-                                    readonly type: string
-                                }
-                                readonly children: {
-                                    readonly content_binding: {
-                                        readonly tag: 'content_binding'
-                                    }
-                                    readonly enc: {
-                                        readonly tag: 'enc'
-                                        readonly attrs: {
-                                            readonly mediatype: string
-                                            readonly native_flow_name?: string
-                                            readonly session_type: 'pq'
-                                            readonly state: 'false' | 'true'
-                                            readonly sticker_type: 'avatar'
-                                            readonly type: 'msg' | 'msmsg' | 'pkmsg' | 'skmsg'
-                                            readonly v: '2'
-                                        }
-                                        readonly content: Uint8Array
-                                    }
-                                }
-                            }>
-                        }
-                    }
-                    readonly pay: {
-                        readonly tag: 'pay'
-                        readonly attrs: {
-                            readonly receiver?: string
-                            readonly 'transaction-type'?: string
-                            readonly type: 'send' | 'request' | 'futureproof' | 'request-decline' | 'request-cancel' | 'invite'
-                        }
-                    } | undefined
-                    readonly plaintext: {
-                        readonly tag: 'plaintext'
-                    } | undefined
-                    readonly quality_token: {
-                        readonly tag: 'quality_token'
-                        readonly attrs: {
-                            readonly v?: '1'
-                        }
-                    }
-                    readonly rcat: {
-                        readonly tag: 'rcat'
-                        readonly content: Uint8Array
-                    } | undefined
-                    readonly reporting: {
-                        readonly tag: 'reporting'
-                        readonly attrs: {
-                            readonly validation_policy?: string
-                        }
-                        readonly children: {
-                            readonly reporting_tag: {
-                                readonly tag: 'reporting_tag'
-                                readonly content: Uint8Array
-                            } | undefined
-                            readonly reporting_token: {
-                                readonly tag: 'reporting_token'
-                                readonly attrs: {
-                                    readonly v?: string
-                                }
-                                readonly content: Uint8Array
-                            } | undefined
-                        }
-                    } | undefined
-                    readonly reporting_token: {
-                        readonly tag: 'reporting_token'
-                        readonly attrs: {
-                            readonly v?: number
-                        }
-                        readonly content: Uint8Array
-                    }
-                    readonly request_id: {
-                        readonly tag: 'request_id'
-                    }
-                    readonly ta_pad: {
-                        readonly tag: 'ta_pad'
-                    }
-                    readonly test: {
-                        readonly tag: 'test'
-                        readonly attrs: {
-                            readonly config?: string
-                        }
-                    }
-                    readonly trace: {
-                        readonly tag: 'trace'
-                        readonly children: {
-                            readonly request_id: {
-                                readonly tag: 'request_id'
-                            }
-                        }
-                    }
-                    readonly transaction: {
-                        readonly tag: 'transaction'
-                        readonly attrs: {
-                            readonly group?: string
-                            readonly 'message-id': string
-                            readonly receiver: string
-                            readonly sender: string
-                            readonly status: string
-                            readonly 'transaction-type': string
-                            readonly ts: number
-                        }
-                    } | undefined
-                    readonly unavailable: {
-                        readonly tag: 'unavailable'
-                        readonly attrs: {
-                            readonly hosted?: boolean
-                            readonly type?: 'view_once'
-                        }
-                    } | undefined
-                    readonly url_number: {
-                        readonly tag: 'url_number'
-                    } | undefined
-                    readonly url_text: {
-                        readonly tag: 'url_text'
-                    } | undefined
-                    readonly verified_name: {
-                        readonly tag: 'verified_name'
-                        readonly content: Uint8Array
-                    } | undefined
                 }
-            }
+                readonly bot: {
+                    readonly tag: 'bot'
+                    readonly attrs: {
+                        readonly agent_engagement_type?: string
+                        readonly client_thread_id: string
+                        readonly is_lid?: 'true'
+                        readonly local_automated_type: '1p_partial' | '3p_full' | 'unknown'
+                        readonly mode_selected: string
+                        readonly mode_selection: string
+                        readonly persona_type?: '1p' | 'default' | 'ugc'
+                        readonly type?: 'feedback'
+                    }
+                }
+                readonly capability: ReadonlyArray<{
+                    readonly tag: 'capability'
+                    readonly attrs: {
+                        readonly name: string
+                    }
+                }>
+                readonly content_binding: {
+                    readonly tag: 'content_binding'
+                }
+                readonly conversion: {
+                    readonly tag: 'conversion'
+                    readonly attrs: {
+                        readonly recipient_status: string
+                    }
+                }
+                readonly cstoken: {
+                    readonly tag: 'cstoken'
+                }
+                readonly 'device-identity': {
+                    readonly tag: 'device-identity'
+                    readonly content: Uint8Array
+                }
+                readonly enc: {
+                    readonly tag: 'enc'
+                    readonly attrs: {
+                        readonly count?: number
+                        readonly 'decrypt-fail'?: 'hide'
+                        readonly mediatype?: string
+                        readonly native_flow_name?: string
+                        readonly session_type?: 'pq'
+                        readonly state?: 'false'
+                        readonly type: 'msg' | 'msmsg' | 'pkmsg' | 'skmsg'
+                        readonly v: '2'
+                    }
+                    readonly content: Uint8Array
+                }
+                readonly franking: {
+                    readonly tag: 'franking'
+                    readonly children: {
+                        readonly franking_tag: {
+                            readonly tag: 'franking_tag'
+                        }
+                    }
+                }
+                readonly hsm: {
+                    readonly tag: 'hsm'
+                    readonly attrs: {
+                        readonly buttons?: '1'
+                        readonly category?: string
+                        readonly id?: string
+                        readonly is_template_from_library_edited?: boolean
+                        readonly library_template_id?: string
+                        readonly name: 'full_catalog'
+                        readonly objective?: string
+                        readonly sub_tag?: string
+                        readonly tag?: string
+                        readonly v?: '1'
+                    }
+                    readonly children: {
+                        readonly quality_token: {
+                            readonly tag: 'quality_token'
+                            readonly attrs: {
+                                readonly v?: '1'
+                            }
+                        }
+                    }
+                }
+                readonly interactive: {
+                    readonly tag: 'interactive'
+                    readonly attrs: {
+                        readonly type: 'native_flow'
+                        readonly v: '1'
+                    }
+                }
+                readonly key: {
+                    readonly tag: 'key'
+                    readonly attrs: {
+                        readonly rkid: string
+                    }
+                }
+                readonly meta: {
+                    readonly tag: 'meta'
+                    readonly attrs: {
+                        readonly appdata?: 'default' | 'group_history' | 'member_tag'
+                        readonly collection_type: string
+                        readonly content_type?: string
+                        readonly context_source?: string
+                        readonly conversation_thread_id?: string
+                        readonly destination_id?: string
+                        readonly event_type?: 'creation' | 'edit' | 'response'
+                        readonly is_group_status?: 'true'
+                        readonly message_association_type?: string
+                        readonly metering_type: 'smb_mm'
+                        readonly origin?: 'ctwa'
+                        readonly peripheral: string
+                        readonly polltype?: 'creation' | 'edit' | 'quiz_creation' | 'result_snapshot' | 'vote'
+                        readonly premium_type: string
+                        readonly sender_intent?: 'hosted'
+                        readonly session_scope?: 'status'
+                        readonly sg_capture: '1'
+                        readonly st?: string
+                        readonly status_setting?: string
+                        readonly tag_reason?: string
+                        readonly thread_msg_id?: string
+                        readonly thread_msg_sender_jid?: string
+                        readonly type?: 'scheduled_message'
+                        readonly view_once?: 'true'
+                    }
+                    readonly children: {
+                        readonly key: {
+                            readonly tag: 'key'
+                            readonly attrs: {
+                                readonly rkid: string
+                            }
+                            readonly content: Uint8Array
+                        }
+                    }
+                }
+                readonly mixed_metadata: {
+                    readonly tag: 'mixed_metadata'
+                    readonly children: {
+                        readonly payments_metadata: {
+                            readonly tag: 'payments_metadata'
+                            readonly attrs: {
+                                readonly version: number
+                            }
+                        }
+                    }
+                }
+                readonly multicast: {
+                    readonly tag: 'multicast'
+                }
+                readonly native_flow: {
+                    readonly tag: 'native_flow'
+                    readonly attrs: {
+                        readonly name: string
+                        readonly v?: number
+                    }
+                    readonly children: {
+                        readonly capability: ReadonlyArray<{
+                            readonly tag: 'capability'
+                            readonly attrs: {
+                                readonly name: string
+                            }
+                        }>
+                        readonly mixed_metadata: {
+                            readonly tag: 'mixed_metadata'
+                            readonly children: {
+                                readonly payments_metadata: {
+                                    readonly tag: 'payments_metadata'
+                                    readonly attrs: {
+                                        readonly version: number
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                readonly padding: {
+                    readonly tag: 'padding'
+                    readonly content: Uint8Array
+                }
+                readonly participants: {
+                    readonly tag: 'participants'
+                    readonly children: {
+                        readonly to: ReadonlyArray<{
+                            readonly tag: 'to'
+                            readonly attrs: {
+                                readonly jid: string
+                                readonly mediatype?: string
+                                readonly native_flow_name?: string
+                                readonly session_type: 'pq'
+                                readonly state: string
+                                readonly sticker_type: 'avatar'
+                                readonly type: string
+                            }
+                            readonly children: {
+                                readonly content_binding: {
+                                    readonly tag: 'content_binding'
+                                }
+                                readonly enc: {
+                                    readonly tag: 'enc'
+                                    readonly attrs: {
+                                        readonly mediatype: string
+                                        readonly native_flow_name?: string
+                                        readonly session_type: 'pq'
+                                        readonly state: 'false' | 'true'
+                                        readonly sticker_type: 'avatar'
+                                        readonly type: 'msg' | 'msmsg' | 'pkmsg' | 'skmsg'
+                                        readonly v: '2'
+                                    }
+                                    readonly content: Uint8Array
+                                }
+                            }
+                        }>
+                    }
+                }
+                readonly quality_token: {
+                    readonly tag: 'quality_token'
+                    readonly attrs: {
+                        readonly v?: '1'
+                    }
+                }
+                readonly reporting: {
+                    readonly tag: 'reporting'
+                    readonly children: {
+                        readonly reporting_token: {
+                            readonly tag: 'reporting_token'
+                            readonly attrs: {
+                                readonly v?: number
+                            }
+                            readonly content: Uint8Array
+                        }
+                    }
+                }
+                readonly reporting_token: {
+                    readonly tag: 'reporting_token'
+                    readonly attrs: {
+                        readonly v: string
+                    }
+                    readonly content: Uint8Array
+                }
+                readonly request_id: {
+                    readonly tag: 'request_id'
+                }
+                readonly sender_content_binding: {
+                    readonly tag: 'sender_content_binding'
+                }
+                readonly ta_pad: {
+                    readonly tag: 'ta_pad'
+                }
+                readonly tctoken: {
+                    readonly tag: 'tctoken'
+                }
+                readonly test: {
+                    readonly tag: 'test'
+                    readonly attrs: {
+                        readonly config?: string
+                    }
+                }
+                readonly to: {
+                    readonly tag: 'to'
+                    readonly attrs: {
+                        readonly eph_setting?: string
+                        readonly jid: string
+                        readonly peer_recipient_pn?: string
+                        readonly peer_recipient_username?: string
+                    }
+                }
+                readonly trace: {
+                    readonly tag: 'trace'
+                    readonly children: {
+                        readonly request_id: {
+                            readonly tag: 'request_id'
+                        }
+                    }
+                }
+                readonly url_number: {
+                    readonly tag: 'url_number'
+                }
+                readonly url_text: {
+                    readonly tag: 'url_text'
+                }
             }
         }
     }

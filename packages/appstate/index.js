@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1055156383
+// WhatsApp Version: 2.3000.1055857453
 'use strict'
 
 const WA_APPSTATE_COLLECTIONS = Object.freeze(['regular', 'regular_low', 'regular_high', 'critical_block', 'critical_unblock_low'])
@@ -199,7 +199,7 @@ const WA_APPSTATE_SCHEMAS = Object.freeze({
             Object.freeze({ type: 'literal', value: 'call_log' }),
             Object.freeze({ type: 'string', name: 'key1' }),
             Object.freeze({ type: 'string', name: 'callId' }),
-            Object.freeze({ type: 'string', name: 'fromMe' })
+            Object.freeze({ type: 'string', name: 'key3' })
         ])
     }),
     ChatAssignment: Object.freeze({

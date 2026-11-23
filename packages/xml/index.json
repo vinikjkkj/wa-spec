@@ -7079,6 +7079,24 @@
                         "type": "literal",
                         "value": "false"
                       },
+                      "bot_product": {
+                        "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_1PCARAVAN_1PCOEXV2_1PGROUPMUSE_1PMAIBAHUBCHAT_1PMETAAI_1PMETAAITHREAD_1PMUSE_1PTEE_1PWAFORWORK_1PWAIAS_3PAGENT",
+                        "enumValues": [
+                          "1p_Caravan",
+                          "1p_CoExV2",
+                          "1p_GroupMuse",
+                          "1p_MAIBAHubChat",
+                          "1p_MetaAI",
+                          "1p_MetaAIThread",
+                          "1p_Muse",
+                          "1p_TEE",
+                          "1p_WAForWork",
+                          "1p_WAIAS",
+                          "3p_Agent"
+                        ],
+                        "optional": true,
+                        "type": "enum"
+                      },
                       "display_name": {
                         "optional": true,
                         "type": "string"
@@ -7132,7 +7150,7 @@
                     },
                     "children": [],
                     "content": null,
-                    "max": 1024,
+                    "max": 19999,
                     "min": 1,
                     "tag": "participant"
                   }
@@ -7908,15 +7926,6 @@
                   "min": 0,
                   "presence": true,
                   "tag": "hidden_group"
-                },
-                {
-                  "__helper": "HAS_OPTIONAL_CHILD",
-                  "attrs": {},
-                  "children": [],
-                  "max": 1,
-                  "min": 0,
-                  "presence": true,
-                  "tag": "light_e2ee"
                 },
                 {
                   "__helper": "OPTIONAL_CHILD",
@@ -9442,6 +9451,61 @@
                     "tag": "description"
                   },
                   {
+                    "attrs": {},
+                    "children": [
+                      {
+                        "attrs": {
+                          "key_id": {
+                            "max": 2147483647,
+                            "min": 0,
+                            "type": "int"
+                          },
+                          "key_update_time": {
+                            "max": null,
+                            "min": 0,
+                            "type": "int"
+                          }
+                        },
+                        "children": [],
+                        "content": {
+                          "max": 65536,
+                          "min": 1,
+                          "type": "bytes"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "group_encryption_key"
+                      },
+                      {
+                        "attrs": {
+                          "key_id": {
+                            "max": 2147483647,
+                            "min": 0,
+                            "type": "int"
+                          },
+                          "key_update_time": {
+                            "max": null,
+                            "min": 0,
+                            "type": "int"
+                          }
+                        },
+                        "children": [],
+                        "content": {
+                          "max": 65536,
+                          "min": 1,
+                          "type": "bytes"
+                        },
+                        "max": 1,
+                        "min": 0,
+                        "tag": "membership_form_key"
+                      }
+                    ],
+                    "content": null,
+                    "max": 1,
+                    "min": 0,
+                    "tag": "encryption_keys"
+                  },
+                  {
                     "attrs": {
                       "expiration": {
                         "max": 2147483647,
@@ -9638,6 +9702,24 @@
                       "addressable": {
                         "type": "literal",
                         "value": "false"
+                      },
+                      "bot_product": {
+                        "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_1PCARAVAN_1PCOEXV2_1PGROUPMUSE_1PMAIBAHUBCHAT_1PMETAAI_1PMETAAITHREAD_1PMUSE_1PTEE_1PWAFORWORK_1PWAIAS_3PAGENT",
+                        "enumValues": [
+                          "1p_Caravan",
+                          "1p_CoExV2",
+                          "1p_GroupMuse",
+                          "1p_MAIBAHubChat",
+                          "1p_MetaAI",
+                          "1p_MetaAIThread",
+                          "1p_Muse",
+                          "1p_TEE",
+                          "1p_WAForWork",
+                          "1p_WAIAS",
+                          "3p_Agent"
+                        ],
+                        "optional": true,
+                        "type": "enum"
                       },
                       "display_name": {
                         "optional": true,
@@ -11515,6 +11597,61 @@
                         "tag": "description"
                       },
                       {
+                        "attrs": {},
+                        "children": [
+                          {
+                            "attrs": {
+                              "key_id": {
+                                "max": 2147483647,
+                                "min": 0,
+                                "type": "int"
+                              },
+                              "key_update_time": {
+                                "max": null,
+                                "min": 0,
+                                "type": "int"
+                              }
+                            },
+                            "children": [],
+                            "content": {
+                              "max": 65536,
+                              "min": 1,
+                              "type": "bytes"
+                            },
+                            "max": 1,
+                            "min": 1,
+                            "tag": "group_encryption_key"
+                          },
+                          {
+                            "attrs": {
+                              "key_id": {
+                                "max": 2147483647,
+                                "min": 0,
+                                "type": "int"
+                              },
+                              "key_update_time": {
+                                "max": null,
+                                "min": 0,
+                                "type": "int"
+                              }
+                            },
+                            "children": [],
+                            "content": {
+                              "max": 65536,
+                              "min": 1,
+                              "type": "bytes"
+                            },
+                            "max": 1,
+                            "min": 0,
+                            "tag": "membership_form_key"
+                          }
+                        ],
+                        "content": null,
+                        "max": 1,
+                        "min": 0,
+                        "tag": "encryption_keys"
+                      },
+                      {
                         "attrs": {
                           "expiration": {
                             "max": 2147483647,
@@ -11711,6 +11848,24 @@
                           "addressable": {
                             "type": "literal",
                             "value": "false"
+                          },
+                          "bot_product": {
+                            "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_1PCARAVAN_1PCOEXV2_1PGROUPMUSE_1PMAIBAHUBCHAT_1PMETAAI_1PMETAAITHREAD_1PMUSE_1PTEE_1PWAFORWORK_1PWAIAS_3PAGENT",
+                            "enumValues": [
+                              "1p_Caravan",
+                              "1p_CoExV2",
+                              "1p_GroupMuse",
+                              "1p_MAIBAHubChat",
+                              "1p_MetaAI",
+                              "1p_MetaAIThread",
+                              "1p_Muse",
+                              "1p_TEE",
+                              "1p_WAForWork",
+                              "1p_WAIAS",
+                              "3p_Agent"
+                            ],
+                            "optional": true,
+                            "type": "enum"
                           },
                           "display_name": {
                             "optional": true,
@@ -12713,8 +12868,9 @@
                   {
                     "attrs": {
                       "error": {
-                        "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_404_419",
+                        "enumRef": "o(\"WASmaxInGroupsEnums\").ENUM_403_404_419",
                         "enumValues": [
+                          "403",
                           "404",
                           "419"
                         ],
@@ -17616,7 +17772,18 @@
                 "tag": "automated"
               },
               {
-                "attrs": {},
+                "attrs": {
+                  "campaign_id": {
+                    "arg": "i",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "native_flow_name": {
+                    "arg": "pe",
+                    "direction": "out",
+                    "type": "string"
+                  }
+                },
                 "children": [
                   {
                     "attrs": {},
@@ -17625,9 +17792,73 @@
                     "tag": "buttons"
                   }
                 ],
+                "content": null,
                 "max": 1,
                 "min": 1,
                 "tag": "biz"
+              },
+              {
+                "attrs": {
+                  "agent_engagement_type": {
+                    "direction": "both",
+                    "optional": true,
+                    "raw": "I(i||C,a,s)",
+                    "type": "string"
+                  },
+                  "client_thread_id": {
+                    "arg": "e.clientThreadId",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "is_lid": {
+                    "direction": "out",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "true"
+                  },
+                  "local_automated_type": {
+                    "arg": "e.localAutomatedType",
+                    "direction": "out",
+                    "enumValues": [
+                      "1p_partial",
+                      "3p_full",
+                      "unknown"
+                    ],
+                    "type": "enum"
+                  },
+                  "mode_selected": {
+                    "arg": "e.modeSelected",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "mode_selection": {
+                    "arg": "e.modeSelection",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "persona_type": {
+                    "arg": "i",
+                    "direction": "both",
+                    "enumValues": [
+                      "1p",
+                      "default",
+                      "ugc"
+                    ],
+                    "optional": true,
+                    "type": "enum"
+                  },
+                  "type": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "feedback"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "bot"
               },
               {
                 "__helper": "REPEATED_CHILD",
@@ -17642,6 +17873,13 @@
                 "max": 50,
                 "min": 1,
                 "tag": "capability"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true,
+                "tag": "content_binding"
               },
               {
                 "attrs": {
@@ -17659,12 +17897,85 @@
               {
                 "attrs": {},
                 "children": [],
+                "content": null,
+                "presence": true,
+                "tag": "cstoken"
+              },
+              {
+                "attrs": {},
+                "children": [],
                 "content": {
+                  "direction": "out",
                   "type": "bytes"
                 },
                 "max": 1,
                 "min": 1,
                 "tag": "device-identity"
+              },
+              {
+                "attrs": {
+                  "count": {
+                    "arg": "f",
+                    "direction": "both",
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "decrypt-fail": {
+                    "direction": "both",
+                    "enumValues": [
+                      "hide"
+                    ],
+                    "optional": true,
+                    "type": "enum"
+                  },
+                  "mediatype": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "native_flow_name": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "session_type": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "pq"
+                  },
+                  "state": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "false"
+                  },
+                  "type": {
+                    "arg": "String(r)",
+                    "direction": "both",
+                    "enumValues": [
+                      "msg",
+                      "msmsg",
+                      "pkmsg",
+                      "skmsg"
+                    ],
+                    "type": "enum"
+                  },
+                  "v": {
+                    "arg": "o(\"WAWebBackendJobsCommon\").CIPHERTEXT_VERSION.toString()",
+                    "direction": "both",
+                    "type": "literal",
+                    "value": "2"
+                  }
+                },
+                "children": [],
+                "content": {
+                  "direction": "out",
+                  "type": "bytes"
+                },
+                "max": 1,
+                "min": 1,
+                "tag": "enc"
               },
               {
                 "attrs": {},
@@ -17771,14 +18082,48 @@
               },
               {
                 "attrs": {
+                  "type": {
+                    "direction": "both",
+                    "type": "literal",
+                    "value": "native_flow"
+                  },
+                  "v": {
+                    "direction": "both",
+                    "type": "literal",
+                    "value": "1"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "interactive"
+              },
+              {
+                "attrs": {
+                  "rkid": {
+                    "arg": "e.revealKeyId",
+                    "direction": "both",
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "key"
+              },
+              {
+                "attrs": {
                   "appdata": {
-                    "arg": "t",
-                    "direction": "out",
+                    "arg": "N",
+                    "direction": "both",
                     "enumValues": [
                       "default",
                       "group_history",
                       "member_tag"
                     ],
+                    "optional": true,
                     "type": "enum"
                   },
                   "collection_type": {
@@ -17786,30 +18131,101 @@
                     "direction": "out",
                     "type": "string"
                   },
-                  "context_source": {
+                  "content_type": {
                     "arg": "t",
-                    "direction": "out",
+                    "direction": "both",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "context_source": {
+                    "arg": "k",
+                    "direction": "both",
+                    "optional": true,
                     "type": "string"
                   },
                   "conversation_thread_id": {
-                    "arg": "t",
-                    "direction": "out",
+                    "arg": "I",
+                    "direction": "both",
+                    "optional": true,
                     "type": "string"
                   },
                   "destination_id": {
-                    "arg": "t",
-                    "direction": "out",
+                    "arg": "$",
+                    "direction": "both",
+                    "optional": true,
                     "type": "string"
+                  },
+                  "event_type": {
+                    "arg": "E",
+                    "direction": "out",
+                    "enumValues": [
+                      "creation",
+                      "edit",
+                      "response"
+                    ],
+                    "optional": true,
+                    "type": "enum"
+                  },
+                  "is_group_status": {
+                    "direction": "out",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "true"
+                  },
+                  "message_association_type": {
+                    "arg": "L",
+                    "direction": "out",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "metering_type": {
+                    "direction": "out",
+                    "type": "literal",
+                    "value": "smb_mm"
+                  },
+                  "origin": {
+                    "arg": "P",
+                    "direction": "out",
+                    "enumValues": [
+                      "ctwa"
+                    ],
+                    "optional": true,
+                    "type": "enum"
                   },
                   "peripheral": {
                     "arg": "t",
                     "direction": "out",
                     "type": "string"
                   },
+                  "polltype": {
+                    "arg": "R",
+                    "direction": "out",
+                    "enumValues": [
+                      "creation",
+                      "edit",
+                      "quiz_creation",
+                      "result_snapshot",
+                      "vote"
+                    ],
+                    "optional": true,
+                    "type": "enum"
+                  },
                   "premium_type": {
                     "arg": "t",
                     "direction": "out",
                     "type": "string"
+                  },
+                  "sender_intent": {
+                    "direction": "out",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "hosted"
+                  },
+                  "session_scope": {
+                    "direction": "both",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "status"
                   },
                   "sg_capture": {
                     "direction": "out",
@@ -17817,17 +18233,45 @@
                     "value": "1"
                   },
                   "st": {
-                    "arg": "t",
+                    "arg": "String(O.scheduledTimestampS)",
+                    "direction": "both",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "status_setting": {
                     "direction": "out",
-                    "type": "int"
+                    "optional": true,
+                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(r)",
+                    "type": "string"
+                  },
+                  "tag_reason": {
+                    "arg": "M",
+                    "direction": "out",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "thread_msg_id": {
+                    "arg": "T.threadMsgId",
+                    "direction": "out",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "thread_msg_sender_jid": {
+                    "arg": "T.threadMsgSenderLid",
+                    "direction": "out",
+                    "optional": true,
+                    "type": "userJid"
                   },
                   "type": {
-                    "direction": "out",
+                    "arg": "o(\"WAWebScheduledMsgConstants\").SCHEDULED_MSG_META_TYPE",
+                    "direction": "both",
+                    "optional": true,
                     "type": "literal",
                     "value": "scheduled_message"
                   },
                   "view_once": {
-                    "direction": "out",
+                    "direction": "both",
+                    "optional": true,
                     "type": "literal",
                     "value": "true"
                   }
@@ -17850,6 +18294,7 @@
                     "tag": "key"
                   }
                 ],
+                "content": null,
                 "max": 1,
                 "min": 1,
                 "tag": "meta"
@@ -17882,16 +18327,10 @@
                 "tag": "multicast"
               },
               {
-                "appliedMixin": [
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishExtensionsMetadataMixin?",
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishMixedMetadataMixin?"
-                ],
                 "attrs": {
                   "name": {
                     "arg": "t",
-                    "direction": "out",
+                    "direction": "both",
                     "type": "string"
                   },
                   "v": {
@@ -17938,6 +18377,7 @@
                     "tag": "mixed_metadata"
                   }
                 ],
+                "content": null,
                 "max": 1,
                 "min": 1,
                 "tag": "native_flow"
@@ -18077,6 +18517,7 @@
                     "tag": "to"
                   }
                 ],
+                "content": null,
                 "max": 1,
                 "min": 1,
                 "tag": "participants"
@@ -18096,10 +18537,6 @@
                 "tag": "quality_token"
               },
               {
-                "appliedMixin": [
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishReportingTokenElementMixin?"
-                ],
                 "attrs": {},
                 "children": [
                   {
@@ -18120,6 +18557,7 @@
                     "tag": "reporting_token"
                   }
                 ],
+                "content": null,
                 "max": 1,
                 "min": 1,
                 "tag": "reporting"
@@ -18127,14 +18565,14 @@
               {
                 "attrs": {
                   "v": {
-                    "arg": "t",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "int"
+                    "arg": "String(e.version)",
+                    "direction": "both",
+                    "type": "string"
                   }
                 },
                 "children": [],
                 "content": {
+                  "direction": "out",
                   "type": "bytes"
                 },
                 "max": 1,
@@ -18150,8 +18588,22 @@
               {
                 "attrs": {},
                 "children": [],
+                "content": null,
+                "presence": true,
+                "tag": "sender_content_binding"
+              },
+              {
+                "attrs": {},
+                "children": [],
                 "presence": true,
                 "tag": "ta_pad"
+              },
+              {
+                "attrs": {},
+                "children": [],
+                "content": null,
+                "presence": true,
+                "tag": "tctoken"
               },
               {
                 "attrs": {
@@ -18166,6 +18618,38 @@
                 "max": 1,
                 "min": 1,
                 "tag": "test"
+              },
+              {
+                "attrs": {
+                  "eph_setting": {
+                    "arg": "m",
+                    "direction": "both",
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "jid": {
+                    "arg": "n",
+                    "direction": "both",
+                    "type": "jid"
+                  },
+                  "peer_recipient_pn": {
+                    "arg": "l",
+                    "direction": "both",
+                    "optional": true,
+                    "type": "userJid"
+                  },
+                  "peer_recipient_username": {
+                    "arg": "o(\"WAWebUsernameTypes\").serializeUsername(s)",
+                    "direction": "both",
+                    "optional": true,
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "to"
               },
               {
                 "appliedMixin": "WASmaxOutMessagePublishRequestOrTraceIDMixinGroup",
@@ -37156,7 +37640,7 @@
             "type": "time"
           },
           "to": {
-            "arg": "_",
+            "arg": "g",
             "direction": "both",
             "type": "jid"
           },
@@ -37856,9 +38340,9 @@
             "method": "receiveSetToCompanionRPC",
             "module": "WASmaxMdSetToCompanionRPC"
           },
-          "entryName": "default",
+          "entryName": "handlePairDevice",
           "handler": {
-            "method": "default",
+            "method": "handlePairDevice",
             "module": "WAWebHandlePairDevice"
           },
           "inlinedFrom": {
@@ -38268,137 +38752,527 @@
       }
     },
     "message": {
-      "discriminator": "condition",
-      "tag": "message",
-      "variants": {
-        "from-is-newsletter": {
-          "condition": "from-is-newsletter",
-          "delegatesToParser": {
-            "module": "WAWebNewsletterMsgParser",
-            "parser": "default"
-          },
-          "delegatesToRPC": {
-            "method": "receiveNewsletterRPC",
-            "module": "WASmaxMessageDeliverNewsletterRPC"
-          },
-          "entryName": "default",
-          "handler": {
-            "method": "default",
-            "module": "WAWebHandleNewsletterMsg"
-          },
-          "inlinedFrom": {
-            "method": "receiveNewsletterRPC",
-            "module": "WASmaxMessageDeliverNewsletterRPC"
-          },
-          "inlinedOutgoingResponses": [
-            {
-              "module": "WASmaxMessageDeliverNewsletterRPC",
-              "node": {
-                "attrs": {
-                  "class": {
-                    "type": "literal",
-                    "value": "message"
-                  },
-                  "error": {
-                    "type": "literal",
-                    "value": "406"
-                  },
-                  "id": {
-                    "arg": "n.value",
-                    "type": "stanzaId"
-                  },
-                  "to": {
-                    "arg": "t.value",
-                    "type": "jid"
-                  },
-                  "type": {
-                    "arg": "r.value",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "tag": "ack"
-              },
-              "variant": "Error"
-            },
-            {
-              "module": "WASmaxMessageDeliverNewsletterRPC",
-              "node": {
-                "attrs": {
-                  "class": {
-                    "type": "literal",
-                    "value": "message"
-                  },
-                  "id": {
-                    "arg": "n.value",
-                    "type": "stanzaId"
-                  },
-                  "to": {
-                    "arg": "t.value",
-                    "type": "jid"
-                  },
-                  "type": {
-                    "arg": "r.value",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "tag": "ack"
-              },
-              "variant": "Success"
-            }
-          ],
+      "condition": "from-is-newsletter",
+      "delegatesToParser": {
+        "module": "WAWebNewsletterMsgParser",
+        "parser": "default"
+      },
+      "delegatesToRPC": {
+        "method": "receiveNewsletterRPC",
+        "module": "WASmaxMessageDeliverNewsletterRPC"
+      },
+      "entryName": "default",
+      "handler": {
+        "method": "default",
+        "module": "WAWebHandleNewsletterMsg"
+      },
+      "inlinedFrom": {
+        "method": "receiveNewsletterRPC",
+        "module": "WASmaxMessageDeliverNewsletterRPC"
+      },
+      "inlinedOutgoingResponses": [
+        {
+          "module": "WASmaxMessageDeliverNewsletterRPC",
           "node": {
             "attrs": {
-              "addressing_mode": {
-                "arg": "re",
+              "class": {
+                "type": "literal",
+                "value": "message"
+              },
+              "error": {
+                "type": "literal",
+                "value": "406"
+              },
+              "id": {
+                "arg": "n.value",
+                "type": "stanzaId"
+              },
+              "to": {
+                "arg": "t.value",
+                "type": "jid"
+              },
+              "type": {
+                "arg": "r.value",
+                "type": "string"
+              }
+            },
+            "children": [],
+            "tag": "ack"
+          },
+          "variant": "Error"
+        },
+        {
+          "module": "WASmaxMessageDeliverNewsletterRPC",
+          "node": {
+            "attrs": {
+              "class": {
+                "type": "literal",
+                "value": "message"
+              },
+              "id": {
+                "arg": "n.value",
+                "type": "stanzaId"
+              },
+              "to": {
+                "arg": "t.value",
+                "type": "jid"
+              },
+              "type": {
+                "arg": "r.value",
+                "type": "string"
+              }
+            },
+            "children": [],
+            "tag": "ack"
+          },
+          "variant": "Success"
+        }
+      ],
+      "node": {
+        "attrs": {
+          "addressing_mode": {
+            "arg": "re",
+            "direction": "both",
+            "enumValues": [
+              "lid",
+              "pn"
+            ],
+            "optional": true,
+            "type": "enum"
+          },
+          "category": {
+            "direction": "both",
+            "optional": true,
+            "type": "literal",
+            "value": "peer"
+          },
+          "device_fanout": {
+            "direction": "both",
+            "optional": true,
+            "type": "literal",
+            "value": "false"
+          },
+          "edit": {
+            "direction": "both",
+            "enumValues": [
+              "1",
+              "2",
+              "3",
+              "7",
+              "8"
+            ],
+            "optional": true,
+            "type": "enum"
+          },
+          "eph_setting": {
+            "arg": "y",
+            "direction": "out",
+            "optional": true,
+            "type": "string"
+          },
+          "from": {
+            "arg": "m",
+            "direction": "out",
+            "type": "jid"
+          },
+          "id": {
+            "arg": "s",
+            "direction": "both",
+            "type": "stanzaId"
+          },
+          "is_template_from_library_edited": {
+            "arg": "u",
+            "direction": "out",
+            "optional": true,
+            "type": "bool"
+          },
+          "library_template_id": {
+            "arg": "s",
+            "direction": "out",
+            "optional": true,
+            "type": "string"
+          },
+          "name": {
+            "direction": "out",
+            "type": "literal",
+            "value": "full_catalog"
+          },
+          "notify": {
+            "arg": "c(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
+            "direction": "out",
+            "optional": true,
+            "type": "string"
+          },
+          "offline": {
+            "arg": "String(1)",
+            "direction": "out",
+            "type": "int"
+          },
+          "participant": {
+            "arg": "i",
+            "direction": "both",
+            "optional": true,
+            "type": "jid"
+          },
+          "peer_recipient_lid": {
+            "arg": "se",
+            "direction": "both",
+            "optional": true,
+            "type": "userJid"
+          },
+          "peer_recipient_pn": {
+            "arg": "le",
+            "direction": "both",
+            "optional": true,
+            "type": "userJid"
+          },
+          "peer_recipient_username": {
+            "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ue)",
+            "direction": "both",
+            "optional": true,
+            "type": "string"
+          },
+          "phash": {
+            "arg": "d",
+            "direction": "both",
+            "optional": true,
+            "type": "string"
+          },
+          "privacy_sensitive": {
+            "arg": "v.privacySensitive.valueOf().toString()",
+            "direction": "out",
+            "optional": true,
+            "type": "bool"
+          },
+          "push_priority": {
+            "arg": "ee",
+            "direction": "out",
+            "type": "string"
+          },
+          "recipient": {
+            "arg": "R",
+            "direction": "out",
+            "optional": true,
+            "type": "userJid"
+          },
+          "recipient_pn": {
+            "arg": "Ce",
+            "direction": "out",
+            "optional": true,
+            "type": "userJid"
+          },
+          "sender_lid": {
+            "arg": "d()",
+            "direction": "out",
+            "optional": true,
+            "type": "userJid"
+          },
+          "sub_tag": {
+            "arg": "l",
+            "direction": "out",
+            "optional": true,
+            "type": "string"
+          },
+          "t": {
+            "arg": "String(t.t)",
+            "direction": "out",
+            "type": "int"
+          },
+          "tag": {
+            "arg": "a",
+            "direction": "out",
+            "optional": true,
+            "type": "string"
+          },
+          "to": {
+            "arg": "m",
+            "direction": "both",
+            "type": "jid"
+          },
+          "ttl": {
+            "arg": "n",
+            "direction": "out",
+            "optional": true,
+            "type": "int"
+          },
+          "type": {
+            "direction": "both",
+            "enumValues": [
+              "text",
+              "native_flow"
+            ],
+            "type": "enum"
+          },
+          "v": {
+            "direction": "out",
+            "optional": true,
+            "type": "literal",
+            "value": "1"
+          },
+          "value": {
+            "arg": "t",
+            "direction": "out",
+            "type": "string"
+          },
+          "verified_name": {
+            "arg": "t",
+            "direction": "out",
+            "type": "string"
+          }
+        },
+        "children": [
+          {
+            "attrs": {},
+            "children": [],
+            "presence": true,
+            "tag": "automated"
+          },
+          {
+            "attrs": {
+              "campaign_id": {
+                "arg": "i",
+                "direction": "out",
+                "type": "string"
+              },
+              "native_flow_name": {
+                "arg": "pe",
+                "direction": "out",
+                "type": "string"
+              }
+            },
+            "children": [
+              {
+                "attrs": {},
+                "children": [],
+                "presence": true,
+                "tag": "buttons"
+              }
+            ],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "biz"
+          },
+          {
+            "attrs": {
+              "agent_engagement_type": {
+                "direction": "both",
+                "optional": true,
+                "raw": "I(i||C,a,s)",
+                "type": "string"
+              },
+              "client_thread_id": {
+                "arg": "e.clientThreadId",
+                "direction": "out",
+                "type": "string"
+              },
+              "is_lid": {
+                "direction": "out",
+                "optional": true,
+                "type": "literal",
+                "value": "true"
+              },
+              "local_automated_type": {
+                "arg": "e.localAutomatedType",
+                "direction": "out",
+                "enumValues": [
+                  "1p_partial",
+                  "3p_full",
+                  "unknown"
+                ],
+                "type": "enum"
+              },
+              "mode_selected": {
+                "arg": "e.modeSelected",
+                "direction": "out",
+                "type": "string"
+              },
+              "mode_selection": {
+                "arg": "e.modeSelection",
+                "direction": "out",
+                "type": "string"
+              },
+              "persona_type": {
+                "arg": "i",
                 "direction": "both",
                 "enumValues": [
-                  "lid",
-                  "pn"
+                  "1p",
+                  "default",
+                  "ugc"
                 ],
                 "optional": true,
                 "type": "enum"
               },
-              "category": {
+              "type": {
                 "direction": "both",
                 "optional": true,
                 "type": "literal",
-                "value": "peer"
+                "value": "feedback"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "bot"
+          },
+          {
+            "__helper": "REPEATED_CHILD",
+            "attrs": {
+              "name": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              }
+            },
+            "children": [],
+            "max": 50,
+            "min": 1,
+            "tag": "capability"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true,
+            "tag": "content_binding"
+          },
+          {
+            "attrs": {
+              "recipient_status": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              }
+            },
+            "children": [],
+            "max": 1,
+            "min": 1,
+            "tag": "conversion"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true,
+            "tag": "cstoken"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "content": {
+              "direction": "out",
+              "type": "bytes"
+            },
+            "max": 1,
+            "min": 1,
+            "tag": "device-identity"
+          },
+          {
+            "attrs": {
+              "count": {
+                "arg": "f",
+                "direction": "both",
+                "optional": true,
+                "type": "int"
               },
-              "device_fanout": {
+              "decrypt-fail": {
+                "direction": "both",
+                "enumValues": [
+                  "hide"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "mediatype": {
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "native_flow_name": {
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "session_type": {
+                "direction": "both",
+                "optional": true,
+                "type": "literal",
+                "value": "pq"
+              },
+              "state": {
                 "direction": "both",
                 "optional": true,
                 "type": "literal",
                 "value": "false"
               },
-              "edit": {
+              "type": {
+                "arg": "String(r)",
                 "direction": "both",
                 "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
+                  "msg",
+                  "msmsg",
+                  "pkmsg",
+                  "skmsg"
                 ],
-                "optional": true,
                 "type": "enum"
               },
-              "eph_setting": {
-                "arg": "y",
+              "v": {
+                "arg": "o(\"WAWebBackendJobsCommon\").CIPHERTEXT_VERSION.toString()",
+                "direction": "both",
+                "type": "literal",
+                "value": "2"
+              }
+            },
+            "children": [],
+            "content": {
+              "direction": "out",
+              "type": "bytes"
+            },
+            "max": 1,
+            "min": 1,
+            "tag": "enc"
+          },
+          {
+            "attrs": {},
+            "children": [
+              {
+                "attrs": {},
+                "children": [],
+                "presence": true,
+                "tag": "franking_tag"
+              }
+            ],
+            "max": 1,
+            "min": 1,
+            "tag": "franking"
+          },
+          {
+            "appliedMixin": [
+              "WASmaxOutMessagePublishHSMReviewMetadataMixin",
+              "WASmaxMixins",
+              "WASmaxOutMessagePublishCapabilitiesMixin?",
+              "WASmaxMixins",
+              "WASmaxOutMessagePublishQualityTokenMixin?"
+            ],
+            "attrs": {
+              "buttons": {
+                "direction": "out",
+                "optional": true,
+                "type": "literal",
+                "value": "1"
+              },
+              "category": {
+                "arg": "r",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
               },
-              "from": {
-                "arg": "m",
-                "direction": "out",
-                "type": "jid"
-              },
               "id": {
-                "arg": "s",
-                "direction": "both",
-                "type": "stanzaId"
+                "arg": "i",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
               },
               "is_template_from_library_edited": {
                 "arg": "u",
@@ -38417,75 +39291,11 @@
                 "type": "literal",
                 "value": "full_catalog"
               },
-              "notify": {
-                "arg": "c(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
-                "direction": "out",
-                "optional": true,
-                "type": "string"
-              },
-              "offline": {
-                "arg": "String(1)",
-                "direction": "out",
-                "type": "int"
-              },
-              "participant": {
+              "objective": {
                 "arg": "i",
-                "direction": "both",
-                "optional": true,
-                "type": "jid"
-              },
-              "peer_recipient_lid": {
-                "arg": "se",
-                "direction": "both",
-                "optional": true,
-                "type": "userJid"
-              },
-              "peer_recipient_pn": {
-                "arg": "le",
-                "direction": "both",
-                "optional": true,
-                "type": "userJid"
-              },
-              "peer_recipient_username": {
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ue)",
-                "direction": "both",
+                "direction": "out",
                 "optional": true,
                 "type": "string"
-              },
-              "phash": {
-                "arg": "d",
-                "direction": "both",
-                "optional": true,
-                "type": "string"
-              },
-              "privacy_sensitive": {
-                "arg": "v.privacySensitive.valueOf().toString()",
-                "direction": "out",
-                "optional": true,
-                "type": "bool"
-              },
-              "push_priority": {
-                "arg": "ee",
-                "direction": "out",
-                "type": "string"
-              },
-              "recipient": {
-                "arg": "R",
-                "direction": "out",
-                "optional": true,
-                "type": "userJid"
-              },
-              "recipient_pn": {
-                "arg": "Ce",
-                "direction": "out",
-                "optional": true,
-                "type": "userJid"
-              },
-              "sender_lid": {
-                "arg": "d()",
-                "direction": "out",
-                "optional": true,
-                "type": "userJid"
               },
               "sub_tag": {
                 "arg": "l",
@@ -38493,74 +39303,300 @@
                 "optional": true,
                 "type": "string"
               },
-              "t": {
-                "arg": "String(t.t)",
-                "direction": "out",
-                "type": "int"
-              },
               "tag": {
                 "arg": "a",
                 "direction": "out",
                 "optional": true,
                 "type": "string"
               },
-              "to": {
-                "arg": "m",
-                "direction": "both",
-                "type": "jid"
-              },
-              "ttl": {
-                "arg": "n",
-                "direction": "out",
-                "optional": true,
-                "type": "int"
-              },
-              "type": {
-                "direction": "both",
-                "enumValues": [
-                  "text",
-                  "native_flow"
-                ],
-                "type": "enum"
-              },
               "v": {
                 "direction": "out",
                 "optional": true,
                 "type": "literal",
                 "value": "1"
-              },
-              "value": {
-                "arg": "t",
-                "direction": "out",
-                "type": "string"
-              },
-              "verified_name": {
-                "arg": "t",
-                "direction": "out",
-                "type": "string"
               }
             },
             "children": [
               {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "automated"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "buttons"
+                "attrs": {
+                  "v": {
+                    "direction": "out",
+                    "optional": true,
+                    "type": "literal",
+                    "value": "1"
                   }
-                ],
+                },
+                "children": [],
                 "max": 1,
                 "min": 1,
-                "tag": "biz"
+                "tag": "quality_token"
+              }
+            ],
+            "max": 1,
+            "min": 1,
+            "tag": "hsm"
+          },
+          {
+            "attrs": {
+              "type": {
+                "direction": "both",
+                "type": "literal",
+                "value": "native_flow"
               },
+              "v": {
+                "direction": "both",
+                "type": "literal",
+                "value": "1"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "interactive"
+          },
+          {
+            "attrs": {
+              "rkid": {
+                "arg": "e.revealKeyId",
+                "direction": "both",
+                "type": "string"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "key"
+          },
+          {
+            "attrs": {
+              "appdata": {
+                "arg": "N",
+                "direction": "both",
+                "enumValues": [
+                  "default",
+                  "group_history",
+                  "member_tag"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "collection_type": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "content_type": {
+                "arg": "t",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "context_source": {
+                "arg": "k",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "conversation_thread_id": {
+                "arg": "I",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "destination_id": {
+                "arg": "$",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "event_type": {
+                "arg": "E",
+                "direction": "out",
+                "enumValues": [
+                  "creation",
+                  "edit",
+                  "response"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "is_group_status": {
+                "direction": "out",
+                "optional": true,
+                "type": "literal",
+                "value": "true"
+              },
+              "message_association_type": {
+                "arg": "L",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
+              },
+              "metering_type": {
+                "direction": "out",
+                "type": "literal",
+                "value": "smb_mm"
+              },
+              "origin": {
+                "arg": "P",
+                "direction": "out",
+                "enumValues": [
+                  "ctwa"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "peripheral": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "polltype": {
+                "arg": "R",
+                "direction": "out",
+                "enumValues": [
+                  "creation",
+                  "edit",
+                  "quiz_creation",
+                  "result_snapshot",
+                  "vote"
+                ],
+                "optional": true,
+                "type": "enum"
+              },
+              "premium_type": {
+                "arg": "t",
+                "direction": "out",
+                "type": "string"
+              },
+              "sender_intent": {
+                "direction": "out",
+                "optional": true,
+                "type": "literal",
+                "value": "hosted"
+              },
+              "session_scope": {
+                "direction": "both",
+                "optional": true,
+                "type": "literal",
+                "value": "status"
+              },
+              "sg_capture": {
+                "direction": "out",
+                "type": "literal",
+                "value": "1"
+              },
+              "st": {
+                "arg": "String(O.scheduledTimestampS)",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              },
+              "status_setting": {
+                "direction": "out",
+                "optional": true,
+                "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(r)",
+                "type": "string"
+              },
+              "tag_reason": {
+                "arg": "M",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
+              },
+              "thread_msg_id": {
+                "arg": "T.threadMsgId",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
+              },
+              "thread_msg_sender_jid": {
+                "arg": "T.threadMsgSenderLid",
+                "direction": "out",
+                "optional": true,
+                "type": "userJid"
+              },
+              "type": {
+                "arg": "o(\"WAWebScheduledMsgConstants\").SCHEDULED_MSG_META_TYPE",
+                "direction": "both",
+                "optional": true,
+                "type": "literal",
+                "value": "scheduled_message"
+              },
+              "view_once": {
+                "direction": "both",
+                "optional": true,
+                "type": "literal",
+                "value": "true"
+              }
+            },
+            "children": [
+              {
+                "attrs": {
+                  "rkid": {
+                    "arg": "n",
+                    "direction": "out",
+                    "type": "string"
+                  }
+                },
+                "children": [],
+                "content": {
+                  "type": "bytes"
+                },
+                "max": 1,
+                "min": 1,
+                "tag": "key"
+              }
+            ],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "meta"
+          },
+          {
+            "attrs": {},
+            "children": [
+              {
+                "attrs": {
+                  "version": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
+                  }
+                },
+                "children": [],
+                "max": 1,
+                "min": 1,
+                "tag": "payments_metadata"
+              }
+            ],
+            "max": 1,
+            "min": 1,
+            "tag": "mixed_metadata"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "presence": true,
+            "tag": "multicast"
+          },
+          {
+            "attrs": {
+              "name": {
+                "arg": "t",
+                "direction": "both",
+                "type": "string"
+              },
+              "v": {
+                "arg": "n",
+                "direction": "out",
+                "optional": true,
+                "type": "int"
+              }
+            },
+            "children": [
               {
                 "__helper": "REPEATED_CHILD",
                 "attrs": {
@@ -38574,217 +39610,6 @@
                 "max": 50,
                 "min": 1,
                 "tag": "capability"
-              },
-              {
-                "attrs": {
-                  "recipient_status": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "conversion"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 1,
-                "tag": "device-identity"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "franking_tag"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "franking"
-              },
-              {
-                "appliedMixin": [
-                  "WASmaxOutMessagePublishHSMReviewMetadataMixin",
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishCapabilitiesMixin?",
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishQualityTokenMixin?"
-                ],
-                "attrs": {
-                  "buttons": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "1"
-                  },
-                  "category": {
-                    "arg": "r",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "id": {
-                    "arg": "i",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "is_template_from_library_edited": {
-                    "arg": "u",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "library_template_id": {
-                    "arg": "s",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "name": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "full_catalog"
-                  },
-                  "objective": {
-                    "arg": "i",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "sub_tag": {
-                    "arg": "l",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "tag": {
-                    "arg": "a",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "v": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "1"
-                  }
-                },
-                "children": [
-                  {
-                    "attrs": {
-                      "v": {
-                        "direction": "out",
-                        "optional": true,
-                        "type": "literal",
-                        "value": "1"
-                      }
-                    },
-                    "children": [],
-                    "max": 1,
-                    "min": 1,
-                    "tag": "quality_token"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "hsm"
-              },
-              {
-                "attrs": {
-                  "appdata": {
-                    "arg": "t",
-                    "direction": "out",
-                    "enumValues": [
-                      "default",
-                      "group_history",
-                      "member_tag"
-                    ],
-                    "type": "enum"
-                  },
-                  "collection_type": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "context_source": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "conversation_thread_id": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "destination_id": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "peripheral": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "premium_type": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "sg_capture": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "1"
-                  },
-                  "st": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "int"
-                  },
-                  "type": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "scheduled_message"
-                  },
-                  "view_once": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "true"
-                  }
-                },
-                "children": [
-                  {
-                    "attrs": {
-                      "rkid": {
-                        "arg": "n",
-                        "direction": "out",
-                        "type": "string"
-                      }
-                    },
-                    "children": [],
-                    "content": {
-                      "type": "bytes"
-                    },
-                    "max": 1,
-                    "min": 1,
-                    "tag": "key"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "meta"
               },
               {
                 "attrs": {},
@@ -38806,1312 +39631,94 @@
                 "max": 1,
                 "min": 1,
                 "tag": "mixed_metadata"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "multicast"
-              },
-              {
-                "appliedMixin": [
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishExtensionsMetadataMixin?",
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishMixedMetadataMixin?"
-                ],
-                "attrs": {
-                  "name": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "v": {
-                    "arg": "n",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "int"
-                  }
-                },
-                "children": [
-                  {
-                    "__helper": "REPEATED_CHILD",
-                    "attrs": {
-                      "name": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "string"
-                      }
-                    },
-                    "children": [],
-                    "max": 50,
-                    "min": 1,
-                    "tag": "capability"
-                  },
-                  {
-                    "attrs": {},
-                    "children": [
-                      {
-                        "attrs": {
-                          "version": {
-                            "arg": "t",
-                            "direction": "out",
-                            "type": "int"
-                          }
-                        },
-                        "children": [],
-                        "max": 1,
-                        "min": 1,
-                        "tag": "payments_metadata"
-                      }
-                    ],
-                    "max": 1,
-                    "min": 1,
-                    "tag": "mixed_metadata"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "native_flow"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 1,
-                "tag": "padding"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "__helper": "REPEATED_CHILD",
-                    "appliedMixin": [
-                      "WASmaxOutMessagePublishToDeviceMixin",
-                      "WASmaxMixins",
-                      "WASmaxOutMessagePublishToContentBindingMixin?"
-                    ],
-                    "attrs": {
-                      "jid": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "jid"
-                      },
-                      "mediatype": {
-                        "arg": "t",
-                        "direction": "out",
-                        "optional": true,
-                        "type": "string"
-                      },
-                      "native_flow_name": {
-                        "arg": "n",
-                        "direction": "out",
-                        "optional": true,
-                        "type": "string"
-                      },
-                      "session_type": {
-                        "direction": "out",
-                        "type": "literal",
-                        "value": "pq"
-                      },
-                      "state": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "string"
-                      },
-                      "sticker_type": {
-                        "direction": "out",
-                        "type": "literal",
-                        "value": "avatar"
-                      },
-                      "type": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "string"
-                      }
-                    },
-                    "children": [
-                      {
-                        "attrs": {},
-                        "children": [],
-                        "presence": true,
-                        "tag": "content_binding"
-                      },
-                      {
-                        "appliedMixin": [
-                          "WASmaxOutMessagePublishEncTypeIndividualMixin",
-                          "WASmaxMixins",
-                          "WASmaxOutMessagePublishEncMediaTypeDeprecatedMixin?",
-                          "WASmaxOutMessagePublishEncVersion"
-                        ],
-                        "attrs": {
-                          "mediatype": {
-                            "arg": "t",
-                            "direction": "out",
-                            "type": "string"
-                          },
-                          "native_flow_name": {
-                            "arg": "t",
-                            "direction": "out",
-                            "optional": true,
-                            "type": "string"
-                          },
-                          "session_type": {
-                            "direction": "out",
-                            "type": "literal",
-                            "value": "pq"
-                          },
-                          "state": {
-                            "arg": "t",
-                            "direction": "out",
-                            "enumValues": [
-                              "false",
-                              "true"
-                            ],
-                            "type": "enum"
-                          },
-                          "sticker_type": {
-                            "direction": "out",
-                            "type": "literal",
-                            "value": "avatar"
-                          },
-                          "type": {
-                            "arg": "t",
-                            "direction": "out",
-                            "enumValues": [
-                              "msg",
-                              "msmsg",
-                              "pkmsg",
-                              "skmsg"
-                            ],
-                            "type": "enum"
-                          },
-                          "v": {
-                            "direction": "out",
-                            "type": "literal",
-                            "value": "2"
-                          }
-                        },
-                        "children": [],
-                        "content": {
-                          "type": "bytes"
-                        },
-                        "max": 1,
-                        "min": 1,
-                        "tag": "enc"
-                      }
-                    ],
-                    "max": 1997,
-                    "min": 1,
-                    "tag": "to"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "participants"
-              },
-              {
-                "attrs": {
-                  "v": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "1"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "quality_token"
-              },
-              {
-                "appliedMixin": [
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishReportingTokenElementMixin?"
-                ],
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {
-                      "v": {
-                        "arg": "t",
-                        "direction": "out",
-                        "optional": true,
-                        "type": "int"
-                      }
-                    },
-                    "children": [],
-                    "content": {
-                      "type": "bytes"
-                    },
-                    "max": 1,
-                    "min": 1,
-                    "tag": "reporting_token"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "reporting"
-              },
-              {
-                "attrs": {
-                  "v": {
-                    "arg": "t",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 1,
-                "tag": "reporting_token"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "request_id"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "ta_pad"
-              },
-              {
-                "attrs": {
-                  "config": {
-                    "arg": "t",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "test"
-              },
-              {
-                "appliedMixin": "WASmaxOutMessagePublishRequestOrTraceIDMixinGroup",
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "request_id"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "trace"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "url_number"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "url_text"
               }
             ],
             "content": null,
-            "tag": "message"
-          }
-        },
-        "from-is-not-newsletter": {
-          "condition": "from-is-not-newsletter",
-          "delegatesToParser": {
-            "module": "WAWebHandleMsgParser",
-            "parser": "incomingMsgParser"
+            "max": 1,
+            "min": 1,
+            "tag": "native_flow"
           },
-          "entryName": "default",
-          "handler": {
-            "method": "default",
-            "module": "WAWebHandleMsg"
-          },
-          "node": {
-            "attrs": {
-              "addressing_mode": {
-                "arg": "re",
-                "direction": "both",
-                "enumValues": [
-                  "lid",
-                  "pn"
-                ],
-                "optional": true,
-                "type": "enum"
-              },
-              "category": {
-                "direction": "both",
-                "optional": true,
-                "type": "literal",
-                "value": "peer"
-              },
-              "device_fanout": {
-                "direction": "both",
-                "optional": true,
-                "type": "literal",
-                "value": "false"
-              },
-              "edit": {
-                "direction": "both",
-                "enumValues": [
-                  "1",
-                  "2",
-                  "3",
-                  "7",
-                  "8"
-                ],
-                "optional": true,
-                "type": "enum"
-              },
-              "eph_setting": {
-                "arg": "y",
-                "direction": "out",
-                "optional": true,
-                "type": "string"
-              },
-              "from": {
-                "direction": "both",
-                "type": "jid"
-              },
-              "id": {
-                "arg": "s",
-                "direction": "both",
-                "type": "stanzaId"
-              },
-              "is_template_from_library_edited": {
-                "arg": "u",
-                "direction": "out",
-                "optional": true,
-                "type": "bool"
-              },
-              "library_template_id": {
-                "arg": "s",
-                "direction": "out",
-                "optional": true,
-                "type": "string"
-              },
-              "name": {
-                "direction": "out",
-                "type": "literal",
-                "value": "full_catalog"
-              },
-              "notify": {
-                "arg": "c(r(\"nullthrows\")(o(\"WAWebMsgGetters\").getSender(t)))",
-                "direction": "out",
-                "optional": true,
-                "type": "string"
-              },
-              "offline": {
-                "arg": "String(1)",
-                "direction": "out",
-                "type": "int"
-              },
-              "participant": {
-                "direction": "both",
-                "optional": true,
-                "type": "userJid"
-              },
-              "peer_recipient_lid": {
-                "arg": "se",
-                "direction": "both",
-                "optional": true,
-                "type": "userJid"
-              },
-              "peer_recipient_pn": {
-                "arg": "le",
-                "direction": "both",
-                "optional": true,
-                "type": "userJid"
-              },
-              "peer_recipient_username": {
-                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(ue)",
-                "direction": "both",
-                "optional": true,
-                "type": "string"
-              },
-              "phash": {
-                "arg": "d",
-                "direction": "both",
-                "optional": true,
-                "type": "string"
-              },
-              "privacy_sensitive": {
-                "arg": "v.privacySensitive.valueOf().toString()",
-                "direction": "out",
-                "optional": true,
-                "type": "bool"
-              },
-              "push_priority": {
-                "arg": "ee",
-                "direction": "out",
-                "type": "string"
-              },
-              "recipient": {
-                "direction": "both",
-                "type": "userJid"
-              },
-              "recipient_pn": {
-                "arg": "Ce",
-                "direction": "out",
-                "optional": true,
-                "type": "userJid"
-              },
-              "sender_lid": {
-                "arg": "d()",
-                "direction": "out",
-                "optional": true,
-                "type": "userJid"
-              },
-              "sub_tag": {
-                "arg": "l",
-                "direction": "out",
-                "optional": true,
-                "type": "string"
-              },
-              "t": {
-                "direction": "both",
-                "type": "int"
-              },
-              "tag": {
-                "arg": "a",
-                "direction": "out",
-                "optional": true,
-                "type": "string"
-              },
-              "to": {
-                "arg": "m",
-                "direction": "both",
-                "type": "jid"
-              },
-              "ttl": {
-                "arg": "n",
-                "direction": "out",
-                "optional": true,
-                "type": "int"
-              },
-              "type": {
-                "direction": "both",
-                "enumRef": "o(\"WAWebHandleMsgCommon\").STANZA_MSG_TYPES",
-                "enumValues": [
-                  "text",
-                  "media",
-                  "medianotify",
-                  "pay",
-                  "poll",
-                  "reaction",
-                  "event"
-                ],
-                "type": "enum"
-              },
-              "v": {
-                "direction": "out",
-                "optional": true,
-                "type": "literal",
-                "value": "1"
-              },
-              "value": {
-                "arg": "t",
-                "direction": "out",
-                "type": "string"
-              },
-              "verified_level": {
-                "enumRef": "o(\"WAWebHandleMsgCommon\").MSG_VERIFIED_LEVEL",
-                "enumValues": [
-                  "high",
-                  "low",
-                  "unknown"
-                ],
-                "optional": true,
-                "type": "enum"
-              },
-              "verified_name": {
-                "direction": "both",
-                "optional": true,
-                "type": "string"
-              }
+          {
+            "attrs": {},
+            "children": [],
+            "content": {
+              "type": "bytes"
             },
+            "max": 1,
+            "min": 1,
+            "tag": "padding"
+          },
+          {
+            "attrs": {},
             "children": [
               {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "automated"
-              },
-              {
-                "attrs": {
-                  "actual_actors": {
-                    "optional": true,
-                    "type": "int"
-                  },
-                  "campaign_id": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "host_storage": {
-                    "optional": true,
-                    "type": "int"
-                  },
-                  "native_flow_name": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "privacy_mode_ts": {
-                    "optional": true,
-                    "type": "int"
-                  }
-                },
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "content": null,
-                    "max": 1,
-                    "min": 0,
-                    "presence": true,
-                    "tag": "buttons"
-                  },
-                  {
-                    "attrs": {
-                      "source_type": {
-                        "optional": true,
-                        "type": "string"
-                      }
-                    },
-                    "children": [],
-                    "content": null,
-                    "max": 1,
-                    "min": 0,
-                    "tag": "delivery_context"
-                  },
-                  {
-                    "attrs": {
-                      "name": {
-                        "direction": "both",
-                        "optional": true,
-                        "type": "string"
-                      },
-                      "type": {
-                        "direction": "both",
-                        "type": "literal",
-                        "value": "native_flow"
-                      },
-                      "v": {
-                        "direction": "both",
-                        "type": "literal",
-                        "value": "1"
-                      }
-                    },
-                    "children": [
-                      {
-                        "attrs": {
-                          "name": {
-                            "direction": "both",
-                            "optional": true,
-                            "type": "string"
-                          }
-                        },
-                        "children": [],
-                        "content": null,
-                        "max": 1,
-                        "min": 0,
-                        "tag": "native_flow"
-                      }
-                    ],
-                    "content": null,
-                    "max": 1,
-                    "min": 0,
-                    "tag": "interactive"
-                  },
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "content": null,
-                    "max": 1,
-                    "min": 0,
-                    "presence": true,
-                    "tag": "list"
-                  },
-                  {
-                    "attrs": {
-                      "decision_id": {
-                        "optional": true,
-                        "type": "string"
-                      },
-                      "source_type": {
-                        "optional": true,
-                        "type": "string"
-                      }
-                    },
-                    "children": [
-                      {
-                        "attrs": {
-                          "value": {
-                            "optional": true,
-                            "type": "string"
-                          }
-                        },
-                        "children": [],
-                        "content": null,
-                        "max": null,
-                        "min": 0,
-                        "tag": "decision_source"
-                      }
-                    ],
-                    "content": null,
-                    "max": 1,
-                    "min": 0,
-                    "tag": "quality_control"
-                  }
-                ],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "biz"
-              },
-              {
-                "attrs": {
-                  "agent_engagement_type": {
-                    "direction": "both",
-                    "optional": true,
-                    "raw": "I(i||C,a,s)",
-                    "type": "string"
-                  },
-                  "biz_bot": {
-                    "enumValues": [
-                      "1",
-                      "3"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "client_thread_id": {
-                    "arg": "e.clientThreadId",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "edit": {
-                    "enumValues": [
-                      "first",
-                      "full",
-                      "inner",
-                      "last"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "edit_target_id": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "is_lid": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "true"
-                  },
-                  "local_automated_type": {
-                    "arg": "e.localAutomatedType",
-                    "direction": "out",
-                    "enumValues": [
-                      "1p_partial",
-                      "3p_full",
-                      "unknown"
-                    ],
-                    "type": "enum"
-                  },
-                  "mode_selected": {
-                    "arg": "e.modeSelected",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "mode_selection": {
-                    "arg": "e.modeSelection",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "persona_type": {
-                    "arg": "i",
-                    "direction": "both",
-                    "enumValues": [
-                      "1p",
-                      "default",
-                      "ugc"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "sender_timestamp_ms": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "type": {
-                    "direction": "both",
-                    "enumValues": [
-                      "command",
-                      "prompt",
-                      "voice"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "bot"
-              },
-              {
                 "__helper": "REPEATED_CHILD",
+                "appliedMixin": [
+                  "WASmaxOutMessagePublishToDeviceMixin",
+                  "WASmaxMixins",
+                  "WASmaxOutMessagePublishToContentBindingMixin?"
+                ],
                 "attrs": {
-                  "name": {
+                  "jid": {
                     "arg": "t",
                     "direction": "out",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "max": 50,
-                "min": 1,
-                "tag": "capability"
-              },
-              {
-                "attrs": {
-                  "recipient_status": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "conversion"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 0,
-                "tag": "device-identity"
-              },
-              {
-                "attrs": {
-                  "count": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "int"
-                  },
-                  "decrypt-fail": {
-                    "direction": "both",
-                    "enumValues": [
-                      "hide"
-                    ],
-                    "optional": true,
-                    "type": "enum"
+                    "type": "jid"
                   },
                   "mediatype": {
-                    "direction": "both",
+                    "arg": "t",
+                    "direction": "out",
                     "optional": true,
                     "type": "string"
                   },
                   "native_flow_name": {
-                    "direction": "both",
+                    "arg": "n",
+                    "direction": "out",
                     "optional": true,
                     "type": "string"
                   },
                   "session_type": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
+                    "direction": "out",
+                    "type": "literal",
+                    "value": "pq"
                   },
                   "state": {
-                    "direction": "both",
-                    "enumValues": [
-                      "false",
-                      "true"
-                    ],
-                    "optional": true,
-                    "type": "enum"
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
+                  },
+                  "sticker_type": {
+                    "direction": "out",
+                    "type": "literal",
+                    "value": "avatar"
                   },
                   "type": {
-                    "direction": "both",
-                    "enumRef": "o(\"WAWebBackendJobs.flow\").CiphertextType.members()",
-                    "enumValues": [
-                      "skmsg",
-                      "pkmsg",
-                      "msg",
-                      "msmsg"
-                    ],
-                    "type": "enum"
-                  },
-                  "v": {
-                    "arg": "o(\"WAWebBackendJobsCommon\").CIPHERTEXT_VERSION.toString()",
-                    "direction": "both",
-                    "type": "literal",
-                    "value": "2"
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "string"
                   }
                 },
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": null,
-                "min": 0,
-                "tag": "enc"
-              },
-              {
-                "attrs": {},
                 "children": [
                   {
                     "attrs": {},
                     "children": [],
                     "presence": true,
-                    "tag": "franking_tag"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "franking"
-              },
-              {
-                "attrs": {
-                  "buttons": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "1"
-                  },
-                  "category": {
-                    "arg": "r",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "id": {
-                    "arg": "i",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "is_template_from_library_edited": {
-                    "arg": "u",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "library_template_id": {
-                    "arg": "s",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "name": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "full_catalog"
-                  },
-                  "objective": {
-                    "arg": "i",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "sub_tag": {
-                    "arg": "l",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "tag": {
-                    "arg": "a",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "v": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "1"
-                  }
-                },
-                "children": [
-                  {
-                    "attrs": {
-                      "v": {
-                        "direction": "out",
-                        "optional": true,
-                        "type": "literal",
-                        "value": "1"
-                      }
-                    },
-                    "children": [],
-                    "max": 1,
-                    "min": 1,
-                    "tag": "quality_token"
-                  }
-                ],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "hsm"
-              },
-              {
-                "attrs": {
-                  "appdata": {
-                    "direction": "both",
-                    "enumRef": "o(\"WAWebHandleMsgCommon\").APPDATA",
-                    "enumValues": [
-                      "default",
-                      "member_tag",
-                      "group_history"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "capi": {
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "collection_type": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "content_type": {
-                    "arg": "t",
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "context_source": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "conversation_thread_id": {
-                    "arg": "I",
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "destination_id": {
-                    "arg": "$",
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "event_type": {
-                    "direction": "both",
-                    "enumValues": [
-                      "creation",
-                      "edit",
-                      "response"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "from": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "is_group_status": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "message_association_type": {
-                    "arg": "L",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "metering_type": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "smb_mm"
-                  },
-                  "origin": {
-                    "direction": "both",
-                    "enumRef": "o(\"WAWebHandleMsgCommon\").STANZA_MSG_ORIGIN",
-                    "enumValues": [
-                      "ctwa"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "peripheral": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "polltype": {
-                    "direction": "both",
-                    "enumRef": "o(\"WAWebHandleMsgCommon\").POLL_TYPES",
-                    "enumValues": [
-                      "creation",
-                      "quiz_creation",
-                      "vote",
-                      "result_snapshot",
-                      "edit"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "premium_type": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "read": {
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "sender_intent": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "hosted"
-                  },
-                  "session_scope": {
-                    "direction": "both",
-                    "enumValues": [
-                      "default",
-                      "status"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  },
-                  "sg_capture": {
-                    "direction": "out",
-                    "type": "literal",
-                    "value": "1"
-                  },
-                  "st": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "int"
-                  },
-                  "status_mentioned": {
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "status_setting": {
-                    "direction": "out",
-                    "optional": true,
-                    "raw": "o(\"WAWebStatusPublishRequestArgs\").toStatusSettingMetaAttribute(r)",
-                    "type": "string"
-                  },
-                  "tag_reason": {
-                    "arg": "M",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "target_chat_jid": {
-                    "optional": true,
-                    "type": "jid"
-                  },
-                  "target_chat_jid_lid": {
-                    "optional": true,
-                    "type": "userJid"
-                  },
-                  "target_id": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "target_sender_jid": {
-                    "optional": true,
-                    "type": "jid"
-                  },
-                  "thread_msg_id": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "thread_msg_sender_jid": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "jid"
-                  },
-                  "type": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "view_once": {
-                    "direction": "both",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "true"
-                  }
-                },
-                "children": [
-                  {
-                    "attrs": {
-                      "rkid": {
-                        "direction": "both",
-                        "optional": true,
-                        "type": "string"
-                      }
-                    },
-                    "children": [],
-                    "content": {
-                      "type": "bytes"
-                    },
-                    "max": 1,
-                    "min": 0,
-                    "tag": "key"
-                  }
-                ],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "meta"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {
-                      "version": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "int"
-                      }
-                    },
-                    "children": [],
-                    "max": 1,
-                    "min": 1,
-                    "tag": "payments_metadata"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "mixed_metadata"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "multicast"
-              },
-              {
-                "appliedMixin": [
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishExtensionsMetadataMixin?",
-                  "WASmaxMixins",
-                  "WASmaxOutMessagePublishMixedMetadataMixin?"
-                ],
-                "attrs": {
-                  "name": {
-                    "arg": "t",
-                    "direction": "out",
-                    "type": "string"
-                  },
-                  "v": {
-                    "arg": "n",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "int"
-                  }
-                },
-                "children": [
-                  {
-                    "__helper": "REPEATED_CHILD",
-                    "attrs": {
-                      "name": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "string"
-                      }
-                    },
-                    "children": [],
-                    "max": 50,
-                    "min": 1,
-                    "tag": "capability"
+                    "tag": "content_binding"
                   },
                   {
-                    "attrs": {},
-                    "children": [
-                      {
-                        "attrs": {
-                          "version": {
-                            "arg": "t",
-                            "direction": "out",
-                            "type": "int"
-                          }
-                        },
-                        "children": [],
-                        "max": 1,
-                        "min": 1,
-                        "tag": "payments_metadata"
-                      }
-                    ],
-                    "max": 1,
-                    "min": 1,
-                    "tag": "mixed_metadata"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "native_flow"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 1,
-                "tag": "padding"
-              },
-              {
-                "attrs": {},
-                "children": [
-                  {
-                    "__helper": "REPEATED_CHILD",
                     "appliedMixin": [
-                      "WASmaxOutMessagePublishToDeviceMixin",
+                      "WASmaxOutMessagePublishEncTypeIndividualMixin",
                       "WASmaxMixins",
-                      "WASmaxOutMessagePublishToContentBindingMixin?"
+                      "WASmaxOutMessagePublishEncMediaTypeDeprecatedMixin?",
+                      "WASmaxOutMessagePublishEncVersion"
                     ],
                     "attrs": {
-                      "jid": {
-                        "arg": "t",
-                        "direction": "out",
-                        "type": "jid"
-                      },
                       "mediatype": {
                         "arg": "t",
                         "direction": "out",
-                        "optional": true,
                         "type": "string"
                       },
                       "native_flow_name": {
-                        "arg": "n",
+                        "arg": "t",
                         "direction": "out",
                         "optional": true,
                         "type": "string"
@@ -40124,7 +39731,11 @@
                       "state": {
                         "arg": "t",
                         "direction": "out",
-                        "type": "string"
+                        "enumValues": [
+                          "false",
+                          "true"
+                        ],
+                        "type": "enum"
                       },
                       "sticker_type": {
                         "direction": "out",
@@ -40134,175 +39745,18 @@
                       "type": {
                         "arg": "t",
                         "direction": "out",
-                        "type": "string"
-                      }
-                    },
-                    "children": [
-                      {
-                        "attrs": {},
-                        "children": [],
-                        "presence": true,
-                        "tag": "content_binding"
-                      },
-                      {
-                        "appliedMixin": [
-                          "WASmaxOutMessagePublishEncTypeIndividualMixin",
-                          "WASmaxMixins",
-                          "WASmaxOutMessagePublishEncMediaTypeDeprecatedMixin?",
-                          "WASmaxOutMessagePublishEncVersion"
+                        "enumValues": [
+                          "msg",
+                          "msmsg",
+                          "pkmsg",
+                          "skmsg"
                         ],
-                        "attrs": {
-                          "mediatype": {
-                            "arg": "t",
-                            "direction": "out",
-                            "type": "string"
-                          },
-                          "native_flow_name": {
-                            "arg": "t",
-                            "direction": "out",
-                            "optional": true,
-                            "type": "string"
-                          },
-                          "session_type": {
-                            "direction": "out",
-                            "type": "literal",
-                            "value": "pq"
-                          },
-                          "state": {
-                            "arg": "t",
-                            "direction": "out",
-                            "enumValues": [
-                              "false",
-                              "true"
-                            ],
-                            "type": "enum"
-                          },
-                          "sticker_type": {
-                            "direction": "out",
-                            "type": "literal",
-                            "value": "avatar"
-                          },
-                          "type": {
-                            "arg": "t",
-                            "direction": "out",
-                            "enumValues": [
-                              "msg",
-                              "msmsg",
-                              "pkmsg",
-                              "skmsg"
-                            ],
-                            "type": "enum"
-                          },
-                          "v": {
-                            "direction": "out",
-                            "type": "literal",
-                            "value": "2"
-                          }
-                        },
-                        "children": [],
-                        "content": {
-                          "type": "bytes"
-                        },
-                        "max": 1,
-                        "min": 1,
-                        "tag": "enc"
-                      }
-                    ],
-                    "max": 1997,
-                    "min": 1,
-                    "tag": "to"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "participants"
-              },
-              {
-                "attrs": {
-                  "receiver": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "transaction-type": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "type": {
-                    "enumRef": "o(\"WAWebHandleMsgCommon\").PAY_NODE_TYPES",
-                    "enumValues": [
-                      "send",
-                      "request",
-                      "futureproof",
-                      "request-decline",
-                      "request-cancel",
-                      "invite"
-                    ],
-                    "type": "enum"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "pay"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "presence": true,
-                "tag": "plaintext"
-              },
-              {
-                "attrs": {
-                  "v": {
-                    "direction": "out",
-                    "optional": true,
-                    "type": "literal",
-                    "value": "1"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "quality_token"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 0,
-                "tag": "rcat"
-              },
-              {
-                "attrs": {
-                  "validation_policy": {
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "content": {
-                      "type": "bytes"
-                    },
-                    "max": 1,
-                    "min": 0,
-                    "tag": "reporting_tag"
-                  },
-                  {
-                    "attrs": {
+                        "type": "enum"
+                      },
                       "v": {
-                        "direction": "both",
-                        "optional": true,
-                        "type": "string"
+                        "direction": "out",
+                        "type": "literal",
+                        "value": "2"
                       }
                     },
                     "children": [],
@@ -40310,15 +39764,37 @@
                       "type": "bytes"
                     },
                     "max": 1,
-                    "min": 0,
-                    "tag": "reporting_token"
+                    "min": 1,
+                    "tag": "enc"
                   }
                 ],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "reporting"
-              },
+                "max": 1997,
+                "min": 1,
+                "tag": "to"
+              }
+            ],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "participants"
+          },
+          {
+            "attrs": {
+              "v": {
+                "direction": "out",
+                "optional": true,
+                "type": "literal",
+                "value": "1"
+              }
+            },
+            "children": [],
+            "max": 1,
+            "min": 1,
+            "tag": "quality_token"
+          },
+          {
+            "attrs": {},
+            "children": [
               {
                 "attrs": {
                   "v": {
@@ -40335,133 +39811,134 @@
                 "max": 1,
                 "min": 1,
                 "tag": "reporting_token"
+              }
+            ],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "reporting"
+          },
+          {
+            "attrs": {
+              "v": {
+                "arg": "String(e.version)",
+                "direction": "both",
+                "type": "string"
+              }
+            },
+            "children": [],
+            "content": {
+              "direction": "out",
+              "type": "bytes"
+            },
+            "max": 1,
+            "min": 1,
+            "tag": "reporting_token"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "presence": true,
+            "tag": "request_id"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true,
+            "tag": "sender_content_binding"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "presence": true,
+            "tag": "ta_pad"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "content": null,
+            "presence": true,
+            "tag": "tctoken"
+          },
+          {
+            "attrs": {
+              "config": {
+                "arg": "t",
+                "direction": "out",
+                "optional": true,
+                "type": "string"
+              }
+            },
+            "children": [],
+            "max": 1,
+            "min": 1,
+            "tag": "test"
+          },
+          {
+            "attrs": {
+              "eph_setting": {
+                "arg": "m",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
               },
+              "jid": {
+                "arg": "n",
+                "direction": "both",
+                "type": "jid"
+              },
+              "peer_recipient_pn": {
+                "arg": "l",
+                "direction": "both",
+                "optional": true,
+                "type": "userJid"
+              },
+              "peer_recipient_username": {
+                "arg": "o(\"WAWebUsernameTypes\").serializeUsername(s)",
+                "direction": "both",
+                "optional": true,
+                "type": "string"
+              }
+            },
+            "children": [],
+            "content": null,
+            "max": 1,
+            "min": 1,
+            "tag": "to"
+          },
+          {
+            "appliedMixin": "WASmaxOutMessagePublishRequestOrTraceIDMixinGroup",
+            "attrs": {},
+            "children": [
               {
                 "attrs": {},
                 "children": [],
                 "presence": true,
                 "tag": "request_id"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "presence": true,
-                "tag": "ta_pad"
-              },
-              {
-                "attrs": {
-                  "config": {
-                    "arg": "t",
-                    "direction": "out",
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "max": 1,
-                "min": 1,
-                "tag": "test"
-              },
-              {
-                "appliedMixin": "WASmaxOutMessagePublishRequestOrTraceIDMixinGroup",
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "request_id"
-                  }
-                ],
-                "max": 1,
-                "min": 1,
-                "tag": "trace"
-              },
-              {
-                "attrs": {
-                  "group": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "message-id": {
-                    "type": "string"
-                  },
-                  "receiver": {
-                    "type": "jid"
-                  },
-                  "sender": {
-                    "type": "jid"
-                  },
-                  "status": {
-                    "type": "string"
-                  },
-                  "transaction-type": {
-                    "type": "string"
-                  },
-                  "ts": {
-                    "type": "int"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "transaction"
-              },
-              {
-                "attrs": {
-                  "hosted": {
-                    "optional": true,
-                    "type": "bool"
-                  },
-                  "type": {
-                    "enumValues": [
-                      "view_once"
-                    ],
-                    "optional": true,
-                    "type": "enum"
-                  }
-                },
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "tag": "unavailable"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "presence": true,
-                "tag": "url_number"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": null,
-                "max": 1,
-                "min": 0,
-                "presence": true,
-                "tag": "url_text"
-              },
-              {
-                "attrs": {},
-                "children": [],
-                "content": {
-                  "type": "bytes"
-                },
-                "max": 1,
-                "min": 0,
-                "tag": "verified_name"
               }
             ],
-            "content": null,
-            "tag": "message"
+            "max": 1,
+            "min": 1,
+            "tag": "trace"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "presence": true,
+            "tag": "url_number"
+          },
+          {
+            "attrs": {},
+            "children": [],
+            "presence": true,
+            "tag": "url_text"
           }
-        }
-      }
+        ],
+        "content": null,
+        "tag": "message"
+      },
+      "tag": "message"
     },
     "notification": {
       "discriminator": "type",
@@ -44540,5 +44017,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1055156383"
+  "waVersion": "2.3000.1055857453"
 }

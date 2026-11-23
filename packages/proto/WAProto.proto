@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1055156383
+/// WhatsApp Version: 2.3000.1055857453
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -326,6 +326,8 @@ enum EXTENDED_CONTENT_MESSAGE_EXTENDED_CONTENT_TYPE {
     MSG_SUPERVISION_INVITE = 2068;
     MSG_SOCIAL_CUE_MLE = 2069;
     MSG_SOCIAL_CUE_POST = 2070;
+    MSG_SPECTRA_GAME = 2071;
+    MSG_HORIZON_GAMING_CHALLENGE = 2072;
     RTC_AUDIO_CALL = 3000;
     RTC_VIDEO_CALL = 3001;
     RTC_MISSED_AUDIO_CALL = 3002;
@@ -529,6 +531,7 @@ enum MutationProps {
     COMMUNITY_NESTING_STATE_ACTION = 99;
     SHARED_DEVICE_SECRET_ACTION = 100;
     HATCH_CVM_SECRET_ACTION = 101;
+    BUSINESS_FOLDER_CHAT_PREFERENCE_ACTION = 102;
     SHARE_OWN_PN = 10001;
     BUSINESS_BROADCAST_ACTION = 10002;
     AI_THREAD_DELETE_ACTION = 10003;
@@ -808,6 +811,7 @@ message AIRichResponseTableMetadata {
 
 message AIRichResponseUnifiedResponse {
     optional bytes data = 1;
+    optional bytes gzipData = 2;
 }
 
 message AISubscriptionUpsellMetadata {
@@ -1325,6 +1329,8 @@ message BotCapabilityMetadata {
         AI_RICH_RESPONSE_ITEM_LISTS_ENABLED = 88;
         RICH_RESPONSE_SIDE_BY_SIDE_BUFFER_BOTH = 89;
         AI_MUSE_JARVIS_ENVELOPE_GZIP_ENABLED = 90;
+        AI_RICH_RESPONSE_INLINE_MEDIA_LIGHTBOX_ENABLED = 91;
+        AI_MUSE_JARVIS_PAYLOAD_GZIP_ENABLED = 93;
     }
 }
 
@@ -3025,6 +3031,7 @@ message DeviceCapabilities {
     optional BizAiWebOnboarding bizAiWebOnboarding = 13;
     optional PhoneNumberSharing phoneNumberSharing = 14;
     optional RecentConversationsOnDemand recentConversationsOnDemand = 15;
+    optional AiMuseJarvisGzip aiMuseJarvisGzip = 16;
     enum MemberNameTagPrimarySupport {
         DISABLED = 0;
         RECEIVER_ENABLED = 1;
@@ -3034,6 +3041,9 @@ message DeviceCapabilities {
         NONE = 0;
         MINIMAL = 1;
         FULL = 2;
+    }
+    message AiMuseJarvisGzip {
+        optional uint32 supportVersion = 1;
     }
     message RecentConversationsOnDemand {
         optional bool supported = 1;
@@ -4586,6 +4596,7 @@ message Message {
         message Option {
             optional string optionName = 1;
             optional string optionHash = 2;
+            optional int64 optionDatetime = 3;
         }
     }
     message StickerSyncRMRMessage {
@@ -5227,6 +5238,7 @@ message Message {
     }
     message InitialSecurityNotificationSettingSync {
         optional bool securityNotificationEnabled = 1;
+        optional int32 initialAppTheme = 2;
     }
     message PeerDataOperationRequestResponseMessage {
         optional Message.PeerDataOperationRequestType peerDataOperationRequestType = 1;
@@ -5598,6 +5610,11 @@ message Message {
         optional GroupRootKeyRequest groupRootKeyRequest = 39;
         optional MembershipFormKeyFingerprintVerification membershipFormKeyFingerprintVerification = 40;
         optional GroupRootKeyShare groupRootKeyShare = 41;
+        optional MessageEditDisplayType messageEditDisplayType = 42;
+        enum MessageEditDisplayType {
+            DEFAULT = 0;
+            LINK_PREVIEW_ONLY = 1;
+        }
         enum Type {
             REVOKE = 0;
             EPHEMERAL_SETTING = 3;
@@ -6150,7 +6167,6 @@ message MessageContextInfo {
     optional bytes associatedPrimaryIdentityKey = 19;
     optional string teeContextAnchorMessageId = 20;
     optional ACP2Setting acp2Setting = 21;
-    optional bool lightE2Ee = 22;
     enum MessageAddonExpiryType {
         STATIC = 1;
         DEPENDENT_ON_PARENT = 2;
@@ -6521,6 +6537,8 @@ message MiTransportAdminMessage {
         optional string senderName = 1;
         optional string senderId = 2;
         optional string limitSharingType = 3;
+        optional string sharingLevel = 4;
+        optional string previousSharingLevel = 5;
     }
     message XmatMagicWords {
         optional int64 newMagicWordCount = 1;
@@ -7268,6 +7286,7 @@ message PrepareAddPeerDeviceSuccess {
     optional PrepareAddDeviceSuccess enrolment = 1;
     optional uint64 serverDataId = 2;
     optional bytes companionDeviceBinding = 3;
+    optional uint64 historyStartTime = 4;
 }
 
 message PrimaryEphemeralIdentity {
@@ -7913,6 +7932,7 @@ message SyncActionValue {
     optional CommunityNestingStateAction communityNestingStateAction = 99;
     optional SharedDeviceSecretAction sharedDeviceSecretAction = 100;
     optional HatchCVMSecretAction hatchCvmSecretAction = 101;
+    optional BusinessFolderChatPreferenceAction businessFolderChatPreferenceAction = 102;
     enum BusinessBroadcastCampaignBBProStatus {
         BB_PRO_ACTIVE = 1;
         BB_PRO_COMPLETED = 2;
@@ -7942,6 +7962,15 @@ message SyncActionValue {
     }
     message BBProPendingCustomerBaseAction {
         optional bool pending = 1;
+    }
+    message BusinessFolderChatPreferenceAction {
+        optional BusinessFolderChatPreference preference = 1;
+        enum BusinessFolderChatPreference {
+            BUSINESS_FOLDER_CHAT_PREFERENCE_UNKNOWN = 0;
+            BUSINESS_FOLDER_CHAT_PREFERENCE_AUTOMATIC = 1;
+            BUSINESS_FOLDER_CHAT_PREFERENCE_INBOX = 2;
+            BUSINESS_FOLDER_CHAT_PREFERENCE_BUSINESS = 3;
+        }
     }
     message GroupHistoryToggleAction {
         optional GroupHistoryToggleMode groupHistoryToggleMode = 1;
@@ -8233,6 +8262,7 @@ message SyncActionValue {
         optional string firstName = 2;
         optional string username = 3;
         optional string birthday = 4;
+        optional int32 nonE2EeType = 5;
     }
     message NotificationActivitySettingAction {
         optional NotificationActivitySetting notificationActivitySetting = 1;
@@ -8555,6 +8585,7 @@ message SyncActionValue {
         optional string pnJid = 5;
         optional string username = 6;
         optional string birthday = 7;
+        optional int32 nonE2EeType = 8;
     }
     message StarAction {
         optional bool starred = 1;
@@ -9421,6 +9452,7 @@ message WebMessageInfo {
         SPLIT_PAYMENT_MARKED_AS_PAID = 289;
         POLL_OPTIONS_REMOVED = 290;
         POLL_ADDED_OPTION_REMOVED = 291;
+        POLL_OPTION_ADDED = 292;
         GROUP_CUSTOM_REACTIONS = 293;
     }
     enum Status {
