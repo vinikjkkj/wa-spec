@@ -16,10 +16,31 @@
  *      fall back to the puppeteer scrape in index.cjs.
  *   2. Download the archive for that revision as a ZIP.
  *   3. Unpack, keeping only `.js` entries that register at least one
- *      `__d("WA…")` module. The archive also carries stylesheets and a large
- *      amount of shared infrastructure JS that no extractor ever looks at;
- *      dropping it shrinks the corpus substantially with zero loss of `WA*`
- *      modules.
+ *      `__d("WA…")` or `__d("MAIBA…")` module. mex reads Relay `*.graphql`
+ *      operation modules by suffix, not by `WA` prefix, and relies on them
+ *      being bundled in the same chunk as a module this filter keeps — true
+ *      as long as *something* in the chunk starts with `WA` or `MAIBA`.
+ *      That broke for the `MAIBA*` AI-assistant modules once they stopped
+ *      sharing a chunk with any `WA*` module and vanished wholesale from
+ *      mex's output (2026-11-19). Adding the `MAIBA` prefix here does not
+ *      just restore the handful of ops mex had before — MAIBA turns out to
+ *      be a much bigger surface (~195 ops the archive always carried but
+ *      this filter never kept, mex's total leaf count roughly triples) and
+ *      its wire-override/leaf-recovery data was only ever tuned against the
+ *      original handful, so a much larger share of it resolves as `unknown`
+ *      than the rest of mex. Accepted as-is for now (2026-11-23); a tighter
+ *      fix would need a dependency-reachability pass from `WA*` roots
+ *      through `__d`'s deps arrays instead of a per-file name regex, to
+ *      separate "WhatsApp actually calls this" from "shares a chunk with
+ *      something that does" — the same gap a handful of Ads-Manager-side
+ *      ops WhatsApp Business tooling calls into (`Ads*`, no `WA`/`MAIBA`
+ *      prefix, e.g. `AdsAccountDataDispatcher`) still falls through, since
+ *      matching `*.graphql` unconditionally pulls in Meta's entire
+ *      unrelated-product GraphQL corpus (5x the archive size, 180s+ for mex
+ *      alone) for too little gain to be worth it. The archive also carries
+ *      stylesheets and a large amount of shared infrastructure JS that no
+ *      extractor ever looks at; dropping it shrinks the corpus substantially
+ *      with ~zero loss of modules an extractor reads, these gaps aside.
  *
  * The archive endpoint is NOT hardcoded here. It is read from the
  * `WA_ARCHIVE_URL` environment variable so the URL stays out of this
@@ -44,7 +65,7 @@ const { createHash } = require('node:crypto')
 const WHATSAPP_URL = 'https://web.whatsapp.com/'
 const ARCHIVE_URL_ENV = 'WA_ARCHIVE_URL'
 const REVISION_RE = /"client_revision"\s*:\s*(\d{6,})/
-const WA_MODULE_RE = /__d\("WA[A-Za-z0-9_.$]*"/
+const WA_MODULE_RE = /__d\("(?:WA|MAIBA)[A-Za-z0-9_.$]*"/
 const VERSION_PREFIX = '2.3000.'
 
 // A plain fetch of web.whatsapp.com is rejected without a browser-shaped
