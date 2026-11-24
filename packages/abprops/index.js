@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1055857453
+// WhatsApp Version: 2.3000.1056039834
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -8,7 +8,7 @@
 // exist solely in the bundle.
 const WA_ABPROPS = Object.freeze({
     a2ui_fallback_show_timestamp: Object.freeze({ code: 40437, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    a2ui_supported_elements: Object.freeze({ code: 32276, type: "string", defaultValue: "info_card, list_card, choices", debugDefaultValue: "info_card, list_card, choices" }),
+    a2ui_supported_elements: Object.freeze({ code: 32276, type: "string", defaultValue: "info_card, list_card, choices, confirmation", debugDefaultValue: "info_card, list_card, choices, confirmation" }),
     acp2_enabled: Object.freeze({ code: 36091, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp2_futureproof_enabled: Object.freeze({ code: 36197, type: "bool", defaultValue: false, debugDefaultValue: false }),
     acp2_group_chats_enabled: Object.freeze({ code: 36763, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -728,8 +728,8 @@ const WA_ABPROPS = Object.freeze({
     channels_question_view_your_responses_enabled: Object.freeze({ code: 36379, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_questions_integrity_m1_enabled: Object.freeze({ code: 17600, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_questions_replies_adjusted_layout_enabled: Object.freeze({ code: 42209, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    channels_questions_response_composer_persistent_education: Object.freeze({ code: 44231, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_questions_responses_drawer_loading_shimmer_enabled: Object.freeze({ code: 29209, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    channels_questions_search_backtest_enabled: Object.freeze({ code: 31046, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_questions_search_enabled: Object.freeze({ code: 24004, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_quick_forwarding_button_mode: Object.freeze({ code: 7234, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     channels_quick_share_to_status_ui_enabled: Object.freeze({ code: 40962, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1268,7 +1268,8 @@ const WA_ABPROPS = Object.freeze({
     hybrid_save_as_shared_buffer_enabled: Object.freeze({ code: 34993, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ignore_joinable_terminate_on_expired_offer: Object.freeze({ code: 11519, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ignore_one_to_one_terminate_in_group_call: Object.freeze({ code: 10273, type: "bool", defaultValue: false, debugDefaultValue: false }),
-    im_a2ui_reply_quote_enabled: Object.freeze({ code: 35806, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    im_a2ui_appt_web: Object.freeze({ code: 44269, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    im_a2ui_reply_quote_enabled: Object.freeze({ code: 35806, type: "bool", defaultValue: true, debugDefaultValue: true }),
     im_a2ui_require_bot_attribution: Object.freeze({ code: 34324, type: "bool", defaultValue: false, debugDefaultValue: false }),
     im_bloks_widget_enable: Object.freeze({ code: 25071, type: "bool", defaultValue: false, debugDefaultValue: true }),
     im_nfm_multi_step_form_killswitch: Object.freeze({ code: 28891, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1750,6 +1751,7 @@ const WA_ABPROPS = Object.freeze({
     ptv_quoted_replies_cutout_enabled: Object.freeze({ code: 30384, type: "bool", defaultValue: false, debugDefaultValue: false }),
     public_bug_reporting_sidebar: Object.freeze({ code: 19124, type: "bool", defaultValue: false, debugDefaultValue: false }),
     pushname_blocklist_starting_with_at: Object.freeze({ code: 18097, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    qbm_telemetry_first_mm_enabled: Object.freeze({ code: 44216, type: "bool", defaultValue: false, debugDefaultValue: false }),
     qp_banner_sticker_animation_enabled: Object.freeze({ code: 31213, type: "bool", defaultValue: false, debugDefaultValue: false }),
     qp_campaign_client_enabled: Object.freeze({ code: 3536, type: "bool", defaultValue: false, debugDefaultValue: false }),
     quoted_message_user_journey_logging_enabled: Object.freeze({ code: 15694, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1852,6 +1854,7 @@ const WA_ABPROPS = Object.freeze({
     smb_agent_thread_control_notification_enabled: Object.freeze({ code: 10456, type: "bool", defaultValue: false, debugDefaultValue: false }),
     smb_ai_agents_web_chat_assignment_interop_enabled: Object.freeze({ code: 13387, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_auth_agents_feature_control_enabled: Object.freeze({ code: 27585, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    smb_auth_rep_groups_block_enabled: Object.freeze({ code: 44210, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_bb_in_thread_insight_metrics_enabled: Object.freeze({ code: 31676, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_bb_pro_business_verification: Object.freeze({ code: 34341, type: "bool", defaultValue: false, debugDefaultValue: true }),
     smb_billing_enabled: Object.freeze({ code: 1583, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2708,7 +2711,6 @@ const WA_ABPROPS = Object.freeze({
     web_design_refresh: Object.freeze({ code: 6665, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_detached_dom_unmount_cleanup: Object.freeze({ code: 33393, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_dexie_hooks_support_enabled: Object.freeze({ code: 12831, type: "bool", defaultValue: false, debugDefaultValue: true }),
-    web_disable_compose_box_for_deprecated_chats: Object.freeze({ code: 30753, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_disable_logs_low_end_device: Object.freeze({ code: 18660, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_disable_sw_on_safari_pwa: Object.freeze({ code: 7281, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_display_lid_contacts: Object.freeze({ code: 24280, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -4822,7 +4824,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     30647: "payments_upr_custom_payment_methods_sync_countries",
     30661: "shortcake_companion_prologue__passkeys__assertion_timeout_seconds",
     30662: "shortcake_companion_prologue__passkeys__request_options_ttl_seconds",
-    30753: "web_disable_compose_box_for_deprecated_chats",
     30771: "wa_webtp_pdf_sharer_consent_copy_v2",
     30796: "web_getters_lru_cache_size_limit",
     30797: "wa_catalog_graphql_use_lid_enabled",
@@ -4836,7 +4837,6 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     31009: "smb_qp_web_debug_recunit",
     31010: "ai_rich_response_remove_grouped_citations_count",
     31040: "ai_hatch_secret_encrypted_message_enabled",
-    31046: "channels_questions_search_backtest_enabled",
     31047: "web_anr_disable_memory_logging",
     31063: "ai_3p_agent_chat_enabled",
     31094: "call_info_optimizations_lgc",
@@ -6110,7 +6110,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     44128: "channels_search_category_icons_enabled",
     44149: "web_voip_media_device_recovery_v2",
     44152: "missed_callback_button_timeout",
-    44173: "ks_aac_adts_strict_validation_enabled"
+    44173: "ks_aac_adts_strict_validation_enabled",
+    44210: "smb_auth_rep_groups_block_enabled",
+    44216: "qbm_telemetry_first_mm_enabled",
+    44231: "channels_questions_response_composer_persistent_education",
+    44269: "im_a2ui_appt_web"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

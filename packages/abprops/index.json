@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 3039,
+  "propCount": 3041,
   "props": {
     "a2ui_fallback_show_timestamp": {
       "code": 40437,
@@ -114,8 +114,8 @@
     },
     "a2ui_supported_elements": {
       "code": 32276,
-      "debugDefaultValue": "info_card, list_card, choices",
-      "defaultValue": "info_card, list_card, choices",
+      "debugDefaultValue": "info_card, list_card, choices, confirmation",
+      "defaultValue": "info_card, list_card, choices, confirmation",
       "type": "string"
     },
     "acp2_enabled": {
@@ -4432,14 +4432,14 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "channels_questions_responses_drawer_loading_shimmer_enabled": {
-      "code": 29209,
+    "channels_questions_response_composer_persistent_education": {
+      "code": 44231,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
-    "channels_questions_search_backtest_enabled": {
-      "code": 31046,
+    "channels_questions_responses_drawer_loading_shimmer_enabled": {
+      "code": 29209,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -7672,10 +7672,16 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "im_a2ui_appt_web": {
+      "code": 44269,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "im_a2ui_reply_quote_enabled": {
       "code": 35806,
       "debugDefaultValue": true,
-      "defaultValue": false,
+      "defaultValue": true,
       "type": "bool"
     },
     "im_a2ui_require_bot_attribution": {
@@ -10564,6 +10570,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "qbm_telemetry_first_mm_enabled": {
+      "code": 44216,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "qp_banner_sticker_animation_enabled": {
       "code": 31213,
       "debugDefaultValue": false,
@@ -11172,6 +11184,12 @@
     },
     "smb_auth_agents_feature_control_enabled": {
       "code": 27585,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "smb_auth_rep_groups_block_enabled": {
+      "code": 44210,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -16312,12 +16330,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "web_disable_compose_box_for_deprecated_chats": {
-      "code": 30753,
-      "debugDefaultValue": true,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "web_disable_logs_low_end_device": {
       "code": 18660,
       "debugDefaultValue": false,
@@ -18379,5 +18391,5 @@
     "web_store_quota_manager_enabled",
     "web_vc_css_bg_scan_children_first"
   ],
-  "waVersion": "2.3000.1055857453"
+  "waVersion": "2.3000.1056039834"
 }

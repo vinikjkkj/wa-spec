@@ -3220,7 +3220,7 @@
       }
     },
     "BizProfileLinkedFacebookPage": {
-      "docId": "30030585929877696",
+      "docId": "28847973718207459",
       "operationKind": "query",
       "originalName": "WAWebBizProfileLinkedFacebookPageJobQuery",
       "response": {
@@ -3228,6 +3228,7 @@
           "linked_accounts": {
             "fb_page": {
               "display_name": "string",
+              "fb_add_whatsapp_btn_enabled": "boolean",
               "id": "string",
               "profile_picture": {
                 "url": "string"
@@ -10987,7 +10988,7 @@
       }
     },
     "MAIBAChatThread": {
-      "docId": "29567525076271140",
+      "docId": "40731464856444828",
       "operationKind": "query",
       "originalName": "MAIBAChatThreadQuery",
       "response": {
@@ -11631,7 +11632,7 @@
                                 "recommendation_reason_goal": "string",
                                 "recommendation_reason_placement": "string",
                                 "recommended_post_variant": "unknown",
-                                "redirect_url": "string",
+                                "redirect_url": "boolean",
                                 "region": "string",
                                 "request_id": "string",
                                 "review_header": "unknown",
@@ -11784,6 +11785,7 @@
                   ],
                   "conversation": {
                     "__typename": "string",
+                    "agent_session_conversation_id": "string",
                     "external_conversation_id": "string",
                     "human_handover_lobby_state": "boolean",
                     "id": "string",
@@ -11884,7 +11886,7 @@
           "proactive_task_origin": {
             "template_key": "string"
           },
-          "thread_status": "string"
+          "thread_status": "enum:ARCHIVED"
         }
       },
       "variables": [
@@ -12735,7 +12737,7 @@
       }
     },
     "MAIBAGraphQLSendMessageV2Query": {
-      "docId": "29205710889057355",
+      "docId": "29324042723911691",
       "operationKind": "mutation",
       "originalName": "MAIBAGraphQLSendMessageV2QueryMutation",
       "response": {},
@@ -14230,7 +14232,7 @@
       }
     },
     "MAIBAMessageList": {
-      "docId": "29092355293749083",
+      "docId": "29561149456904381",
       "operationKind": "query",
       "originalName": "MAIBAMessageListQuery",
       "response": {
@@ -15020,6 +15022,7 @@
                   ],
                   "conversation": {
                     "__typename": "string",
+                    "agent_session_conversation_id": "string",
                     "external_conversation_id": "string",
                     "human_handover_lobby_state": "string",
                     "id": "string",
@@ -15426,7 +15429,7 @@
       }
     },
     "MAIBAOrgmanInviteConfirmation": {
-      "docId": "29692472070440673",
+      "docId": "29209314122012432",
       "operationKind": "mutation",
       "originalName": "MAIBAOrgmanInviteConfirmationMutation",
       "response": {
@@ -16206,6 +16209,7 @@
             ],
             "conversation": {
               "__typename": "string",
+              "agent_session_conversation_id": "string",
               "external_conversation_id": "string",
               "human_handover_lobby_state": "string",
               "id": "string",
@@ -17070,6 +17074,7 @@
             ],
             "conversation": {
               "__typename": "string",
+              "agent_session_conversation_id": "string",
               "external_conversation_id": "string",
               "human_handover_lobby_state": "string",
               "id": "string",
@@ -24556,7 +24561,7 @@
       }
     },
     "refetchMAIBAPendingMessages": {
-      "docId": "29855923177429277",
+      "docId": "29735513176139701",
       "operationKind": "query",
       "originalName": "refetchMAIBAPendingMessagesQuery",
       "response": {
@@ -25335,6 +25340,7 @@
           ],
           "conversation": {
             "__typename": "string",
+            "agent_session_conversation_id": "string",
             "display_title": "string",
             "external_conversation_id": "string",
             "human_handover_lobby_state": "string",
@@ -27309,5 +27315,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1055857453"
+  "waVersion": "2.3000.1056039834"
 }

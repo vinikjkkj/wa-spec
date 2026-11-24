@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1055857453
+// WhatsApp Version: 2.3000.1056039834
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -84,7 +84,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     BizProfileFacebookPageVisibility: Object.freeze({ docId: '28934305609602685', clientDocId: '28934305609602685' }),
     BizProfileFacebookPages: Object.freeze({ docId: '29287866797515897', clientDocId: '29287866797515897' }),
     BizProfileFacebookUnlinkPage: Object.freeze({ docId: '39908391532137702', clientDocId: '39908391532137702' }),
-    BizProfileLinkedFacebookPage: Object.freeze({ docId: '30030585929877696', clientDocId: '30030585929877696' }),
+    BizProfileLinkedFacebookPage: Object.freeze({ docId: '28847973718207459', clientDocId: '28847973718207459' }),
     BizProfileRoot: Object.freeze({ docId: '27553504114316245', clientDocId: '27553504114316245' }),
     BizQueryOrder: Object.freeze({ docId: '26593811266898374', clientDocId: '26593811266898374' }),
     BizSetMerchantCompliance: Object.freeze({ docId: '25188352884120072', clientDocId: '25188352884120072' }),
@@ -251,7 +251,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAChatAppUnreadCount: Object.freeze({ docId: '28651346067878367', clientDocId: '28651346067878367' }),
     MAIBAChatMessageDebugInfoRecordOTID: Object.freeze({ docId: '27079960055012852', clientDocId: '27079960055012852' }),
     MAIBAChatNullStateContentContainer: Object.freeze({ docId: '28729964673369515', clientDocId: '28729964673369515' }),
-    MAIBAChatThread: Object.freeze({ docId: '29567525076271140', clientDocId: '29567525076271140' }),
+    MAIBAChatThread: Object.freeze({ docId: '40731464856444828', clientDocId: '40731464856444828' }),
     MAIBAChatThread_useMAIBAChatThreadQueryFetchPolicy: Object.freeze({ docId: '27263190626608634', clientDocId: '27263190626608634' }),
     MAIBACompassAdPreviewModal: Object.freeze({ docId: '28311355278548806', clientDocId: '28311355278548806' }),
     MAIBAComposerThinkingToggle: Object.freeze({ docId: '28491567020484827', clientDocId: '28491567020484827' }),
@@ -274,7 +274,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAGovernedActionCard: Object.freeze({ docId: '29450385051311506', clientDocId: '29450385051311506' }),
     MAIBAGovernedActionCardApprove: Object.freeze({ docId: '28985213107775652', clientDocId: '28985213107775652' }),
     MAIBAGovernedActionCardReject: Object.freeze({ docId: '28322251747446557', clientDocId: '28322251747446557' }),
-    MAIBAGraphQLSendMessageV2Query: Object.freeze({ docId: '29205710889057355', clientDocId: '29205710889057355' }),
+    MAIBAGraphQLSendMessageV2Query: Object.freeze({ docId: '29324042723911691', clientDocId: '29324042723911691' }),
     MAIBAGraphQLSendMessageV3Query: Object.freeze({ docId: '29124530683881249', clientDocId: '29124530683881249' }),
     MAIBAGraphQLSendMessageV4Query: Object.freeze({ docId: '29439684632335349', clientDocId: '29439684632335349' }),
     MAIBAHostHandledPublishButtonPublishStatus: Object.freeze({ docId: '28930019606653053', clientDocId: '28930019606653053' }),
@@ -296,7 +296,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBAMemoryClearAllConfirmationModalDeleteMemory: Object.freeze({ docId: '27254989820866981', clientDocId: '27254989820866981' }),
     MAIBAMemoryDeleteConfirmationModalDeleteMemory: Object.freeze({ docId: '27659696877002112', clientDocId: '27659696877002112' }),
     MAIBAMessageCreatorCardsRenderer: Object.freeze({ docId: '28486209884399157', clientDocId: '28486209884399157' }),
-    MAIBAMessageList: Object.freeze({ docId: '29092355293749083', clientDocId: '29092355293749083' }),
+    MAIBAMessageList: Object.freeze({ docId: '29561149456904381', clientDocId: '29561149456904381' }),
     MAIBAMessageOSCTARecommendations: Object.freeze({ docId: '25413377148314281', clientDocId: '25413377148314281' }),
     MAIBAMessagePLEDisclaimerContentPFR: Object.freeze({ docId: '30455531394037056', clientDocId: '30455531394037056' }),
     MAIBAMessageSignalsCTARenderer: Object.freeze({ docId: '24996386686710720', clientDocId: '24996386686710720' }),
@@ -306,7 +306,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBANullStateShadowSummaryLogger: Object.freeze({ docId: '29032679106425362', clientDocId: '29032679106425362' }),
     MAIBAOrganicContentObjectHoverCard: Object.freeze({ docId: '29435433429408367', clientDocId: '29435433429408367' }),
     MAIBAOrgmanHandoffStatus: Object.freeze({ docId: '29244664175200075', clientDocId: '29244664175200075' }),
-    MAIBAOrgmanInviteConfirmation: Object.freeze({ docId: '29692472070440673', clientDocId: '29692472070440673' }),
+    MAIBAOrgmanInviteConfirmation: Object.freeze({ docId: '29209314122012432', clientDocId: '29209314122012432' }),
     MAIBAPageReference: Object.freeze({ docId: '35683211234657248', clientDocId: '35683211234657248' }),
     MAIBAPauseAsyncTask: Object.freeze({ docId: '26322912574051473', clientDocId: '26322912574051473' }),
     MAIBAPerformanceDiagnosisAccordionWidget: Object.freeze({ docId: '29638703849049214', clientDocId: '29638703849049214' }),
@@ -473,7 +473,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     makeA2UIBusinessNameValidator: Object.freeze({ docId: '29768311569426182', clientDocId: '29768311569426182' }),
     makeA2UIPageNameValidator: Object.freeze({ docId: '28867387356224577', clientDocId: '28867387356224577' }),
     markMAIBAFabRecommendationToastsRead: Object.freeze({ docId: '29365025133149990', clientDocId: '29365025133149990' }),
-    refetchMAIBAPendingMessages: Object.freeze({ docId: '29855923177429277', clientDocId: '29855923177429277' }),
+    refetchMAIBAPendingMessages: Object.freeze({ docId: '29735513176139701', clientDocId: '29735513176139701' }),
     refetchMAIBAPlatformPendingMessages: Object.freeze({ docId: '28477639821913506', clientDocId: '28477639821913506' }),
     useAdsAutoAddBrandLogoAddLogo: Object.freeze({ docId: '27410930975224044', clientDocId: '27410930975224044' }),
     useAdsRBCuratedReportCTMRateCalculations: Object.freeze({ docId: '28732763709750281', clientDocId: '28732763709750281' }),

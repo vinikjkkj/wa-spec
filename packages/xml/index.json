@@ -28329,6 +28329,7 @@
         "local": true,
         "module": "WASmaxPrivacyGetContactBlacklistRPC",
         "node": {
+          "appliedMixin": "WASmaxOutPrivacyGetIQMixin",
           "attrs": {
             "id": {
               "generated": true,
@@ -28383,7 +28384,33 @@
           "module": "WASmaxPrivacyGetContactBlacklistRPC",
           "node": {
             "attrs": {},
-            "children": [],
+            "children": [
+              {
+                "__variants": [
+                  "IQErrorBadRequest",
+                  "IQErrorFeatureNotImplemented",
+                  "IQErrorServiceUnavailable",
+                  "IQErrorRateOverlimit",
+                  "IQErrorInternalServerError"
+                ],
+                "attrs": {
+                  "code": {
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "text": {
+                    "optional": true,
+                    "type": "literal",
+                    "value": "bad-request"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "error"
+              }
+            ],
             "content": null,
             "tag": "iq"
           },
@@ -28502,6 +28529,360 @@
       ],
       "rootTag": "iq",
       "type": "get",
+      "xmlns": "privacy"
+    },
+    "PrivacyGetOrgsList": {
+      "module": "WASmaxPrivacyGetOrgsListRPC",
+      "opName": "GetOrgsList",
+      "request": {
+        "argShape": {
+          "e": true
+        },
+        "local": true,
+        "module": "WASmaxPrivacyGetOrgsListRPC",
+        "node": {
+          "appliedMixin": "WASmaxOutPrivacyGetIQMixin",
+          "attrs": {
+            "id": {
+              "generated": true,
+              "type": "stanzaId"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "type": {
+              "type": "literal",
+              "value": "get"
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "privacy"
+            }
+          },
+          "children": [
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "appliedMixin": "WASmaxOutPrivacyCategoryNamesForOrgsListMixin",
+                  "attrs": {
+                    "dhash": {
+                      "arg": "t",
+                      "type": "string"
+                    },
+                    "name": {
+                      "arg": "t",
+                      "type": "string"
+                    }
+                  },
+                  "children": [],
+                  "max": 1,
+                  "min": 1,
+                  "tag": "orgs_list"
+                }
+              ],
+              "max": 1,
+              "min": 1,
+              "tag": "privacy"
+            }
+          ],
+          "tag": "iq"
+        }
+      },
+      "responses": [
+        {
+          "entryName": "parseGetOrgsListResponseError",
+          "local": true,
+          "module": "WASmaxPrivacyGetOrgsListRPC",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [
+              {
+                "__variants": [
+                  "IQErrorBadRequest",
+                  "IQErrorFeatureNotImplemented",
+                  "IQErrorServiceUnavailable",
+                  "IQErrorRateOverlimit",
+                  "IQErrorInternalServerError"
+                ],
+                "attrs": {
+                  "code": {
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "text": {
+                    "optional": true,
+                    "type": "literal",
+                    "value": "bad-request"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "error"
+              }
+            ],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Error"
+        },
+        {
+          "entryName": "parseGetOrgsListResponseSuccess",
+          "local": true,
+          "module": "WASmaxPrivacyGetOrgsListRPC",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {
+                      "dhash": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "enumRef": "o(\"WASmaxInPrivacyEnums\").ENUM_CALLADD_DEPENDENTACCOUNTMESSAGES_GROUPADD_LAST_LINKEDPROFILES_MESSAGES_PIX_PROFILE_STATUS_STICKERS",
+                        "enumValues": [
+                          "calladd",
+                          "dependentaccountmessages",
+                          "groupadd",
+                          "last",
+                          "linked_profiles",
+                          "messages",
+                          "pix",
+                          "profile",
+                          "status",
+                          "stickers"
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    "children": [
+                      {
+                        "attrs": {
+                          "org_id": {
+                            "type": "string"
+                          }
+                        },
+                        "children": [],
+                        "content": null,
+                        "max": 100,
+                        "min": 0,
+                        "tag": "org"
+                      }
+                    ],
+                    "content": null,
+                    "max": 1,
+                    "min": 1,
+                    "tag": "orgs_list"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "privacy"
+              }
+            ],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Success"
+        }
+      ],
+      "rootTag": "iq",
+      "type": "get",
+      "xmlns": "privacy"
+    },
+    "PrivacySetOrgsList": {
+      "module": "WASmaxPrivacySetOrgsListRPC",
+      "opName": "SetOrgsList",
+      "request": {
+        "argShape": {
+          "e": true
+        },
+        "local": true,
+        "module": "WASmaxPrivacySetOrgsListRPC",
+        "node": {
+          "attrs": {
+            "id": {
+              "generated": true,
+              "type": "stanzaId"
+            },
+            "to": {
+              "type": "literal",
+              "value": "s.whatsapp.net"
+            },
+            "type": {
+              "type": "literal",
+              "value": "set"
+            },
+            "xmlns": {
+              "type": "literal",
+              "value": "privacy"
+            }
+          },
+          "children": [
+            {
+              "attrs": {},
+              "children": [
+                {
+                  "appliedMixin": "WASmaxOutPrivacyCategoryNamesForOrgsListMixin",
+                  "attrs": {
+                    "dhash": {
+                      "arg": "n",
+                      "type": "string"
+                    },
+                    "name": {
+                      "arg": "t",
+                      "type": "string"
+                    }
+                  },
+                  "children": [
+                    {
+                      "__helper": "REPEATED_CHILD",
+                      "attrs": {
+                        "action": {
+                          "arg": "t",
+                          "type": "string"
+                        },
+                        "org_id": {
+                          "arg": "n",
+                          "type": "string"
+                        }
+                      },
+                      "children": [],
+                      "max": 200,
+                      "min": 1,
+                      "tag": "org"
+                    }
+                  ],
+                  "max": 1,
+                  "min": 1,
+                  "tag": "orgs_list"
+                }
+              ],
+              "max": 1,
+              "min": 1,
+              "tag": "privacy"
+            }
+          ],
+          "tag": "iq"
+        }
+      },
+      "responses": [
+        {
+          "entryName": "parseSetOrgsListResponseError",
+          "local": true,
+          "module": "WASmaxPrivacySetOrgsListRPC",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "error"
+              }
+            },
+            "children": [],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Error"
+        },
+        {
+          "entryName": "parseSetOrgsListResponseSuccess",
+          "local": true,
+          "module": "WASmaxPrivacySetOrgsListRPC",
+          "node": {
+            "attrs": {
+              "from": {
+                "type": "jid"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "type": {
+                "type": "literal",
+                "value": "result"
+              }
+            },
+            "children": [
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {
+                      "dhash": {
+                        "type": "string"
+                      },
+                      "name": {
+                        "enumRef": "o(\"WASmaxInPrivacyEnums\").ENUM_CALLADD_DEPENDENTACCOUNTMESSAGES_GROUPADD_LAST_LINKEDPROFILES_MESSAGES_PIX_PROFILE_STATUS_STICKERS",
+                        "enumValues": [
+                          "calladd",
+                          "dependentaccountmessages",
+                          "groupadd",
+                          "last",
+                          "linked_profiles",
+                          "messages",
+                          "pix",
+                          "profile",
+                          "status",
+                          "stickers"
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "max": 1,
+                    "min": 1,
+                    "tag": "orgs_list"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "privacy"
+              }
+            ],
+            "content": null,
+            "tag": "iq"
+          },
+          "variant": "Success"
+        }
+      ],
+      "rootTag": "iq",
+      "type": "set",
       "xmlns": "privacy"
     },
     "PrivatestatsSignCredential": {
@@ -40228,155 +40609,73 @@
           "parserName": "incomingAccountSyncNotification"
         },
         "business": {
-          "delegatesToRPC": [
-            {
-              "method": "receiveCampaignStateChangedNotificationRPC",
-              "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC"
-            },
-            {
-              "method": "receiveBbProCampaignStatusNotificationRPC",
-              "module": "WASmaxSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRPC"
-            }
-          ],
+          "delegatesToRPC": {
+            "method": "receiveCampaignStateChangedNotificationRPC",
+            "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC"
+          },
           "entryName": "handleBusinessNotificationJob",
           "handler": {
             "method": "handleBusinessNotificationJob",
             "module": "WAWebHandleBusinessNotification"
           },
+          "inlinedFrom": {
+            "method": "receiveCampaignStateChangedNotificationRPC",
+            "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC"
+          },
           "node": {
-            "__unionOfDelegates": [
-              {
-                "node": {
-                  "attrs": {
-                    "from": {
-                      "type": "literal",
-                      "value": "s.whatsapp.net"
-                    },
-                    "id": {
-                      "type": "stanzaId"
-                    },
-                    "offline": {
-                      "optional": true,
-                      "type": "int"
-                    },
-                    "t": {
-                      "max": null,
-                      "min": 0,
-                      "type": "int"
-                    },
-                    "type": {
-                      "type": "literal",
-                      "value": "business"
-                    }
-                  },
-                  "children": [
-                    {
-                      "attrs": {
-                        "ad_creative_id": {
-                          "optional": true,
-                          "type": "string"
-                        },
-                        "ad_group_id": {
-                          "optional": true,
-                          "type": "string"
-                        },
-                        "ad_id": {
-                          "optional": true,
-                          "type": "string"
-                        },
-                        "status": {
-                          "enumRef": "o(\"WASmaxInSmbMeteredMessagesCampaignEnums\").ENUM_INTEGRITYNOTCLEARED_OK",
-                          "enumValues": [
-                            "INTEGRITY_NOT_CLEARED",
-                            "OK"
-                          ],
-                          "type": "enum"
-                        }
-                      },
-                      "children": [],
-                      "content": null,
-                      "max": 1,
-                      "min": 1,
-                      "tag": "mm_campaign"
-                    }
-                  ],
-                  "content": null,
-                  "tag": "notification"
-                },
-                "ref": {
-                  "method": "receiveCampaignStateChangedNotificationRPC",
-                  "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC"
-                }
-              },
-              {
-                "node": {
-                  "attrs": {
-                    "from": {
-                      "type": "literal",
-                      "value": "s.whatsapp.net"
-                    },
-                    "id": {
-                      "type": "stanzaId"
-                    },
-                    "offline": {
-                      "optional": true,
-                      "type": "int"
-                    },
-                    "t": {
-                      "max": null,
-                      "min": 0,
-                      "type": "int"
-                    },
-                    "type": {
-                      "type": "literal",
-                      "value": "business"
-                    }
-                  },
-                  "children": [
-                    {
-                      "attrs": {
-                        "campaign_id": {
-                          "type": "string"
-                        },
-                        "status": {
-                          "enumRef": "o(\"WASmaxInSmbMeteredMessagesCampaignEnums\").ENUM_ACTIVE_COMPLETED_INREVIEW_NOTSENDING_OFF_PROCESSING_REJECTED_SCHEDULED_SENDINGLIMITED",
-                          "enumValues": [
-                            "ACTIVE",
-                            "COMPLETED",
-                            "IN_REVIEW",
-                            "NOT_SENDING",
-                            "OFF",
-                            "PROCESSING",
-                            "REJECTED",
-                            "SCHEDULED",
-                            "SENDING_LIMITED"
-                          ],
-                          "type": "enum"
-                        }
-                      },
-                      "children": [],
-                      "content": null,
-                      "max": 1,
-                      "min": 1,
-                      "tag": "bb_pro_campaign"
-                    }
-                  ],
-                  "content": null,
-                  "tag": "notification"
-                },
-                "ref": {
-                  "method": "receiveBbProCampaignStatusNotificationRPC",
-                  "module": "WASmaxSmbMeteredMessagesCampaignBbProCampaignStatusNotificationRPC"
-                }
-              }
-            ],
             "attrs": {
+              "from": {
+                "type": "literal",
+                "value": "s.whatsapp.net"
+              },
+              "id": {
+                "type": "stanzaId"
+              },
+              "offline": {
+                "optional": true,
+                "type": "int"
+              },
+              "t": {
+                "max": null,
+                "min": 0,
+                "type": "int"
+              },
               "type": {
                 "type": "literal",
                 "value": "business"
               }
             },
-            "children": [],
+            "children": [
+              {
+                "attrs": {
+                  "ad_creative_id": {
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ad_group_id": {
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "ad_id": {
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "status": {
+                    "enumRef": "o(\"WASmaxInSmbMeteredMessagesCampaignEnums\").ENUM_INTEGRITYNOTCLEARED_OK",
+                    "enumValues": [
+                      "INTEGRITY_NOT_CLEARED",
+                      "OK"
+                    ],
+                    "type": "enum"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "mm_campaign"
+              }
+            ],
             "content": null,
             "tag": "notification"
           },
@@ -44017,5 +44316,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1055857453"
+  "waVersion": "2.3000.1056039834"
 }

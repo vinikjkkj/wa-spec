@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1055857453
+// WhatsApp Version: 2.3000.1056039834
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -6595,6 +6595,7 @@ export type WaMexBizProfileLinkedFacebookPageResponse = {
         readonly linked_accounts?: {
             readonly fb_page?: {
                 readonly display_name?: string
+                readonly fb_add_whatsapp_btn_enabled?: boolean
                 readonly id?: string
                 readonly profile_picture?: {
                     readonly url?: string
@@ -12084,7 +12085,7 @@ export type WaMexMAIBAChatThreadResponse = {
                                         readonly recommendation_reason_goal?: string
                                         readonly recommendation_reason_placement?: string
                                         readonly recommended_post_variant?: unknown
-                                        readonly redirect_url?: string
+                                        readonly redirect_url?: boolean
                                         readonly region?: string
                                         readonly request_id?: string
                                         readonly review_header?: unknown
@@ -12221,6 +12222,7 @@ export type WaMexMAIBAChatThreadResponse = {
                     }>
                     readonly conversation?: {
                         readonly __typename?: string
+                        readonly agent_session_conversation_id?: string
                         readonly external_conversation_id?: string
                         readonly human_handover_lobby_state?: boolean
                         readonly id?: string
@@ -12308,7 +12310,7 @@ export type WaMexMAIBAChatThreadResponse = {
         readonly proactive_task_origin?: {
             readonly template_key?: string
         }
-        readonly thread_status?: string
+        readonly thread_status?: 'ARCHIVED'
     }
 }
 
@@ -14501,6 +14503,7 @@ export type WaMexMAIBAMessageListResponse = {
                     }>
                     readonly conversation?: {
                         readonly __typename?: string
+                        readonly agent_session_conversation_id?: string
                         readonly external_conversation_id?: string
                         readonly human_handover_lobby_state?: string
                         readonly id?: string
@@ -15434,6 +15437,7 @@ export type WaMexMAIBAOrgmanInviteConfirmationResponse = {
             }>
             readonly conversation?: {
                 readonly __typename?: string
+                readonly agent_session_conversation_id?: string
                 readonly external_conversation_id?: string
                 readonly human_handover_lobby_state?: string
                 readonly id?: string
@@ -16192,6 +16196,7 @@ export type WaMexMAIBAOrgmanInviteConfirmationResponse = {
             }>
             readonly conversation?: {
                 readonly __typename?: string
+                readonly agent_session_conversation_id?: string
                 readonly external_conversation_id?: string
                 readonly human_handover_lobby_state?: string
                 readonly id?: string
@@ -21643,6 +21648,7 @@ export type WaMexrefetchMAIBAPendingMessagesResponse = {
         }>
         readonly conversation?: {
             readonly __typename?: string
+            readonly agent_session_conversation_id?: string
             readonly display_title?: string
             readonly external_conversation_id?: string
             readonly human_handover_lobby_state?: string

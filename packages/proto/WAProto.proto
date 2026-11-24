@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1055857453
+/// WhatsApp Version: 2.3000.1056039834
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -2866,6 +2866,7 @@ message Conversation {
     optional bool isWorkGroup = 67;
     optional int32 nonE2EeType = 68;
     optional NonE2EEAttestation.AccountType contactAccountEncryptionAttestationType = 69;
+    optional uint32 unreadReplyToMyMessageCount = 70;
     enum GroupAppealStatus {
         NO_APPEAL = 0;
         APPEAL_IN_REVIEW = 1;
