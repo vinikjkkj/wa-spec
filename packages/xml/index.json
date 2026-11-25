@@ -17690,7 +17690,7 @@
               },
               "push_priority": {
                 "arg": "ee",
-                "direction": "out",
+                "direction": "both",
                 "type": "string"
               },
               "recipient": {
@@ -30160,15 +30160,13 @@
           "children": [
             {
               "__helper": "OPTIONAL_CHILD",
-              "attrs": {},
-              "children": [
-                {
-                  "attrs": {},
-                  "children": [],
-                  "presence": true,
-                  "tag": "original_envelope"
+              "attrs": {
+                "client_received_ms": {
+                  "arg": "t",
+                  "type": "int"
                 }
-              ],
+              },
+              "children": [],
               "max": 1,
               "min": 0,
               "tag": "biz"
@@ -39327,7 +39325,7 @@
           },
           "push_priority": {
             "arg": "ee",
-            "direction": "out",
+            "direction": "both",
             "type": "string"
           },
           "recipient": {
@@ -40609,36 +40607,21 @@
           "parserName": "incomingAccountSyncNotification"
         },
         "business": {
-          "delegatesToRPC": {
-            "method": "receiveCampaignStateChangedNotificationRPC",
-            "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC"
-          },
           "entryName": "handleBusinessNotificationJob",
           "handler": {
             "method": "handleBusinessNotificationJob",
             "module": "WAWebHandleBusinessNotification"
           },
-          "inlinedFrom": {
-            "method": "receiveCampaignStateChangedNotificationRPC",
-            "module": "WASmaxSmbMeteredMessagesCampaignCampaignStateChangedNotificationRPC"
-          },
           "node": {
             "attrs": {
               "from": {
-                "type": "literal",
-                "value": "s.whatsapp.net"
+                "type": "jid"
               },
               "id": {
                 "type": "stanzaId"
               },
-              "offline": {
-                "optional": true,
-                "type": "int"
-              },
               "t": {
-                "max": null,
-                "min": 0,
-                "type": "int"
+                "type": "time"
               },
               "type": {
                 "type": "literal",
@@ -40647,33 +40630,261 @@
             },
             "children": [
               {
-                "attrs": {
-                  "ad_creative_id": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "ad_group_id": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "ad_id": {
-                    "optional": true,
-                    "type": "string"
-                  },
-                  "status": {
-                    "enumRef": "o(\"WASmaxInSmbMeteredMessagesCampaignEnums\").ENUM_INTEGRITYNOTCLEARED_OK",
-                    "enumValues": [
-                      "INTEGRITY_NOT_CLEARED",
-                      "OK"
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {
+                      "enabled": {
+                        "type": "bool"
+                      },
+                      "limit": {
+                        "optional": true,
+                        "type": "int"
+                      },
+                      "name": {
+                        "enumValues": [
+                          "ADS_CREDIT",
+                          "BUSINESS_BROADCAST",
+                          "BUSINESS_SEARCH",
+                          "CHAT_ASSIGNMENT",
+                          "CUSTOM_APP_ICON",
+                          "CUSTOM_APP_THEME",
+                          "CUSTOM_RINGTONES",
+                          "CUSTOM_URL",
+                          "ENHANCED_LISTS",
+                          "IMAGE_GEN",
+                          "IMAGINE_IMAGE",
+                          "IMAGINE_VIDEO",
+                          "MD_EXTENSION",
+                          "NEW_CHATS_LIMIT",
+                          "NEXT_GEN_WA_BENEFIT",
+                          "PIN_MORE_CHATS",
+                          "PREMIUM_MESSAGE_STICKERS",
+                          "PROTECTED_BUSINESS_ACCOUNT",
+                          "THINK_HARD",
+                          "VERIFIED_CHANNEL"
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "feature_flag"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "feature_flags"
+              },
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {
+                      "id": {
+                        "type": "string"
+                      }
+                    },
+                    "children": [
+                      {
+                        "attrs": {},
+                        "children": [
+                          {
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "type": "string"
+                            },
+                            "max": 1,
+                            "min": 0,
+                            "tag": "commerce_url"
+                          },
+                          {
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "type": "string"
+                            },
+                            "max": 1,
+                            "min": 0,
+                            "tag": "reject_reason"
+                          },
+                          {
+                            "attrs": {},
+                            "children": [],
+                            "content": {
+                              "enumValues": [
+                                "APPROVED",
+                                "PENDING",
+                                "REJECTED"
+                              ],
+                              "type": "enum"
+                            },
+                            "max": 1,
+                            "min": 1,
+                            "tag": "status"
+                          }
+                        ],
+                        "content": null,
+                        "max": 1,
+                        "min": 1,
+                        "tag": "status_info"
+                      }
                     ],
-                    "type": "enum"
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "collection"
+                  },
+                  {
+                    "attrs": {},
+                    "children": [
+                      {
+                        "attrs": {},
+                        "children": [],
+                        "content": {
+                          "type": "string"
+                        },
+                        "max": 1,
+                        "min": 1,
+                        "tag": "id"
+                      }
+                    ],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "product"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "product_catalog"
+              },
+              {
+                "attrs": {
+                  "hash": {
+                    "optional": true,
+                    "type": "string"
                   }
                 },
                 "children": [],
                 "content": null,
                 "max": 1,
                 "min": 1,
-                "tag": "mm_campaign"
+                "tag": "profile"
+              },
+              {
+                "attrs": {
+                  "hash": {
+                    "type": "string"
+                  },
+                  "jid": {
+                    "optional": true,
+                    "type": "jid"
+                  }
+                },
+                "children": [],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "remove"
+              },
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "attrs": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "source": {
+                        "enumValues": [
+                          "AURA",
+                          "BLUE",
+                          "META_NOVA",
+                          "PREMIUM"
+                        ],
+                        "optional": true,
+                        "type": "enum"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "subscription_creation_time": {
+                        "optional": true,
+                        "type": "int"
+                      },
+                      "subscription_end_time": {
+                        "optional": true,
+                        "type": "int"
+                      },
+                      "subscription_start_time": {
+                        "optional": true,
+                        "type": "int"
+                      },
+                      "subscription_tier": {
+                        "optional": true,
+                        "type": "int"
+                      }
+                    },
+                    "children": [],
+                    "content": null,
+                    "max": null,
+                    "min": 0,
+                    "tag": "subscription"
+                  }
+                ],
+                "content": null,
+                "max": 1,
+                "min": 1,
+                "tag": "subscriptions"
+              },
+              {
+                "attrs": {
+                  "actual_actors": {
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "hash": {
+                    "type": "string"
+                  },
+                  "host_storage": {
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "jid": {
+                    "optional": true,
+                    "type": "jid"
+                  },
+                  "privacy_mode_ts": {
+                    "optional": true,
+                    "type": "int"
+                  },
+                  "serial": {
+                    "optional": true,
+                    "type": "string"
+                  },
+                  "verified_level": {
+                    "enumRef": "o(\"WAWebHandleMsgCommon\").MSG_VERIFIED_LEVEL",
+                    "enumValues": [
+                      "high",
+                      "low",
+                      "unknown"
+                    ],
+                    "type": "enum"
+                  }
+                },
+                "children": [],
+                "content": {
+                  "type": "bytes"
+                },
+                "max": 1,
+                "min": 1,
+                "tag": "verified_name"
               }
             ],
             "content": null,
@@ -43300,7 +43511,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "P",
+                "arg": "w",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -43311,9 +43522,14 @@
                 "type": "userJid"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
+                "type": "string"
+              },
+              "subtype": {
+                "direction": "out",
+                "raw": "v(g,a)",
                 "type": "string"
               },
               "t": {
@@ -43333,15 +43549,14 @@
             "children": [
               {
                 "__helper": "OPTIONAL_CHILD",
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "original_envelope"
+                "attrs": {
+                  "client_received_ms": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
                   }
-                ],
+                },
+                "children": [],
                 "max": 1,
                 "min": 0,
                 "tag": "biz"
@@ -43572,7 +43787,7 @@
                 "type": "deviceJid"
               },
               "peer_participant_pn": {
-                "arg": "P",
+                "arg": "w",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -43584,9 +43799,14 @@
                 "type": "userJid"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
+                "type": "string"
+              },
+              "subtype": {
+                "direction": "out",
+                "raw": "v(g,a)",
                 "type": "string"
               },
               "t": {
@@ -43630,15 +43850,14 @@
               },
               {
                 "__helper": "OPTIONAL_CHILD",
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "original_envelope"
+                "attrs": {
+                  "client_received_ms": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
                   }
-                ],
+                },
+                "children": [],
                 "max": 1,
                 "min": 0,
                 "tag": "biz"
@@ -43748,7 +43967,7 @@
                 "type": "string"
               },
               "peer_participant_pn": {
-                "arg": "P",
+                "arg": "w",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -43759,9 +43978,14 @@
                 "type": "userJid"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
+                "type": "string"
+              },
+              "subtype": {
+                "direction": "out",
+                "raw": "v(g,a)",
                 "type": "string"
               },
               "t": {
@@ -43798,6 +44022,11 @@
                     "optional": true,
                     "type": "int"
                   },
+                  "client_received_ms": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
+                  },
                   "host_storage": {
                     "optional": true,
                     "type": "int"
@@ -43807,14 +44036,7 @@
                     "type": "int"
                   }
                 },
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "original_envelope"
-                  }
-                ],
+                "children": [],
                 "content": null,
                 "max": 1,
                 "min": 1,
@@ -43966,7 +44188,7 @@
                 "type": "userJid"
               },
               "peer_participant_pn": {
-                "arg": "P",
+                "arg": "w",
                 "direction": "out",
                 "optional": true,
                 "type": "userJid"
@@ -43977,9 +44199,14 @@
                 "type": "userJid"
               },
               "sts": {
-                "arg": "String(y)",
+                "arg": "String(b)",
                 "direction": "out",
                 "optional": true,
+                "type": "string"
+              },
+              "subtype": {
+                "direction": "out",
+                "raw": "v(g,a)",
                 "type": "string"
               },
               "t": {
@@ -43999,15 +44226,14 @@
             "children": [
               {
                 "__helper": "OPTIONAL_CHILD",
-                "attrs": {},
-                "children": [
-                  {
-                    "attrs": {},
-                    "children": [],
-                    "presence": true,
-                    "tag": "original_envelope"
+                "attrs": {
+                  "client_received_ms": {
+                    "arg": "t",
+                    "direction": "out",
+                    "type": "int"
                   }
-                ],
+                },
+                "children": [],
                 "max": 1,
                 "min": 0,
                 "tag": "biz"
@@ -44316,5 +44542,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1056039834"
+  "waVersion": "2.3000.1056216123"
 }

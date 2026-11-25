@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056039834
+// WhatsApp Version: 2.3000.1056216123
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -995,6 +995,16 @@ const WA_WAM_ENUMS = Object.freeze({
         values: Object.freeze({
         'WIFI_ONLY': 0,
         'WIFI_OR_CELLULAR': 1
+        })
+    }),
+    BACKUP_RESTORE_API: Object.freeze({
+        module: 'WAWebWamEnumBackupRestoreApi',
+        export: 'BACKUP_RESTORE_API',
+        values: Object.freeze({
+        'GMS': 2,
+        'GOOGLE': 1,
+        'ICLOUD': 4,
+        'VAULT': 3
         })
     }),
     BACKUP_SCHEDULE: Object.freeze({
@@ -2120,6 +2130,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CONVERSATION_OPTIONS': 29,
         'CONVERSATION_OVERSCROLL': 57,
         'CONVERSATION_VOICE_CHAT_FAB': 59,
+        'CUSTOMER_MANAGER': 93,
         'DEBUG_TOOL': 23,
         'DIALER_CONTACT': 53,
         'DIALER_NON_CONTACT': 54,
@@ -7115,6 +7126,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'GRANULAR_PERMISSION_MODE_SELECTED': 162,
         'HITL_BOTTOM_SHEET_IMPRESSION': 7,
         'HITL_CART_DETAILS_IMPRESSION': 13,
+        'HITL_CHECKOUT_PREVIEW_TAP': 179,
+        'HITL_CHECKOUT_RESULT': 180,
         'HITL_DECISION_TAP': 12,
         'HITL_DETAIL_IMPRESSION': 8,
         'HITL_LEGAL_LINK_TAP': 18,
@@ -7182,6 +7195,14 @@ const WA_WAM_ENUMS = Object.freeze({
         'SETTING_PAGE_IMPRESSION': 139,
         'SETTING_PAGE_SECURE_CREDENTIAL_TAP': 60,
         'SHARED_ARTIFACT_IMPRESSION': 96,
+        'SHOPPING_ACTION_RESULT': 176,
+        'SHOPPING_BUY_TAP': 175,
+        'SHOPPING_LIST_CLOSED': 173,
+        'SHOPPING_LIST_IMPRESSION': 172,
+        'SHOPPING_PDP_CLOSED': 178,
+        'SHOPPING_PDP_IMPRESSION': 174,
+        'SHOPPING_RESULTS_IMPRESSION': 171,
+        'SHOPPING_WEBSITE_TAP': 177,
         'SIDE_DRAWER_ENTRY_TAP': 112,
         'SIDE_DRAWER_IMPRESSION': 113,
         'SUBSCRIPTION_READ_ERROR': 114,
@@ -7400,6 +7421,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'PRESETS_CAROUSEL_SCROLLED': 156,
         'PRESETS_PREVIEW_GRID_AVAILABLE': 151,
         'PRESETS_PREVIEW_LOADED': 107,
+        'PRESET_IMPRESSIONS': 160,
         'PRESET_SELECTED': 108,
         'REGENERATE_BUTTON_CLICK': 8,
         'REPORT_BUTTON_CLICKED': 104,
@@ -16400,11 +16422,15 @@ const WA_WAM_ENUMS = Object.freeze({
         'CONTENT_HUB_MEDIA_DETAIL': 345,
         'CREATE_BIZ_PROFILE': 61,
         'CREATE_PASS_KEY': 62,
+        'CUSTOMER_MANAGER_ACCESS': 356,
         'CUSTOMER_MANAGER_ACTIONS_MENU': 286,
         'CUSTOMER_MANAGER_ADD_CUSTOMER': 282,
         'CUSTOMER_MANAGER_COLUMNS_MENU': 284,
+        'CUSTOMER_MANAGER_FIELD_EDITOR': 354,
         'CUSTOMER_MANAGER_LEAD_STAGE_SUBMENU': 285,
         'CUSTOMER_MANAGER_LIST': 279,
+        'CUSTOMER_MANAGER_LIST_CREATION': 355,
+        'CUSTOMER_MANAGER_NOTES_EDITOR': 353,
         'CUSTOMER_MANAGER_PIPELINE': 280,
         'CUSTOMER_MANAGER_PROFILE_DRAWER': 281,
         'CUSTOMER_MANAGER_REMOVE_CONFIRM': 283,
@@ -18888,6 +18914,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'CHAT_LIST_FIX_ENCRYPTION_BANNER': 9,
         'CHAT_LIST_MORE_SHEET': 16,
         'FOCUS_SCHEDULES': 18,
+        'FORWARD': 25,
         'GROUP': 3,
         'HIDDEN_CHATS_CAPTION': 17,
         'LIST': 4,
@@ -18895,6 +18922,8 @@ const WA_WAM_ENUMS = Object.freeze({
         'LIST_EDIT': 20,
         'LIST_MUTE_DIALOG': 19,
         'LIST_SCHEDULE': 22,
+        'MEDIA_EDITOR': 23,
+        'MEDIA_PICKER': 24,
         'META_SUBS_DEEPLINK': 12,
         'ONE_TO_ONE': 2,
         'REGISTRATION_RESTORE_SETUP': 10,
@@ -18926,7 +18955,10 @@ const WA_WAM_ENUMS = Object.freeze({
         'LIST': 4,
         'LIST_MUTE_DIALOG': 22,
         'LIST_SCHEDULE': 23,
+        'MEDIA_QUALITY_MENU': 27,
+        'MEDIA_SEND': 29,
         'NOTIFICATION_SETTINGS': 12,
+        'ORIGINAL_MEDIA_RECEIVED': 30,
         'PINNED_CHAT': 7,
         'REACTION_KEYBOARD': 19,
         'REACTION_TRAY': 18,
@@ -18936,6 +18968,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'STICKER_RECEIVED': 9,
         'STICKER_STORE': 10,
         'STICKER_TRAY': 8,
+        'UPLOAD_QUALITY_SETTINGS': 28,
         'WHATSAPP_SETTINGS': 13
         })
     }),
@@ -24417,6 +24450,7 @@ const WA_WAM_EVENTS = Object.freeze({
             autoDlVideoWifi: Object.freeze({ id: 92, type: 'boolean', falcoName: 'auto_dl_video_wifi' }),
             backupEncryptionMethod: Object.freeze({ id: 231, type: 'enum', enum: 'BACKUP_ENCRYPTION_METHOD', falcoName: 'backup_encryption_method' }),
             backupNetworkSetting: Object.freeze({ id: 10, type: 'enum', enum: 'BACKUP_NETWORK_SETTING', falcoName: 'backup_network_setting' }),
+            backupRestoreApi: Object.freeze({ id: 370, type: 'enum', enum: 'BACKUP_RESTORE_API', falcoName: 'backup_restore_api' }),
             backupRestoreEncryptionVersion: Object.freeze({ id: 138, type: 'integer', falcoName: 'backup_restore_encryption_version' }),
             backupSchedule: Object.freeze({ id: 9, type: 'enum', enum: 'BACKUP_SCHEDULE', falcoName: 'backup_schedule' }),
             canonicalEntLastValidationTsMs: Object.freeze({ id: 241, type: 'integer', falcoName: 'canonical_ent_last_validation_ts_ms' }),
@@ -25973,6 +26007,7 @@ const WA_WAM_EVENTS = Object.freeze({
             aiSubSessionId: Object.freeze({ id: 25, type: 'string', falcoName: 'ai_sub_session_id' }),
             componentId: Object.freeze({ id: 24, type: 'string', falcoName: 'component_id' }),
             dedupKey: Object.freeze({ id: 19, type: 'integer', falcoName: 'dedup_key' }),
+            imagePositionShown: Object.freeze({ id: 32, type: 'string', falcoName: 'image_position_shown' }),
             imagineAction: Object.freeze({ id: 1, type: 'enum', enum: 'IMAGINE_ACTION', falcoName: 'imagine_action' }),
             imagineActionDuration: Object.freeze({ id: 8, type: 'timer', falcoName: 'imagine_action_duration' }),
             imagineActionSource: Object.freeze({ id: 3, type: 'enum', enum: 'IMAGINE_ACTION_SOURCE', falcoName: 'imagine_action_source' }),
@@ -29811,6 +29846,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isBizMetaVerified: Object.freeze({ id: 68, type: 'boolean', falcoName: 'is_biz_meta_verified' }),
             isBroadcastMessage: Object.freeze({ id: 38, type: 'boolean', falcoName: 'is_broadcast_message' }),
             isCoex: Object.freeze({ id: 56, type: 'boolean', falcoName: 'is_coex' }),
+            isFirstMm: Object.freeze({ id: 69, type: 'boolean', falcoName: 'is_first_mm' }),
             isFromAdsManagerMm: Object.freeze({ id: 15, type: 'boolean', falcoName: 'is_from_ads_manager_mm' }),
             isFromCapi: Object.freeze({ id: 16, type: 'boolean', falcoName: 'is_from_capi' }),
             isFromPill: Object.freeze({ id: 63, type: 'boolean', falcoName: 'is_from_pill' }),
@@ -29984,6 +30020,7 @@ const WA_WAM_EVENTS = Object.freeze({
             isBroadcastMessage: Object.freeze({ id: 38, type: 'boolean', falcoName: 'is_broadcast_message' }),
             isBulkAction: Object.freeze({ id: 14, type: 'boolean', falcoName: 'is_bulk_action' }),
             isCoex: Object.freeze({ id: 55, type: 'boolean', falcoName: 'is_coex' }),
+            isFirstMm: Object.freeze({ id: 66, type: 'boolean', falcoName: 'is_first_mm' }),
             isFromAdsManagerMm: Object.freeze({ id: 10, type: 'boolean', falcoName: 'is_from_ads_manager_mm' }),
             isFromCapi: Object.freeze({ id: 11, type: 'boolean', falcoName: 'is_from_capi' }),
             isFromPill: Object.freeze({ id: 60, type: 'boolean', falcoName: 'is_from_pill' }),
@@ -30171,6 +30208,7 @@ const WA_WAM_EVENTS = Object.freeze({
             chatsFolderType: Object.freeze({ id: 14, type: 'enum', enum: 'CHATS_FOLDER_TYPE', falcoName: 'chats_folder_type' }),
             companionDevices: Object.freeze({ id: 41, type: 'integer', falcoName: 'companion_devices' }),
             contactType: Object.freeze({ id: 1, type: 'enum', enum: 'CONTACT_TYPE', falcoName: 'contact_type' }),
+            containsFirstMm: Object.freeze({ id: 77, type: 'boolean', falcoName: 'contains_first_mm' }),
             decisionId: Object.freeze({ id: 40, type: 'string', falcoName: 'decision_id' }),
             dedupKey: Object.freeze({ id: 60, type: 'integer', falcoName: 'dedup_key' }),
             deltaTime: Object.freeze({ id: 2, type: 'integer', falcoName: 'delta_time' }),

@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 3041,
+  "propCount": 3068,
   "props": {
     "a2ui_fallback_show_timestamp": {
       "code": 40437,
@@ -238,6 +238,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "ai_3p_bot_creation_disabled": {
+      "code": 44366,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "ai_3p_bot_product_chat_rendering_enabled": {
       "code": 34186,
       "debugDefaultValue": true,
@@ -255,6 +261,12 @@
       "debugDefaultValue": "20260806",
       "defaultValue": "20260806",
       "type": "string"
+    },
+    "ai_3p_bot_service_disabled": {
+      "code": 44365,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_account_linking_enabled": {
       "code": 13856,
@@ -652,12 +664,6 @@
       "defaultValue": false,
       "type": "bool"
     },
-    "ai_groups_open_enabled": {
-      "code": 22165,
-      "debugDefaultValue": false,
-      "defaultValue": false,
-      "type": "bool"
-    },
     "ai_hatch_3p_bot_channel_enabled": {
       "code": 40686,
       "debugDefaultValue": false,
@@ -834,6 +840,36 @@
     },
     "ai_hatch_hitl_approval_in_notification_enable": {
       "code": 41174,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_hitl_booking_cards_enabled": {
+      "code": 44290,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_hitl_card_field_check_enabled": {
+      "code": 44287,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_hitl_flight_card_enabled": {
+      "code": 44289,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_hitl_order_cards_enabled": {
+      "code": 44291,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_hitl_purchase_preapproval_card_enabled": {
+      "code": 44288,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -1413,6 +1449,18 @@
       "debugDefaultValue": "rephrase,professional,funny,supportive",
       "defaultValue": "rephrase,professional,funny,supportive",
       "type": "string"
+    },
+    "ai_rich_response_a2ui_cards_enabled": {
+      "code": 44328,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_rich_response_audio_notes_action_tray_enabled": {
+      "code": 44335,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
     },
     "ai_rich_response_content_types_logging_mode": {
       "code": 37056,
@@ -3342,14 +3390,14 @@
     },
     "call_screening_log_privacy_settings_user_journey": {
       "code": 43751,
-      "debugDefaultValue": false,
-      "defaultValue": false,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "call_screening_log_screening_user_journey": {
       "code": 43752,
-      "debugDefaultValue": false,
-      "defaultValue": false,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "call_screening_setting_data_version": {
@@ -4492,6 +4540,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "channels_quiz_shuffle_options_sender_mode": {
+      "code": 44498,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "channels_reactions_bottomsheet_tap_to_react_enabled": {
       "code": 7682,
       "debugDefaultValue": true,
@@ -4956,7 +5010,7 @@
     },
     "create_group_and_add_member_overflow": {
       "code": 15772,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -6994,6 +7048,12 @@
       "defaultValue": 100,
       "type": "int"
     },
+    "ghs_drop_msg_missing_from_public_stanza": {
+      "code": 44484,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "gif_max_play_duration": {
       "code": 3684,
       "debugDefaultValue": 5,
@@ -7090,9 +7150,15 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "group_enc_key_key_request_throttle_seconds": {
+      "code": 44383,
+      "debugDefaultValue": 14400,
+      "defaultValue": 14400,
+      "type": "int"
+    },
     "group_from_group": {
       "code": 24024,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -7406,6 +7472,12 @@
       "code": 36322,
       "debugDefaultValue": true,
       "defaultValue": false,
+      "type": "bool"
+    },
+    "group_root_key_telemetry_enabled": {
+      "code": 43826,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "group_settings_ia_prototype": {
@@ -8406,6 +8478,12 @@
     },
     "media_quality_auto_download_settings_enabled": {
       "code": 21784,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "media_upload_oversized_video_fail_fast_enabled": {
+      "code": 44301,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -10240,6 +10318,18 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "poll_date_add_option_enabled": {
+      "code": 44326,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "poll_date_options_enabled": {
+      "code": 44324,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "poll_enable_static_add_option_msg": {
       "code": 41785,
       "debugDefaultValue": false,
@@ -11650,6 +11740,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "smb_web_business_broadcast_home_redesign": {
+      "code": 44473,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "smb_web_category_search_via_graph_enabled": {
       "code": 28519,
       "debugDefaultValue": false,
@@ -11926,6 +12022,12 @@
       "defaultValue": 3,
       "type": "int"
     },
+    "status_chat_sticker_forward_page_color_enabled": {
+      "code": 44421,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "status_companion_read_sync_fix_enabled": {
       "code": 39224,
       "debugDefaultValue": false,
@@ -12043,6 +12145,18 @@
     "status_viewer_action_psa_link_click_logging_enabled": {
       "code": 34489,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "status_viewer_header_gradient_darker_alpha": {
+      "code": 44422,
+      "debugDefaultValue": 0.800000011920929,
+      "defaultValue": 0.800000011920929,
+      "type": "float"
+    },
+    "status_viewer_header_gradient_darker_enabled": {
+      "code": 44420,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -12826,8 +12940,20 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "username_pn_sharing_reservation_activation_flow": {
+      "code": 44299,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "username_pn_sharing_sender_companion_enabled": {
       "code": 42497,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "username_pn_sharing_ui_settings_edit_companion_enabled": {
+      "code": 44460,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -13116,8 +13242,8 @@
     },
     "wa_ai_meta_ai_voyager_dictation_languages": {
       "code": 43724,
-      "debugDefaultValue": "ar,bn,de,en,es,fil,fr,hi,id,in,it,pt,th,tl,vi",
-      "defaultValue": "ar,bn,de,en,es,fil,fr,hi,id,in,it,pt,th,tl,vi",
+      "debugDefaultValue": "",
+      "defaultValue": "",
       "type": "string"
     },
     "wa_asteria_eligibility_subscription_status_check_enabled": {
@@ -13218,6 +13344,12 @@
     },
     "wa_consumer_subscription_u18_gating_enabled": {
       "code": 38120,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "wa_contact_manager_lead_stage_read_only_enabled": {
+      "code": 44325,
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
@@ -15958,6 +16090,18 @@
       "defaultValue": 4,
       "type": "int"
     },
+    "web_bb_nav_entrypoint_enabled": {
+      "code": 44516,
+      "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_bb_nav_entrypoint_target": {
+      "code": 44567,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "web_bbo_enable_appointment_message": {
       "code": 41467,
       "debugDefaultValue": true,
@@ -16176,6 +16320,12 @@
     },
     "web_channel_video_server_transcode_upload": {
       "code": 19920,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_channels_follow_offline_fail_fast_enabled": {
+      "code": 44308,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -16566,8 +16716,8 @@
     },
     "web_group_member_list_logging_enabled": {
       "code": 43635,
-      "debugDefaultValue": false,
-      "defaultValue": false,
+      "debugDefaultValue": true,
+      "defaultValue": true,
       "type": "bool"
     },
     "web_group_members_view_enabled": {
@@ -16633,6 +16783,12 @@
     "web_guest_calling_waiting_room_approval_note_enabled": {
       "code": 33385,
       "debugDefaultValue": true,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_history_sync_account_username_ingestion": {
+      "code": 44507,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -17226,7 +17382,7 @@
     },
     "web_self_adv_daily_use_lid": {
       "code": 34414,
-      "debugDefaultValue": true,
+      "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
     },
@@ -18166,6 +18322,12 @@
       "defaultValue": 0,
       "type": "int"
     },
+    "win_hybrid_voip_bridge": {
+      "code": 44379,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "win_hybrid_voip_perf_sampling_off_ui_enabled": {
       "code": 41939,
       "debugDefaultValue": false,
@@ -18391,5 +18553,5 @@
     "web_store_quota_manager_enabled",
     "web_vc_css_bg_scan_children_first"
   ],
-  "waVersion": "2.3000.1056039834"
+  "waVersion": "2.3000.1056216123"
 }

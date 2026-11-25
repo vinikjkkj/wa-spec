@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056039834
+// WhatsApp Version: 2.3000.1056216123
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -5683,6 +5683,7 @@ export type WaMexAdsSplitTestCommonReportingPaneContainerAllStudiesResponse = {
                 readonly confidence_entry?: ReadonlyArray<{
                     readonly cell_index?: number
                     readonly confidence?: unknown
+                    readonly is_winner_cell?: boolean
                 }>
                 readonly winner_confidence_thresholds?: {
                     readonly two_cell?: unknown
@@ -9277,7 +9278,7 @@ export type WaMexFetchPlaintextLinkPreviewResponse = {
         readonly direct_path?: string
         readonly hash?: string
         readonly height?: number
-        readonly preview_type?: 'IMAGE'
+        readonly preview_type?: 'CAROUSEL' | 'IMAGE' | 'VIDEO'
         readonly thumb_data?: string
         readonly title?: string
         readonly width?: number
@@ -12456,13 +12457,24 @@ export type WaMexMAIBACreatorDiscoveryExperienceResponse = {
             readonly id?: string
         }
         readonly creator_profile_materialized?: {
+            readonly badge?: {
+                readonly badge_title?: string
+                readonly badge_tooltip?: unknown
+                readonly badge_type?: string
+            }
             readonly business_email?: string
             readonly is_verified?: boolean
             readonly latest_reels?: ReadonlyArray<{
                 readonly image?: {
                     readonly uri?: string
                 }
+                readonly media_id?: string
+                readonly product_type?: string
             }>
+            readonly location?: {
+                readonly country?: string
+                readonly iso_country_code?: string
+            }
             readonly profile_pic_uri_without_fallback?: unknown
             readonly user_name?: string
         }

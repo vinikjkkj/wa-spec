@@ -1398,7 +1398,7 @@
       }
     },
     "AdsSplitTestCommonReportingPaneContainerAllStudies": {
-      "docId": "27448242128207216",
+      "docId": "30348518941404597",
       "operationKind": "query",
       "originalName": "AdsSplitTestCommonReportingPaneContainerAllStudiesQuery",
       "response": {
@@ -1608,7 +1608,8 @@
                 "confidence_entry": [
                   {
                     "cell_index": "number",
-                    "confidence": "unknown"
+                    "confidence": "unknown",
+                    "is_winner_cell": "boolean"
                   }
                 ],
                 "winner_confidence_thresholds": {
@@ -7392,7 +7393,7 @@
           "direct_path": "string",
           "hash": "string",
           "height": "number",
-          "preview_type": "enum:IMAGE",
+          "preview_type": "enum:CAROUSEL|IMAGE|VIDEO",
           "thumb_data": "string",
           "title": "string",
           "width": "number"
@@ -12178,7 +12179,7 @@
       }
     },
     "MAIBACreatorDiscoveryExperience": {
-      "docId": "27571075512570450",
+      "docId": "28024704930472602",
       "operationKind": "query",
       "originalName": "MAIBACreatorDiscoveryExperienceQuery",
       "response": {
@@ -12189,15 +12190,26 @@
               "id": "string"
             },
             "creator_profile_materialized": {
+              "badge": {
+                "badge_title": "string",
+                "badge_tooltip": "unknown",
+                "badge_type": "string"
+              },
               "business_email": "string",
               "is_verified": "boolean",
               "latest_reels": [
                 {
                   "image": {
                     "uri": "string"
-                  }
+                  },
+                  "media_id": "string",
+                  "product_type": "string"
                 }
               ],
+              "location": {
+                "country": "string",
+                "iso_country_code": "string"
+              },
               "profile_pic_uri_without_fallback": "unknown",
               "user_name": "string"
             },
@@ -27315,5 +27327,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1056039834"
+  "waVersion": "2.3000.1056216123"
 }

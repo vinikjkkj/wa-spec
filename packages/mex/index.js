@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056039834
+// WhatsApp Version: 2.3000.1056216123
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -42,7 +42,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     AdsPlayableHeatmapPerfSumWidget: Object.freeze({ docId: '24913527001677640', clientDocId: '24913527001677640' }),
     AdsRBCuratedReportCTMFunnelChartContainerCTMEventOrderChange: Object.freeze({ docId: '38186213267659452', clientDocId: '38186213267659452' }),
     AdsSBGEngagementProgramsChannelsProviderPlugin: Object.freeze({ docId: '25712906008314607', clientDocId: '25712906008314607' }),
-    AdsSplitTestCommonReportingPaneContainerAllStudies: Object.freeze({ docId: '27448242128207216', clientDocId: '27448242128207216' }),
+    AdsSplitTestCommonReportingPaneContainerAllStudies: Object.freeze({ docId: '30348518941404597', clientDocId: '30348518941404597' }),
     AdsSplitTestReportingGraphWithStudyData: Object.freeze({ docId: '40845964721668939', clientDocId: '40845964721668939' }),
     AdsTALReportAIInsightResults: Object.freeze({ docId: '27030539143238241', clientDocId: '27030539143238241' }),
     AdsTALReportAIInsightResultsFeedback: Object.freeze({ docId: '27832720153079362', clientDocId: '27832720153079362' }),
@@ -262,7 +262,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     MAIBACreativeSuggestionsExperience: Object.freeze({ docId: '29054242070874054', clientDocId: '29054242070874054' }),
     MAIBACreativeSuggestionsExperienceSourceAd: Object.freeze({ docId: '39462947759985795', clientDocId: '39462947759985795' }),
     MAIBACreatorDiscoveryAddToListButton: Object.freeze({ docId: '28564698983220309', clientDocId: '28564698983220309' }),
-    MAIBACreatorDiscoveryExperience: Object.freeze({ docId: '27571075512570450', clientDocId: '27571075512570450' }),
+    MAIBACreatorDiscoveryExperience: Object.freeze({ docId: '28024704930472602', clientDocId: '28024704930472602' }),
     MAIBADeleteAsyncTask: Object.freeze({ docId: '26899868353045376', clientDocId: '26899868353045376' }),
     MAIBADeleteProactiveTask: Object.freeze({ docId: '28182930291386970', clientDocId: '28182930291386970' }),
     MAIBAFeedbackGuidanceCardSupportSurveyDetails: Object.freeze({ docId: '27045518428415704', clientDocId: '27045518428415704' }),

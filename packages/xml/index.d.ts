@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056039834
+// WhatsApp Version: 2.3000.1056216123
 
 export interface WaXmlOperationSummary {
     readonly module: string
@@ -10964,10 +10964,8 @@ export interface WaXmlOperations {
         readonly children: {
             readonly biz: {
                 readonly tag: 'biz'
-                readonly children: {
-                    readonly original_envelope: {
-                        readonly tag: 'original_envelope'
-                    }
+                readonly attrs: {
+                    readonly client_received_ms: number
                 }
             } | undefined
         }
@@ -14701,21 +14699,106 @@ export interface WaXmlStanzas {
                 readonly node: {
                 readonly tag: 'notification'
                 readonly attrs: {
-                    readonly from: 's.whatsapp.net'
+                    readonly from: string
                     readonly id: string
-                    readonly offline?: number
                     readonly t: number
                     readonly type: 'business'
                 }
                 readonly children: {
-                    readonly mm_campaign: {
-                        readonly tag: 'mm_campaign'
-                        readonly attrs: {
-                            readonly ad_creative_id?: string
-                            readonly ad_group_id?: string
-                            readonly ad_id?: string
-                            readonly status: 'INTEGRITY_NOT_CLEARED' | 'OK'
+                    readonly feature_flags: {
+                        readonly tag: 'feature_flags'
+                        readonly children: {
+                            readonly feature_flag: ReadonlyArray<{
+                                readonly tag: 'feature_flag'
+                                readonly attrs: {
+                                    readonly enabled: boolean
+                                    readonly limit?: number
+                                    readonly name: 'ADS_CREDIT' | 'BUSINESS_BROADCAST' | 'BUSINESS_SEARCH' | 'CHAT_ASSIGNMENT' | 'CUSTOM_APP_ICON' | 'CUSTOM_APP_THEME' | 'CUSTOM_RINGTONES' | 'CUSTOM_URL' | 'ENHANCED_LISTS' | 'IMAGE_GEN' | 'IMAGINE_IMAGE' | 'IMAGINE_VIDEO' | 'MD_EXTENSION' | 'NEW_CHATS_LIMIT' | 'NEXT_GEN_WA_BENEFIT' | 'PIN_MORE_CHATS' | 'PREMIUM_MESSAGE_STICKERS' | 'PROTECTED_BUSINESS_ACCOUNT' | 'THINK_HARD' | 'VERIFIED_CHANNEL'
+                                }
+                            }>
                         }
+                    }
+                    readonly product_catalog: {
+                        readonly tag: 'product_catalog'
+                        readonly children: {
+                            readonly collection: ReadonlyArray<{
+                                readonly tag: 'collection'
+                                readonly attrs: {
+                                    readonly id: string
+                                }
+                                readonly children: {
+                                    readonly status_info: {
+                                        readonly tag: 'status_info'
+                                        readonly children: {
+                                            readonly commerce_url: {
+                                                readonly tag: 'commerce_url'
+                                                readonly content: string
+                                            } | undefined
+                                            readonly reject_reason: {
+                                                readonly tag: 'reject_reason'
+                                                readonly content: string
+                                            } | undefined
+                                            readonly status: {
+                                                readonly tag: 'status'
+                                                readonly content: 'APPROVED' | 'PENDING' | 'REJECTED'
+                                            }
+                                        }
+                                    }
+                                }
+                            }>
+                            readonly product: ReadonlyArray<{
+                                readonly tag: 'product'
+                                readonly children: {
+                                    readonly id: {
+                                        readonly tag: 'id'
+                                        readonly content: string
+                                    }
+                                }
+                            }>
+                        }
+                    }
+                    readonly profile: {
+                        readonly tag: 'profile'
+                        readonly attrs: {
+                            readonly hash?: string
+                        }
+                    }
+                    readonly remove: {
+                        readonly tag: 'remove'
+                        readonly attrs: {
+                            readonly hash: string
+                            readonly jid?: string
+                        }
+                    }
+                    readonly subscriptions: {
+                        readonly tag: 'subscriptions'
+                        readonly children: {
+                            readonly subscription: ReadonlyArray<{
+                                readonly tag: 'subscription'
+                                readonly attrs: {
+                                    readonly id: string
+                                    readonly source?: 'AURA' | 'BLUE' | 'META_NOVA' | 'PREMIUM'
+                                    readonly status: string
+                                    readonly subscription_creation_time?: number
+                                    readonly subscription_end_time?: number
+                                    readonly subscription_start_time?: number
+                                    readonly subscription_tier?: number
+                                }
+                            }>
+                        }
+                    }
+                    readonly verified_name: {
+                        readonly tag: 'verified_name'
+                        readonly attrs: {
+                            readonly actual_actors?: number
+                            readonly hash: string
+                            readonly host_storage?: number
+                            readonly jid?: string
+                            readonly privacy_mode_ts?: number
+                            readonly serial?: string
+                            readonly verified_level: 'high' | 'low' | 'unknown'
+                        }
+                        readonly content: Uint8Array
                     }
                 }
             }
@@ -15559,6 +15642,7 @@ export interface WaXmlStanzas {
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string
+                    readonly subtype: string
                     readonly t: number
                     readonly to: string
                     readonly type: 'enc_rekey_retry'
@@ -15566,10 +15650,8 @@ export interface WaXmlStanzas {
                 readonly children: {
                     readonly biz: {
                         readonly tag: 'biz'
-                        readonly children: {
-                            readonly original_envelope: {
-                                readonly tag: 'original_envelope'
-                            }
+                        readonly attrs: {
+                            readonly client_received_ms: number
                         }
                     } | undefined
                     readonly keys: {
@@ -15662,6 +15744,7 @@ export interface WaXmlStanzas {
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string
+                    readonly subtype: string
                     readonly t?: number
                     readonly to: string
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
@@ -15672,10 +15755,8 @@ export interface WaXmlStanzas {
                     } | undefined
                     readonly biz: {
                         readonly tag: 'biz'
-                        readonly children: {
-                            readonly original_envelope: {
-                                readonly tag: 'original_envelope'
-                            }
+                        readonly attrs: {
+                            readonly client_received_ms: number
                         }
                     } | undefined
                     readonly list: {
@@ -15715,6 +15796,7 @@ export interface WaXmlStanzas {
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string
+                    readonly subtype: string
                     readonly t: number
                     readonly to: string
                     readonly type?: 'delivery' | 'inactive' | 'peer_msg' | 'played' | 'played-self' | 'read' | 'read-self' | 'sender' | 'server-error' | 'view'
@@ -15724,13 +15806,9 @@ export interface WaXmlStanzas {
                         readonly tag: 'biz'
                         readonly attrs: {
                             readonly actual_actors?: number
+                            readonly client_received_ms: number
                             readonly host_storage?: number
                             readonly privacy_mode_ts?: number
-                        }
-                        readonly children: {
-                            readonly original_envelope: {
-                                readonly tag: 'original_envelope'
-                            }
                         }
                     }
                     readonly error: {
@@ -15789,6 +15867,7 @@ export interface WaXmlStanzas {
                     readonly peer_participant_pn?: string
                     readonly recipient?: string
                     readonly sts?: string
+                    readonly subtype: string
                     readonly t: number
                     readonly to: string
                     readonly type: 'retry'
@@ -15796,10 +15875,8 @@ export interface WaXmlStanzas {
                 readonly children: {
                     readonly biz: {
                         readonly tag: 'biz'
-                        readonly children: {
-                            readonly original_envelope: {
-                                readonly tag: 'original_envelope'
-                            }
+                        readonly attrs: {
+                            readonly client_received_ms: number
                         }
                     } | undefined
                     readonly keys: {

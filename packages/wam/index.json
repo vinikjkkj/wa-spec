@@ -943,6 +943,16 @@
         "WIFI_OR_CELLULAR": 1
       }
     },
+    "BACKUP_RESTORE_API": {
+      "export": "BACKUP_RESTORE_API",
+      "module": "WAWebWamEnumBackupRestoreApi",
+      "values": {
+        "GMS": 2,
+        "GOOGLE": 1,
+        "ICLOUD": 4,
+        "VAULT": 3
+      }
+    },
     "BACKUP_SCHEDULE": {
       "export": "BACKUP_SCHEDULE",
       "module": "WAWebWamEnumBackupSchedule",
@@ -2066,6 +2076,7 @@
         "CONVERSATION_OPTIONS": 29,
         "CONVERSATION_OVERSCROLL": 57,
         "CONVERSATION_VOICE_CHAT_FAB": 59,
+        "CUSTOMER_MANAGER": 93,
         "DEBUG_TOOL": 23,
         "DIALER_CONTACT": 53,
         "DIALER_NON_CONTACT": 54,
@@ -7061,6 +7072,8 @@
         "GRANULAR_PERMISSION_MODE_SELECTED": 162,
         "HITL_BOTTOM_SHEET_IMPRESSION": 7,
         "HITL_CART_DETAILS_IMPRESSION": 13,
+        "HITL_CHECKOUT_PREVIEW_TAP": 179,
+        "HITL_CHECKOUT_RESULT": 180,
         "HITL_DECISION_TAP": 12,
         "HITL_DETAIL_IMPRESSION": 8,
         "HITL_LEGAL_LINK_TAP": 18,
@@ -7128,6 +7141,14 @@
         "SETTING_PAGE_IMPRESSION": 139,
         "SETTING_PAGE_SECURE_CREDENTIAL_TAP": 60,
         "SHARED_ARTIFACT_IMPRESSION": 96,
+        "SHOPPING_ACTION_RESULT": 176,
+        "SHOPPING_BUY_TAP": 175,
+        "SHOPPING_LIST_CLOSED": 173,
+        "SHOPPING_LIST_IMPRESSION": 172,
+        "SHOPPING_PDP_CLOSED": 178,
+        "SHOPPING_PDP_IMPRESSION": 174,
+        "SHOPPING_RESULTS_IMPRESSION": 171,
+        "SHOPPING_WEBSITE_TAP": 177,
         "SIDE_DRAWER_ENTRY_TAP": 112,
         "SIDE_DRAWER_IMPRESSION": 113,
         "SUBSCRIPTION_READ_ERROR": 114,
@@ -7346,6 +7367,7 @@
         "PRESETS_CAROUSEL_SCROLLED": 156,
         "PRESETS_PREVIEW_GRID_AVAILABLE": 151,
         "PRESETS_PREVIEW_LOADED": 107,
+        "PRESET_IMPRESSIONS": 160,
         "PRESET_SELECTED": 108,
         "REGENERATE_BUTTON_CLICK": 8,
         "REPORT_BUTTON_CLICKED": 104,
@@ -16346,11 +16368,15 @@
         "CONTENT_HUB_MEDIA_DETAIL": 345,
         "CREATE_BIZ_PROFILE": 61,
         "CREATE_PASS_KEY": 62,
+        "CUSTOMER_MANAGER_ACCESS": 356,
         "CUSTOMER_MANAGER_ACTIONS_MENU": 286,
         "CUSTOMER_MANAGER_ADD_CUSTOMER": 282,
         "CUSTOMER_MANAGER_COLUMNS_MENU": 284,
+        "CUSTOMER_MANAGER_FIELD_EDITOR": 354,
         "CUSTOMER_MANAGER_LEAD_STAGE_SUBMENU": 285,
         "CUSTOMER_MANAGER_LIST": 279,
+        "CUSTOMER_MANAGER_LIST_CREATION": 355,
+        "CUSTOMER_MANAGER_NOTES_EDITOR": 353,
         "CUSTOMER_MANAGER_PIPELINE": 280,
         "CUSTOMER_MANAGER_PROFILE_DRAWER": 281,
         "CUSTOMER_MANAGER_REMOVE_CONFIRM": 283,
@@ -18834,6 +18860,7 @@
         "CHAT_LIST_FIX_ENCRYPTION_BANNER": 9,
         "CHAT_LIST_MORE_SHEET": 16,
         "FOCUS_SCHEDULES": 18,
+        "FORWARD": 25,
         "GROUP": 3,
         "HIDDEN_CHATS_CAPTION": 17,
         "LIST": 4,
@@ -18841,6 +18868,8 @@
         "LIST_EDIT": 20,
         "LIST_MUTE_DIALOG": 19,
         "LIST_SCHEDULE": 22,
+        "MEDIA_EDITOR": 23,
+        "MEDIA_PICKER": 24,
         "META_SUBS_DEEPLINK": 12,
         "ONE_TO_ONE": 2,
         "REGISTRATION_RESTORE_SETUP": 10,
@@ -18872,7 +18901,10 @@
         "LIST": 4,
         "LIST_MUTE_DIALOG": 22,
         "LIST_SCHEDULE": 23,
+        "MEDIA_QUALITY_MENU": 27,
+        "MEDIA_SEND": 29,
         "NOTIFICATION_SETTINGS": 12,
+        "ORIGINAL_MEDIA_RECEIVED": 30,
         "PINNED_CHAT": 7,
         "REACTION_KEYBOARD": 19,
         "REACTION_TRAY": 18,
@@ -18882,6 +18914,7 @@
         "STICKER_RECEIVED": 9,
         "STICKER_STORE": 10,
         "STICKER_TRAY": 8,
+        "UPLOAD_QUALITY_SETTINGS": 28,
         "WHATSAPP_SETTINGS": 13
       }
     },
@@ -40937,6 +40970,12 @@
           "id": 10,
           "type": "enum"
         },
+        "backupRestoreApi": {
+          "enum": "BACKUP_RESTORE_API",
+          "falcoName": "backup_restore_api",
+          "id": 370,
+          "type": "enum"
+        },
         "backupRestoreEncryptionVersion": {
           "falcoName": "backup_restore_encryption_version",
           "id": 138,
@@ -46382,6 +46421,11 @@
           "falcoName": "dedup_key",
           "id": 19,
           "type": "integer"
+        },
+        "imagePositionShown": {
+          "falcoName": "image_position_shown",
+          "id": 32,
+          "type": "string"
         },
         "imagineAction": {
           "enum": "IMAGINE_ACTION",
@@ -60340,6 +60384,11 @@
           "id": 56,
           "type": "boolean"
         },
+        "isFirstMm": {
+          "falcoName": "is_first_mm",
+          "id": 69,
+          "type": "boolean"
+        },
         "isFromAdsManagerMm": {
           "falcoName": "is_from_ads_manager_mm",
           "id": 15,
@@ -61094,6 +61143,11 @@
         "isCoex": {
           "falcoName": "is_coex",
           "id": 55,
+          "type": "boolean"
+        },
+        "isFirstMm": {
+          "falcoName": "is_first_mm",
+          "id": 66,
           "type": "boolean"
         },
         "isFromAdsManagerMm": {
@@ -61882,6 +61936,11 @@
           "falcoName": "contact_type",
           "id": 1,
           "type": "enum"
+        },
+        "containsFirstMm": {
+          "falcoName": "contains_first_mm",
+          "id": 77,
+          "type": "boolean"
         },
         "decisionId": {
           "falcoName": "decision_id",
@@ -75059,7 +75118,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1056039834",
+  "waVersion": "2.3000.1056216123",
   "wireFormat": {
     "markers": {
       "event": 1,
