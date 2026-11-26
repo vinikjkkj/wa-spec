@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056216123
+// WhatsApp Version: 2.3000.1056354861
 'use strict'
 
 const WA_WAM_PROTOCOL_VERSION = 5
@@ -6365,6 +6365,7 @@ const WA_WAM_ENUMS = Object.freeze({
         'MESSAGE_PREFERENCES': 12,
         'REPORT': 2,
         'SAFETY_TOOLS': 3,
+        'SHARE_CONTACT': 18,
         'STOP_MARKETING_MSG_OFFERS': 11,
         'TRUST_BTN_TAPPED': 15,
         'TRUST_QUESTION_TAP': 14
@@ -18005,6 +18006,16 @@ const WA_WAM_ENUMS = Object.freeze({
         'ACTION_SOCIAL_PROOF_RENDERED': 29
         })
     }),
+    VOIP_BRIDGE: Object.freeze({
+        module: 'WAWebWamEnumVoipBridge',
+        export: 'VOIP_BRIDGE',
+        values: Object.freeze({
+        'CX': 1,
+        'CX_FALLBACK': 3,
+        'CX_PINNED': 4,
+        'WINRT': 2
+        })
+    }),
     VOIP_SETTING_RELEASE_TYPE: Object.freeze({
         module: 'WAWebWamEnumVoipSettingReleaseType',
         export: 'VOIP_SETTING_RELEASE_TYPE',
@@ -22842,6 +22853,7 @@ const WA_WAM_EVENTS = Object.freeze({
             vmosP5: Object.freeze({ id: 2146, type: 'number', falcoName: 'vmos_p5' }),
             vmosP50: Object.freeze({ id: 2147, type: 'number', falcoName: 'vmos_p50' }),
             vmosP95: Object.freeze({ id: 2148, type: 'number', falcoName: 'vmos_p95' }),
+            voipBridge: Object.freeze({ id: 3362, type: 'enum', enum: 'VOIP_BRIDGE', falcoName: 'voip_bridge' }),
             voipCameraLastErrorDeviceName: Object.freeze({ id: 2272, type: 'string', falcoName: 'voip_camera_last_error_device_name' }),
             voipCameraTotalErrors: Object.freeze({ id: 2273, type: 'integer', falcoName: 'voip_camera_total_errors' }),
             voipInitTime: Object.freeze({ id: 2274, type: 'timer', falcoName: 'voip_init_time' }),

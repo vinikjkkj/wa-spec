@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056216123
+// WhatsApp Version: 2.3000.1056354861
 'use strict'
 
 // Every server-driven experiment config WA Web knows about, keyed by the name
@@ -125,6 +125,7 @@ const WA_ABPROPS = Object.freeze({
     ai_hatch_encrypted_media_enabled: Object.freeze({ code: 32496, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_fab_animation_variant: Object.freeze({ code: 38617, type: "int", defaultValue: 0, debugDefaultValue: 1 }),
     ai_hatch_fab_enabled: Object.freeze({ code: 38618, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    ai_hatch_fab_large_size_enabled: Object.freeze({ code: 43679, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_first_party_connectors_enabled: Object.freeze({ code: 38142, type: "bool", defaultValue: false, debugDefaultValue: true }),
     ai_hatch_forwarding_html_enabled: Object.freeze({ code: 27876, type: "bool", defaultValue: false, debugDefaultValue: false }),
     ai_hatch_group_history_share_enabled: Object.freeze({ code: 42143, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -676,6 +677,7 @@ const WA_ABPROPS = Object.freeze({
     channels_forward_counter_on_status_card_enabled: Object.freeze({ code: 26148, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_forward_logging_v2_enabled: Object.freeze({ code: 5492, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_forward_to_my_status_web_enabled: Object.freeze({ code: 43192, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    channels_fts_enabled: Object.freeze({ code: 11266, type: "bool", defaultValue: false, debugDefaultValue: false }),
     channels_hide_news_url_preview: Object.freeze({ code: 5287, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_in_app_policy_detail_enabled: Object.freeze({ code: 29132, type: "bool", defaultValue: false, debugDefaultValue: true }),
     channels_invite_contacts_to_follow_consumer_enabled: Object.freeze({ code: 16790, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -1169,6 +1171,8 @@ const WA_ABPROPS = Object.freeze({
     gif_max_play_loops: Object.freeze({ code: 3683, type: "int", defaultValue: 3, debugDefaultValue: 3 }),
     gif_min_play_loops: Object.freeze({ code: 3682, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
     gif_provider: Object.freeze({ code: 14343, type: "int", defaultValue: 1, debugDefaultValue: 1 }),
+    gif_reply_sticker_layout_enabled: Object.freeze({ code: 44271, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    gif_size_match_sticker_mode: Object.freeze({ code: 39352, type: "int", defaultValue: 0, debugDefaultValue: 0 }),
     gimmick_phase_two_data_suffix: Object.freeze({ code: 6785, type: "string", defaultValue: "", debugDefaultValue: "" }),
     giphy_pma_shutoff_enabled: Object.freeze({ code: 27942, type: "bool", defaultValue: false, debugDefaultValue: false }),
     give_dogfooders_task_id_for_bug_reporting: Object.freeze({ code: 27444, type: "bool", defaultValue: false, debugDefaultValue: true }),
@@ -1181,6 +1185,8 @@ const WA_ABPROPS = Object.freeze({
     group_create_add_using_lid_jids: Object.freeze({ code: 16192, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_description_length: Object.freeze({ code: 14778, type: "int", defaultValue: 2048, debugDefaultValue: 2048 }),
     group_enc_key_enabled: Object.freeze({ code: 29673, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    group_enc_key_key_history_retention_seconds: Object.freeze({ code: 44583, type: "int", defaultValue: 7776000, debugDefaultValue: 7776000 }),
+    group_enc_key_key_request_initial_delay_seconds: Object.freeze({ code: 44585, type: "int", defaultValue: 14400, debugDefaultValue: 14400 }),
     group_enc_key_key_request_throttle_seconds: Object.freeze({ code: 44383, type: "int", defaultValue: 14400, debugDefaultValue: 14400 }),
     group_from_group: Object.freeze({ code: 24024, type: "bool", defaultValue: false, debugDefaultValue: false }),
     group_from_group_admin_max_size: Object.freeze({ code: 34956, type: "int", defaultValue: 128, debugDefaultValue: 128 }),
@@ -2639,6 +2645,7 @@ const WA_ABPROPS = Object.freeze({
     web_ai_sticker_emission_enabled: Object.freeze({ code: 36294, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_album_group_cancel_retry_enabled: Object.freeze({ code: 41087, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_album_star_as_one_message_enabled: Object.freeze({ code: 41329, type: "bool", defaultValue: false, debugDefaultValue: true }),
+    web_album_v2_sender_enabled: Object.freeze({ code: 44632, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_anr_app_launch_skew_rtt_guard_enabled: Object.freeze({ code: 40496, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_anr_async_contacts_restore_from_db_enabled: Object.freeze({ code: 27775, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_anr_async_media_decryption_enabled: Object.freeze({ code: 23200, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -2706,6 +2713,7 @@ const WA_ABPROPS = Object.freeze({
     web_calls_tab_empty_state_buttons: Object.freeze({ code: 17724, type: "bool", defaultValue: false, debugDefaultValue: true }),
     web_catalog_recovery_flow_enabled: Object.freeze({ code: 14294, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_catalog_viewing_variants_enabled: Object.freeze({ code: 15534, type: "bool", defaultValue: false, debugDefaultValue: false }),
+    web_channel_qr_code_enabled: Object.freeze({ code: 44625, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_channel_status_likes_sending_enabled: Object.freeze({ code: 32428, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_channel_status_likes_sending_enabled_no_exposure: Object.freeze({ code: 35221, type: "bool", defaultValue: false, debugDefaultValue: false }),
     web_channel_video_dash_enabled: Object.freeze({ code: 38790, type: "bool", defaultValue: false, debugDefaultValue: false }),
@@ -3701,6 +3709,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     11241: "mm_opt_out_enabled",
     11261: "privacy_token_sending_on_group_create",
     11262: "privacy_token_sending_on_group_participant_add",
+    11266: "channels_fts_enabled",
     11426: "enable_new_ongoing_call_cell_ui",
     11454: "ml_model_download_skip_hash_check",
     11472: "sfu_secondary_remote_bwe_impl",
@@ -5736,6 +5745,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     39327: "ai_hatch_permission_enable",
     39332: "biz_ai_upr_mx_enabled",
     39337: "group_admin_hub",
+    39352: "gif_size_match_sticker_mode",
     39382: "sticker_non_square_max_aspect_ratio",
     39411: "community_share_invite_setting_enabled",
     39433: "web_calling_offline_call_notifications",
@@ -6117,6 +6127,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     43672: "ai_group_muse_companion_enabled",
     43673: "ai_group_muse_history_share_enabled",
     43676: "ai_group_muse_report_enabled",
+    43679: "ai_hatch_fab_large_size_enabled",
     43709: "web_memlab_fixes_5",
     43716: "ai_hatch_web_fab_sign_up_enabled",
     43724: "wa_ai_meta_ai_voyager_dictation_languages",
@@ -6142,6 +6153,7 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     44216: "qbm_telemetry_first_mm_enabled",
     44231: "channels_questions_response_composer_persistent_education",
     44269: "im_a2ui_appt_web",
+    44271: "gif_reply_sticker_layout_enabled",
     44287: "ai_hatch_hitl_card_field_check_enabled",
     44288: "ai_hatch_hitl_purchase_preapproval_card_enabled",
     44289: "ai_hatch_hitl_flight_card_enabled",
@@ -6168,7 +6180,11 @@ const WA_ABPROPS_BY_CODE = Object.freeze({
     44498: "channels_quiz_shuffle_options_sender_mode",
     44507: "web_history_sync_account_username_ingestion",
     44516: "web_bb_nav_entrypoint_enabled",
-    44567: "web_bb_nav_entrypoint_target"
+    44567: "web_bb_nav_entrypoint_target",
+    44583: "group_enc_key_key_history_retention_seconds",
+    44585: "group_enc_key_key_request_initial_delay_seconds",
+    44625: "web_channel_qr_code_enabled",
+    44632: "web_album_v2_sender_enabled"
 })
 
 const WA_GROUP_ABPROPS_BY_CODE = Object.freeze({

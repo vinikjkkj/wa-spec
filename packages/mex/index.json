@@ -26991,6 +26991,23 @@
         "input": {}
       }
     },
+    "useMAIBASpendingLimitServerUpdate": {
+      "docId": "40047641131548608",
+      "operationKind": "mutation",
+      "originalName": "useMAIBASpendingLimitServerUpdateMutation",
+      "response": {
+        "maiba_update_spending_limit": {
+          "refusal_message": "string",
+          "result": "string"
+        }
+      },
+      "variables": [
+        "input"
+      ],
+      "variablesShape": {
+        "input": {}
+      }
+    },
     "useMAIBASummaryData": {
       "docId": "27518166864458128",
       "operationKind": "query",
@@ -27327,5 +27344,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1056216123"
+  "waVersion": "2.3000.1056354861"
 }

@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056216123
+// WhatsApp Version: 2.3000.1056354861
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -540,6 +540,7 @@ export declare const WA_MEX_PERSIST_IDS: {
     readonly useMAIBAR21LinkStep: WaMexPersistId
     readonly useMAIBAR23E2EODAXDefaultMode: WaMexPersistId
     readonly useMAIBARecordRecommendationEngagement: WaMexPersistId
+    readonly useMAIBASpendingLimitServerUpdate: WaMexPersistId
     readonly useMAIBASummaryData: WaMexPersistId
     readonly useMAIBAViewAllRecsFromOSPill: WaMexPersistId
     readonly useMAIBAViewProactiveSummary: WaMexPersistId
@@ -1082,6 +1083,7 @@ export declare const WA_MEX_OPERATION_SCHEMAS: {
     readonly useMAIBAR21LinkStep: WaMexOperationSchema<'query', readonly ['boostID', 'currency', 'dailyBudgetMinorUnits']>
     readonly useMAIBAR23E2EODAXDefaultMode: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useMAIBARecordRecommendationEngagement: WaMexOperationSchema<'mutation', readonly ['input']>
+    readonly useMAIBASpendingLimitServerUpdate: WaMexOperationSchema<'mutation', readonly ['input']>
     readonly useMAIBASummaryData: WaMexOperationSchema<'query', readonly ['adAccountId']>
     readonly useMAIBAViewAllRecsFromOSPill: WaMexOperationSchema<'query', readonly ['adAccountId']>
     readonly useMAIBAViewProactiveSummary: WaMexOperationSchema<'mutation', readonly ['input']>
@@ -4121,6 +4123,10 @@ export type WaMexuseMAIBARecordRecommendationEngagementVariables = {
     readonly input?: Readonly<Record<string, unknown>>
 }
 
+export type WaMexuseMAIBASpendingLimitServerUpdateVariables = {
+    readonly input?: Readonly<Record<string, unknown>>
+}
+
 export type WaMexuseMAIBASummaryDataVariables = {
     readonly adAccountId?: string
 }
@@ -4719,6 +4725,7 @@ export interface WaMexOperationVariables {
     readonly useMAIBAR21LinkStep: WaMexuseMAIBAR21LinkStepVariables
     readonly useMAIBAR23E2EODAXDefaultMode: WaMexuseMAIBAR23E2EODAXDefaultModeVariables
     readonly useMAIBARecordRecommendationEngagement: WaMexuseMAIBARecordRecommendationEngagementVariables
+    readonly useMAIBASpendingLimitServerUpdate: WaMexuseMAIBASpendingLimitServerUpdateVariables
     readonly useMAIBASummaryData: WaMexuseMAIBASummaryDataVariables
     readonly useMAIBAViewAllRecsFromOSPill: WaMexuseMAIBAViewAllRecsFromOSPillVariables
     readonly useMAIBAViewProactiveSummary: WaMexuseMAIBAViewProactiveSummaryVariables
@@ -22529,6 +22536,13 @@ export type WaMexuseMAIBARecordRecommendationEngagementResponse = {
     }
 }
 
+export type WaMexuseMAIBASpendingLimitServerUpdateResponse = {
+    readonly maiba_update_spending_limit?: {
+        readonly refusal_message?: string
+        readonly result?: string
+    }
+}
+
 export type WaMexuseMAIBASummaryDataResponse = {
     readonly maiba_proactive_summary_thread?: {
         readonly external_conversation_id?: string
@@ -23202,6 +23216,7 @@ export interface WaMexOperationResponses {
     readonly useMAIBAR21LinkStep: WaMexuseMAIBAR21LinkStepResponse
     readonly useMAIBAR23E2EODAXDefaultMode: WaMexuseMAIBAR23E2EODAXDefaultModeResponse
     readonly useMAIBARecordRecommendationEngagement: WaMexuseMAIBARecordRecommendationEngagementResponse
+    readonly useMAIBASpendingLimitServerUpdate: WaMexuseMAIBASpendingLimitServerUpdateResponse
     readonly useMAIBASummaryData: WaMexuseMAIBASummaryDataResponse
     readonly useMAIBAViewAllRecsFromOSPill: WaMexuseMAIBAViewAllRecsFromOSPillResponse
     readonly useMAIBAViewProactiveSummary: WaMexuseMAIBAViewProactiveSummaryResponse

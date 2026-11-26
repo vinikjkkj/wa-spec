@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056216123
+// WhatsApp Version: 2.3000.1056354861
 'use strict'
 
 const WA_MEX_PERSIST_IDS = Object.freeze({
@@ -528,6 +528,7 @@ const WA_MEX_PERSIST_IDS = Object.freeze({
     useMAIBAR21LinkStep: Object.freeze({ docId: '29697523216512308', clientDocId: '29697523216512308' }),
     useMAIBAR23E2EODAXDefaultMode: Object.freeze({ docId: '28935190026167529', clientDocId: '28935190026167529' }),
     useMAIBARecordRecommendationEngagement: Object.freeze({ docId: '29270318672621848', clientDocId: '29270318672621848' }),
+    useMAIBASpendingLimitServerUpdate: Object.freeze({ docId: '40047641131548608', clientDocId: '40047641131548608' }),
     useMAIBASummaryData: Object.freeze({ docId: '27518166864458128', clientDocId: '27518166864458128' }),
     useMAIBAViewAllRecsFromOSPill: Object.freeze({ docId: '40339952145595605', clientDocId: '40339952145595605' }),
     useMAIBAViewProactiveSummary: Object.freeze({ docId: '26625494043787201', clientDocId: '26625494043787201' }),
@@ -1070,6 +1071,7 @@ const WA_MEX_OPERATION_SCHEMAS = Object.freeze({
     useMAIBAR21LinkStep: Object.freeze({ operationKind: 'query', variables: Object.freeze(['boostID', 'currency', 'dailyBudgetMinorUnits']) }),
     useMAIBAR23E2EODAXDefaultMode: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     useMAIBARecordRecommendationEngagement: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
+    useMAIBASpendingLimitServerUpdate: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),
     useMAIBASummaryData: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountId']) }),
     useMAIBAViewAllRecsFromOSPill: Object.freeze({ operationKind: 'query', variables: Object.freeze(['adAccountId']) }),
     useMAIBAViewProactiveSummary: Object.freeze({ operationKind: 'mutation', variables: Object.freeze(['input']) }),

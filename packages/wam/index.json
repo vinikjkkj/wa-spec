@@ -6311,6 +6311,7 @@
         "MESSAGE_PREFERENCES": 12,
         "REPORT": 2,
         "SAFETY_TOOLS": 3,
+        "SHARE_CONTACT": 18,
         "STOP_MARKETING_MSG_OFFERS": 11,
         "TRUST_BTN_TAPPED": 15,
         "TRUST_QUESTION_TAP": 14
@@ -17949,6 +17950,16 @@
         "ACTION_LINKED_ACCOUNTS_SHEET_OPENED": 30,
         "ACTION_LOAD": 21,
         "ACTION_SOCIAL_PROOF_RENDERED": 29
+      }
+    },
+    "VOIP_BRIDGE": {
+      "export": "VOIP_BRIDGE",
+      "module": "WAWebWamEnumVoipBridge",
+      "values": {
+        "CX": 1,
+        "CX_FALLBACK": 3,
+        "CX_PINNED": 4,
+        "WINRT": 2
       }
     },
     "VOIP_SETTING_RELEASE_TYPE": {
@@ -35364,6 +35375,12 @@
           "falcoName": "vmos_p95",
           "id": 2148,
           "type": "number"
+        },
+        "voipBridge": {
+          "enum": "VOIP_BRIDGE",
+          "falcoName": "voip_bridge",
+          "id": 3362,
+          "type": "enum"
         },
         "voipCameraLastErrorDeviceName": {
           "falcoName": "voip_camera_last_error_device_name",
@@ -75118,7 +75135,7 @@
       "label": "psIdValue"
     }
   ],
-  "waVersion": "2.3000.1056216123",
+  "waVersion": "2.3000.1056354861",
   "wireFormat": {
     "markers": {
       "event": 1,

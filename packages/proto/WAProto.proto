@@ -1,7 +1,7 @@
 syntax = "proto3";
 package waproto;
 
-/// WhatsApp Version: 2.3000.1056216123
+/// WhatsApp Version: 2.3000.1056354861
 
 enum ADVEncryptionType {
     E2EE = 0;
@@ -5150,8 +5150,8 @@ message Message {
     }
     message VpcRequestMessage {
         optional uint32 payloadSchemaVersion = 1;
-        optional string requestId = 2;
         optional ScopeHint scopeHint = 3;
+        optional bytes token = 4;
         enum ScopeHint {
             UNKNOWN = 0;
             WA_ONLY = 1;

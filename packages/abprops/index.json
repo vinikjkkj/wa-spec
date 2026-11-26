@@ -104,7 +104,7 @@
       "type": "bool"
     }
   },
-  "propCount": 3068,
+  "propCount": 3076,
   "props": {
     "a2ui_fallback_show_timestamp": {
       "code": 40437,
@@ -810,6 +810,12 @@
     },
     "ai_hatch_fab_enabled": {
       "code": 38618,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "ai_hatch_fab_large_size_enabled": {
+      "code": 43679,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -4120,6 +4126,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "channels_fts_enabled": {
+      "code": 11266,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "channels_hide_news_url_preview": {
       "code": 5287,
       "debugDefaultValue": true,
@@ -7078,6 +7090,18 @@
       "defaultValue": 1,
       "type": "int"
     },
+    "gif_reply_sticker_layout_enabled": {
+      "code": 44271,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "gif_size_match_sticker_mode": {
+      "code": 39352,
+      "debugDefaultValue": 0,
+      "defaultValue": 0,
+      "type": "int"
+    },
     "gimmick_phase_two_data_suffix": {
       "code": 6785,
       "debugDefaultValue": "",
@@ -7149,6 +7173,18 @@
       "debugDefaultValue": true,
       "defaultValue": false,
       "type": "bool"
+    },
+    "group_enc_key_key_history_retention_seconds": {
+      "code": 44583,
+      "debugDefaultValue": 7776000,
+      "defaultValue": 7776000,
+      "type": "int"
+    },
+    "group_enc_key_key_request_initial_delay_seconds": {
+      "code": 44585,
+      "debugDefaultValue": 14400,
+      "defaultValue": 14400,
+      "type": "int"
     },
     "group_enc_key_key_request_throttle_seconds": {
       "code": 44383,
@@ -15898,6 +15934,12 @@
       "defaultValue": false,
       "type": "bool"
     },
+    "web_album_v2_sender_enabled": {
+      "code": 44632,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
     "web_anr_app_launch_skew_rtt_guard_enabled": {
       "code": 40496,
       "debugDefaultValue": false,
@@ -16296,6 +16338,12 @@
     },
     "web_catalog_viewing_variants_enabled": {
       "code": 15534,
+      "debugDefaultValue": false,
+      "defaultValue": false,
+      "type": "bool"
+    },
+    "web_channel_qr_code_enabled": {
+      "code": 44625,
       "debugDefaultValue": false,
       "defaultValue": false,
       "type": "bool"
@@ -18553,5 +18601,5 @@
     "web_store_quota_manager_enabled",
     "web_vc_css_bg_scan_children_first"
   ],
-  "waVersion": "2.3000.1056216123"
+  "waVersion": "2.3000.1056354861"
 }
