@@ -17206,54 +17206,6 @@
           },
           "outgoing": true,
           "variant": "HostedClientResponse"
-        },
-        {
-          "argShape": {
-            "e": true
-          },
-          "local": true,
-          "module": "WASmaxMdSetRegRPC",
-          "node": {
-            "attrs": {
-              "key_id": {
-                "arg": "t",
-                "optional": true,
-                "type": "string"
-              }
-            },
-            "children": [],
-            "tag": "key_attestation"
-          },
-          "outgoing": true,
-          "variant": "RegularCompanionSetRegResponseBundlePairDeviceSignKeyAttestation"
-        },
-        {
-          "argShape": {
-            "e": true
-          },
-          "local": true,
-          "module": "WASmaxMdSetRegRPC",
-          "node": {
-            "attrs": {},
-            "children": [],
-            "tag": "gpia"
-          },
-          "outgoing": true,
-          "variant": "RegularCompanionSetRegResponseBundlePairDeviceSignGpia"
-        },
-        {
-          "argShape": {
-            "e": true
-          },
-          "local": true,
-          "module": "WASmaxMdSetRegRPC",
-          "node": {
-            "attrs": {},
-            "children": [],
-            "tag": "client-app-id"
-          },
-          "outgoing": true,
-          "variant": "RegularCompanionSetRegResponseBundlePairDeviceSignClientAppId"
         }
       ],
       "request": null,
@@ -38955,39 +38907,6 @@
                 "tag": "iq"
               },
               "variant": "HostedClientResponse"
-            },
-            {
-              "module": "WASmaxMdSetRegRPC",
-              "node": {
-                "attrs": {
-                  "key_id": {
-                    "arg": "t",
-                    "optional": true,
-                    "type": "string"
-                  }
-                },
-                "children": [],
-                "tag": "key_attestation"
-              },
-              "variant": "RegularCompanionSetRegResponseBundlePairDeviceSignKeyAttestation"
-            },
-            {
-              "module": "WASmaxMdSetRegRPC",
-              "node": {
-                "attrs": {},
-                "children": [],
-                "tag": "gpia"
-              },
-              "variant": "RegularCompanionSetRegResponseBundlePairDeviceSignGpia"
-            },
-            {
-              "module": "WASmaxMdSetRegRPC",
-              "node": {
-                "attrs": {},
-                "children": [],
-                "tag": "client-app-id"
-              },
-              "variant": "RegularCompanionSetRegResponseBundlePairDeviceSignClientAppId"
             }
           ],
           "node": {
@@ -44542,5 +44461,5 @@
       "tag": "xmlstreamend"
     }
   },
-  "waVersion": "2.3000.1056354861"
+  "waVersion": "2.3000.1056422105"
 }

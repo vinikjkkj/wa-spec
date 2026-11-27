@@ -1,6 +1,6 @@
 {
     "name": "@vinikjkkj/wa-xml",
-    "version": "2.3000.1056354861-e1b46b8",
+    "version": "2.3000.1056422105-9cd4354",
     "description": "WhatsApp Web XML/stanza schemas — per-IQ-operation request + response trees (tag, attrs, children, content) recovered from Smax RPC modules (daily-extracted).",
     "keywords": [
         "whatsapp",
