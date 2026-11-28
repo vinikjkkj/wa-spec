@@ -1,5 +1,5 @@
 // AUTO-GENERATED — do not edit. Regenerated daily by wa-spec.
-// WhatsApp Version: 2.3000.1056422105
+// WhatsApp Version: 2.3000.1056472871
 
 export interface WaMexPersistId {
     readonly docId: string
@@ -10285,7 +10285,7 @@ export type WaMexMAIBAAdDraftEditorContextProviderResponse = {
             readonly targeting_age_min?: number
             readonly targeting_age_range?: unknown
             readonly targeting_as_signal?: unknown
-            readonly targeting_countries?: ReadonlyArray<string>
+            readonly targeting_countries?: unknown
             readonly targeting_custom_audience_ids?: ReadonlyArray<string>
             readonly targeting_custom_audience_names?: ReadonlyArray<string>
             readonly targeting_excluded_custom_audience_ids?: ReadonlyArray<string>
@@ -10680,7 +10680,7 @@ export type WaMexMAIBAAdDraftEditorContextProviderRefetchResponse = {
             readonly targeting_age_min?: number
             readonly targeting_age_range?: unknown
             readonly targeting_as_signal?: unknown
-            readonly targeting_countries?: ReadonlyArray<string>
+            readonly targeting_countries?: unknown
             readonly targeting_custom_audience_ids?: ReadonlyArray<string>
             readonly targeting_custom_audience_names?: ReadonlyArray<string>
             readonly targeting_excluded_custom_audience_ids?: ReadonlyArray<string>
@@ -18179,7 +18179,7 @@ export type WaMexMAIBAWorkspaceApplyBatchResponse = {
             readonly targeting_age_min?: number
             readonly targeting_age_range?: unknown
             readonly targeting_as_signal?: unknown
-            readonly targeting_countries?: ReadonlyArray<string>
+            readonly targeting_countries?: unknown
             readonly targeting_custom_audience_ids?: ReadonlyArray<string>
             readonly targeting_custom_audience_names?: ReadonlyArray<string>
             readonly targeting_excluded_custom_audience_ids?: ReadonlyArray<string>
@@ -18534,7 +18534,7 @@ export type WaMexMAIBAWorkspaceValidateFragmentsResponse = {
             readonly targeting_age_min?: number
             readonly targeting_age_range?: unknown
             readonly targeting_as_signal?: unknown
-            readonly targeting_countries?: ReadonlyArray<string>
+            readonly targeting_countries?: unknown
             readonly targeting_custom_audience_ids?: ReadonlyArray<string>
             readonly targeting_custom_audience_names?: ReadonlyArray<string>
             readonly targeting_excluded_custom_audience_ids?: ReadonlyArray<string>

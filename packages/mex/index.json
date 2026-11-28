@@ -9043,9 +9043,7 @@
               "targeting_age_min": "number",
               "targeting_age_range": "unknown",
               "targeting_as_signal": "unknown",
-              "targeting_countries": [
-                "string"
-              ],
+              "targeting_countries": "unknown",
               "targeting_custom_audience_ids": [
                 "string"
               ],
@@ -9542,9 +9540,7 @@
               "targeting_age_min": "number",
               "targeting_age_range": "unknown",
               "targeting_as_signal": "unknown",
-              "targeting_countries": [
-                "string"
-              ],
+              "targeting_countries": "unknown",
               "targeting_custom_audience_ids": [
                 "string"
               ],
@@ -19883,9 +19879,7 @@
               "targeting_age_min": "number",
               "targeting_age_range": "unknown",
               "targeting_as_signal": "unknown",
-              "targeting_countries": [
-                "string"
-              ],
+              "targeting_countries": "unknown",
               "targeting_custom_audience_ids": [
                 "string"
               ],
@@ -20312,9 +20306,7 @@
               "targeting_age_min": "number",
               "targeting_age_range": "unknown",
               "targeting_as_signal": "unknown",
-              "targeting_countries": [
-                "string"
-              ],
+              "targeting_countries": "unknown",
               "targeting_custom_audience_ids": [
                 "string"
               ],
@@ -27344,5 +27336,5 @@
       }
     }
   },
-  "waVersion": "2.3000.1056422105"
+  "waVersion": "2.3000.1056472871"
 }
